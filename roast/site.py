@@ -1,5 +1,6 @@
 """Static site generator: a daily old-style newspaper, an archive, player pages,
 reader comments and the "propose a story" page."""
+import hashlib
 import json
 from collections import defaultdict
 from datetime import date
@@ -342,6 +343,10 @@ LECTORES_JS = r"""(function(){
 })();
 """
 
+# Changes whenever the stylesheet or the script change, so browsers never keep an old copy.
+ASSET_VERSION = hashlib.sha1((CSS + LECTORES_JS).encode("utf-8")).hexdigest()[:10]
+
+
 def _e(x):
     return escape(str(x), quote=True)
 
@@ -367,7 +372,7 @@ def page(cfg, title, body, rel, edition=None, description=""):
 <title>{_e(title)}</title>
 <meta name="description" content="{_e(description or cfg['site_tagline'])}">
 {FONTS}
-<link rel="stylesheet" href="{rel}style.css">
+<link rel="stylesheet" href="{rel}style.css?v={ASSET_VERSION}">
 </head>
 <body>
 <div class="wrap"><div class="paper">
@@ -382,7 +387,7 @@ def page(cfg, title, body, rel, edition=None, description=""):
 </div></div>
 <footer>{_e(LEGAL.format(title=cfg['site_title']))}</footer>
 <script>window.FEEDER={feeder};</script>
-<script src="{rel}lectores.js" defer></script>
+<script src="{rel}lectores.js?v={ASSET_VERSION}" defer></script>
 </body>
 </html>
 """
