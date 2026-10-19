@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-16",
+  "number": 5,
+  "generated_at": 1792446149829,
+  "window": [
+    1792093448876,
+    1792179848876
+  ],
+  "items": [
+    {
+      "id": 0,
+      "kind": "portada",
+      "section": "PORTADA",
+      "desk": "",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "Última hora: grangalax confirma que sigue sin saber jugar (1–0)",
+      "body": "Tras 1 partidas, el veredicto es unánime: 6 muertes y un KDA de 1,50. Su campeón más sufrido hoy: Lillia.",
+      "stat": "1–0",
+      "stat_label": "victorias–derrotas",
+      "severity": 100,
+      "facts": {
+        "alias": "grangalax",
+        "games": 1,
+        "wl": "1–0",
+        "d": 6,
+        "kda": "1,50",
+        "dmg_txt": "el 12,7 % del daño de su equipo",
+        "dmg_txt_cap": "El 12,7 % del daño de su equipo de media",
+        "champ": "Lillia",
+        "champs": "Lillia",
+        "hours": "0,4"
+      }
+    },
+    {
+      "id": 1,
+      "kind": "desaparecido",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "grangalax, desaparecido en combate: 20,9 % de participación en kills",
+      "body": "De cada diez kills de su equipo, en más de seis no estaba. Fuentes cercanas apuntan a una larga relación con los súbditos de su línea.",
+      "stat": "21 %",
+      "stat_label": "participación en kills",
+      "severity": 5.81,
+      "facts": {
+        "alias": "grangalax",
+        "games": 1,
+        "wl": "1–0",
+        "d": 6,
+        "kda": "1,50",
+        "dmg_txt": "el 12,7 % del daño de su equipo",
+        "dmg_txt_cap": "El 12,7 % del daño de su equipo de media",
+        "champ": "Lillia",
+        "champs": "Lillia",
+        "hours": "0,4",
+        "kp": "20,9 %"
+      }
+    },
+    {
+      "id": 2,
+      "kind": "economia",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "grangalax, el fichaje más caro y el que menos rinde: 17,9 % del oro, 12,7 % del daño",
+      "body": "Partida con Lillia: 5,2 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
+      "stat": "−5,2",
+      "stat_label": "puntos entre oro y daño",
+      "severity": 5.06,
+      "facts": {
+        "alias": "grangalax",
+        "games": 1,
+        "wl": "1–0",
+        "d": 6,
+        "kda": "1,50",
+        "dmg_txt": "el 12,7 % del daño de su equipo",
+        "dmg_txt_cap": "El 12,7 % del daño de su equipo de media",
+        "champ": "Lillia",
+        "champs": "Lillia",
+        "hours": "0,4",
+        "gold": "17,9 %",
+        "share": "12,7 %",
+        "gap": "5,2"
+      }
+    },
+    {
+      "id": 3,
+      "kind": "ausentes",
+      "section": "AUSENTES",
+      "desk": "Perdidos en el Vacío",
+      "player": null,
+      "alias": null,
+      "headline": "Ausentes hoy: TheTrevur, Wôlf, Fr4nux, GSJoseador, Dierophant, iPredatoRz, Sunraku, RDV Canyon y Giroroo",
+      "body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre.",
+      "stat": "9",
+      "stat_label": "no jugaron",
+      "severity": 0.2,
+      "facts": {
+        "names": "TheTrevur, Wôlf, Fr4nux, GSJoseador, Dierophant, iPredatoRz, Sunraku, RDV Canyon y Giroroo"
+      }
+    }
+  ],
+  "frase": "Jugar otra vez no es un plan, es un síntoma.",
+  "ranking": [
+    {
+      "slug": "grangalax",
+      "alias": "grangalax",
+      "riot_id": "grangalax#OVD",
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "kda": 1.5,
+      "dmg_share": 0.12708130169393578,
+      "kp": 0.20930232558139536,
+      "d": 6,
+      "dead": 202,
+      "score": 9.23
+    }
+  ],
+  "absent": [
+    "TheTrevur",
+    "Wôlf",
+    "Fr4nux",
+    "GSJoseador",
+    "Dierophant",
+    "iPredatoRz",
+    "Sunraku",
+    "RDV Canyon",
+    "Giroroo"
+  ],
+  "duos": [],
+  "derbies": [],
+  "totals": {
+    "matches": 1,
+    "games": 1,
+    "deaths": 6,
+    "dead_seconds": 202,
+    "play_seconds": 1512
+  },
+  "games": [
+    {
+      "slug": "grangalax",
+      "alias": "grangalax",
+      "match": "EUW1_8015306056",
+      "end": 1792171273759,
+      "dur": 1512,
+      "champ": "Lillia",
+      "role": "jungla",
+      "queue_name": "Ranked Solo/Dúo",
+      "win": true,
+      "k": 6,
+      "d": 6,
+      "a": 3,
+      "dmg_share": 0.12708130169393578,
+      "gold_share": 0.1786317494036322,
+      "kp": 0.20930232558139536,
+      "lowest_dmg": false,
+      "support": false
+    }
+  ]
+}
