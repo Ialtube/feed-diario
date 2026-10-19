@@ -1,6 +1,6 @@
 {
   "items": [
-    {"id": 0, "headline": "Número uno, peor uno: Dierophant inaugura El Feed Diario con un 1–4 y 37 muertes",
+    {"id": 0, "headline": "Número uno, peor uno: Dierophant inaugura El Rincón del Feeder con un 1–4 y 37 muertes",
      "body": "Hay periódicos que nacen con una exclusiva y otros con una víctima. Dierophant pasó 1,9 horas rotando entre Jarvan IV, Kindred y Bel'Veth para firmar un KDA de 1,38. La Comisaría de Piltover ya ha abierto el expediente número uno de esta casa, y lleva su nombre."},
     {"id": 1, "headline": "La Lonja de Aguasturbias embarga a Bel'Veth: Dierophant cobró el 19,7 % del oro y devolvió el 8,4 % del daño",
      "body": "11,2 puntos de diferencia entre lo que se llevó y lo que aportó. En Aguasturbias han colgado de un mástil a contables por mucho menos. La Emperatriz del Vacío ha solicitado formalmente un cambio de jugador."},
@@ -41,7 +41,7 @@
   ],
   "extra": [
     {"section": "CARTA DEL DIRECTOR", "desk": "Redacción central", "headline": "Por qué existe este periódico (y por qué lo vais a odiar)",
-     "body": "Porque alguien tenía que contarlo. Ocho jugadores, 35 partidas y 224 muertes en un solo lunes no podían quedar sin acta. Este diario no viene a juzgar: viene a dejarlo por escrito. Las cifras saldrán siempre de las partidas; la mala leche, de esta redacción. Bienvenidos a El Feed Diario."},
+     "body": "Porque alguien tenía que contarlo. Ocho jugadores, 35 partidas y 224 muertes en un solo lunes no podían quedar sin acta. Este diario no viene a juzgar: viene a dejarlo por escrito. Las cifras saldrán siempre de las partidas; la mala leche, de esta redacción. Bienvenidos a El Rincón del Feeder."},
     {"section": "ENTREVISTA", "desk": "Bosques de Runeterra", "headline": "Hablamos con Kindred tras pasar una tarde en manos de Dierophant",
      "body": "El Cordero y el Lobo atienden a esta redacción visiblemente agotados. «Venimos a por las almas de los rivales», explica el Cordero, «y acabamos llevándonos la nuestra». El Lobo se limita a mirar el marcador: 1–4. No hacen falta más preguntas.",
      "player": "dierophant", "campeon": "Kindred", "pie": "Kindred, en un retrato de archivo, antes de conocer a Dierophant."}
@@ -52,7 +52,7 @@
       "Dierophant abre la hemeroteca con un 1–4 que quedará enmarcado. TheTrevur, el hombre que nunca falla con Urgot, falló cuatro veces. Y grangalax jugó nueve partidas, que en sí mismo ya es un titular.",
       "Mi consejo para el resto de la semana es sencillo: jugad menos o morid menos. Elegid una. Esta redacción, por su parte, seguirá tomando nota."
     ]},
-  "especial": {"antetitulo": "NÚMERO INAUGURAL", "titulo": "Nace El Feed Diario: 35 partidas, 224 muertes y ningún arrepentimiento",
+  "especial": {"antetitulo": "NÚMERO INAUGURAL", "titulo": "Nace El Rincón del Feeder: 35 partidas, 224 muertes y ningún arrepentimiento",
     "subtitulo": "Primer día de un periódico que cuenta lo que el grupo preferiría olvidar: 17 partidas distintas, ocho jugadores y la Niebla Negra a pleno rendimiento.", "tema": "oro"},
   "frase": "Todo periódico necesita un primer muerto. Este empezó con 224.",
   "firma": "Claude"

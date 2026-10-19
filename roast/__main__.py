@@ -158,8 +158,10 @@ def cmd_ai_status(args):
         print(f"SIN_EDICION {date_str}")
         return
     status = ai_status(ed)
-    print(f"{status.upper()} {date_str} eventos_pendientes={len(events)}")
-    if status == "hecha" and not events:
+    from .propuestas import fetch_pending
+    props = fetch_pending(cfg, log=lambda *_: None)
+    print(f"{status.upper()} {date_str} eventos_pendientes={len(events)} propuestas_pendientes={len(props)}")
+    if status == "hecha" and not events and not props:
         print("NADA_QUE_HACER")
 
 
@@ -173,7 +175,8 @@ def cmd_ai_context(args):
         sys.exit(str(e))
     print(f"Contexto escrito en {path.relative_to(ROOT)}")
     print(f"  estado IA: {ctx['estado_ia']} · {len(ctx['noticias'])} noticias · "
-          f"{len(ctx['eventos_pendientes'])} eventos pendientes · {len(ctx['historial'])} días de historial")
+          f"{len(ctx['eventos_pendientes'])} eventos pendientes · {len(ctx['propuestas_lectores'])} propuestas de lectores · "
+          f"{len(ctx['historial'])} días de historial")
 
 
 def cmd_apply_ai(args):
@@ -187,7 +190,9 @@ def cmd_apply_ai(args):
     print(f"Edición del {ed['date']} actualizada (versión IA {ed['ai']['version']}): "
           f"{len(clean['items'])} noticias reescritas, {len(clean['extra'])} artículos nuevos"
           + (", columna" if clean["columna"] else "") + (", edición especial" if clean["especial"] else "")
-          + (f", {published} eventos publicados" if published else ""))
+          + (f", {published} eventos publicados" if published else "")
+          + (f", {len(clean['propuestas_usadas'])} propuestas de lectores" if clean["propuestas_usadas"] else "")
+          + (f", {len(clean['propuestas_descartadas'])} descartadas" if clean["propuestas_descartadas"] else ""))
     print("Web regenerada en docs/")
 
 
@@ -218,7 +223,7 @@ def cmd_demo(args):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(prog="python -m roast", description="El Feed Diario")
+    ap = argparse.ArgumentParser(prog="python -m roast", description="El Rincón del Feeder")
     sub = ap.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("run", help="edición de hoy")
     r.add_argument("--no-llm", action="store_true", help="no usar Claude aunque haya clave")

@@ -1,4 +1,4 @@
-# El Feed Diario
+# El Rincón del Feeder
 
 Un periódico satírico que se escribe solo cada mañana con las partidas de League of Legends de tu grupo de amigos.
 
@@ -70,7 +70,7 @@ En PowerShell: `$env:RIOT_API_KEY="RGAPI-xxxx"; python -m roast check`
 ```bash
 git init
 git add .
-git commit -m "El Feed Diario"
+git commit -m "El Rincón del Feeder"
 git branch -M main
 git remote add origin https://github.com/TU_USUARIO/feed-diario.git
 git push -u origin main
@@ -173,6 +173,29 @@ Cómo funciona:
 
 Si la rutina no se ejecuta, la web conserva la edición de plantilla, así que nunca se queda vacía.
 La rutina gasta del uso de tu plan de Claude, no de una clave de API.
+
+## Comentarios y «Proponer noticia» (Supabase, gratis)
+
+La web tiene dos cosas que necesitan guardar lo que escribe la gente:
+- **Cartas al director**: comentarios al final de cada edición.
+- **Proponer noticia**: un buzón donde cualquiera manda texto y foto o meme. La rutina IA lo revisa y
+  lo publica al día siguiente en la sección **La Voz de Runeterra**.
+
+GitHub Pages solo sirve páginas, así que esos datos van a [Supabase](https://supabase.com), que es
+gratis. Tus amigos no necesitan cuenta para comentar ni para proponer. Hasta que lo configures, la
+web muestra los formularios desactivados.
+
+1. Crea una cuenta en supabase.com y un proyecto nuevo (*New project*; región Europa).
+2. *SQL Editor → New query*, pega todo el archivo [`supabase/setup.sql`](supabase/setup.sql) y pulsa *Run*.
+3. *Project Settings → API*: copia la **Project URL** y la clave **anon public**.
+4. Ponlas en `config.json`, en `supabase_url` y `supabase_anon_key`, y súbelo a GitHub. La clave
+   *anon* está pensada para ir en webs públicas; la *service_role* no la pongas nunca.
+5. La siguiente edición ya sale con los formularios activos.
+
+Para moderar, borra lo que no quieras desde Supabase, en *Table Editor → comentarios* o *propuestas*.
+Las propuestas no se publican solas: la rutina descarta las que no son publicables. Aun así, la clave
+es pública, así que cualquiera con la web podría escribir. Si alguien abusa, se puede cerrar con un
+cambio de política.
 
 ## Comandos
 

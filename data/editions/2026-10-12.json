@@ -14,7 +14,7 @@
       "desk": "",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Número uno, peor uno: Dierophant inaugura El Feed Diario con un 1–4 y 37 muertes",
+      "headline": "Número uno, peor uno: Dierophant inaugura El Rincón del Feeder con un 1–4 y 37 muertes",
       "body": "Hay periódicos que nacen con una exclusiva y otros con una víctima. Dierophant pasó 1,9 horas rotando entre Jarvan IV, Kindred y Bel'Veth para firmar un KDA de 1,38. La Comisaría de Piltover ya ha abierto el expediente número uno de esta casa, y lleva su nombre.",
       "stat": "1–4",
       "stat_label": "victorias–derrotas",
@@ -42,7 +42,7 @@
       "player": null,
       "alias": null,
       "headline": "Por qué existe este periódico (y por qué lo vais a odiar)",
-      "body": "Porque alguien tenía que contarlo. Ocho jugadores, 35 partidas y 224 muertes en un solo lunes no podían quedar sin acta. Este diario no viene a juzgar: viene a dejarlo por escrito. Las cifras saldrán siempre de las partidas; la mala leche, de esta redacción. Bienvenidos a El Feed Diario.",
+      "body": "Porque alguien tenía que contarlo. Ocho jugadores, 35 partidas y 224 muertes en un solo lunes no podían quedar sin acta. Este diario no viene a juzgar: viene a dejarlo por escrito. Las cifras saldrán siempre de las partidas; la mala leche, de esta redacción. Bienvenidos a El Rincón del Feeder.",
       "stat": "",
       "stat_label": "",
       "imagen": null,
@@ -1477,7 +1477,7 @@
   },
   "especial": {
     "antetitulo": "NÚMERO INAUGURAL",
-    "titulo": "Nace El Feed Diario: 35 partidas, 224 muertes y ningún arrepentimiento",
+    "titulo": "Nace El Rincón del Feeder: 35 partidas, 224 muertes y ningún arrepentimiento",
     "subtitulo": "Primer día de un periódico que cuenta lo que el grupo preferiría olvidar: 17 partidas distintas, ocho jugadores y la Niebla Negra a pleno rendimiento.",
     "tema": "oro"
   },

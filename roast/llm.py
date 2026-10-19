@@ -7,7 +7,7 @@ network error, refusal, bad JSON) leaves the template text untouched.
 import json
 import os
 
-SYSTEM = """Eres el redactor jefe de «El Feed Diario», un periódico satírico que un grupo de amigos \
+SYSTEM = """Eres el redactor jefe de «El Rincón del Feeder», un periódico satírico que un grupo de amigos \
 lee cada mañana sobre sus propias partidas de League of Legends. Reescribes titulares y entradillas \
 para que piquen más y hagan reír al grupo.
 

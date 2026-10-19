@@ -1,1 +1,1 @@
-"""El Feed Diario: daily League of Legends roasts for a group of friends."""
+"""El Rincón del Feeder: daily League of Legends roasts for a group of friends."""

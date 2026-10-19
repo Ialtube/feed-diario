@@ -10,13 +10,15 @@ import time
 from pathlib import Path
 
 from .site import general_leaderboard
-from .util import ROOT, load_json, save_json
+from . import propuestas as voz
+from .util import ROOT, load_config, load_json, save_json
 
 EVENTS_FILE = ROOT / "eventos.md"
 IMG_DIR = ROOT / "docs" / "img"
 AI_DIR = ROOT / "ai"
 THEMES = ("rojo", "oro", "negro", "verde", "azul", "morado")
-MAX_EXTRA = 6
+MAX_EXTRA = 6        # newspaper extras
+MAX_VOZ = 6          # reader proposals published per edition
 
 
 class AIError(ValueError):
@@ -72,7 +74,27 @@ def ai_status(edition):
 
 
 # --------------------------------------------------------------------------- context
-def build_context(store, date_str, history_days=7):
+STOPWORDS = set("""de la el en y a que los las del se con por un una su al es lo para como más pero sus le ya o
+este esta fue ha no sí ni muy sin sobre entre también hasta desde todo nos""".split())
+
+
+def overused_phrases(editions, min_count=3, limit=30):
+    """Three-word phrases repeated across recent editions, so the AI can avoid them."""
+    counts = {}
+    for e in editions:
+        for it in e["items"]:
+            words = re.findall(r"[a-záéíóúñü]+", f"{it['headline']} {it['body']}".lower())
+            for i in range(len(words) - 2):
+                tri = words[i:i + 3]
+                if sum(w in STOPWORDS for w in tri) >= 2:
+                    continue
+                key = " ".join(tri)
+                counts[key] = counts.get(key, 0) + 1
+    common = [k for k, v in sorted(counts.items(), key=lambda kv: -kv[1]) if v >= min_count]
+    return common[:limit]
+
+
+def build_context(store, date_str, history_days=7, fetch_proposals=True):
     editions = sorted(store.editions(), key=lambda e: e["date"])
     today = next((e for e in editions if e["date"] == date_str), None)
     if not today:
@@ -98,6 +120,10 @@ def build_context(store, date_str, history_days=7):
         "ausentes": today["absent"],
         "frase_actual": today["frase"],
         "general_verguenza": general_leaderboard(editions[:editions.index(today) + 1]),
+        "propuestas_lectores": [{k: p.get(k) for k in ("id", "nombre", "titulo", "texto", "imagen_local", "created_at")}
+                                for p in (voz.fetch_pending(load_config()) if fetch_proposals else [])],
+        "expresiones_gastadas": overused_phrases(previous),
+        "titulares_recientes": [it["headline"] for e in previous[-4:] for it in e["items"]],
         "historial": [{
             "fecha": e["date"],
             "portada": e["items"][0]["headline"] if e["items"] else None,
@@ -135,7 +161,8 @@ def validate(data, edition, known_slugs):
         raise AIError("El archivo debe ser un objeto JSON")
     ids = {it["id"] for it in edition["items"] if it.get("kind") != "ia"}
     clean = {"items": [], "extra": [], "columna": None, "especial": None, "frase": None,
-             "eventos_usados": [], "firma": "Claude"}
+             "eventos_usados": [], "firma": "Claude", "propuestas_usadas": [], "propuestas_descartadas": []}
+    pending = voz.pending_cache()
 
     for i, it in enumerate(data.get("items") or []):
         if it.get("id") not in ids:
@@ -145,13 +172,22 @@ def validate(data, edition, known_slugs):
                                "body": _text(it.get("body"), f"items[{i}].body", 10, 700)})
 
     extra = data.get("extra") or []
-    if len(extra) > MAX_EXTRA:
-        raise AIError(f"Como mucho {MAX_EXTRA} artículos extra")
+    n_voz = sum(1 for it in extra if it.get("propuesta") is not None)
+    if len(extra) - n_voz > MAX_EXTRA or n_voz > MAX_VOZ:
+        raise AIError(f"Como mucho {MAX_EXTRA} artículos extra y {MAX_VOZ} de La Voz de Runeterra")
     for i, it in enumerate(extra):
         player = it.get("player")
         if player is not None and player not in known_slugs:
             raise AIError(f"extra[{i}].player {player!r} no es un jugador conocido ({', '.join(sorted(known_slugs))})")
+        prop = it.get("propuesta")
+        lector = None
         imagen = it.get("imagen")
+        if prop is not None:
+            if prop not in pending:
+                raise AIError(f"extra[{i}].propuesta {prop!r} no está entre las propuestas pendientes")
+            lector = voz.safe_name(pending[prop]["nombre"]) or "Un lector"
+            imagen = imagen or pending[prop].get("imagen_local")
+            clean["propuestas_usadas"].append(prop)
         if imagen:
             if not re.fullmatch(r"[\w.\-]+\.(jpe?g|png|gif|webp)", imagen, re.I) or not (IMG_DIR / imagen).exists():
                 raise AIError(f"extra[{i}].imagen {imagen!r} no existe en docs/img/ (pon solo el nombre del archivo)")
@@ -167,6 +203,9 @@ def validate(data, edition, known_slugs):
             "imagen": imagen,
             "campeon": _text(it.get("campeon") or "", f"extra[{i}].campeon", 0, 30) or None,
             "pie": _text(it.get("pie") or "", f"extra[{i}].pie", 0, 200),
+            "meme_arriba": _text(it.get("meme_arriba") or "", f"extra[{i}].meme_arriba", 0, 60),
+            "meme_abajo": _text(it.get("meme_abajo") or "", f"extra[{i}].meme_abajo", 0, 60),
+            "lector": lector,
         })
     if sum(e["portada"] for e in clean["extra"]) > 1:
         raise AIError("Solo un artículo extra puede llevar portada: true")
@@ -196,13 +235,18 @@ def validate(data, edition, known_slugs):
 
     if data.get("frase"):
         clean["frase"] = _text(data["frase"], "frase", 10, 220)
+    discarded = data.get("propuestas_descartadas") or []
+    for n in discarded:
+        if n not in pending:
+            raise AIError(f"propuestas_descartadas: {n!r} no está entre las propuestas pendientes")
+    clean["propuestas_descartadas"] = discarded
     used = data.get("eventos_usados") or []
     if not all(isinstance(n, int) for n in used):
         raise AIError("eventos_usados debe ser una lista de números (el campo 'n' del contexto)")
     clean["eventos_usados"] = used
     if data.get("firma"):
         clean["firma"] = _text(data["firma"], "firma", 3, 60)
-    if not (clean["items"] or clean["extra"] or clean["columna"] or clean["especial"]):
+    if not (clean["items"] or clean["extra"] or clean["columna"] or clean["especial"] or discarded):
         raise AIError("No hay nada que aplicar: reescribe noticias, añade extra, columna o especial")
     return clean
 
@@ -228,6 +272,7 @@ def apply(edition, clean, date_str):
             "alias": None, "headline": e["headline"], "body": e["body"],
             "stat": e["stat"], "stat_label": e["stat_label"],
             "imagen": e["imagen"], "campeon": e["campeon"], "pie": e["pie"],
+            "meme_arriba": e["meme_arriba"], "meme_abajo": e["meme_abajo"], "lector": e["lector"],
             # an extra marked as front page goes first; the rest right after the front page
             "severity": 1000 if e["portada"] else 99 - i, "facts": {},
         })
@@ -265,6 +310,8 @@ def apply_file(store, path, date_str=None):
     apply(edition, clean, date_str)
     store.save_edition(edition)
     published = mark_events_published(clean["eventos_usados"], date_str)
+    if clean["propuestas_usadas"] or clean["propuestas_descartadas"]:
+        voz.mark(clean["propuestas_usadas"], clean["propuestas_descartadas"])
     return edition, clean, published
 
 

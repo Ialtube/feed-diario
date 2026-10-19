@@ -32,7 +32,7 @@ def save_json(path, data, indent=2):
 
 def load_config(root=ROOT):
     cfg = load_json(Path(root) / "config.json", {}) or {}
-    cfg.setdefault("site_title", "El Feed Diario")
+    cfg.setdefault("site_title", "El Rincón del Feeder")
     cfg.setdefault("site_tagline", "")
     cfg.setdefault("region", "europe")
     cfg.setdefault("platform", "euw1")
@@ -43,6 +43,8 @@ def load_config(root=ROOT):
     cfg.setdefault("ignored_queues", [0, 1700])
     cfg.setdefault("llm_model", "claude-opus-5-5")
     cfg.setdefault("items_per_player", 2)
+    cfg.setdefault("supabase_url", "")
+    cfg.setdefault("supabase_anon_key", "")
     return cfg
 
 

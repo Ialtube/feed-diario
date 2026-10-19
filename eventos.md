@@ -1,4 +1,4 @@
-# Eventos para El Feed Diario
+# Eventos para El Rincón del Feeder
 
 Apunta aquí cualquier cosa que haya pasado y que quieras ver en el periódico: una partida épica,
 una frase mítica en el Discord, alguien que se compró una skin y perdió diez seguidas...

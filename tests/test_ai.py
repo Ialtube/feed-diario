@@ -103,6 +103,52 @@ class AIFlowTest(unittest.TestCase):
                 with self.assertRaises(ai.AIError):
                     ai.validate(data, ed, known)
 
+    def test_reader_proposals_and_memes(self):
+        from roast import propuestas as voz
+        pending = {7: {"id": 7, "nombre": "Lector Anónimo", "titulo": "Wôlf rompe el teclado",
+                       "texto": "Tras la quinta derrota seguida", "imagen_local": None}}
+        marked = {}
+        old_cache, old_mark = voz.pending_cache, voz.mark
+        voz.pending_cache = lambda: pending
+        voz.mark = lambda used, discarded: marked.update(used=list(used), discarded=list(discarded))
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                cfg, store = demo_store(tmp, days=1)
+                data = {
+                    "extra": [
+                        {"section": "LA VOZ DE RUNETERRA", "propuesta": 7, "headline": "Un teclado menos en la Grieta",
+                         "body": "Según nos cuenta un lector, la quinta derrota fue demasiado para las teclas."},
+                        {"section": "ECONOMÍA", "headline": "La Lonja abre la sesión en rojo",
+                         "body": "Los valores del grupo cotizan a la baja tras otra jornada de pérdidas.",
+                         "campeon": "Gangplank", "meme_arriba": "CUANDO INVIERTES EN EL GRUPO",
+                         "meme_abajo": "Y TODO CAE"},
+                    ],
+                    "propuestas_descartadas": [],
+                }
+                path = Path(tmp) / "edicion-2026-10-19.json"
+                save_json(path, data)
+                ed, clean, _ = ai.apply_file(store, path)
+                self.assertEqual(marked["used"], [7])
+                voz_item = next(it for it in ed["items"] if it["section"] == "LA VOZ DE RUNETERRA")
+                self.assertEqual(voz_item["lector"], "Lector Anónimo")
+                out = build_site(cfg, FRIENDS, store.editions(), Path(tmp) / "docs")
+                html = (out / "index.html").read_text(encoding="utf-8")
+                for text in ("La Voz de Runeterra", "Enviado por Lector Anónimo", "CUANDO INVIERTES EN EL GRUPO",
+                             'id="comentarios"', "Cotizaciones del día"):
+                    self.assertIn(text, html)
+                self.assertTrue((out / "proponer.html").exists())
+                self.assertTrue((out / "lectores.js").exists())
+                with self.assertRaises(ai.AIError):
+                    ai.validate({"extra": [{"section": "LA VOZ DE RUNETERRA", "propuesta": 99,
+                                            "headline": "Titular válido", "body": "Cuerpo válido aquí"}]},
+                                ed, {f["slug"] for f in FRIENDS})
+        finally:
+            voz.pending_cache, voz.mark = old_cache, old_mark
+
+    def test_overused_phrases(self):
+        eds = [{"items": [{"headline": "La Comisaría de Piltover abre expediente", "body": "otra vez"}]}] * 3
+        self.assertIn("comisaría de piltover", ai.overused_phrases(eds))
+
     def test_events_file(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "eventos.md"

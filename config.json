@@ -1,6 +1,6 @@
 {
-  "site_title": "El Feed Diario",
-  "site_tagline": "El periódico que nadie pidió sobre las partidas de tus amigos",
+  "site_title": "El Rincón del Feeder",
+  "site_tagline": "Noticias de la Grieta para los que alimentan al enemigo",
   "region": "europe",
   "platform": "euw1",
   "timezone": "Europe/Madrid",
@@ -9,5 +9,7 @@
   "max_matches_per_player": 20,
   "ignored_queues": [0, 1700, 1710, 1810, 1820, 1830, 1840],
   "llm_model": "claude-opus-5-5",
-  "items_per_player": 2
+  "items_per_player": 2,
+  "supabase_url": "",
+  "supabase_anon_key": ""
 }
