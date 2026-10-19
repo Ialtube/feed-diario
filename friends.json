@@ -1,0 +1,12 @@
+[
+  {"riot_id": "grangalax#OVD", "alias": "grangalax"},
+  {"riot_id": "TheTrevur#URGOD", "alias": "TheTrevur"},
+  {"riot_id": "Wôlf172#1075", "alias": "Wôlf"},
+  {"riot_id": "Fr4nux#EUW", "alias": "Fr4nux"},
+  {"riot_id": "GSJoseador#2711", "alias": "GSJoseador", "enabled": false},
+  {"riot_id": "Dierophant Green#EUW", "alias": "Dierophant", "enabled": false},
+  {"riot_id": "iPredatoRz#EUW", "alias": "iPredatoRz", "enabled": false},
+  {"riot_id": "Sunraku#998", "alias": "Sunraku", "enabled": false},
+  {"riot_id": "RDV Canyon#RDV", "alias": "RDV Canyon", "enabled": false},
+  {"riot_id": "Giroroo#RdV", "alias": "Giroroo", "enabled": false}
+]

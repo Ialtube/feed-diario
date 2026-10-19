@@ -1,0 +1,3 @@
+# Todo funciona sin dependencias. Este paquete solo se usa si configuras ANTHROPIC_API_KEY
+# para que Claude reescriba los titulares.
+anthropic>=1.0

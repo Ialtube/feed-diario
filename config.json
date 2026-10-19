@@ -1,0 +1,13 @@
+{
+  "site_title": "El Feed Diario",
+  "site_tagline": "El periódico que nadie pidió sobre las partidas de tus amigos",
+  "region": "europe",
+  "platform": "euw1",
+  "timezone": "Europe/Madrid",
+  "window_hours": 24,
+  "max_backfill_hours": 72,
+  "max_matches_per_player": 20,
+  "ignored_queues": [0, 1700, 1710, 1810, 1820, 1830, 1840],
+  "llm_model": "claude-opus-5-5",
+  "items_per_player": 2
+}
