@@ -77,6 +77,21 @@ def ms_to_local(ms, tz):
     return datetime.fromtimestamp(ms / 1000, tz)
 
 
+CHAMP_NAMES = {
+    "MonkeyKing": "Wukong", "Chogath": "Cho'Gath", "Kaisa": "Kai'Sa", "Khazix": "Kha'Zix",
+    "KogMaw": "Kog'Maw", "RekSai": "Rek'Sai", "Velkoz": "Vel'Koz", "Belveth": "Bel'Veth",
+    "KSante": "K'Sante", "Leblanc": "LeBlanc", "JarvanIV": "Jarvan IV", "LeeSin": "Lee Sin",
+    "MasterYi": "Master Yi", "MissFortune": "Miss Fortune", "TahmKench": "Tahm Kench",
+    "TwistedFate": "Twisted Fate", "XinZhao": "Xin Zhao", "AurelionSol": "Aurelion Sol",
+    "DrMundo": "Dr. Mundo", "Nunu": "Nunu y Willump", "Renata": "Renata Glasc",
+}
+
+
+def champ_name(champ_id):
+    """Riot's internal champion id ('JarvanIV') -> display name ('Jarvan IV')."""
+    return CHAMP_NAMES.get(champ_id, champ_id)
+
+
 def fmt_int(n):
     return f"{int(round(n)):,}".replace(",", ".")
 

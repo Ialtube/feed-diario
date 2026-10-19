@@ -14,8 +14,8 @@
       "desk": "",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "Escándalo en la Grieta: grangalax firma un 4–5 y nadie le pide explicaciones porque ya no hacen falta",
-      "body": "9 partidas, 84 muertes y un KDA de 1,98. La redacción ha revisado los datos tres veces buscando un error. No lo hay.",
+      "headline": "Jueves negro: grangalax muere 84 veces en 9 partidas",
+      "body": "4–5, KDA de 1,98 y 5,3 horas con Ekko, Lillia y Hwei. Ochenta y cuatro muertes. La redacción ha comprobado el dato tres veces con la esperanza de un error. No lo hay: es, con diferencia, la cifra más alta de la breve historia de este periódico.",
       "stat": "4–5",
       "stat_label": "victorias–derrotas",
       "severity": 100,
@@ -30,7 +30,26 @@
         "champ": "Ekko",
         "champs": "Ekko, Lillia y Hwei",
         "hours": "5,3"
-      }
+      },
+      "template_headline": "Escándalo en la Grieta: grangalax firma un 4–5 y nadie le pide explicaciones porque ya no hacen falta",
+      "template_body": "9 partidas, 84 muertes y un KDA de 1,98. La redacción ha revisado los datos tres veces buscando un error. No lo hay."
+    },
+    {
+      "id": 1000,
+      "kind": "ia",
+      "section": "ÚLTIMA HORA",
+      "desk": "Islas de la Sombra",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "Viego pide a grangalax que deje de mudarse a sus islas",
+      "body": "El Rey Arruinado ha emitido un comunicado: con 84 muertes y 49 minutos en gris en un solo día, grangalax pasa más tiempo en las Islas de la Sombra que la propia Niebla Negra. Viego solicita que, si va a seguir viniendo, al menos traiga algo de comer.",
+      "stat": "84",
+      "stat_label": "muertes en un día",
+      "imagen": null,
+      "campeon": "Viego",
+      "pie": "Viego, ayer, preguntando cuántas veces más va a venir grangalax.",
+      "severity": 99,
+      "facts": {}
     },
     {
       "id": 1,
@@ -39,8 +58,8 @@
       "desk": "Comisaría de Piltover",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "Récord de grangalax: 16 muertes en 39 minutos",
-      "body": "Con Ekko murió cada 2:29 de media. Derrota, claro. El contador de muertes pidió una pausa.",
+      "headline": "La Comisaría de Piltover cierra la línea de grangalax: 16 muertes con Ekko en una partida",
+      "body": "8/16/10 en 39 minutos de Ranked Solo/Dúo, muriendo cada 2:29. Ekko puede volver cuatro segundos atrás en el tiempo. Habría necesitado volver al menú principal.",
       "stat": "16",
       "stat_label": "muertes en una partida",
       "severity": 7.4,
@@ -61,7 +80,9 @@
         "every": "2:29",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "Récord de grangalax: 16 muertes en 39 minutos",
+      "template_body": "Con Ekko murió cada 2:29 de media. Derrota, claro. El contador de muertes pidió una pausa."
     },
     {
       "id": 2,
@@ -70,8 +91,8 @@
       "desk": "Islas de la Sombra",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "Previsión para grangalax: Niebla Negra durante 49 minutos",
-      "body": "Las Islas de la Sombra reclamaron a grangalax durante 49 minutos, el 15,4 % de su tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza.",
+      "headline": "Previsión para grangalax: 49 minutos de Niebla Negra",
+      "body": "El 15,4 % de su tiempo en partida lo pasó muerto. Las Islas de la Sombra le han ofrecido la ciudadanía honoraria y un banco con su nombre.",
       "stat": "49 min",
       "stat_label": "en la pantalla gris",
       "severity": 7.4,
@@ -88,7 +109,9 @@
         "hours": "5,3",
         "dead_mins": 49,
         "dead_pct": "15,4 %"
-      }
+      },
+      "template_headline": "Previsión para grangalax: Niebla Negra durante 49 minutos",
+      "template_body": "Las Islas de la Sombra reclamaron a grangalax durante 49 minutos, el 15,4 % de su tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza."
     },
     {
       "id": 3,
@@ -97,8 +120,8 @@
       "desk": "Lonja de Aguasturbias",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "Malversación de fondos: GSJoseador se quedó el 20,4 % del oro y devolvió el 12,7 % del daño",
-      "body": "Con Chogath recibió 7,7 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró.",
+      "headline": "GSJoseador cobra el 20,4 % del oro con Cho'Gath y devuelve el 12,7 % del daño",
+      "body": "7,7 puntos de diferencia. El Terror del Vacío se come a los enemigos; esta vez, sobre todo, se comió el oro.",
       "stat": "−7,7",
       "stat_label": "puntos entre oro y daño",
       "severity": 6.07,
@@ -116,7 +139,9 @@
         "gold": "20,4 %",
         "share": "12,7 %",
         "gap": "7,7"
-      }
+      },
+      "template_headline": "Malversación de fondos: GSJoseador se quedó el 20,4 % del oro y devolvió el 12,7 % del daño",
+      "template_body": "Con Chogath recibió 7,7 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró."
     },
     {
       "id": 4,
@@ -125,8 +150,8 @@
       "desk": "Comisaría de Piltover",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Récord de Wôlf: 12 muertes en 38 minutos",
-      "body": "Con Lux murió cada 3:10 de media. Derrota, claro. El contador de muertes pidió una pausa.",
+      "headline": "Wôlf, 12 muertes con Lux: la Dama de la Luz, a oscuras",
+      "body": "6/12/13 en 38 minutos de Ranked Flex. En Demacia esconden a los magos; Wôlf, por lo visto, también.",
       "stat": "12",
       "stat_label": "muertes en una partida",
       "severity": 5.8,
@@ -147,7 +172,9 @@
         "every": "3:10",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "Récord de Wôlf: 12 muertes en 38 minutos",
+      "template_body": "Con Lux murió cada 3:10 de media. Derrota, claro. El contador de muertes pidió una pausa."
     },
     {
       "id": 5,
@@ -156,8 +183,8 @@
       "desk": "Comisaría de Piltover",
       "player": "thetrevur",
       "alias": "TheTrevur",
-      "headline": "Detenido TheTrevur por alimentar al enemigo: 11 muertes con Urgot",
-      "body": "Los hechos ocurrieron en una Ranked Flex de 42 minutos. Resultado: 7/11/7. Aun así ganaron, de milagro. El rival ya le ha enviado una cesta de agradecimiento.",
+      "headline": "El Urgot de TheTrevur, otra vez en el calabozo: 11 muertes en 42 minutos",
+      "body": "7/11/7 en Ranked Flex, muriendo cada 3:53. El día se salvó con un 3–2, pero la sheriff Caitlyn ya tiene una celda con su nombre.",
       "stat": "11",
       "stat_label": "muertes en una partida",
       "severity": 5.4,
@@ -178,7 +205,9 @@
         "every": "3:53",
         "res": "victoria",
         "res_cap": "Aun así ganaron, de milagro"
-      }
+      },
+      "template_headline": "Detenido TheTrevur por alimentar al enemigo: 11 muertes con Urgot",
+      "template_body": "Los hechos ocurrieron en una Ranked Flex de 42 minutos. Resultado: 7/11/7. Aun así ganaron, de milagro. El rival ya le ha enviado una cesta de agradecimiento."
     },
     {
       "id": 6,
@@ -187,8 +216,8 @@
       "desk": "Comisaría de Piltover",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "Fr4nux muere 10 veces en una sola partida y la policía de Piltover abre una investigación",
-      "body": "Jinx, 15/10/11, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
+      "headline": "Fr4nux hace 15 kills con Jinx… y muere 10 veces en una derrota",
+      "body": "15/10/11 en 43 minutos de Ranked Solo/Dúo. Por fin hubo daño; lo que no hubo fue victoria. Su única partida del día terminó 0–1.",
       "stat": "10",
       "stat_label": "muertes en una partida",
       "severity": 5.0,
@@ -209,7 +238,9 @@
         "every": "4:22",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "Fr4nux muere 10 veces en una sola partida y la policía de Piltover abre una investigación",
+      "template_body": "Jinx, 15/10/11, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez."
     },
     {
       "id": 7,
@@ -218,8 +249,8 @@
       "desk": "Ecos de Jonia",
       "player": null,
       "alias": null,
-      "headline": "Wôlf y grangalax, dúo del desastre: 0–2 juntos",
-      "body": "Juntos suman más derrotas que victorias. Por separado, al menos, pierden en partidas distintas.",
+      "headline": "Wôlf y grangalax, 0–2: el dúo maldito vuelve a perderlo todo",
+      "body": "Dos partidas juntos, dos derrotas. La sociedad del perro y la moneda acumula ya un historial que en Jonia se estudiaría como advertencia.",
       "stat": "0–2",
       "stat_label": "juntos",
       "severity": 5,
@@ -228,7 +259,9 @@
         "b": "grangalax",
         "w": 0,
         "l": 2
-      }
+      },
+      "template_headline": "Wôlf y grangalax, dúo del desastre: 0–2 juntos",
+      "template_body": "Juntos suman más derrotas que victorias. Por separado, al menos, pierden en partidas distintas."
     },
     {
       "id": 8,
@@ -237,8 +270,8 @@
       "desk": "Lonja de Aguasturbias",
       "player": "ipredatorz",
       "alias": "iPredatoRz",
-      "headline": "La Lonja de Aguasturbias congela los fondos de iPredatoRz: 23,9 % del oro, 19,6 % del daño",
-      "body": "Con Jhin cobró 4,3 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
+      "headline": "iPredatoRz y su Jhin: 23,9 % del oro, 19,6 % del daño y derrota",
+      "body": "4,3 puntos de diferencia en su única partida. El Virtuoso cuenta sus balas de cuatro en cuatro; con el oro fue más generoso.",
       "stat": "−4,3",
       "stat_label": "puntos entre oro y daño",
       "severity": 4.71,
@@ -256,7 +289,9 @@
         "gold": "23,9 %",
         "share": "19,6 %",
         "gap": "4,3"
-      }
+      },
+      "template_headline": "La Lonja de Aguasturbias congela los fondos de iPredatoRz: 23,9 % del oro, 19,6 % del daño",
+      "template_body": "Con Jhin cobró 4,3 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas."
     },
     {
       "id": 9,
@@ -265,8 +300,8 @@
       "desk": "Instituto Hextech de Piltover",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "GSJoseador fue el que menos daño hizo de su equipo en 1 de 5 partidas",
-      "body": "En su peor caso, con Chogath (6/0/2), se quedó en 7.455 de daño a campeones: el 12,7 % de su equipo. Hasta el que menos aportaba le pasó por encima.",
+      "headline": "GSJoseador, el que menos daño de su equipo con un 6/0/2",
+      "body": "Cero muertes con Cho'Gath y solo 7.455 de daño, el 12,7 % del total. Sobrevivir sobrevivió; pegar, lo justo.",
       "stat": "1/5",
       "stat_label": "partidas como el que menos daño de su equipo",
       "severity": 4.6,
@@ -286,7 +321,9 @@
         "kdas": "6/0/2",
         "dmg": "7.455",
         "share": "12,7 %"
-      }
+      },
+      "template_headline": "GSJoseador fue el que menos daño hizo de su equipo en 1 de 5 partidas",
+      "template_body": "En su peor caso, con Chogath (6/0/2), se quedó en 7.455 de daño a campeones: el 12,7 % de su equipo. Hasta el que menos aportaba le pasó por encima."
     },
     {
       "id": 10,
@@ -295,8 +332,8 @@
       "desk": "Islas de la Sombra",
       "player": "thetrevur",
       "alias": "TheTrevur",
-      "headline": "Previsión para TheTrevur: gris durante 19 minutos",
-      "body": "Hoy pasó 19 minutos muerto, el 11,4 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja.",
+      "headline": "TheTrevur, 19 minutos en la Niebla Negra con Urgot",
+      "body": "El 11,4 % de su tiempo en partida, muerto. El cangrejo pasó buena parte del jueves en las Islas de la Sombra.",
       "stat": "19 min",
       "stat_label": "en la pantalla gris",
       "severity": 4.42,
@@ -313,7 +350,9 @@
         "hours": "2,8",
         "dead_mins": 19,
         "dead_pct": "11,4 %"
-      }
+      },
+      "template_headline": "Previsión para TheTrevur: gris durante 19 minutos",
+      "template_body": "Hoy pasó 19 minutos muerto, el 11,4 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja."
     },
     {
       "id": 11,
@@ -322,8 +361,8 @@
       "desk": "Ecos de Jonia",
       "player": null,
       "alias": null,
-      "headline": "Sociedad limitada: TheTrevur + grangalax se van 1–2",
-      "body": "La sinergia de este dúo es la de una tostadora en la bañera.",
+      "headline": "TheTrevur y grangalax, 1–2 juntos: ni Urgot salva a la moneda",
+      "body": "Tres partidas compartidas, dos derrotas. Con 84 muertes en el otro lado del dúo, cualquier sociedad hace aguas.",
       "stat": "1–2",
       "stat_label": "juntos",
       "severity": 4,
@@ -332,7 +371,9 @@
         "b": "grangalax",
         "w": 1,
         "l": 2
-      }
+      },
+      "template_headline": "Sociedad limitada: TheTrevur + grangalax se van 1–2",
+      "template_body": "La sinergia de este dúo es la de una tostadora en la bañera."
     },
     {
       "id": 12,
@@ -341,8 +382,8 @@
       "desk": "Islas de la Sombra",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Wôlf se pasa 13 minutos en la pantalla gris",
-      "body": "El 11,1 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
+      "headline": "Wôlf, 13 minutos en gris para completar el jueves",
+      "body": "El 11,1 % de su tiempo en partida. Cerró 2–2, que dadas las circunstancias de la jornada casi parece un éxito.",
       "stat": "13 min",
       "stat_label": "en la pantalla gris",
       "severity": 3.9,
@@ -359,7 +400,9 @@
         "hours": "2,1",
         "dead_mins": 13,
         "dead_pct": "11,1 %"
-      }
+      },
+      "template_headline": "Wôlf se pasa 13 minutos en la pantalla gris",
+      "template_body": "El 11,1 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro."
     },
     {
       "id": 13,
@@ -368,8 +411,8 @@
       "desk": "Radio Zaun",
       "player": "rdv-canyon",
       "alias": "RDV Canyon",
-      "headline": "RDV Canyon hace 50 pings en una sola partida",
-      "body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él.",
+      "headline": "Radio Zaun: 50 pings de RDV Canyon con Karma en una sola partida",
+      "body": "Cincuenta avisos y una victoria. Karma busca la iluminación de Jonia; RDV Canyon busca que le hagan caso.",
       "stat": "50",
       "stat_label": "pings en una partida",
       "severity": 3.25,
@@ -385,7 +428,9 @@
         "champs": "Karma",
         "hours": "0,7",
         "pings": 50
-      }
+      },
+      "template_headline": "RDV Canyon hace 50 pings en una sola partida",
+      "template_body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él."
     },
     {
       "id": 14,
@@ -394,8 +439,8 @@
       "desk": "Centinelas de la Luz",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Una luz en la Ruina: Dierophant (2–0) no ha sido el peor",
-      "body": "Los Centinelas de la Luz confirman un rayo de esperanza en el grupo: KDA 7,00. Que nadie se emocione; mañana vuelve la Niebla.",
+      "headline": "El Faro de la Esperanza ilumina a Dierophant: 2–0 y KDA de 7 con Alistar y Bard",
+      "body": "En un jueves de 190 muertes, Dierophant fue la luz al final del túnel. Los Centinelas de la Luz le ofrecen un faro pequeño, de momento a prueba.",
       "stat": "2–0",
       "stat_label": "victorias–derrotas",
       "severity": 0.5,
@@ -410,7 +455,9 @@
         "champ": "Bard",
         "champs": "Alistar y Bard",
         "hours": "0,8"
-      }
+      },
+      "template_headline": "Una luz en la Ruina: Dierophant (2–0) no ha sido el peor",
+      "template_body": "Los Centinelas de la Luz confirman un rayo de esperanza en el grupo: KDA 7,00. Que nadie se emocione; mañana vuelve la Niebla."
     },
     {
       "id": 15,
@@ -419,17 +466,19 @@
       "desk": "Perdidos en el Vacío",
       "player": null,
       "alias": null,
-      "headline": "Desaparecidos del día: Sunraku y Giroroo",
-      "body": "Ni una partida. La Grieta respira tranquila por un día.",
+      "headline": "Sunraku y Giroroo, ausentes del jueves negro",
+      "body": "No jugaron. Viendo el día, probablemente fue la mejor decisión de toda la semana.",
       "stat": "2",
       "stat_label": "no jugaron",
       "severity": 0.2,
       "facts": {
         "names": "Sunraku y Giroroo"
-      }
+      },
+      "template_headline": "Desaparecidos del día: Sunraku y Giroroo",
+      "template_body": "Ni una partida. La Grieta respira tranquila por un día."
     }
   ],
-  "frase": "Un ward a tiempo es una muerte menos. Nadie del grupo lo sabe.",
+  "frase": "No es que muera mucho. Es que le gusta volver.",
   "ranking": [
     {
       "slug": "grangalax",
@@ -1163,5 +1212,28 @@
       "lowest_dmg": false,
       "support": false
     }
-  ]
+  ],
+  "template_frase": "Un ward a tiempo es una muerte menos. Nadie del grupo lo sabe.",
+  "columna": {
+    "titulo": "Ochenta y cuatro",
+    "autor": "El Coach que Nadie Contrató",
+    "cuerpo": [
+      "Ochenta y cuatro. Me lo apunto en un pósit y lo pego en la nevera para no olvidar nunca que esto es posible. Nueve partidas, ochenta y cuatro muertes, y aun así 4–5. Las cuentas no salen, pero salen.",
+      "Querido grangalax: no te voy a pedir que juegues mejor. Te voy a pedir algo más sencillo: que juegues menos. Cinco horas y cuarto en un jueves es mucho tiempo para dar oro al enemigo.",
+      "El resto del grupo no está para dar lecciones: Wôlf, TheTrevur y Fr4nux pasaron también por la comisaría. Pero lo de hoy tiene nombre propio, y el número está en el titular."
+    ]
+  },
+  "especial": {
+    "antetitulo": "JUEVES NEGRO",
+    "titulo": "84 muertes: grangalax rompe la escala",
+    "subtitulo": "Nueve partidas, 49 minutos en la pantalla gris y una de 16 muertes con Ekko. El grupo entero sumó 190 muertes en un día que las Islas de la Sombra recordarán.",
+    "tema": "negro"
+  },
+  "ai": {
+    "version": 1,
+    "updated_at": 1792446425258,
+    "firma": "Claude",
+    "stale": false
+  },
+  "written_by": "Claude"
 }

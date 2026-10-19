@@ -14,8 +14,8 @@
       "desk": "",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Dierophant vuelve a hacerlo: 37 muertes, KDA 1,38 y cero vergüenza",
-      "body": "El día de Dierophant se resume en 1–4. El 14,8 % del daño de su equipo de media. El equipo rival ha pedido que se le conceda la medalla al mérito civil.",
+      "headline": "Número uno, peor uno: Dierophant inaugura El Feed Diario con un 1–4 y 37 muertes",
+      "body": "Hay periódicos que nacen con una exclusiva y otros con una víctima. Dierophant pasó 1,9 horas rotando entre Jarvan IV, Kindred y Bel'Veth para firmar un KDA de 1,38. La Comisaría de Piltover ya ha abierto el expediente número uno de esta casa, y lleva su nombre.",
       "stat": "1–4",
       "stat_label": "victorias–derrotas",
       "severity": 100,
@@ -30,7 +30,43 @@
         "champ": "Kindred",
         "champs": "JarvanIV, Kindred y Belveth",
         "hours": "1,9"
-      }
+      },
+      "template_headline": "Dierophant vuelve a hacerlo: 37 muertes, KDA 1,38 y cero vergüenza",
+      "template_body": "El día de Dierophant se resume en 1–4. El 14,8 % del daño de su equipo de media. El equipo rival ha pedido que se le conceda la medalla al mérito civil."
+    },
+    {
+      "id": 1000,
+      "kind": "ia",
+      "section": "CARTA DEL DIRECTOR",
+      "desk": "Redacción central",
+      "player": null,
+      "alias": null,
+      "headline": "Por qué existe este periódico (y por qué lo vais a odiar)",
+      "body": "Porque alguien tenía que contarlo. Ocho jugadores, 35 partidas y 224 muertes en un solo lunes no podían quedar sin acta. Este diario no viene a juzgar: viene a dejarlo por escrito. Las cifras saldrán siempre de las partidas; la mala leche, de esta redacción. Bienvenidos a El Feed Diario.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "pie": "",
+      "severity": 99,
+      "facts": {}
+    },
+    {
+      "id": 1001,
+      "kind": "ia",
+      "section": "ENTREVISTA",
+      "desk": "Bosques de Runeterra",
+      "player": "dierophant",
+      "alias": "Dierophant",
+      "headline": "Hablamos con Kindred tras pasar una tarde en manos de Dierophant",
+      "body": "El Cordero y el Lobo atienden a esta redacción visiblemente agotados. «Venimos a por las almas de los rivales», explica el Cordero, «y acabamos llevándonos la nuestra». El Lobo se limita a mirar el marcador: 1–4. No hacen falta más preguntas.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Kindred",
+      "pie": "Kindred, en un retrato de archivo, antes de conocer a Dierophant.",
+      "severity": 98,
+      "facts": {}
     },
     {
       "id": 1,
@@ -39,8 +75,8 @@
       "desk": "Lonja de Aguasturbias",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Dierophant, el fichaje más caro y el que menos rinde: 19,7 % del oro, 8,4 % del daño",
-      "body": "Partida con Belveth: 11,2 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
+      "headline": "La Lonja de Aguasturbias embarga a Bel'Veth: Dierophant cobró el 19,7 % del oro y devolvió el 8,4 % del daño",
+      "body": "11,2 puntos de diferencia entre lo que se llevó y lo que aportó. En Aguasturbias han colgado de un mástil a contables por mucho menos. La Emperatriz del Vacío ha solicitado formalmente un cambio de jugador.",
       "stat": "−11,2",
       "stat_label": "puntos entre oro y daño",
       "severity": 7.49,
@@ -58,7 +94,9 @@
         "gold": "19,7 %",
         "share": "8,4 %",
         "gap": "11,2"
-      }
+      },
+      "template_headline": "Dierophant, el fichaje más caro y el que menos rinde: 19,7 % del oro, 8,4 % del daño",
+      "template_body": "Partida con Belveth: 11,2 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga."
     },
     {
       "id": 2,
@@ -67,8 +105,8 @@
       "desk": "Arena de Noxus",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "Racha negra: 4 derrotas consecutivas para grangalax",
-      "body": "Ni cambiando de campeón (Ekko, Senna y Hwei) consiguió cortar la sangría. Día cerrado con 4–5.",
+      "headline": "grangalax encadena cuatro derrotas seguidas y aun así juega nueve partidas: 4–5 al cierre",
+      "body": "4,3 horas en la Arena de Noxus pasando por Ekko, Senna y Hwei. Ekko puede rebobinar el tiempo; grangalax no, y se notó. 57 muertes en el día: la moneda vuelve a caer de canto.",
       "stat": "4",
       "stat_label": "derrotas seguidas",
       "severity": 7,
@@ -84,7 +122,9 @@
         "champs": "Ekko, Senna y Hwei",
         "hours": "4,3",
         "n": 4
-      }
+      },
+      "template_headline": "Racha negra: 4 derrotas consecutivas para grangalax",
+      "template_body": "Ni cambiando de campeón (Ekko, Senna y Hwei) consiguió cortar la sangría. Día cerrado con 4–5."
     },
     {
       "id": 3,
@@ -93,8 +133,8 @@
       "desk": "Lonja de Aguasturbias",
       "player": "giroroo",
       "alias": "Giroroo",
-      "headline": "Malversación de fondos: Giroroo se quedó el 20,1 % del oro y devolvió el 12,1 % del daño",
-      "body": "Con Kayn recibió 8,0 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró.",
+      "headline": "Giroroo gana sus dos partidas, pero la Lonja le pide cuentas: 20,1 % del oro y 12,1 % del daño con Kayn",
+      "body": "8 puntos de desfase entre lo que cobró y lo que repartió. Ganar 2–0 no exime de pasar por Hacienda, y Rhaast, desde la guadaña, opina exactamente lo mismo.",
       "stat": "−8,0",
       "stat_label": "puntos entre oro y daño",
       "severity": 6.21,
@@ -112,7 +152,9 @@
         "gold": "20,1 %",
         "share": "12,1 %",
         "gap": "8,0"
-      }
+      },
+      "template_headline": "Malversación de fondos: Giroroo se quedó el 20,1 % del oro y devolvió el 12,1 % del daño",
+      "template_body": "Con Kayn recibió 8,0 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró."
     },
     {
       "id": 4,
@@ -121,8 +163,8 @@
       "desk": "Arena de Noxus",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Dierophant encadena 3 derrotas seguidas y sigue dándole a «Jugar otra vez»",
-      "body": "Su día terminó 1–4. Los expertos recomiendan apagar el ordenador; Dierophant recomienda otra partida rápida.",
+      "headline": "Y además, tres derrotas seguidas: el día de Dierophant no tuvo fondo",
+      "body": "Tres consecutivas dentro de un 1–4. Kindred lleva la cuenta de las almas que se cobra; esta vez se le acabó la libreta antes que la sesión.",
       "stat": "3",
       "stat_label": "derrotas seguidas",
       "severity": 6,
@@ -138,7 +180,9 @@
         "champs": "JarvanIV, Kindred y Belveth",
         "hours": "1,9",
         "n": 3
-      }
+      },
+      "template_headline": "Dierophant encadena 3 derrotas seguidas y sigue dándole a «Jugar otra vez»",
+      "template_body": "Su día terminó 1–4. Los expertos recomiendan apagar el ordenador; Dierophant recomienda otra partida rápida."
     },
     {
       "id": 5,
@@ -147,8 +191,8 @@
       "desk": "Arena de Noxus",
       "player": "thetrevur",
       "alias": "TheTrevur",
-      "headline": "Racha negra: 3 derrotas consecutivas para TheTrevur",
-      "body": "Ni cambiando de campeón (Urgot) consiguió cortar la sangría. Día cerrado con 1–4.",
+      "headline": "Urgot.exe ha dejado de responder: TheTrevur cae tres veces seguidas y cierra 1–4",
+      "body": "El one-trick más fiable del grupo firmó un KDA de 1,08 y 37 muertes con su Urgot de siempre. En Zaun ya se habla de llevar el cangrejo al taller a que le revisen las patas.",
       "stat": "3",
       "stat_label": "derrotas seguidas",
       "severity": 6,
@@ -164,7 +208,9 @@
         "champs": "Urgot",
         "hours": "1,9",
         "n": 3
-      }
+      },
+      "template_headline": "Racha negra: 3 derrotas consecutivas para TheTrevur",
+      "template_body": "Ni cambiando de campeón (Urgot) consiguió cortar la sangría. Día cerrado con 1–4."
     },
     {
       "id": 6,
@@ -173,8 +219,8 @@
       "desk": "Ecos de Jonia",
       "player": null,
       "alias": null,
-      "headline": "Dierophant y TheTrevur, dúo del desastre: 1–4 juntos",
-      "body": "Juntos suman más derrotas que victorias. Por separado, al menos, pierden en partidas distintas.",
+      "headline": "Dierophant y TheTrevur, sociedad en quiebra: 1–4 juntos",
+      "body": "Cinco partidas compartidas y una sola victoria. Los Ecos de Jonia recomiendan separación de bienes inmediata y una temporada de reflexión en monasterios distintos.",
       "stat": "1–4",
       "stat_label": "juntos",
       "severity": 6,
@@ -183,7 +229,9 @@
         "b": "TheTrevur",
         "w": 1,
         "l": 4
-      }
+      },
+      "template_headline": "Dierophant y TheTrevur, dúo del desastre: 1–4 juntos",
+      "template_body": "Juntos suman más derrotas que victorias. Por separado, al menos, pierden en partidas distintas."
     },
     {
       "id": 7,
@@ -192,8 +240,8 @@
       "desk": "Islas de la Sombra",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "grangalax se pasa 32 minutos en la pantalla gris",
-      "body": "El 12,4 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
+      "headline": "Previsión para grangalax: Niebla Negra durante 32 minutos",
+      "body": "Las Islas de la Sombra le reclamaron el 12,4 % de su tiempo en partida. Viego ha pedido que deje de visitarle tanto, que se le llena la casa de espectros y luego nadie limpia.",
       "stat": "32 min",
       "stat_label": "en la pantalla gris",
       "severity": 5.73,
@@ -210,7 +258,9 @@
         "hours": "4,3",
         "dead_mins": 32,
         "dead_pct": "12,4 %"
-      }
+      },
+      "template_headline": "grangalax se pasa 32 minutos en la pantalla gris",
+      "template_body": "El 12,4 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro."
     },
     {
       "id": 8,
@@ -219,8 +269,8 @@
       "desk": "Comisaría de Piltover",
       "player": "thetrevur",
       "alias": "TheTrevur",
-      "headline": "TheTrevur muere 11 veces en una sola partida y la policía de Piltover abre una investigación",
-      "body": "Urgot, 2/11/8, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
+      "headline": "Detenido el Urgot de TheTrevur: 11 muertes en 24 minutos de Ranked Flex",
+      "body": "Murió cada 2:13 de media y terminó 2/11/8. La sheriff Caitlyn ha precintado la línea superior y pide testigos. Que alguien compruebe si el cangrejo llevaba el seguro puesto.",
       "stat": "11",
       "stat_label": "muertes en una partida",
       "severity": 5.4,
@@ -241,7 +291,9 @@
         "every": "2:13",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "TheTrevur muere 11 veces en una sola partida y la policía de Piltover abre una investigación",
+      "template_body": "Urgot, 2/11/8, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez."
     },
     {
       "id": 9,
@@ -250,8 +302,8 @@
       "desk": "Comisaría de Piltover",
       "player": "ipredatorz",
       "alias": "iPredatoRz",
-      "headline": "Récord de iPredatoRz: 11 muertes en 34 minutos",
-      "body": "Con Yasuo murió cada 3:10 de media. Derrota, claro. El contador de muertes pidió una pausa.",
+      "headline": "iPredatoRz y su Yasuo, 11 muertes en 34 minutos: el viento sopló en contra",
+      "body": "Terminó 9/11/9 en Ranked Flex, muriendo cada 3:10. Nadie en la redacción se sorprende: es Yasuo. Lo noticiable habría sido lo contrario.",
       "stat": "11",
       "stat_label": "muertes en una partida",
       "severity": 5.4,
@@ -272,7 +324,9 @@
         "every": "3:10",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "Récord de iPredatoRz: 11 muertes en 34 minutos",
+      "template_body": "Con Yasuo murió cada 3:10 de media. Derrota, claro. El contador de muertes pidió una pausa."
     },
     {
       "id": 10,
@@ -281,8 +335,8 @@
       "desk": "Lonja de Aguasturbias",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "La Lonja de Aguasturbias congela los fondos de Fr4nux: 25,0 % del oro, 20,7 % del daño",
-      "body": "Con Xayah cobró 4,3 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
+      "headline": "Fr4nux se queda el 25 % del oro con Xayah y devuelve el 20,7 % del daño: CARRY NOT FOUND, capítulo uno",
+      "body": "4,3 puntos de diferencia. Cobrar como un carry y pegar como uno más es toda una declaración de intenciones. El Instituto Hextech de Piltover pide paciencia: el daño, aseguran, está en camino.",
       "stat": "−4,3",
       "stat_label": "puntos entre oro y daño",
       "severity": 4.72,
@@ -300,7 +354,9 @@
         "gold": "25,0 %",
         "share": "20,7 %",
         "gap": "4,3"
-      }
+      },
+      "template_headline": "La Lonja de Aguasturbias congela los fondos de Fr4nux: 25,0 % del oro, 20,7 % del daño",
+      "template_body": "Con Xayah cobró 4,3 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas."
     },
     {
       "id": 11,
@@ -309,8 +365,8 @@
       "desk": "Ecos de Jonia",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "Se busca: GSJoseador solo participó en el 28,2 % de las kills de su equipo",
-      "body": "Su equipo peleaba y GSJoseador estaba en otra parte. Si alguien lo ve en la Grieta, que le avise de que hay una partida en curso.",
+      "headline": "Se busca a GSJoseador: solo participó en el 28,2 % de las kills con Mordekaiser",
+      "body": "Ganó su única partida, pero desde dentro del Reino de la Muerte no se veía gran cosa de lo que pasaba fuera. El equipo celebró la victoria; él, presuntamente, también.",
       "stat": "28 %",
       "stat_label": "participación en kills",
       "severity": 4.36,
@@ -326,7 +382,9 @@
         "champs": "Mordekaiser",
         "hours": "0,5",
         "kp": "28,2 %"
-      }
+      },
+      "template_headline": "Se busca: GSJoseador solo participó en el 28,2 % de las kills de su equipo",
+      "template_body": "Su equipo peleaba y GSJoseador estaba en otra parte. Si alguien lo ve en la Grieta, que le avise de que hay una partida en curso."
     },
     {
       "id": 12,
@@ -335,8 +393,8 @@
       "desk": "Ecos de Jonia",
       "player": null,
       "alias": null,
-      "headline": "Sociedad limitada: Dierophant + grangalax se van 1–2",
-      "body": "La sinergia de este dúo es la de una tostadora en la bañera.",
+      "headline": "Dierophant y grangalax, otro dúo con saldo negativo: 1–2",
+      "body": "Tres partidas juntos, dos derrotas. Ni la jungla de uno ni la moneda del otro dieron para más. Los Ecos de Jonia lo archivan junto al anterior.",
       "stat": "1–2",
       "stat_label": "juntos",
       "severity": 4,
@@ -345,7 +403,9 @@
         "b": "grangalax",
         "w": 1,
         "l": 2
-      }
+      },
+      "template_headline": "Sociedad limitada: Dierophant + grangalax se van 1–2",
+      "template_body": "La sinergia de este dúo es la de una tostadora en la bañera."
     },
     {
       "id": 13,
@@ -354,8 +414,8 @@
       "desk": "Islas de la Sombra",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "Previsión para Fr4nux: Niebla Negra durante 13 minutos",
-      "body": "Las Islas de la Sombra reclamaron a Fr4nux durante 13 minutos, el 9,4 % de su tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza.",
+      "headline": "Fr4nux, 13 minutos en la pantalla gris: la Niebla también visita el carril inferior",
+      "body": "El 9,4 % de su tiempo en partida lo pasó mirando el contador. Desde las Islas de la Sombra comentan que, al menos allí, nadie le exige daño.",
       "stat": "13 min",
       "stat_label": "en la pantalla gris",
       "severity": 3.89,
@@ -372,7 +432,9 @@
         "hours": "2,5",
         "dead_mins": 13,
         "dead_pct": "9,4 %"
-      }
+      },
+      "template_headline": "Previsión para Fr4nux: Niebla Negra durante 13 minutos",
+      "template_body": "Las Islas de la Sombra reclamaron a Fr4nux durante 13 minutos, el 9,4 % de su tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza."
     },
     {
       "id": 14,
@@ -381,8 +443,8 @@
       "desk": "Ecos de Jonia",
       "player": "giroroo",
       "alias": "Giroroo",
-      "headline": "Giroroo, desaparecido en combate: 31,9 % de participación en kills",
-      "body": "De cada diez kills de su equipo, en más de seis no estaba. Fuentes cercanas apuntan a una larga relación con los súbditos de su línea.",
+      "headline": "Giroroo gana sin dejarse ver: 31,9 % de participación en kills con Kayn",
+      "body": "Dos victorias y la sensación de que el equipo hizo casi todo. Kayn se esconde en las paredes; Giroroo, en las estadísticas.",
       "stat": "32 %",
       "stat_label": "participación en kills",
       "severity": 3.63,
@@ -398,7 +460,9 @@
         "champs": "Kayn",
         "hours": "1,1",
         "kp": "31,9 %"
-      }
+      },
+      "template_headline": "Giroroo, desaparecido en combate: 31,9 % de participación en kills",
+      "template_body": "De cada diez kills de su equipo, en más de seis no estaba. Fuentes cercanas apuntan a una larga relación con los súbditos de su línea."
     },
     {
       "id": 15,
@@ -407,8 +471,8 @@
       "desk": "Islas de la Sombra",
       "player": "rdv-canyon",
       "alias": "RDV Canyon",
-      "headline": "Previsión para RDV Canyon: gris durante 9 minutos",
-      "body": "Hoy pasó 9 minutos muerto, el 8,4 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja.",
+      "headline": "RDV Canyon, 9 minutos en gris con Lux: hasta la Dama de la Luz se apaga",
+      "body": "El 8,4 % de su tiempo en partida, muerto. En Demacia la magia está mal vista; viendo lo de ayer, igual tienen sus motivos.",
       "stat": "9 min",
       "stat_label": "en la pantalla gris",
       "severity": 3.49,
@@ -425,7 +489,9 @@
         "hours": "2,0",
         "dead_mins": 9,
         "dead_pct": "8,4 %"
-      }
+      },
+      "template_headline": "Previsión para RDV Canyon: gris durante 9 minutos",
+      "template_body": "Hoy pasó 9 minutos muerto, el 8,4 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja."
     },
     {
       "id": 16,
@@ -434,8 +500,8 @@
       "desk": "Radio Zaun",
       "player": "rdv-canyon",
       "alias": "RDV Canyon",
-      "headline": "RDV Canyon hace 49 pings en una sola partida",
-      "body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él.",
+      "headline": "Radio Zaun registra 49 pings de RDV Canyon en una sola partida",
+      "body": "Una frecuencia saturada por un único emisor. Sus compañeros piden el botón de silenciar con la misma urgencia con la que otros piden el de comprar.",
       "stat": "49",
       "stat_label": "pings en una partida",
       "severity": 3.23,
@@ -451,7 +517,9 @@
         "champs": "Lux, Alistar y Braum",
         "hours": "2,0",
         "pings": 49
-      }
+      },
+      "template_headline": "RDV Canyon hace 49 pings en una sola partida",
+      "template_body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él."
     },
     {
       "id": 17,
@@ -460,8 +528,8 @@
       "desk": "Centinelas de la Luz",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "Una luz en la Ruina: Fr4nux (3–3) no ha sido el peor",
-      "body": "Los Centinelas de la Luz confirman un rayo de esperanza en el grupo: KDA 2,83. Que nadie se emocione; mañana vuelve la Niebla.",
+      "headline": "El Faro de la Esperanza ilumina a Fr4nux: 3–3 y KDA de 2,83 en un día de Niebla",
+      "body": "Mientras el grupo sumaba 224 muertes, Fr4nux cerró el día equilibrado con Caitlyn, Tristana y Xayah. Los Centinelas de la Luz no lo reclutan, pero apuntan su nombre por si escasean los voluntarios.",
       "stat": "3–3",
       "stat_label": "victorias–derrotas",
       "severity": 0.5,
@@ -476,7 +544,9 @@
         "champ": "Tristana",
         "champs": "Caitlyn, Tristana y Xayah",
         "hours": "2,5"
-      }
+      },
+      "template_headline": "Una luz en la Ruina: Fr4nux (3–3) no ha sido el peor",
+      "template_body": "Los Centinelas de la Luz confirman un rayo de esperanza en el grupo: KDA 2,83. Que nadie se emocione; mañana vuelve la Niebla."
     },
     {
       "id": 18,
@@ -485,17 +555,19 @@
       "desk": "Perdidos en el Vacío",
       "player": null,
       "alias": null,
-      "headline": "Ausentes hoy: Wôlf y Sunraku",
-      "body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre.",
+      "headline": "Wôlf y Sunraku no se presentan al número uno: perdidos en el Vacío",
+      "body": "El periódico nace sin ellos. Desde el Vacío no hay cobertura, y desde la Grieta tampoco se les echó de menos.",
       "stat": "2",
       "stat_label": "no jugaron",
       "severity": 0.2,
       "facts": {
         "names": "Wôlf y Sunraku"
-      }
+      },
+      "template_headline": "Ausentes hoy: Wôlf y Sunraku",
+      "template_body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre."
     }
   ],
-  "frase": "Perder en ranked es temporal. El historial es para siempre.",
+  "frase": "Todo periódico necesita un primer muerto. Este empezó con 224.",
   "ranking": [
     {
       "slug": "dierophant",
@@ -1392,5 +1464,28 @@
       "lowest_dmg": false,
       "support": false
     }
-  ]
+  ],
+  "template_frase": "Perder en ranked es temporal. El historial es para siempre.",
+  "columna": {
+    "titulo": "La primera piedra",
+    "autor": "El Analista Frustrado",
+    "cuerpo": [
+      "Llevo años analizando partidas ajenas y nunca había visto un estreno así. Un periódico que nace un lunes con 17 partidas distintas y nadie capaz de cerrar el día con buen sabor de boca, salvo los que se escondieron detrás de una victoria corta.",
+      "Dierophant abre la hemeroteca con un 1–4 que quedará enmarcado. TheTrevur, el hombre que nunca falla con Urgot, falló cuatro veces. Y grangalax jugó nueve partidas, que en sí mismo ya es un titular.",
+      "Mi consejo para el resto de la semana es sencillo: jugad menos o morid menos. Elegid una. Esta redacción, por su parte, seguirá tomando nota."
+    ]
+  },
+  "especial": {
+    "antetitulo": "NÚMERO INAUGURAL",
+    "titulo": "Nace El Feed Diario: 35 partidas, 224 muertes y ningún arrepentimiento",
+    "subtitulo": "Primer día de un periódico que cuenta lo que el grupo preferiría olvidar: 17 partidas distintas, ocho jugadores y la Niebla Negra a pleno rendimiento.",
+    "tema": "oro"
+  },
+  "ai": {
+    "version": 1,
+    "updated_at": 1792446424085,
+    "firma": "Claude",
+    "stale": false
+  },
+  "written_by": "Claude"
 }

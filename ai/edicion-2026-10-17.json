@@ -1,0 +1,42 @@
+{
+  "items": [
+    {"id": 0, "headline": "GSJoseador hereda la corona de la vergüenza: 2–2 y un Jinx de 5.909 de daño",
+     "body": "KDA de 2,43 y 21 muertes repartidas entre Jinx y Xerath. Con grangalax y Fr4nux de descanso, alguien tenía que ocupar la portada, y GSJoseador se presentó voluntario sin saberlo."},
+    {"id": 1, "headline": "Escándalo en la Lonja: GSJoseador se lleva el 22,3 % del oro con Jinx y devuelve el 10,4 % del daño",
+     "body": "11,9 puntos de diferencia, el mayor desfase de la semana. En Aguasturbias se habla ya de la estafa del sábado. Fr4nux, por una vez, puede respirar tranquilo."},
+    {"id": 2, "headline": "Dierophant cobra el 17,5 % del oro con Ekko y aporta el 9,5 % del daño",
+     "body": "8 puntos de diferencia en un día que acabó 3–1. Ganar se gana, pero la Lonja de Aguasturbias no entiende de resultados."},
+    {"id": 3, "headline": "Wôlf, 10 muertes con Yasuo: la ley de Yasuo se cumple otra vez",
+     "body": "5/10/15 en 43 minutos de Ranked Flex, muriendo cada 4:18. Cerró el día 3–1, pero la Comisaría de Piltover ya no necesita ni rellenar la ficha: tiene una plantilla."},
+    {"id": 4, "headline": "GSJoseador, el que menos daño de su equipo con Jinx: 2/9/2",
+     "body": "5.909 de daño, el 10,4 % del total. Una Jinx que no hace daño es como un cohete de Zaun sin pólvora: hace ruido y poco más."},
+    {"id": 5, "headline": "Dierophant, el que menos daño de su equipo con Ekko: 5/9/15",
+     "body": "18.515 de daño, el 9,5 % del total. Las asistencias salvan el expediente; el daño, no."},
+    {"id": 6, "headline": "Wôlf pasa 15 minutos en la Niebla Negra",
+     "body": "El 11,5 % de su tiempo en partida, muerto. Va camino de tener carné de residente en las Islas de la Sombra."},
+    {"id": 7, "headline": "TheTrevur, 11 minutos en gris con su Urgot",
+     "body": "El 9,1 % de su tiempo en partida. Ganó 3–1, así que el cangrejo considera el viaje a las Islas un mal menor."},
+    {"id": 8, "headline": "RDV Canyon, 11 minutos en gris en un gran día",
+     "body": "El 7,1 % de su tiempo en partida. Ni los mejores días están libres de Niebla."},
+    {"id": 9, "headline": "Radio Zaun: 56 pings de RDV Canyon en una partida",
+     "body": "Cuarto día de la semana por encima de los 40 pings. RDV Canyon ya no comunica: emite."},
+    {"id": 10, "headline": "El Faro de la Esperanza brilla para RDV Canyon: 4–1 y KDA de 4,27",
+     "body": "Con Nautilus, Ashe y Leona, el mejor del sábado. Los Centinelas de la Luz le piden, eso sí, que baje el volumen de los pings."},
+    {"id": 11, "headline": "Cinco ausentes en sábado: grangalax y Fr4nux, entre ellos",
+     "body": "grangalax, Fr4nux, iPredatoRz, Sunraku y Giroroo no jugaron. Los dos protagonistas de la semana se tomaron el día libre, y se notó en las estadísticas."}
+  ],
+  "extra": [
+    {"section": "ECONOMÍA", "desk": "Lonja de Aguasturbias", "headline": "Fr4nux tiene competencia: el título de «no hago daño» cambia de manos",
+     "body": "Con un 10,4 % del daño de su equipo jugando Jinx, una tiradora, GSJoseador se presenta como aspirante al título. El Instituto Hextech de Piltover abre un debate formal: ¿es el «CARRY NOT FOUND» un título personal o una enfermedad contagiosa del grupo?",
+     "player": "gsjoseador", "stat": "10,4 %", "stat_label": "del daño de su equipo con Jinx", "campeon": "Jinx",
+     "pie": "Jinx, ayer, buscando su daño entre las cajas de munición."}
+  ],
+  "columna": {"titulo": "Sábado sin titulares (casi)", "autor": "Doña Tilt",
+    "cuerpo": [
+      "Sin grangalax y sin Fr4nux, temía quedarme sin material. Me equivocaba: GSJoseador ha decidido que la tradición no se puede perder y ha jugado Jinx como si fuera un soporte con mucho oro.",
+      "RDV Canyon, en cambio, firma el día más digno del grupo, aunque sus compañeros me escriben para pedir que alguien le retire los pings. Lo apunto como queja ciudadana."
+    ]},
+  "especial": null,
+  "frase": "El daño no se hereda, pero la falta de daño, por lo visto, sí.",
+  "firma": "Claude"
+}

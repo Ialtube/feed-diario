@@ -4,7 +4,7 @@ from html import escape
 from pathlib import Path
 
 from .roasts import DESKS
-from .util import fmt_int, fmt_num, fmt_pct, long_date, short_date, slugify
+from .util import champ_name, fmt_int, fmt_num, fmt_pct, long_date, short_date, slugify
 
 POINTS = [5, 3, 2, 1]  # daily shame points by position in the ranking
 
@@ -414,7 +414,7 @@ def render_player(cfg, friend, editions):
         f'<h3>{_e(it["headline"])}</h3>{_stat(it)}<p>{_e(it["body"])}</p></article>'
         for it in reversed(items[-20:]))
     rows = "".join(
-        f'<tr><td>{_e(short_date(_date(x["date"])))}</td><td>{_e(x["champ"])}</td><td>{_e(x["role"])}</td>'
+        f'<tr><td>{_e(short_date(_date(x["date"])))}</td><td>{_e(champ_name(x["champ"]))}</td><td>{_e(x["role"])}</td>'
         f'<td>{_e(x["queue_name"])}</td><td class="{"win" if x["win"] else "loss"}">{"V" if x["win"] else "D"}</td>'
         f'<td class="num">{x["k"]}/{x["d"]}/{x["a"]}</td>'
         f'<td class="num">{fmt_pct(x["dmg_share"], 0)}</td></tr>' for x in reversed(games[-25:]))

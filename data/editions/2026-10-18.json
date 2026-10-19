@@ -14,8 +14,8 @@
       "desk": "",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "grangalax vuelve a hacerlo: 70 muertes, KDA 1,79 y cero vergüenza",
-      "body": "El día de grangalax se resume en 3–5. El 19,0 % del daño de su equipo de media. El equipo rival ha pedido que se le conceda la medalla al mérito civil.",
+      "headline": "Vuelve Locke y vuelve el desastre: grangalax cierra el domingo 3–5 con 70 muertes",
+      "body": "4,5 horas, un KDA de 1,79 y una rotación de Locke, Ekko y Viktor. Ni el descanso de dos días le ha servido: grangalax regresa con la misma puntería de siempre, apuntando a la pantalla gris.",
       "stat": "3–5",
       "stat_label": "victorias–derrotas",
       "severity": 100,
@@ -30,7 +30,43 @@
         "champ": "Locke",
         "champs": "Locke, Ekko y Viktor",
         "hours": "4,5"
-      }
+      },
+      "template_headline": "grangalax vuelve a hacerlo: 70 muertes, KDA 1,79 y cero vergüenza",
+      "template_body": "El día de grangalax se resume en 3–5. El 19,0 % del daño de su equipo de media. El equipo rival ha pedido que se le conceda la medalla al mérito civil."
+    },
+    {
+      "id": 1000,
+      "kind": "ia",
+      "section": "CULTURA",
+      "desk": "Biblioteca de Shurima",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "Locke regresa al repertorio de grangalax y la Biblioteca de Shurima toma nota",
+      "body": "Los archivistas recuerdan que Locke ya figuraba entre los grandes fracasos documentados de grangalax. Su vuelta este domingo coincide con 70 muertes y un 3–5. La Biblioteca ha decidido abrir una sección dedicada, de momento en la estantería de abajo.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Locke",
+      "pie": "Locke, ayer, poco antes de volver a manos de grangalax.",
+      "severity": 99,
+      "facts": {}
+    },
+    {
+      "id": 1001,
+      "kind": "ia",
+      "section": "SUCESOS",
+      "desk": "Islas de la Sombra",
+      "player": null,
+      "alias": null,
+      "headline": "228 muertes en un domingo: la Niebla Negra pide horas extra",
+      "body": "Entre 33 partidas del grupo, el domingo cierra con la cifra de muertes más alta de la semana. Los espectros de las Islas de la Sombra han convocado una huelga por exceso de trabajo.",
+      "stat": "228",
+      "stat_label": "muertes del grupo en un día",
+      "imagen": null,
+      "campeon": null,
+      "pie": "",
+      "severity": 98,
+      "facts": {}
     },
     {
       "id": 1,
@@ -39,8 +75,8 @@
       "desk": "Arena de Noxus",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Racha negra: 4 derrotas consecutivas para Dierophant",
-      "body": "Ni cambiando de campeón (Naafiri, Viego y Tristana) consiguió cortar la sangría. Día cerrado con 1–4.",
+      "headline": "Dierophant, cuatro derrotas seguidas en un día de 1–4",
+      "body": "Pasó por Naafiri, Viego y Tristana sin encontrar la salida. En la Arena de Noxus ya se comenta que el lunes también existe.",
       "stat": "4",
       "stat_label": "derrotas seguidas",
       "severity": 7,
@@ -56,7 +92,9 @@
         "champs": "Naafiri, Viego y Tristana",
         "hours": "2,6",
         "n": 4
-      }
+      },
+      "template_headline": "Racha negra: 4 derrotas consecutivas para Dierophant",
+      "template_body": "Ni cambiando de campeón (Naafiri, Viego y Tristana) consiguió cortar la sangría. Día cerrado con 1–4."
     },
     {
       "id": 2,
@@ -65,8 +103,8 @@
       "desk": "Comisaría de Piltover",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Récord de Dierophant: 14 muertes en 32 minutos",
-      "body": "Con Tristana murió cada 2:19 de media. Derrota, claro. El contador de muertes pidió una pausa.",
+      "headline": "La Comisaría de Piltover detiene a la Tristana de Dierophant: 14 muertes en 32 minutos",
+      "body": "6/14/9 en Ranked Flex, muriendo cada 2:19. La artillera yordle saltó tantas veces hacia los enemigos que acabó aterrizando en el calabozo.",
       "stat": "14",
       "stat_label": "muertes en una partida",
       "severity": 6.6,
@@ -87,7 +125,9 @@
         "every": "2:19",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "Récord de Dierophant: 14 muertes en 32 minutos",
+      "template_body": "Con Tristana murió cada 2:19 de media. Derrota, claro. El contador de muertes pidió una pausa."
     },
     {
       "id": 3,
@@ -96,8 +136,8 @@
       "desk": "Islas de la Sombra",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "Previsión para grangalax: gris durante 39 minutos",
-      "body": "Hoy pasó 39 minutos muerto, el 14,6 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja.",
+      "headline": "Previsión para grangalax: 39 minutos de Niebla Negra",
+      "body": "El 14,6 % de su tiempo en partida, muerto. Viego no dice nada; ya le ha hecho un hueco en el armario.",
       "stat": "39 min",
       "stat_label": "en la pantalla gris",
       "severity": 6.48,
@@ -114,7 +154,9 @@
         "hours": "4,5",
         "dead_mins": 39,
         "dead_pct": "14,6 %"
-      }
+      },
+      "template_headline": "Previsión para grangalax: gris durante 39 minutos",
+      "template_body": "Hoy pasó 39 minutos muerto, el 14,6 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja."
     },
     {
       "id": 4,
@@ -123,8 +165,8 @@
       "desk": "Arena de Noxus",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "grangalax encadena 3 derrotas seguidas y sigue dándole a «Jugar otra vez»",
-      "body": "Su día terminó 3–5. Los expertos recomiendan apagar el ordenador; grangalax recomienda otra partida rápida.",
+      "headline": "Y además, tres derrotas seguidas: el domingo de grangalax",
+      "body": "Tres consecutivas en un día de 3–5. La moneda, esta semana, ha caído siempre del mismo lado.",
       "stat": "3",
       "stat_label": "derrotas seguidas",
       "severity": 6,
@@ -140,7 +182,9 @@
         "champs": "Locke, Ekko y Viktor",
         "hours": "4,5",
         "n": 3
-      }
+      },
+      "template_headline": "grangalax encadena 3 derrotas seguidas y sigue dándole a «Jugar otra vez»",
+      "template_body": "Su día terminó 3–5. Los expertos recomiendan apagar el ordenador; grangalax recomienda otra partida rápida."
     },
     {
       "id": 5,
@@ -149,8 +193,8 @@
       "desk": "Arena de Noxus",
       "player": "rdv-canyon",
       "alias": "RDV Canyon",
-      "headline": "Racha negra: 3 derrotas consecutivas para RDV Canyon",
-      "body": "Ni cambiando de campeón (Ashe, Rakan y Karma) consiguió cortar la sangría. Día cerrado con 1–4.",
+      "headline": "RDV Canyon cae tres veces seguidas tras su gran sábado",
+      "body": "1–4 con Ashe, Rakan y Karma. Del Faro de la Esperanza a la Arena de Noxus en veinticuatro horas.",
       "stat": "3",
       "stat_label": "derrotas seguidas",
       "severity": 6,
@@ -166,7 +210,9 @@
         "champs": "Ashe, Rakan y Karma",
         "hours": "2,5",
         "n": 3
-      }
+      },
+      "template_headline": "Racha negra: 3 derrotas consecutivas para RDV Canyon",
+      "template_body": "Ni cambiando de campeón (Ashe, Rakan y Karma) consiguió cortar la sangría. Día cerrado con 1–4."
     },
     {
       "id": 6,
@@ -175,8 +221,8 @@
       "desk": "Arena de Noxus",
       "player": "thetrevur",
       "alias": "TheTrevur",
-      "headline": "TheTrevur encadena 3 derrotas seguidas y sigue dándole a «Jugar otra vez»",
-      "body": "Su día terminó 2–4. Los expertos recomiendan apagar el ordenador; TheTrevur recomienda otra partida rápida.",
+      "headline": "Urgot.exe vuelve a colgarse: TheTrevur suma tres derrotas seguidas",
+      "body": "2–4 en el día. El cangrejo cierra la semana igual que la empezó: necesitando que alguien lo reinicie.",
       "stat": "3",
       "stat_label": "derrotas seguidas",
       "severity": 6,
@@ -192,7 +238,9 @@
         "champs": "Urgot",
         "hours": "3,2",
         "n": 3
-      }
+      },
+      "template_headline": "TheTrevur encadena 3 derrotas seguidas y sigue dándole a «Jugar otra vez»",
+      "template_body": "Su día terminó 2–4. Los expertos recomiendan apagar el ordenador; TheTrevur recomienda otra partida rápida."
     },
     {
       "id": 7,
@@ -201,8 +249,8 @@
       "desk": "Ecos de Jonia",
       "player": null,
       "alias": null,
-      "headline": "Sociedad limitada: Dierophant + grangalax se van 1–4",
-      "body": "La sinergia de este dúo es la de una tostadora en la bañera.",
+      "headline": "Dierophant y grangalax, 1–4 juntos: la peor sociedad del domingo",
+      "body": "Cinco partidas compartidas y una victoria. Los Ecos de Jonia ya no dan consejos: solo pésames.",
       "stat": "1–4",
       "stat_label": "juntos",
       "severity": 6,
@@ -211,7 +259,9 @@
         "b": "grangalax",
         "w": 1,
         "l": 4
-      }
+      },
+      "template_headline": "Sociedad limitada: Dierophant + grangalax se van 1–4",
+      "template_body": "La sinergia de este dúo es la de una tostadora en la bañera."
     },
     {
       "id": 8,
@@ -220,8 +270,8 @@
       "desk": "Ecos de Jonia",
       "player": null,
       "alias": null,
-      "headline": "Dierophant y TheTrevur, dúo del desastre: 1–4 juntos",
-      "body": "Juntos suman más derrotas que victorias. Por separado, al menos, pierden en partidas distintas.",
+      "headline": "Dierophant y TheTrevur repiten el 1–4 del lunes",
+      "body": "La semana empezó con este mismo dúo perdiendo 1–4 y termina igual. Hay tradiciones que nadie pidió.",
       "stat": "1–4",
       "stat_label": "juntos",
       "severity": 6,
@@ -230,7 +280,9 @@
         "b": "TheTrevur",
         "w": 1,
         "l": 4
-      }
+      },
+      "template_headline": "Dierophant y TheTrevur, dúo del desastre: 1–4 juntos",
+      "template_body": "Juntos suman más derrotas que victorias. Por separado, al menos, pierden en partidas distintas."
     },
     {
       "id": 9,
@@ -239,8 +291,8 @@
       "desk": "Comisaría de Piltover",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Detenido Wôlf por alimentar al enemigo: 11 muertes con Ashe",
-      "body": "Los hechos ocurrieron en una Ranked Flex de 32 minutos. Resultado: 1/11/15. Aun así ganaron, de milagro. El rival ya le ha enviado una cesta de agradecimiento.",
+      "headline": "Wôlf, 11 muertes con Ashe: 1/11/15 en Ranked Flex",
+      "body": "32 minutos, muriendo cada 2:55. La Arquera de Hielo apunta lejos; Wôlf, por lo visto, se acercó demasiado.",
       "stat": "11",
       "stat_label": "muertes en una partida",
       "severity": 5.4,
@@ -261,7 +313,9 @@
         "every": "2:55",
         "res": "victoria",
         "res_cap": "Aun así ganaron, de milagro"
-      }
+      },
+      "template_headline": "Detenido Wôlf por alimentar al enemigo: 11 muertes con Ashe",
+      "template_body": "Los hechos ocurrieron en una Ranked Flex de 32 minutos. Resultado: 1/11/15. Aun así ganaron, de milagro. El rival ya le ha enviado una cesta de agradecimiento."
     },
     {
       "id": 10,
@@ -270,8 +324,8 @@
       "desk": "Comisaría de Piltover",
       "player": "rdv-canyon",
       "alias": "RDV Canyon",
-      "headline": "RDV Canyon muere 10 veces en una sola partida y la policía de Piltover abre una investigación",
-      "body": "Alistar, 1/10/21, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
+      "headline": "El Alistar de RDV Canyon muere 10 veces y reparte 21 asistencias",
+      "body": "1/10/21 en 32 minutos de Ranked Flex. El minotauro empuja a todos los enemigos; esta vez, sobre todo, contra él.",
       "stat": "10",
       "stat_label": "muertes en una partida",
       "severity": 5.0,
@@ -292,7 +346,9 @@
         "every": "3:16",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "RDV Canyon muere 10 veces en una sola partida y la policía de Piltover abre una investigación",
+      "template_body": "Alistar, 1/10/21, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez."
     },
     {
       "id": 11,
@@ -301,8 +357,8 @@
       "desk": "Comisaría de Piltover",
       "player": "thetrevur",
       "alias": "TheTrevur",
-      "headline": "Detenido TheTrevur por alimentar al enemigo: 10 muertes con Urgot",
-      "body": "Los hechos ocurrieron en una Ranked Flex de 41 minutos. Resultado: 11/10/6. Derrota, claro. El rival ya le ha enviado una cesta de agradecimiento.",
+      "headline": "El Urgot de TheTrevur, 11/10/6 y otra visita a la comisaría",
+      "body": "41 minutos de Ranked Flex muriendo cada 4:11. Al menos esta vez se llevó a unos cuantos por delante.",
       "stat": "10",
       "stat_label": "muertes en una partida",
       "severity": 5.0,
@@ -323,7 +379,9 @@
         "every": "4:11",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "Detenido TheTrevur por alimentar al enemigo: 10 muertes con Urgot",
+      "template_body": "Los hechos ocurrieron en una Ranked Flex de 41 minutos. Resultado: 11/10/6. Derrota, claro. El rival ya le ha enviado una cesta de agradecimiento."
     },
     {
       "id": 12,
@@ -332,8 +390,8 @@
       "desk": "Comisaría de Piltover",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "Detenido GSJoseador por alimentar al enemigo: 10 muertes con Caitlyn",
-      "body": "Los hechos ocurrieron en una Ranked Flex de 38 minutos. Resultado: 9/10/10. Aun así ganaron, de milagro. El rival ya le ha enviado una cesta de agradecimiento.",
+      "headline": "GSJoseador, 10 muertes con Caitlyn: la sheriff, detenida por sus propios agentes",
+      "body": "9/10/10 en 38 minutos de Ranked Flex. En Piltover no saben si abrir expediente o pedir disculpas.",
       "stat": "10",
       "stat_label": "muertes en una partida",
       "severity": 5.0,
@@ -354,7 +412,9 @@
         "every": "3:50",
         "res": "victoria",
         "res_cap": "Aun así ganaron, de milagro"
-      }
+      },
+      "template_headline": "Detenido GSJoseador por alimentar al enemigo: 10 muertes con Caitlyn",
+      "template_body": "Los hechos ocurrieron en una Ranked Flex de 38 minutos. Resultado: 9/10/10. Aun así ganaron, de milagro. El rival ya le ha enviado una cesta de agradecimiento."
     },
     {
       "id": 13,
@@ -363,8 +423,8 @@
       "desk": "Islas de la Sombra",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Previsión para Wôlf: Niebla Negra durante 16 minutos",
-      "body": "Las Islas de la Sombra reclamaron a Wôlf durante 16 minutos, el 8,5 % de su tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza.",
+      "headline": "Wôlf cierra la semana con 16 minutos en gris",
+      "body": "El 8,5 % de su tiempo en partida, muerto. Aun así terminó 4–2, el balance más digno de su semana.",
       "stat": "16 min",
       "stat_label": "en la pantalla gris",
       "severity": 4.11,
@@ -381,7 +441,9 @@
         "hours": "3,2",
         "dead_mins": 16,
         "dead_pct": "8,5 %"
-      }
+      },
+      "template_headline": "Previsión para Wôlf: Niebla Negra durante 16 minutos",
+      "template_body": "Las Islas de la Sombra reclamaron a Wôlf durante 16 minutos, el 8,5 % de su tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza."
     },
     {
       "id": 14,
@@ -390,8 +452,8 @@
       "desk": "Corte de Demacia",
       "player": null,
       "alias": null,
-      "headline": "Bandera blanca: grangalax, Dierophant, RDV Canyon, Wôlf y TheTrevur se rindieron 2 veces hoy",
-      "body": "Votar sí antes de tiempo también es una forma de jugar. No la mejor.",
+      "headline": "Demacia no se rinde, pero el grupo sí: dos rendiciones en domingo",
+      "body": "grangalax, Dierophant, RDV Canyon, Wôlf y TheTrevur votaron sí antes de tiempo dos veces. Garen ha retirado el saludo a toda la plantilla.",
       "stat": "2",
       "stat_label": "partidas rendidas",
       "severity": 4,
@@ -399,7 +461,9 @@
         "names": "grangalax, Dierophant, RDV Canyon, Wôlf y TheTrevur",
         "verb": "se rindieron",
         "n_txt": "2 veces"
-      }
+      },
+      "template_headline": "Bandera blanca: grangalax, Dierophant, RDV Canyon, Wôlf y TheTrevur se rindieron 2 veces hoy",
+      "template_body": "Votar sí antes de tiempo también es una forma de jugar. No la mejor."
     },
     {
       "id": 15,
@@ -408,8 +472,8 @@
       "desk": "Islas de la Sombra",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "GSJoseador se pasa 12 minutos en la pantalla gris",
-      "body": "El 11,2 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
+      "headline": "GSJoseador pasa 12 minutos en la Niebla Negra",
+      "body": "El 11,2 % de su tiempo en partida. Un precio razonable por ser el mejor del domingo.",
       "stat": "12 min",
       "stat_label": "en la pantalla gris",
       "severity": 3.76,
@@ -426,7 +490,9 @@
         "hours": "1,9",
         "dead_mins": 12,
         "dead_pct": "11,2 %"
-      }
+      },
+      "template_headline": "GSJoseador se pasa 12 minutos en la pantalla gris",
+      "template_body": "El 11,2 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro."
     },
     {
       "id": 16,
@@ -435,8 +501,8 @@
       "desk": "Centinelas de la Luz",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "Desde el Faro, una señal: GSJoseador sobrevive al día (2–1)",
-      "body": "El mejor del grupo, que no es decir mucho. Los Centinelas de la Luz lo anotan en su diario con letra pequeña, por si acaso.",
+      "headline": "El Faro de la Esperanza ilumina a GSJoseador: 2–1 en un domingo de 228 muertes",
+      "body": "Con Viktor y Caitlyn, el único que se salvó del naufragio. Los Centinelas de la Luz le agradecen que no se hundiera con el resto.",
       "stat": "2–1",
       "stat_label": "victorias–derrotas",
       "severity": 0.5,
@@ -451,7 +517,9 @@
         "champ": "Caitlyn",
         "champs": "Viktor y Caitlyn",
         "hours": "1,9"
-      }
+      },
+      "template_headline": "Desde el Faro, una señal: GSJoseador sobrevive al día (2–1)",
+      "template_body": "El mejor del grupo, que no es decir mucho. Los Centinelas de la Luz lo anotan en su diario con letra pequeña, por si acaso."
     },
     {
       "id": 17,
@@ -460,17 +528,19 @@
       "desk": "Perdidos en el Vacío",
       "player": null,
       "alias": null,
-      "headline": "Desaparecidos del día: Fr4nux, iPredatoRz, Sunraku y Giroroo",
-      "body": "Ni una partida. La Grieta respira tranquila por un día.",
+      "headline": "Fr4nux, iPredatoRz, Sunraku y Giroroo se pierden el domingo",
+      "body": "Cuatro ausentes en el día más sangriento de la semana. Algunos lo llaman suerte; esta redacción lo llama instinto.",
       "stat": "4",
       "stat_label": "no jugaron",
       "severity": 0.2,
       "facts": {
         "names": "Fr4nux, iPredatoRz, Sunraku y Giroroo"
-      }
+      },
+      "template_headline": "Desaparecidos del día: Fr4nux, iPredatoRz, Sunraku y Giroroo",
+      "template_body": "Ni una partida. La Grieta respira tranquila por un día."
     }
   ],
-  "frase": "Un ward a tiempo es una muerte menos. Nadie del grupo lo sabe.",
+  "frase": "Rendirse dos veces en un día no es estrategia. Es un estilo de vida.",
   "ranking": [
     {
       "slug": "grangalax",
@@ -1285,5 +1355,23 @@
       "lowest_dmg": false,
       "support": false
     }
-  ]
+  ],
+  "template_frase": "Un ward a tiempo es una muerte menos. Nadie del grupo lo sabe.",
+  "columna": {
+    "titulo": "Balance de una semana en la Grieta",
+    "autor": "El Analista Frustrado",
+    "cuerpo": [
+      "Siete días, dos dúos que repiten el 1–4 de su estreno y un grangalax que ha convertido la portada en su segunda casa. Si esto fuera una liga, ya estaríamos hablando de descenso.",
+      "Lo positivo, porque esta columna también lo busca: un pentakill de Fr4nux que nadie esperaba, un sábado digno de RDV Canyon y un viernes en el que casi nadie jugó, que también cuenta.",
+      "Mañana empieza otra semana. Os ruego, por el bien de las Islas de la Sombra, que muráis un poco menos."
+    ]
+  },
+  "especial": null,
+  "ai": {
+    "version": 1,
+    "updated_at": 1792446426411,
+    "firma": "Claude",
+    "stale": false
+  },
+  "written_by": "Claude"
 }

@@ -1,0 +1,24 @@
+{
+  "items": [
+    {"id": 0, "headline": "El viernes del silencio: grangalax juega una partida, la gana y es portada igual",
+     "body": "1–0 con Lillia y un KDA de 1,50. Era el único del grupo en la Grieta y aun así consiguió encabezar la clasificación de la vergüenza. Hay talentos que no se pueden enseñar."},
+    {"id": 1, "headline": "grangalax gana, pero solo participa en el 20,9 % de las kills",
+     "body": "Lillia corre por el bosque como nadie; las peleas, por lo visto, pasaron por otro sitio. El equipo ganó y él estaba, técnicamente, en la partida."},
+    {"id": 2, "headline": "La Lonja también trabaja en viernes: grangalax, 17,9 % del oro y 12,7 % del daño",
+     "body": "5,2 puntos de diferencia con Lillia. Ni en su única partida de la semana se libra de Hacienda."},
+    {"id": 3, "headline": "Nueve ausentes: el grupo entero se pierde en el Vacío",
+     "body": "TheTrevur, Wôlf, Fr4nux, GSJoseador, Dierophant, iPredatoRz, Sunraku, RDV Canyon y Giroroo no jugaron. Esta redacción ha confirmado que el servidor seguía encendido."}
+  ],
+  "extra": [
+    {"section": "SOCIEDAD", "desk": "Ecos de Jonia", "headline": "¿Dónde estaba todo el mundo? La redacción investiga el viernes fantasma",
+     "body": "Una sola partida en todo el día. Las hipótesis de esta casa van desde una conspiración del Vacío hasta la más improbable: que el grupo saliera a la calle. Seguiremos informando si alguien confiesa."}
+  ],
+  "columna": {"titulo": "Elogio del viernes", "autor": "Un Súbdito Anónimo",
+    "cuerpo": [
+      "Escribo desde el carril central, donde por una vez nadie me ha farmeado ni me ha dejado morir de viejo. Ha sido el día más tranquilo de mi vida.",
+      "Solo grangalax pasó por aquí, ganó una partida y se fue. Los demás súbditos y yo nos miramos sin creerlo. Ojalá todos los días fueran viernes."
+    ]},
+  "especial": null,
+  "frase": "La mejor partida es la que no se juega. El grupo lo descubrió un viernes.",
+  "firma": "Claude"
+}

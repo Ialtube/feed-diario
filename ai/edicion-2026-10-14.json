@@ -1,0 +1,37 @@
+{
+  "items": [
+    {"id": 0, "headline": "Resaca de gloria: Fr4nux pasa del pentakill a la portada de la vergüenza",
+     "body": "Veinticuatro horas después de su gesta, Fr4nux cierra 3–2 con 33 muertes y un KDA de 1,79 pasando por Ashe, Kalista y Jinx. El pentakill duró lo que dura un helado en Shurima."},
+    {"id": 1, "headline": "Dierophant gana 2–0 con un KDA de 9,50 y aun así la Lonja le multa",
+     "body": "Con Sylas cobró el 20 % del oro y aportó el 12,8 % del daño: 7,2 puntos de diferencia. Robar las definitivas ajenas es lo suyo; el daño, por lo visto, no."},
+    {"id": 2, "headline": "Dierophant, el que menos daño de su equipo en una de sus dos victorias",
+     "body": "9/4/13 con Sylas y 18.384 de daño, el 12,8 % del total. Ganar ganó, pero el Instituto Hextech pide que conste en acta."},
+    {"id": 3, "headline": "Fr4nux vuelve a ser Fr4nux: 22,4 % del oro con Ashe, 17,2 % del daño",
+     "body": "5,2 puntos de desfase. La Arquera de Hielo congeló a los rivales; el contador de daño, también."},
+    {"id": 4, "headline": "Wôlf, detenido otra vez: 10 muertes con Zed en Ranked Flex",
+     "body": "6/10/8 en 31 minutos, muriendo cada 3:06. Ganó su día 3–1, pero la Comisaría de Piltover tiene memoria y su ficha empieza a pesar."},
+    {"id": 5, "headline": "El regreso del Fr4nux de siempre: el que menos daño de su equipo con Caitlyn",
+     "body": "4/5/5 y 12.614 de daño, el 16,1 % del total. La sheriff de Piltover ha pedido que no se use su nombre en estas circunstancias."},
+    {"id": 6, "headline": "Wôlf pasa 16 minutos en la Niebla Negra",
+     "body": "El 12,7 % de su tiempo en partida, muerto. Viego ya le ha asignado habitación en las Islas de la Sombra."},
+    {"id": 7, "headline": "Radio Zaun: 43 pings de TheTrevur con Urgot",
+     "body": "El cangrejo no habla, pero su piloto sí. Cuarenta y tres avisos en una partida que, eso sí, ganó."},
+    {"id": 8, "headline": "El Faro de la Esperanza vuelve a Urgot: TheTrevur, 2–0 y KDA de 4,25",
+     "body": "Tras el desastre del lunes, el one-trick recupera la fe. Los Centinelas de la Luz respiran: el cangrejo funciona."},
+    {"id": 9, "headline": "Medio grupo, perdido en el Vacío: seis ausencias en un miércoles",
+     "body": "grangalax, GSJoseador, iPredatoRz, Sunraku, RDV Canyon y Giroroo no jugaron. La Grieta, por una vez, estuvo tranquila."}
+  ],
+  "extra": [
+    {"section": "HORÓSCOPO", "desk": "Observatorio del Monte Targon", "headline": "Lo que dicen las estrellas de Targon para el jueves",
+     "body": "Para el que hizo un pentakill el martes: los astros recomiendan humildad, que ya se ha visto que dura poco. Para Wôlf: una constelación con forma de Zed muriendo augura más de lo mismo. Para grangalax, que hoy descansó: las estrellas no se pronuncian, pero el contador de muertes le espera con los brazos abiertos."}
+  ],
+  "columna": {"titulo": "El pentakill es un estado de ánimo", "autor": "El Sabio del Bot Lane",
+    "cuerpo": [
+      "Llevo muchos años en el carril inferior y he visto a muchos tiradores creerse inmortales después de un pentakill. Todos vuelven. Lo de Fr4nux ha sido rapidísimo: un día.",
+      "33 muertes en cinco partidas. Del 32,8 % del daño a ser el que menos daño hace de su equipo con Caitlyn. La gloria, en el bot, se mide en horas.",
+      "Mi consejo: guarda la repetición del pentakill. Vas a necesitar mirarla a menudo."
+    ]},
+  "especial": null,
+  "frase": "El pentakill de ayer no paga las muertes de hoy.",
+  "firma": "Claude"
+}

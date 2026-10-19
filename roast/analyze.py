@@ -5,6 +5,8 @@ against the match data.
 """
 from collections import Counter, defaultdict
 
+from .util import champ_name
+
 QUEUE_NAMES = {
     420: "Ranked Solo/Dúo", 440: "Ranked Flex", 400: "Normal Draft", 430: "Normal",
     490: "Partida rápida", 480: "Swiftplay", 450: "ARAM", 900: "URF", 1900: "URF",
@@ -62,7 +64,7 @@ def game_rows(match, friend_by_puuid):
             "match": match["id"], "queue": match["queue"], "queue_name": queue_name(match["queue"]),
             "end": match["end"], "dur": match["dur"],
             "alias": friend["alias"], "slug": friend["slug"],
-            "champ": p["champ"], "pos": p["pos"], "role": ROLE_NAMES.get(p["pos"], p["pos"].lower() or "?"),
+            "champ": champ_name(p["champ"]), "pos": p["pos"], "role": ROLE_NAMES.get(p["pos"], p["pos"].lower() or "?"),
             "support": p["pos"] == "UTILITY",
             "win": p["win"], "k": p["k"], "d": p["d"], "a": p["a"], "kda": round(kda, 2),
             "dmg": p["dmg"], "gold": p["gold"],

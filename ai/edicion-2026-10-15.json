@@ -1,0 +1,52 @@
+{
+  "items": [
+    {"id": 0, "headline": "Jueves negro: grangalax muere 84 veces en 9 partidas",
+     "body": "4–5, KDA de 1,98 y 5,3 horas con Ekko, Lillia y Hwei. Ochenta y cuatro muertes. La redacción ha comprobado el dato tres veces con la esperanza de un error. No lo hay: es, con diferencia, la cifra más alta de la breve historia de este periódico."},
+    {"id": 1, "headline": "La Comisaría de Piltover cierra la línea de grangalax: 16 muertes con Ekko en una partida",
+     "body": "8/16/10 en 39 minutos de Ranked Solo/Dúo, muriendo cada 2:29. Ekko puede volver cuatro segundos atrás en el tiempo. Habría necesitado volver al menú principal."},
+    {"id": 2, "headline": "Previsión para grangalax: 49 minutos de Niebla Negra",
+     "body": "El 15,4 % de su tiempo en partida lo pasó muerto. Las Islas de la Sombra le han ofrecido la ciudadanía honoraria y un banco con su nombre."},
+    {"id": 3, "headline": "GSJoseador cobra el 20,4 % del oro con Cho'Gath y devuelve el 12,7 % del daño",
+     "body": "7,7 puntos de diferencia. El Terror del Vacío se come a los enemigos; esta vez, sobre todo, se comió el oro."},
+    {"id": 4, "headline": "Wôlf, 12 muertes con Lux: la Dama de la Luz, a oscuras",
+     "body": "6/12/13 en 38 minutos de Ranked Flex. En Demacia esconden a los magos; Wôlf, por lo visto, también."},
+    {"id": 5, "headline": "El Urgot de TheTrevur, otra vez en el calabozo: 11 muertes en 42 minutos",
+     "body": "7/11/7 en Ranked Flex, muriendo cada 3:53. El día se salvó con un 3–2, pero la sheriff Caitlyn ya tiene una celda con su nombre."},
+    {"id": 6, "headline": "Fr4nux hace 15 kills con Jinx… y muere 10 veces en una derrota",
+     "body": "15/10/11 en 43 minutos de Ranked Solo/Dúo. Por fin hubo daño; lo que no hubo fue victoria. Su única partida del día terminó 0–1."},
+    {"id": 7, "headline": "Wôlf y grangalax, 0–2: el dúo maldito vuelve a perderlo todo",
+     "body": "Dos partidas juntos, dos derrotas. La sociedad del perro y la moneda acumula ya un historial que en Jonia se estudiaría como advertencia."},
+    {"id": 8, "headline": "iPredatoRz y su Jhin: 23,9 % del oro, 19,6 % del daño y derrota",
+     "body": "4,3 puntos de diferencia en su única partida. El Virtuoso cuenta sus balas de cuatro en cuatro; con el oro fue más generoso."},
+    {"id": 9, "headline": "GSJoseador, el que menos daño de su equipo con un 6/0/2",
+     "body": "Cero muertes con Cho'Gath y solo 7.455 de daño, el 12,7 % del total. Sobrevivir sobrevivió; pegar, lo justo."},
+    {"id": 10, "headline": "TheTrevur, 19 minutos en la Niebla Negra con Urgot",
+     "body": "El 11,4 % de su tiempo en partida, muerto. El cangrejo pasó buena parte del jueves en las Islas de la Sombra."},
+    {"id": 11, "headline": "TheTrevur y grangalax, 1–2 juntos: ni Urgot salva a la moneda",
+     "body": "Tres partidas compartidas, dos derrotas. Con 84 muertes en el otro lado del dúo, cualquier sociedad hace aguas."},
+    {"id": 12, "headline": "Wôlf, 13 minutos en gris para completar el jueves",
+     "body": "El 11,1 % de su tiempo en partida. Cerró 2–2, que dadas las circunstancias de la jornada casi parece un éxito."},
+    {"id": 13, "headline": "Radio Zaun: 50 pings de RDV Canyon con Karma en una sola partida",
+     "body": "Cincuenta avisos y una victoria. Karma busca la iluminación de Jonia; RDV Canyon busca que le hagan caso."},
+    {"id": 14, "headline": "El Faro de la Esperanza ilumina a Dierophant: 2–0 y KDA de 7 con Alistar y Bard",
+     "body": "En un jueves de 190 muertes, Dierophant fue la luz al final del túnel. Los Centinelas de la Luz le ofrecen un faro pequeño, de momento a prueba."},
+    {"id": 15, "headline": "Sunraku y Giroroo, ausentes del jueves negro",
+     "body": "No jugaron. Viendo el día, probablemente fue la mejor decisión de toda la semana."}
+  ],
+  "extra": [
+    {"section": "ÚLTIMA HORA", "desk": "Islas de la Sombra", "headline": "Viego pide a grangalax que deje de mudarse a sus islas",
+     "body": "El Rey Arruinado ha emitido un comunicado: con 84 muertes y 49 minutos en gris en un solo día, grangalax pasa más tiempo en las Islas de la Sombra que la propia Niebla Negra. Viego solicita que, si va a seguir viniendo, al menos traiga algo de comer.",
+     "player": "grangalax", "stat": "84", "stat_label": "muertes en un día", "campeon": "Viego",
+     "pie": "Viego, ayer, preguntando cuántas veces más va a venir grangalax."}
+  ],
+  "columna": {"titulo": "Ochenta y cuatro", "autor": "El Coach que Nadie Contrató",
+    "cuerpo": [
+      "Ochenta y cuatro. Me lo apunto en un pósit y lo pego en la nevera para no olvidar nunca que esto es posible. Nueve partidas, ochenta y cuatro muertes, y aun así 4–5. Las cuentas no salen, pero salen.",
+      "Querido grangalax: no te voy a pedir que juegues mejor. Te voy a pedir algo más sencillo: que juegues menos. Cinco horas y cuarto en un jueves es mucho tiempo para dar oro al enemigo.",
+      "El resto del grupo no está para dar lecciones: Wôlf, TheTrevur y Fr4nux pasaron también por la comisaría. Pero lo de hoy tiene nombre propio, y el número está en el titular."
+    ]},
+  "especial": {"antetitulo": "JUEVES NEGRO", "titulo": "84 muertes: grangalax rompe la escala",
+    "subtitulo": "Nueve partidas, 49 minutos en la pantalla gris y una de 16 muertes con Ekko. El grupo entero sumó 190 muertes en un día que las Islas de la Sombra recordarán.", "tema": "negro"},
+  "frase": "No es que muera mucho. Es que le gusta volver.",
+  "firma": "Claude"
+}

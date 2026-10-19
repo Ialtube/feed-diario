@@ -14,8 +14,8 @@
       "desk": "",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "Última hora: grangalax confirma que sigue sin saber jugar (1–0)",
-      "body": "Tras 1 partidas, el veredicto es unánime: 6 muertes y un KDA de 1,50. Su campeón más sufrido hoy: Lillia.",
+      "headline": "El viernes del silencio: grangalax juega una partida, la gana y es portada igual",
+      "body": "1–0 con Lillia y un KDA de 1,50. Era el único del grupo en la Grieta y aun así consiguió encabezar la clasificación de la vergüenza. Hay talentos que no se pueden enseñar.",
       "stat": "1–0",
       "stat_label": "victorias–derrotas",
       "severity": 100,
@@ -30,7 +30,26 @@
         "champ": "Lillia",
         "champs": "Lillia",
         "hours": "0,4"
-      }
+      },
+      "template_headline": "Última hora: grangalax confirma que sigue sin saber jugar (1–0)",
+      "template_body": "Tras 1 partidas, el veredicto es unánime: 6 muertes y un KDA de 1,50. Su campeón más sufrido hoy: Lillia."
+    },
+    {
+      "id": 1000,
+      "kind": "ia",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": null,
+      "alias": null,
+      "headline": "¿Dónde estaba todo el mundo? La redacción investiga el viernes fantasma",
+      "body": "Una sola partida en todo el día. Las hipótesis de esta casa van desde una conspiración del Vacío hasta la más improbable: que el grupo saliera a la calle. Seguiremos informando si alguien confiesa.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "pie": "",
+      "severity": 99,
+      "facts": {}
     },
     {
       "id": 1,
@@ -39,8 +58,8 @@
       "desk": "Ecos de Jonia",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "grangalax, desaparecido en combate: 20,9 % de participación en kills",
-      "body": "De cada diez kills de su equipo, en más de seis no estaba. Fuentes cercanas apuntan a una larga relación con los súbditos de su línea.",
+      "headline": "grangalax gana, pero solo participa en el 20,9 % de las kills",
+      "body": "Lillia corre por el bosque como nadie; las peleas, por lo visto, pasaron por otro sitio. El equipo ganó y él estaba, técnicamente, en la partida.",
       "stat": "21 %",
       "stat_label": "participación en kills",
       "severity": 5.81,
@@ -56,7 +75,9 @@
         "champs": "Lillia",
         "hours": "0,4",
         "kp": "20,9 %"
-      }
+      },
+      "template_headline": "grangalax, desaparecido en combate: 20,9 % de participación en kills",
+      "template_body": "De cada diez kills de su equipo, en más de seis no estaba. Fuentes cercanas apuntan a una larga relación con los súbditos de su línea."
     },
     {
       "id": 2,
@@ -65,8 +86,8 @@
       "desk": "Lonja de Aguasturbias",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "grangalax, el fichaje más caro y el que menos rinde: 17,9 % del oro, 12,7 % del daño",
-      "body": "Partida con Lillia: 5,2 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
+      "headline": "La Lonja también trabaja en viernes: grangalax, 17,9 % del oro y 12,7 % del daño",
+      "body": "5,2 puntos de diferencia con Lillia. Ni en su única partida de la semana se libra de Hacienda.",
       "stat": "−5,2",
       "stat_label": "puntos entre oro y daño",
       "severity": 5.06,
@@ -84,7 +105,9 @@
         "gold": "17,9 %",
         "share": "12,7 %",
         "gap": "5,2"
-      }
+      },
+      "template_headline": "grangalax, el fichaje más caro y el que menos rinde: 17,9 % del oro, 12,7 % del daño",
+      "template_body": "Partida con Lillia: 5,2 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga."
     },
     {
       "id": 3,
@@ -93,17 +116,19 @@
       "desk": "Perdidos en el Vacío",
       "player": null,
       "alias": null,
-      "headline": "Ausentes hoy: TheTrevur, Wôlf, Fr4nux, GSJoseador, Dierophant, iPredatoRz, Sunraku, RDV Canyon y Giroroo",
-      "body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre.",
+      "headline": "Nueve ausentes: el grupo entero se pierde en el Vacío",
+      "body": "TheTrevur, Wôlf, Fr4nux, GSJoseador, Dierophant, iPredatoRz, Sunraku, RDV Canyon y Giroroo no jugaron. Esta redacción ha confirmado que el servidor seguía encendido.",
       "stat": "9",
       "stat_label": "no jugaron",
       "severity": 0.2,
       "facts": {
         "names": "TheTrevur, Wôlf, Fr4nux, GSJoseador, Dierophant, iPredatoRz, Sunraku, RDV Canyon y Giroroo"
-      }
+      },
+      "template_headline": "Ausentes hoy: TheTrevur, Wôlf, Fr4nux, GSJoseador, Dierophant, iPredatoRz, Sunraku, RDV Canyon y Giroroo",
+      "template_body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre."
     }
   ],
-  "frase": "Jugar otra vez no es un plan, es un síntoma.",
+  "frase": "La mejor partida es la que no se juega. El grupo lo descubrió un viernes.",
   "ranking": [
     {
       "slug": "grangalax",
@@ -160,5 +185,22 @@
       "lowest_dmg": false,
       "support": false
     }
-  ]
+  ],
+  "template_frase": "Jugar otra vez no es un plan, es un síntoma.",
+  "columna": {
+    "titulo": "Elogio del viernes",
+    "autor": "Un Súbdito Anónimo",
+    "cuerpo": [
+      "Escribo desde el carril central, donde por una vez nadie me ha farmeado ni me ha dejado morir de viejo. Ha sido el día más tranquilo de mi vida.",
+      "Solo grangalax pasó por aquí, ganó una partida y se fue. Los demás súbditos y yo nos miramos sin creerlo. Ojalá todos los días fueran viernes."
+    ]
+  },
+  "especial": null,
+  "ai": {
+    "version": 1,
+    "updated_at": 1792446425640,
+    "firma": "Claude",
+    "stale": false
+  },
+  "written_by": "Claude"
 }

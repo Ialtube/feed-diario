@@ -14,8 +14,8 @@
       "desk": "",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "GSJoseador, peor jugador del día: 2–2 y 21 muertes en 4 partidas",
-      "body": "Con un KDA de 2,43 y el 17,7 % del daño de su equipo, GSJoseador se corona hoy como lastre oficial del grupo. Fuentes cercanas confirman que ya está en cola para la siguiente.",
+      "headline": "GSJoseador hereda la corona de la vergüenza: 2–2 y un Jinx de 5.909 de daño",
+      "body": "KDA de 2,43 y 21 muertes repartidas entre Jinx y Xerath. Con grangalax y Fr4nux de descanso, alguien tenía que ocupar la portada, y GSJoseador se presentó voluntario sin saberlo.",
       "stat": "2–2",
       "stat_label": "victorias–derrotas",
       "severity": 100,
@@ -30,7 +30,26 @@
         "champ": "Jinx",
         "champs": "Jinx y Xerath",
         "hours": "2,1"
-      }
+      },
+      "template_headline": "GSJoseador, peor jugador del día: 2–2 y 21 muertes en 4 partidas",
+      "template_body": "Con un KDA de 2,43 y el 17,7 % del daño de su equipo, GSJoseador se corona hoy como lastre oficial del grupo. Fuentes cercanas confirman que ya está en cola para la siguiente."
+    },
+    {
+      "id": 1000,
+      "kind": "ia",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Fr4nux tiene competencia: el título de «no hago daño» cambia de manos",
+      "body": "Con un 10,4 % del daño de su equipo jugando Jinx, una tiradora, GSJoseador se presenta como aspirante al título. El Instituto Hextech de Piltover abre un debate formal: ¿es el «CARRY NOT FOUND» un título personal o una enfermedad contagiosa del grupo?",
+      "stat": "10,4 %",
+      "stat_label": "del daño de su equipo con Jinx",
+      "imagen": null,
+      "campeon": "Jinx",
+      "pie": "Jinx, ayer, buscando su daño entre las cajas de munición.",
+      "severity": 99,
+      "facts": {}
     },
     {
       "id": 1,
@@ -39,8 +58,8 @@
       "desk": "Lonja de Aguasturbias",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "La Lonja de Aguasturbias congela los fondos de GSJoseador: 22,3 % del oro, 10,4 % del daño",
-      "body": "Con Jinx cobró 11,9 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
+      "headline": "Escándalo en la Lonja: GSJoseador se lleva el 22,3 % del oro con Jinx y devuelve el 10,4 % del daño",
+      "body": "11,9 puntos de diferencia, el mayor desfase de la semana. En Aguasturbias se habla ya de la estafa del sábado. Fr4nux, por una vez, puede respirar tranquilo.",
       "stat": "−11,9",
       "stat_label": "puntos entre oro y daño",
       "severity": 7.76,
@@ -58,7 +77,9 @@
         "gold": "22,3 %",
         "share": "10,4 %",
         "gap": "11,9"
-      }
+      },
+      "template_headline": "La Lonja de Aguasturbias congela los fondos de GSJoseador: 22,3 % del oro, 10,4 % del daño",
+      "template_body": "Con Jinx cobró 11,9 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas."
     },
     {
       "id": 2,
@@ -67,8 +88,8 @@
       "desk": "Lonja de Aguasturbias",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Malversación de fondos: Dierophant se quedó el 17,5 % del oro y devolvió el 9,5 % del daño",
-      "body": "Con Ekko recibió 8,0 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró.",
+      "headline": "Dierophant cobra el 17,5 % del oro con Ekko y aporta el 9,5 % del daño",
+      "body": "8 puntos de diferencia en un día que acabó 3–1. Ganar se gana, pero la Lonja de Aguasturbias no entiende de resultados.",
       "stat": "−8,0",
       "stat_label": "puntos entre oro y daño",
       "severity": 6.19,
@@ -86,7 +107,9 @@
         "gold": "17,5 %",
         "share": "9,5 %",
         "gap": "8,0"
-      }
+      },
+      "template_headline": "Malversación de fondos: Dierophant se quedó el 17,5 % del oro y devolvió el 9,5 % del daño",
+      "template_body": "Con Ekko recibió 8,0 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró."
     },
     {
       "id": 3,
@@ -95,8 +118,8 @@
       "desk": "Comisaría de Piltover",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Wôlf muere 10 veces en una sola partida y la policía de Piltover abre una investigación",
-      "body": "Yasuo, 5/10/15, victoria. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
+      "headline": "Wôlf, 10 muertes con Yasuo: la ley de Yasuo se cumple otra vez",
+      "body": "5/10/15 en 43 minutos de Ranked Flex, muriendo cada 4:18. Cerró el día 3–1, pero la Comisaría de Piltover ya no necesita ni rellenar la ficha: tiene una plantilla.",
       "stat": "10",
       "stat_label": "muertes en una partida",
       "severity": 5.0,
@@ -117,7 +140,9 @@
         "every": "4:18",
         "res": "victoria",
         "res_cap": "Aun así ganaron, de milagro"
-      }
+      },
+      "template_headline": "Wôlf muere 10 veces en una sola partida y la policía de Piltover abre una investigación",
+      "template_body": "Yasuo, 5/10/15, victoria. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez."
     },
     {
       "id": 4,
@@ -126,8 +151,8 @@
       "desk": "Instituto Hextech de Piltover",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "GSJoseador fue el que menos daño hizo de su equipo en 1 de 4 partidas",
-      "body": "En su peor caso, con Jinx (2/9/2), se quedó en 5.909 de daño a campeones: el 10,4 % de su equipo. Hasta el que menos aportaba le pasó por encima.",
+      "headline": "GSJoseador, el que menos daño de su equipo con Jinx: 2/9/2",
+      "body": "5.909 de daño, el 10,4 % del total. Una Jinx que no hace daño es como un cohete de Zaun sin pólvora: hace ruido y poco más.",
       "stat": "1/4",
       "stat_label": "partidas como el que menos daño de su equipo",
       "severity": 4.75,
@@ -147,7 +172,9 @@
         "kdas": "2/9/2",
         "dmg": "5.909",
         "share": "10,4 %"
-      }
+      },
+      "template_headline": "GSJoseador fue el que menos daño hizo de su equipo en 1 de 4 partidas",
+      "template_body": "En su peor caso, con Jinx (2/9/2), se quedó en 5.909 de daño a campeones: el 10,4 % de su equipo. Hasta el que menos aportaba le pasó por encima."
     },
     {
       "id": 5,
@@ -156,8 +183,8 @@
       "desk": "Instituto Hextech de Piltover",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Dierophant dispara con balas de fogueo: 1 partidas como el que menos daño de su equipo",
-      "body": "Su obra cumbre: Ekko, 18.515 de daño, el 9,5 % del total. Los súbditos enemigos sufrieron más que los campeones.",
+      "headline": "Dierophant, el que menos daño de su equipo con Ekko: 5/9/15",
+      "body": "18.515 de daño, el 9,5 % del total. Las asistencias salvan el expediente; el daño, no.",
       "stat": "1/4",
       "stat_label": "partidas como el que menos daño de su equipo",
       "severity": 4.75,
@@ -177,7 +204,9 @@
         "kdas": "5/9/15",
         "dmg": "18.515",
         "share": "9,5 %"
-      }
+      },
+      "template_headline": "Dierophant dispara con balas de fogueo: 1 partidas como el que menos daño de su equipo",
+      "template_body": "Su obra cumbre: Ekko, 18.515 de daño, el 9,5 % del total. Los súbditos enemigos sufrieron más que los campeones."
     },
     {
       "id": 6,
@@ -186,8 +215,8 @@
       "desk": "Islas de la Sombra",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Previsión para Wôlf: gris durante 15 minutos",
-      "body": "Hoy pasó 15 minutos muerto, el 11,5 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja.",
+      "headline": "Wôlf pasa 15 minutos en la Niebla Negra",
+      "body": "El 11,5 % de su tiempo en partida, muerto. Va camino de tener carné de residente en las Islas de la Sombra.",
       "stat": "15 min",
       "stat_label": "en la pantalla gris",
       "severity": 4.01,
@@ -204,7 +233,9 @@
         "hours": "2,2",
         "dead_mins": 15,
         "dead_pct": "11,5 %"
-      }
+      },
+      "template_headline": "Previsión para Wôlf: gris durante 15 minutos",
+      "template_body": "Hoy pasó 15 minutos muerto, el 11,5 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja."
     },
     {
       "id": 7,
@@ -213,8 +244,8 @@
       "desk": "Islas de la Sombra",
       "player": "thetrevur",
       "alias": "TheTrevur",
-      "headline": "Previsión para TheTrevur: Niebla Negra durante 11 minutos",
-      "body": "Las Islas de la Sombra reclamaron a TheTrevur durante 11 minutos, el 9,1 % de su tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza.",
+      "headline": "TheTrevur, 11 minutos en gris con su Urgot",
+      "body": "El 9,1 % de su tiempo en partida. Ganó 3–1, así que el cangrejo considera el viaje a las Islas un mal menor.",
       "stat": "11 min",
       "stat_label": "en la pantalla gris",
       "severity": 3.69,
@@ -231,7 +262,9 @@
         "hours": "2,2",
         "dead_mins": 11,
         "dead_pct": "9,1 %"
-      }
+      },
+      "template_headline": "Previsión para TheTrevur: Niebla Negra durante 11 minutos",
+      "template_body": "Las Islas de la Sombra reclamaron a TheTrevur durante 11 minutos, el 9,1 % de su tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza."
     },
     {
       "id": 8,
@@ -240,8 +273,8 @@
       "desk": "Islas de la Sombra",
       "player": "rdv-canyon",
       "alias": "RDV Canyon",
-      "headline": "RDV Canyon se pasa 11 minutos en la pantalla gris",
-      "body": "El 7,1 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
+      "headline": "RDV Canyon, 11 minutos en gris en un gran día",
+      "body": "El 7,1 % de su tiempo en partida. Ni los mejores días están libres de Niebla.",
       "stat": "11 min",
       "stat_label": "en la pantalla gris",
       "severity": 3.62,
@@ -258,7 +291,9 @@
         "hours": "2,6",
         "dead_mins": 11,
         "dead_pct": "7,1 %"
-      }
+      },
+      "template_headline": "RDV Canyon se pasa 11 minutos en la pantalla gris",
+      "template_body": "El 7,1 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro."
     },
     {
       "id": 9,
@@ -267,8 +302,8 @@
       "desk": "Radio Zaun",
       "player": "rdv-canyon",
       "alias": "RDV Canyon",
-      "headline": "RDV Canyon hace 56 pings en una sola partida",
-      "body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él.",
+      "headline": "Radio Zaun: 56 pings de RDV Canyon en una partida",
+      "body": "Cuarto día de la semana por encima de los 40 pings. RDV Canyon ya no comunica: emite.",
       "stat": "56",
       "stat_label": "pings en una partida",
       "severity": 3.4,
@@ -284,7 +319,9 @@
         "champs": "Nautilus, Ashe y Leona",
         "hours": "2,6",
         "pings": 56
-      }
+      },
+      "template_headline": "RDV Canyon hace 56 pings en una sola partida",
+      "template_body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él."
     },
     {
       "id": 10,
@@ -293,8 +330,8 @@
       "desk": "Centinelas de la Luz",
       "player": "rdv-canyon",
       "alias": "RDV Canyon",
-      "headline": "Desde el Faro, una señal: RDV Canyon sobrevive al día (4–1)",
-      "body": "El mejor del grupo, que no es decir mucho. Los Centinelas de la Luz lo anotan en su diario con letra pequeña, por si acaso.",
+      "headline": "El Faro de la Esperanza brilla para RDV Canyon: 4–1 y KDA de 4,27",
+      "body": "Con Nautilus, Ashe y Leona, el mejor del sábado. Los Centinelas de la Luz le piden, eso sí, que baje el volumen de los pings.",
       "stat": "4–1",
       "stat_label": "victorias–derrotas",
       "severity": 0.5,
@@ -309,7 +346,9 @@
         "champ": "Ashe",
         "champs": "Nautilus, Ashe y Leona",
         "hours": "2,6"
-      }
+      },
+      "template_headline": "Desde el Faro, una señal: RDV Canyon sobrevive al día (4–1)",
+      "template_body": "El mejor del grupo, que no es decir mucho. Los Centinelas de la Luz lo anotan en su diario con letra pequeña, por si acaso."
     },
     {
       "id": 11,
@@ -318,17 +357,19 @@
       "desk": "Perdidos en el Vacío",
       "player": null,
       "alias": null,
-      "headline": "Desaparecidos del día: grangalax, Fr4nux, iPredatoRz, Sunraku y Giroroo",
-      "body": "Ni una partida. La Grieta respira tranquila por un día.",
+      "headline": "Cinco ausentes en sábado: grangalax y Fr4nux, entre ellos",
+      "body": "grangalax, Fr4nux, iPredatoRz, Sunraku y Giroroo no jugaron. Los dos protagonistas de la semana se tomaron el día libre, y se notó en las estadísticas.",
       "stat": "5",
       "stat_label": "no jugaron",
       "severity": 0.2,
       "facts": {
         "names": "grangalax, Fr4nux, iPredatoRz, Sunraku y Giroroo"
-      }
+      },
+      "template_headline": "Desaparecidos del día: grangalax, Fr4nux, iPredatoRz, Sunraku y Giroroo",
+      "template_body": "Ni una partida. La Grieta respira tranquila por un día."
     }
   ],
-  "frase": "Cada partida es una oportunidad nueva de decepcionar a cuatro personas.",
+  "frase": "El daño no se hereda, pero la falta de daño, por lo visto, sí.",
   "ranking": [
     {
       "slug": "gsjoseador",
@@ -878,5 +919,22 @@
       "lowest_dmg": true,
       "support": true
     }
-  ]
+  ],
+  "template_frase": "Cada partida es una oportunidad nueva de decepcionar a cuatro personas.",
+  "columna": {
+    "titulo": "Sábado sin titulares (casi)",
+    "autor": "Doña Tilt",
+    "cuerpo": [
+      "Sin grangalax y sin Fr4nux, temía quedarme sin material. Me equivocaba: GSJoseador ha decidido que la tradición no se puede perder y ha jugado Jinx como si fuera un soporte con mucho oro.",
+      "RDV Canyon, en cambio, firma el día más digno del grupo, aunque sus compañeros me escriben para pedir que alguien le retire los pings. Lo apunto como queja ciudadana."
+    ]
+  },
+  "especial": null,
+  "ai": {
+    "version": 1,
+    "updated_at": 1792446426019,
+    "firma": "Claude",
+    "stale": false
+  },
+  "written_by": "Claude"
 }

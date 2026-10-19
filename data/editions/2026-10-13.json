@@ -14,8 +14,8 @@
       "desk": "",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Wôlf vuelve a hacerlo: 40 muertes, KDA 1,88 y cero vergüenza",
-      "body": "El día de Wôlf se resume en 1–4. El 19,7 % del daño de su equipo de media. El equipo rival ha pedido que se le conceda la medalla al mérito civil.",
+      "headline": "Wôlf, más perro que lobo en el martes: 1–4 y 40 muertes",
+      "body": "2,9 horas pasando por Kayn, Zed y Gragas para un KDA de 1,88. Cambió de campeón tres veces buscando una solución que no estaba en el campeón. La Arena de Noxus le ha reservado un sitio fijo en la grada.",
       "stat": "1–4",
       "stat_label": "victorias–derrotas",
       "severity": 100,
@@ -30,7 +30,26 @@
         "champ": "Gragas",
         "champs": "Kayn, Zed y Gragas",
         "hours": "2,9"
-      }
+      },
+      "template_headline": "Wôlf vuelve a hacerlo: 40 muertes, KDA 1,88 y cero vergüenza",
+      "template_body": "El día de Wôlf se resume en 1–4. El 19,7 % del daño de su equipo de media. El equipo rival ha pedido que se le conceda la medalla al mérito civil."
+    },
+    {
+      "id": 1000,
+      "kind": "ia",
+      "section": "INVESTIGACIÓN",
+      "desk": "Instituto Hextech de Piltover",
+      "player": "fr4nux",
+      "alias": "Fr4nux",
+      "headline": "¿Quién es este Fr4nux y qué ha hecho con el de siempre?",
+      "body": "Fr4nux terminó el día con el 32,8 % del daño de su equipo de media, el más alto del grupo, y un pentakill con Jinx. Los técnicos del Instituto Hextech han revisado su teclado en busca de manipulaciones. No han encontrado nada. La única explicación que se baraja es la más inquietante: que haya aprendido a jugar.",
+      "stat": "32,8 %",
+      "stat_label": "del daño de su equipo de media",
+      "imagen": null,
+      "campeon": "Jinx",
+      "pie": "Jinx, ayer, celebrando el primer daño documentado de Fr4nux.",
+      "severity": 99,
+      "facts": {}
     },
     {
       "id": 1,
@@ -39,8 +58,8 @@
       "desk": "Arena de Noxus",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "Racha negra: 5 derrotas consecutivas para grangalax",
-      "body": "Ni cambiando de campeón (Ekko, Hwei y Shyvana) consiguió cortar la sangría. Día cerrado con 4–6.",
+      "headline": "grangalax encadena cinco derrotas seguidas en un día de diez partidas",
+      "body": "4–6 al cierre y 45 muertes en 5,4 horas con Ekko, Hwei y Shyvana. La moneda ya no cae de canto: directamente se ha quedado en el suelo, boca abajo.",
       "stat": "5",
       "stat_label": "derrotas seguidas",
       "severity": 8,
@@ -56,7 +75,9 @@
         "champs": "Ekko, Hwei y Shyvana",
         "hours": "5,4",
         "n": 5
-      }
+      },
+      "template_headline": "Racha negra: 5 derrotas consecutivas para grangalax",
+      "template_body": "Ni cambiando de campeón (Ekko, Hwei y Shyvana) consiguió cortar la sangría. Día cerrado con 4–6."
     },
     {
       "id": 2,
@@ -65,8 +86,8 @@
       "desk": "Lonja de Aguasturbias",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "grangalax, el fichaje más caro y el que menos rinde: 20,3 % del oro, 10,2 % del daño",
-      "body": "Partida con Shyvana: 10,2 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
+      "headline": "Shyvana, quiebra técnica: grangalax se lleva el 20,3 % del oro y devuelve el 10,2 % del daño",
+      "body": "10,2 puntos de diferencia. Un dragón que no escupe fuego es, a efectos contables, un lagarto muy caro. La Lonja de Aguasturbias recomienda vender cuanto antes.",
       "stat": "−10,2",
       "stat_label": "puntos entre oro y daño",
       "severity": 7.07,
@@ -84,7 +105,9 @@
         "gold": "20,3 %",
         "share": "10,2 %",
         "gap": "10,2"
-      }
+      },
+      "template_headline": "grangalax, el fichaje más caro y el que menos rinde: 20,3 % del oro, 10,2 % del daño",
+      "template_body": "Partida con Shyvana: 10,2 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga."
     },
     {
       "id": 3,
@@ -93,8 +116,8 @@
       "desk": "Arena de Noxus",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Wôlf encadena 4 derrotas seguidas y sigue dándole a «Jugar otra vez»",
-      "body": "Su día terminó 1–4. Los expertos recomiendan apagar el ordenador; Wôlf recomienda otra partida rápida.",
+      "headline": "Y la racha de Wôlf: cuatro derrotas seguidas antes de tocar fondo",
+      "body": "Cuatro consecutivas dentro de un 1–4. En la Arena de Noxus se respeta al que cae luchando; con Wôlf, el público ya no sabe qué hacer.",
       "stat": "4",
       "stat_label": "derrotas seguidas",
       "severity": 7,
@@ -110,7 +133,9 @@
         "champs": "Kayn, Zed y Gragas",
         "hours": "2,9",
         "n": 4
-      }
+      },
+      "template_headline": "Wôlf encadena 4 derrotas seguidas y sigue dándole a «Jugar otra vez»",
+      "template_body": "Su día terminó 1–4. Los expertos recomiendan apagar el ordenador; Wôlf recomienda otra partida rápida."
     },
     {
       "id": 4,
@@ -119,8 +144,8 @@
       "desk": "Instituto Hextech de Piltover",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Dierophant fue el que menos daño hizo de su equipo en 1 de 1 partidas",
-      "body": "En su peor caso, con LeeSin (7/5/11), se quedó en 19.248 de daño a campeones: el 14,7 % de su equipo. Hasta el que menos aportaba le pasó por encima.",
+      "headline": "Dierophant gana con Lee Sin, pero es el que menos daño hace de su equipo",
+      "body": "7/5/11 y 19.248 de daño, el 14,7 % del total. El monje ciego pegaba patadas; a los campeones enemigos, por lo visto, de lejos.",
       "stat": "1/1",
       "stat_label": "partidas como el que menos daño de su equipo",
       "severity": 7.0,
@@ -140,7 +165,9 @@
         "kdas": "7/5/11",
         "dmg": "19.248",
         "share": "14,7 %"
-      }
+      },
+      "template_headline": "Dierophant fue el que menos daño hizo de su equipo en 1 de 1 partidas",
+      "template_body": "En su peor caso, con LeeSin (7/5/11), se quedó en 19.248 de daño a campeones: el 14,7 % de su equipo. Hasta el que menos aportaba le pasó por encima."
     },
     {
       "id": 5,
@@ -149,8 +176,8 @@
       "desk": "Ecos de Jonia",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "Se busca: GSJoseador solo participó en el 18,6 % de las kills de su equipo",
-      "body": "Su equipo peleaba y GSJoseador estaba en otra parte. Si alguien lo ve en la Grieta, que le avise de que hay una partida en curso.",
+      "headline": "GSJoseador vuelve a ganar desde la sombra: 18,6 % de participación en kills",
+      "body": "Una victoria con Mordekaiser y un KDA de 4,00, pero de cada cinco kills de su equipo, en cuatro no estaba. Los Ecos de Jonia le han abierto expediente por absentismo.",
       "stat": "19 %",
       "stat_label": "participación en kills",
       "severity": 6.28,
@@ -166,7 +193,9 @@
         "champs": "Mordekaiser",
         "hours": "0,4",
         "kp": "18,6 %"
-      }
+      },
+      "template_headline": "Se busca: GSJoseador solo participó en el 18,6 % de las kills de su equipo",
+      "template_body": "Su equipo peleaba y GSJoseador estaba en otra parte. Si alguien lo ve en la Grieta, que le avise de que hay una partida en curso."
     },
     {
       "id": 6,
@@ -175,8 +204,8 @@
       "desk": "Lonja de Aguasturbias",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "La Lonja de Aguasturbias congela los fondos de Wôlf: 23,1 % del oro, 15,7 % del daño",
-      "body": "Con Zed cobró 7,3 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
+      "headline": "Wôlf cobra el 23,1 % del oro con Zed y devuelve el 15,7 % del daño",
+      "body": "7,3 puntos de diferencia. El Maestro de las Sombras se escondió tan bien que tampoco encontró a los rivales.",
       "stat": "−7,3",
       "stat_label": "puntos entre oro y daño",
       "severity": 5.93,
@@ -194,7 +223,9 @@
         "gold": "23,1 %",
         "share": "15,7 %",
         "gap": "7,3"
-      }
+      },
+      "template_headline": "La Lonja de Aguasturbias congela los fondos de Wôlf: 23,1 % del oro, 15,7 % del daño",
+      "template_body": "Con Zed cobró 7,3 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas."
     },
     {
       "id": 7,
@@ -203,8 +234,8 @@
       "desk": "Lonja de Aguasturbias",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Malversación de fondos: Dierophant se quedó el 20,0 % del oro y devolvió el 14,7 % del daño",
-      "body": "Con LeeSin recibió 5,3 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró.",
+      "headline": "Dierophant y su Lee Sin: 20 % del oro, 14,7 % del daño",
+      "body": "5,3 puntos de desfase en una partida ganada. La Lonja no perdona ni a los vencedores.",
       "stat": "−5,3",
       "stat_label": "puntos entre oro y daño",
       "severity": 5.11,
@@ -222,7 +253,9 @@
         "gold": "20,0 %",
         "share": "14,7 %",
         "gap": "5,3"
-      }
+      },
+      "template_headline": "Malversación de fondos: Dierophant se quedó el 20,0 % del oro y devolvió el 14,7 % del daño",
+      "template_body": "Con LeeSin recibió 5,3 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró."
     },
     {
       "id": 8,
@@ -231,8 +264,8 @@
       "desk": "Lonja de Aguasturbias",
       "player": "giroroo",
       "alias": "Giroroo",
-      "headline": "La Lonja de Aguasturbias congela los fondos de Giroroo: 22,7 % del oro, 17,4 % del daño",
-      "body": "Con Kayn cobró 5,3 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
+      "headline": "Giroroo, KDA de 23 con Kayn, pero la Lonja le reclama 5,3 puntos",
+      "body": "Se llevó el 22,7 % del oro y aportó el 17,4 % del daño. Una muerte en toda la partida: no se dejó matar, pero tampoco se dejó ver demasiado.",
       "stat": "−5,3",
       "stat_label": "puntos entre oro y daño",
       "severity": 5.11,
@@ -250,7 +283,9 @@
         "gold": "22,7 %",
         "share": "17,4 %",
         "gap": "5,3"
-      }
+      },
+      "template_headline": "La Lonja de Aguasturbias congela los fondos de Giroroo: 22,7 % del oro, 17,4 % del daño",
+      "template_body": "Con Kayn cobró 5,3 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas."
     },
     {
       "id": 9,
@@ -259,8 +294,8 @@
       "desk": "Ecos de Jonia",
       "player": null,
       "alias": null,
-      "headline": "Wôlf y grangalax, dúo del desastre: 1–2 juntos",
-      "body": "Juntos suman más derrotas que victorias. Por separado, al menos, pierden en partidas distintas.",
+      "headline": "Wôlf y grangalax, dúo de la desgracia: 1–2",
+      "body": "Tres partidas juntos, dos derrotas. Cuando se juntan el perro y la moneda, la única apuesta segura es la de los rivales.",
       "stat": "1–2",
       "stat_label": "juntos",
       "severity": 4,
@@ -269,7 +304,9 @@
         "b": "grangalax",
         "w": 1,
         "l": 2
-      }
+      },
+      "template_headline": "Wôlf y grangalax, dúo del desastre: 1–2 juntos",
+      "template_body": "Juntos suman más derrotas que victorias. Por separado, al menos, pierden en partidas distintas."
     },
     {
       "id": 10,
@@ -278,8 +315,8 @@
       "desk": "Ecos de Jonia",
       "player": null,
       "alias": null,
-      "headline": "Sociedad limitada: Fr4nux + Wôlf se van 1–2",
-      "body": "La sinergia de este dúo es la de una tostadora en la bañera.",
+      "headline": "Fr4nux y Wôlf tampoco funcionan: 1–2 juntos",
+      "body": "El héroe del día no pudo salvar a su compañero de dúo. Ni un pentakill alcanza para todo.",
       "stat": "1–2",
       "stat_label": "juntos",
       "severity": 4,
@@ -288,7 +325,9 @@
         "b": "Wôlf",
         "w": 1,
         "l": 2
-      }
+      },
+      "template_headline": "Sociedad limitada: Fr4nux + Wôlf se van 1–2",
+      "template_body": "La sinergia de este dúo es la de una tostadora en la bañera."
     },
     {
       "id": 11,
@@ -297,8 +336,8 @@
       "desk": "Islas de la Sombra",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "Fr4nux se pasa 14 minutos en la pantalla gris",
-      "body": "El 11,1 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
+      "headline": "Fr4nux pasa 14 minutos en la pantalla gris el día de su gloria",
+      "body": "El 11,1 % de su tiempo en partida, muerto. Hasta los mejores días tienen su Niebla.",
       "stat": "14 min",
       "stat_label": "en la pantalla gris",
       "severity": 3.97,
@@ -315,7 +354,9 @@
         "hours": "2,2",
         "dead_mins": 14,
         "dead_pct": "11,1 %"
-      }
+      },
+      "template_headline": "Fr4nux se pasa 14 minutos en la pantalla gris",
+      "template_body": "El 11,1 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro."
     },
     {
       "id": 12,
@@ -324,8 +365,8 @@
       "desk": "Radio Zaun",
       "player": "rdv-canyon",
       "alias": "RDV Canyon",
-      "headline": "RDV Canyon hace 74 pings en una sola partida",
-      "body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él.",
+      "headline": "Radio Zaun bate su récord: 74 pings de RDV Canyon con Braum",
+      "body": "Setenta y cuatro avisos en una sola partida. Braum protege a sus aliados con el escudo; RDV Canyon, con el ratón.",
       "stat": "74",
       "stat_label": "pings en una partida",
       "severity": 3.85,
@@ -341,7 +382,9 @@
         "champs": "Braum y Nautilus",
         "hours": "2,2",
         "pings": 74
-      }
+      },
+      "template_headline": "RDV Canyon hace 74 pings en una sola partida",
+      "template_body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él."
     },
     {
       "id": 13,
@@ -350,8 +393,8 @@
       "desk": "Islas de la Sombra",
       "player": "rdv-canyon",
       "alias": "RDV Canyon",
-      "headline": "Previsión para RDV Canyon: gris durante 9 minutos",
-      "body": "Hoy pasó 9 minutos muerto, el 6,8 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja.",
+      "headline": "RDV Canyon, 9 minutos en gris entre ping y ping",
+      "body": "El 6,8 % de su tiempo en partida, muerto. Incluso así le dio tiempo a avisar de todo.",
       "stat": "9 min",
       "stat_label": "en la pantalla gris",
       "severity": 3.4,
@@ -368,7 +411,9 @@
         "hours": "2,2",
         "dead_mins": 9,
         "dead_pct": "6,8 %"
-      }
+      },
+      "template_headline": "Previsión para RDV Canyon: gris durante 9 minutos",
+      "template_body": "Hoy pasó 9 minutos muerto, el 6,8 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja."
     },
     {
       "id": 14,
@@ -377,8 +422,8 @@
       "desk": "Islas de la Sombra",
       "player": "thetrevur",
       "alias": "TheTrevur",
-      "headline": "Previsión para TheTrevur: Niebla Negra durante 9 minutos",
-      "body": "Las Islas de la Sombra reclamaron a TheTrevur durante 9 minutos, el 8,7 % de su tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza.",
+      "headline": "TheTrevur recupera el pulso: 2–1, pero 9 minutos en la pantalla gris",
+      "body": "El cangrejo vuelve a caminar, aunque las Islas de la Sombra le retuvieron el 8,7 % de su tiempo en partida. Algo es algo.",
       "stat": "9 min",
       "stat_label": "en la pantalla gris",
       "severity": 3.4,
@@ -395,7 +440,9 @@
         "hours": "1,7",
         "dead_mins": 9,
         "dead_pct": "8,7 %"
-      }
+      },
+      "template_headline": "Previsión para TheTrevur: Niebla Negra durante 9 minutos",
+      "template_body": "Las Islas de la Sombra reclamaron a TheTrevur durante 9 minutos, el 8,7 % de su tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza."
     },
     {
       "id": 15,
@@ -404,8 +451,8 @@
       "desk": "Observatorio del Monte Targon",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "Fr4nux hace un pentakill y la redacción lo revisa en el VAR",
-      "body": "Sí, ha pasado. Lo vamos a mencionar una vez y no volveremos a hablar del tema.",
+      "headline": "EL VAR CONFIRMA: Fr4nux hace un pentakill con Jinx",
+      "body": "El Observatorio del Monte Targon ha revisado la jugada desde todos los ángulos. Es real. El hombre al que el grupo acusa de no hacer daño firmó cinco muertes seguidas. La redacción está en shock.",
       "stat": "1",
       "stat_label": "pentakills (sospechosos)",
       "severity": 2,
@@ -420,7 +467,9 @@
         "champ": "Jinx",
         "champs": "Jinx, Aphelios y Caitlyn",
         "hours": "2,2"
-      }
+      },
+      "template_headline": "Fr4nux hace un pentakill y la redacción lo revisa en el VAR",
+      "template_body": "Sí, ha pasado. Lo vamos a mencionar una vez y no volveremos a hablar del tema."
     },
     {
       "id": 16,
@@ -429,8 +478,8 @@
       "desk": "Ecos de Jonia",
       "player": "ipredatorz",
       "alias": "iPredatoRz",
-      "headline": "Día anodino para iPredatoRz (1–0), lo cual para él ya es un éxito",
-      "body": "Sin escándalos, sin hazañas. La redacción se ha quedado sin material, que es lo más cerca que estará de un elogio.",
+      "headline": "iPredatoRz gana su única partida con Yasuo y no muere más de seis veces",
+      "body": "1–0 y KDA de 3,00. Para un Yasuo es casi una partida de manual. La redacción lo apunta por si no se repite.",
       "stat": "1–0",
       "stat_label": "victorias–derrotas",
       "severity": 1,
@@ -445,7 +494,9 @@
         "champ": "Yasuo",
         "champs": "Yasuo",
         "hours": "0,6"
-      }
+      },
+      "template_headline": "Día anodino para iPredatoRz (1–0), lo cual para él ya es un éxito",
+      "template_body": "Sin escándalos, sin hazañas. La redacción se ha quedado sin material, que es lo más cerca que estará de un elogio."
     },
     {
       "id": 17,
@@ -454,8 +505,8 @@
       "desk": "Centinelas de la Luz",
       "player": "giroroo",
       "alias": "Giroroo",
-      "headline": "Una luz en la Ruina: Giroroo (1–0) no ha sido el peor",
-      "body": "Los Centinelas de la Luz confirman un rayo de esperanza en el grupo: KDA 23,00. Que nadie se emocione; mañana vuelve la Niebla.",
+      "headline": "El Faro de la Esperanza ilumina a Giroroo: KDA de 23 con Kayn",
+      "body": "Una partida, una victoria y una sola muerte. Los Centinelas de la Luz lo miran con interés; los rivales, desde la pantalla gris.",
       "stat": "1–0",
       "stat_label": "victorias–derrotas",
       "severity": 0.5,
@@ -470,7 +521,9 @@
         "champ": "Kayn",
         "champs": "Kayn",
         "hours": "0,4"
-      }
+      },
+      "template_headline": "Una luz en la Ruina: Giroroo (1–0) no ha sido el peor",
+      "template_body": "Los Centinelas de la Luz confirman un rayo de esperanza en el grupo: KDA 23,00. Que nadie se emocione; mañana vuelve la Niebla."
     },
     {
       "id": 18,
@@ -479,17 +532,19 @@
       "desk": "Perdidos en el Vacío",
       "player": null,
       "alias": null,
-      "headline": "Desaparecidos del día: Sunraku",
-      "body": "Ni una partida. La Grieta respira tranquila por un día.",
+      "headline": "Sunraku sigue sin aparecer: segundo día perdido en el Vacío",
+      "body": "Ni rastro de él en la Grieta. Si alguien lo encuentra, que le diga que el periódico ya existe.",
       "stat": "1",
       "stat_label": "no jugó",
       "severity": 0.2,
       "facts": {
         "names": "Sunraku"
-      }
+      },
+      "template_headline": "Desaparecidos del día: Sunraku",
+      "template_body": "Ni una partida. La Grieta respira tranquila por un día."
     }
   ],
-  "frase": "Si te rindes a los 15, por lo menos has perdido rápido.",
+  "frase": "Un pentakill no te convierte en carry. Pero ayuda a que nadie lo comente durante un día.",
   "ranking": [
     {
       "slug": "wolf",
@@ -1316,5 +1371,28 @@
       "lowest_dmg": false,
       "support": false
     }
-  ]
+  ],
+  "template_frase": "Si te rindes a los 15, por lo menos has perdido rápido.",
+  "columna": {
+    "titulo": "Cinco muertes y un milagro",
+    "autor": "Doña Tilt",
+    "cuerpo": [
+      "Hay días en los que el universo se equivoca. Hoy Fr4nux, el hombre del daño invisible, ha hecho un pentakill. Lo he leído tres veces en el acta del VAR y sigo sin creerlo.",
+      "Mientras tanto, el resto del grupo hacía lo de siempre: Wôlf rotando campeones como quien cambia de calcetines y grangalax jugando diez partidas para acabar 4–6. Hay costumbres que no se pierden.",
+      "Disfrutad el momento. Mañana Fr4nux volverá a ser Fr4nux, y esta columna estará aquí para contarlo."
+    ]
+  },
+  "especial": {
+    "antetitulo": "EDICIÓN ESPECIAL",
+    "titulo": "El VAR confirma lo imposible: Fr4nux hace un pentakill",
+    "subtitulo": "CARRY NOT FOUND… hasta hoy. Con Jinx y el 32,8 % del daño de su equipo de media, el Observatorio del Monte Targon no da crédito.",
+    "tema": "azul"
+  },
+  "ai": {
+    "version": 2,
+    "updated_at": 1792446465008,
+    "firma": "Claude",
+    "stale": false
+  },
+  "written_by": "Claude"
 }
