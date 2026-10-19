@@ -13,8 +13,8 @@
       "section": "PORTADA",
       "player": "sunraku",
       "alias": "Sunraku",
-      "headline": "Sunraku vuelve a hacerlo: 18 muertes, KDA 2,61 y cero vergüenza",
-      "body": "El día de Sunraku se resume en 1–1. El 13,7 % del daño de su equipo de media. El equipo rival ha pedido que se le conceda la medalla al mérito civil.",
+      "headline": "Sunraku inaugura el lunes con 18 muertes en 2 partidas y una sonrisa de 1–1",
+      "body": "KDA de 2,61 y el 13,7 % del daño de su equipo, todo con Gnar. Ganó una y perdió otra, pero la que perdió la perdió con una intensidad que el contador de muertes todavía está procesando.",
       "stat": "1–1",
       "stat_label": "victorias–derrotas",
       "severity": 100,
@@ -29,18 +29,20 @@
         "champ": "Gnar",
         "champs": "Gnar",
         "hours": "1,1"
-      }
+      },
+      "template_headline": "Sunraku vuelve a hacerlo: 18 muertes, KDA 2,61 y cero vergüenza",
+      "template_body": "El día de Sunraku se resume en 1–1. El 13,7 % del daño de su equipo de media. El equipo rival ha pedido que se le conceda la medalla al mérito civil."
     },
     {
       "id": 1000,
       "kind": "ia",
       "section": "CRÓNICA",
-      "player": "wolf",
-      "alias": "Wôlf",
-      "headline": "Crónica de una derrota anunciada: el Flex donde Wôlf, grangalax y Fr4nux murieron 34 veces juntos",
-      "body": "En la partida Flex de Ashe, Ekko y Kalista, el trío sumó 13, 9 y 12 muertes: 34 en 27 minutos. Se perdió, claro. Los tres terminaron con menos del 22 % del daño y con ganas de culpar al jungla enemigo. Nadie ha pedido todavía el vídeo.",
-      "stat": "34",
-      "stat_label": "muertes del trío en una partida",
+      "player": null,
+      "alias": null,
+      "headline": "Crónica de una masacre: cinco amigos, una partida y 59 muertes en 38 minutos",
+      "body": "En la Ranked Flex de la derrota larga coincidieron Sunraku (13), grangalax (17), GSJoseador (7), Fr4nux (13) y Dierophant (9): 59 muertes del equipo amigo. Dierophant firmó 38 asistencias con Bard, que es lo más parecido a un hobby de voluntariado. Se perdió, claro.",
+      "stat": "59",
+      "stat_label": "muertes de cinco amigos en una partida",
       "severity": 99,
       "facts": {}
     },
@@ -50,10 +52,10 @@
       "section": "INVESTIGACIÓN",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "El caso del ADC fantasma: Fr4nux hace el 9,6 % del daño con el 19,6 % del oro",
-      "body": "Nuestra unidad de investigación ha comparado los dos números y confirma que no hay error: el oro iba a su cuenta y el daño, a otra parte. Un experto ficticio en balances de la Grieta describe la situación como «inversión a fondo perdido».",
-      "stat": "−10,1",
-      "stat_label": "puntos entre oro y daño",
+      "headline": "El caso del ADC con dos caras: Fr4nux, del 9,6 % al 31,1 % del daño según el día",
+      "body": "Nuestra unidad de investigación ha comparado dos partidas del mismo jugador: con Kalista hizo el 9,6 % del daño y cobró el 19,6 % del oro; con Caitlyn hizo el 31,1 %. Un experto ficticio en balances de la Grieta lo describe como «inversión a fondo perdido que, por un día, tuvo beneficios».",
+      "stat": "31,1 %",
+      "stat_label": "del daño de su equipo con Caitlyn",
       "severity": 98,
       "facts": {}
     },
@@ -63,8 +65,8 @@
       "section": "HORÓSCOPO",
       "player": null,
       "alias": null,
-      "headline": "Horóscopo del LP: Wôlf, no entres en la jungla enemiga; Fr4nux, cuidado con el éxito",
-      "body": "Wôlf: Mercurio retrógrado en tu bot lane. Evita los pings hasta nueva orden. grangalax: la moneda caerá donde quiera, pero mejor que no sea de canto. Fr4nux: demasiada suerte te rodea, desconfía de tus compañeros victoriosos. TheTrevur: descansa, Urgot sigue ahí.",
+      "headline": "Horóscopo del LP: Sunraku, Mercurio entra en tu top; grangalax, la moneda vuelve a girar",
+      "body": "Sunraku: tu planeta regente es el spawn, no te alejes de él. grangalax: ganarás con Aurelion Sol y perderás con Diana; sigue el flujo. Wôlf: evita los pings hasta nueva orden. Fr4nux: demasiado daño te rodea, desconfía. TheTrevur: descansa, Urgot sigue ahí.",
       "stat": "",
       "stat_label": "",
       "severity": 97,
@@ -76,8 +78,8 @@
       "section": "SUCESOS",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "grangalax muere 17 veces en una sola partida y la policía de Piltover abre una investigación",
-      "body": "Diana, 4/17/23, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
+      "headline": "grangalax muere 17 veces con Diana y la policía de Piltover abre expediente",
+      "body": "4/17/23 en Ranked Flex, 38 minutos y derrota: una muerte cada 2:14. Testigos aseguran que entraba a la jungla enemiga como quien va a por el pan. Ojo, que esa misma tarde ganó con Aurelion Sol, porque la moneda también cae de cara.",
       "stat": "17",
       "stat_label": "muertes en una partida",
       "severity": 7.8,
@@ -98,7 +100,9 @@
         "every": "2:14",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "grangalax muere 17 veces en una sola partida y la policía de Piltover abre una investigación",
+      "template_body": "Diana, 4/17/23, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez."
     },
     {
       "id": 2,
@@ -106,8 +110,8 @@
       "section": "ECONOMÍA",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "Fr4nux, el fichaje más caro y el que menos rinde: 19,6 % del oro, 9,6 % del daño",
-      "body": "Partida con Kalista: 10,1 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
+      "headline": "Fr4nux cobra el 19,6 % del oro, devuelve el 9,6 % del daño y Hacienda ya tiene su expediente",
+      "body": "Con Kalista hay 10,1 puntos de diferencia entre lo que cobró y lo que aportó. Los inspectores hablan del mayor agujero contable de la Grieta.",
       "stat": "−10,1",
       "stat_label": "puntos entre oro y daño",
       "severity": 7.03,
@@ -125,7 +129,9 @@
         "gold": "19,6 %",
         "share": "9,6 %",
         "gap": "10,1"
-      }
+      },
+      "template_headline": "Fr4nux, el fichaje más caro y el que menos rinde: 19,6 % del oro, 9,6 % del daño",
+      "template_body": "Partida con Kalista: 10,1 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga."
     },
     {
       "id": 3,
@@ -133,8 +139,8 @@
       "section": "SUCESOS",
       "player": "sunraku",
       "alias": "Sunraku",
-      "headline": "Récord de Sunraku: 13 muertes en 38 minutos",
-      "body": "Con Gnar murió cada 2:56 de media. Derrota, claro. El contador de muertes pidió una pausa.",
+      "headline": "Sunraku bate récord: 13 muertes con Gnar en 38 minutos de pura generosidad",
+      "body": "8/13/23 y derrota en Ranked Flex, una muerte cada 2:56. El contador de muertes ha pedido un descanso y el Nexus, un seguro de hogar.",
       "stat": "13",
       "stat_label": "muertes en una partida",
       "severity": 6.2,
@@ -155,7 +161,9 @@
         "every": "2:56",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "Récord de Sunraku: 13 muertes en 38 minutos",
+      "template_body": "Con Gnar murió cada 2:56 de media. Derrota, claro. El contador de muertes pidió una pausa."
     },
     {
       "id": 4,
@@ -163,8 +171,8 @@
       "section": "SUCESOS",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Detenido Wôlf por alimentar al enemigo: 13 muertes con Ashe",
-      "body": "Los hechos ocurrieron en una Ranked Flex de 27 minutos. Resultado: 2/13/10. Derrota, claro. El rival ya le ha enviado una cesta de agradecimiento.",
+      "headline": "Wôlf, detenido por alimentar al enemigo: 13 muertes con Ashe de support",
+      "body": "2/13/10 en una Flex de 27 minutos, una muerte cada 2:07. El rival ya le ha enviado una cesta de agradecimiento con membrillo.",
       "stat": "13",
       "stat_label": "muertes en una partida",
       "severity": 6.2,
@@ -185,7 +193,9 @@
         "every": "2:07",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "Detenido Wôlf por alimentar al enemigo: 13 muertes con Ashe",
+      "template_body": "Los hechos ocurrieron en una Ranked Flex de 27 minutos. Resultado: 2/13/10. Derrota, claro. El rival ya le ha enviado una cesta de agradecimiento."
     },
     {
       "id": 5,
@@ -193,8 +203,8 @@
       "section": "SUCESOS",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "Récord de Fr4nux: 13 muertes en 38 minutos",
-      "body": "Con Caitlyn murió cada 2:56 de media. Derrota, claro. El contador de muertes pidió una pausa.",
+      "headline": "Fr4nux muere 13 veces con Caitlyn, pero hace el 31,1 % del daño: sospechoso, muy sospechoso",
+      "body": "18/13/17 en 38 minutos y derrota. Que el ADC que nunca hace daño haga casi un tercio del daño de su equipo huele a cambio de cuenta o a milagro. Los expertos piden revisar el vídeo, por si acaso.",
       "stat": "13",
       "stat_label": "muertes en una partida",
       "severity": 6.2,
@@ -215,7 +225,9 @@
         "every": "2:56",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "Récord de Fr4nux: 13 muertes en 38 minutos",
+      "template_body": "Con Caitlyn murió cada 2:56 de media. Derrota, claro. El contador de muertes pidió una pausa."
     },
     {
       "id": 6,
@@ -223,8 +235,8 @@
       "section": "ECONOMÍA",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "GSJoseador, el fichaje más caro y el que menos rinde: 18,7 % del oro, 12,4 % del daño",
-      "body": "Partida con Renekton: 6,3 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
+      "headline": "GSJoseador, fichaje caro: 18,7 % del oro y 12,4 % del daño con Renekton",
+      "body": "Son 6,3 puntos de diferencia entre lo que cobró y lo que aportó. Los súbditos enemigos sufrieron más que los campeones.",
       "stat": "−6,3",
       "stat_label": "puntos entre oro y daño",
       "severity": 5.54,
@@ -242,7 +254,9 @@
         "gold": "18,7 %",
         "share": "12,4 %",
         "gap": "6,3"
-      }
+      },
+      "template_headline": "GSJoseador, el fichaje más caro y el que menos rinde: 18,7 % del oro, 12,4 % del daño",
+      "template_body": "Partida con Renekton: 6,3 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga."
     },
     {
       "id": 7,
@@ -250,8 +264,8 @@
       "section": "DAÑO",
       "player": "sunraku",
       "alias": "Sunraku",
-      "headline": "Sunraku fue el que menos daño hizo de su equipo en 1 de 2 partidas",
-      "body": "En su peor caso, con Gnar (8/13/23), se quedó en 25.078 de daño a campeones: el 12,1 % de su equipo. Hasta el que menos aportaba le pasó por encima.",
+      "headline": "Sunraku, el que menos daño hizo de su equipo en 1 de sus 2 partidas",
+      "body": "Con Gnar (8/13/23) se quedó en 25.078 de daño a campeones: el 12,1 % de su equipo. Hasta el que menos aportaba le pasó por encima.",
       "stat": "1/2",
       "stat_label": "partidas como el que menos daño de su equipo",
       "severity": 5.5,
@@ -271,7 +285,9 @@
         "kdas": "8/13/23",
         "dmg": "25.078",
         "share": "12,1 %"
-      }
+      },
+      "template_headline": "Sunraku fue el que menos daño hizo de su equipo en 1 de 2 partidas",
+      "template_body": "En su peor caso, con Gnar (8/13/23), se quedó en 25.078 de daño a campeones: el 12,1 % de su equipo. Hasta el que menos aportaba le pasó por encima."
     },
     {
       "id": 8,
@@ -279,8 +295,8 @@
       "section": "DAÑO",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "GSJoseador dispara con balas de fogueo: 2 partidas como el que menos daño de su equipo",
-      "body": "Su obra cumbre: Renekton, 17.422 de daño, el 12,4 % del total. Los súbditos enemigos sufrieron más que los campeones.",
+      "headline": "GSJoseador dispara con balas de fogueo: el que menos daño de su equipo en 2 de 5 partidas",
+      "body": "Su obra cumbre: Renekton con 17.422 de daño, el 12,4 % del total. Eso sí, con Mordekaiser hizo el 33,2 % y nadie entiende nada.",
       "stat": "2/5",
       "stat_label": "partidas como el que menos daño de su equipo",
       "severity": 5.2,
@@ -300,7 +316,9 @@
         "kdas": "2/9/3",
         "dmg": "17.422",
         "share": "12,4 %"
-      }
+      },
+      "template_headline": "GSJoseador dispara con balas de fogueo: 2 partidas como el que menos daño de su equipo",
+      "template_body": "Su obra cumbre: Renekton, 17.422 de daño, el 12,4 % del total. Los súbditos enemigos sufrieron más que los campeones."
     },
     {
       "id": 9,
@@ -308,8 +326,8 @@
       "section": "ECONOMÍA",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "Malversación de fondos: grangalax se quedó el 15,1 % del oro y devolvió el 9,6 % del daño",
-      "body": "Con Ekko recibió 5,5 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró.",
+      "headline": "Malversación en el mid: grangalax se queda el 15,1 % del oro y devuelve el 9,6 % del daño",
+      "body": "Con Ekko recibió 5,5 puntos más de oro que de daño. El equipo pagó los objetos y el enemigo no se enteró de que había alguien en el mid.",
       "stat": "−5,5",
       "stat_label": "puntos entre oro y daño",
       "severity": 5.19,
@@ -327,7 +345,9 @@
         "gold": "15,1 %",
         "share": "9,6 %",
         "gap": "5,5"
-      }
+      },
+      "template_headline": "Malversación de fondos: grangalax se quedó el 15,1 % del oro y devolvió el 9,6 % del daño",
+      "template_body": "Con Ekko recibió 5,5 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró."
     },
     {
       "id": 10,
@@ -335,8 +355,8 @@
       "section": "EL TIEMPO",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Wôlf se pasa 23 minutos en la pantalla gris",
-      "body": "El 13,5 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
+      "headline": "Wôlf pasa 23 minutos en la pantalla gris: el 13,5 % de su día en la Grieta",
+      "body": "Se sabe de memoria el mapa en blanco y negro. Los expertos en paisajismo ya lo consideran vecino honorario del cementerio.",
       "stat": "23 min",
       "stat_label": "en la pantalla gris",
       "severity": 4.8,
@@ -353,7 +373,9 @@
         "hours": "2,8",
         "dead_mins": 23,
         "dead_pct": "13,5 %"
-      }
+      },
+      "template_headline": "Wôlf se pasa 23 minutos en la pantalla gris",
+      "template_body": "El 13,5 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro."
     },
     {
       "id": 11,
@@ -361,8 +383,8 @@
       "section": "SOCIEDAD",
       "player": null,
       "alias": null,
-      "headline": "Sociedad limitada: Dierophant + GSJoseador se van 2–3",
-      "body": "La sinergia de este dúo es la de una tostadora en la bañera.",
+      "headline": "Sociedad limitada: Dierophant y GSJoseador se van 2–3 juntos",
+      "body": "La sinergia de este dúo es la de una tostadora en la bañera, aunque en la última victoria juntos al menos se les vio con ganas.",
       "stat": "2–3",
       "stat_label": "juntos",
       "severity": 4,
@@ -371,7 +393,9 @@
         "b": "GSJoseador",
         "w": 2,
         "l": 3
-      }
+      },
+      "template_headline": "Sociedad limitada: Dierophant + GSJoseador se van 2–3",
+      "template_body": "La sinergia de este dúo es la de una tostadora en la bañera."
     },
     {
       "id": 12,
@@ -380,7 +404,7 @@
       "player": null,
       "alias": null,
       "headline": "GSJoseador y grangalax, dúo del desastre: 1–2 juntos",
-      "body": "Juntos suman más derrotas que victorias. Por separado, al menos, pierden en partidas distintas.",
+      "body": "Juntos suman más derrotas que victorias. Por separado pierden en partidas distintas, que es la única forma de diversificar el riesgo.",
       "stat": "1–2",
       "stat_label": "juntos",
       "severity": 4,
@@ -389,7 +413,9 @@
         "b": "grangalax",
         "w": 1,
         "l": 2
-      }
+      },
+      "template_headline": "GSJoseador y grangalax, dúo del desastre: 1–2 juntos",
+      "template_body": "Juntos suman más derrotas que victorias. Por separado, al menos, pierden en partidas distintas."
     },
     {
       "id": 13,
@@ -397,8 +423,8 @@
       "section": "EL TIEMPO",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Previsión para Dierophant: gris durante 14 minutos",
-      "body": "Hoy pasó 14 minutos muerto, el 9,0 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja.",
+      "headline": "Previsión para Dierophant: gris durante 14 minutos, el 9,0 % de su día",
+      "body": "Probabilidad de reaparición: alta. Probabilidad de que sirva de algo al volver: depende del jungla enemigo.",
       "stat": "14 min",
       "stat_label": "en la pantalla gris",
       "severity": 3.99,
@@ -415,7 +441,9 @@
         "hours": "2,7",
         "dead_mins": 14,
         "dead_pct": "9,0 %"
-      }
+      },
+      "template_headline": "Previsión para Dierophant: gris durante 14 minutos",
+      "template_body": "Hoy pasó 14 minutos muerto, el 9,0 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja."
     },
     {
       "id": 14,
@@ -423,8 +451,8 @@
       "section": "MENCIÓN",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Dierophant se salva por hoy (2–3)",
-      "body": "El mejor del grupo, que no es decir mucho. Aprovecha, que esto no durará.",
+      "headline": "Dierophant se salva por hoy: 2–3 pero con KDA de 4,58",
+      "body": "El mejor KDA del grupo, que no es decir mucho. Aprovecha, que esto no durará.",
       "stat": "2–3",
       "stat_label": "victorias–derrotas",
       "severity": 0.5,
@@ -439,7 +467,9 @@
         "champ": "Sylas",
         "champs": "Sylas, LeeSin y Kindred",
         "hours": "2,7"
-      }
+      },
+      "template_headline": "Dierophant se salva por hoy (2–3)",
+      "template_body": "El mejor del grupo, que no es decir mucho. Aprovecha, que esto no durará."
     },
     {
       "id": 15,
@@ -454,10 +484,12 @@
       "severity": 0.2,
       "facts": {
         "names": "TheTrevur, iPredatoRz, RDV Canyon y Giroroo"
-      }
+      },
+      "template_headline": "Ausentes hoy: TheTrevur, iPredatoRz, RDV Canyon y Giroroo",
+      "template_body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre."
     }
   ],
-  "frase": "Hay dos tipos de jugadores: los que farmean y los de este grupo.",
+  "frase": "En esta Grieta se muere en equipo, pero se culpa en solitario.",
   "ranking": [
     {
       "slug": "sunraku",
@@ -1141,24 +1173,26 @@
     }
   ],
   "columna": {
-    "titulo": "Lunes de cifras y de lágrimas",
-    "autor": "El Analista Frustrado",
+    "titulo": "Lunes de lágrimas",
+    "autor": "Doña Tilt",
     "cuerpo": [
-      "Me piden que explique por qué un lunes cualquiera salen ochenta y cuatro muertes entre tres personas y doce partidas. No puedo. Lo he mirado con calculadora y con lupa, y las dos se han rendido.",
-      "Wôlf lidera con 43 muertes y no es noticia que lidere, sino que 2–3 parezca casi un buen resultado. Fr4nux, por su parte, firma un 4–1 con 12 muertes en una partida y 0 en otra. Eso no es consistencia, es un péndulo.",
-      "grangalax se limita a ser la moneda: una victoria, una derrota y el mismo 50 % de siempre. Hoy da gusto ver que algo se mantiene estable en este grupo."
+      "Queridos súbditos: han pasado 195 muertes por esta redacción en una sola jornada y todavía hay quien dice que esto es un juego de equipo. Lo es: en equipo se muere mucho mejor.",
+      "Hoy el podio de la vergüenza se lo llevan Sunraku, con sus 18 muertes, y grangalax, con aquellas 17 en una sola partida. Un respeto para quien se esfuerza en perder con tanto entusiasmo. Aun así, también hay luz: Dierophant se va con un KDA de 4,58 y la cara de quien ha leído la letra pequeña del contrato.",
+      "A Wôlf le recomiendo respirar. A Fr4nux, que repase por qué hoy hizo daño de verdad: si es casualidad, que se vaya acostumbrando a que lo vigilemos. Y a todos los demás, que la semana es larga y la Grieta no cierra los lunes."
     ]
   },
   "especial": {
     "antetitulo": "RESUMEN SEMANAL",
-    "titulo": "Arranca la semana: 84 muertes, 12 partidas y un solo ganador moral",
-    "subtitulo": "La general de la vergüenza abre con Wôlf al frente (5 puntos), grangalax en segundo (3) y Fr4nux cerrando el podio (2).",
-    "tema": "oro"
+    "titulo": "Arranca la semana con 195 muertes en 9 partidas y Sunraku al frente de la vergüenza",
+    "subtitulo": "La general abre con Sunraku (5 puntos), grangalax (3), Wôlf (2) y GSJoseador (1).",
+    "tema": "morado"
   },
   "ai": {
-    "version": 1,
-    "updated_at": 1792442241692,
+    "version": 2,
+    "updated_at": 1792442762315,
     "firma": "Claude",
-    "stale": true
-  }
+    "stale": false
+  },
+  "template_frase": "Hay dos tipos de jugadores: los que farmean y los de este grupo.",
+  "written_by": "Claude"
 }

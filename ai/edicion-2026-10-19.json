@@ -1,36 +1,43 @@
 {
   "items": [
-    {"id": 0, "headline": "Wôlf, lastre oficial del lunes: 2–3 y 43 muertes en 5 partidas", "body": "KDA de 1,98 y el 21,2 % del daño de su equipo. Cuarenta y tres muertes en 2,8 horas dan una media de muerte cada pocos minutos de juego. Fuentes cercanas confirman que ya está en cola para la siguiente, porque el tilt no entiende de lunes."},
-    {"id": 1, "headline": "Fr4nux cobra el 19,6 % del oro y devuelve el 9,6 % del daño: Hacienda ya tiene expediente", "body": "Con Kalista hay 10,1 puntos de diferencia entre lo que cobró y lo que aportó. Los inspectores hablan del mayor fraude de la Grieta desde que existe el ADC que no hace daño."},
-    {"id": 2, "headline": "Wôlf muere 13 veces con Ashe y Piltover abre diligencias por «suicidio reiterado»", "body": "2/13/10 en Ranked Flex, 27 minutos, derrota. Una muerte cada 2:07 de media. Testigos aseguran que entraba solo a la jungla enemiga como quien vuelve a casa."},
-    {"id": 3, "headline": "Fr4nux bate su propio récord: 12 muertes con Kalista en 27 minutos", "body": "4/12/6 y derrota en Flex, con una muerte cada 2:17. Eso sí, su cuenta marca 4–1 en el día, lo que confirma que el resto de la gente carrilea por él."},
-    {"id": 4, "headline": "Malversación en el mid: grangalax se queda el 15,1 % del oro y devuelve el 9,6 % del daño", "body": "Con Ekko recibió 5,5 puntos más de oro que de daño. El equipo pagó los objetos y el enemigo ni se enteró de que había alguien en el mid."},
-    {"id": 5, "headline": "Wôlf pasa 23 minutos en la pantalla gris: el 13,5 % de su día en la Grieta", "body": "Se ha aprendido de memoria el mapa en blanco y negro. Los expertos en paisajismo lo consideran ya vecino honorario del cementerio."},
-    {"id": 6, "headline": "Previsión para grangalax: 8 minutos de gris, con probabilidad alta de respawn", "body": "Pasó el 12,8 % de su tiempo en partida mirando el contador. Probabilidad de volver: alta. Probabilidad de que sirva de algo al volver: pendiente de confirmación."},
-    {"id": 7, "headline": "Fr4nux se salva por hoy con un 4–1 que no se explica con su KDA de 3,37", "body": "El mejor balance del grupo, que tampoco es una barrera alta. Sus victorias incluyen un 8/0/10 con Chogath, que hace sospechar de un cambio de cuenta durante veinte minutos."},
-    {"id": 8, "headline": "TheTrevur no ha jugado hoy: Urgot.exe se toma el lunes libre", "body": "Sus equipos habituales lo celebran y los demás Urgot del servidor respiran. Mañana volverá, como siempre."}
+    {"id": 0, "headline": "Sunraku inaugura el lunes con 18 muertes en 2 partidas y una sonrisa de 1–1", "body": "KDA de 2,61 y el 13,7 % del daño de su equipo, todo con Gnar. Ganó una y perdió otra, pero la que perdió la perdió con una intensidad que el contador de muertes todavía está procesando."},
+    {"id": 1, "headline": "grangalax muere 17 veces con Diana y la policía de Piltover abre expediente", "body": "4/17/23 en Ranked Flex, 38 minutos y derrota: una muerte cada 2:14. Testigos aseguran que entraba a la jungla enemiga como quien va a por el pan. Ojo, que esa misma tarde ganó con Aurelion Sol, porque la moneda también cae de cara."},
+    {"id": 2, "headline": "Fr4nux cobra el 19,6 % del oro, devuelve el 9,6 % del daño y Hacienda ya tiene su expediente", "body": "Con Kalista hay 10,1 puntos de diferencia entre lo que cobró y lo que aportó. Los inspectores hablan del mayor agujero contable de la Grieta."},
+    {"id": 3, "headline": "Sunraku bate récord: 13 muertes con Gnar en 38 minutos de pura generosidad", "body": "8/13/23 y derrota en Ranked Flex, una muerte cada 2:56. El contador de muertes ha pedido un descanso y el Nexus, un seguro de hogar."},
+    {"id": 4, "headline": "Wôlf, detenido por alimentar al enemigo: 13 muertes con Ashe de support", "body": "2/13/10 en una Flex de 27 minutos, una muerte cada 2:07. El rival ya le ha enviado una cesta de agradecimiento con membrillo."},
+    {"id": 5, "headline": "Fr4nux muere 13 veces con Caitlyn, pero hace el 31,1 % del daño: sospechoso, muy sospechoso", "body": "18/13/17 en 38 minutos y derrota. Que el ADC que nunca hace daño haga casi un tercio del daño de su equipo huele a cambio de cuenta o a milagro. Los expertos piden revisar el vídeo, por si acaso."},
+    {"id": 6, "headline": "GSJoseador, fichaje caro: 18,7 % del oro y 12,4 % del daño con Renekton", "body": "Son 6,3 puntos de diferencia entre lo que cobró y lo que aportó. Los súbditos enemigos sufrieron más que los campeones."},
+    {"id": 7, "headline": "Sunraku, el que menos daño hizo de su equipo en 1 de sus 2 partidas", "body": "Con Gnar (8/13/23) se quedó en 25.078 de daño a campeones: el 12,1 % de su equipo. Hasta el que menos aportaba le pasó por encima."},
+    {"id": 8, "headline": "GSJoseador dispara con balas de fogueo: el que menos daño de su equipo en 2 de 5 partidas", "body": "Su obra cumbre: Renekton con 17.422 de daño, el 12,4 % del total. Eso sí, con Mordekaiser hizo el 33,2 % y nadie entiende nada."},
+    {"id": 9, "headline": "Malversación en el mid: grangalax se queda el 15,1 % del oro y devuelve el 9,6 % del daño", "body": "Con Ekko recibió 5,5 puntos más de oro que de daño. El equipo pagó los objetos y el enemigo no se enteró de que había alguien en el mid."},
+    {"id": 10, "headline": "Wôlf pasa 23 minutos en la pantalla gris: el 13,5 % de su día en la Grieta", "body": "Se sabe de memoria el mapa en blanco y negro. Los expertos en paisajismo ya lo consideran vecino honorario del cementerio."},
+    {"id": 11, "headline": "Sociedad limitada: Dierophant y GSJoseador se van 2–3 juntos", "body": "La sinergia de este dúo es la de una tostadora en la bañera, aunque en la última victoria juntos al menos se les vio con ganas."},
+    {"id": 12, "headline": "GSJoseador y grangalax, dúo del desastre: 1–2 juntos", "body": "Juntos suman más derrotas que victorias. Por separado pierden en partidas distintas, que es la única forma de diversificar el riesgo."},
+    {"id": 13, "headline": "Previsión para Dierophant: gris durante 14 minutos, el 9,0 % de su día", "body": "Probabilidad de reaparición: alta. Probabilidad de que sirva de algo al volver: depende del jungla enemigo."},
+    {"id": 14, "headline": "Dierophant se salva por hoy: 2–3 pero con KDA de 4,58", "body": "El mejor KDA del grupo, que no es decir mucho. Aprovecha, que esto no durará."},
+    {"id": 15, "headline": "Ausentes hoy: TheTrevur, iPredatoRz, RDV Canyon y Giroroo", "body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre."}
   ],
   "extra": [
-    {"section": "CRÓNICA", "headline": "Crónica de una derrota anunciada: el Flex donde Wôlf, grangalax y Fr4nux murieron 34 veces juntos", "body": "En la partida Flex de Ashe, Ekko y Kalista, el trío sumó 13, 9 y 12 muertes: 34 en 27 minutos. Se perdió, claro. Los tres terminaron con menos del 22 % del daño y con ganas de culpar al jungla enemigo. Nadie ha pedido todavía el vídeo.", "player": "wolf", "stat": "34", "stat_label": "muertes del trío en una partida", "portada": false},
-    {"section": "INVESTIGACIÓN", "headline": "El caso del ADC fantasma: Fr4nux hace el 9,6 % del daño con el 19,6 % del oro", "body": "Nuestra unidad de investigación ha comparado los dos números y confirma que no hay error: el oro iba a su cuenta y el daño, a otra parte. Un experto ficticio en balances de la Grieta describe la situación como «inversión a fondo perdido».", "player": "fr4nux", "stat": "−10,1", "stat_label": "puntos entre oro y daño", "portada": false},
-    {"section": "HORÓSCOPO", "headline": "Horóscopo del LP: Wôlf, no entres en la jungla enemiga; Fr4nux, cuidado con el éxito", "body": "Wôlf: Mercurio retrógrado en tu bot lane. Evita los pings hasta nueva orden. grangalax: la moneda caerá donde quiera, pero mejor que no sea de canto. Fr4nux: demasiada suerte te rodea, desconfía de tus compañeros victoriosos. TheTrevur: descansa, Urgot sigue ahí.", "player": null, "stat": "", "stat_label": "", "portada": false}
+    {"section": "CRÓNICA", "headline": "Crónica de una masacre: cinco amigos, una partida y 59 muertes en 38 minutos", "body": "En la Ranked Flex de la derrota larga coincidieron Sunraku (13), grangalax (17), GSJoseador (7), Fr4nux (13) y Dierophant (9): 59 muertes del equipo amigo. Dierophant firmó 38 asistencias con Bard, que es lo más parecido a un hobby de voluntariado. Se perdió, claro.", "player": null, "stat": "59", "stat_label": "muertes de cinco amigos en una partida", "portada": false},
+    {"section": "INVESTIGACIÓN", "headline": "El caso del ADC con dos caras: Fr4nux, del 9,6 % al 31,1 % del daño según el día", "body": "Nuestra unidad de investigación ha comparado dos partidas del mismo jugador: con Kalista hizo el 9,6 % del daño y cobró el 19,6 % del oro; con Caitlyn hizo el 31,1 %. Un experto ficticio en balances de la Grieta lo describe como «inversión a fondo perdido que, por un día, tuvo beneficios».", "player": "fr4nux", "stat": "31,1 %", "stat_label": "del daño de su equipo con Caitlyn", "portada": false},
+    {"section": "HORÓSCOPO", "headline": "Horóscopo del LP: Sunraku, Mercurio entra en tu top; grangalax, la moneda vuelve a girar", "body": "Sunraku: tu planeta regente es el spawn, no te alejes de él. grangalax: ganarás con Aurelion Sol y perderás con Diana; sigue el flujo. Wôlf: evita los pings hasta nueva orden. Fr4nux: demasiado daño te rodea, desconfía. TheTrevur: descansa, Urgot sigue ahí.", "player": null, "stat": "", "stat_label": "", "portada": false}
   ],
   "columna": {
-    "titulo": "Lunes de cifras y de lágrimas",
-    "autor": "El Analista Frustrado",
+    "titulo": "Lunes de lágrimas",
+    "autor": "Doña Tilt",
     "cuerpo": [
-      "Me piden que explique por qué un lunes cualquiera salen ochenta y cuatro muertes entre tres personas y doce partidas. No puedo. Lo he mirado con calculadora y con lupa, y las dos se han rendido.",
-      "Wôlf lidera con 43 muertes y no es noticia que lidere, sino que 2–3 parezca casi un buen resultado. Fr4nux, por su parte, firma un 4–1 con 12 muertes en una partida y 0 en otra. Eso no es consistencia, es un péndulo.",
-      "grangalax se limita a ser la moneda: una victoria, una derrota y el mismo 50 % de siempre. Hoy da gusto ver que algo se mantiene estable en este grupo."
+      "Queridos súbditos: han pasado 195 muertes por esta redacción en una sola jornada y todavía hay quien dice que esto es un juego de equipo. Lo es: en equipo se muere mucho mejor.",
+      "Hoy el podio de la vergüenza se lo llevan Sunraku, con sus 18 muertes, y grangalax, con aquellas 17 en una sola partida. Un respeto para quien se esfuerza en perder con tanto entusiasmo. Aun así, también hay luz: Dierophant se va con un KDA de 4,58 y la cara de quien ha leído la letra pequeña del contrato.",
+      "A Wôlf le recomiendo respirar. A Fr4nux, que repase por qué hoy hizo daño de verdad: si es casualidad, que se vaya acostumbrando a que lo vigilemos. Y a todos los demás, que la semana es larga y la Grieta no cierra los lunes."
     ]
   },
   "especial": {
     "antetitulo": "RESUMEN SEMANAL",
-    "titulo": "Arranca la semana: 84 muertes, 12 partidas y un solo ganador moral",
-    "subtitulo": "La general de la vergüenza abre con Wôlf al frente (5 puntos), grangalax en segundo (3) y Fr4nux cerrando el podio (2).",
-    "tema": "oro"
+    "titulo": "Arranca la semana con 195 muertes en 9 partidas y Sunraku al frente de la vergüenza",
+    "subtitulo": "La general abre con Sunraku (5 puntos), grangalax (3), Wôlf (2) y GSJoseador (1).",
+    "tema": "morado"
   },
-  "frase": "La Grieta no perdona, pero tampoco olvida: pregúntale a Wôlf por sus 43 muertes.",
+  "frase": "En esta Grieta se muere en equipo, pero se culpa en solitario.",
   "eventos_usados": [],
   "firma": "Claude"
 }
