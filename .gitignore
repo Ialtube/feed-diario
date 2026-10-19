@@ -5,3 +5,4 @@ demo_data/
 demo_site/
 .env
 ai/contexto-*.json
+.claude/

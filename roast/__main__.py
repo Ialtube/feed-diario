@@ -81,6 +81,47 @@ def cmd_run(args):
             print(f"  ! Fallo inesperado con Discord ({e!r})")
 
 
+def cmd_backfill(args):
+    """Creates the editions of the N days before the first stored one (template text)."""
+    cfg, friends = load_config(), load_friends()
+    store = Store(ROOT / "data")
+    tz = get_tz(cfg["timezone"])
+    editions = sorted(store.editions(), key=lambda e: e["date"])
+    anchor = editions[0]["window"][0] if editions else int(time.time() * 1000)
+    since = anchor - args.days * 24 * HOUR_MS
+    client = _client(cfg)
+    try:
+        players = resolve_players(client, store, friends)
+        print(f"Descargando partidas de los {args.days} días anteriores...")
+        added = fetch_new_matches(client, store, players, since_ms=since - 2 * HOUR_MS, max_per_player=100)
+    except RiotError as e:
+        sys.exit(f"Error con la API de Riot: {e}")
+    print(f"  {added} partidas nuevas guardadas ({client.requests_made} peticiones a Riot)")
+
+    created = 0
+    for k in range(args.days, 0, -1):
+        start = anchor - k * 24 * HOUR_MS
+        end = start + 24 * HOUR_MS
+        date_str = datetime.fromtimestamp((end - 1) / 1000, tz).date().isoformat()
+        if store.edition(date_str):
+            continue
+        ed = make_edition(cfg, store, players, start, end, date_str, 0)
+        store.save_edition(ed)
+        created += 1
+        print(f"  {date_str}: {ed['totals']['games']} partidas, {len(ed['items'])} noticias")
+
+    # number every edition in date order
+    for n, ed in enumerate(sorted(store.editions(), key=lambda e: e["date"]), start=1):
+        if ed["number"] != n:
+            ed["number"] = n
+            store.save_edition(ed)
+    if store.state.get("last_edition_end") is None and editions:
+        store.state["last_edition_end"] = editions[-1]["window"][1]
+    store.save_state()
+    build_site(cfg, friends, store.editions(), ROOT / "docs")
+    print(f"{created} ediciones nuevas. Web regenerada en docs/")
+
+
 def cmd_build(args):
     cfg, friends = load_config(), load_friends()
     store = Store(ROOT / "data")
@@ -183,6 +224,9 @@ def main(argv=None):
     r.add_argument("--no-llm", action="store_true", help="no usar Claude aunque haya clave")
     r.add_argument("--no-notify", action="store_true", help="no avisar por Discord")
     r.set_defaults(fn=cmd_run)
+    b = sub.add_parser("backfill", help="crear las ediciones de los días anteriores")
+    b.add_argument("--days", type=int, default=7)
+    b.set_defaults(fn=cmd_backfill)
     sub.add_parser("build", help="regenerar la web").set_defaults(fn=cmd_build)
     sub.add_parser("check", help="comprobar clave y jugadores").set_defaults(fn=cmd_check)
     s = sub.add_parser("ai-status", help="¿la edición de hoy ya tiene versión IA?")

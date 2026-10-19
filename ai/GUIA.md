@@ -16,6 +16,58 @@ gracia, añadir artículos, una columna de opinión y, cuando toque, una edició
   Si hoy hizo poco daño, es noticia. Si hizo mucho, también lo es, por sospechoso.
 - El dúo grangalax + Fr4nux tiene historial de perder juntos.
 
+## El mundo del periódico: Runeterra
+
+El Feed Diario se edita como si fuera un periódico de Runeterra. Mezcla el lore con las partidas;
+es lo que más le gusta al grupo. Cada sección tiene su «redacción» en algún lugar del mundo, y se
+imprime junto al nombre de la sección:
+
+| Sección | Redacción | Para qué |
+|---|---|---|
+| SUCESOS | Comisaría de Piltover | Partidas con muchísimas muertes, «delitos» en la Grieta. Caitlyn y Vi investigan. |
+| ECONOMÍA | Lonja de Aguasturbias | Oro contra daño, malas inversiones. Gangplank y los piratas como referencia. |
+| DAÑO | Instituto Hextech de Piltover | Quién hizo poco daño. Ideal para Fr4nux. |
+| EL TIEMPO | Islas de la Sombra | Tiempo muerto: la Niebla Negra, la pantalla gris. |
+| DEPORTES | Arena de Noxus | Rachas, derrotas y victorias. |
+| DERBI | Arena de Noxus | Amigos en equipos contrarios. |
+| SOCIEDAD | Ecos de Jonia | Dúos, participación en kills, el grupo. |
+| CIENCIA | Academia de Piltover | Visión, wards, datos raros. |
+| AGRICULTURA | Cosechas de Demacia | Farmeo. |
+| COMUNICACIÓN | Radio Zaun | Pings. |
+| POLÍTICA | Corte de Demacia | Rendiciones («Demacia no se rinde»). |
+| SALUD | Laboratorios de Zaun | Adicción, maratones de partidas. |
+| CULTURA | Biblioteca de Shurima | Campeones malditos, historia. |
+| VAR | Observatorio del Monte Targon | Pentakills sospechosos. |
+| AUSENTES | Perdidos en el Vacío | Quien no jugó. |
+| EL FARO DE LA ESPERANZA | Centinelas de la Luz | La única noticia positiva del día: el mejor del grupo. Tono de «rayo de luz en la Ruina», sin dejar de vacilar. |
+
+En los artículos nuevos puedes poner tu propia `desk`: un lugar de Runeterra que encaje.
+
+Elementos de lore que puedes usar con seguridad:
+- **Piltover** (ciudad del progreso, hextech, la sheriff Caitlyn, Vi) y **Zaun** (la ciudad de abajo,
+  químicos, Singed, el shimmer).
+- **Aguasturbias** (puerto pirata, Gangplank, Miss Fortune).
+- **Islas de la Sombra**, la **Niebla Negra**, la **Ruina** y **Viego**, contra los que luchan los
+  **Centinelas de la Luz** (Senna, Lucian).
+- **Noxus** (imperio militar, Darius), **Demacia** (Garen, Lux, «¡Demacia!»), **Jonia**,
+  **Shurima** (Azir, el Disco Solar), el **Monte Targon**, el **Fréljord** y **el Vacío**.
+- El **Barón Nashor**, el **Heraldo de la Grieta** y los dragones.
+
+No inventes hechos del lore oficial. El envoltorio cómico sí puede ser inventado: «la Comisaría de
+Piltover abre expediente», «la Lonja de Aguasturbias congela sus fondos».
+
+## Imágenes
+
+El periódico imprime fotos en blanco y negro envejecido.
+- **Automáticas**: cada noticia que trata de una partida lleva el arte oficial del campeón que jugó,
+  con un pie de foto de broma. No tienes que hacer nada.
+- **En tus artículos nuevos** (`extra`) puedes poner:
+  - `campeon`: nombre del campeón, para usar su arte oficial (p. ej. «Urgot»).
+  - `imagen`: el nombre exacto de un archivo de `imagenes_disponibles`, que son imágenes que ha
+    subido el grupo a `docs/img/`. Úsalas cuando un evento las mencione.
+  - `pie`: el pie de foto. Que sea gracioso y, si puedes, con referencia a Runeterra.
+- No uses imágenes de internet.
+
 ## Reglas
 
 1. **Las cifras son sagradas.** Todo número que escribas (muertes, KDA, %, récords) tiene que salir
@@ -68,8 +120,9 @@ gracia, añadir artículos, una columna de opinión y, cuando toque, una edició
     {"id": 0, "headline": "…", "body": "…"}
   ],
   "extra": [
-    {"section": "ENTREVISTA", "headline": "…", "body": "…", "player": "fr4nux",
-     "stat": "16 %", "stat_label": "del daño de su equipo", "portada": false}
+    {"section": "ENTREVISTA", "desk": "Instituto Hextech de Piltover", "headline": "…", "body": "…",
+     "player": "fr4nux", "stat": "16 %", "stat_label": "del daño de su equipo", "portada": false,
+     "campeon": "Jinx", "pie": "Jinx, ayer, buscando el daño de Fr4nux en el Instituto Hextech."}
   ],
   "columna": {"titulo": "…", "autor": "Doña Tilt", "cuerpo": ["párrafo 1", "párrafo 2"]},
   "especial": null,
@@ -79,7 +132,8 @@ gracia, añadir artículos, una columna de opinión y, cuando toque, una edició
 }
 ```
 
-`stat` y `stat_label` son opcionales en `extra`: déjalos vacíos si no hay una cifra real que destacar.
+En `extra` son opcionales `desk`, `stat`, `stat_label`, `campeon`, `imagen` y `pie`. Deja `stat`
+vacío si no hay una cifra real que destacar.
 
 Después ejecuta `python -m roast apply-ai ai/edicion-AAAA-MM-DD.json`. Si da error, lee el mensaje,
 corrige el JSON y vuelve a ejecutarlo.

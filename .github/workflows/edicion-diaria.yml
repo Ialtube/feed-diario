@@ -4,7 +4,12 @@ on:
   schedule:
     # 06:15 UTC = 08:15 en Madrid en verano, 07:15 en invierno
     - cron: "15 6 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      backfill_days:
+        description: "Días anteriores a recuperar (0 = edición normal de hoy)"
+        required: false
+        default: "0"
 
 permissions:
   contents: write
@@ -16,7 +21,7 @@ concurrency:
 jobs:
   edicion:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -33,7 +38,13 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           SITE_URL: ${{ vars.SITE_URL }}
-        run: python -m roast run
+          BACKFILL_DAYS: ${{ inputs.backfill_days || '0' }}
+        run: |
+          if [ "$BACKFILL_DAYS" != "0" ]; then
+            python -m roast backfill --days "$BACKFILL_DAYS"
+          else
+            python -m roast run
+          fi
 
       - name: Guardar datos y web en el repositorio
         run: |

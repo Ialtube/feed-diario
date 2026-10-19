@@ -9,6 +9,27 @@ import random
 
 from .util import fmt_int, fmt_num, fmt_pct, fmt_minutes
 
+# --------------------------------------------------------------------------- sections
+# Each section has a "desk" somewhere in Runeterra, printed next to the section name.
+DESKS = {
+    "DAÑO": "Instituto Hextech de Piltover",
+    "ECONOMÍA": "Lonja de Aguasturbias",
+    "SUCESOS": "Comisaría de Piltover",
+    "EL TIEMPO": "Islas de la Sombra",
+    "DEPORTES": "Arena de Noxus",
+    "SOCIEDAD": "Ecos de Jonia",
+    "CIENCIA": "Academia de Piltover",
+    "AGRICULTURA": "Cosechas de Demacia",
+    "COMUNICACIÓN": "Radio Zaun",
+    "POLÍTICA": "Corte de Demacia",
+    "SALUD": "Laboratorios de Zaun",
+    "CULTURA": "Biblioteca de Shurima",
+    "VAR": "Observatorio del Monte Targon",
+    "DERBI": "Arena de Noxus",
+    "AUSENTES": "Perdidos en el Vacío",
+    "EL FARO DE LA ESPERANZA": "Centinelas de la Luz",
+}
+
 # --------------------------------------------------------------------------- templates
 T = {
     "portada": [
@@ -40,6 +61,9 @@ T = {
          "sufrieron más que los campeones."),
     ],
     "economia": [
+        ("La Lonja de Aguasturbias congela los fondos de {alias}: {gold} del oro, {share} del daño",
+         "Con {champ} cobró {gap} puntos más de oro que de daño. En Aguasturbias han colgado a gente "
+         "por estafas más pequeñas."),
         ("Malversación de fondos: {alias} se quedó el {gold} del oro y devolvió el {share} del daño",
          "Con {champ} recibió {gap} puntos más de oro que de daño. El equipo pagó los objetos; "
          "el enemigo no se enteró."),
@@ -58,6 +82,9 @@ T = {
          "Con {champ} murió cada {every} de media. {res_cap}. El contador de muertes pidió una pausa."),
     ],
     "tiempo": [
+        ("Previsión para {alias}: Niebla Negra durante {dead_mins} minutos",
+         "Las Islas de la Sombra reclamaron a {alias} durante {dead_mins} minutos, el {dead_pct} de su "
+         "tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza."),
         ("Previsión para {alias}: gris durante {dead_mins} minutos",
          "Hoy pasó {dead_mins} minutos muerto, el {dead_pct} de su tiempo en partida. "
          "Probabilidad de respawn: alta. Probabilidad de servir de algo: baja."),
@@ -106,6 +133,9 @@ T = {
          "diario solo a él."),
     ],
     "rendicion": [
+        ("Demacia no se rinde, pero {names} sí: {n_txt}",
+         "Garen ha pedido que no se mencione su tierra en esta noticia. Votar sí antes de tiempo "
+         "también es una forma de jugar; no la más honorable."),
         ("Bandera blanca: {names} {verb} {n_txt} hoy",
          "Votar sí antes de tiempo también es una forma de jugar. No la mejor."),
         ("Ante la duda, rendición: {names} {verb} {n_txt}",
@@ -136,10 +166,15 @@ T = {
          "cerca que estará de un elogio."),
     ],
     "mencion": [
-        ("Mención (casi) honorífica para {alias}: hoy no ha sido el peor",
-         "{wl} y KDA {kda}. Que no se acostumbre: mañana el periódico sale otra vez."),
-        ("{alias} se salva por hoy ({wl})",
-         "El mejor del grupo, que no es decir mucho. Aprovecha, que esto no durará."),
+        ("El Faro de la Esperanza ilumina hoy a {alias}: {wl}",
+         "Mientras la Niebla Negra cubría al resto del grupo, {alias} aguantó con un KDA de {kda}. "
+         "Los Centinelas de la Luz no van a reclutarle, pero hoy al menos no se ha perdido en la Ruina."),
+        ("Una luz en la Ruina: {alias} ({wl}) no ha sido el peor",
+         "Los Centinelas de la Luz confirman un rayo de esperanza en el grupo: KDA {kda}. "
+         "Que nadie se emocione; mañana vuelve la Niebla."),
+        ("Desde el Faro, una señal: {alias} sobrevive al día ({wl})",
+         "El mejor del grupo, que no es decir mucho. Los Centinelas de la Luz lo anotan en su diario "
+         "con letra pequeña, por si acaso."),
     ],
     "duo": [
         ("{a} y {b}, dúo del desastre: {w}–{l} juntos",
@@ -164,6 +199,8 @@ T = {
     "vacio": [
         ("Día de luto: nadie del grupo ha jugado",
          "Ni una partida en 24 horas. La redacción, sin material, se ha ido a casa. Mañana más."),
+        ("El Vacío se traga al grupo entero: cero partidas",
+         "Ni rastro de ninguno en la Grieta. Desde Piltover piden calma: volverán, por desgracia."),
     ],
 }
 
@@ -236,7 +273,7 @@ class Writer:
     def add(self, kind, section, key, ctx, stat, stat_label, severity, player=None):
         head, body = self._pick(kind, key)
         self.items.append({
-            "id": len(self.items), "kind": kind, "section": section,
+            "id": len(self.items), "kind": kind, "section": section, "desk": DESKS.get(section, ""),
             "player": player["slug"] if player else None,
             "alias": player["alias"] if player else None,
             "headline": head.format(**ctx), "body": body.format(**ctx),
@@ -353,7 +390,7 @@ def write_edition(facts, date_str, items_per_player=2):
     if len(players) >= 2:
         best = players[-1]
         ctx = _ctx(best)
-        w.add("mencion", "MENCIÓN", best["slug"], ctx, ctx["wl"], "victorias–derrotas", 0.5, player=best)
+        w.add("mencion", "EL FARO DE LA ESPERANZA", best["slug"], ctx, ctx["wl"], "victorias–derrotas", 0.5, player=best)
 
     for d in [d for d in facts["duos"] if d["l"] > d["w"]][:2]:
         if d["l"] > d["w"]:

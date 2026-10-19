@@ -13,6 +13,7 @@ from .site import general_leaderboard
 from .util import ROOT, load_json, save_json
 
 EVENTS_FILE = ROOT / "eventos.md"
+IMG_DIR = ROOT / "docs" / "img"
 AI_DIR = ROOT / "ai"
 THEMES = ("rojo", "oro", "negro", "verde", "azul", "morado")
 MAX_EXTRA = 6
@@ -106,6 +107,9 @@ def build_context(store, date_str, history_days=7):
             "especial": (e.get("especial") or {}).get("titulo"),
         } for e in previous],
         "jugadores": sorted({r["slug"]: r["alias"] for e in editions for r in e["ranking"]}.items()),
+        "imagenes_disponibles": sorted(p.name for p in IMG_DIR.glob("*")
+                                       if p.suffix.lower() in (".jpg", ".jpeg", ".png", ".gif", ".webp"))
+                                if IMG_DIR.exists() else [],
     }
 
 
@@ -147,14 +151,22 @@ def validate(data, edition, known_slugs):
         player = it.get("player")
         if player is not None and player not in known_slugs:
             raise AIError(f"extra[{i}].player {player!r} no es un jugador conocido ({', '.join(sorted(known_slugs))})")
+        imagen = it.get("imagen")
+        if imagen:
+            if not re.fullmatch(r"[\w.\-]+\.(jpe?g|png|gif|webp)", imagen, re.I) or not (IMG_DIR / imagen).exists():
+                raise AIError(f"extra[{i}].imagen {imagen!r} no existe en docs/img/ (pon solo el nombre del archivo)")
         clean["extra"].append({
-            "section": _text(it.get("section") or "OPINIÓN", f"extra[{i}].section", 3, 24).upper(),
+            "section": _text(it.get("section") or "OPINIÓN", f"extra[{i}].section", 3, 30).upper(),
+            "desk": _text(it.get("desk") or "", f"extra[{i}].desk", 0, 50),
             "headline": _text(it.get("headline"), f"extra[{i}].headline", 8, 160),
             "body": _text(it.get("body"), f"extra[{i}].body", 10, 900),
             "stat": _text(it.get("stat") or "", f"extra[{i}].stat", 0, 16),
             "stat_label": _text(it.get("stat_label") or "", f"extra[{i}].stat_label", 0, 50),
             "player": player,
             "portada": bool(it.get("portada")),
+            "imagen": imagen,
+            "campeon": _text(it.get("campeon") or "", f"extra[{i}].campeon", 0, 30) or None,
+            "pie": _text(it.get("pie") or "", f"extra[{i}].pie", 0, 200),
         })
     if sum(e["portada"] for e in clean["extra"]) > 1:
         raise AIError("Solo un artículo extra puede llevar portada: true")
@@ -212,9 +224,10 @@ def apply(edition, clean, date_str):
     for i, e in enumerate(clean["extra"]):
         extras.append({
             "id": 1000 + i,  # template items keep their ids so a later context/apply still matches
-            "kind": "ia", "section": e["section"], "player": e["player"],
+            "kind": "ia", "section": e["section"], "desk": e["desk"], "player": e["player"],
             "alias": None, "headline": e["headline"], "body": e["body"],
             "stat": e["stat"], "stat_label": e["stat_label"],
+            "imagen": e["imagen"], "campeon": e["campeon"], "pie": e["pie"],
             # an extra marked as front page goes first; the rest right after the front page
             "severity": 1000 if e["portada"] else 99 - i, "facts": {},
         })

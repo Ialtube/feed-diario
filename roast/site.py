@@ -3,108 +3,131 @@ from datetime import date
 from html import escape
 from pathlib import Path
 
+from .roasts import DESKS
 from .util import fmt_int, fmt_num, fmt_pct, long_date, short_date, slugify
 
 POINTS = [5, 3, 2, 1]  # daily shame points by position in the ranking
 
 CSS = r"""
 :root{
-  --bg:#ebe5d8; --paper:#f7f2e7; --ink:#1c1a16; --muted:#6b6457; --rule:#cfc6b4; --accent:#b3261e;
-  --chip:#efe7d6; --good:#2e6b3a; --shadow:0 1px 0 rgba(0,0,0,.04), 0 10px 30px rgba(0,0,0,.06);
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#11100d; --paper:#1b1915; --ink:#ece5d6; --muted:#a39a88; --rule:#3a362e; --accent:#ff6b5e;
-    --chip:#25221c; --good:#7fcf8c; --shadow:none;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#11100d; --paper:#1b1915; --ink:#ece5d6; --muted:#a39a88; --rule:#3a362e; --accent:#ff6b5e;
-  --chip:#25221c; --good:#7fcf8c; --shadow:none;
+  color-scheme:light;
+  --bg:#cfc3a6; --paper:#efe4c8; --paper2:#e6d7b4; --ink:#241a10; --muted:#5f4e39; --rule:#8b7757;
+  --accent:#7e1e12; --chip:#e2d2ab; --good:#2f5122;
+  --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .32  0 0 0 0 .23  0 0 0 0 .1  0 0 0 .13 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{overflow-x:hidden}
-body{background:var(--bg);color:var(--ink);font-family:"Source Serif 4",Georgia,serif;line-height:1.5;font-size:17px}
+body{background:var(--noise),radial-gradient(ellipse at top,#d8ccaf,#bfb08e);color:var(--ink);
+  font-family:"Libre Caslon Text",Georgia,serif;line-height:1.55;font-size:17px}
 a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
-.paper{background:var(--paper);box-shadow:var(--shadow);border:1px solid var(--rule);margin:18px auto 40px;padding:26px 30px 34px}
+.paper{background:var(--noise),radial-gradient(ellipse at center,transparent 55%,rgba(110,80,30,.20)),var(--paper);
+  border:1px solid #a8956c;box-shadow:0 2px 0 rgba(0,0,0,.06),0 22px 50px rgba(60,40,10,.28);
+  margin:22px auto 40px;padding:26px 34px 36px;position:relative}
+.paper::before{content:"";position:absolute;inset:8px;border:1px solid rgba(80,60,30,.25);pointer-events:none}
 /* masthead */
-.mast{text-align:center;border-bottom:4px double var(--ink);padding-bottom:14px;margin-bottom:0}
-.topline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);border-bottom:1px solid var(--rule);padding-bottom:8px}
-.title{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:clamp(2.6rem,9vw,5.6rem);line-height:1.05;margin:14px 0 4px;text-decoration:none;display:inline-block}
-.tagline{font-style:italic;color:var(--muted);font-size:.95rem}
-nav.menu{display:flex;justify-content:center;gap:6px 18px;flex-wrap:wrap;margin-top:12px;font-size:.8rem;text-transform:uppercase;letter-spacing:.14em}
-nav.menu a{text-decoration:none;border-bottom:1px solid transparent}
-nav.menu a:hover{border-color:var(--accent)}
+.mast{text-align:center;padding-bottom:6px}
+.topline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:"IM Fell English SC",serif;
+  font-size:.92rem;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--ink);padding-bottom:6px}
+.title{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:clamp(2.7rem,10vw,6.4rem);line-height:1.02;
+  margin:12px 0 2px;text-decoration:none;display:inline-block;color:var(--ink);text-shadow:0 1px 0 rgba(255,255,255,.35)}
+.tagline{font-family:"Old Standard TT",serif;font-style:italic;color:var(--muted);font-size:1rem}
+.rules{border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);height:6px;margin-top:12px}
+nav.menu{display:flex;justify-content:center;gap:6px 26px;flex-wrap:wrap;padding:7px 0;font-family:"IM Fell English SC",serif;
+  font-size:1rem;letter-spacing:.08em;border-bottom:1px solid var(--ink)}
+nav.menu a{text-decoration:none}
+nav.menu a:hover{color:var(--accent)}
 /* ticker */
-.ticker{display:flex;align-items:center;border-bottom:1px solid var(--ink);overflow:hidden;font-size:.9rem;margin-bottom:22px}
-.ticker b{background:var(--accent);color:#fff;padding:6px 10px;font-family:system-ui,sans-serif;font-size:.72rem;letter-spacing:.14em;white-space:nowrap;flex:none}
-.ticker .run{white-space:nowrap;animation:run 60s linear infinite;padding-left:100%}
-.ticker .run span{margin-right:42px}
+.ticker{display:flex;align-items:center;border-bottom:1px solid var(--ink);overflow:hidden;font-size:.92rem;margin:0 0 24px;
+  font-family:"Old Standard TT",serif;font-style:italic}
+.ticker b{background:var(--ink);color:var(--paper);padding:6px 12px;font-family:"IM Fell English SC",serif;font-style:normal;
+  font-size:.9rem;letter-spacing:.08em;white-space:nowrap;flex:none}
+.ticker .run{white-space:nowrap;animation:run 70s linear infinite;padding-left:100%}
+.ticker .run span{margin-right:30px}
+.ticker .run span::after{content:"\2726";margin-left:30px;color:var(--muted)}
 @keyframes run{to{transform:translateX(-100%)}}
+/* section labels */
+.kicker{font-family:"IM Fell English SC",serif;font-size:.98rem;letter-spacing:.06em;color:var(--accent)}
+.kicker .desk{font-family:"Old Standard TT",serif;font-style:italic;font-size:.85rem;letter-spacing:0;color:var(--muted)}
+.orn{text-align:center;color:var(--muted);margin:4px 0 20px;letter-spacing:.8em;font-size:1rem}
 /* lead story */
-.lead{display:grid;grid-template-columns:1.6fr 1fr;gap:28px;border-bottom:1px solid var(--ink);padding-bottom:24px;margin-bottom:24px}
-.kicker{font-family:system-ui,sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700}
-.lead h2{font-family:"Playfair Display",Georgia,serif;font-weight:900;font-size:clamp(1.9rem,4.4vw,3.3rem);line-height:1.07;margin:8px 0 14px}
-.lead p{font-size:1.12rem}
-.lead p::first-letter{font-family:"Playfair Display",serif;font-weight:900;float:left;font-size:3.4rem;line-height:.9;padding:4px 8px 0 0}
-.bigstat{border:2px solid var(--ink);padding:20px;text-align:center;align-self:start}
-.bigstat .n{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(2.6rem,7vw,4.4rem);line-height:1;color:var(--accent)}
-.bigstat .l{font-size:.85rem;color:var(--muted);margin-top:6px}
-.bigstat .who{margin-top:14px;font-family:system-ui,sans-serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+.lead{display:grid;grid-template-columns:1.65fr 1fr;gap:30px;border-bottom:3px double var(--ink);padding-bottom:22px;margin-bottom:8px}
+.lead h2{font-family:"Old Standard TT",Georgia,serif;font-weight:700;font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.04;
+  margin:6px 0 14px;letter-spacing:-.01em}
+.lead p{font-size:1.08rem;text-align:justify;hyphens:auto;column-count:2;column-gap:26px;column-rule:1px solid var(--rule)}
+.lead p::first-letter{font-family:"Old Standard TT",serif;font-weight:700;float:left;font-size:3.6rem;line-height:.82;padding:6px 8px 0 0}
+.bigstat{border:4px double var(--ink);background:var(--paper2);padding:18px;text-align:center;align-self:start}
+.bigstat .n{font-family:"Old Standard TT",serif;font-weight:700;font-size:clamp(2.6rem,7vw,4.6rem);line-height:1;color:var(--accent)}
+.bigstat .l{font-style:italic;font-size:.9rem;color:var(--muted);margin-top:6px}
+.bigstat .who{margin-top:12px;font-family:"IM Fell English SC",serif;font-size:1rem;letter-spacing:.06em}
+figure{margin:10px 0 12px}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--ink);padding:4px;background:var(--paper2);
+  filter:grayscale(1) sepia(.5) contrast(1.12) brightness(.96)}
+figcaption{font-family:"Old Standard TT",serif;font-style:italic;font-size:.82rem;color:var(--muted);margin-top:5px;text-align:center}
 /* body */
-.cols{display:grid;grid-template-columns:1fr 330px;gap:30px}
+.cols{display:grid;grid-template-columns:1fr 320px;gap:32px}
 .cols>*,.lead>*,.profile>*,.news>*{min-width:0}
-.news{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;align-content:start}
-.news article{border-top:1px solid var(--rule);padding:16px 0 18px}
+.news{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;align-content:start;
+  background:linear-gradient(var(--rule),var(--rule)) center top/1px 100% no-repeat}
+.news article{border-top:1px solid var(--ink);padding:14px 0 18px;background:var(--paper)}
+.news article:nth-child(odd){padding-right:2px}
 .news article.wide{grid-column:1/-1}
-.news h3{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:1.32rem;line-height:1.18;margin:6px 0 8px}
-.news .stat{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;border-left:3px solid var(--accent);padding:2px 0 2px 10px;margin:0 0 8px}
-.news .stat .n{font-family:"Playfair Display",serif;font-weight:900;font-size:1.55rem;line-height:1;color:var(--accent)}
-.news .stat .l{font-size:.78rem;color:var(--muted);line-height:1.2}
-.byline{font-size:.78rem;color:var(--muted);margin-top:8px}
+.news h3{font-family:"Old Standard TT",Georgia,serif;font-weight:700;font-size:1.36rem;line-height:1.14;margin:4px 0 8px}
+.news p{text-align:justify;hyphens:auto}
+.news .stat{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;border-top:1px dotted var(--rule);border-bottom:1px dotted var(--rule);
+  padding:3px 0;margin:0 0 9px}
+.news .stat .n{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.45rem;line-height:1;color:var(--accent)}
+.news .stat .l{font-style:italic;font-size:.85rem;color:var(--muted);line-height:1.2}
+.byline{font-family:"Old Standard TT",serif;font-style:italic;font-size:.85rem;color:var(--muted);margin-top:8px}
 .byline a{text-decoration:none;border-bottom:1px dotted var(--muted)}
-aside .box{border:1px solid var(--ink);padding:16px;margin-bottom:20px}
-aside h4{font-family:system-ui,sans-serif;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;font-family:system-ui,sans-serif;font-size:.84rem}
-th{text-align:left;font-weight:600;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--rule);padding:5px 4px}
-td{padding:6px 4px;border-bottom:1px solid var(--rule)}
+aside .box{border:3px double var(--ink);background:rgba(255,250,235,.25);padding:14px 16px;margin-bottom:20px}
+aside h4{font-family:"IM Fell English SC",serif;font-weight:400;font-size:1.12rem;letter-spacing:.05em;text-align:center;
+  border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th{text-align:left;font-family:"IM Fell English SC",serif;font-weight:400;color:var(--muted);font-size:.86rem;
+  border-bottom:1px solid var(--ink);padding:4px 4px}
+td{padding:5px 4px;border-bottom:1px dotted var(--rule)}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 tr.top td{color:var(--accent);font-weight:700}
-.quote{font-family:"Playfair Display",serif;font-style:italic;font-size:1.15rem;line-height:1.35}
-.small{font-size:.86rem;color:var(--muted)}
-.chip{display:inline-block;background:var(--chip);border:1px solid var(--rule);border-radius:3px;padding:1px 7px;font-size:.78rem;margin:2px 2px 0 0;font-family:system-ui,sans-serif}
+.quote{font-family:"Old Standard TT",serif;font-style:italic;font-size:1.18rem;line-height:1.35;text-align:center}
+.small{font-size:.88rem;color:var(--muted)}
 .win{color:var(--good);font-weight:700}.loss{color:var(--accent);font-weight:700}
-footer{text-align:center;font-size:.75rem;color:var(--muted);padding:0 16px 40px;max-width:900px;margin:0 auto}
+footer{text-align:center;font-family:"Old Standard TT",serif;font-style:italic;font-size:.8rem;color:#4a3d2c;padding:0 16px 40px;max-width:900px;margin:0 auto}
 /* player page */
-.profile{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-bottom:26px}
-.profile h2{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(2rem,5vw,3rem);line-height:1.05}
+.profile{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:26px}
+.profile h2{font-family:"Old Standard TT",serif;font-weight:700;font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.02}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.kpi{border:1px solid var(--rule);padding:10px;text-align:center}
-.kpi .n{font-family:"Playfair Display",serif;font-weight:900;font-size:1.5rem;color:var(--accent);line-height:1.1}
-.kpi .l{font-size:.7rem;color:var(--muted)}
+.kpi{border:1px solid var(--ink);background:rgba(255,250,235,.25);padding:10px;text-align:center}
+.kpi .n{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.55rem;color:var(--accent);line-height:1.1}
+.kpi .l{font-style:italic;font-size:.75rem;color:var(--muted)}
 .spark{width:100%;height:auto}
-.archive li{list-style:none;border-top:1px solid var(--rule);padding:12px 0;display:grid;grid-template-columns:150px 1fr;gap:14px}
-.archive li a{font-family:"Playfair Display",serif;font-weight:700;font-size:1.1rem;text-decoration:none}
+.archive li{list-style:none;border-top:1px solid var(--ink);padding:12px 0;display:grid;grid-template-columns:170px 1fr;gap:14px}
+.archive li a{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.15rem;text-decoration:none}
 .tablewrap{overflow-x:auto}
 /* AI extras: special edition banner + opinion column */
-.special{--sp:var(--accent);border:3px double var(--sp);background:linear-gradient(180deg,color-mix(in srgb,var(--sp) 14%,transparent),transparent);
-  padding:22px 22px 18px;margin-bottom:24px;text-align:center}
-.special .kicker{color:var(--sp);font-size:.85rem}
-.special h2{font-family:"Playfair Display",Georgia,serif;font-weight:900;font-size:clamp(2rem,5.4vw,3.8rem);line-height:1.04;margin:8px 0}
-.special p{font-style:italic;font-size:1.1rem;color:var(--muted);max-width:760px;margin:0 auto}
-.special.t-oro{--sp:#b8860b}.special.t-negro{--sp:var(--ink)}.special.t-verde{--sp:#2e7d32}
-.special.t-azul{--sp:#1f5fa8}.special.t-morado{--sp:#7b3fa0}
-.news article.column{background:var(--chip);border:1px solid var(--rule);padding:18px 18px 10px;margin:12px 0 6px}
+.special{--sp:var(--accent);border:5px double var(--sp);background:var(--paper2);padding:22px 22px 18px;margin-bottom:22px;text-align:center}
+.special .kicker{color:var(--sp);font-size:1.15rem;letter-spacing:.2em}
+.special h2{font-family:"Old Standard TT",Georgia,serif;font-weight:700;font-size:clamp(2.1rem,5.6vw,4rem);line-height:1.02;margin:8px 0}
+.special p{font-family:"Old Standard TT",serif;font-style:italic;font-size:1.12rem;color:var(--muted);max-width:760px;margin:0 auto}
+.special.t-oro{--sp:#8a6410}.special.t-negro{--sp:var(--ink)}.special.t-verde{--sp:#2f5122}
+.special.t-azul{--sp:#1d3f6b}.special.t-morado{--sp:#5a2d6e}
+.news article.column{background:var(--paper2);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;
+  padding:20px 22px 12px;margin:12px 0 8px}
 .news article.column p{margin-bottom:10px}
-.news article.column h3{font-style:italic}
+.news article.column p:first-of-type::first-letter{font-family:"Old Standard TT",serif;font-weight:700;float:left;font-size:2.6rem;line-height:.85;padding:4px 6px 0 0}
+.news article.column h3{font-style:italic;text-align:center;font-size:1.6rem}
+.news article.column .kicker,.news article.column .byline{text-align:center}
+.news article.faro{background:linear-gradient(180deg,rgba(212,170,60,.18),transparent);}
+.news article.faro .kicker::before{content:"\263C  "}
 @media (max-width:900px){
   .cols,.lead,.profile{grid-template-columns:1fr}
-  .news{grid-template-columns:1fr}
+  .news{grid-template-columns:1fr;background:none}
+  .lead p{column-count:1}
 }
 @media (max-width:560px){
   body{font-size:16px}
-  .paper{padding:18px 14px 26px;margin:10px auto 26px}
+  .paper{padding:20px 16px 26px;margin:10px auto 26px}
+  .paper::before{inset:5px}
   .topline{justify-content:center}
   .kpis{grid-template-columns:repeat(2,1fr)}
   .archive li{grid-template-columns:1fr;gap:2px}
@@ -114,8 +137,8 @@ footer{text-align:center;font-size:.75rem;color:var(--muted);padding:0 16px 40px
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-         '<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900'
-         '&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=UnifrakturMaguntia&display=swap" '
+         '<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400'
+         '&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&display=swap" '
          'rel="stylesheet">')
 
 LEGAL = ("El Feed Diario no está avalado por Riot Games y no refleja las opiniones de Riot Games ni de "
@@ -137,9 +160,10 @@ def page(cfg, title, body, rel, edition=None, description=""):
     top = ""
     if edition:
         top = (f'<div class="topline"><span>{_e(long_date(_date(edition["date"])).capitalize())}</span>'
-               f'<span>Edición nº {edition["number"]}</span><span>Precio: 1 LP</span></div>')
+               f'<span>Año I · Edición nº {edition["number"]}</span><span>Precio: 1 LP</span></div>')
     else:
-        top = '<div class="topline"><span>Hemeroteca</span><span>&nbsp;</span><span>Precio: 1 LP</span></div>'
+        top = ('<div class="topline"><span>Fundado en la Grieta del Invocador</span><span>Hemeroteca</span>'
+               '<span>Precio: 1 LP</span></div>')
     return f"""<!doctype html>
 <html lang="es">
 <head>
@@ -156,6 +180,7 @@ def page(cfg, title, body, rel, edition=None, description=""):
 {top}
 <a class="title" href="{rel}index.html">{_e(cfg['site_title'])}</a>
 <p class="tagline">{_e(cfg['site_tagline'])}</p>
+<div class="rules"></div>
 <nav class="menu"><a href="{rel}index.html">Portada</a><a href="{rel}archivo.html">Hemeroteca</a><a href="{rel}jugadores.html">Jugadores</a></nav>
 </header>
 {body}
@@ -214,13 +239,68 @@ def _general_table(board, rel):
             'tercero 2 y el cuarto 1.</p>')
 
 
-def _article(it, rel, wide=False):
+def _kicker(it):
+    section = "EL FARO DE LA ESPERANZA" if it.get("section") == "MENCIÓN" else it["section"]  # older editions
+    desk = it.get("desk") or DESKS.get(section, "")
+    return (f'<div class="kicker">{_e(section)}'
+            + (f'<span class="desk"> · {_e(desk)}</span>' if desk else "") + '</div>')
+
+
+# Official champion art from Riot's Data Dragon CDN (allowed for free fan projects that carry
+# Riot's legal notice). Champion names in match data are already Data Dragon ids ("Kaisa");
+# display names ("Kai'Sa") are normalised here.
+DDRAGON_IDS = {"wukong": "MonkeyKing", "nunu & willump": "Nunu", "renata glasc": "Renata",
+               "kog'maw": "KogMaw", "rek'sai": "RekSai", "k'sante": "KSante", "leblanc": "Leblanc",
+               "dr. mundo": "DrMundo", "jarvan iv": "JarvanIV", "bel'veth": "Belveth"}
+
+CAPTIONS = [
+    "{champ}, en una imagen de archivo, minutos antes de que {alias} lo cogiera.",
+    "Fotografía de {champ} tomada por los Centinelas de la Luz como prueba del delito.",
+    "{champ}, visiblemente decepcionado tras la partida de {alias}.",
+    "Retrato oficial de {champ}. Su abogado ha pedido que no se le relacione con {alias}.",
+    "{champ}, ayer, preguntando quién le había hecho esto.",
+    "La Comisaría de Piltover difunde esta imagen de {champ} por si alguien reconoce al culpable.",
+]
+
+
+def _ddragon_id(name):
+    key = name.strip().lower()
+    if key in DDRAGON_IDS:
+        return DDRAGON_IDS[key]
+    if "'" in name or "." in name or " " in name:
+        clean = "".join(ch for ch in name if ch.isalnum())
+        return clean[0].upper() + clean[1:].lower() if "'" in name else clean
+    return name
+
+
+def _figure(it, rel):
+    """Image for an article: a picture the group sent (docs/img/) or the champion's splash art."""
+    if it.get("imagen"):
+        src = f"{rel}img/{it['imagen']}"
+        caption = it.get("pie") or ""
+    else:
+        champ = it.get("campeon") or (it.get("facts") or {}).get("champ")
+        if not champ:
+            return ""
+        src = f"https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{_ddragon_id(champ)}_0.jpg"
+        alias = it.get("alias") or "el grupo"
+        caption = it.get("pie") or CAPTIONS[sum(map(ord, it["headline"])) % len(CAPTIONS)].format(
+            champ=champ, alias=alias)
+    return (f'<figure><img src="{_e(src)}" alt="{_e(caption)}" loading="lazy" '
+            f'onerror="this.closest(\'figure\').remove()">'
+            + (f'<figcaption>{_e(caption)}</figcaption>' if caption else "") + '</figure>')
+
+
+def _article(it, rel, wide=False, image=False):
     who = ""
     if it.get("player"):
         who = (f'<div class="byline">Sobre <a href="{rel}jugadores/{_e(it["player"])}.html">'
                f'{_e(it["alias"])}</a></div>')
-    return (f'<article class="{"wide" if wide else ""}"><div class="kicker">{_e(it["section"])}</div>'
-            f'<h3>{_e(it["headline"])}</h3>{_stat(it)}<p>{_e(it["body"])}</p>{who}</article>')
+    classes = " ".join(c for c in ("wide" if wide else "", "faro" if it.get("kind") == "mencion" else "") if c)
+    stat = _stat(it) if it.get("stat") else ""
+    fig = _figure(it, rel) if image else ""
+    return (f'<article class="{classes}">{_kicker(it)}'
+            f'<h3>{_e(it["headline"])}</h3>{fig}{stat}<p>{_e(it["body"])}</p>{who}</article>')
 
 
 def _stat(it):
@@ -238,11 +318,19 @@ def render_edition(cfg, ed, editions_until, rel):
     if lead:
         who = (f'<div class="who"><a href="{rel}jugadores/{_e(lead["player"])}.html">{_e(lead["alias"])}</a></div>'
                if lead.get("player") else "")
-        lead_html = (f'<section class="lead"><div><div class="kicker">{_e(lead["section"])}</div>'
+        stat_box = (f'<div class="bigstat"><div class="n">{_e(lead["stat"])}</div>'
+                    f'<div class="l">{_e(lead["stat_label"])}</div>{who}</div>') if lead.get("stat") else ""
+        lead_html = (f'<section class="lead"><div>{_kicker(lead)}'
                      f'<h2>{_e(lead["headline"])}</h2><p>{_e(lead["body"])}</p></div>'
-                     f'<div class="bigstat"><div class="n">{_e(lead["stat"])}</div>'
-                     f'<div class="l">{_e(lead["stat_label"])}</div>{who}</div></section>')
-    news = "".join(_article(it, rel, wide=(i == 0 and len(rest) % 2 == 1)) for i, it in enumerate(rest))
+                     f'<div>{_figure(lead, rel)}{stat_box}</div></section><div class="orn">✦ ✦ ✦</div>')
+    # pictures on the first few articles only, to keep the page light
+    with_img, pics = set(), 0
+    for i, it in enumerate(rest):
+        if pics < 3 and (it.get("imagen") or it.get("campeon") or (it.get("facts") or {}).get("champ")):
+            with_img.add(i)
+            pics += 1
+    news = "".join(_article(it, rel, wide=(i == 0 and len(rest) % 2 == 1), image=i in with_img)
+                   for i, it in enumerate(rest))
     col = ed.get("columna")
     if col:
         paras = "".join(f"<p>{_e(p)}</p>" for p in col["cuerpo"])
