@@ -86,8 +86,55 @@
     for (var i = moved.length - 1; i >= 0; i--) moved[i][1].insertBefore(moved[i][0], moved[i][2]);
     moved = []; full.innerHTML = '';
   }
+  var tpl = document.getElementById('relleno');
+  var pool = tpl ? Array.prototype.slice.call(tpl.content.children) : [];
+  var used = 0;
+  function clearFill(){
+    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid .anuncio'), function(a){ a.remove(); });
+    used = 0;
+  }
+  // A story much shorter than its neighbours gets a small ad underneath, if one fits in the hole.
+  function fillGaps(){
+    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid > article'), function(a){
+      if (used >= pool.length) return;
+      var h = a.getBoundingClientRect().height, inner = 0;
+      Array.prototype.forEach.call(a.children, function(c){ inner = Math.max(inner, c.getBoundingClientRect().bottom); });
+      if (h - (inner - a.getBoundingClientRect().top) < 150) return;
+      var el = pool[used].cloneNode(true);
+      el.classList.add('mini');
+      a.appendChild(el);
+      if (a.getBoundingClientRect().height > h + 1) el.remove(); else used++;
+    });
+  }
+  // Fill the empty cells at the end of every grid with the small ads, stretched to the row height.
+  function fill(){
+    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid'), function(g){
+      var cols = getComputedStyle(g).gridTemplateColumns.split(' ').filter(Boolean).length;
+      if (cols < 2) return;
+      var n = 0;
+      Array.prototype.forEach.call(g.children, function(c){
+        n = c.classList.contains('wide') ? (Math.ceil(n / cols) + 1) * cols : n + 1;
+      });
+      var rem = (cols - n % cols) % cols;
+      while (rem > 0 && used < pool.length) {
+        var el = pool[used++].cloneNode(true), span = (rem >= 2 && el.dataset.wide) ? 2 : 1;
+        el.style.gridColumn = 'span ' + span;
+        g.appendChild(el);
+        rem -= span;
+      }
+    });
+  }
+  // Whatever hole is left under a story with a placard, the placard grows into it.
+  function grow(){
+    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid > article.con-cartel'), function(a){
+      a.classList.remove('grow');
+      var inner = 0;
+      Array.prototype.forEach.call(a.children, function(c){ inner = Math.max(inner, c.getBoundingClientRect().bottom); });
+      if (a.getBoundingClientRect().bottom - inner > 40) a.classList.add('grow');
+    });
+  }
+  function run(){ clearFill(); restore(); layout(); fill(); fillGaps(); grow(); }
   function layout(){
-    restore();
     var mr = main.getBoundingClientRect(), ar = aside.getBoundingClientRect();
     if (ar.left < mr.right) return;                       // phone: sidebar already below
     var last = aside.lastElementChild, top = mr.top, best = null;
@@ -95,7 +142,7 @@
     Array.prototype.forEach.call(main.children, function(sec){
       var y = sec.getBoundingClientRect().top - top;
       if (y > h / 2) consider({y: y, sec: sec});
-      var grid = sec.querySelector('.sec-grid'), seen = {};
+      var grid = sec.classList.contains('sec-row') ? null : sec.querySelector('.sec-grid'), seen = {};
       if (!grid) return;
       Array.prototype.forEach.call(grid.children, function(a){
         var t = Math.round(a.getBoundingClientRect().top);
@@ -116,8 +163,8 @@
     while (rest) { var next = rest.nextElementSibling; move(rest, full); rest = next; }
   }
   var timer;
-  function later(){ clearTimeout(timer); timer = setTimeout(layout, 120); }
-  layout();
+  function later(){ clearTimeout(timer); timer = setTimeout(run, 120); }
+  run();
   window.addEventListener('load', later);
   window.addEventListener('resize', later);
   document.addEventListener('load', function(e){ if (e.target.tagName === 'IMG') later(); }, true);
