@@ -13,8 +13,8 @@
       "section": "PORTADA",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Wôlf, peor jugador del día: 2–3 y 43 muertes en 5 partidas",
-      "body": "Con un KDA de 1,98 y el 21,2 % del daño de su equipo, Wôlf se corona hoy como lastre oficial del grupo. Fuentes cercanas confirman que ya está en cola para la siguiente.",
+      "headline": "Wôlf, lastre oficial del lunes: 2–3 y 43 muertes en 5 partidas",
+      "body": "KDA de 1,98 y el 21,2 % del daño de su equipo. Cuarenta y tres muertes en 2,8 horas dan una media de muerte cada pocos minutos de juego. Fuentes cercanas confirman que ya está en cola para la siguiente, porque el tilt no entiende de lunes.",
       "stat": "2–3",
       "stat_label": "victorias–derrotas",
       "severity": 100,
@@ -29,7 +29,48 @@
         "champ": "Ashe",
         "champs": "Zed, Ashe y Gragas",
         "hours": "2,8"
-      }
+      },
+      "template_headline": "Wôlf, peor jugador del día: 2–3 y 43 muertes en 5 partidas",
+      "template_body": "Con un KDA de 1,98 y el 21,2 % del daño de su equipo, Wôlf se corona hoy como lastre oficial del grupo. Fuentes cercanas confirman que ya está en cola para la siguiente."
+    },
+    {
+      "id": 1000,
+      "kind": "ia",
+      "section": "CRÓNICA",
+      "player": "wolf",
+      "alias": "Wôlf",
+      "headline": "Crónica de una derrota anunciada: el Flex donde Wôlf, grangalax y Fr4nux murieron 34 veces juntos",
+      "body": "En la partida Flex de Ashe, Ekko y Kalista, el trío sumó 13, 9 y 12 muertes: 34 en 27 minutos. Se perdió, claro. Los tres terminaron con menos del 22 % del daño y con ganas de culpar al jungla enemigo. Nadie ha pedido todavía el vídeo.",
+      "stat": "34",
+      "stat_label": "muertes del trío en una partida",
+      "severity": 99,
+      "facts": {}
+    },
+    {
+      "id": 1001,
+      "kind": "ia",
+      "section": "INVESTIGACIÓN",
+      "player": "fr4nux",
+      "alias": "Fr4nux",
+      "headline": "El caso del ADC fantasma: Fr4nux hace el 9,6 % del daño con el 19,6 % del oro",
+      "body": "Nuestra unidad de investigación ha comparado los dos números y confirma que no hay error: el oro iba a su cuenta y el daño, a otra parte. Un experto ficticio en balances de la Grieta describe la situación como «inversión a fondo perdido».",
+      "stat": "−10,1",
+      "stat_label": "puntos entre oro y daño",
+      "severity": 98,
+      "facts": {}
+    },
+    {
+      "id": 1002,
+      "kind": "ia",
+      "section": "HORÓSCOPO",
+      "player": null,
+      "alias": null,
+      "headline": "Horóscopo del LP: Wôlf, no entres en la jungla enemiga; Fr4nux, cuidado con el éxito",
+      "body": "Wôlf: Mercurio retrógrado en tu bot lane. Evita los pings hasta nueva orden. grangalax: la moneda caerá donde quiera, pero mejor que no sea de canto. Fr4nux: demasiada suerte te rodea, desconfía de tus compañeros victoriosos. TheTrevur: descansa, Urgot sigue ahí.",
+      "stat": "",
+      "stat_label": "",
+      "severity": 97,
+      "facts": {}
     },
     {
       "id": 1,
@@ -37,8 +78,8 @@
       "section": "ECONOMÍA",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "Fr4nux, el fichaje más caro y el que menos rinde: 19,6 % del oro, 9,6 % del daño",
-      "body": "Partida con Kalista: 10,1 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
+      "headline": "Fr4nux cobra el 19,6 % del oro y devuelve el 9,6 % del daño: Hacienda ya tiene expediente",
+      "body": "Con Kalista hay 10,1 puntos de diferencia entre lo que cobró y lo que aportó. Los inspectores hablan del mayor fraude de la Grieta desde que existe el ADC que no hace daño.",
       "stat": "−10,1",
       "stat_label": "puntos entre oro y daño",
       "severity": 7.03,
@@ -56,7 +97,9 @@
         "gold": "19,6 %",
         "share": "9,6 %",
         "gap": "10,1"
-      }
+      },
+      "template_headline": "Fr4nux, el fichaje más caro y el que menos rinde: 19,6 % del oro, 9,6 % del daño",
+      "template_body": "Partida con Kalista: 10,1 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga."
     },
     {
       "id": 2,
@@ -64,8 +107,8 @@
       "section": "SUCESOS",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Wôlf muere 13 veces en una sola partida y la policía de Piltover abre una investigación",
-      "body": "Ashe, 2/13/10, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
+      "headline": "Wôlf muere 13 veces con Ashe y Piltover abre diligencias por «suicidio reiterado»",
+      "body": "2/13/10 en Ranked Flex, 27 minutos, derrota. Una muerte cada 2:07 de media. Testigos aseguran que entraba solo a la jungla enemiga como quien vuelve a casa.",
       "stat": "13",
       "stat_label": "muertes en una partida",
       "severity": 6.2,
@@ -86,7 +129,9 @@
         "every": "2:07",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "Wôlf muere 13 veces en una sola partida y la policía de Piltover abre una investigación",
+      "template_body": "Ashe, 2/13/10, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez."
     },
     {
       "id": 3,
@@ -94,8 +139,8 @@
       "section": "SUCESOS",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "Récord de Fr4nux: 12 muertes en 27 minutos",
-      "body": "Con Kalista murió cada 2:17 de media. Derrota, claro. El contador de muertes pidió una pausa.",
+      "headline": "Fr4nux bate su propio récord: 12 muertes con Kalista en 27 minutos",
+      "body": "4/12/6 y derrota en Flex, con una muerte cada 2:17. Eso sí, su cuenta marca 4–1 en el día, lo que confirma que el resto de la gente carrilea por él.",
       "stat": "12",
       "stat_label": "muertes en una partida",
       "severity": 5.8,
@@ -116,7 +161,9 @@
         "every": "2:17",
         "res": "derrota",
         "res_cap": "Derrota, claro"
-      }
+      },
+      "template_headline": "Récord de Fr4nux: 12 muertes en 27 minutos",
+      "template_body": "Con Kalista murió cada 2:17 de media. Derrota, claro. El contador de muertes pidió una pausa."
     },
     {
       "id": 4,
@@ -124,8 +171,8 @@
       "section": "ECONOMÍA",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "Malversación de fondos: grangalax se quedó el 15,1 % del oro y devolvió el 9,6 % del daño",
-      "body": "Con Ekko recibió 5,5 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró.",
+      "headline": "Malversación en el mid: grangalax se queda el 15,1 % del oro y devuelve el 9,6 % del daño",
+      "body": "Con Ekko recibió 5,5 puntos más de oro que de daño. El equipo pagó los objetos y el enemigo ni se enteró de que había alguien en el mid.",
       "stat": "−5,5",
       "stat_label": "puntos entre oro y daño",
       "severity": 5.19,
@@ -143,7 +190,9 @@
         "gold": "15,1 %",
         "share": "9,6 %",
         "gap": "5,5"
-      }
+      },
+      "template_headline": "Malversación de fondos: grangalax se quedó el 15,1 % del oro y devolvió el 9,6 % del daño",
+      "template_body": "Con Ekko recibió 5,5 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró."
     },
     {
       "id": 5,
@@ -151,8 +200,8 @@
       "section": "EL TIEMPO",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Wôlf se pasa 23 minutos en la pantalla gris",
-      "body": "El 13,5 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
+      "headline": "Wôlf pasa 23 minutos en la pantalla gris: el 13,5 % de su día en la Grieta",
+      "body": "Se ha aprendido de memoria el mapa en blanco y negro. Los expertos en paisajismo lo consideran ya vecino honorario del cementerio.",
       "stat": "23 min",
       "stat_label": "en la pantalla gris",
       "severity": 4.8,
@@ -169,7 +218,9 @@
         "hours": "2,8",
         "dead_mins": 23,
         "dead_pct": "13,5 %"
-      }
+      },
+      "template_headline": "Wôlf se pasa 23 minutos en la pantalla gris",
+      "template_body": "El 13,5 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro."
     },
     {
       "id": 6,
@@ -177,8 +228,8 @@
       "section": "EL TIEMPO",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "Previsión para grangalax: gris durante 8 minutos",
-      "body": "Hoy pasó 8 minutos muerto, el 12,8 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja.",
+      "headline": "Previsión para grangalax: 8 minutos de gris, con probabilidad alta de respawn",
+      "body": "Pasó el 12,8 % de su tiempo en partida mirando el contador. Probabilidad de volver: alta. Probabilidad de que sirva de algo al volver: pendiente de confirmación.",
       "stat": "8 min",
       "stat_label": "en la pantalla gris",
       "severity": 3.32,
@@ -195,7 +246,9 @@
         "hours": "1,1",
         "dead_mins": 8,
         "dead_pct": "12,8 %"
-      }
+      },
+      "template_headline": "Previsión para grangalax: gris durante 8 minutos",
+      "template_body": "Hoy pasó 8 minutos muerto, el 12,8 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja."
     },
     {
       "id": 7,
@@ -203,8 +256,8 @@
       "section": "MENCIÓN",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "Fr4nux se salva por hoy (4–1)",
-      "body": "El mejor del grupo, que no es decir mucho. Aprovecha, que esto no durará.",
+      "headline": "Fr4nux se salva por hoy con un 4–1 que no se explica con su KDA de 3,37",
+      "body": "El mejor balance del grupo, que tampoco es una barrera alta. Sus victorias incluyen un 8/0/10 con Chogath, que hace sospechar de un cambio de cuenta durante veinte minutos.",
       "stat": "4–1",
       "stat_label": "victorias–derrotas",
       "severity": 0.5,
@@ -219,7 +272,9 @@
         "champ": "Kalista",
         "champs": "Kalista, Syndra y Chogath",
         "hours": "2,3"
-      }
+      },
+      "template_headline": "Fr4nux se salva por hoy (4–1)",
+      "template_body": "El mejor del grupo, que no es decir mucho. Aprovecha, que esto no durará."
     },
     {
       "id": 8,
@@ -227,17 +282,19 @@
       "section": "AUSENTES",
       "player": null,
       "alias": null,
-      "headline": "Ausentes hoy: TheTrevur",
-      "body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre.",
+      "headline": "TheTrevur no ha jugado hoy: Urgot.exe se toma el lunes libre",
+      "body": "Sus equipos habituales lo celebran y los demás Urgot del servidor respiran. Mañana volverá, como siempre.",
       "stat": "1",
       "stat_label": "no jugó",
       "severity": 0.2,
       "facts": {
         "names": "TheTrevur"
-      }
+      },
+      "template_headline": "Ausentes hoy: TheTrevur",
+      "template_body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre."
     }
   ],
-  "frase": "Hay dos tipos de jugadores: los que farmean y los de este grupo.",
+  "frase": "La Grieta no perdona, pero tampoco olvida: pregúntale a Wôlf por sus 43 muertes.",
   "ranking": [
     {
       "slug": "wolf",
@@ -542,5 +599,28 @@
       "lowest_dmg": false,
       "support": false
     }
-  ]
+  ],
+  "template_frase": "Hay dos tipos de jugadores: los que farmean y los de este grupo.",
+  "columna": {
+    "titulo": "Lunes de cifras y de lágrimas",
+    "autor": "El Analista Frustrado",
+    "cuerpo": [
+      "Me piden que explique por qué un lunes cualquiera salen ochenta y cuatro muertes entre tres personas y doce partidas. No puedo. Lo he mirado con calculadora y con lupa, y las dos se han rendido.",
+      "Wôlf lidera con 43 muertes y no es noticia que lidere, sino que 2–3 parezca casi un buen resultado. Fr4nux, por su parte, firma un 4–1 con 12 muertes en una partida y 0 en otra. Eso no es consistencia, es un péndulo.",
+      "grangalax se limita a ser la moneda: una victoria, una derrota y el mismo 50 % de siempre. Hoy da gusto ver que algo se mantiene estable en este grupo."
+    ]
+  },
+  "especial": {
+    "antetitulo": "RESUMEN SEMANAL",
+    "titulo": "Arranca la semana: 84 muertes, 12 partidas y un solo ganador moral",
+    "subtitulo": "La general de la vergüenza abre con Wôlf al frente (5 puntos), grangalax en segundo (3) y Fr4nux cerrando el podio (2).",
+    "tema": "oro"
+  },
+  "ai": {
+    "version": 1,
+    "updated_at": 1792442241692,
+    "firma": "Claude",
+    "stale": false
+  },
+  "written_by": "Claude"
 }
