@@ -98,6 +98,8 @@ figure img{display:block;width:100%;height:auto;filter:grayscale(1) sepia(.45) c
 figcaption{font-family:"Old Standard TT",serif;font-style:italic;font-size:.84rem;color:var(--muted);margin-top:5px;text-align:center}
 /* layout */
 .cols{display:grid;grid-template-columns:1fr 320px;gap:34px;margin-top:6px}
+.full>.secblock.cont{margin-top:0}
+.full .sec-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
 .cols>*,.lead>*,.profile>*,.sec-grid>*{min-width:0}
 /* sections */
 .secblock{margin-top:28px}
@@ -285,8 +287,60 @@ LECTORES_JS = r"""(function(){
     }
   }
 })();
+// When the sidebar ends, the rest of the stories take the whole width of the page instead of
+// leaving an empty column on the right. It cuts between sections or between rows of stories,
+// wherever the cut lands closest to the bottom of the sidebar.
+(function(){
+  var cols = document.querySelector('.cols.edicion');
+  if (!cols) return;
+  var main = cols.querySelector('main'), aside = cols.querySelector('aside');
+  var full = document.createElement('div');
+  full.className = 'full';
+  cols.parentNode.insertBefore(full, cols.nextSibling);
+  var moved = [];
+  function move(node, target){ moved.push([node, node.parentNode, node.nextSibling]); target.appendChild(node); }
+  function restore(){
+    for (var i = moved.length - 1; i >= 0; i--) moved[i][1].insertBefore(moved[i][0], moved[i][2]);
+    moved = []; full.innerHTML = '';
+  }
+  function layout(){
+    restore();
+    var mr = main.getBoundingClientRect(), ar = aside.getBoundingClientRect();
+    if (ar.left < mr.right) return;                       // phone: sidebar already below
+    var last = aside.lastElementChild, top = mr.top, best = null;
+    var h = last ? last.getBoundingClientRect().bottom - ar.top : 0;
+    Array.prototype.forEach.call(main.children, function(sec){
+      var y = sec.getBoundingClientRect().top - top;
+      if (y > h / 2) consider({y: y, sec: sec});
+      var grid = sec.querySelector('.sec-grid'), seen = {};
+      if (!grid) return;
+      Array.prototype.forEach.call(grid.children, function(a){
+        var t = Math.round(a.getBoundingClientRect().top);
+        if (t - top > h / 2 && !seen[t] && a !== grid.firstElementChild) { seen[t] = 1; consider({y: t - top, sec: sec, grid: grid, row: t}); }
+      });
+    });
+    function consider(c){ if (!best || Math.abs(c.y - h) < Math.abs(best.y - h)) best = c; }
+    if (!best || Math.abs(mr.height - h) <= Math.abs(best.y - h)) return;
+    var rest = best.sec;
+    if (best.grid) {
+      var cont = document.createElement('section'), g = document.createElement('div');
+      cont.className = best.sec.className + ' cont'; g.className = 'sec-grid'; cont.appendChild(g); full.appendChild(cont);
+      Array.prototype.slice.call(best.grid.children).forEach(function(a){
+        if (Math.round(a.getBoundingClientRect().top) >= best.row) move(a, g);
+      });
+      rest = best.sec.nextElementSibling;
+    }
+    while (rest) { var next = rest.nextElementSibling; move(rest, full); rest = next; }
+  }
+  var timer;
+  function later(){ clearTimeout(timer); timer = setTimeout(layout, 120); }
+  layout();
+  window.addEventListener('load', later);
+  window.addEventListener('resize', later);
+  document.addEventListener('load', function(e){ if (e.target.tagName === 'IMG') later(); }, true);
+  if (document.fonts) document.fonts.ready.then(later);
+})();
 """
-
 
 def _e(x):
     return escape(str(x), quote=True)
@@ -486,10 +540,12 @@ def _meme_text(it):
 
 def _figure(it, rel):
     """Picture for a story: one the group sent (docs/img/) or the champion's official art as a meme."""
+    size = ""
     if it.get("imagen"):
         src = f"{rel}img/{it['imagen']}"
         caption = it.get("pie") or ""
     else:
+        size = ' width="1215" height="717"'  # Data Dragon splash size: keeps the page from jumping while it loads
         champ = it.get("campeon") or (it.get("facts") or {}).get("champ")
         if not champ:
             return ""
@@ -498,7 +554,7 @@ def _figure(it, rel):
             champ=champ_name(champ), alias=it.get("alias") or "el grupo")
     top, bot = _meme_text(it)
     meme = (f'<div class="meme"><span>{_e(top)}</span><span>{_e(bot)}</span></div>' if top or bot else "")
-    return (f'<figure><div class="ph"><img src="{_e(src)}" alt="{_e(caption)}" loading="lazy" '
+    return (f'<figure><div class="ph"><img src="{_e(src)}"{size} alt="{_e(caption)}" loading="lazy" '
             f'onerror="this.closest(\'figure\').remove()">{meme}</div>'
             + (f'<figcaption>{_e(caption)}</figcaption>' if caption else "") + '</figure>')
 
@@ -643,7 +699,7 @@ def render_edition(cfg, ed, editions_until, rel):
 <div class="ticker"><b>ÚLTIMA HORA</b><div class="run">{ticker}</div></div>
 {special}
 {lead_html}
-<div class="cols">
+<div class="cols edicion">
   <main>{_sections(ed, rest, rel)}{_comments(ed)}</main>
   <aside>
     <div class="box"><h4>General de la vergüenza</h4>{_general_table(board, rel)}</div>

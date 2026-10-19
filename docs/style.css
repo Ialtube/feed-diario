@@ -79,6 +79,8 @@ figure img{display:block;width:100%;height:auto;filter:grayscale(1) sepia(.45) c
 figcaption{font-family:"Old Standard TT",serif;font-style:italic;font-size:.84rem;color:var(--muted);margin-top:5px;text-align:center}
 /* layout */
 .cols{display:grid;grid-template-columns:1fr 320px;gap:34px;margin-top:6px}
+.full>.secblock.cont{margin-top:0}
+.full .sec-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
 .cols>*,.lead>*,.profile>*,.sec-grid>*{min-width:0}
 /* sections */
 .secblock{margin-top:28px}

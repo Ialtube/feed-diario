@@ -70,3 +70,56 @@
     }
   }
 })();
+// When the sidebar ends, the rest of the stories take the whole width of the page instead of
+// leaving an empty column on the right. It cuts between sections or between rows of stories,
+// wherever the cut lands closest to the bottom of the sidebar.
+(function(){
+  var cols = document.querySelector('.cols.edicion');
+  if (!cols) return;
+  var main = cols.querySelector('main'), aside = cols.querySelector('aside');
+  var full = document.createElement('div');
+  full.className = 'full';
+  cols.parentNode.insertBefore(full, cols.nextSibling);
+  var moved = [];
+  function move(node, target){ moved.push([node, node.parentNode, node.nextSibling]); target.appendChild(node); }
+  function restore(){
+    for (var i = moved.length - 1; i >= 0; i--) moved[i][1].insertBefore(moved[i][0], moved[i][2]);
+    moved = []; full.innerHTML = '';
+  }
+  function layout(){
+    restore();
+    var mr = main.getBoundingClientRect(), ar = aside.getBoundingClientRect();
+    if (ar.left < mr.right) return;                       // phone: sidebar already below
+    var last = aside.lastElementChild, top = mr.top, best = null;
+    var h = last ? last.getBoundingClientRect().bottom - ar.top : 0;
+    Array.prototype.forEach.call(main.children, function(sec){
+      var y = sec.getBoundingClientRect().top - top;
+      if (y > h / 2) consider({y: y, sec: sec});
+      var grid = sec.querySelector('.sec-grid'), seen = {};
+      if (!grid) return;
+      Array.prototype.forEach.call(grid.children, function(a){
+        var t = Math.round(a.getBoundingClientRect().top);
+        if (t - top > h / 2 && !seen[t] && a !== grid.firstElementChild) { seen[t] = 1; consider({y: t - top, sec: sec, grid: grid, row: t}); }
+      });
+    });
+    function consider(c){ if (!best || Math.abs(c.y - h) < Math.abs(best.y - h)) best = c; }
+    if (!best || Math.abs(mr.height - h) <= Math.abs(best.y - h)) return;
+    var rest = best.sec;
+    if (best.grid) {
+      var cont = document.createElement('section'), g = document.createElement('div');
+      cont.className = best.sec.className + ' cont'; g.className = 'sec-grid'; cont.appendChild(g); full.appendChild(cont);
+      Array.prototype.slice.call(best.grid.children).forEach(function(a){
+        if (Math.round(a.getBoundingClientRect().top) >= best.row) move(a, g);
+      });
+      rest = best.sec.nextElementSibling;
+    }
+    while (rest) { var next = rest.nextElementSibling; move(rest, full); rest = next; }
+  }
+  var timer;
+  function later(){ clearTimeout(timer); timer = setTimeout(layout, 120); }
+  layout();
+  window.addEventListener('load', later);
+  window.addEventListener('resize', later);
+  document.addEventListener('load', function(e){ if (e.target.tagName === 'IMG') later(); }, true);
+  if (document.fonts) document.fonts.ready.then(later);
+})();
