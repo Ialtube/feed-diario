@@ -2,7 +2,7 @@
 reader comments and the "propose a story" page."""
 import hashlib
 import json
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import date
 from html import escape
 from pathlib import Path
@@ -187,6 +187,62 @@ footer{text-align:center;font-family:"Old Standard TT",serif;font-style:italic;f
 .spark{width:100%;height:auto}
 .archive li{list-style:none;border-top:1px solid var(--ink);padding:12px 0;display:grid;grid-template-columns:180px 1fr;gap:14px}
 .archive li a{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.16rem;text-decoration:none}
+
+/* column rules between the stories, like a printed page */
+.sec-grid{overflow:hidden}
+.sec-grid>*{position:relative}
+.sec-grid>*::before{content:"";position:absolute;left:-15px;top:12px;bottom:12px;border-left:1px solid var(--rule)}
+.sec-sucesos article::after{right:2px}
+/* the placard: the figure printed big where a photo would go */
+.cartel{border:4px double var(--ink);text-align:center;padding:12px 10px 14px;margin:6px 0 12px;
+  background:radial-gradient(ellipse at center,rgba(255,248,225,.22),rgba(255,248,225,.04))}
+.cartel .o{font-size:.8rem;letter-spacing:.6em;color:var(--muted)}
+.cartel .n{font-family:"Old Standard TT",serif;font-weight:700;font-size:clamp(2.8rem,5vw,4rem);line-height:1;color:var(--accent);margin:4px 0}
+.cartel .l{font-family:"IM Fell English SC",serif;font-size:1rem;letter-spacing:.05em;color:var(--ink)}
+.sec-politica article.radio .cartel .n{font-family:"Courier Prime","Courier New",monospace}
+/* small sections side by side */
+.sec-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 28px;margin-top:28px}
+.sec-row>.secblock{margin-top:0;position:relative}
+.sec-row>.secblock+.secblock::before{content:"";position:absolute;left:-15px;top:0;bottom:0;border-left:1px solid var(--rule)}
+.sec-row .sec-grid{grid-template-columns:1fr}
+/* small ads and notices that fill the holes */
+.anuncio{border:2px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;margin:12px 0 16px;padding:16px 16px 14px;
+  text-align:center;display:flex;flex-direction:column;justify-content:center;gap:6px;background:rgba(255,248,225,.1)}
+.anuncio .t{font-family:"Old Standard TT",serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:1.25rem;line-height:1.1}
+.anuncio .s{font-family:"IM Fell English SC",serif;font-size:1.05rem}
+.anuncio p{font-size:.95rem;line-height:1.45;font-style:italic}
+.anuncio .pie{font-family:"IM Fell English SC",serif;font-size:.85rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:5px;margin-top:4px}
+.anuncio ul{list-style:none;text-align:left;font-size:.95rem;line-height:1.4}
+.anuncio li{padding:6px 0;border-bottom:1px dotted var(--rule)}
+.anuncio li:last-child{border-bottom:0}
+.k-busca .t{font-family:"UnifrakturMaguntia",serif;text-transform:none;font-weight:400;font-size:2.3rem;letter-spacing:0}
+.k-busca .who{font-family:"Anton",Impact,sans-serif;font-size:1.9rem;text-transform:uppercase;letter-spacing:.04em;line-height:1}
+.k-busca .rec{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.15rem;color:var(--accent)}
+.k-esquela{border:5px solid var(--ink);outline-color:transparent}
+.k-esquela .cruz{font-size:1.8rem;line-height:1}
+.k-esquela .t{font-size:1.05rem}
+.k-esquela .n,.k-dato .n{font-family:"Old Standard TT",serif;font-weight:700;font-size:2.6rem;line-height:1;color:var(--accent)}
+.k-dato{border-style:dashed}
+.k-dato .l{font-family:"IM Fell English SC",serif}
+.k-taller .t{font-family:"Anton",Impact,sans-serif;font-weight:400;font-size:1.7rem;letter-spacing:.08em}
+.k-publi{background:rgba(42,32,23,.85);color:var(--paper);outline-color:var(--paper)}
+.k-publi .t{font-family:"Anton",Impact,sans-serif;font-weight:400;font-size:1.6rem}
+.k-publi p{color:#e6dac0}
+.k-clasif .t,.k-horos .t{font-family:"IM Fell English SC",serif;text-transform:none;font-weight:400;font-size:1.25rem;
+  border-bottom:1px solid var(--ink);padding-bottom:5px}
+.k-erratas{outline:none;border-width:1px}
+.anuncio.mini{margin:16px 0 0}
+.sec-grid>article.grow{display:flex;flex-direction:column}
+.sec-grid>article.grow .cartel{flex:1;display:flex;flex-direction:column;justify-content:center}
+.sec-row>.secblock{display:flex;flex-direction:column}
+.sec-row .voz-cta{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px}
+.k-loteria .nums{display:flex;justify-content:center;gap:8px}
+.k-loteria .nums span{display:inline-block;min-width:2.2em;border:2px solid var(--ink);border-radius:50%;padding:6px 4px;
+  font-family:"Old Standard TT",serif;font-weight:700;font-size:1.3rem;color:var(--accent);background:rgba(255,248,225,.25)}
+.k-cartelera .t{font-family:"UnifrakturMaguntia",serif;text-transform:none;font-weight:400;font-size:1.9rem;letter-spacing:0}
+.k-farmacia .t{font-family:"Anton",Impact,sans-serif;font-weight:400;letter-spacing:.08em;color:var(--good)}
+.k-alquila{border-style:double;border-width:4px;outline:none}
+.sec-row .sec-opinion article.column .cbody{column-count:1}
 @media (max-width:980px){
   .cols,.lead,.profile{grid-template-columns:1fr}
   .lead p,.sec-opinion article.column .cbody{column-count:1}
@@ -304,8 +360,55 @@ LECTORES_JS = r"""(function(){
     for (var i = moved.length - 1; i >= 0; i--) moved[i][1].insertBefore(moved[i][0], moved[i][2]);
     moved = []; full.innerHTML = '';
   }
+  var tpl = document.getElementById('relleno');
+  var pool = tpl ? Array.prototype.slice.call(tpl.content.children) : [];
+  var used = 0;
+  function clearFill(){
+    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid .anuncio'), function(a){ a.remove(); });
+    used = 0;
+  }
+  // A story much shorter than its neighbours gets a small ad underneath, if one fits in the hole.
+  function fillGaps(){
+    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid > article'), function(a){
+      if (used >= pool.length) return;
+      var h = a.getBoundingClientRect().height, inner = 0;
+      Array.prototype.forEach.call(a.children, function(c){ inner = Math.max(inner, c.getBoundingClientRect().bottom); });
+      if (h - (inner - a.getBoundingClientRect().top) < 150) return;
+      var el = pool[used].cloneNode(true);
+      el.classList.add('mini');
+      a.appendChild(el);
+      if (a.getBoundingClientRect().height > h + 1) el.remove(); else used++;
+    });
+  }
+  // Fill the empty cells at the end of every grid with the small ads, stretched to the row height.
+  function fill(){
+    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid'), function(g){
+      var cols = getComputedStyle(g).gridTemplateColumns.split(' ').filter(Boolean).length;
+      if (cols < 2) return;
+      var n = 0;
+      Array.prototype.forEach.call(g.children, function(c){
+        n = c.classList.contains('wide') ? (Math.ceil(n / cols) + 1) * cols : n + 1;
+      });
+      var rem = (cols - n % cols) % cols;
+      while (rem > 0 && used < pool.length) {
+        var el = pool[used++].cloneNode(true), span = (rem >= 2 && el.dataset.wide) ? 2 : 1;
+        el.style.gridColumn = 'span ' + span;
+        g.appendChild(el);
+        rem -= span;
+      }
+    });
+  }
+  // Whatever hole is left under a story with a placard, the placard grows into it.
+  function grow(){
+    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid > article.con-cartel'), function(a){
+      a.classList.remove('grow');
+      var inner = 0;
+      Array.prototype.forEach.call(a.children, function(c){ inner = Math.max(inner, c.getBoundingClientRect().bottom); });
+      if (a.getBoundingClientRect().bottom - inner > 40) a.classList.add('grow');
+    });
+  }
+  function run(){ clearFill(); restore(); layout(); fill(); fillGaps(); grow(); }
   function layout(){
-    restore();
     var mr = main.getBoundingClientRect(), ar = aside.getBoundingClientRect();
     if (ar.left < mr.right) return;                       // phone: sidebar already below
     var last = aside.lastElementChild, top = mr.top, best = null;
@@ -313,7 +416,7 @@ LECTORES_JS = r"""(function(){
     Array.prototype.forEach.call(main.children, function(sec){
       var y = sec.getBoundingClientRect().top - top;
       if (y > h / 2) consider({y: y, sec: sec});
-      var grid = sec.querySelector('.sec-grid'), seen = {};
+      var grid = sec.classList.contains('sec-row') ? null : sec.querySelector('.sec-grid'), seen = {};
       if (!grid) return;
       Array.prototype.forEach.call(grid.children, function(a){
         var t = Math.round(a.getBoundingClientRect().top);
@@ -334,8 +437,8 @@ LECTORES_JS = r"""(function(){
     while (rest) { var next = rest.nextElementSibling; move(rest, full); rest = next; }
   }
   var timer;
-  function later(){ clearTimeout(timer); timer = setTimeout(layout, 120); }
-  layout();
+  function later(){ clearTimeout(timer); timer = setTimeout(run, 120); }
+  run();
   window.addEventListener('load', later);
   window.addEventListener('resize', later);
   document.addEventListener('load', function(e){ if (e.target.tagName === 'IMG') later(); }, true);
@@ -573,7 +676,7 @@ def _stat(it):
             f'<span class="l">{_e(it["stat_label"])}</span></div>')
 
 
-def _article(it, rel, image=False, cls="", attrs=""):
+def _article(it, rel, image=False, cls="", attrs="", placard=False):
     who = ""
     if it.get("lector"):
         who = f'<div class="byline">Enviado por {_e(it["lector"])}</div>'
@@ -582,6 +685,11 @@ def _article(it, rel, image=False, cls="", attrs=""):
                f'{_e(it["alias"])}</a></div>')
     stat = _stat(it) if it.get("stat") else ""
     fig = _figure(it, rel) if image else ""
+    if placard and not fig and it.get("stat"):
+        # Stories without a picture get their figure as a big printed placard where the photo would go.
+        stat = (f'<div class="cartel"><div class="o">✦ ✦ ✦</div><div class="n">{_e(it["stat"])}</div>'
+                f'<div class="l">{_e(it["stat_label"])}</div></div>')
+        cls = (cls + " con-cartel").strip()
     return (f'<article class="{cls}"{attrs}>{_kicker(it)}'
             f'<h3>{_e(it["headline"])}</h3>{fig}{stat}<p>{_e(it["body"])}</p>{who}</article>')
 
@@ -628,10 +736,16 @@ def _sections(ed, rest, rel):
                 attrs = f' data-exp="Expediente nº {ed["number"]}-{i + 1}"'
             elif key == "politica" and it.get("section") == "COMUNICACIÓN":
                 cls = "radio"
-            out.append(_article(it, rel, image=image, cls=cls, attrs=attrs))
+            out.append(_article(it, rel, image=image, cls=cls, attrs=attrs, placard=True))
         return "".join(out)
 
-    html = []
+    html, row = [], []
+
+    def flush():
+        html.append(row[0] if len(row) == 1 else
+                    f'<div class="sec-row n{len(row)}">' + "".join(row) + '</div>')
+        row.clear()
+
     for key, title, desk, _ in BLOCKS:
         items = groups.get(key, [])
         widget = ""
@@ -652,9 +766,113 @@ def _sections(ed, rest, rel):
             paras = "".join(f"<p>{_e(p)}</p>" for p in col["cuerpo"])
             body = (f'<article class="wide column"><div class="kicker">La columna</div><h3>{_e(col["titulo"])}</h3>'
                     f'<div class="byline">Por {_e(col["autor"])}</div><div class="cbody">{paras}</div></article>') + body
-        html.append(f'<section class="secblock sec-{key}"><header class="sec-head"><h3 class="sec-name">{_e(title)}</h3>'
-                    f'<span class="sec-desk">{_e(desk)}</span></header>{widget}<div class="sec-grid">{body}</div></section>')
+        block = (f'<section class="secblock sec-{key}"><header class="sec-head"><h3 class="sec-name">{_e(title)}</h3>'
+                 f'<span class="sec-desk">{_e(desk)}</span></header>{widget}<div class="sec-grid">{body}</div></section>')
+        # Sections with a single story (or none) share a row, like the small pieces of a printed page.
+        if len(items) + (1 if col else 0) <= 1 and key not in ("deportes", "economia", "tiempo"):
+            row.append(block)
+            if len(row) == 3:
+                flush()
+        else:
+            if row:
+                flush()
+            html.append(block)
+    if row:
+        flush()
     return "".join(html)
+
+
+# --------------------------------------------------------------------------- fillers
+# Old newspapers never left a hole: they filled it with small ads, notices and odds and ends.
+# The page script drops these into whatever gaps the stories leave, so they are built from the
+# day's data but only the ones that fit end up on the page.
+HOROSCOPO = {
+    "top": ["Una isla desierta te espera. Nadie vendrá a ayudarte, como siempre.",
+            "Los astros te aconsejan teleport. Tu equipo, que lo uses alguna vez."],
+    "jungle": ["Marte en conjunción con el dragón: hoy tampoco llegarás a tiempo.",
+               "Tus gankeos serán recordados. Sobre todo por el rival."],
+    "mid": ["Saturno te pide que mires el minimapa. Tú, como siempre, no.",
+            "Día propicio para el roaming. Tu torre opina lo contrario."],
+    "adc": ["Venus te protege de todo menos del primer asesino que te vea.",
+            "Un soporte entrará en tu vida. Y saldrá a los diez minutos."],
+    "support": ["Tu generosidad será premiada con cero oro y ninguna gratitud.",
+                "Los astros ven un ward en tu futuro. Uno."],
+}
+ROLE_NAMES = {"top": "Top", "jungle": "Jungla", "mid": "Mid", "adc": "Tirador", "support": "Soporte"}
+
+
+def _plural(n, word):
+    return f"{n} {word}{'' if n == 1 else 's'}"
+
+
+def _fillers(ed):
+    rk = ed.get("ranking") or []
+    games = ed.get("games") or []
+    if not rk:
+        return ""
+    day = short_date(_date(ed["date"]))
+    by_d = max(rk, key=lambda r: r["d"])
+    by_grey = max(rk, key=lambda r: r["dead"])
+    by_kda = min(rk, key=lambda r: r["kda"])
+    best = rk[-1]
+    second = rk[1] if len(rk) > 1 else rk[0]
+    seed = sum(map(ord, ed["date"]))
+    out = []
+
+    def add(kind, inner, wide=False):
+        if inner:
+            out.append(f'<div class="anuncio k-{kind}"' + (' data-wide="1"' if wide else '') + f'>{inner}</div>')
+
+    add("busca", f'<div class="t">Se busca</div><div class="who">{_e(by_d["alias"])}</div>'
+                 f'<p>Por alimentar al enemigo {by_d["d"]} veces en un solo día.</p>'
+                 '<div class="rec">Recompensa: 1 LP</div><div class="pie">Comisaría de Piltover</div>')
+    add("esquela", f'<div class="cruz">†</div><div class="t">El KDA de {_e(by_kda["alias"])}</div>'
+                   f'<div class="n">{fmt_num(by_kda["kda"], 2)}</div>'
+                   f'<p>Nos dejó el {_e(day)} tras {_plural(by_kda["losses"], "derrota")}. '
+                   'Sus compañeros de equipo ruegan una oración y una partida menos.</p>')
+    m = int(ed["totals"]["dead_seconds"] // 60)
+    if m:
+        add("dato", f'<div class="t">El dato</div><div class="n">{m}</div><div class="l">minutos en la pantalla gris</div>'
+                    f'<p>Lo que duran {fmt_num(m / 45, 1)} capítulos de una serie. El grupo prefirió verlos en gris.</p>')
+    if games:
+        champ, n = Counter(g["champ"] for g in games).most_common(1)[0]
+        deaths = sum(g["d"] for g in games if g["champ"] == champ)
+        add("taller", f'<div class="t">Taller de Zaun</div><div class="s">Reparación de {_e(champ_name(champ))}</div>'
+                      f'<p>¿Su campeón llega con {_plural(deaths, "muerte")} en {_plural(n, "partida")}? '
+                      'Chapa, pintura y dignidad. Presupuesto sin compromiso.</p><div class="pie">Barrio de los Barones · Zaun</div>')
+    add("clasif", '<div class="t">Anuncios por palabras</div><ul>'
+                  f'<li><b>Se vende</b> pantalla gris, muy usada. Preguntar por {_e(by_grey["alias"])}.</li>'
+                  f'<li><b>Se busca</b> dúo con paciencia infinita. Razón: {_e(second["alias"])}.</li>'
+                  f'<li><b>Se ofrecen</b> clases de supervivencia. Profesor: {_e(best["alias"])}.</li></ul>', wide=True)
+    add("aviso", f'<div class="t">Aviso</div><p>Se ruega a quien encuentre la dignidad de <b>{_e(second["alias"])}</b> '
+                 'que la entregue en la Comisaría de Piltover. Se gratificará.</p>')
+    roles = [r for r, _ in Counter(g["role"] for g in games if g.get("role") in HOROSCOPO).most_common(3)]
+    if roles:
+        lis = "".join(f'<li><b>{ROLE_NAMES[r]}.</b> {_e(HOROSCOPO[r][(seed + i) % len(HOROSCOPO[r])])}</li>'
+                      for i, r in enumerate(roles))
+        add("horos", f'<div class="t">Horóscopo de Runeterra</div><ul>{lis}</ul>', wide=True)
+    add("publi", '<div class="t">¿Cansado de perder?</div><div class="s">Botón de rendición a domicilio</div>'
+                 '<p>Rápido, discreto y sin esperar al minuto 15. Demacia no lo aprueba.</p>')
+    top3 = sorted(rk, key=lambda r: -r["d"])[:3]
+    add("loteria", '<div class="t">Sorteo de la Grieta</div><div class="s">Combinación ganadora</div>'
+                   '<div class="nums">' + "".join(f'<span>{r["d"]}</span>' for r in top3) + '</div>'
+                   f'<p>Las muertes de {_e(", ".join(r["alias"] for r in top3[:-1]))} y {_e(top3[-1]["alias"])}. '
+                   'Nadie acertó: todos perdieron.</p>' if len(top3) > 1 else '')
+    if games:
+        g = max(games, key=lambda g: g["d"])
+        add("cartelera", f'<div class="t">Cartelera</div><div class="s">Teatro de Piltover</div>'
+                         f'<p>Hoy, en sesión continua: <b>«{_e(champ_name(g["champ"]))} y las {g["d"]} muertes»</b>, '
+                         f'con {_e(g["alias"])} en el papel principal. Final trágico.</p>')
+    add("farmacia", f'<div class="t">Farmacia de guardia</div><div class="s">Dr. Mundo · Zaun</div>'
+                    f'<p>Pociones de vida a granel. Atención preferente a {_e(by_d["alias"])}, '
+                    f'que ayer gastó {by_d["d"]} vidas.</p>')
+    worst = rk[0]
+    add("alquila", f'<div class="t">Se alquila</div><p>Fuente de nexo, muy frecuentada, vistas a la pantalla gris. '
+                   f'Razón: {_e(worst["alias"])}, que se pasa el día allí.</p>')
+    add("erratas", f'<div class="t">Fe de erratas</div><p>En una edición anterior, donde decía «{_e(best["alias"])} jugó bien», '
+                   f'debía decir «{_e(best["alias"])} jugó». Pedimos disculpas a los lectores.</p>')
+    k = seed % len(out)
+    return '<template id="relleno">' + "".join(out[k:] + out[:k]) + '</template>'
 
 
 def _comments(ed):
@@ -705,7 +923,7 @@ def render_edition(cfg, ed, editions_until, rel):
 {special}
 {lead_html}
 <div class="cols edicion">
-  <main>{_sections(ed, rest, rel)}{_comments(ed)}</main>
+  <main>{_sections(ed, rest, rel)}{_comments(ed)}</main>{_fillers(ed)}
   <aside>
     <div class="box"><h4>General de la vergüenza</h4>{_general_table(board, rel)}</div>
     <div class="box"><h4>Frase del día</h4><p class="quote">«{_e(ed["frase"])}»</p></div>
