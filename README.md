@@ -161,15 +161,19 @@ especiales y las noticias que tú le pidas.
 Cómo funciona:
 
 1. El robot de GitHub saca los datos y la edición de plantilla (06:15 UTC).
-2. La rutina de Claude se ejecuta en tu ordenador dos veces al día:
+2. La rutina de Claude publica **una sola edición IA al día**. Se intenta a las 09:30 y, si a esa
+   hora no se pudo (ordenador apagado, error…), a las 18:30:
    1. Descarga el repositorio y ejecuta `python -m roast ai-context`.
    2. Lee `ai/GUIA.md` y escribe `ai/edicion-AAAA-MM-DD.json`.
    3. Lo aplica con `python -m roast apply-ai` y sube el resultado a GitHub.
-3. La segunda pasada del día no hace nada si la edición ya está hecha. Solo actúa si la primera
-   falló, si hay eventos nuevos en `eventos.md` o si el robot volvió a generar la edición.
+3. Si la edición IA de hoy ya está publicada (por la pasada de las 09:30 o porque lanzaste la
+   rutina a mano), cualquier otra pasada del día no hace nada. Solo la rehace si el robot volvió
+   a generar la edición de plantilla y se perdió la versión IA.
 
 **Para pedir una noticia o una edición especial**, apúntala en [`eventos.md`](eventos.md), en
-«Pendientes». Se puede hacer desde la web de GitHub, con el lápiz. Sale en la siguiente pasada.
+«Pendientes». Se puede hacer desde la web de GitHub, con el lápiz. Sale en la siguiente edición
+que aún no esté publicada (si la de hoy ya salió, en la de mañana). Igual con las propuestas de
+los lectores.
 
 Si la rutina no se ejecuta, la web conserva la edición de plantilla, así que nunca se queda vacía.
 La rutina gasta del uso de tu plan de Claude, no de una clave de API.

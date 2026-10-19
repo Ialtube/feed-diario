@@ -158,11 +158,15 @@ def cmd_ai_status(args):
         print(f"SIN_EDICION {date_str}")
         return
     status = ai_status(ed)
+    if status == "hecha":
+        # One AI edition a day: once published it is not rewritten. New events and reader
+        # proposals wait for tomorrow's edition.
+        print(f"HECHA {date_str} eventos_pendientes={len(events)} (saldrán mañana)")
+        print("NADA_QUE_HACER")
+        return
     from .propuestas import fetch_pending
     props = fetch_pending(cfg, log=lambda *_: None)
     print(f"{status.upper()} {date_str} eventos_pendientes={len(events)} propuestas_pendientes={len(props)}")
-    if status == "hecha" and not events and not props:
-        print("NADA_QUE_HACER")
 
 
 def cmd_ai_context(args):
