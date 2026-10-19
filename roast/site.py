@@ -26,7 +26,7 @@ CSS = r"""
 [hidden]{display:none!important}
 html{overflow-x:hidden}
 body{background:var(--noise),radial-gradient(ellipse at top,#3b3128,#221c16);color:var(--ink);
-  font-family:"Libre Caslon Text",Georgia,serif;line-height:1.55;font-size:18px}
+  font-family:"Libre Caslon Text",Georgia,serif;line-height:1.55;font-size:17px}
 a{color:inherit}
 .wrap{max-width:1440px;margin:0 auto;padding:0 16px}
 /* ---------------------------------------------------------------- the newspaper sheet */
@@ -76,31 +76,12 @@ nav.menu a:hover,nav.menu a.cta{color:var(--accent)}
 .special p{font-family:"Old Standard TT",serif;font-style:italic;font-size:1.14rem;color:var(--muted);max-width:820px;margin:0 auto}
 .special.t-oro{--sp:#7d5a0e}.special.t-negro{--sp:var(--ink)}.special.t-verde{--sp:#2f4f22}
 .special.t-azul{--sp:#1d3a63}.special.t-morado{--sp:#55295f}
-/* front page: lead story + figures + contents on the left, the boxes on the right */
-.front{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:0 36px;border-bottom:3px double var(--ink);padding-bottom:24px}
-.front aside{border-left:1px solid var(--rule);padding-left:28px}
-.lead h2{font-family:"Old Standard TT",Georgia,serif;font-weight:700;font-size:clamp(2.2rem,4.4vw,4rem);line-height:1.02;margin:6px 0 16px}
-.lead-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start}
-.lead-grid figure{margin:0}
-.lead-text p{font-size:1.14rem;line-height:1.6;text-align:justify;hyphens:auto}
-.lead-text p.dc::first-letter,.flow>article:first-child>p.dc::first-letter,.feature p.dc::first-letter,.solo>p.dc::first-letter{
-  font-family:"Old Standard TT",serif;font-weight:700;float:left;font-size:3.9em;line-height:.8;padding:5px 8px 0 0;color:var(--ink)}
-.lead.nofig .lead-grid{grid-template-columns:1fr}
-.lead.nofig .lead-text p{column-count:2;column-gap:30px;column-rule:1px solid var(--rule)}
-.cifras{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:22px 0 0}
-.cifras div{text-align:center;padding:10px 6px;border-left:1px solid var(--rule)}
-.cifras div:first-child{border-left:0}
-.cifras b{display:block;font-family:"Old Standard TT",serif;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.05;color:var(--accent)}
-.cifras span{font-family:"IM Fell English SC",serif;font-size:.95rem;color:var(--muted)}
-.sumario{margin-top:18px}
-.sumario h4{font-family:"IM Fell English SC",serif;font-weight:400;font-size:1.1rem;letter-spacing:.08em;margin-bottom:6px}
-.sumario ol{list-style:none;column-count:2;column-gap:30px;column-rule:1px solid var(--rule)}
-.sumario li{break-inside:avoid;padding:7px 0;border-bottom:1px dotted var(--rule);line-height:1.3}
-.sumario li a{text-decoration:none}
-.sumario li b{display:block;font-family:"IM Fell English SC",serif;font-weight:400;font-size:.9rem;color:var(--accent);letter-spacing:.05em}
-.sumario li span{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.05rem}
-.sumario li a:hover span{text-decoration:underline}
-.bigstat{border:4px double var(--ink);padding:16px;text-align:center;margin-top:16px}
+/* lead story */
+.lead{display:grid;grid-template-columns:1.7fr 1fr;gap:34px;border-bottom:3px double var(--ink);padding-bottom:22px}
+.lead h2{font-family:"Old Standard TT",Georgia,serif;font-weight:700;font-size:clamp(2.1rem,4.6vw,3.8rem);line-height:1.03;margin:6px 0 14px}
+.lead p{font-size:1.1rem;text-align:justify;hyphens:auto;column-count:2;column-gap:28px;column-rule:1px solid var(--rule)}
+.lead p::first-letter{font-family:"Old Standard TT",serif;font-weight:700;float:left;font-size:3.7rem;line-height:.82;padding:6px 8px 0 0}
+.bigstat{border:4px double var(--ink);padding:16px;text-align:center;margin-top:10px}
 .bigstat .n{font-family:"Old Standard TT",serif;font-weight:700;font-size:clamp(2.4rem,6vw,4.2rem);line-height:1;color:var(--accent)}
 .bigstat .l{font-style:italic;font-size:.92rem;color:var(--muted);margin-top:6px}
 .bigstat .who{margin-top:10px;font-family:"IM Fell English SC",serif;font-size:1.02rem}
@@ -113,71 +94,34 @@ figure img{display:block;width:100%;height:auto;filter:grayscale(1) sepia(.45) c
 .meme span{font-family:"Anton",Impact,sans-serif;text-transform:uppercase;color:#fff;font-size:clamp(1rem,2.1vw,1.55rem);
   line-height:1.05;letter-spacing:.02em;-webkit-text-stroke:1.2px #000;paint-order:stroke fill;
   text-shadow:2px 2px 0 #000,-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000}
-.lead .meme span{font-size:clamp(1.3rem,2.6vw,2.1rem)}
-.feature .meme span{font-size:clamp(1.2rem,2.3vw,1.9rem)}
-figcaption{font-family:"Old Standard TT",serif;font-style:italic;font-size:.9rem;color:var(--muted);margin-top:5px;text-align:center}
+.lead .meme span{font-size:clamp(1.2rem,2.6vw,2rem)}
+figcaption{font-family:"Old Standard TT",serif;font-style:italic;font-size:.84rem;color:var(--muted);margin-top:5px;text-align:center}
 /* layout */
 .cols{display:grid;grid-template-columns:1fr 320px;gap:34px;margin-top:6px}
-.cols>*,.front>*,.lead-grid>*,.profile>*,.sec-grid>*,.sec-row>*,.with-board>*,.feature>*,.op-grid>*,.cgrid>*{min-width:0}
+.cols>*,.lead>*,.profile>*,.sec-grid>*{min-width:0}
 /* sections */
-.secblock{margin-top:34px}
+.secblock{margin-top:28px}
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px 16px;flex-wrap:wrap;
-  border-top:4px double var(--ink);border-bottom:1px solid var(--ink);padding:6px 0 4px;margin-bottom:16px}
-.sec-name{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1}
-.sec-desk{font-family:"Old Standard TT",serif;font-style:italic;color:var(--muted);font-size:1.02rem}
+  border-top:4px double var(--ink);border-bottom:1px solid var(--ink);padding:6px 0 4px;margin-bottom:14px}
+.sec-name{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1}
+.sec-desk{font-family:"Old Standard TT",serif;font-style:italic;color:var(--muted)}
 .sec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0 28px}
 .sec-grid article{border-top:1px solid var(--rule);padding:12px 0 16px}
-article h3{font-family:"Old Standard TT",Georgia,serif;font-weight:700;font-size:1.48rem;line-height:1.14;margin:4px 0 9px}
-article p{text-align:justify;hyphens:auto;line-height:1.6}
-.stat{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
-  padding:4px 0;margin:2px 0 10px}
-.stat .n{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.9rem;line-height:1;color:var(--accent)}
-.stat .l{font-family:"Old Standard TT",serif;font-style:italic;font-size:.95rem;color:var(--muted);line-height:1.2}
-.byline{font-family:"Old Standard TT",serif;font-style:italic;font-size:.92rem;color:var(--muted);margin-top:9px}
+.sec-grid article.wide{grid-column:1/-1}
+article h3{font-family:"Old Standard TT",Georgia,serif;font-weight:700;font-size:1.34rem;line-height:1.14;margin:4px 0 8px}
+article p{text-align:justify;hyphens:auto}
+.stat{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;border-top:1px dotted var(--rule);border-bottom:1px dotted var(--rule);
+  padding:3px 0;margin:0 0 9px}
+.stat .n{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.45rem;line-height:1;color:var(--accent)}
+.stat .l{font-style:italic;font-size:.86rem;color:var(--muted);line-height:1.2}
+.byline{font-family:"Old Standard TT",serif;font-style:italic;font-size:.86rem;color:var(--muted);margin-top:8px}
 .byline a{text-decoration:none;border-bottom:1px dotted var(--muted)}
-/* newspaper columns: stories flow down the columns like in print, with rules between them */
-.flow{column-gap:34px;column-rule:1px solid var(--rule)}
-.flow.c2{column-count:2}.flow.c3{column-count:3}
-.flow.c2>article figure{float:left;width:48%;margin:4px 20px 8px 0}
-.flow.c2>article .stat{overflow:hidden}
-.flow>article{break-inside:avoid;padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid var(--rule)}
-.flow>article:first-child h3{font-size:1.72rem;line-height:1.08}
-.flow>article.it h3{font-style:italic;font-weight:400;font-size:1.6rem}
-.flow>article.boxed{background:rgba(255,248,225,.16);border:1px solid var(--rule);border-top:4px solid var(--ink);padding:12px 16px 14px}
-.flow>article.boxed h3{text-align:center}
-/* the photo story of a section: picture and text side by side */
-.feature{display:grid;grid-template-columns:1.15fr 1fr;gap:30px;align-items:start;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--ink)}
-.feature figure{margin:0;grid-row:1/span 9}
-.feature h3{font-size:clamp(1.8rem,2.8vw,2.5rem);line-height:1.05}
-.feature p{font-size:1.08rem}
-.feature .stat .n{font-size:2.4rem}
-.feature.rev figure{grid-column:2}
-.feature.rev>:not(figure){grid-column:1}
-/* a table next to the section's first story */
-.with-board{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:start;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--ink)}
-.with-board>article{border-left:1px solid var(--rule);padding-left:30px}
-.with-board>article h3{font-size:clamp(1.6rem,2.4vw,2.1rem);line-height:1.08}
-/* a section with a single story: headline on the left, text in columns on the right */
-.solo{display:grid;grid-template-columns:1fr 1.7fr;gap:0 34px;align-items:start}
-.solo>*{grid-column:1}
-.solo>p{grid-column:2;grid-row:1/span 9;column-count:2;column-gap:30px;column-rule:1px solid var(--rule);font-size:1.06rem}
-.solo h3{font-size:clamp(1.7rem,2.6vw,2.3rem);line-height:1.06}
-/* small sections share a row */
-.sec-row{display:grid;gap:0 34px;margin-top:34px}
-.sec-row.n2{grid-template-columns:1fr 1fr}.sec-row.n3{grid-template-columns:repeat(3,1fr)}
-.sec-row>.secblock{margin-top:0}
-.sec-row>.secblock+.secblock{position:relative}
-.sec-row>.secblock+.secblock::before{content:"";position:absolute;left:-17px;top:0;bottom:0;border-left:1px solid var(--rule)}
-.sec-row .flow>article:last-child{border-bottom:0}
 /* section flavours */
-.sec-sucesos .flow>article{position:relative;border:1px dashed var(--ink);padding:16px 16px 14px;background:rgba(255,248,225,.08)}
-.sec-sucesos .feature,.sec-sucesos .with-board>article{position:relative}
+.sec-sucesos article{position:relative;border:1px dashed var(--ink);padding:14px 14px 16px;margin:10px 0}
+.sec-sucesos .sec-grid{gap:0 18px}
 .sec-sucesos article::after{content:attr(data-exp);position:absolute;top:10px;right:-4px;transform:rotate(8deg);
-  font-family:"IM Fell English SC",serif;font-size:.82rem;color:var(--accent);border:2px solid var(--accent);padding:1px 6px;opacity:.8}
-.sec-sucesos .feature::after{right:6px;top:-4px}
+  font-family:"IM Fell English SC",serif;font-size:.78rem;color:var(--accent);border:2px solid var(--accent);padding:1px 6px;opacity:.8}
 .sec-economia .board,.sec-deportes .board,.sec-tiempo .board{margin-bottom:12px}
-.with-board .board{margin-bottom:0}
-.secblock>.board.alone{max-width:900px;margin:0 auto 8px}
 .board table{background:rgba(255,248,225,.1)}
 .up{color:var(--good);font-weight:700}.down{color:var(--accent);font-weight:700}
 .weather{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:12px}
@@ -195,11 +139,8 @@ article p{text-align:justify;hyphens:auto;line-height:1.6}
 .sec-voz article{background:rgba(255,248,225,.14);border:1px solid var(--rule);border-left:4px solid var(--ink);padding:12px 14px;margin:10px 0}
 .voz-cta{border:2px dashed var(--ink);padding:12px 16px;text-align:center;font-style:italic;margin-bottom:10px}
 .voz-cta a{font-family:"IM Fell English SC",serif;font-style:normal;color:var(--accent);font-size:1.08rem}
-.op-grid{display:grid;grid-template-columns:2fr 1fr;gap:34px;align-items:start}
-.op-grid .flow>article:last-child{border-bottom:0}
-.sec-opinion article.column{background:rgba(255,248,225,.12);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;padding:22px 28px 14px}
-.sec-opinion article.column h3{font-style:italic;text-align:center;font-size:2.1rem}
-.sec-opinion article.column p{font-size:1.06rem}
+.sec-opinion article.column{background:rgba(255,248,225,.12);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;padding:20px 24px 12px}
+.sec-opinion article.column h3{font-style:italic;text-align:center;font-size:1.7rem}
 .sec-opinion article.column .kicker,.sec-opinion article.column .byline{text-align:center}
 .sec-opinion article.column .cbody{column-count:2;column-gap:28px;column-rule:1px solid var(--rule)}
 .sec-opinion article.column p{margin-bottom:10px}
@@ -208,13 +149,6 @@ article p{text-align:justify;hyphens:auto;line-height:1.6}
 aside .box{border:3px double var(--ink);padding:14px 16px;margin-bottom:20px;background:rgba(255,248,225,.08)}
 aside h4{font-family:"IM Fell English SC",serif;font-weight:400;font-size:1.14rem;letter-spacing:.05em;text-align:center;
   border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
-.anteriores ol{list-style:none}
-.anteriores li{padding:7px 0;border-bottom:1px dotted var(--rule);line-height:1.3}
-.anteriores li:last-child{border-bottom:0}
-.anteriores a{text-decoration:none}
-.anteriores b{display:block;font-family:"IM Fell English SC",serif;font-weight:400;font-size:.88rem;color:var(--accent)}
-.anteriores span{font-family:"Old Standard TT",serif;font-size:.98rem}
-.anteriores a:hover span{text-decoration:underline}
 .quote{font-family:"Old Standard TT",serif;font-style:italic;font-size:1.18rem;line-height:1.35;text-align:center}
 table{width:100%;border-collapse:collapse;font-size:.9rem}
 th{text-align:left;font-family:"IM Fell English SC",serif;font-weight:400;color:var(--muted);font-size:.9rem;border-bottom:1px solid var(--ink);padding:4px}
@@ -224,8 +158,6 @@ tr.top td{color:var(--accent);font-weight:700}
 .win{color:var(--good);font-weight:700}.loss{color:var(--accent);font-weight:700}
 .tablewrap{overflow-x:auto}
 /* comments and forms */
-.cgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:start}
-.cgrid form.papel{border-left:1px solid var(--rule);padding-left:30px}
 .comentarios .lista{margin-bottom:14px}
 .comentario{border-bottom:1px dotted var(--rule);padding:10px 0}
 .comentario b{font-family:"IM Fell English SC",serif;font-weight:400;font-size:1.05rem}
@@ -252,29 +184,12 @@ footer{text-align:center;font-family:"Old Standard TT",serif;font-style:italic;f
 .spark{width:100%;height:auto}
 .archive li{list-style:none;border-top:1px solid var(--ink);padding:12px 0;display:grid;grid-template-columns:180px 1fr;gap:14px}
 .archive li a{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.16rem;text-decoration:none}
-@media (max-width:1180px){
-  .flow.c3{column-count:2}
-  .sec-row.n3{grid-template-columns:1fr 1fr}
-  .sec-row.n3>.secblock:nth-child(3)::before{display:none}
-}
 @media (max-width:980px){
-  .cols,.front,.lead-grid,.profile,.feature,.with-board,.solo,.op-grid,.cgrid,.sec-row.n2,.sec-row.n3{grid-template-columns:1fr}
-  .front aside{border-left:0;padding-left:0;margin-top:24px}
-  .feature figure,.feature.rev figure,.feature.rev>:not(figure),.solo>*,.solo>p{grid-column:auto;grid-row:auto}
-  .with-board>article,.cgrid form.papel{border-left:0;padding-left:0}
-  .sec-row>.secblock+.secblock{margin-top:34px}
-  .sec-row>.secblock+.secblock::before{display:none}
-  .lead.nofig .lead-text p,.sec-opinion article.column .cbody,.solo>p{column-count:1}
-}
-@media (max-width:700px){
-  .flow.c2,.flow.c3,.sumario ol{column-count:1}
-  .flow.c2>article figure{float:none;width:auto;margin:8px 0 12px}
-  .cifras{grid-template-columns:repeat(2,1fr)}
-  .cifras div:nth-child(3){border-left:0}
-  .cifras div:nth-child(n+3){border-top:1px solid var(--rule)}
+  .cols,.lead,.profile{grid-template-columns:1fr}
+  .lead p,.sec-opinion article.column .cbody{column-count:1}
 }
 @media (max-width:560px){
-  body{font-size:16.5px}
+  body{font-size:16px}
   .paper{padding:20px 16px 26px;margin:10px auto 26px}
   .paper::before{inset:5px}
   .topline{justify-content:center}
@@ -597,11 +512,6 @@ def _stat(it):
             f'<span class="l">{_e(it["stat_label"])}</span></div>')
 
 
-def _dc(text):
-    """Drop capitals only look right on a letter, not on '4/17/23'."""
-    return ' class="dc"' if text[:1].isalpha() else ""
-
-
 def _article(it, rel, image=False, cls="", attrs=""):
     who = ""
     if it.get("lector"):
@@ -612,7 +522,7 @@ def _article(it, rel, image=False, cls="", attrs=""):
     stat = _stat(it) if it.get("stat") else ""
     fig = _figure(it, rel) if image else ""
     return (f'<article class="{cls}"{attrs}>{_kicker(it)}'
-            f'<h3>{_e(it["headline"])}</h3>{fig}{stat}<p{_dc(it["body"])}>{_e(it["body"])}</p>{who}</article>')
+            f'<h3>{_e(it["headline"])}</h3>{fig}{stat}<p>{_e(it["body"])}</p>{who}</article>')
 
 
 # --------------------------------------------------------------------------- sections
@@ -640,98 +550,34 @@ def _block_of(section):
     return "reportajes"
 
 
-PACKABLE_MAX = 2  # sections with this many stories or fewer share a row with their neighbours
-NOT_PACKABLE = {"deportes", "economia", "tiempo", "opinion"}
-
-
 def _sections(ed, rest, rel):
     groups = defaultdict(list)
     for it in rest:
         groups[_block_of(it.get("section", ""))].append(it)
-    pics = {"left": 8}
+    pics = {"left": 6}
 
-    def picture(it):
-        if pics["left"] > 0 and _has_picture(it):
-            pics["left"] -= 1
-            return True
-        return False
+    def arts(items, key):
+        out = []
+        for i, it in enumerate(items):
+            image = pics["left"] > 0 and i < 2 and _has_picture(it)
+            if image:
+                pics["left"] -= 1
+            cls, attrs = "", ""
+            if key == "sucesos":
+                attrs = f' data-exp="Expediente nº {ed["number"]}-{i + 1}"'
+            elif key == "politica" and it.get("section") == "COMUNICACIÓN":
+                cls = "radio"
+            out.append(_article(it, rel, image=image, cls=cls, attrs=attrs))
+        return "".join(out)
 
-    def one(b, it, i, image=False, cls=""):
-        attrs = f' data-exp="Expediente nº {ed["number"]}-{i + 1}"' if b["key"] == "sucesos" else ""
-        if b["key"] == "politica" and it.get("section") == "COMUNICACIÓN":
-            cls += " radio"
-        return _article(it, rel, image=image, cls=cls.strip(), attrs=attrs)
-
-    def flow(b, items, start, cols, allow_pic=True):
-        """Stories running down newspaper columns; text-only ones alternate between looks."""
-        out, plain = [], 0
-        # One story per column: pictures for all of them or for none, so the columns stay level.
-        # More stories than columns: a single picture, the columns balance themselves.
-        if 1 < len(items) <= cols:
-            every = allow_pic and pics["left"] >= len(items) and all(_has_picture(it) for it in items)
-            wants = [every] * len(items)
-        else:
-            first = next((j for j, it in enumerate(items) if _has_picture(it)), None) if allow_pic else None
-            wants = [j == first for j in range(len(items))]
-        for j, it in enumerate(items):
-            image = wants[j] and picture(it)
-            cls = ""
-            if not image and j > 0 and b["key"] not in ("sucesos", "politica"):
-                plain += 1
-                cls = "boxed" if plain % 3 == 2 else "it" if plain % 3 == 0 else ""
-            out.append(one(b, it, start + j, image, cls))
-        return f'<div class="flow c{cols}">' + "".join(out) + '</div>'
-
-    def head(b):
-        return (f'<header class="sec-head"><h3 class="sec-name">{_e(b["title"])}</h3>'
-                f'<span class="sec-desk">{_e(b["desk"])}</span></header>')
-
-    def wrap(b, inner):
-        return f'<section class="secblock sec-{b["key"]}" id="sec-{b["key"]}">{head(b)}{inner}</section>'
-
-    def full(b):
-        items, inner, start = list(b["items"]), "", 0
-        if b["col"]:
-            col = b["col"]
-            paras = "".join(f"<p>{_e(p)}</p>" for p in col["cuerpo"])
-            column = (f'<article class="column"><div class="kicker">La columna</div><h3>{_e(col["titulo"])}</h3>'
-                      f'<div class="byline">Por {_e(col["autor"])}</div><div class="cbody">{paras}</div></article>')
-            if items:
-                return wrap(b, f'<div class="op-grid">{column}{flow(b, items, 0, 1)}</div>')
-            return wrap(b, column)
-        if b["board"]:
-            if items:
-                first = items.pop(0)
-                inner = f'<div class="with-board">{b["widget"]}{one(b, first, 0, picture(first))}</div>'
-                start = 1
-            else:
-                inner = b["widget"].replace('class="board"', 'class="board alone"', 1)
-        else:
-            inner = b["widget"]
-            if items and _has_picture(items[0]) and pics["left"] > 0:
-                first = items.pop(0)
-                rev = " rev" if b["index"] % 2 else ""
-                inner += one(b, first, 0, picture(first), "feature" + rev)
-                start = 1
-        if len(items) == 1:
-            inner += one(b, items[0], start, picture(items[0]), "solo")
-        elif items:
-            inner += flow(b, items, start, min(len(items), 3))
-        return wrap(b, inner)
-
-    def packed(b):
-        return wrap(b, b["widget"] + (flow(b, b["items"], 0, 1) if b["items"] else ""))
-
-    blocks = []
+    html = []
     for key, title, desk, _ in BLOCKS:
         items = groups.get(key, [])
-        widget, board = "", False
+        widget = ""
         if key == "deportes" and ed.get("ranking"):
-            widget, board = ('<div class="board"><h4 class="kicker">Resultados del día</h4>'
-                             + _ranking_table(ed["ranking"], rel) + '</div>'), True
+            widget = '<div class="board"><h4 class="kicker">Resultados del día</h4>' + _ranking_table(ed["ranking"], rel) + '</div>'
         elif key == "economia" and items:
             widget = _market_table(ed.get("games", []))
-            board = bool(widget)
         elif key == "tiempo" and items:
             widget = _weather(ed.get("ranking", []))
         elif key == "voz":
@@ -740,34 +586,19 @@ def _sections(ed, rest, rel):
         col = ed.get("columna") if key == "opinion" else None
         if not items and not col and not (key in ("deportes", "voz") and widget):
             continue
-        blocks.append({"key": key, "title": title, "desk": desk, "items": items, "widget": widget,
-                       "board": board, "col": col, "index": len(blocks)})
-
-    html, row = [], []
-
-    def flush():
-        if len(row) == 1:
-            html.append(full(row[0]))
-        elif row:
-            html.append(f'<div class="sec-row n{len(row)}">' + "".join(packed(b) for b in row) + '</div>')
-        row.clear()
-
-    for b in blocks:
-        if b["key"] not in NOT_PACKABLE and len(b["items"]) <= PACKABLE_MAX:
-            row.append(b)
-            if len(row) == 3:
-                flush()
-        else:
-            flush()
-            html.append(full(b))
-    flush()
-    return "".join(html), blocks
+        body = arts(items, key)
+        if col:
+            paras = "".join(f"<p>{_e(p)}</p>" for p in col["cuerpo"])
+            body = (f'<article class="wide column"><div class="kicker">La columna</div><h3>{_e(col["titulo"])}</h3>'
+                    f'<div class="byline">Por {_e(col["autor"])}</div><div class="cbody">{paras}</div></article>') + body
+        html.append(f'<section class="secblock sec-{key}"><header class="sec-head"><h3 class="sec-name">{_e(title)}</h3>'
+                    f'<span class="sec-desk">{_e(desk)}</span></header>{widget}<div class="sec-grid">{body}</div></section>')
+    return "".join(html)
 
 
 def _comments(ed):
     return f"""<section class="secblock comentarios" id="comentarios" data-edicion="{_e(ed['date'])}">
 <header class="sec-head"><h3 class="sec-name">Cartas al director</h3><span class="sec-desk">Comentarios de los lectores sobre esta edición</span></header>
-<div class="cgrid">
 <div class="lista"><p class="small">Cargando comentarios…</p></div>
 <form class="papel">
   <label>Tu nombre de invocador<input type="text" name="nombre" maxlength="40" required></label>
@@ -775,17 +606,7 @@ def _comments(ed):
   <input class="hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
   <button type="submit">Enviar al periódico</button><span class="msg"></span>
 </form>
-</div>
 </section>"""
-
-
-def _previous(editions_until, rel, n=2):
-    prev = [e for e in reversed(editions_until[:-1]) if e.get("items")][:n]
-    if not prev:
-        return ""
-    lis = "".join(f'<li><a href="{rel}ediciones/{e["date"]}.html"><b>{_e(short_date(_date(e["date"])))}</b>'
-                  f'<span>{_e(e["items"][0]["headline"])}</span></a></li>' for e in prev)
-    return f'<div class="box anteriores"><h4>Ediciones anteriores</h4><ol>{lis}</ol></div>'
 
 
 def render_edition(cfg, ed, editions_until, rel):
@@ -794,52 +615,44 @@ def render_edition(cfg, ed, editions_until, rel):
     rest = items[1:]
     ticker = " ".join(f"<span>{_e(i['headline'])}</span>" for i in items[:8])
     t = ed["totals"]
-    sections, blocks = _sections(ed, rest, rel)
     lead_html = ""
     if lead:
         who = (f'<div class="who"><a href="{rel}jugadores/{_e(lead["player"])}.html">{_e(lead["alias"])}</a></div>'
                if lead.get("player") else "")
         stat_box = (f'<div class="bigstat"><div class="n">{_e(lead["stat"])}</div>'
                     f'<div class="l">{_e(lead["stat_label"])}</div>{who}</div>') if lead.get("stat") else ""
-        fig = _figure(lead, rel)
-        lead_html = (f'<section class="lead{"" if fig else " nofig"}">{_kicker(lead)}<h2>{_e(lead["headline"])}</h2>'
-                     f'<div class="lead-grid">{fig}<div class="lead-text"><p{_dc(lead["body"])}>{_e(lead["body"])}</p>{stat_box}</div></div>'
-                     '</section>')
+        lead_html = (f'<section class="lead"><div>{_kicker(lead)}'
+                     f'<h2>{_e(lead["headline"])}</h2><p>{_e(lead["body"])}</p></div>'
+                     f'<div>{_figure(lead, rel)}{stat_box}</div></section><div class="orn">✦ ✦ ✦</div>')
     special = ""
     esp = ed.get("especial")
     if esp:
         special = (f'<section class="special t-{_e(esp["tema"])}"><div class="kicker">{_e(esp["antetitulo"])}</div>'
                    f'<h2>{_e(esp["titulo"])}</h2>'
                    + (f'<p>{_e(esp["subtitulo"])}</p>' if esp.get("subtitulo") else "") + '</section>')
-    cifras = "".join(f'<div><b>{_e(n)}</b><span>{_e(l)}</span></div>' for n, l in [
-        (t["games"], "partidas del grupo"), (fmt_int(t["deaths"]), "muertes"),
-        (int(t["dead_seconds"] // 60), "minutos en gris"), (int(t["play_seconds"] // 60), "minutos jugados")])
-    sumario = "".join(
-        f'<li><a href="#sec-{b["key"]}"><b>{_e(b["title"])}</b><span>{_e(b["items"][0]["headline"])}</span></a></li>'
-        for b in blocks if b["items"])
+    totals = (f'<p>{t["games"]} partidas del grupo en {t["matches"]} partidas distintas. '
+              f'{fmt_int(t["deaths"])} muertes y {int(t["dead_seconds"] // 60)} minutos en la pantalla gris, '
+              f'de {int(t["play_seconds"] // 60)} minutos jugados.</p>')
     board = general_leaderboard(editions_until)
     writer = ""
     if ed.get("written_by"):
         version = (ed.get("ai") or {}).get("version")
-        writer = (f'<p class="small" style="text-align:center;margin-top:10px">Redacción: {_e(ed["written_by"])}'
+        writer = (f'<p class="small" style="margin-top:10px">Redacción: {_e(ed["written_by"])}'
                   + (f' (versión {version})' if version and version > 1 else "") + '.</p>')
     body = f"""
 <div class="ticker"><b>ÚLTIMA HORA</b><div class="run">{ticker}</div></div>
 {special}
-<div class="front">
-  <div class="front-main">
-    {lead_html}
-    <div class="cifras">{cifras}</div>
-    {f'<nav class="sumario"><h4>En esta edición</h4><ol>{sumario}</ol></nav>' if sumario else ""}
-  </div>
+{lead_html}
+<div class="cols">
+  <main>{_sections(ed, rest, rel)}{_comments(ed)}</main>
   <aside>
     <div class="box"><h4>General de la vergüenza</h4>{_general_table(board, rel)}</div>
-    <div class="box"><h4>Frase del día</h4><p class="quote">«{_e(ed["frase"])}»</p>{writer}</div>
-    {_previous(editions_until, rel)}
+    <div class="box"><h4>Frase del día</h4><p class="quote">«{_e(ed["frase"])}»</p></div>
+    <div class="box"><h4>El día en cifras</h4>{totals}{writer}</div>
+    <div class="box"><h4>Buzón del lector</h4><p class="small" style="text-align:center">¿Tienes una noticia, una foto o un meme?
+      <br><a href="{rel}proponer.html">Envíala a La Voz de Runeterra</a>.</p></div>
   </aside>
-</div>
-{sections}
-{_comments(ed)}"""
+</div>"""
     title = f"{cfg['site_title']} · {short_date(_date(ed['date']))}"
     desc = lead["headline"] if lead else cfg["site_tagline"]
     return page(cfg, title, body, rel, edition=ed, description=desc)
