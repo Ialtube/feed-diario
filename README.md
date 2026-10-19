@@ -152,6 +152,28 @@ Si añades `ANTHROPIC_API_KEY`, cada día se manda a Claude la lista de noticias
 - Usa `claude-opus-5-5` con la opción de respaldo automático de Anthropic (`fallbacks: "default"`) por si el modelo rechaza la petición. Puedes cambiar el modelo en `config.json`.
 - Es una sola petición al día: unos céntimos al mes. Sin la clave, todo sigue siendo gratis.
 
+## Edición IA con una rutina de Claude (en tu ordenador)
+
+Además de la edición de plantilla del robot de GitHub, una rutina programada en la app de Claude
+reescribe cada día la edición. Puede añadir artículos nuevos, una columna de opinión, ediciones
+especiales y las noticias que tú le pidas.
+
+Cómo funciona:
+
+1. El robot de GitHub saca los datos y la edición de plantilla (06:15 UTC).
+2. La rutina de Claude se ejecuta en tu ordenador dos veces al día:
+   1. Descarga el repositorio y ejecuta `python -m roast ai-context`.
+   2. Lee `ai/GUIA.md` y escribe `ai/edicion-AAAA-MM-DD.json`.
+   3. Lo aplica con `python -m roast apply-ai` y sube el resultado a GitHub.
+3. La segunda pasada del día no hace nada si la edición ya está hecha. Solo actúa si la primera
+   falló, si hay eventos nuevos en `eventos.md` o si el robot volvió a generar la edición.
+
+**Para pedir una noticia o una edición especial**, apúntala en [`eventos.md`](eventos.md), en
+«Pendientes». Se puede hacer desde la web de GitHub, con el lápiz. Sale en la siguiente pasada.
+
+Si la rutina no se ejecuta, la web conserva la edición de plantilla, así que nunca se queda vacía.
+La rutina gasta del uso de tu plan de Claude, no de una clave de API.
+
 ## Comandos
 
 | Comando | Qué hace |
@@ -161,6 +183,9 @@ Si añades `ANTHROPIC_API_KEY`, cada día se manda a Claude la lista de noticias
 | `python -m roast build` | Regenera la web con las ediciones guardadas |
 | `python -m roast check` | Comprueba la clave de Riot y que encuentra a todos |
 | `python -m roast demo` | Demo con datos inventados en `demo_site/` |
+| `python -m roast ai-status` | Indica si la edición de hoy ya tiene versión IA |
+| `python -m roast ai-context` | Prepara `ai/contexto-FECHA.json` para la rutina |
+| `python -m roast apply-ai ai/edicion-FECHA.json` | Aplica lo que escribió Claude y regenera la web |
 
 ## Límites y cosas a saber
 

@@ -87,6 +87,17 @@ footer{text-align:center;font-size:.75rem;color:var(--muted);padding:0 16px 40px
 .archive li{list-style:none;border-top:1px solid var(--rule);padding:12px 0;display:grid;grid-template-columns:150px 1fr;gap:14px}
 .archive li a{font-family:"Playfair Display",serif;font-weight:700;font-size:1.1rem;text-decoration:none}
 .tablewrap{overflow-x:auto}
+/* AI extras: special edition banner + opinion column */
+.special{--sp:var(--accent);border:3px double var(--sp);background:linear-gradient(180deg,color-mix(in srgb,var(--sp) 14%,transparent),transparent);
+  padding:22px 22px 18px;margin-bottom:24px;text-align:center}
+.special .kicker{color:var(--sp);font-size:.85rem}
+.special h2{font-family:"Playfair Display",Georgia,serif;font-weight:900;font-size:clamp(2rem,5.4vw,3.8rem);line-height:1.04;margin:8px 0}
+.special p{font-style:italic;font-size:1.1rem;color:var(--muted);max-width:760px;margin:0 auto}
+.special.t-oro{--sp:#b8860b}.special.t-negro{--sp:var(--ink)}.special.t-verde{--sp:#2e7d32}
+.special.t-azul{--sp:#1f5fa8}.special.t-morado{--sp:#7b3fa0}
+.news article.column{background:var(--chip);border:1px solid var(--rule);padding:18px 18px 10px;margin:12px 0 6px}
+.news article.column p{margin-bottom:10px}
+.news article.column h3{font-style:italic}
 @media (max-width:900px){
   .cols,.lead,.profile{grid-template-columns:1fr}
   .news{grid-template-columns:1fr}
@@ -232,15 +243,29 @@ def render_edition(cfg, ed, editions_until, rel):
                      f'<div class="bigstat"><div class="n">{_e(lead["stat"])}</div>'
                      f'<div class="l">{_e(lead["stat_label"])}</div>{who}</div></section>')
     news = "".join(_article(it, rel, wide=(i == 0 and len(rest) % 2 == 1)) for i, it in enumerate(rest))
+    col = ed.get("columna")
+    if col:
+        paras = "".join(f"<p>{_e(p)}</p>" for p in col["cuerpo"])
+        news = (f'<article class="wide column"><div class="kicker">La columna</div><h3>{_e(col["titulo"])}</h3>'
+                f'<div class="byline">Por {_e(col["autor"])}</div>{paras}</article>') + news
+    special = ""
+    esp = ed.get("especial")
+    if esp:
+        special = (f'<section class="special t-{_e(esp["tema"])}"><div class="kicker">{_e(esp["antetitulo"])}</div>'
+                   f'<h2>{_e(esp["titulo"])}</h2>'
+                   + (f'<p>{_e(esp["subtitulo"])}</p>' if esp.get("subtitulo") else "") + '</section>')
     totals = (f'<p>{t["games"]} partidas del grupo en {t["matches"]} partidas distintas. '
               f'{fmt_int(t["deaths"])} muertes y {int(t["dead_seconds"] // 60)} minutos en la pantalla gris, '
               f'de {int(t["play_seconds"] // 60)} minutos jugados.</p>')
     board = general_leaderboard(editions_until)
     writer = ""
     if ed.get("written_by"):
-        writer = f'<p class="small" style="margin-top:10px">Redacción asistida por {_e(ed["written_by"])}.</p>'
+        version = (ed.get("ai") or {}).get("version")
+        writer = (f'<p class="small" style="margin-top:10px">Redacción: {_e(ed["written_by"])}'
+                  + (f' (versión {version})' if version and version > 1 else "") + '.</p>')
     body = f"""
 <div class="ticker"><b>ÚLTIMA HORA</b><div class="run">{ticker}</div></div>
+{special}
 {lead_html}
 <div class="cols">
   <section class="news">{news or '<p class="small">Sin más noticias por hoy.</p>'}</section>
@@ -325,9 +350,13 @@ def render_player(cfg, friend, editions):
 
 
 def render_archive(cfg, editions):
+    def title(ed):
+        if ed.get("especial"):
+            return f'{ed["especial"]["antetitulo"].capitalize()}: {ed["especial"]["titulo"]}'
+        return ed["items"][0]["headline"] if ed["items"] else "Sin noticias"
     lis = "".join(
         f'<li><span class="small">{_e(long_date(_date(ed["date"])).capitalize())}<br>Edición nº {ed["number"]}</span>'
-        f'<a href="ediciones/{ed["date"]}.html">{_e(ed["items"][0]["headline"] if ed["items"] else "Sin noticias")}</a></li>'
+        f'<a href="ediciones/{ed["date"]}.html">{_e(title(ed))}</a></li>'
         for ed in reversed(editions))
     body = (f'<section style="margin-top:22px"><div class="kicker">Hemeroteca</div>'
             f'<ul class="archive">{lis or "<li>Aún no hay ediciones.</li>"}</ul></section>')

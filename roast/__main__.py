@@ -12,6 +12,7 @@ import sys
 import time
 from datetime import datetime, timedelta
 
+from .ai import AIError, ai_status, apply_file, mark_stale_on_regenerate, read_events, write_context
 from .fetch import fetch_new_matches, resolve_players
 from .llm import polish
 from .notify import post_discord
@@ -60,6 +61,9 @@ def cmd_run(args):
 
     edition = make_edition(cfg, store, players, start_ms, now_ms, date_str, number)
     print(f"  {edition['totals']['games']} partidas del grupo en la ventana, {len(edition['items'])} noticias")
+    if existing and existing.get("ai"):
+        edition = mark_stale_on_regenerate(existing, edition)
+        print("  La edición ya tenía versión IA: se conservan columna/especial y queda marcada para reescribir")
     if not args.no_llm:
         try:
             polish(edition, cfg["llm_model"])
@@ -99,6 +103,53 @@ def cmd_check(args):
     print(f"{len(players)} jugadores encontrados" + (f", {missing} sin encontrar" if missing else ""))
 
 
+def _today(cfg):
+    return datetime.now(get_tz(cfg["timezone"])).date().isoformat()
+
+
+def cmd_ai_status(args):
+    cfg = load_config()
+    store = Store(ROOT / "data")
+    date_str = args.date or _today(cfg)
+    ed = store.edition(date_str)
+    events = read_events()
+    if not ed:
+        print(f"SIN_EDICION {date_str}")
+        return
+    status = ai_status(ed)
+    print(f"{status.upper()} {date_str} eventos_pendientes={len(events)}")
+    if status == "hecha" and not events:
+        print("NADA_QUE_HACER")
+
+
+def cmd_ai_context(args):
+    cfg = load_config()
+    store = Store(ROOT / "data")
+    date_str = args.date or _today(cfg)
+    try:
+        path, ctx = write_context(store, date_str)
+    except AIError as e:
+        sys.exit(str(e))
+    print(f"Contexto escrito en {path.relative_to(ROOT)}")
+    print(f"  estado IA: {ctx['estado_ia']} · {len(ctx['noticias'])} noticias · "
+          f"{len(ctx['eventos_pendientes'])} eventos pendientes · {len(ctx['historial'])} días de historial")
+
+
+def cmd_apply_ai(args):
+    cfg, friends = load_config(), load_friends()
+    store = Store(ROOT / "data")
+    try:
+        ed, clean, published = apply_file(store, args.file, args.date)
+    except AIError as e:
+        sys.exit(f"ERROR en el archivo de la IA: {e}")
+    build_site(cfg, friends, store.editions(), ROOT / "docs")
+    print(f"Edición del {ed['date']} actualizada (versión IA {ed['ai']['version']}): "
+          f"{len(clean['items'])} noticias reescritas, {len(clean['extra'])} artículos nuevos"
+          + (", columna" if clean["columna"] else "") + (", edición especial" if clean["especial"] else "")
+          + (f", {published} eventos publicados" if published else ""))
+    print("Web regenerada en docs/")
+
+
 def cmd_demo(args):
     from .demo import DemoRiot, generate_matches
 
@@ -134,6 +185,16 @@ def main(argv=None):
     r.set_defaults(fn=cmd_run)
     sub.add_parser("build", help="regenerar la web").set_defaults(fn=cmd_build)
     sub.add_parser("check", help="comprobar clave y jugadores").set_defaults(fn=cmd_check)
+    s = sub.add_parser("ai-status", help="¿la edición de hoy ya tiene versión IA?")
+    s.add_argument("--date")
+    s.set_defaults(fn=cmd_ai_status)
+    c = sub.add_parser("ai-context", help="prepara ai/contexto-FECHA.json para la rutina de Claude")
+    c.add_argument("--date")
+    c.set_defaults(fn=cmd_ai_context)
+    a = sub.add_parser("apply-ai", help="aplica ai/edicion-FECHA.json y regenera la web")
+    a.add_argument("file")
+    a.add_argument("--date")
+    a.set_defaults(fn=cmd_apply_ai)
     d = sub.add_parser("demo", help="demo con datos falsos")
     d.add_argument("--days", type=int, default=7)
     d.add_argument("--seed", type=int, default=7)
