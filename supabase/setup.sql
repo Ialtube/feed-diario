@@ -39,3 +39,6 @@ on conflict (id) do update set public = true, file_size_limit = 5242880,
 drop policy if exists "subir imagenes de propuestas" on storage.objects;
 create policy "subir imagenes de propuestas" on storage.objects
   for insert to anon with check (bucket_id = 'propuestas');
+
+-- Hace que la API vea las tablas nuevas al momento
+notify pgrst, 'reload schema';
