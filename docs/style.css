@@ -60,8 +60,9 @@ nav.menu a:hover,nav.menu a.cta{color:var(--accent)}
 /* lead story */
 .lead{display:grid;grid-template-columns:1.7fr 1fr;gap:34px;border-bottom:3px double var(--ink);padding-bottom:22px}
 .lead h2{font-family:"Old Standard TT",Georgia,serif;font-weight:700;font-size:clamp(2.1rem,4.6vw,3.8rem);line-height:1.03;margin:6px 0 14px}
-.lead p{font-size:1.1rem;text-align:justify;hyphens:auto;column-count:2;column-gap:28px;column-rule:1px solid var(--rule)}
-.lead p::first-letter{font-family:"Old Standard TT",serif;font-weight:700;float:left;font-size:3.7rem;line-height:.82;padding:6px 8px 0 0}
+.lead .txt{column-count:2;column-gap:28px;column-rule:1px solid var(--rule)}
+.lead .txt p{font-size:1.1rem;text-align:justify;hyphens:auto}
+.lead .txt p:first-child::first-letter{font-family:"Old Standard TT",serif;font-weight:700;float:left;font-size:3.7rem;line-height:.82;padding:6px 8px 0 0}
 .bigstat{border:4px double var(--ink);padding:16px;text-align:center;margin-top:10px}
 .bigstat .n{font-family:"Old Standard TT",serif;font-weight:700;font-size:clamp(2.4rem,6vw,4.2rem);line-height:1;color:var(--accent)}
 .bigstat .l{font-style:italic;font-size:.92rem;color:var(--muted);margin-top:6px}
@@ -223,9 +224,86 @@ footer{text-align:center;font-family:"Old Standard TT",serif;font-style:italic;f
 .k-farmacia .t{font-family:"Anton",Impact,sans-serif;font-weight:400;letter-spacing:.08em;color:var(--good)}
 .k-alquila{border-style:double;border-width:4px;outline:none}
 .sec-row .sec-opinion article.column .cbody{column-count:1}
+
+
+/* format 2: the news well and the data band */
+.sec-grid.pozo{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+.full .sec-grid.pozo{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+/* medium stories: the picture sits beside the text, like a printed module */
+@media (min-width:1000px){
+  .pozo article.pieza-mediana figure{float:left;width:46%;margin:4px 18px 8px 0}
+  .pozo article.pieza-mediana .stat{overflow:hidden}
+}
+.datos-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:14px}
+.datos-grid .board{margin-bottom:0}
+.sec-grid>article.wide2{grid-column:span 2}
+.pozo article.s-sucesos{border:1px dashed var(--ink);padding:14px 14px 16px;margin:10px 0;background:rgba(255,248,225,.06)}
+.pozo article.s-sucesos::after{content:attr(data-exp);position:absolute;top:10px;right:2px;transform:rotate(8deg);
+  font-family:"IM Fell English SC",serif;font-size:.78rem;color:var(--accent);border:2px solid var(--accent);padding:1px 6px;opacity:.8}
+.pozo article.s-el-faro-de-la-esperanza{border:3px double #6b5214;padding:12px 14px 14px;margin:10px 0;
+  background:conic-gradient(from 200deg at 92% 8%,rgba(212,170,60,.22),transparent 12%,rgba(212,170,60,.16) 24%,transparent 36%)}
+.pozo article.s-el-faro-de-la-esperanza .kicker::before{content:"\263C ";color:#6b5214}
+.pozo article.radio{font-family:"Courier Prime","Courier New",monospace;background:rgba(40,30,20,.06);padding:12px 14px;margin:10px 0;border:1px solid var(--rule)}
+.pozo article.radio h3{font-family:"Courier Prime","Courier New",monospace;font-size:1.12rem}
+/* weights: big stories take two columns and run their text in two columns, without growing the type */
+.sec-grid{grid-auto-flow:row dense}
+.sec-grid>article.pieza-grande{grid-column:span 2}
+.pieza-grande h3{font-size:1.7rem;line-height:1.12}
+.pieza-grande .txt{column-count:2;column-gap:26px;column-rule:1px solid var(--rule)}
+.pieza-grande .txt p{break-inside:avoid-column}
+.txt p+p{margin-top:8px;text-indent:1.2em}
+p.sub{font-family:"Old Standard TT",serif;font-style:italic;font-size:1.05rem;line-height:1.35;color:var(--muted);margin:-2px 0 10px;text-align:left}
+.lead p.sub{font-size:1.25rem;margin-bottom:14px}
+.ante{font-family:"Old Standard TT",serif;font-style:italic;font-size:.95rem;color:var(--ink);border-bottom:1px solid var(--rule);
+  display:inline-block;padding:0 6px 1px 0;margin-top:4px}
+/* formats with a look of their own */
+article.f-telegrama{font-family:"Courier Prime","Courier New",monospace;background:rgba(255,248,225,.14);border:1px solid var(--rule);padding:12px 14px}
+article.f-telegrama h3,article.f-telegrama .txt{font-family:"Courier Prime","Courier New",monospace;text-transform:uppercase;letter-spacing:.02em}
+article.f-telegrama .txt{font-size:.92rem}
+article.f-esquela{border:5px solid var(--ink)!important;padding:14px 16px;text-align:center}
+article.f-esquela h3::before{content:"† ";}
+article.f-esquela .txt p{text-align:center;font-style:italic}
+article.f-carta-al-director .txt p,article.f-editorial .txt p{font-style:italic}
+article.f-editorial h3{text-transform:uppercase;letter-spacing:.03em}
+article.f-anuncio-por-palabras{border:2px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;padding:14px 16px;text-align:center}
+article.f-entrevista .txt p:first-child{font-weight:700}
+article.f-parte-policial .txt,article.f-juicio .txt{border-left:3px double var(--ink);padding-left:10px}
+article.f-ranking .txt p,article.f-encuesta .txt p{font-family:"Old Standard TT",serif}
+article.f-parte-meteorologico{background:rgba(160,175,190,.08)}
+/* briefs column */
+.breves .breve{padding:10px 0;border-bottom:1px dotted var(--rule)}
+.breves .breve:last-child{border-bottom:0}
+.breve .bk{font-family:"IM Fell English SC",serif;font-size:.85rem;color:var(--accent);letter-spacing:.05em}
+.breve h5{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.06rem;line-height:1.2;margin:2px 0 4px}
+.breve p{font-size:.92rem;line-height:1.45;text-align:justify;hyphens:auto}
+.breve.f-telegrama p,.breve.f-telegrama h5{font-family:"Courier Prime","Courier New",monospace;text-transform:uppercase;font-size:.85rem}
+.anuncios-extra .anuncio{margin:0 0 20px}
+/* pastimes: the lottery and the horoscope */
+.pasa-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.sorteo,.horoscopo{border:3px double var(--ink);padding:16px 18px;background:rgba(255,248,225,.1)}
+.sorteo h4,.horoscopo h4{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:1.7rem;text-align:center;
+  border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:12px}
+.bolas{display:flex;justify-content:center;gap:14px;margin:6px 0 10px}
+.bolas span{width:3.2rem;height:3.2rem;border-radius:50%;border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;
+  font-family:"Old Standard TT",serif;font-weight:700;font-size:1.5rem;color:var(--accent);
+  background:radial-gradient(circle at 35% 30%,rgba(255,248,225,.7),rgba(255,248,225,.1))}
+.sorteo .origen{text-align:center;font-style:italic;color:var(--muted);font-size:.92rem;margin-bottom:8px}
+.sorteo form{margin-top:12px;border-top:1px dashed var(--ink);padding-top:12px}
+.sorteo .nums{display:flex;gap:10px}
+.sorteo .nums input{width:5em;font:inherit;font-size:1.3rem;text-align:center;color:var(--ink);background:rgba(255,248,225,.25);border:2px solid var(--ink);padding:6px}
+.horoscopo ul{list-style:none}
+.horoscopo li{padding:8px 0;border-bottom:1px dotted var(--rule);line-height:1.45}
+.horoscopo li:last-child{border-bottom:0}
+.horoscopo .glifo{font-size:1.3rem;margin-right:6px;color:var(--accent)}
 @media (max-width:980px){
   .cols,.lead,.profile{grid-template-columns:1fr}
-  .lead p,.sec-opinion article.column .cbody{column-count:1}
+  .lead .txt,.sec-opinion article.column .cbody{column-count:1}
+}
+@media (max-width:700px){
+  .sec-grid>article.pieza-grande{grid-column:auto}
+  .pieza-grande .txt{column-count:1}
+  .pasa-grid,.datos-grid{grid-template-columns:1fr}
+  .sec-grid>article.wide2{grid-column:auto}
 }
 @media (max-width:560px){
   body{font-size:16px}

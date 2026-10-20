@@ -39,6 +39,35 @@
     }
   }
 
+  var bf = document.getElementById('boleto');
+  if (bf) {
+    var bmsg = bf.querySelector('.msg'), cnt = document.getElementById('boletos-cuenta');
+    if (!ok) { bf.querySelector('button').disabled = true; bmsg.textContent = 'El sorteo se abrirá en cuanto se configure la base de datos.'; }
+    else {
+      var count = function(){
+        api('/rest/v1/boletos?select=id&limit=1&created_at=gt.'+encodeURIComponent(bf.getAttribute('data-desde')),
+            {headers:{Prefer:'count=exact'}}).then(function(r){
+          var n = (r.headers.get('content-range')||'').split('/')[1]; if (cnt && n && n !== '*') cnt.textContent = n;
+        }).catch(function(){});
+      };
+      count();
+      bf.nombre.value = remember('feeder-nombre');
+      bf.addEventListener('submit', function(ev){
+        ev.preventDefault(); if (bf.web.value) return;
+        var nums = [bf.n1, bf.n2, bf.n3].map(function(i){ return parseInt(i.value, 10); });
+        if (nums.some(function(n){ return isNaN(n) || n < 0 || n > 99; })) { bmsg.textContent = 'Elige tres números del 0 al 99.'; return; }
+        var nombre = bf.nombre.value.trim(); if (!nombre) return;
+        remember('feeder-nombre', nombre);
+        bf.querySelector('button').disabled = true; bmsg.textContent = 'Sellando…';
+        api('/rest/v1/boletos',{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=minimal'},
+          body:JSON.stringify({nombre:nombre.slice(0,40),numeros:nums})})
+          .then(function(){ bmsg.textContent = 'Boleto sellado: ' + nums.join(' · ') + '. Suerte mañana.'; count(); })
+          .catch(function(){ bmsg.textContent = 'No se pudo sellar el boleto. Inténtalo de nuevo.'; })
+          .then(function(){ bf.querySelector('button').disabled = false; });
+      });
+    }
+  }
+
   var pf = document.getElementById('proponer');
   if (pf) {
     var pmsg = pf.querySelector('.msg');
@@ -90,7 +119,8 @@
   var pool = tpl ? Array.prototype.slice.call(tpl.content.children) : [];
   var used = 0;
   function clearFill(){
-    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid .anuncio'), function(a){ a.remove(); });
+    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid .anuncio, .anuncios-extra .anuncio'),
+                                 function(a){ a.remove(); });
     used = 0;
   }
   // A story much shorter than its neighbours gets a small ad underneath, if one fits in the hole.
@@ -111,11 +141,16 @@
     Array.prototype.forEach.call(document.querySelectorAll('.sec-grid'), function(g){
       var cols = getComputedStyle(g).gridTemplateColumns.split(' ').filter(Boolean).length;
       if (cols < 2) return;
-      var n = 0;
+      if (!g.children.length) return;
+      // cells taken in the last row, measured (big stories span two columns)
+      var st = getComputedStyle(g), cw = parseFloat(st.gridTemplateColumns), gap = parseFloat(st.columnGap) || 0;
+      var lastTop = -1e9, taken = 0;
+      Array.prototype.forEach.call(g.children, function(c){ lastTop = Math.max(lastTop, Math.round(c.getBoundingClientRect().top)); });
       Array.prototype.forEach.call(g.children, function(c){
-        n = c.classList.contains('wide') ? (Math.ceil(n / cols) + 1) * cols : n + 1;
+        var b = c.getBoundingClientRect();
+        if (Math.round(b.top) === lastTop) taken += Math.max(1, Math.round((b.width + gap) / (cw + gap)));
       });
-      var rem = (cols - n % cols) % cols;
+      var rem = Math.max(0, cols - taken);
       while (rem > 0 && used < pool.length) {
         var el = pool[used++].cloneNode(true), span = (rem >= 2 && el.dataset.wide) ? 2 : 1;
         el.style.gridColumn = 'span ' + span;
@@ -133,7 +168,14 @@
       if (a.getBoundingClientRect().bottom - inner > 40) a.classList.add('grow');
     });
   }
-  function run(){ clearFill(); restore(); layout(); fill(); fillGaps(); grow(); }
+  // never fewer than three small ads: whatever did not fit in a hole goes under the briefs
+  function spare(){
+    var box = document.querySelector('.anuncios-extra');
+    while (box && used < Math.min(3, pool.length)) {
+      var el = pool[used++].cloneNode(true); el.classList.add('mini'); box.appendChild(el);
+    }
+  }
+  function run(){ clearFill(); restore(); layout(); fill(); fillGaps(); spare(); grow(); }
   function layout(){
     var mr = main.getBoundingClientRect(), ar = aside.getBoundingClientRect();
     if (ar.left < mr.right) return;                       // phone: sidebar already below
@@ -154,7 +196,7 @@
     var rest = best.sec;
     if (best.grid) {
       var cont = document.createElement('section'), g = document.createElement('div');
-      cont.className = best.sec.className + ' cont'; g.className = 'sec-grid'; cont.appendChild(g); full.appendChild(cont);
+      cont.className = best.sec.className + ' cont'; g.className = best.grid.className; cont.appendChild(g); full.appendChild(cont);
       Array.prototype.slice.call(best.grid.children).forEach(function(a){
         if (Math.round(a.getBoundingClientRect().top) >= best.row) move(a, g);
       });
