@@ -19,7 +19,7 @@
       "alias": null,
       "headline": "NO ESTABAN MUERTOS, ESTABAN DE PARRANDA: vuelve el Rincón del Viciado y rescata a Saiko del arcón",
       "subtitulo": "El equipo del grupo regresa a la ACE League con la plantilla de siempre y un fichaje que, contra todo pronóstico, ya ha ganado más que nadie.",
-      "body": "Según nos cuenta nuestro lector, el Rincón del Viciado, que la temporada pasada se coló en los playoffs de la primera división de la ACE League, vuelve a la competición para demostrar que aquello no fue un golpe de suerte. La plantilla es la de siempre, los diez desgraciados que llenan este periódico cada mañana, más un fichaje que nadie vio venir: Saiko, vieja gloria rescatada del arcón, con el polvo todavía en los hombros.\n\nEn los despachos rivales se ríen. En los foros se discute si es un regreso triunfal o un acto de nostalgia de gente que ya no sabe ganar sola. Esta redacción, que no tiene amigos, ha preferido mirar los datos: el lunes, Saiko jugó tres partidas y ganó las tres. Dos en dúo con Fr4nux, al que llevó de la mano como quien saca a pasear a un perro viejo, y la primera Flex de la noche con el grupo, de soporte con Alistar, repartiendo asistencias como quien reparte octavillas.\n\nEl comisario Cobretuerca, que ya ha abierto ficha al recién llegado por si acaso, resume el sentir de Piltover: «Un fichaje que no pierde en un equipo que no gana. Algo se va a romper, y no va a ser él». La ACE League queda avisada. El resto del grupo, también.",
+      "body": "Según nos cuentan fuentes de confianza, el Rincón del Viciado, que la temporada pasada se coló en los playoffs de la primera división de la ACE League, vuelve a la competición para demostrar que aquello no fue un golpe de suerte. La plantilla es la de siempre, los diez desgraciados que llenan este periódico cada mañana, más un fichaje que nadie vio venir: Saiko, vieja gloria rescatada del baul de los recuerdos que se dedica a intear las desde la posicion de support.\n\nEn los despachos rivales se ríen. En los foros se discute si es un regreso triunfal o un acto de nostalgia de gente que ya no sabe ganar sola. Esta redacción, que no tiene amigos, ha preferido mirar los datos: el lunes, Saiko jugó tres partidas y ganó las tres. Dos en dúo con Fr4nux, al que llevó de la mano como quien saca a pasear a un perro viejo, y la primera Flex de la noche con el grupo, de soporte con Alistar, repartiendo asistencias como quien reparte octavillas.\n\nEl comisario Cobretuerca, que ya ha abierto ficha al recién llegado por si acaso, resume el sentir de Piltover: «Un fichaje que no pierde en un equipo que no gana. Algo se va a romper, y no va a ser él». La ACE League queda avisada. El resto del grupo, también.",
       "stat": "",
       "stat_label": "",
       "imagen": "voz-2.png",
@@ -51,7 +51,7 @@
       "alias": null,
       "headline": "El ensayo general: una noche de Flex con dos victorias, un funeral y ningún culpable reconocido",
       "subtitulo": "Tres partidas del grupo entre las nueve y la medianoche. La plantilla de la ACE League juega en serio… a ratos.",
-      "body": "La primera fue un paseo. Saiko se plantó de soporte, Dierophant estrenó Wukong en la jungla y entró a las peleas con la tranquilidad de quien ha leído el final del libro, y GSJoseador se fabricó un triple asesinato con Vex para que constara en acta. Hasta Sunraku, que no hizo gran cosa con su Gnar, acabó ganando: en un buen equipo, hasta el mobiliario suma.\n\nLa segunda fue un velatorio con banda de música. Entró grangalax, se puso una Diana que no había tocado en su vida, y el Barón de la Moneda cumplió con su leyenda: la moneda no cayó de cara ni de cruz, cayó al suelo y rodó hasta la base enemiga. Ni el Cho'Gath de GSJoseador, que se comió a medio equipo rival, ni una Caitlyn de Fr4nux que por fin disparaba balas de verdad pudieron con aquello. Treinta y ocho minutos de agonía y derrota.\n\nLa tercera, ya con el reloj apuntando a medianoche, fue la de la dignidad: cuarenta y cuatro minutos, Fr4nux convertido en el carry que juraba no ser, Sunraku con el Urgot prestado de un ausente y Dierophant iluminando el mapa con Rell como si le pagaran por cada guardián. Victoria y dos a uno en la noche. Los cronistas de Noxus coinciden: si este es el ensayo de la ACE League, la temporada va a ser larga. Y ruidosa.",
+      "body": "La primera fue un paseo. Saiko se plantó de soporte, Dierophant estrenó Wukong en la jungla y entró a las peleas con la tranquilidad de quien ha leído el final del libro, y GSJoseador se fabricó un triple asesinato con Vex para que constara en acta. Hasta Sunraku, que no hizo gran cosa con su Gnar, acabó ganando: en un buen equipo, hasta el mobiliario suma.\n\nLa segunda fue un velatorio con banda de música. Entró grangalax, se puso una Diana que no había tocado en su puta vida, y el Barón de la Moneda cumplió con su leyenda: la moneda cayó cruz un dia mas. Ni el Cho'Gath de GSJoseador, que se comió a medio equipo rival, ni una Caitlyn de Fr4nux que por fin dejo de disparar balas de goma pudieron con aquello. Treinta y ocho minutos de agonía y derrota.\n\nLa tercera, ya con el reloj apuntando a medianoche, fue la de la dignidad: cuarenta y cuatro minutos, Fr4nux convertido en el carry que juraba no ser, Sunraku con el Urgot prestado de un ausente y Dierophant iluminando el mapa con Rell como si le pagaran por cada guardián. Victoria y dos a uno en la noche. Los cronistas de Noxus coinciden: si este es el ensayo de la ACE League, la temporada va a ser larga. Y ruidosa.",
       "stat": "",
       "stat_label": "",
       "imagen": null,
@@ -1611,5 +1611,19 @@
     "mas_reaccionadas": [],
     "comentarios": []
   },
-  "cotillas": []
+  "cotillas": [],
+  "correcciones": [
+    {
+      "id": 1,
+      "pieza": 1,
+      "campo": "body",
+      "created_at": "2026-10-20T16:44:51.579073+00:00"
+    },
+    {
+      "id": 2,
+      "pieza": 2,
+      "campo": "body",
+      "created_at": "2026-10-20T16:47:30.883739+00:00"
+    }
+  ]
 }
