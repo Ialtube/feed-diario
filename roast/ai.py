@@ -178,8 +178,10 @@ def build_context(store, date_str, history_days=7, fetch_proposals=True, cfg=Non
         "ausentes": today["absent"],
         "frase_actual": today["frase"],
         "general_verguenza": general_leaderboard(editions[:editions.index(today) + 1]),
-        "propuestas_lectores": [{k: p.get(k) for k in ("id", "nombre", "titulo", "texto", "imagen_local", "created_at")}
-                                for p in (voz.fetch_pending(load_config()) if fetch_proposals else [])],
+        "propuestas_lectores": voz.annotate(
+            [{k: p.get(k) for k in ("id", "nombre", "titulo", "texto", "imagen_local", "created_at")}
+             for p in (voz.fetch_pending(load_config()) if fetch_proposals else [])], voz.published_recent()),
+        "propuestas_ya_publicadas": [{k: p.get(k) for k in ("id", "titulo", "texto")} for p in voz.published_recent()],
         "expresiones_gastadas": overused_phrases(previous),
         "titulares_recientes": [it["headline"] for e in previous[-4:] for it in e["items"]],
         "historial": [{
@@ -214,19 +216,31 @@ def _text(value, field, lo, hi):
     return v
 
 
+def _join(names):
+    return names[0] if len(names) == 1 else ", ".join(names[:-1]) + " y " + names[-1]
+
+
 def _voz_fields(it, where, pending, clean):
-    prop = it.get("propuesta")
-    lector, imagen = None, it.get("imagen")
-    if prop is not None:
+    """Readers' proposals told in a story: one («propuesta») or several that tell the same thing
+    («propuestas»). Returns the readers' names and the picture."""
+    ids = list(it.get("propuestas") or []) + ([it["propuesta"]] if it.get("propuesta") is not None else [])
+    imagen = it.get("imagen")
+    names = []
+    for prop in ids:
         if prop not in pending:
-            raise AIError(f"{where}.propuesta {prop!r} no está entre las propuestas pendientes")
-        lector = voz.safe_name(pending[prop]["nombre"]) or "Un lector"
+            raise AIError(f"{where}: la propuesta {prop!r} no está entre las propuestas pendientes")
+        if prop in clean["propuestas_usadas"]:
+            raise AIError(f"{where}: la propuesta {prop} ya sale en otra pieza. No cuentes dos veces la misma noticia")
+        name = voz.safe_name(pending[prop]["nombre"]) or "Un lector"
+        if name not in names:
+            names.append(name)
         imagen = imagen or pending[prop].get("imagen_local")
         clean["propuestas_usadas"].append(prop)
+    clean.setdefault("_props_por_pieza", []).append(ids)
     if imagen:
         if not re.fullmatch(r"[\w.\-]+\.(jpe?g|png|gif|webp)", imagen, re.I) or not (IMG_DIR / imagen).exists():
             raise AIError(f"{where}.imagen {imagen!r} no existe en docs/img/ (pon solo el nombre del archivo)")
-    return lector, imagen
+    return names, imagen
 
 
 def figures_per_100_words(text):
@@ -269,11 +283,18 @@ def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=N
         player = it.get("player") or (angle["jugador"] if angle and angle["jugador"] in known_slugs else None)
         if player is not None and player not in known_slugs:
             raise AIError(f"{w}.player {player!r} no es un jugador conocido ({', '.join(sorted(known_slugs))})")
-        lector, imagen = _voz_fields(it, w, pending, clean)
+        fuentes, imagen = _voz_fields(it, w, pending, clean)
         lo, hi = PESOS[peso][1]
-        section = _text(it.get("seccion") or (angle or {}).get("tema") or "SOCIEDAD", f"{w}.seccion", 3, 30).upper()
-        if lector:
-            section = "LA VOZ DE RUNETERRA"
+        # a proposal is its own story in La Voz de Runeterra unless it is told inside another section
+        section = _text(it.get("seccion") or (angle or {}).get("tema") or
+                        ("LA VOZ DE RUNETERRA" if fuentes else "SOCIEDAD"), f"{w}.seccion", 3, 30).upper()
+        es_voz = section == "LA VOZ DE RUNETERRA"
+        if not fuentes:
+            lector = None
+        elif es_voz:
+            lector = ("Enviado por " if len(fuentes) == 1 else "Según varias fuentes: ") + _join(fuentes)
+        else:
+            lector = ("Con información de " if len(fuentes) == 1 else "Con información de varias fuentes: ") + _join(fuentes)
         clean["piezas"].append({
             "angulo": it.get("angulo"), "clave": angle["clave"] if angle else None,
             "angle_campeon": angle.get("campeon") if angle else None,
@@ -282,7 +303,7 @@ def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=N
             "desk": _text(it.get("desk") or DESKS.get(section, ""), f"{w}.desk", 0, 50),
             "headline": _text(it.get("headline"), f"{w}.headline", 8, 140),
             "subtitulo": _text(it.get("subtitulo") or "", f"{w}.subtitulo", 0, 220),
-            "body": _paras(it.get("body"), f"{w}.body", lo, hi if not lector else max(hi, 1100)),
+            "body": _paras(it.get("body"), f"{w}.body", lo, hi if not es_voz else max(hi, 1100)),
             "stat": _text(it.get("stat") or "", f"{w}.stat", 0, 16),
             "stat_label": _text(it.get("stat_label") or "", f"{w}.stat_label", 0, 50),
             "player": player, "portada": bool(it.get("portada")), "imagen": imagen,
@@ -290,7 +311,7 @@ def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=N
             "pie": _text(it.get("pie") or "", f"{w}.pie", 0, 200),
             "meme_arriba": _text(it.get("meme_arriba") or "", f"{w}.meme_arriba", 0, 60),
             "meme_abajo": _text(it.get("meme_abajo") or "", f"{w}.meme_abajo", 0, 60),
-            "lector": lector, "hilo": it.get("hilo") or None, "replica": it.get("replica"),
+            "lector": lector, "voz": es_voz, "hilo": it.get("hilo") or None, "replica": it.get("replica"),
         })
         if it.get("replica") is not None:
             rep = replies.get(it["replica"])
@@ -300,14 +321,23 @@ def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=N
                                        replica_de=lectores_name(rep["nombre"]))
             clean["replicas_usadas"].append(it["replica"])
         allowed = FORMAT_SECTIONS.get(formato)
-        if allowed and section not in allowed and not lector:
+        if allowed and section not in allowed and not es_voz:
             raise AIError(f"{w}: un «{formato}» va en {' o '.join(sorted(allowed))}, no en {section}")
         body = clean["piezas"][-1]["body"]
         if peso != "breve" and formato not in LIST_FORMATS and figures_per_100_words(body) > MAX_FIGURES_PER_100_WORDS:
             raise AIError(f"{w} ({clean['piezas'][-1]['headline'][:50]}…) parece un acta: "
                           f"{figures_per_100_words(body):.0f} cifras por cada 100 palabras (máximo "
                           f"{MAX_FIGURES_PER_100_WORDS}). Cuéntalo como una historia y deja solo las cifras que pesan")
-    news = [p for p in clean["piezas"] if not p["lector"]]
+    news = [p for p in clean["piezas"] if not p["voz"]]
+    # the same story, sent by several readers, is told once
+    groups = clean.pop("_props_por_pieza", [])
+    for i, a in enumerate(groups):
+        for b in groups[i + 1:]:
+            for x in a:
+                for y in b:
+                    if x in pending and y in pending and voz.similarity(pending[x], pending[y]) >= voz.SIMILAR:
+                        raise AIError(f"Las propuestas {x} y {y} cuentan lo mismo y salen en piezas distintas: "
+                                      "júntalas en una sola («varias fuentes nos hacen llegar…»)")
     portadas = [p for p in clean["piezas"] if p["portada"]]  # a reader's story can open the paper too
     if len(portadas) != 1 or portadas[0]["peso"] != "grande":
         raise AIError("Tiene que haber exactamente una pieza con portada: true, y de peso «grande»")
@@ -346,7 +376,7 @@ def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=N
     if missing:
         raise AIError("Faltan piezas obligatorias: " + ", ".join(f"{a['id']} ({a['titulo']})" for a in missing)
                       + ". La sesión de Flex del grupo y las colas SoloQ/DuoQ siempre se cuentan")
-    n_voz = len(clean["piezas"]) - len(news)
+    n_voz = sum(1 for p in clean["piezas"] if p["voz"])
     if n_voz > MAX_VOZ:
         raise AIError(f"Como mucho {MAX_VOZ} piezas de La Voz de Runeterra")
 

@@ -83,7 +83,7 @@ def build_dossier(cfg, store, friends, edition, editions):
     type_count = Counter(k.split(":")[0] for e in recent for k in set(used_keys(e)))
 
     angles = []
-    board = general_leaderboard(prev)
+    board = general_leaderboard(prev, since=None)     # all time, whatever the current season
     target = board[0]["slug"] if board else None
 
     def add(tipo, slug, tema, titulo, datos, score, positivo=False, extra=None, campeon=None, alias=None):

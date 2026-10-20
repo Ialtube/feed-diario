@@ -364,6 +364,10 @@ ul.elenco li{padding:6px 0;break-inside:avoid;border-bottom:1px dotted var(--rul
 .weather.con-prevision{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
 .weather .prevision{font-family:"Old Standard TT",serif;font-style:italic;font-size:.9rem;line-height:1.35;margin-top:6px;text-align:left}
 /* Runeterra card and achievements */
+.reglamento{max-width:820px}
+.reglamento h4{font-family:"IM Fell English SC",serif;font-weight:400;font-size:1.2rem;margin:16px 0 6px}
+.reglamento ul{margin:6px 0 6px 22px}
+.reglamento li{padding:3px 0}
 .ficha-rt .titulo-rt{font-family:"UnifrakturMaguntia",serif;font-size:1.6rem;text-align:center;line-height:1.1}
 .ficha-rt .faccion{text-align:center;font-style:italic}
 .ficha-rt ul,.logros ul{list-style:none}
@@ -1024,32 +1028,60 @@ def _ranking_table(ranking, rel):
             '<p class="small" style="margin-top:6px">De peor a mejor. «Daño»: cuota media del daño a campeones de su equipo.</p>')
 
 
-def general_leaderboard(editions):
+MIN_SHAME = 0.0  # only a genuinely bad day scores: a good day never takes points
+ALONE_SHAME = 5.0  # playing alone there is nobody to compare with: only a disaster scores
+_SEASON = {}
+
+
+def season_start():
+    """First edition of the current season of the General (config 'general_desde'); None = all of them."""
+    if "desde" not in _SEASON:
+        from .util import load_config
+        _SEASON["desde"] = load_config().get("general_desde")
+    return _SEASON["desde"]
+
+
+def day_points(ranking):
+    """Shame points of one day: 5, 3, 2 and 1 for the four worst, but only among those whose day was
+    really bad (shame score above zero). Playing alone with good games scores nothing."""
+    floor = ALONE_SHAME if len(ranking) == 1 else MIN_SHAME
+    bad = [r for r in ranking if (r.get("score") or 0) > floor]
+    return {r["slug"]: POINTS[i] for i, r in enumerate(bad[:len(POINTS)])}
+
+
+def general_leaderboard(editions, since="temporada"):
+    since = season_start() if since == "temporada" else since
     tot = {}
     for ed in editions:
-        for i, r in enumerate(ed.get("ranking", [])):
+        if since and ed["date"] < since:
+            continue
+        pts = day_points(ed.get("ranking", []))
+        for r in ed.get("ranking", []):
             t = tot.setdefault(r["slug"], {"slug": r["slug"], "alias": r["alias"], "points": 0,
                                            "portadas": 0, "games": 0, "wins": 0, "losses": 0})
             t["alias"] = r["alias"]
-            t["points"] += POINTS[i] if i < len(POINTS) else 0
-            t["portadas"] += 1 if i == 0 else 0
+            t["points"] += pts.get(r["slug"], 0)
+            t["portadas"] += 1 if pts.get(r["slug"]) == POINTS[0] else 0
             t["games"] += r["games"]
             t["wins"] += r["wins"]
             t["losses"] += r["losses"]
     return sorted(tot.values(), key=lambda t: (-t["points"], -t["portadas"]))
 
 
-def _general_table(board, rel):
+def _general_table(board, rel, since=None):
+    season = (f'<p class="small" style="text-align:center">Temporada desde el {_e(short_date(_date(since)))}</p>'
+              if since else "")
     if not board:
-        return '<p class="small">Aún no hay clasificación.</p>'
+        return season + f'<p class="small">Aún no hay puntos esta temporada. <a href="{rel}puntuacion.html">Cómo se puntúa</a>.</p>'
     rows = "".join(
         f'<tr class="{"top" if i == 0 else ""}"><td>{i + 1}</td>'
         f'<td><a href="{rel}jugadores/{_e(t["slug"])}.html">{_e(t["alias"])}</a></td>'
         f'<td class="num">{t["points"]}</td><td class="num">{t["portadas"]}</td></tr>'
         for i, t in enumerate(board))
-    return ('<div class="tablewrap"><table><thead><tr><th>#</th><th>Jugador</th><th class="num">Puntos</th>'
+    return (season + '<div class="tablewrap"><table><thead><tr><th>#</th><th>Jugador</th><th class="num">Puntos</th>'
             '<th class="num">Portadas</th></tr></thead><tbody>' + rows + '</tbody></table></div>'
-            '<p class="small" style="margin-top:6px">El peor del día suma 5 puntos, el segundo 3, el tercero 2 y el cuarto 1.</p>')
+            '<p class="small" style="margin-top:6px">Cada día puntúan solo los que tuvieron un día malo de verdad: '
+            f'el peor 5, el segundo 3, el tercero 2 y el cuarto 1. <a href="{rel}puntuacion.html">Cómo se calcula</a>.</p>')
 
 
 def _market_table(games):
@@ -1196,6 +1228,11 @@ def _stat(it):
             f'<span class="l">{_e(it["stat_label"])}</span></div>')
 
 
+def _firma(lector):
+    """Reader credit: newer editions store the whole line ("Según varias fuentes: …"), older ones a name."""
+    return lector if lector.startswith(("Enviado por", "Según", "Con información")) else f"Enviado por {lector}"
+
+
 def _paras_html(text):
     return "".join(f"<p>{_e(p)}</p>" for p in str(text).split("\n\n") if p.strip())
 
@@ -1208,7 +1245,7 @@ def _article(it, rel, image=False, cls="", attrs="", placard=False):
     if it.get("replica_de"):
         who = f'<div class="byline">Réplica de {_e(it["replica_de"])}, con la respuesta de la redacción</div>'
     elif it.get("lector"):
-        who = f'<div class="byline">Enviado por {_e(it["lector"])}</div>'
+        who = f'<div class="byline">{_e(_firma(it["lector"]))}</div>'
     elif it.get("player"):
         who = (f'<div class="byline">Sobre <a href="{rel}jugadores/{_e(it["player"])}.html">'
                f'{_e(it["alias"])}</a></div>')
@@ -1339,11 +1376,12 @@ def _sections_v2(ed, rest, rel):
             '<span class="sec-desk">Arena de Noxus · Lonja de Aguasturbias · Islas de la Sombra</span></header>'
             f'<div class="datos-grid"><div class="board"><h4 class="kicker">Resultados del día</h4>'
             f'{_ranking_table(ed["ranking"], rel)}</div>{market}</div>{_bolsa(ed)}</section>')
-    voz_items = [it for it in rest if it.get("lector")]
-    opinion = [it for it in rest if not it.get("lector") and it.get("section") in OPINION_SECTIONS]
-    weather_items = [it for it in rest if not it.get("lector") and it.get("section") == "EL TIEMPO"]
-    ace_items = [it for it in rest if not it.get("lector") and it.get("section") == "ACE LEAGUE"]
-    well = [it for it in rest if not it.get("lector") and it.get("section") not in OPINION_SECTIONS
+    voz_items = [it for it in rest if it.get("section") == "LA VOZ DE RUNETERRA"]
+    rest = [it for it in rest if it.get("section") != "LA VOZ DE RUNETERRA"]   # proposals told elsewhere stay in their section
+    opinion = [it for it in rest if it.get("section") in OPINION_SECTIONS]
+    weather_items = [it for it in rest if it.get("section") == "EL TIEMPO"]
+    ace_items = [it for it in rest if it.get("section") == "ACE LEAGUE"]
+    well = [it for it in rest if it.get("section") not in OPINION_SECTIONS
             and it.get("section") not in ("EL TIEMPO", "ACE LEAGUE")]
     pics = {"left": 8}
 
@@ -1666,7 +1704,7 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
     if lead:
         who = (f'<div class="who"><a href="{rel}jugadores/{_e(lead["player"])}.html">{_e(lead["alias"])}</a></div>'
                if lead.get("player") else "")
-        sent = f'<div class="byline">Enviado por {_e(lead["lector"])}</div>' if lead.get("lector") else ""
+        sent = f'<div class="byline">{_e(_firma(lead["lector"]))}</div>' if lead.get("lector") else ""
         stat_box = (f'<div class="bigstat"><div class="n">{_e(lead["stat"])}</div>'
                     f'<div class="l">{_e(lead["stat_label"])}</div>{who}</div>') if lead.get("stat") else ""
         sub = f'<p class="sub" data-campo="subtitulo">{_e(lead["subtitulo"])}</p>' if lead.get("subtitulo") else ""
@@ -1682,7 +1720,9 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
     totals = (f'<p>{t["games"]} partidas del grupo en {t["matches"]} partidas distintas. '
               f'{fmt_int(t["deaths"])} muertes y {int(t["dead_seconds"] // 60)} minutos en la pantalla gris, '
               f'de {int(t["play_seconds"] // 60)} minutos jugados.</p>')
-    board = general_leaderboard(editions_until)
+    since = season_start()
+    since = since if since and ed["date"] >= since else None     # older pages keep their own standings
+    board = general_leaderboard(editions_until, since=since)
     writer = ""
     if ed.get("written_by"):
         version = (ed.get("ai") or {}).get("version")
@@ -1695,7 +1735,7 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
 <div class="cols edicion">
   <main>{_sections_v2(ed, rest, rel) if v2 else _sections(ed, rest, rel)}{_pasatiempos(ed, rel, latest, seers(editions_until))}{_comments(ed)}</main>{_fillers(ed)}
   <aside>
-    <div class="box"><h4>General de la vergüenza</h4>{_general_table(board, rel)}</div>
+    <div class="box"><h4>General de la vergüenza</h4>{_general_table(board, rel, since)}</div>
     <div class="box" data-ed="0"><h4>Frase del día</h4><p class="quote">«<span data-campo="frase">{_e(ed["frase"])}</span>»</p></div>
     <div class="box"><h4>El día en cifras</h4>{totals}{writer}</div>
     {_readers_boxes(ed, rel)}
@@ -1749,6 +1789,40 @@ def render_sagas(cfg, canon, editions):
     return page(cfg, f"Sagas · {cfg['site_title']}", body, "", pagina="sagas")
 
 
+def render_puntuacion(cfg):
+    since = season_start()
+    body = f"""
+<section class="secblock" style="margin-top:20px">
+<header class="sec-head"><h3 class="sec-name">Cómo se puntúa la vergüenza</h3><span class="sec-desk">Reglamento oficial de la General</span></header>
+<div class="reglamento">
+<h4>1. La vergüenza de cada partida</h4>
+<p>Cada partida da una nota de vergüenza. Cuanto más alta, peor. Se calcula así:</p>
+<ul>
+<li><b>+1,2</b> por cada muerte.</li>
+<li><b>−0,5</b> por cada asesinato y <b>−0,3</b> por cada asistencia (lo bueno resta).</li>
+<li>Si no juegas de soporte: <b>+0,5</b> por cada punto que te falte para llegar al 20 % del daño de tu equipo,
+y <b>+3</b> si fuiste el que menos daño hizo.</li>
+<li><b>+2,5</b> si perdiste.</li>
+<li><b>+3</b> si moriste 10 veces o más.</li>
+<li><b>+0,12</b> por cada punto que te falte para participar en el 40 % de los asesinatos de tu equipo.</li>
+<li><b>−2</b> si ganaste con un KDA de 5 o más.</li>
+</ul>
+<h4>2. La vergüenza del día</h4>
+<p>Es la media de tus partidas del día, más <b>0,5</b> por cada derrota. Con eso se ordena la tabla de
+resultados de cada edición, de peor a mejor.</p>
+<h4>3. Los puntos de la General</h4>
+<p>Cada día, de los que tuvieron un día <b>malo de verdad</b> (vergüenza del día por encima de cero), el peor
+se lleva <b>5 puntos</b>, el segundo <b>3</b>, el tercero <b>2</b> y el cuarto <b>1</b>. Si te sale un buen día,
+no sumas nada. Si eres el único que ha jugado ese día, no hay con quién compararte: solo puntúas si tu
+día ha sido un desastre (vergüenza de 5 o más). Si nadie la lía, nadie puntúa. Llevarse los 5 puntos
+cuenta como una <b>portada</b>.</p>
+<h4>4. Temporadas</h4>
+<p>{f"La temporada actual empezó el {_e(long_date(_date(since)))}, cuando se puso a cero la General para corregir un error de la fórmula anterior, que daba puntos a quien jugaba solo aunque hiciera buenas partidas." if since else "La General cuenta desde la primera edición."}</p>
+</div>
+</section>"""
+    return page(cfg, f"Cómo se puntúa · {cfg['site_title']}", body, "", pagina="puntuacion")
+
+
 def render_proponer(cfg):
     body = """
 <section class="secblock" style="margin-top:20px">
@@ -1787,7 +1861,7 @@ def _sparkline(values, w=320, h=70):
 def _logros(slug, alias, games, editions):
     """Achievements (good and mostly bad) earned in the archive."""
     out = []
-    portadas = sum(1 for e in editions if e.get("ranking") and e["ranking"][0]["slug"] == slug)
+    portadas = sum(1 for e in editions if day_points(e.get("ranking", [])).get(slug) == POINTS[0])
     if portadas:
         out.append(("💀", f"Portada de la vergüenza ×{portadas}"))
     faros = sum(1 for e in editions for it in e["items"] if it.get("player") == slug
@@ -1951,6 +2025,7 @@ def build_site(cfg, friends, editions, out_dir, canon=None):
     (out / "archivo.html").write_text(render_archive(cfg, editions), encoding="utf-8")
     (out / "jugadores.html").write_text(render_players_index(cfg, friends_all, editions), encoding="utf-8")
     (out / "proponer.html").write_text(render_proponer(cfg), encoding="utf-8")
+    (out / "puntuacion.html").write_text(render_puntuacion(cfg), encoding="utf-8")
     canon = canon if canon is not None else canon_mod.load()
     (out / "sagas.html").write_text(render_sagas(cfg, canon, editions), encoding="utf-8")
     for f in friends_all:

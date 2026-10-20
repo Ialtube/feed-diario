@@ -83,6 +83,39 @@ def _download_image(cfg, p, log):
     return name
 
 
+STOP = set("""de la el en y a que los las del se con por un una su al es lo para como mas más pero sus le ya o
+este esta fue ha no si sí ni muy sin sobre entre tambien también hasta desde todo nos me mi te tu""".split())
+
+
+def _words(p):
+    text = f"{p.get('titulo') or ''} {p.get('texto') or ''}".lower()
+    return {w for w in re.findall(r"[a-záéíóúñü0-9]+", text) if len(w) > 2 and w not in STOP}
+
+
+def similarity(a, b):
+    """0..1: how much two proposals tell the same story (shared meaningful words)."""
+    wa, wb = _words(a), _words(b)
+    if not wa or not wb:
+        return 0.0
+    return len(wa & wb) / min(len(wa), len(wb))
+
+
+SIMILAR = 0.5
+
+
+def annotate(pending, published):
+    """Adds, to each pending proposal, the others that look like the same story."""
+    for p in pending:
+        p["parecidas"] = [q["id"] for q in pending if q["id"] != p["id"] and similarity(p, q) >= SIMILAR]
+        p["parecida_a_publicada"] = [q["id"] for q in published if similarity(p, q) >= SIMILAR]
+    return pending
+
+
+def published_recent(limit=20):
+    pub = _state().get("publicadas", {})
+    return sorted(pub.values(), key=lambda p: p.get("id", 0))[-limit:]
+
+
 def pending_cache():
     return {int(k): v for k, v in _state()["pendientes"].items()}
 
@@ -103,7 +136,7 @@ def mark(used, discarded):
     for i in used:
         p = st["pendientes"].get(str(i)) or published.get(str(i))
         if p:
-            published[str(i)] = {k: p.get(k) for k in ("id", "nombre", "titulo", "imagen_local")}
+            published[str(i)] = {k: p.get(k) for k in ("id", "nombre", "titulo", "texto", "imagen_local")}
     st["descartadas"] = sorted(set(st["descartadas"]) | set(discarded))
     for i in list(used) + list(discarded):
         st["pendientes"].pop(str(i), None)

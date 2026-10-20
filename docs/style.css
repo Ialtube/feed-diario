@@ -342,6 +342,10 @@ ul.elenco li{padding:6px 0;break-inside:avoid;border-bottom:1px dotted var(--rul
 .weather.con-prevision{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
 .weather .prevision{font-family:"Old Standard TT",serif;font-style:italic;font-size:.9rem;line-height:1.35;margin-top:6px;text-align:left}
 /* Runeterra card and achievements */
+.reglamento{max-width:820px}
+.reglamento h4{font-family:"IM Fell English SC",serif;font-weight:400;font-size:1.2rem;margin:16px 0 6px}
+.reglamento ul{margin:6px 0 6px 22px}
+.reglamento li{padding:3px 0}
 .ficha-rt .titulo-rt{font-family:"UnifrakturMaguntia",serif;font-size:1.6rem;text-align:center;line-height:1.1}
 .ficha-rt .faccion{text-align:center;font-style:italic}
 .ficha-rt ul,.logros ul{list-style:none}

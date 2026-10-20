@@ -5,7 +5,17 @@
   "descartadas": [
     1
   ],
-  "pendientes": {},
+  "pendientes": {
+    "3": {
+      "id": 3,
+      "nombre": "RDV Canyon",
+      "titulo": "Aunque parezca que no, si, grangalax y wolf pueden hacer aun mas el ridiculo",
+      "texto": "Uno empezo afk el game y el otro pickeo zed adc. Puedes ver el daño y oro que han hecho cada uno y como iban sus oponentes...",
+      "imagen": null,
+      "created_at": "2026-10-20T17:39:01.361918+00:00",
+      "imagen_local": null
+    }
+  },
   "publicadas": {
     "2": {
       "id": 2,

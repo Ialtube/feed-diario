@@ -401,6 +401,77 @@ class AIFlowTest(unittest.TestCase):
             self.assertEqual(ctx["correcciones_nuevas"], [])
             self.assertEqual(len(ctx["ejemplos_anteriores"]), 2)
 
+    def test_same_story_from_several_readers(self):
+        from roast import propuestas as voz
+        from roast.dossier import build_dossier
+        pending = {
+            11: {"id": 11, "nombre": "Ana", "titulo": "Wôlf rompe el teclado tras perder con Gragas",
+                 "texto": "Después de la tercera derrota con Gragas, Wôlf rompió el teclado de un puñetazo"},
+            12: {"id": 12, "nombre": "Luis", "titulo": "Teclado roto: Wôlf y Gragas",
+                 "texto": "Wôlf rompió el teclado tras otra derrota con Gragas, el tercer teclado del año"},
+            13: {"id": 13, "nombre": "Eva", "titulo": "Saiko se compra ratón nuevo",
+                 "texto": "Saiko estrena ratón inalámbrico para la temporada de la ACE League"},
+        }
+        self.assertGreaterEqual(voz.similarity(pending[11], pending[12]), voz.SIMILAR)
+        self.assertLess(voz.similarity(pending[11], pending[13]), voz.SIMILAR)
+        old = voz.known_cache
+        voz.known_cache = lambda: pending
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                cfg, store = demo_store(tmp)
+                ed = store.edition("2026-10-19")
+                dossier = build_dossier(cfg, store, FRIENDS, ed, store.editions())
+                known = {f["slug"] for f in FRIENDS}
+                angles = dossier["angulos"]
+                faro = next((a for a in angles if a["tipo"] == "faro"), None)
+                required = [a for a in angles if a["tipo"] in ("sesion_flex", "colas")]
+                first = next(a for a in angles if a is not faro and a not in required)
+                roll = ", ".join(r["alias"] for r in ed["ranking"])
+                long_text = "Una historia contada con calma y sin tantas cifras por medio. " * 12 + roll + "."
+                mid = "Pieza mediana con su mala leche correspondiente. " * 8
+                brief = "Breve con veneno para el lector. " * 4
+                base = [
+                    {"angulo": first["id"], "peso": "grande", "portada": True, "formato": "crónica",
+                     "headline": "Portada del día", "body": long_text},
+                    {"angulo": faro["id"] if faro else None, "peso": "mediana", "formato": "nota de prensa",
+                     "seccion": "EL FARO DE LA ESPERANZA", "headline": "Luz en el Faro", "body": mid},
+                    {"angulo": None, "peso": "mediana", "formato": "reportaje", "seccion": "SOCIEDAD",
+                     "headline": "Otra pieza mediana", "body": mid + roll},
+                    {"angulo": required[0]["id"] if required else None, "peso": "breve", "formato": "telegrama",
+                     "headline": "Breve uno", "body": brief},
+                    {"angulo": required[1]["id"] if len(required) > 1 else None, "peso": "breve", "formato": "breve",
+                     "headline": "Breve dos", "body": brief},
+                    {"angulo": None, "peso": "breve", "formato": "anuncio por palabras", "seccion": "SOCIEDAD",
+                     "propuestas": [13], "headline": "Ratón nuevo en el Rincón", "body": brief},
+                ]
+                common = {"frase": "Frase del día de prueba.", "columna": {"titulo": "Columna", "cuerpo": ["Un párrafo de columna de prueba."]},
+                          "horoscopo": [{"signo": x, "texto": "Los astros dicen algo bastante largo sobre tu rol hoy."} for x in ai.SIGNOS],
+                          "tiempo": [{"jugador": r["slug"], "texto": "Niebla persistente sobre su carril."} for r in ed["ranking"]]}
+                voz_text = "Varias fuentes nos hacen llegar que el teclado no sobrevivió a Gragas. " * 6
+                merged = base + [{"angulo": None, "peso": "mediana", "formato": "noticia", "propuestas": [11, 12],
+                                  "headline": "El teclado que no sobrevivió", "body": voz_text}]
+                clean = ai.validate_v2(dict(common, piezas=merged), ed, known, dossier)
+                voz_piece = next(p for p in clean["piezas"] if p["voz"])
+                self.assertEqual(voz_piece["lector"], "Según varias fuentes: Ana y Luis")
+                inside = next(p for p in clean["piezas"] if p["headline"] == "Ratón nuevo en el Rincón")
+                self.assertEqual((inside["section"], inside["lector"]), ("SOCIEDAD", "Con información de Eva"))
+                split = base + [
+                    {"angulo": None, "peso": "mediana", "formato": "noticia", "propuesta": 11,
+                     "headline": "El teclado de Wôlf", "body": voz_text},
+                    {"angulo": None, "peso": "mediana", "formato": "noticia", "propuesta": 12,
+                     "headline": "Otra vez el teclado", "body": voz_text}]
+                with self.assertRaises(ai.AIError):        # the same story told twice
+                    ai.validate_v2(dict(common, piezas=split), ed, known, dossier)
+                twice = base + [
+                    {"angulo": None, "peso": "mediana", "formato": "noticia", "propuestas": [11, 12],
+                     "headline": "El teclado de Wôlf", "body": voz_text},
+                    {"angulo": None, "peso": "breve", "formato": "breve", "propuesta": 11, "seccion": "SOCIEDAD",
+                     "headline": "Y el teclado otra vez", "body": brief}]
+                with self.assertRaises(ai.AIError):        # one proposal in two pieces
+                    ai.validate_v2(dict(common, piezas=twice), ed, known, dossier)
+        finally:
+            voz.known_cache = old
+
     def test_overused_phrases(self):
         eds = [{"items": [{"headline": "La Comisaría de Piltover abre expediente", "body": "otra vez"}]}] * 3
         self.assertIn("comisaría de piltover", ai.overused_phrases(eds))

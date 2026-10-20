@@ -231,16 +231,26 @@ El periódico imprime fotos en blanco y negro envejecido, y muchas llevan texto 
 
 ## La Voz de Runeterra (noticias de los lectores)
 
-`propuestas_lectores` trae lo que la gente ha enviado desde la web: `id`, `nombre`, `titulo`, `texto`
-y, a veces, `imagen_local`.
-- Cada propuesta publicable es una pieza con `"propuesta": <id>` (peso `mediana` o `grande`; no cuenta
-  para los mínimos de pesos). La sección, la firma y la imagen se ponen solas.
+`propuestas_lectores` trae lo que la gente ha enviado desde la web: `id`, `nombre`, `titulo`, `texto`,
+a veces `imagen_local`, y dos pistas: `parecidas` (otras propuestas pendientes que cuentan lo mismo) y
+`parecida_a_publicada` (propuestas que ya salieron y se le parecen; están en `propuestas_ya_publicadas`).
+
+- **Una historia, una pieza.** Los amigos se chivan a la vez y mandan la misma noticia varias veces.
+  Júntalas en una sola pieza con `"propuestas": [ids]` y cuéntalo como lo haría un periódico: «varias
+  fuentes nos hacen llegar…», «nos llueven los chivatazos…». La firma («Según varias fuentes: …») se pone
+  sola. El validador rechaza la misma propuesta en dos piezas y dos propuestas parecidas en piezas
+  distintas.
+- **No tiene que ser un titular.** Una propuesta puede ser una pieza propia (sin `seccion`, sale en La Voz
+  de Runeterra), una breve, o un dato dentro de otra noticia de cualquier sección (pon esa `seccion` y
+  sale firmada «Con información de …»). Elige lo que pida la historia.
+- **Lo ya publicado no se repite.** Si una propuesta cuenta algo que ya salió (`parecida_a_publicada`),
+  no la publiques como nueva: o la usas como continuación («insisten nuestras fuentes…», «nuevos
+  detalles…») o la descartas.
 - Respeta la idea del lector, pero escríbela con el estilo del periódico. Lo que cuente el lector es
-  **su versión**: atribúyelo («según nos cuenta nuestro lector…»). No le añadas cifras que no estén en
-  el contexto.
-- **Descarta** (su `id` en `propuestas_descartadas`) las que no van del LoL o del grupo, las que atacan
-  a alguien fuera del juego, con insultos graves o datos personales, y el spam.
-- Como mucho 6 por edición; el resto, para mañana (ni publicadas ni descartadas).
+  **su versión**: atribúyelo. No le añadas cifras que no estén en el contexto.
+- **Descarta** (su `id` en `propuestas_descartadas`) las que no van del LoL o del grupo, las que atacan a
+  alguien fuera del juego, con insultos graves o datos personales, y el spam.
+- Como mucho 6 piezas de La Voz por edición; el resto, para mañana (ni publicadas ni descartadas).
 
 ## El Sorteo de la Grieta
 
