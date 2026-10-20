@@ -159,7 +159,8 @@ class AIFlowTest(unittest.TestCase):
                 angles = dossier["angulos"]
                 self.assertTrue(angles)
                 faro = next((a for a in angles if a["tipo"] == "faro"), None)
-                others = [a for a in angles if a is not faro]
+                required = [a for a in angles if a["tipo"] in ("sesion_flex", "colas")]
+                others = [a for a in angles if a is not faro and a not in required]
                 long_text = "Texto de prueba con suficiente longitud para una pieza. " * 16
                 mid_text = "Texto de prueba para una pieza mediana del periódico. " * 9
                 short_text = "Breve de prueba con unas pocas frases. " * 4
@@ -170,8 +171,10 @@ class AIFlowTest(unittest.TestCase):
                      "seccion": "EL FARO DE LA ESPERANZA", "headline": "Titular del Faro", "body": mid_text},
                     {"angulo": None, "peso": "mediana", "formato": "parte policial", "seccion": "SUCESOS",
                      "headline": "Titular mediano", "body": mid_text},
-                    {"angulo": None, "peso": "breve", "formato": "telegrama", "headline": "Breve uno", "body": short_text},
-                    {"angulo": None, "peso": "breve", "formato": "breve", "headline": "Breve dos", "body": short_text},
+                    {"angulo": required[0]["id"] if required else None, "peso": "breve", "formato": "telegrama",
+                     "headline": "Breve uno", "body": short_text},
+                    {"angulo": required[1]["id"] if len(required) > 1 else None, "peso": "breve", "formato": "breve",
+                     "headline": "Breve dos", "body": short_text},
                     {"angulo": None, "peso": "breve", "formato": "anuncio por palabras", "headline": "Breve tres",
                      "body": short_text},
                 ]
@@ -203,12 +206,26 @@ class AIFlowTest(unittest.TestCase):
                     dict(data, piezas=piezas[:3]),                                       # too few briefs
                     dict(data, horoscopo=horos[:4]),                                     # a sign missing
                     dict(data, piezas=[dict(piezas[0], body="Demasiado corto")] + piezas[1:]),
+                    dict(data, piezas=piezas[:3] + [dict(p, angulo=None) for p in piezas[3:]]),  # Flex/SoloQ left out
                 ]
                 for b in bad:
                     with self.assertRaises(ai.AIError):
                         ai.validate_v2(b, ed, known, dossier)
         finally:
             voz.pending_cache = old_cache
+
+    def test_edition_window_cutoff(self):
+        from roast.__main__ import edition_window
+        cfg = {"cutoff_hour": 7}
+        tz = timezone(timedelta(hours=2))
+        # an evening run does not grab tonight's games: they belong to tomorrow's paper
+        for now, date in [(datetime(2026, 10, 20, 8, 15, tzinfo=tz), "2026-10-20"),
+                          (datetime(2026, 10, 19, 23, 41, tzinfo=tz), "2026-10-19"),
+                          (datetime(2026, 10, 20, 2, 0, tzinfo=tz), "2026-10-19")]:
+            d, start, end = edition_window(cfg, now)
+            self.assertEqual(d, date)
+            self.assertEqual(datetime.fromtimestamp(end / 1000, tz).hour, 7)
+            self.assertEqual(end - start, 24 * 3600 * 1000)
 
     def test_lottery(self):
         from roast import sorteo

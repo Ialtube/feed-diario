@@ -10,7 +10,7 @@ import time
 from collections import Counter
 from pathlib import Path
 
-from .dossier import FIXED, build_dossier, detailed_games
+from .dossier import FIXED, REQUIRED, build_dossier, detailed_games
 from .roasts import DESKS
 from .site import general_leaderboard
 from . import propuestas as voz
@@ -269,6 +269,11 @@ def validate_v2(data, edition, known_slugs, dossier):
     if any(a["tipo"] == "faro" for a in dossier["angulos"]) and \
             not any(p["section"] == "EL FARO DE LA ESPERANZA" for p in news):
         raise AIError("Falta El Faro de la Esperanza: al menos una pieza con seccion «EL FARO DE LA ESPERANZA»")
+    used_ids = {p["angulo"] for p in clean["piezas"] if p["angulo"]}
+    missing = [a for a in dossier["angulos"] if a["tipo"] in REQUIRED - {"faro"} and a["id"] not in used_ids]
+    if missing:
+        raise AIError("Faltan piezas obligatorias: " + ", ".join(f"{a['id']} ({a['titulo']})" for a in missing)
+                      + ". La sesión de Flex del grupo y las colas SoloQ/DuoQ siempre se cuentan")
     n_voz = len(clean["piezas"]) - len(news)
     if n_voz > MAX_VOZ:
         raise AIError(f"Como mucho {MAX_VOZ} piezas de La Voz de Runeterra")

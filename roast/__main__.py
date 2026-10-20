@@ -39,15 +39,16 @@ def cmd_run(args):
     store = Store(ROOT / "data")
     tz = get_tz(cfg["timezone"])
     now_ms = int(time.time() * 1000)
-    date_str = datetime.now(tz).date().isoformat()
+    date_str, day_start, end_ms = edition_window(cfg, datetime.now(tz))
 
+    # The edition of day D holds the games that ended between the cut-off hour of D-1 and that of D,
+    # whenever the robot runs: an evening session always lands, whole, in the next morning's paper.
     existing = store.edition(date_str)
-    if existing:
-        start_ms, number = existing["window"][0], existing["number"]
-    else:
-        start_ms = store.state.get("last_edition_end") or now_ms - cfg["window_hours"] * HOUR_MS
-        number = len(store.editions()) + 1
+    previous = next((e for e in sorted(store.editions(), key=lambda e: e["date"], reverse=True)
+                     if e["date"] < date_str), None)
+    start_ms = previous["window"][1] if previous else day_start   # no gaps and no overlaps
     start_ms = max(start_ms, now_ms - cfg["max_backfill_hours"] * HOUR_MS)
+    number = existing["number"] if existing else len(store.editions()) + 1
 
     print(f"Edición nº {number} del {date_str}")
     client = _client(cfg)
@@ -61,8 +62,12 @@ def cmd_run(args):
         sys.exit(f"Error con la API de Riot: {e}")
     print(f"  {added} partidas nuevas guardadas ({client.requests_made} peticiones a Riot)")
 
-    edition = make_edition(cfg, store, players, start_ms, now_ms, date_str, number)
+    edition = make_edition(cfg, store, players, start_ms, end_ms, date_str, number)
     print(f"  {edition['totals']['games']} partidas del grupo en la ventana, {len(edition['items'])} noticias")
+    same_games = existing and {g["match"] for g in existing.get("games", [])} == {g["match"] for g in edition["games"]}
+    if existing and existing.get("ai") and same_games and existing["window"] == edition["window"]:
+        print("  La edición ya estaba hecha con estas mismas partidas: no se toca")
+        return
     if existing and existing.get("ai"):
         edition = mark_stale_on_regenerate(existing, edition)
         print("  La edición ya tenía versión IA: se conservan columna/especial y queda marcada para reescribir")
@@ -82,7 +87,7 @@ def cmd_run(args):
         except Exception as e:  # the edition must come out even if the optional rewrite breaks
             print(f"  ! Fallo inesperado con Claude ({e!r}); se usan las plantillas")
     store.save_edition(edition)
-    store.state["last_edition_end"] = now_ms
+    store.state["last_edition_end"] = end_ms
     store.save_state()
     build_site(cfg, friends, store.editions(), ROOT / "docs")
     print("Web regenerada en docs/")
@@ -158,6 +163,15 @@ def cmd_check(args):
 
 def _today(cfg):
     return datetime.now(get_tz(cfg["timezone"])).date().isoformat()
+
+
+def edition_window(cfg, now):
+    """(date, start_ms, end_ms) of the edition whose cut-off was the last one before `now`."""
+    cut = now.replace(hour=cfg["cutoff_hour"], minute=0, second=0, microsecond=0)
+    if now < cut:
+        cut -= timedelta(days=1)
+    start = cut - timedelta(days=1)
+    return cut.date().isoformat(), int(start.timestamp() * 1000), int(cut.timestamp() * 1000)
 
 
 def cmd_ai_status(args):

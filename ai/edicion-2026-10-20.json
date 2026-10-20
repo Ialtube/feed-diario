@@ -1,169 +1,86 @@
 {
- "piezas": [
-  {
-   "angulo": null,
-   "peso": "grande",
-   "portada": true,
-   "propuesta": 2,
-   "formato": "noticia",
-   "headline": "NO ESTABAN MUERTOS, ESTABAN DE PARRANDA: vuelve el Rincón del Viciado y rescata a Saiko del arcón",
-   "subtitulo": "El equipo del grupo regresa a la ACE League con la plantilla de siempre y un fichaje que nadie vio venir.",
-   "body": "Según nos cuenta nuestro lector, el Rincón del Viciado, que la temporada pasada se metió en los playoffs de la primera división de la ACE League, regresa para demostrar que aquello no fue un golpe de suerte. La plantilla será la de siempre, los diez de este periódico, más un fichaje que nadie vio venir: Saiko, vieja gloria desempolvada del baúl de los recuerdos.\n\nEn los despachos rivales ya se oye el rumor y en los foros se discute si es un regreso triunfal o una maniobra de nostalgia. De Saiko, eso sí, esta redacción no tiene ni una sola partida en sus archivos: llega directamente del arcón, sin estadísticas de Riot y con todo el misterio intacto.\n\nEl ensayo de anoche invita al optimismo: cinco de los diez ganaron juntos una Ranked Flex de 44 minutos, y nadie del grupo perdió una sola partida en todo el día. La ACE League queda avisada."
-  },
-  {
-   "angulo": "a2",
-   "peso": "grande",
-   "portada": false,
-   "formato": "crónica deportiva",
-   "seccion": "DEPORTES",
-   "headline": "Cinco contra el mundo, y esta vez el mundo pierde",
-   "subtitulo": "Dierophant, Fr4nux, Sunraku, grangalax y GSJoseador juntan una Ranked Flex de 44 minutos y la ganan. Nadie del grupo perdió en todo el día.",
-   "body": "Eran las 22:50 cuando cinco miembros del grupo se metieron juntos en una Ranked Flex. Cuarenta y cuatro minutos después, la Arena de Noxus registraba algo que esta redacción no había tenido que escribir hasta ahora: victoria, y sin excusas. El quinteto sumó 59 asesinatos y 44 muertes, que no es precisamente una defensa numantina, pero el marcador final no pregunta por los detalles.\n\nEl reparto fue de manual. Fr4nux, con Xayah, firmó un 21/9/17 y el 27,1 % del daño de su equipo. Sunraku se puso el Urgot de un ausente ilustre y acabó 17/9/13 con siete asesinatos en solitario. Dierophant, con Rell, repartió 43 asistencias. grangalax aportó un 7/7/14 con Aurelion Sol, y GSJoseador cerró la cuenta con su Kayn: 12/11/15 y un récord personal del que se ocupa la sección de Sucesos.\n\nLos cronistas de Noxus coinciden en que no fue una partida limpia, pero sí una partida ganada, y en este periódico eso ya es una categoría propia. Tras una semana de portadas con más muertes que en las Islas de la Sombra, la plantilla demostró que, cuando se junta entera, al menos reparte la culpa y la gloria a partes iguales.",
-   "campeon": "Rell",
-   "pie": "Rell, cargando con cuatro compañeros y con la reputación del grupo entero.",
-   "meme_arriba": "CUANDO JUGÁIS LOS CINCO",
-   "meme_abajo": "Y POR UNA VEZ GANÁIS"
-  },
-  {
-   "angulo": "a10",
-   "peso": "grande",
-   "formato": "perfil",
-   "seccion": "DAÑO",
-   "headline": "¿Y si Fr4nux sí sabía hacer daño?",
-   "subtitulo": "Perfil de un tirador al que la Grieta había dado por desaparecido, el día en que apareció con Xayah.",
-   "body": "El Instituto Hextech de Piltover lleva una semana estudiando un caso que parecía cerrado. Su expediente recoge 22 partidas registradas antes de hoy: 12 victorias, 10 derrotas, un KDA de 2,79 y 141 muertes. Sus campeones de cabecera, Caitlyn y Jinx con cinco partidas cada una y Kalista con cuatro. El diagnóstico de los científicos era unánime: tirador de profesión, carry de paradero desconocido.\n\nY entonces llegó la Xayah de anoche. 21 asesinatos, 9 muertes y 17 asistencias, el 27,1 % del daño de su equipo y el 64,4 % de participación en las kills. Sacó 2.492 de oro de ventaja a su rival directo, un Lee Sin que acabó 17/15/11, y firmó cuatro dobles asesinatos. Ningún triple: los científicos insisten en que hay que ir paso a paso.\n\nEn la Academia hay división de opiniones. Una parte del claustro pide repetir la medición, porque un dato así, aislado, puede ser un error del instrumental. La otra parte ya ha encargado una placa. Esta redacción, prudente, se limita a dejarlo por escrito: el 20 de octubre, a las 22:50, Fr4nux hizo daño. Mañana veremos si fue un hábito o un eclipse.",
-   "campeon": "Xayah",
-   "pie": "Xayah, todavía sin creerse que le hayan dejado hacer daño.",
-   "meme_arriba": "CARRY NOT FOUND",
-   "meme_abajo": "…HASTA HOY"
-  },
-  {
-   "angulo": "a1",
-   "peso": "mediana",
-   "formato": "editorial",
-   "seccion": "OPINIÓN",
-   "desk": "Redacción central",
-   "headline": "Seis de seis",
-   "body": "Esta casa no tiene por costumbre felicitar a nadie, así que lo haremos rápido y sin mirar. Seis partidas del grupo, seis victorias. 49 muertes, sí, y casi 28 minutos en la pantalla gris, pero ni una sola derrota en todo el día. En una semana en la que la General de la vergüenza ha tenido más movimiento que la Lonja de Aguasturbias, el martes ha salido en blanco.\n\nNo nos acostumbremos. Lo que hoy es una excepción, mañana es una estadística, y las estadísticas de este grupo siempre acaban volviendo a su sitio."
-  },
-  {
-   "angulo": "a3",
-   "peso": "mediana",
-   "formato": "comunicado oficial",
-   "seccion": "DEPORTES",
-   "headline": "Comunicado de Urgot: «Me han tratado bien»",
-   "subtitulo": "Sunraku toma prestado el cangrejo y lo devuelve con 17 asesinatos y siete duelos ganados.",
-   "body": "El campeón Urgot ha hecho llegar a esta redacción un comunicado tras pasar la noche lejos de su dueño habitual. En él confirma que Sunraku lo llevó a la calle superior de una Ranked Flex de 44 minutos y que el resultado fue un 17/9/13, con siete asesinatos en solitario y 5.964 de oro más que el Ekko que tenía enfrente.\n\n«No esperaba que me cuidaran tan bien», concluye la nota, que también presume del 26,6 % del daño del equipo y de 326 súbditos recogidos. Su dueño de siempre, TheTrevur, figura hoy en la lista de ausentes.",
-   "stat": "7",
-   "stat_label": "asesinatos en solitario"
-  },
-  {
-   "angulo": "a4",
-   "peso": "mediana",
-   "formato": "parte policial",
-   "seccion": "SUCESOS",
-   "headline": "GSJoseador supera su propia marca y la Comisaría lo apunta en rojo",
-   "subtitulo": "Once muertes con Kayn en una victoria de 44 minutos. Su peor registro anterior era de diez.",
-   "body": "Hechos: a partir de las 22:50, en una Ranked Flex, el investigado jugó Kayn en la jungla y murió 11 veces, una cada 3:58 de media. Su marca anterior en los archivos de esta comisaría era de 10, de modo que la cifra queda registrada como récord personal en 20 partidas fichadas.\n\nAtenuantes: el equipo ganó, el investigado aportó 12 asesinatos y 15 asistencias, y causó 48.758 de daño a objetivos, la cifra más alta de los cinco. La sheriff Caitlyn archiva el caso con una advertencia: la próxima vez, que derribe las torres sin pasar tantas veces por el cementerio.",
-   "stat": "11",
-   "stat_label": "muertes, récord personal"
-  },
-  {
-   "angulo": "a5",
-   "peso": "mediana",
-   "formato": "nota de prensa",
-   "seccion": "EL FARO DE LA ESPERANZA",
-   "headline": "145 de visión y ni un rincón a oscuras",
-   "subtitulo": "Dierophant estrena a Rell en la hemeroteca y firma el mejor día del grupo.",
-   "body": "Nota de prensa de los Centinelas de la Luz. En una jornada sin derrotas, la orden destaca a Dierophant como el mejor del día: una partida, una victoria y un KDA de 5,62 con Rell, un campeón que no había usado en ninguna de sus 24 partidas registradas. Firmó un 2/8/43 y participó en el 76,3 % de los asesinatos de su equipo.\n\nLo que más ha llamado la atención de los Centinelas, sin embargo, es la luz: 145 de visión y 64 guardianes colocados. «Donde hay un guardián, la Niebla Negra no avanza», recuerda el comunicado, que pide a los demás miembros del grupo que tomen nota. Al menos uno.",
-   "campeon": "Senna",
-   "pie": "Senna, de los Centinelas de la Luz, revisando el mapa de visión de Dierophant."
-  },
-  {
-   "angulo": "a6",
-   "peso": "breve",
-   "formato": "telegrama",
-   "seccion": "DEPORTES",
-   "headline": "La moneda cae de cara",
-   "body": "GRANGALAX STOP EKKO A LAS 00:12 STOP 9/5/10 Y TRES ASESINATOS EN SOLITARIO STOP 2.025 DE ORO MÁS QUE LA LUX RIVAL, QUE ACABÓ 0/11/7 STOP DÍA CERRADO 2-0 STOP SE RUEGA NO ACOSTUMBRARSE STOP"
-  },
-  {
-   "angulo": "a9",
-   "peso": "breve",
-   "formato": "hace una semana",
-   "seccion": "CULTURA",
-   "headline": "El martes pasado",
-   "body": "Hace siete días, este periódico abría con «Wôlf, más perro que lobo en el martes: 1–4 y 40 muertes». Aquel día la clasificación la encabezaban Wôlf (1–4) y grangalax (4–6). Hoy, otro martes, Wôlf no ha jugado y grangalax ha ganado sus dos partidas. Los martes, por lo visto, también se curan."
-  },
-  {
-   "angulo": "a13",
-   "peso": "breve",
-   "formato": "ranking",
-   "seccion": "CULTURA",
-   "headline": "Las marcas a batir",
-   "body": "Más muertes en una partida: grangalax, 17 con Diana. Más asesinatos: TheTrevur, 23 con Urgot. Más pings: Wôlf, 76. Son los récords de la hemeroteca tras 82 partidas registradas. Ninguno cayó en esta edición, aunque GSJoseador sí batió el suyo propio."
-  },
-  {
-   "angulo": "a15",
-   "peso": "breve",
-   "formato": "anuncio por palabras",
-   "seccion": "SOCIEDAD",
-   "headline": "Se buscan cinco",
-   "body": "Se buscan TheTrevur, Wôlf, iPredatoRz, RDV Canyon y Giroroo, vistos por última vez fuera de la Grieta. No jugaron ni una partida. Si alguien los encuentra, que no les cuente que el resto ganó todas."
-  },
-  {
-   "angulo": null,
-   "peso": "breve",
-   "formato": "noticia",
-   "seccion": "ECONOMÍA",
-   "player": "grangalax",
-   "headline": "Aurelion Sol, en números rojos",
-   "body": "Ni en un día de pleno se libra la Lonja de abrir algún expediente. El Aurelion Sol de grangalax acabó con 2.307 de oro menos que la Tristana rival y con el 15,4 % del daño de su equipo. Ganó igual: en Aguasturbias a eso lo llaman rescate."
-  },
-  {
-   "angulo": null,
-   "peso": "breve",
-   "formato": "breve",
-   "seccion": "POLÍTICA",
-   "player": "grangalax",
-   "headline": "La General no se mueve",
-   "body": "grangalax sigue al frente de la General de la vergüenza con 26 puntos y tres portadas. Y hoy suma tres más pese a ganar sus dos partidas: en un día sin derrotas, alguien tenía que ser el segundo peor."
-  }
- ],
- "horoscopo": [
-  {
-   "signo": "Top",
-   "texto": "Urgot te sienta bien aunque no sea tuyo. Devuélvelo limpio y con el depósito lleno: su dueño volverá pronto a reclamarlo."
-  },
-  {
-   "signo": "Jungla",
-   "texto": "Saturno favorece a quien derriba torres y castiga a quien visita el cementerio. Ayer hiciste las dos cosas a lo grande."
-  },
-  {
-   "signo": "Mid",
-   "texto": "La moneda ha salido de cara dos veces seguidas. Los astros recomiendan no tentar a la estadística esta semana."
-  },
-  {
-   "signo": "Tirador",
-   "texto": "Marte entra por fin en tu casa del daño. Disfrútalo antes de que los científicos de Piltover lo desmientan."
-  },
-  {
-   "signo": "Soporte",
-   "texto": "Tu luz ilumina a todos menos a tu bolsa de oro. Con 64 guardianes en el mapa, los astros te ven desde aquí."
-  }
- ],
- "columna": {
-  "titulo": "Lo que se aprende un martes",
-  "autor": "El Coach que Nadie Contrató",
-  "cuerpo": [
-   "En este periódico se lleva una semana pidiendo que el grupo juegue junto, que se comunique y que deje de lanzarse a pelear como quien entra en una taberna de Aguasturbias. Anoche alguien hizo caso: cinco en la misma partida, cuarenta y cuatro minutos y una victoria.",
-   "No fue bonito. Hubo once muertes en la jungla y una calle central que se quedó por detrás en oro. Pero hubo algo que no habíamos visto: un tirador haciendo daño, un soporte llenando el mapa de luz y un Urgot prestado que se portó como si fuera propio.",
-   "Mi consejo profesional, que nadie me ha pedido, es sencillo: repetidlo. No el resultado, que eso depende del rival, sino la forma. Y si mañana vuelve la pantalla gris, que al menos os pille juntos."
-  ]
- },
- "especial": null,
- "frase": "Seis victorias de seis. Guardad este periódico: estadísticamente, no volverá a pasar.",
- "eventos_usados": [],
- "propuestas_descartadas": [],
- "firma": "Claude"
+  "piezas": [
+    {"angulo": null, "peso": "grande", "portada": true, "propuesta": 2, "formato": "noticia",
+     "headline": "NO ESTABAN MUERTOS, ESTABAN DE PARRANDA: vuelve el Rincón del Viciado y rescata a Saiko del arcón",
+     "subtitulo": "El equipo del grupo regresa a la ACE League con la plantilla de siempre y un fichaje que ya ha debutado.",
+     "body": "Según nos cuenta nuestro lector, el Rincón del Viciado, que la temporada pasada se metió en los playoffs de la primera división de la ACE League, regresa para demostrar que aquello no fue un golpe de suerte. La plantilla será la de siempre, los diez de este periódico, más un fichaje que nadie vio venir: Saiko, vieja gloria desempolvada del baúl de los recuerdos.\n\nEn los despachos rivales ya se oye el rumor y en los foros se discute si es un regreso triunfal o una maniobra de nostalgia. Lo que sí puede confirmar esta redacción es que Saiko ya se ha puesto la camiseta: el lunes jugó dos SoloQ junto a Fr4nux, ganadas las dos, y la Flex de las 21:00 con el grupo, de soporte con Alistar, con un 4/2/30 y otra victoria.\n\nEl ensayo general invita al optimismo: tres Flex del grupo en una noche y dos ganadas. La ACE League queda avisada."},
+
+    {"angulo": "a2", "peso": "grande", "formato": "crónica", "seccion": "DEPORTES",
+     "headline": "Tres Flex y dos victorias: la noche en que el grupo jugó en serio",
+     "subtitulo": "De las 21:00 a las 23:34, el grupo encadena victoria, derrota y victoria en Ranked Flex.",
+     "body": "Primera, a las 21:00: Dierophant, GSJoseador, Fr4nux y Sunraku, con Saiko de soporte, despachan a sus rivales en 29 minutos. 39 asesinatos de los cuatro por 15 muertes. Dierophant estrena Wukong con un 12/2/21 y GSJoseador hace un triple asesinato con Vex (13/3/13).\n\nSegunda, a las 21:55, ya con grangalax: 38 minutos y derrota, con 55 asesinatos y 59 muertes del grupo. El Cho'Gath de GSJoseador acabó 19/7/20 y la Caitlyn de Fr4nux 18/13/17, pero la Diana de grangalax firmó un 4/17/23 del que se ocupa la sección de esquelas.\n\nTercera, a las 22:50: 44 minutos, 59 asesinatos y victoria. Fr4nux, con Xayah, terminó 21/9/17; Sunraku tomó prestado el Urgot de un ausente y acabó 17/9/13, y Dierophant repartió 43 asistencias con Rell. Balance de la noche: 2–1, y la sensación de que, juntos, por lo menos pierden menos.",
+     "campeon": "Wukong", "pie": "Wukong, el estreno de Dierophant, celebrando la primera de la noche.",
+     "meme_arriba": "CUANDO GANÁIS DOS DE TRES", "meme_abajo": "Y YA OS VEIS EN LA ACE LEAGUE"},
+
+    {"angulo": "a41", "peso": "grande", "formato": "perfil", "seccion": "DAÑO",
+     "headline": "¿Y si Fr4nux sí sabía hacer daño?",
+     "subtitulo": "Cinco partidas, cuatro victorias y un 31,1 % del daño con Caitlyn: el Instituto Hextech reabre un expediente que daba por cerrado.",
+     "body": "El Instituto Hextech de Piltover tenía el caso archivado. Hasta el lunes, el expediente de Fr4nux recogía 18 partidas: 9 victorias, 9 derrotas, un KDA de 2,48 y 122 muertes, con Caitlyn y Jinx como campeones de cabecera. Diagnóstico unánime de los científicos: tirador de profesión, carry de paradero desconocido.\n\nY entonces llegó el lunes: cinco partidas, cuatro victorias y un KDA de 4,57. Dos SoloQ junto a Saiko, ganadas las dos: un Cho'Gath sin una sola muerte (8/0/10) y una Jinx con triple asesinato (7/1/9). Y tres Flex con el grupo en las que hizo el 18 %, el 31,1 % y el 27,1 % del daño de su equipo, con Kalista, Caitlyn y Xayah.\n\nEn la Academia hay división de opiniones. Una parte del claustro pide repetir la medición, porque un dato así puede ser un error del instrumental. La otra ya ha encargado una placa. Esta redacción se limita a dejarlo por escrito: el lunes, Fr4nux hizo daño. Mañana veremos si fue un hábito o un eclipse.",
+     "pie": "Caitlyn, todavía sin creerse que le hayan dejado disparar.",
+     "meme_arriba": "CARRY NOT FOUND", "meme_abajo": "…HASTA EL LUNES"},
+
+    {"angulo": "a15", "peso": "mediana", "formato": "comunicado oficial", "seccion": "EL FARO DE LA ESPERANZA",
+     "headline": "El Cho'Gath que casi sostiene el cielo",
+     "subtitulo": "GSJoseador, 19/7/20 en la única derrota de la noche: los Centinelas de la Luz lo condecoran igual.",
+     "body": "Comunicado de los Centinelas de la Luz. En la Flex de las 21:55, la única que el grupo perdió, la orden quiere destacar a un superviviente: GSJoseador, con Cho'Gath en la jungla, terminó 19/7/20, con el 29,7 % del daño de su equipo, participación en el 70,9 % de sus asesinatos y 30.023 de daño a objetivos.\n\nNo bastó: la partida se fue en 38 minutos. Pero los Centinelas recuerdan que en la Ruina también se honra a quien aguanta la puerta, aunque al final se la tiren encima. Esa misma noche, por cierto, GSJoseador hizo además un triple asesinato con Vex."},
+
+    {"angulo": "a18", "peso": "mediana", "formato": "análisis", "seccion": "EL FARO DE LA ESPERANZA",
+     "headline": "Dierophant enciende el mapa: 268 de visión en dos partidas",
+     "subtitulo": "El mejor del día: 2–1, un KDA de 6,42 y un Wukong estrenado con 12/2/21.",
+     "body": "La Academia de Piltover ha medido la luz que dejó Dierophant el lunes y el resultado no admite discusión. Con Bard, 123 de visión y 50 guardianes; con Rell, 145 de visión y 64 guardianes. Entre las dos partidas, 81 asistencias y una participación en los asesinatos de su equipo del 80 % y del 76,3 %.\n\nY antes de ponerse de soporte, el estreno: Wukong en la jungla, 12/2/21 y victoria, un campeón que no aparecía en ninguna de sus 22 partidas registradas. Balance final del mejor del día: 2–1 y un KDA de 6,42.",
+     "campeon": "Bard", "pie": "Bard, siguiendo la luz que dejó Dierophant por todo el mapa."},
+
+    {"angulo": "a21", "peso": "mediana", "formato": "parte meteorológico", "seccion": "DEPORTES",
+     "headline": "Previsión para la SoloQ: soleado con Saiko, nubes con Gragas",
+     "subtitulo": "Fr4nux gana sus dos partidas en dúo, Wôlf cierra un 1–1 y grangalax remata de madrugada.",
+     "body": "Parte de la cola en solitario del lunes. Zona de Fr4nux: despejado. Dos partidas con Saiko de soporte y dos victorias: un Cho'Gath sin morir ni una vez (8/0/10) y una Jinx con triple asesinato (7/1/9). Zona de Wôlf: variable. Empieza con un Gragas que pierde 3/7/5, con 3.998 de oro menos que el Urgot rival, y despeja con un Zed de 12/7/14, seis asesinatos en solitario y 76 pings.\n\nY de madrugada, a las 00:12, grangalax con Ekko: 9/5/10, tres duelos ganados y 2.025 de oro más que una Lux que terminó 0/11/7. La moneda, esta vez, de cara."},
+
+    {"angulo": "a3", "peso": "mediana", "formato": "esquela", "seccion": "SUCESOS",
+     "headline": "Diana, estrenada y enterrada",
+     "subtitulo": "grangalax saca a Diana por primera vez y firma un 4/17/23: nuevo récord de muertes de la hemeroteca.",
+     "body": "Con profundo pesar, la Comisaría de Piltover comunica el fallecimiento, diecisiete veces, de la Diana de grangalax, ocurrido en la Flex de las 21:55 tras 38 minutos de agonía: una muerte cada 2:14. Era su estreno en la hemeroteca, después de 39 partidas registradas con otros campeones.\n\nDeja 4 asesinatos, 23 asistencias, casi diez minutos en la pantalla gris y ni un solo punto de daño a objetivos. Le sobrevive un Vladimir que terminó 19/10/7 con 7.060 de oro más. Las 17 muertes son, además, el nuevo récord del periódico: el anterior, 16, también era suyo.",
+     "stat": "17", "stat_label": "muertes, récord de la hemeroteca"},
+
+    {"angulo": "a11", "peso": "breve", "formato": "breve", "seccion": "CULTURA", "player": "wolf",
+     "headline": "Gragas, 0–3",
+     "body": "Wôlf vuelve a sacar a Gragas y vuelve a perder: ya son tres partidas con el tabernero en la hemeroteca y ninguna victoria. En el Fréljord ya le cobran la cerveza por adelantado."},
+
+    {"angulo": "a10", "peso": "breve", "formato": "anuncio por palabras", "seccion": "AGRICULTURA", "player": "sunraku",
+     "headline": "Se busca recolector",
+     "body": "Se busca recolector para la calle superior. Razón: el Gnar de Sunraku, que en la derrota de las 21:55 recogió 141 súbditos en 38 minutos, 3,7 por minuto y 50 menos que el Kled rival."},
+
+    {"angulo": "a9", "peso": "breve", "formato": "telegrama", "seccion": "DEPORTES", "player": "sunraku",
+     "headline": "Urgot vuelve a casa",
+     "body": "URGOT PRESTADO A SUNRAKU STOP 17/9/13 STOP SIETE DUELOS GANADOS STOP 5.964 DE ORO MÁS QUE EL EKKO RIVAL STOP SE DEVUELVE A SU DUEÑO EN PERFECTO ESTADO STOP"},
+
+    {"angulo": "a40", "peso": "breve", "formato": "hace una semana", "seccion": "CULTURA",
+     "headline": "El martes pasado",
+     "body": "Hace siete días, este periódico abría con «Wôlf, más perro que lobo en el martes: 1–4 y 40 muertes». Aquel día la clasificación la encabezaban Wôlf (1–4) y grangalax (4–6). Hoy, otro martes, Wôlf cierra el lunes con un 1–1 y grangalax con un 2–1. Los martes, por lo visto, también se curan."},
+
+    {"angulo": "a44", "peso": "breve", "formato": "encuesta", "seccion": "SOCIEDAD",
+     "headline": "¿Dónde estaban?",
+     "body": "Encuesta de esta redacción: ¿dónde estaban TheTrevur, iPredatoRz, RDV Canyon y Giroroo el lunes? Respuesta más votada: lejos de la Grieta. Ninguno jugó una sola partida."},
+
+    {"angulo": null, "peso": "breve", "formato": "ranking", "seccion": "POLÍTICA", "player": "grangalax",
+     "headline": "La General tiene dueño",
+     "body": "Con 26 puntos y cuatro portadas, grangalax manda en la General de la vergüenza, diez por delante de Wôlf (16). Fr4nux y Dierophant, empatados a 14, completan la zona noble de la deshonra."}
+  ],
+  "horoscopo": [
+    {"signo": "Top", "texto": "Urgot te sienta bien aunque no sea tuyo, y Gnar no tanto: 3,7 súbditos por minuto. Los astros te piden devolver lo prestado y recoger lo propio."},
+    {"signo": "Jungla", "texto": "Cuatro partidas del grupo en la jungla, tres victorias y dos Cho'Gath. Los astros no entienden el gusto, pero respetan el resultado."},
+    {"signo": "Mid", "texto": "Diana te ha dejado una deuda de diecisiete muertes y Ekko te la ha perdonado a medias. La moneda recomienda prudencia."},
+    {"signo": "Tirador", "texto": "Marte entra por fin en tu casa del daño. Disfrútalo antes de que los científicos de Piltover lo desmientan."},
+    {"signo": "Soporte", "texto": "268 de visión en dos partidas: los astros te ven desde aquí. Alguien del grupo debería darte las gracias, aunque sea con un ping."}
+  ],
+  "columna": {"titulo": "Lo que se aprende un lunes", "autor": "El Coach que Nadie Contrató",
+    "cuerpo": [
+      "En este periódico se lleva una semana pidiendo que el grupo juegue junto. El lunes alguien hizo caso: tres Flex seguidas, dos victorias y una derrota en la que, por lo menos, hubo quien dio la cara.",
+      "No fue bonito del todo. Hubo una Diana que debutó y se despidió en la misma partida, y un Gnar que se olvidó de los súbditos. Pero también hubo un tirador haciendo daño, un soporte iluminando el mapa y un Cho'Gath que casi se come la derrota él solo.",
+      "Mi consejo profesional, que nadie me ha pedido, es sencillo: repetidlo. Y si del arcón sale un soporte que juega así, que no vuelva a entrar."
+    ]},
+  "especial": null,
+  "frase": "Dos de tres. En otro grupo sería lo normal; en este, es portada.",
+  "eventos_usados": [],
+  "propuestas_descartadas": [],
+  "firma": "Claude"
 }

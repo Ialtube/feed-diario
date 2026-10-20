@@ -13,7 +13,10 @@ from .site import general_leaderboard
 from .util import fmt_int, fmt_minutes, fmt_num, fmt_pct, get_tz, ms_to_local
 
 RECENT_DAYS = 3          # an angle used in the last 3 editions loses most of its score
-FIXED = {"faro", "ausentes"}  # appear every day on purpose; never penalised
+# appear every day on purpose (never penalised); the first two must always get a story
+REQUIRED = {"faro", "sesion_flex", "colas"}
+FIXED = REQUIRED | {"ausentes"}
+FLEX, SOLOQ = 440, 420
 
 # Angles of editions written before the dossier existed, rebuilt from the kind of their items.
 LEGACY_KINDS = {"sucesos": "muertes", "economia": "oro_dano", "tiempo": "gris", "dano": "ultimo_dano",
@@ -241,6 +244,14 @@ def build_dossier(cfg, store, friends, edition, editions):
             add("exhibicion", slug, "EL FARO DE LA ESPERANZA", f"{alias} se luce con {r['champ']}",
                 {"campeon": r["champ"], "kda": _kda(r), "ratio": fmt_num(r["kda"], 2), "dano": fmt_pct(r["dmg_share"])},
                 22 + r["kda"], positivo=True, campeon=r["champ"], **P)
+        saved = [r for r in rows if not r["win"] and r["kda"] >= 4 and r["k"] + r["a"] >= 15]
+        if saved:
+            r = max(saved, key=lambda r: r["kda"])
+            add("salvado", slug, "EL FARO DE LA ESPERANZA", f"{alias} se salva del naufragio con {r['champ']}",
+                {"campeon": r["champ"], "kda": _kda(r), "ratio": fmt_num(r["kda"], 2),
+                 "dano": fmt_pct(r["dmg_share"]), "participacion": fmt_pct(r["kp"]), "cola": r["queue_name"],
+                 "minutos": _mins(r["dur"]), "resultado": "derrota"},
+                30 + 2 * r["kda"], positivo=True, campeon=r["champ"], **P)
         solo = [r for r in rows if r["solo"] >= 3]
         if solo:
             r = max(solo, key=lambda r: r["solo"])
@@ -262,6 +273,7 @@ def build_dossier(cfg, store, friends, edition, editions):
         add("faro", best["slug"], "EL FARO DE LA ESPERANZA", f"{best['alias']}, el mejor del día",
             {"balance": f"{best['wins']}–{best['losses']}", "kda": fmt_num(best["kda"], 2),
              "campeones": ", ".join(c for c, _ in best["champs"][:3])}, 40, positivo=True, alias=best["alias"])
+    _queues(add, players_today, tz)
     tot = facts["totals"]
     if tot["games"] >= 3 and all(s["losses"] == 0 for s in players_today):
         add("pleno", None, "OPINIÓN", f"El grupo no pierde ni una: {tot['games']} de {tot['games']}",
@@ -355,6 +367,65 @@ def build_dossier(cfg, store, friends, edition, editions):
         "dias_recientes": [e["date"] for e in recent],
         "tipos_recientes": dict(type_count),
     }
+
+
+def _queues(add, players_today, tz):
+    """Every Flex game with two or more friends, and everyone's Solo/Duo games, so the paper
+    never forgets a session (these angles are compulsory for the editor)."""
+    by_match = defaultdict(list)
+    for s in players_today:
+        for r in s["rows"]:
+            by_match[r["match"]].append(r)
+
+    flex = []
+    for mid, rs in by_match.items():
+        if rs[0]["queue"] != FLEX:
+            continue
+        sides = defaultdict(list)
+        for r in rs:
+            sides[r["win"]].append(r)
+        for won, team in sides.items():
+            if len(team) >= 2:
+                flex.append((team[0]["start"], won, team))
+    if flex:
+        flex.sort(key=lambda x: x[0])
+        games = []
+        for start, won, team in flex:
+            team.sort(key=lambda r: -r["kda"])
+            games.append({
+                "hora": ms_to_local(start, tz).strftime("%H:%M"), "minutos": _mins(team[0]["dur"]),
+                "resultado": "victoria" if won else "derrota",
+                "jugadores": ", ".join(f"{r['alias']} ({r['champ']}, {_kda(r)})" for r in team),
+                "mejor_del_grupo": team[0]["alias"], "peor_del_grupo": team[-1]["alias"]})
+        w = sum(1 for _, won, _ in flex if won)
+        add("sesion_flex", None, "DEPORTES", f"La sesión de Flex del grupo: {w}–{len(flex) - w}",
+            {"partidas": games, "balance": f"{w}–{len(flex) - w}",
+             "jugadores_distintos": len({r["alias"] for _, _, t in flex for r in t})},
+            48 + 4 * len(flex))
+
+    solo_rows = [r for s in players_today for r in s["rows"] if r["queue"] == SOLOQ]
+    if solo_rows:
+        per = defaultdict(list)
+        for r in solo_rows:
+            per[r["alias"]].append(r)
+        jugadores = {alias: {"balance": f"{sum(r['win'] for r in rs)}–{sum(not r['win'] for r in rs)}",
+                             "partidas": ", ".join(f"{r['champ']} {_kda(r)} ({'V' if r['win'] else 'D'})" for r in rs)}
+                     for alias, rs in per.items()}
+        duos = []
+        for mid, rs in by_match.items():
+            if rs[0]["queue"] != SOLOQ:
+                continue
+            sides = defaultdict(list)
+            for r in rs:
+                sides[r["win"]].append(r)
+            for won, team in sides.items():
+                if len(team) >= 2:
+                    duos.append({"pareja": " y ".join(f"{r['alias']} ({r['champ']}, {_kda(r)})" for r in team),
+                                 "resultado": "victoria" if won else "derrota"})
+            if len(sides) == 2:
+                duos.append({"derbi": " contra ".join(r["alias"] for r in rs)})
+        add("colas", None, "DEPORTES", "SoloQ y DuoQ del día",
+            {"soloq": jugadores, "duoq": duos}, 26 + 2 * len(solo_rows))
 
 
 def detailed_games(cfg, store, friends, edition):

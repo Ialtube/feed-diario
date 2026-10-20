@@ -1,43 +1,79 @@
 {
-  "items": [
-    {"id": 0, "headline": "Sunraku inaugura el lunes con 18 muertes en 2 partidas y una sonrisa de 1–1", "body": "KDA de 2,61 y el 13,7 % del daño de su equipo, todo con Gnar. Ganó una y perdió otra, pero la que perdió la perdió con una intensidad que el contador de muertes todavía está procesando."},
-    {"id": 1, "headline": "grangalax muere 17 veces con Diana y la policía de Piltover abre expediente", "body": "4/17/23 en Ranked Flex, 38 minutos y derrota: una muerte cada 2:14. Testigos aseguran que entraba a la jungla enemiga como quien va a por el pan. Ojo, que esa misma tarde ganó con Aurelion Sol, porque la moneda también cae de cara."},
-    {"id": 2, "headline": "Fr4nux cobra el 19,6 % del oro, devuelve el 9,6 % del daño y Hacienda ya tiene su expediente", "body": "Con Kalista hay 10,1 puntos de diferencia entre lo que cobró y lo que aportó. Los inspectores hablan del mayor agujero contable de la Grieta."},
-    {"id": 3, "headline": "Sunraku bate récord: 13 muertes con Gnar en 38 minutos de pura generosidad", "body": "8/13/23 y derrota en Ranked Flex, una muerte cada 2:56. El contador de muertes ha pedido un descanso y el Nexus, un seguro de hogar."},
-    {"id": 4, "headline": "Wôlf, detenido por alimentar al enemigo: 13 muertes con Ashe de support", "body": "2/13/10 en una Flex de 27 minutos, una muerte cada 2:07. El rival ya le ha enviado una cesta de agradecimiento con membrillo."},
-    {"id": 5, "headline": "Fr4nux muere 13 veces con Caitlyn, pero hace el 31,1 % del daño: sospechoso, muy sospechoso", "body": "18/13/17 en 38 minutos y derrota. Que el ADC que nunca hace daño haga casi un tercio del daño de su equipo huele a cambio de cuenta o a milagro. Los expertos piden revisar el vídeo, por si acaso."},
-    {"id": 6, "headline": "GSJoseador, fichaje caro: 18,7 % del oro y 12,4 % del daño con Renekton", "body": "Son 6,3 puntos de diferencia entre lo que cobró y lo que aportó. Los súbditos enemigos sufrieron más que los campeones."},
-    {"id": 7, "headline": "Sunraku, el que menos daño hizo de su equipo en 1 de sus 2 partidas", "body": "Con Gnar (8/13/23) se quedó en 25.078 de daño a campeones: el 12,1 % de su equipo. Hasta el que menos aportaba le pasó por encima."},
-    {"id": 8, "headline": "GSJoseador dispara con balas de fogueo: el que menos daño de su equipo en 2 de 5 partidas", "body": "Su obra cumbre: Renekton con 17.422 de daño, el 12,4 % del total. Eso sí, con Mordekaiser hizo el 33,2 % y nadie entiende nada."},
-    {"id": 9, "headline": "Malversación en el mid: grangalax se queda el 15,1 % del oro y devuelve el 9,6 % del daño", "body": "Con Ekko recibió 5,5 puntos más de oro que de daño. El equipo pagó los objetos y el enemigo no se enteró de que había alguien en el mid."},
-    {"id": 10, "headline": "Wôlf pasa 23 minutos en la pantalla gris: el 13,5 % de su día en la Grieta", "body": "Se sabe de memoria el mapa en blanco y negro. Los expertos en paisajismo ya lo consideran vecino honorario del cementerio."},
-    {"id": 11, "headline": "Sociedad limitada: Dierophant y GSJoseador se van 2–3 juntos", "body": "La sinergia de este dúo es la de una tostadora en la bañera, aunque en la última victoria juntos al menos se les vio con ganas."},
-    {"id": 12, "headline": "GSJoseador y grangalax, dúo del desastre: 1–2 juntos", "body": "Juntos suman más derrotas que victorias. Por separado pierden en partidas distintas, que es la única forma de diversificar el riesgo."},
-    {"id": 13, "headline": "Previsión para Dierophant: gris durante 14 minutos, el 9,0 % de su día", "body": "Probabilidad de reaparición: alta. Probabilidad de que sirva de algo al volver: depende del jungla enemigo."},
-    {"id": 14, "headline": "Dierophant se salva por hoy: 2–3 pero con KDA de 4,58", "body": "El mejor KDA del grupo, que no es decir mucho. Aprovecha, que esto no durará."},
-    {"id": 15, "headline": "Ausentes hoy: TheTrevur, iPredatoRz, RDV Canyon y Giroroo", "body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre."}
+  "piezas": [
+    {"angulo": "a3", "peso": "grande", "portada": true, "formato": "crónica deportiva", "seccion": "DEPORTES",
+     "headline": "Tres Flex, una alegría y dos funerales",
+     "subtitulo": "La noche del domingo deja un 1–2 para el grupo: una victoria de cinco entre una derrota en trío y otra a domicilio.",
+     "body": "La noche del domingo dejó tres Flex del grupo y un balance que resume bien la semana: una victoria y dos derrotas. Abrieron a las 21:54 Wôlf, Dierophant y GSJoseador, en trío, y la cosa duró 34 minutos: 13 asesinatos entre los tres por 23 muertes. Wôlf, con Zed, salvó los muebles con un 9/6/7; el Renekton de GSJoseador acabó 2/9/3.\n\nA las 22:39 se sumaron grangalax y Fr4nux y llegó el único rato bueno de la noche: 36 minutos, 55 asesinatos del grupo y victoria. Dierophant firmó un 16/5/23 con Lee Sin y grangalax un 16/5/15 con Aurelion Sol, mientras Fr4nux estrenaba Syndra con un 10/9/16.\n\nY como en Noxus no se celebra nada dos veces, a las 23:25 llegó la tercera: 28 minutos, 28 asesinatos y 46 muertes. Solo el Mordekaiser de GSJoseador, 7/5/6, y el Kindred de Dierophant, 13/7/5, terminaron con la cabeza alta. El resto, a la Comisaría.",
+     "campeon": "Lee Sin", "pie": "Lee Sin, que no vio la tercera partida y salió ganando.",
+     "meme_arriba": "CUANDO GANÁIS UNA DE TRES", "meme_abajo": "Y YA HABLÁIS DE CLASIFICAROS"},
+
+    {"angulo": "a5", "peso": "grande", "formato": "juicio", "seccion": "SUCESOS", "player": "fr4nux",
+     "headline": "Piltover juzga a la Kalista de Fr4nux",
+     "subtitulo": "Doce muertes, nuevo récord personal, y el 9,6 % del daño de su equipo. La defensa alega que esa misma noche estrenó Syndra y ganó.",
+     "body": "Se abre la sesión en el Tribunal de Piltover. El acusado, Fr4nux, comparece por la última Flex del domingo, la de las 23:25: Kalista, 28 minutos, 4/12/6. Doce muertes, una cada 2:17, que superan su anterior marca personal de diez en los archivos de este periódico.\n\nLa fiscalía presenta las pruebas: el 19,6 % del oro de su equipo para devolver el 9,6 % del daño, 5 de visión con cuatro guardianes colocados y 4.847 de oro de desventaja frente a la Xayah rival, que terminó 13/6/11. «CARRY NOT FOUND», se lee en la carpeta del sumario, subrayado dos veces.\n\nLa defensa recuerda que esa misma noche estrenó Syndra en la hemeroteca y ganó con un 10/9/16. El tribunal toma nota, delibera durante lo que dura una reaparición y dicta sentencia: culpable de feed en grado de récord, con el atenuante de haber ganado una de dos.",
+     "pie": "Kalista, a la espera de sentencia en los calabozos de Piltover.",
+     "meme_arriba": "CUANDO JURAS VENGANZA", "meme_abajo": "Y MUERES DOCE VECES"},
+
+    {"angulo": "a14", "peso": "mediana", "formato": "entrevista", "seccion": "EL FARO DE LA ESPERANZA",
+     "headline": "Lee Sin: «No vi nada, pero lo noté todo»",
+     "subtitulo": "El monje ciego cuenta cómo fue la noche de Dierophant, el mejor del grupo pese al 1–2.",
+     "body": "—¿Cómo fue jugar con Dierophant? —Un honor. Dieciséis asesinatos, cinco muertes y veintitrés asistencias. Yo no lo vi, claro, pero me leyeron el marcador dos veces. —Hubo un triple asesinato. —Y el 29,4 % del daño del equipo. En los monasterios de Jonia no se recordaba nada igual.\n\nLos Centinelas de la Luz completan la ficha: Dierophant cerró el domingo 1–2 con Sylas, Lee Sin y Kindred y un KDA de 3,25, el mejor del grupo, y repitió triple asesinato con Kindred en la última derrota, en la que acabó 13/7/5.",
+     "campeon": "Lee Sin", "pie": "Lee Sin, posando para una foto que nunca verá."},
+
+    {"angulo": "a10", "peso": "mediana", "formato": "parte policial", "seccion": "SUCESOS", "player": "wolf",
+     "headline": "Detenida la Ashe de Wôlf tras trece caídas en 28 minutos",
+     "subtitulo": "Nuevo récord personal en la hemeroteca: su marca anterior era de doce.",
+     "body": "Parte de la Comisaría de Piltover. A las 23:25, en la tercera Flex del domingo, la sospechosa, una Ashe en posición de soporte, cae 13 veces en 28 minutos: una cada 2:07. La cifra supera el anterior récord personal de Wôlf en los archivos, que era de 12.\n\nAntecedentes de esa misma noche: 52 pings con Zed en la primera partida, la de las 21:54, y 66 de visión con la misma Ashe en la única victoria. Los agentes concluyen que el problema no es ver el mapa, sino salir vivo de él.",
+     "stat": "13", "stat_label": "muertes, récord personal"},
+
+    {"angulo": "a7", "peso": "mediana", "formato": "análisis", "seccion": "CIENCIA", "player": "grangalax",
+     "headline": "Yasuo, el examinador de grangalax",
+     "subtitulo": "Dos partidas en el centro, dos Yasuos enfrente: una matrícula y un suspenso.",
+     "body": "La Academia de Piltover ha cruzado los datos de las dos Flex de grangalax en el carril central, ambas contra un Yasuo. En la primera, con Aurelion Sol: 16/5/15, el 24,1 % del daño de su equipo y 2.068 de oro de ventaja sobre su rival. En la segunda, con Ekko: 2/9/5, el 9,6 % del daño y 4.919 de oro por detrás de un Yasuo que acabó 10/4/9.\n\nConclusión del estudio: la moneda sigue funcionando con precisión de laboratorio. Una cara, una cruz, y entre medias casi cinco minutos en gris en la segunda partida."},
+
+    {"angulo": "a6", "peso": "mediana", "formato": "boletín médico", "seccion": "SALUD", "player": "gsjoseador",
+     "headline": "Renekton, ingresado tras su estreno",
+     "subtitulo": "GSJoseador estrena el cocodrilo y Nasus le saca 4.895 de oro. Mordekaiser le da el alta.",
+     "body": "Los Laboratorios de Zaun informan de que el paciente, un Renekton estrenado por GSJoseador en la primera Flex del domingo, ingresó con un 2/9/3 y 4.895 de oro por debajo de un Nasus que terminó 13/5/6. Pronóstico reservado: el cocodrilo no había salido nunca en la hemeroteca y ya pide volver al desierto.\n\nEvolución favorable en la última partida: con Mordekaiser hizo el 33,2 % del daño de su equipo y cinco asesinatos en solitario. No sirvió para ganar, pero los médicos lo apuntan como el mejor síntoma de la noche."},
+
+    {"angulo": "a24", "peso": "breve", "formato": "telegrama", "seccion": "COMUNICACIÓN", "player": "wolf",
+     "headline": "Frecuencia saturada",
+     "body": "RADIO ZAUN STOP 52 PINGS DE WÔLF CON ZED EN UNA SOLA PARTIDA STOP 34 MINUTOS STOP DERROTA STOP SE RUEGA SILENCIO EN LA FRECUENCIA STOP"},
+
+    {"angulo": "a16", "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD", "player": "dierophant",
+     "headline": "El saco de arena de Demacia",
+     "body": "Dierophant, con Sylas, recibió el 30,2 % del daño de su equipo y devolvió el 14,3 %. En la jungla ya hay quien lo usa para entrenar los golpes."},
+
+    {"angulo": "a36", "peso": "breve", "formato": "hace una semana", "seccion": "CULTURA",
+     "headline": "Siete días de redención",
+     "body": "Hace una semana este periódico nacía con «Número uno, peor uno: Dierophant inaugura El Rincón del Feeder con un 1–4 y 37 muertes». Siete días después, Dierophant es el mejor del domingo. Hay redenciones que caben en una semana."},
+
+    {"angulo": "a41", "peso": "breve", "formato": "ranking", "seccion": "CULTURA",
+     "headline": "Las marcas de la hemeroteca",
+     "body": "Más muertes en una partida: grangalax, 16 con Ekko. Más asesinatos: TheTrevur, 23 con Urgot. Más pings: RDV Canyon, 74. Son los récords tras 74 partidas registradas antes de esta edición."},
+
+    {"angulo": "a42", "peso": "breve", "formato": "anuncio por palabras", "seccion": "SOCIEDAD",
+     "headline": "Se buscan cinco",
+     "body": "Se buscan TheTrevur, iPredatoRz, Sunraku, RDV Canyon y Giroroo para completar una Flex. Razón: el resto del grupo, que el domingo perdió dos de tres sin ellos."}
   ],
-  "extra": [
-    {"section": "CRÓNICA", "headline": "Crónica de una masacre: cinco amigos, una partida y 59 muertes en 38 minutos", "body": "En la Ranked Flex de la derrota larga coincidieron Sunraku (13), grangalax (17), GSJoseador (7), Fr4nux (13) y Dierophant (9): 59 muertes del equipo amigo. Dierophant firmó 38 asistencias con Bard, que es lo más parecido a un hobby de voluntariado. Se perdió, claro.", "player": null, "stat": "59", "stat_label": "muertes de cinco amigos en una partida", "portada": false},
-    {"section": "INVESTIGACIÓN", "headline": "El caso del ADC con dos caras: Fr4nux, del 9,6 % al 31,1 % del daño según el día", "body": "Nuestra unidad de investigación ha comparado dos partidas del mismo jugador: con Kalista hizo el 9,6 % del daño y cobró el 19,6 % del oro; con Caitlyn hizo el 31,1 %. Un experto ficticio en balances de la Grieta lo describe como «inversión a fondo perdido que, por un día, tuvo beneficios».", "player": "fr4nux", "stat": "31,1 %", "stat_label": "del daño de su equipo con Caitlyn", "portada": false},
-    {"section": "HORÓSCOPO", "headline": "Horóscopo del LP: Sunraku, Mercurio entra en tu top; grangalax, la moneda vuelve a girar", "body": "Sunraku: tu planeta regente es el spawn, no te alejes de él. grangalax: ganarás con Aurelion Sol y perderás con Diana; sigue el flujo. Wôlf: evita los pings hasta nueva orden. Fr4nux: demasiado daño te rodea, desconfía. TheTrevur: descansa, Urgot sigue ahí.", "player": null, "stat": "", "stat_label": "", "portada": false}
+  "horoscopo": [
+    {"signo": "Top", "texto": "Renekton no era tu cocodrilo y Nasus te lo recordó con casi cinco mil de oro de diferencia. Vuelve a Mordekaiser: allí sí te reconocen."},
+    {"signo": "Jungla", "texto": "Lee Sin te mira con buenos ojos, aunque él no vea nada. Un triple asesinato es una señal; dos en una noche, una costumbre."},
+    {"signo": "Mid", "texto": "Yasuo aparece dos veces en tu carta astral: una te sonríe y la otra te arruina. La moneda sigue girando."},
+    {"signo": "Tirador", "texto": "Kalista exige un juramento y tú le diste doce muertes. Los astros piden que la próxima vez jures otra cosa."},
+    {"signo": "Soporte", "texto": "Tu Ashe ve el mapa entero, pero no vio venir al Brand rival. Tanta visión y ningún presentimiento."}
   ],
-  "columna": {
-    "titulo": "Lunes de lágrimas",
-    "autor": "Doña Tilt",
+  "columna": {"titulo": "Domingo en tres actos", "autor": "El Sabio del Bot Lane",
     "cuerpo": [
-      "Queridos súbditos: han pasado 195 muertes por esta redacción en una sola jornada y todavía hay quien dice que esto es un juego de equipo. Lo es: en equipo se muere mucho mejor.",
-      "Hoy el podio de la vergüenza se lo llevan Sunraku, con sus 18 muertes, y grangalax, con aquellas 17 en una sola partida. Un respeto para quien se esfuerza en perder con tanto entusiasmo. Aun así, también hay luz: Dierophant se va con un KDA de 4,58 y la cara de quien ha leído la letra pequeña del contrato.",
-      "A Wôlf le recomiendo respirar. A Fr4nux, que repase por qué hoy hizo daño de verdad: si es casualidad, que se vaya acostumbrando a que lo vigilemos. Y a todos los demás, que la semana es larga y la Grieta no cierra los lunes."
-    ]
-  },
-  "especial": {
-    "antetitulo": "RESUMEN SEMANAL",
-    "titulo": "Arranca la semana con 195 muertes en 9 partidas y Sunraku al frente de la vergüenza",
-    "subtitulo": "La general abre con Sunraku (5 puntos), grangalax (3), Wôlf (2) y GSJoseador (1).",
-    "tema": "morado"
-  },
-  "frase": "En esta Grieta se muere en equipo, pero se culpa en solitario.",
+      "Primer acto: tres valientes entran en una Flex sin esperar al resto y salen con un Renekton en la UCI. Segundo acto: llegan los refuerzos y el grupo gana con autoridad, 55 asesinatos y un Lee Sin que parecía ver. Tercer acto: el mismo grupo pierde en 28 minutos con 46 muertes, como si la victoria anterior hubiera sido un préstamo.",
+      "Desde la línea de abajo, que es lo que yo miro, la noche tuvo dos caras: una Syndra estrenada que ganó y una Kalista que batió un récord que nadie quería batir. Entre las dos, la lección que este carril lleva años repitiendo: el oro que cobras hay que devolverlo en daño.",
+      "Empieza la semana. Que sea más larga en victorias que en muertes."
+    ]},
+  "especial": {"antetitulo": "Resumen semanal", "titulo": "Una semana de periódico y grangalax ya tiene despacho propio",
+    "subtitulo": "Tras ocho ediciones manda en la General de la vergüenza con 21 puntos y tres portadas. Le siguen Dierophant y Wôlf, con 14.",
+    "tema": "oro"},
+  "frase": "Una victoria entre dos derrotas no es una racha: es un sándwich.",
   "eventos_usados": [],
+  "propuestas_descartadas": [],
   "firma": "Claude"
 }

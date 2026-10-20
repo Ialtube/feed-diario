@@ -38,6 +38,7 @@ def load_config(root=ROOT):
     cfg.setdefault("platform", "euw1")
     cfg.setdefault("timezone", "Europe/Madrid")
     cfg.setdefault("window_hours", 24)
+    cfg.setdefault("cutoff_hour", 7)   # each edition covers the games that ended before this hour
     cfg.setdefault("max_backfill_hours", 72)
     cfg.setdefault("max_matches_per_player", 20)
     cfg.setdefault("ignored_queues", [0, 1700])
