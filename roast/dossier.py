@@ -9,6 +9,7 @@ from collections import Counter, defaultdict
 from datetime import date, timedelta
 
 from .analyze import REMAKE_SECONDS, build_facts, game_rows
+from .rangos import COLAS, market
 from .site import general_leaderboard
 from .util import fmt_int, fmt_minutes, fmt_num, fmt_pct, get_tz, ms_to_local
 
@@ -101,11 +102,44 @@ def build_dossier(cfg, store, friends, edition, editions):
                        "titulo": titulo, "positivo": positivo, "puntuacion": int(round(score)),
                        "novedad": novedad, "campeon": campeon, "datos": datos})
 
+    puuid_of = {p["slug"]: p["puuid"] for p in players}
+    matches = store.matches()
+
     # ------------------------------------------------------------------ per player
     for s in facts["players"]:
         slug, alias, rows = s["slug"], s["alias"], s["rows"]
         P = dict(alias=alias)
         past = hist.get(slug, [])
+
+        # inside the games (timeline): first blood given away, dying in the same spot, towers...
+        me = puuid_of.get(slug)
+        for r in rows:
+            tl = (matches.get(r["match"]) or {}).get("tl")
+            if not tl:
+                continue
+            j = tl["jug"].get(me) or {}
+            fb = tl.get("fb") or {}
+            if fb.get("victim") == me:
+                add("primera_sangre", slug, "SUCESOS", f"{alias} entrega la primera sangre",
+                    {"minuto": fb.get("min"), "campeon": r["champ"], "resultado": "victoria" if r["win"] else "derrota",
+                     "kda": _kda(r)}, 30 + (8 if fb.get("min", 9) < 4 else 0), extra=r["match"], campeon=r["champ"], **P)
+            if j.get("mismo_sitio", 0) >= 3:
+                add("mismo_sitio", slug, "SUCESOS", f"{alias} muere {j['mismo_sitio']} veces en el mismo sitio",
+                    {"veces": j["mismo_sitio"], "campeon": r["champ"], "muertes_totales": r["d"]},
+                    34 + 5 * j["mismo_sitio"], extra=r["match"], campeon=r["champ"], **P)
+            if j.get("ejecutado", 0) >= 2:
+                add("ejecutado", slug, "SUCESOS", f"{alias}, ejecutado por torres y súbditos",
+                    {"veces": j["ejecutado"], "campeon": r["champ"]}, 30 + 4 * j["ejecutado"], extra=r["match"],
+                    campeon=r["champ"], **P)
+            if j.get("antes_del_10", 0) >= 3:
+                add("madrugon", slug, "SUCESOS", f"{alias} muere {j['antes_del_10']} veces antes del minuto 10",
+                    {"muertes_antes_del_10": j["antes_del_10"], "minutos": j["muertes_min"][:5], "campeon": r["champ"]},
+                    30 + 5 * j["antes_del_10"], extra=r["match"], campeon=r["champ"], **P)
+            objs = j.get("objetivos") or []
+            if "BARON_NASHOR" in objs or objs.count("DRAGON") >= 2:
+                add("objetivos", slug, "EL FARO DE LA ESPERANZA", f"{alias} se lleva los objetivos grandes",
+                    {"objetivos": objs, "campeon": r["champ"], "resultado": "victoria" if r["win"] else "derrota"},
+                    24 + 8 * objs.count("BARON_NASHOR"), positivo=True, extra=r["match"], campeon=r["champ"], **P)
 
         worst = max(rows, key=lambda r: r["d"])
         if worst["d"] >= 8:
@@ -279,6 +313,23 @@ def build_dossier(cfg, store, friends, edition, editions):
             {"balance": f"{best['wins']}–{best['losses']}", "kda": fmt_num(best["kda"], 2),
              "campeones": ", ".join(c for c, _ in best["champs"][:3])}, 40, positivo=True, alias=best["alias"])
     _queues(add, players_today, tz)
+
+    # the LP stock market
+    bolsa = market(store.ranks(), edition["date"], [{"slug": p["slug"], "alias": p["alias"]} for p in players])
+    for row in bolsa["filas"]:
+        for q, cola in COLAS.items():
+            e = row.get(q)
+            if not e or e["delta"] is None:
+                continue
+            if e["cambio"]:
+                add(e["cambio"], row["slug"], "ECONOMÍA", f"{row['alias']}: {e['cambio']} en {cola}",
+                    {"cola": cola, "antes": e["antes"], "ahora": e["posicion"], "lp_de_diferencia": e["delta"]},
+                    40 + abs(e["delta"]) / 5, positivo=e["cambio"] == "ascenso", extra=q, alias=row["alias"])
+            elif abs(e["delta"]) >= 50:
+                add("lp", row["slug"], "ECONOMÍA", f"{row['alias']} {'gana' if e['delta'] > 0 else 'pierde'} "
+                    f"{abs(e['delta'])} LP en {cola}",
+                    {"cola": cola, "ahora": e["posicion"], "lp_de_diferencia": e["delta"]},
+                    26 + abs(e["delta"]) / 4, positivo=e["delta"] > 0, extra=q, alias=row["alias"])
     tot = facts["totals"]
     if tot["games"] >= 3 and all(s["losses"] == 0 for s in players_today):
         add("pleno", None, "OPINIÓN", f"El grupo no pierde ni una: {tot['games']} de {tot['games']}",
@@ -434,11 +485,25 @@ def _queues(add, players_today, tz):
             {"soloq": jugadores, "duoq": duos}, 26 + 2 * len(solo_rows))
 
 
+def _inside(store, r, puuid):
+    tl = (store.matches().get(r["match"]) or {}).get("tl")
+    if not tl:
+        return None
+    j = tl["jug"].get(puuid) or {}
+    fb = tl.get("fb") or {}
+    return {"primera_sangre": "la dio" if fb.get("killer") == puuid else "la entregó" if fb.get("victim") == puuid else None,
+            "minuto_primera_sangre": fb.get("min"), "minutos_de_sus_muertes": j.get("muertes_min", []),
+            "muertes_en_el_mismo_sitio": j.get("mismo_sitio", 0), "ejecutado_por_torres_o_subditos": j.get("ejecutado", 0),
+            "objetivos_que_se_llevo": j.get("objetivos", [])}
+
+
 def detailed_games(cfg, store, friends, edition):
     """Every friend's game in the edition window with all the stored stats, for the editor."""
     start, end = edition["window"]
     tz = get_tz(cfg["timezone"])
-    facts = build_facts(store.matches(), _players(store, friends), start, end, cfg["ignored_queues"])
+    players = _players(store, friends)
+    puuid_of = {p["slug"]: p["puuid"] for p in players}
+    facts = build_facts(store.matches(), players, start, end, cfg["ignored_queues"])
     out = []
     for s in facts["players"]:
         for r in s["rows"]:
@@ -455,5 +520,6 @@ def detailed_games(cfg, store, friends, edition):
                 "primera_sangre": r["fb"], "pings": r["pings"], "minutos_muerto": round(r["dead"] / 60, 1),
                 "rival_de_calle": r["opp_champ"], "oro_vs_rival": r["gold_diff"], "farmeo_vs_rival": r["cs_diff"],
                 "kda_rival": r["opp_kda"], "aliados_del_grupo": r["allies"], "rivales_del_grupo": r["rivals"],
+                "dentro_de_la_partida": _inside(store, r, puuid_of.get(r["slug"])),
             })
     return out

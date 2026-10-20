@@ -326,6 +326,41 @@ form.papel button.sec{background:transparent;color:var(--ink);border:1px solid v
 .breve .rx button{font-size:.82rem;padding:0 4px}
 .sec-grid{overflow-x:clip;overflow-y:visible}  /* clips the column rules, lets comment pop-ups drop down */
 .visitas b{font-family:"IM Fell English SC",serif;font-weight:400;color:var(--ink)}
+
+/* sagas */
+a.saga{display:inline-block;font-family:"IM Fell English SC",serif;font-size:.85rem;letter-spacing:.06em;text-decoration:none;
+  background:var(--ink);color:var(--paper);padding:1px 8px;margin-bottom:4px}
+a.saga:hover{background:var(--accent)}
+.sagas{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+.saga-ficha.est-cerrado{opacity:.75}
+.saga-ficha h3{font-size:1.5rem}
+ol.capitulos{margin:8px 0 0 18px}
+ol.capitulos li{padding:4px 0;border-bottom:1px dotted var(--rule)}
+ol.capitulos li p{font-size:.9rem;font-style:italic;color:var(--muted)}
+ul.elenco{list-style:none;columns:2;column-gap:30px}
+ul.elenco li{padding:6px 0;break-inside:avoid;border-bottom:1px dotted var(--rule)}
+/* weather forecasts */
+.weather.con-prevision{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.weather .prevision{font-family:"Old Standard TT",serif;font-style:italic;font-size:.9rem;line-height:1.35;margin-top:6px;text-align:left}
+/* Runeterra card and achievements */
+.ficha-rt .titulo-rt{font-family:"UnifrakturMaguntia",serif;font-size:1.6rem;text-align:center;line-height:1.1}
+.ficha-rt .faccion{text-align:center;font-style:italic}
+.ficha-rt ul,.logros ul{list-style:none}
+.ficha-rt li,.logros li{padding:5px 0;border-bottom:1px dotted var(--rule);font-size:.92rem}
+.logros li span{display:inline-block;width:1.6em}
+
+/* readers, pool, LP market, league */
+.mas-reido ol{margin-left:18px}.mas-reido li{padding:5px 0;border-bottom:1px dotted var(--rule);font-size:.92rem}
+.mas-reido .emojis{display:block;font-size:.85rem;color:var(--muted)}
+.cotilla ul,.ace-box ul{list-style:none}.cotilla li,.ace-box li{padding:5px 0;border-bottom:1px dotted var(--rule);font-size:.92rem}
+.porra-box{border:3px double var(--ink);padding:16px 18px;background:rgba(255,248,225,.1)}
+.porra-box h4{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:1.7rem;text-align:center;border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:12px}
+.porra-box select{font:inherit;color:var(--ink);background:rgba(255,248,225,.25);border:1px solid var(--ink);padding:6px;width:100%}
+.porra-box form{margin-top:10px;border-top:1px dashed var(--ink);padding-top:10px}
+.pasa-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.bolsa{margin-top:14px}
+.rx .rx-share{margin-left:4px}
+.rx-rep{display:flex;gap:6px;align-items:center;font-size:.85rem}
 @media (max-width:980px){
   .cols,.lead,.profile{grid-template-columns:1fr}
   .lead .txt,.sec-opinion article.column .cbody{column-count:1}

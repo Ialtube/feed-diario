@@ -5,11 +5,15 @@ Flow (see ai/GUIA.md):
   2. Claude writes ai/edicion-AAAA-MM-DD.json
   3. python -m roast apply-ai <file>       -> validates, merges into the day's edition, rebuilds docs/
 """
+import copy
 import re
 import time
 from collections import Counter
 from pathlib import Path
 
+from . import canon as canon_mod
+from . import lectores
+from . import porra as porra_mod
 from .dossier import FIXED, REQUIRED, build_dossier, detailed_games
 from .roasts import DESKS
 from .site import general_leaderboard
@@ -38,6 +42,21 @@ PESOS = {  # stories of each weight per edition (min, max) and body length in ch
 }
 SIGNOS = ("Top", "Jungla", "Mid", "Tirador", "Soporte")
 MAX_REPEATED = 0.5  # at most half of the data stories may reuse an angle from the last days
+# formats that only make sense in some sections
+FORMAT_SECTIONS = {
+    "parte meteorológico": {"EL TIEMPO"},
+    "esquela": {"SUCESOS", "NECROLÓGICAS", "CULTURA", "SOCIEDAD"},
+    "boletín médico": {"SALUD"},
+    "parte policial": {"SUCESOS"},
+    "juicio": {"SUCESOS", "POLÍTICA"},
+    "editorial": {"OPINIÓN", "EDITORIAL"},
+    "carta al director": {"OPINIÓN", "CARTAS"},
+    "crónica deportiva": {"DEPORTES", "DERBI", "ACE LEAGUE"},
+    "comunicado oficial": None,  # anyone can issue one
+}
+# stories are told, not tallied: at most this many figures per 100 words in big and medium stories
+MAX_FIGURES_PER_100_WORDS = 6
+LIST_FORMATS = {"ranking", "telegrama", "encuesta", "hace una semana", "anuncio por palabras"}
 
 
 class AIError(ValueError):
@@ -127,6 +146,16 @@ def build_context(store, date_str, history_days=7, fetch_proposals=True, cfg=Non
     template = today.get("items_plantilla") or [it for it in today["items"] if it.get("kind") != "ia"]
     return {
         "formato_edicion": 2,
+        "canon": canon_mod.for_context(canon_mod.load(Path(store.dir) / "canon.json")),
+        "lectores_ayer": lectores.feedback(cfg, previous[-1] if previous else None) if fetch_proposals else None,
+        "cotillas": lectores.snoops(cfg, previous[-1]["generated_at"] if previous else today["window"][0],
+                                    today.get("generated_at") or today["window"][1],
+                                    [{"slug": f["slug"], "alias": f["alias"]} for f in friends]) if fetch_proposals else None,
+        "replicas_pendientes": lectores.fetch_replies(cfg, editions) if fetch_proposals else [],
+        "porra": today.get("porra"),
+        "videntes": porra_mod.seers(editions),
+        "bolsa_lp": today.get("bolsa"),
+        "ace_league": load_json(Path(store.dir) / "ace_league.json", None),
         "dossier": dossier,
         "partidas_detalle": detailed_games(cfg, store, friends, today),
         "sorteo": today.get("sorteo"),
@@ -198,11 +227,25 @@ def _voz_fields(it, where, pending, clean):
     return lector, imagen
 
 
-def validate_v2(data, edition, known_slugs, dossier):
+def figures_per_100_words(text):
+    words = max(len(re.findall(r"\w+", text)), 1)
+    # numbers as figures, not digits inside names like «Fr4nux»
+    return len(re.findall(r"(?<![^\W\d_])\d+(?:[.,:/–-]\d+)*(?![^\W\d_])", text)) * 100 / words
+
+
+def lectores_name(n):
+    return re.sub(r"\s+", " ", n or "").strip()[:40] or "El aludido"
+
+
+def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=None):
     """Edition format 2: a list of 'piezas' chosen by Claude from the dossier."""
     angles = {a["id"]: a for a in dossier["angulos"]}
+    # validate against the canon as it was before this day's own changes (so a day can be rewritten)
+    canon = canon_mod.strip_date(copy.deepcopy(canon), edition["date"]) if canon is not None else canon_mod.empty()
     clean = {"formato": 2, "piezas": [], "horoscopo": [], "columna": None, "especial": None, "frase": None,
-             "eventos_usados": [], "firma": "Claude", "propuestas_usadas": [], "propuestas_descartadas": []}
+             "eventos_usados": [], "firma": "Claude", "propuestas_usadas": [], "propuestas_descartadas": [],
+             "tiempo": [], "canon": None, "replicas_usadas": [], "replicas_descartadas": []}
+    replies = lectores.replies_cache()
     pending = voz.known_cache()
     seen = set()
     for i, it in enumerate(data.get("piezas") or []):
@@ -245,8 +288,23 @@ def validate_v2(data, edition, known_slugs, dossier):
             "pie": _text(it.get("pie") or "", f"{w}.pie", 0, 200),
             "meme_arriba": _text(it.get("meme_arriba") or "", f"{w}.meme_arriba", 0, 60),
             "meme_abajo": _text(it.get("meme_abajo") or "", f"{w}.meme_abajo", 0, 60),
-            "lector": lector,
+            "lector": lector, "hilo": it.get("hilo") or None, "replica": it.get("replica"),
         })
+        if it.get("replica") is not None:
+            rep = replies.get(it["replica"])
+            if not rep:
+                raise AIError(f"{w}.replica {it['replica']!r} no está entre las réplicas pendientes")
+            clean["piezas"][-1].update(section="DERECHO DE RÉPLICA", lector=None,
+                                       replica_de=lectores_name(rep["nombre"]))
+            clean["replicas_usadas"].append(it["replica"])
+        allowed = FORMAT_SECTIONS.get(formato)
+        if allowed and section not in allowed and not lector:
+            raise AIError(f"{w}: un «{formato}» va en {' o '.join(sorted(allowed))}, no en {section}")
+        body = clean["piezas"][-1]["body"]
+        if peso != "breve" and formato not in LIST_FORMATS and figures_per_100_words(body) > MAX_FIGURES_PER_100_WORDS:
+            raise AIError(f"{w} ({clean['piezas'][-1]['headline'][:50]}…) parece un acta: "
+                          f"{figures_per_100_words(body):.0f} cifras por cada 100 palabras (máximo "
+                          f"{MAX_FIGURES_PER_100_WORDS}). Cuéntalo como una historia y deja solo las cifras que pesan")
     news = [p for p in clean["piezas"] if not p["lector"]]
     portadas = [p for p in clean["piezas"] if p["portada"]]  # a reader's story can open the paper too
     if len(portadas) != 1 or portadas[0]["peso"] != "grande":
@@ -289,6 +347,51 @@ def validate_v2(data, edition, known_slugs, dossier):
     n_voz = len(clean["piezas"]) - len(news)
     if n_voz > MAX_VOZ:
         raise AIError(f"Como mucho {MAX_VOZ} piezas de La Voz de Runeterra")
+
+    # every reply waiting is published (with the paper's answer) or discarded
+    pending_r = lectores.pending_replies()
+    discarded_r = data.get("replicas_descartadas") or []
+    for n in discarded_r:
+        if n not in pending_r:
+            raise AIError(f"replicas_descartadas: {n!r} no está entre las réplicas pendientes")
+    left = [n for n in pending_r if n not in clean["replicas_usadas"] and n not in discarded_r]
+    if left:
+        raise AIError(f"Hay réplicas sin publicar ni descartar: {left}. El aludido tiene derecho a contestar: "
+                      "publícalas en una pieza con «replica»")
+    clean["replicas_descartadas"] = discarded_r
+
+    # readers' letters get an answer
+    fb = (context_extra or {}).get("lectores_ayer") or {}
+    if fb.get("comentarios") and not any(p["formato"] == "carta al director" or p["section"] == "CARTAS" for p in news):
+        raise AIError("Ayer hubo comentarios de los lectores: contéstalos en una pieza con formato «carta al director»")
+
+    # the canon: threads that run from one edition to the next
+    try:
+        changes = canon_mod.validate_changes(data.get("canon"), canon, known_slugs)
+    except canon_mod.CanonError as e:
+        raise AIError(str(e))
+    open_ids = {h["id"] for h in canon_mod.open_threads(canon)}
+    opened = {h["id"] for h in changes["hilos"] if h["accion"] == "abrir"}
+    touched = {h["id"] for h in changes["hilos"]}
+    valid = open_ids | opened
+    for i, p in enumerate(clean["piezas"]):
+        if p["hilo"] and p["hilo"] not in valid:
+            raise AIError(f"piezas[{i}].hilo {p['hilo']!r} no es un hilo abierto ni uno que abras hoy en canon.hilos")
+        if p["hilo"] and p["hilo"] not in touched:
+            raise AIError(f"piezas[{i}] avanza el hilo {p['hilo']!r}: añádelo a canon.hilos con lo que pasa hoy")
+    in_pieces = {p["hilo"] for p in clean["piezas"] if p["hilo"]}
+    if len(open_ids) >= 2 and len(in_pieces) < 2:
+        raise AIError("El periódico tiene memoria: avanza al menos dos hilos abiertos del canon (campo «hilo» de las piezas)")
+    if valid and not portadas[0]["hilo"]:
+        raise AIError("La portada tiene que pertenecer a un hilo (lleva su cintillo de saga): ponle «hilo»")
+    clean["canon"] = changes
+
+    # El Tiempo: a forecast for everyone who played
+    tiempo = {t.get("jugador"): t.get("texto") for t in data.get("tiempo") or []}
+    for r in edition.get("ranking", []):
+        if not tiempo.get(r["slug"]):
+            raise AIError(f"Falta la previsión de El Tiempo de {r['alias']} (tiempo: [{{\"jugador\": \"{r['slug']}\", \"texto\": …}}])")
+        clean["tiempo"].append({"jugador": r["slug"], "texto": _text(tiempo[r["slug"]], f"tiempo.{r['slug']}", 30, 220)})
 
     horos = data.get("horoscopo") or []
     signos = [h.get("signo") for h in horos]
@@ -351,8 +454,9 @@ def _common(data, clean, pending):
         clean["firma"] = _text(data["firma"], "firma", 3, 60)
 
 
-def apply_v2(edition, clean):
-    """Replaces the robot's stories with Claude's; the robot's stay in items_plantilla."""
+def apply_v2(edition, clean, canon_path=None):
+    """Replaces the robot's stories with Claude's; the robot's stay in items_plantilla.
+    With `canon_path`, the canon changes are merged into that file."""
     if "items_plantilla" not in edition:
         edition["items_plantilla"] = [it for it in edition["items"] if it.get("kind") != "ia"]
     aliases = {r["slug"]: r["alias"] for r in edition["ranking"]}
@@ -368,8 +472,28 @@ def apply_v2(edition, clean):
             "stat": p["stat"], "stat_label": p["stat_label"], "imagen": p["imagen"], "campeon": campeon,
             "pie": p["pie"], "meme_arriba": p["meme_arriba"], "meme_abajo": p["meme_abajo"], "lector": p["lector"],
             "severity": (base["portada"] if p["portada"] else base[p["peso"]]) - i, "facts": {},
+            "hilo": p["hilo"], "replica": p.get("replica"),
         })
     edition["items"] = sorted(items, key=lambda it: -it["severity"])
+    if canon_path and clean.get("canon"):
+        canon = canon_mod.load(canon_path)
+        heads = {}
+        for it in edition["items"]:
+            if it["hilo"]:
+                heads.setdefault(it["hilo"], []).append(it["headline"])
+        canon_mod.apply_changes(canon, clean["canon"], edition["date"], heads)
+        canon_mod.save(canon, canon_path)
+        sagas = {h["id"]: h for h in canon["hilos"]}
+        for it in edition["items"]:
+            h = sagas.get(it["hilo"])
+            if h:
+                it["saga"] = {"id": h["id"], "titulo": h["titulo"], "capitulo": len(h.get("capitulos", [])),
+                              "estado": canon_mod.hilo_estado(h)}
+    for it, p in zip(items, clean["piezas"]):
+        if p.get("replica_de"):
+            it["replica_de"] = p["replica_de"]
+    edition["canon_cambios"] = clean.get("canon")
+    edition["tiempo"] = clean.get("tiempo") or []
     edition["angulos_usados"] = [p["clave"] for p in clean["piezas"] if p["clave"]]
     edition["horoscopo"] = clean["horoscopo"]
     if "template_frase" not in edition:
@@ -536,13 +660,23 @@ def apply_file(store, path, date_str=None, cfg=None, friends=None):
     known = {r["slug"] for e in store.editions() for r in e["ranking"]}
     if "piezas" in data:
         dossier = build_dossier(cfg or load_config(), store, friends or load_friends(), edition, store.editions())
-        clean = validate_v2(data, edition, known, dossier)
-        apply_v2(edition, clean)
+        canon_path = Path(store.dir) / "canon.json"
+        cfg = cfg or load_config()
+        prev = [e for e in sorted(store.editions(), key=lambda e: e["date"]) if e["date"] < edition["date"]]
+        extra = {"lectores_ayer": lectores.feedback(cfg, prev[-1] if prev else None)}
+        clean = validate_v2(data, edition, known, dossier, canon_mod.load(canon_path), extra)
+        apply_v2(edition, clean, canon_path)
+        edition["lectores_ayer"] = extra["lectores_ayer"]
+        roster = [{"slug": f["slug"], "alias": f["alias"]} for f in (friends or load_friends())]
+        edition["cotillas"] = lectores.snoops(cfg, prev[-1]["generated_at"] if prev else edition["window"][0],
+                                              edition.get("generated_at") or edition["window"][1], roster)
     else:
         clean = validate(data, edition, known)
         apply(edition, clean, date_str)
     store.save_edition(edition)
     published = mark_events_published(clean["eventos_usados"], date_str)
+    if clean.get("replicas_usadas") or clean.get("replicas_descartadas"):
+        lectores.mark_replies(clean["replicas_usadas"], clean["replicas_descartadas"])
     if clean["propuestas_usadas"] or clean["propuestas_descartadas"]:
         voz.mark(clean["propuestas_usadas"], clean["propuestas_descartadas"])
     return edition, clean, published

@@ -33,6 +33,50 @@ es que cada día el periódico sea distinto: otros temas, otros formatos, otros 
   portada o en una grande. Si no ha jugado, se le puede recordar igual.
 - El validador comprueba las dos cosas.
 
+## La memoria del periódico: el canon y las sagas
+
+El Rincón del Feeder no es un resumen de partidas: es un **folletín por entregas**. Tiene memoria, y
+esa memoria está en `canon` (contexto) y en `data/canon.json`:
+
+- **`personajes`**: cada amigo es una figura de Runeterra, con título (se gana y se pierde), facción,
+  apodos, rasgos, maldiciones y rivales. Úsalos: «el Barón de la Moneda», no solo «grangalax».
+- **`elenco`**: personajes ficticios fijos de la redacción (el comisario Cobretuerca, la fiscal
+  Hexwick, el forense Humoverde, Barbanegra el Contable, Madame Niebla, el Hermano Venda…). Son los que
+  firman, investigan, declaran y opinan. Que vuelvan día tras día y tengan voz propia. Puedes añadir más.
+- **`hilos_abiertos`**: las tramas en curso, con sus últimos capítulos. Cada edición:
+  - **avanza al menos dos hilos** (campo `hilo` en las piezas);
+  - la **portada pertenece a un hilo** (lleva su cintillo de saga: «LA MONEDA DE GRANGALAX · Capítulo 4»);
+  - **abre** un hilo cuando aparezca algo con recorrido (una racha, una rivalidad, un campeón maldito,
+    un fichaje, una apuesta…), y lo **cierra** cuando la historia se resuelva (la racha se rompe, el
+    maldito gana por fin, la rivalidad se decide). Un hilo cerrado es una buena portada.
+  - Los estados son `abierto`, `escalando`, `desenlace` y `cerrado`: hazlos crecer.
+- **`costumbres`**: hábitos del grupo que se repiten (a qué hora juegan, qué pasa en la tercera
+  Flex…). Recuérdalas, celébralas y apunta las nuevas.
+- **`chistes`**: los chistes recurrentes con cuántas veces se han usado. Los muy gastados, descansan.
+
+Lo que cambie hoy lo devuelves en el bloque `canon` del archivo (ver el formato). Mezcla sin miedo:
+el lore inventado de esta Runeterra y los datos reales se alimentan entre sí. Si el forense dijo
+ayer que Fr4nux tenía «déficit crónico de daño», hoy puede publicar la segunda opinión.
+
+## Cómo se cuenta una noticia
+
+- **Historias, no actas.** Cada pieza tiene un conflicto (quién quedó en ridículo, ante quién, por qué),
+  personajes y una consecuencia (qué hereda mañana, qué hilo cambia). Las cifras son **la prueba del
+  delito**, no el relleno: elige las dos o tres que más duelen. El validador rechaza las piezas
+  grandes y medianas con más de 6 cifras por cada 100 palabras (salvo rankings, telegramas, encuestas,
+  anuncios y «hace una semana»).
+- **Ejemplo de lo que NO hay que hacer** (un acta):
+  > «Segunda, a las 21:55: 38 minutos y derrota, con 55 asesinatos y 59 muertes del grupo. El Cho'Gath de
+  > GSJoseador acabó 19/7/20 y la Caitlyn de Fr4nux 18/13/17, pero la Diana de grangalax firmó un 4/17/23.»
+- **El mismo dato contado como historia:**
+  > «La segunda Flex fue un funeral con orquesta. GSJoseador se puso el Cho'Gath y se comió medio equipo
+  > rival —diecinueve asesinatos, dato que el comisario Cobretuerca ha mandado enmarcar—, pero en el
+  > centro del mapa el Barón de la Moneda estrenaba Diana y la moneda, fiel a su leyenda, cayó de canto:
+  > diecisiete muertes y un Vladimir rival que acabó la partida con siete mil de oro más que él.»
+- **El formato va con su sección**: un parte meteorológico solo en EL TIEMPO, un parte policial en
+  SUCESOS, un boletín médico en SALUD, un juicio en SUCESOS o POLÍTICA, una editorial o una carta al
+  director en OPINIÓN, una crónica deportiva en DEPORTES (o ACE LEAGUE). El validador lo comprueba.
+
 ## El mundo del periódico: Runeterra
 
 El Rincón del Feeder se edita como si fuera un periódico de Runeterra. Mezcla el lore con las
@@ -93,6 +137,15 @@ Piltover abre expediente», «la Lonja de Aguasturbias congela sus fondos».
 - `historial`, `general_verguenza`, `titulares_recientes`, `expresiones_gastadas`, `formatos_recientes`
   y `secciones_recientes`: lo que se ha publicado los últimos días.
 - `sorteo`: el resultado del Sorteo de la Grieta del día (combinación, boletos, acertantes, bote).
+- `porra` y `videntes`: quién apostó por el peor del día, quién acertó y la clasificación de videntes.
+- `lectores_ayer`: cómo reaccionaron los lectores a la edición anterior (lo más reído, con emojis y
+  nombres) y sus comentarios. `cotillas`: quién miró la ficha de quién (y quién se miró a sí mismo).
+- `replicas_pendientes`: los aludidos que ejercen su derecho de réplica.
+- `bolsa_lp`: la bolsa de LP (rangos de SoloQ y Flex, subidas, bajadas, ascensos y descensos).
+- `ace_league`: el Rincón del Viciado en la ACE League (plantilla, partidos, resultados).
+- En `partidas_detalle`, `dentro_de_la_partida` cuenta quién dio o entregó la primera sangre, en qué
+  minutos murió cada uno, cuántas veces en el mismo sitio, cuántas a manos de torres o súbditos y qué
+  objetivos grandes se llevó.
 - `propuestas_lectores` y `eventos_pendientes`.
 
 ## Cómo es el periódico
@@ -202,6 +255,18 @@ las muertes de los tres que más murieron ese día. Mira `sorteo`:
   - `subtitulo` (opcional, recomendable en grandes y medianas): una entradilla de una frase.
 - **El Faro de la Esperanza**: siempre al menos una pieza con `"seccion": "EL FARO DE LA ESPERANZA"`
   (el ángulo `faro`), y puedes añadir hasta dos más con los ángulos positivos del día.
+- **El Tiempo** (`tiempo`): una previsión de Madame Niebla para **cada jugador que jugó**
+  (`{"jugador": slug, "texto": …}`, 30–220 caracteres), según sus minutos en gris y su día. Va en la
+  sección El Tiempo, junto al mapa. Las piezas de sección EL TIEMPO salen ahí mismo.
+- **Derecho de réplica**: cada réplica pendiente se publica en una pieza con `"replica": <id>`: la
+  réplica del aludido, resumida o citada (es su texto, no una frase inventada), y debajo la respuesta de
+  la redacción, sin piedad. Si una no es publicable (insultos fuera del juego, spam), va a
+  `replicas_descartadas`. El validador no deja ninguna sin tratar.
+- **Cartas contestadas**: si `lectores_ayer` trae comentarios, al menos una pieza con formato «carta al
+  director» los contesta (puedes nombrar a los lectores y citar lo que escribieron).
+- **Lo que hicieron los lectores también es noticia**: lo más reído, el cotilla del día, la porra.
+- **La ACE League**: si hay partidos en `ace_league`, se cuentan en la sección ACE LEAGUE, como
+  temporada con rivales, jornadas y un hilo propio.
 - **El horóscopo** (`horoscopo`): una entrada por signo —Top, Jungla, Mid, Tirador y Soporte—, de
   30–260 caracteres. Que tenga que ver con lo que pasó hoy cuando se pueda.
 - **La columna** (`columna`): 1 a 6 párrafos. Rota entre columnistas ficticios («El Analista
@@ -221,7 +286,7 @@ las muertes de los tres que más murieron ese día. Mira `sorteo`:
 ```json
 {
   "piezas": [
-    {"angulo": "a1", "peso": "grande", "portada": true, "formato": "crónica deportiva",
+    {"angulo": "a1", "peso": "grande", "portada": true, "formato": "crónica deportiva", "hilo": "la-moneda",
      "seccion": "DEPORTES", "headline": "…", "subtitulo": "…", "body": "Párrafo 1…\n\nPárrafo 2…",
      "campeon": "Kayn", "pie": "…", "meme_arriba": "…", "meme_abajo": "…"},
     {"angulo": "a4", "peso": "mediana", "formato": "parte policial", "headline": "…", "body": "…",
@@ -230,6 +295,19 @@ las muertes de los tres que más murieron ese día. Mira `sorteo`:
     {"angulo": null, "peso": "mediana", "formato": "reportaje", "seccion": "CULTURA", "headline": "…", "body": "…"},
     {"angulo": null, "peso": "mediana", "propuesta": 12, "formato": "noticia", "headline": "…", "body": "…"}
   ],
+  "tiempo": [{"jugador": "grangalax", "texto": "Niebla Negra persistente sobre el carril central…"}],
+  "canon": {
+    "hilos": [
+      {"id": "la-moneda", "accion": "avanzar", "estado": "escalando", "resumen": "Qué pasa hoy en el hilo.", "protagonistas": ["grangalax"]},
+      {"accion": "abrir", "titulo": "La maldición del tabernero", "resumen": "Por qué se abre.", "protagonistas": ["wolf"]},
+      {"id": "carry-not-found", "accion": "cerrar", "resumen": "Cómo termina."}
+    ],
+    "personajes": {"fr4nux": {"titulo": "Nuevo título ganado", "apodo": "…", "maldicion": "…", "rival": "…"}},
+    "elenco": [{"nombre": "…", "cargo": "…", "institucion": "…", "rasgo": "…"}],
+    "costumbres": ["…"],
+    "chistes": ["chistes recurrentes usados hoy"]
+  },
+  "replicas_descartadas": [],
   "horoscopo": [
     {"signo": "Top", "texto": "…"}, {"signo": "Jungla", "texto": "…"}, {"signo": "Mid", "texto": "…"},
     {"signo": "Tirador", "texto": "…"}, {"signo": "Soporte", "texto": "…"}
@@ -244,7 +322,8 @@ las muertes de los tres que más murieron ese día. Mira `sorteo`:
 ```
 
 Son opcionales en cada pieza: `seccion`, `desk`, `subtitulo`, `player`, `stat`, `stat_label`,
-`campeon`, `imagen`, `pie`, `meme_arriba`, `meme_abajo` y `propuesta`.
+`campeon`, `imagen`, `pie`, `meme_arriba`, `meme_abajo`, `propuesta`, `replica` y `hilo` (el `id` de un
+hilo abierto, o el de uno que abras hoy; si lo abres sin `id`, se genera desde el título).
 
 Después ejecuta `python -m roast apply-ai ai/edicion-AAAA-MM-DD.json`. Si da error, lee el mensaje,
 corrige el JSON y vuelve a ejecutarlo: el validador comprueba los pesos, los formatos, la rotación de

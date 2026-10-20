@@ -7,8 +7,10 @@ from datetime import date, datetime, timezone
 from html import escape
 from pathlib import Path
 
+from . import canon as canon_mod
+from .porra import seers
 from .roasts import DESKS
-from .util import champ_name, fmt_int, fmt_num, fmt_pct, long_date, short_date, slugify
+from .util import ROOT, champ_name, fmt_int, fmt_num, fmt_pct, load_json, long_date, short_date, slugify
 
 POINTS = [5, 3, 2, 1]  # daily shame points by position in the ranking
 
@@ -346,6 +348,41 @@ form.papel button.sec{background:transparent;color:var(--ink);border:1px solid v
 .breve .rx button{font-size:.82rem;padding:0 4px}
 .sec-grid{overflow-x:clip;overflow-y:visible}  /* clips the column rules, lets comment pop-ups drop down */
 .visitas b{font-family:"IM Fell English SC",serif;font-weight:400;color:var(--ink)}
+
+/* sagas */
+a.saga{display:inline-block;font-family:"IM Fell English SC",serif;font-size:.85rem;letter-spacing:.06em;text-decoration:none;
+  background:var(--ink);color:var(--paper);padding:1px 8px;margin-bottom:4px}
+a.saga:hover{background:var(--accent)}
+.sagas{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+.saga-ficha.est-cerrado{opacity:.75}
+.saga-ficha h3{font-size:1.5rem}
+ol.capitulos{margin:8px 0 0 18px}
+ol.capitulos li{padding:4px 0;border-bottom:1px dotted var(--rule)}
+ol.capitulos li p{font-size:.9rem;font-style:italic;color:var(--muted)}
+ul.elenco{list-style:none;columns:2;column-gap:30px}
+ul.elenco li{padding:6px 0;break-inside:avoid;border-bottom:1px dotted var(--rule)}
+/* weather forecasts */
+.weather.con-prevision{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.weather .prevision{font-family:"Old Standard TT",serif;font-style:italic;font-size:.9rem;line-height:1.35;margin-top:6px;text-align:left}
+/* Runeterra card and achievements */
+.ficha-rt .titulo-rt{font-family:"UnifrakturMaguntia",serif;font-size:1.6rem;text-align:center;line-height:1.1}
+.ficha-rt .faccion{text-align:center;font-style:italic}
+.ficha-rt ul,.logros ul{list-style:none}
+.ficha-rt li,.logros li{padding:5px 0;border-bottom:1px dotted var(--rule);font-size:.92rem}
+.logros li span{display:inline-block;width:1.6em}
+
+/* readers, pool, LP market, league */
+.mas-reido ol{margin-left:18px}.mas-reido li{padding:5px 0;border-bottom:1px dotted var(--rule);font-size:.92rem}
+.mas-reido .emojis{display:block;font-size:.85rem;color:var(--muted)}
+.cotilla ul,.ace-box ul{list-style:none}.cotilla li,.ace-box li{padding:5px 0;border-bottom:1px dotted var(--rule);font-size:.92rem}
+.porra-box{border:3px double var(--ink);padding:16px 18px;background:rgba(255,248,225,.1)}
+.porra-box h4{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:1.7rem;text-align:center;border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:12px}
+.porra-box select{font:inherit;color:var(--ink);background:rgba(255,248,225,.25);border:1px solid var(--ink);padding:6px;width:100%}
+.porra-box form{margin-top:10px;border-top:1px dashed var(--ink);padding-top:10px}
+.pasa-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.bolsa{margin-top:14px}
+.rx .rx-share{margin-left:4px}
+.rx-rep{display:flex;gap:6px;align-items:center;font-size:.85rem}
 @media (max-width:980px){
   .cols,.lead,.profile{grid-template-columns:1fr}
   .lead .txt,.sec-opinion article.column .cbody{column-count:1}
@@ -516,10 +553,20 @@ LECTORES_JS = r"""(function(){
       var id = el.getAttribute('data-pieza'), host = el.classList.contains('lead') ? el.firstElementChild : el;
       var d = document.createElement('div'); d.className = 'rx'; d.setAttribute('data-id', id);
       d.innerHTML = EMOJIS.map(function(e){ return '<button type="button" class="rx-e" data-e="'+e+'">'+e+'<b></b></button>'; }).join('') +
+        '<button type="button" class="rx-share" title="Compartir esta noticia">↗</button>' +
         '<span class="rx-c"><button type="button" class="rx-com" aria-label="Comentarios">💬<b></b></button>' +
-        '<div class="rx-pop"><div class="rx-list"></div><form class="rx-form"><textarea name="texto" maxlength="600" ' +
-        'placeholder="¿Qué opinas de esto?" required></textarea><button type="submit">Comentar</button>' +
-        '<span class="msg small"></span></form></div></span>';
+        '<div class="rx-pop"><div class="rx-list"></div><form class="rx-form"><textarea name="texto" maxlength="800" ' +
+        'placeholder="¿Qué opinas de esto?" required></textarea>' +
+        '<label class="rx-rep" hidden><input type="checkbox" name="rep"> Es mi derecho de réplica: soy el aludido</label>' +
+        '<button type="submit">Comentar</button><span class="msg small"></span></form></div></span>';
+      var jug = el.getAttribute('data-jugador');
+      var showRep = function(){ var y = Yo.get(); d.querySelector('.rx-rep').hidden = !(jug && y && (y.cuentas || []).indexOf(jug) >= 0); };
+      showRep(); d.querySelector('.rx-c').addEventListener('mouseenter', showRep);
+      d.querySelector('.rx-share').addEventListener('click', function(){
+        var url = location.href.split('#')[0] + '#p-' + id, t = (el.querySelector('h2,h3,h5') || {}).textContent || document.title;
+        if (navigator.share) navigator.share({title: t, url: url}).catch(function(){});
+        else window.open('https://wa.me/?text=' + encodeURIComponent(t + ' ' + url), '_blank', 'noopener');
+      });
       host.appendChild(d); bars[id] = d;
       d.querySelector('.rx-com').addEventListener('click', function(){ d.querySelector('.rx-c').classList.toggle('open'); });
       Array.prototype.forEach.call(d.querySelectorAll('.rx-e'), function(b){
@@ -531,6 +578,15 @@ LECTORES_JS = r"""(function(){
         var send = function(y){
           if (!y) return;
           f.querySelector('button').disabled = true; f.querySelector('.msg').textContent = 'Enviando…';
+          if (f.rep.checked && !f.querySelector('.rx-rep').hidden) {
+            if (texto.length < 10) { f.querySelector('.msg').textContent = 'La réplica necesita al menos 10 caracteres.'; f.querySelector('button').disabled = false; return; }
+            post('replicas', {edicion: EDICION, pieza: Number(id), nombre: y.nombre, texto: texto.slice(0, 800)})
+              .then(function(){ f.texto.value = ''; f.rep.checked = false;
+                                f.querySelector('.msg').textContent = 'Réplica enviada: saldrá en la próxima edición.'; })
+              .catch(function(){ f.querySelector('.msg').textContent = 'No se pudo enviar la réplica.'; })
+              .then(function(){ f.querySelector('button').disabled = false; });
+            return;
+          }
           post('comentarios', {edicion: EDICION, pieza: Number(id), nombre: y.nombre, texto: texto.slice(0, 600)})
             .then(function(){ f.texto.value = ''; f.querySelector('.msg').textContent = '';
                               (com[id] = com[id] || []).push({nombre: y.nombre, texto: texto, created_at: new Date().toISOString()}); paint(id); })
@@ -627,6 +683,32 @@ LECTORES_JS = r"""(function(){
           .then(function(){ bmsg.textContent = 'Boleto sellado: ' + nums.join(' · ') + '. Suerte mañana.'; count(); })
           .catch(function(){ bmsg.textContent = 'No se pudo sellar el boleto. Inténtalo de nuevo.'; })
           .then(function(){ bf.querySelector('button').disabled = false; });
+      });
+    }
+  }
+
+  // ------------------------------------------------------------------ the pool: who will be the worst tomorrow
+  var pz = document.getElementById('porra');
+  if (pz) {
+    var zmsg = pz.querySelector('.msg'), zc = document.getElementById('porra-cuenta');
+    if (!ok) { pz.querySelector('button').disabled = true; zmsg.textContent = 'La porra se abrirá en cuanto se configure la base de datos.'; }
+    else {
+      var zcount = function(){
+        api('/rest/v1/porras?select=id&limit=1&created_at=gt.'+encodeURIComponent(pz.getAttribute('data-desde')),
+            {headers:{Prefer:'count=exact'}}).then(function(r){
+          var n = (r.headers.get('content-range')||'').split('/')[1]; if (zc && n && n !== '*') zc.textContent = n;
+        }).catch(function(){});
+      };
+      zcount();
+      pz.addEventListener('submit', function(ev){
+        ev.preventDefault(); if (pz.web.value) return;
+        var nombre = pz.nombre.value.trim(), pred = pz.prediccion.value; if (!nombre || !pred) return;
+        Yo.remember(nombre);
+        pz.querySelector('button').disabled = true; zmsg.textContent = 'Apostando…';
+        post('porras', {nombre: nombre.slice(0, 40), lector: Yo.lector(), prediccion: pred})
+          .then(function(){ zmsg.textContent = 'Apuesta hecha: ' + pz.prediccion.options[pz.prediccion.selectedIndex].text + '. Vale la última que hagas.'; zcount(); })
+          .catch(function(){ zmsg.textContent = 'No se pudo apostar. Inténtalo de nuevo.'; })
+          .then(function(){ pz.querySelector('button').disabled = false; });
       });
     }
   }
@@ -781,6 +863,7 @@ ASSET_VERSION = hashlib.sha1((CSS + LECTORES_JS).encode("utf-8")).hexdigest()[:1
 
 
 ROSTER = []  # [{slug, alias}] of the players, for the "who are you?" picker; set by build_site
+ACE = {}     # data/ace_league.json; set by build_site
 
 
 def _e(x):
@@ -792,7 +875,7 @@ def _date(s):
     return date(y, m, d)
 
 
-def page(cfg, title, body, rel, edition=None, description="", pagina=""):
+def page(cfg, title, body, rel, edition=None, description="", pagina="", image=None):
     if edition:
         top = (f'<div class="topline"><span>{_e(long_date(_date(edition["date"])).capitalize())}</span>'
                f'<span>Año I · Edición nº {edition["number"]}</span><span>Precio: 1 LP</span></div>')
@@ -811,6 +894,11 @@ def page(cfg, title, body, rel, edition=None, description="", pagina=""):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{_e(title)}</title>
 <meta name="description" content="{_e(description or cfg['site_tagline'])}">
+<meta property="og:site_name" content="{_e(cfg['site_title'])}">
+<meta property="og:title" content="{_e(title)}">
+<meta property="og:description" content="{_e(description or cfg['site_tagline'])}">
+<meta property="og:type" content="article">
+{f'<meta property="og:image" content="{_e(image)}"><meta name="twitter:card" content="summary_large_image">' if image else ""}
 {FONTS}
 <link rel="stylesheet" href="{rel}style.css?v={ASSET_VERSION}">
 </head>
@@ -821,7 +909,7 @@ def page(cfg, title, body, rel, edition=None, description="", pagina=""):
 <a class="title" href="{rel}index.html">{_e(cfg['site_title'])}</a>
 <p class="tagline">{_e(cfg['site_tagline'])}</p>
 <div class="rules"></div>
-<nav class="menu"><a href="{rel}index.html">Portada</a><a href="{rel}archivo.html">Hemeroteca</a><a href="{rel}jugadores.html">Jugadores</a><a class="cta" href="{rel}proponer.html">Proponer noticia</a><a href="#" class="yo" id="yo-btn">¿Quién eres?</a></nav>
+<nav class="menu"><a href="{rel}index.html">Portada</a><a href="{rel}archivo.html">Hemeroteca</a><a href="{rel}jugadores.html">Jugadores</a><a href="{rel}sagas.html">Sagas</a><a class="cta" href="{rel}proponer.html">Proponer noticia</a><a href="#" class="yo" id="yo-btn">¿Quién eres?</a></nav>
 </header>
 {body}
 </div></div>
@@ -901,23 +989,33 @@ def _market_table(games):
             '</tr></thead><tbody>' + "".join(rows) + '</tbody></table></div></div>')
 
 
-def _weather(ranking):
+def _weather(ranking, forecasts=None):
     if not ranking:
         return ""
+    forecasts = forecasts or {}
     cards = []
     for r in sorted(ranking, key=lambda r: -r["dead"]):
         m = r["dead"] / 60
         ic, txt = (("☀", "Despejado") if m < 3 else ("⛅", "Nubes y claros") if m < 8 else
                    ("☁", "Cubierto") if m < 15 else ("☂", "Niebla espesa") if m < 25 else ("☠", "Niebla Negra"))
-        cards.append(f'<div><div class="ic">{ic}</div><b>{_e(r["alias"])}</b><span>{txt} · {int(m)} min en gris</span></div>')
-    return '<div class="board weather">' + "".join(cards) + '</div>'
+        fc = f'<p class="prevision">{_e(forecasts[r["slug"]])}</p>' if forecasts.get(r.get("slug")) else ""
+        cards.append(f'<div><div class="ic">{ic}</div><b>{_e(r["alias"])}</b><span>{txt} · {int(m)} min en gris</span>{fc}</div>')
+    return f'<div class="board weather{" con-prevision" if forecasts else ""}">' + "".join(cards) + '</div>'
 
 
 # --------------------------------------------------------------------------- articles
-def _kicker(it):
+def _saga(it, rel=""):
+    sg = it.get("saga")
+    if not sg:
+        return ""
+    cap = "Último capítulo" if sg.get("estado") == "cerrado" else f"Capítulo {sg['capitulo']}"
+    return f'<a class="saga" href="{rel}sagas.html#{_e(sg["id"])}">{_e(sg["titulo"])} · {cap}</a>'
+
+
+def _kicker(it, rel=""):
     section = "EL FARO DE LA ESPERANZA" if it.get("section") == "MENCIÓN" else it["section"]  # older editions
     desk = it.get("desk") or DESKS.get(section, "")
-    return (f'<div class="kicker">{_e(section)}'
+    return (_saga(it, rel) + f'<div class="kicker">{_e(section)}'
             + (f'<span class="desk"> · {_e(desk)}</span>' if desk else "") + '</div>')
 
 
@@ -1022,7 +1120,9 @@ PLAIN_FORMATS = ("noticia", "breve", "")
 
 def _article(it, rel, image=False, cls="", attrs="", placard=False):
     who = ""
-    if it.get("lector"):
+    if it.get("replica_de"):
+        who = f'<div class="byline">Réplica de {_e(it["replica_de"])}, con la respuesta de la redacción</div>'
+    elif it.get("lector"):
         who = f'<div class="byline">Enviado por {_e(it["lector"])}</div>'
     elif it.get("player"):
         who = (f'<div class="byline">Sobre <a href="{rel}jugadores/{_e(it["player"])}.html">'
@@ -1040,8 +1140,10 @@ def _article(it, rel, image=False, cls="", attrs="", placard=False):
     ante = f'<div class="ante">{_e(formato.capitalize())}</div>' if formato not in PLAIN_FORMATS else ""
     sub = f'<p class="sub">{_e(it["subtitulo"])}</p>' if it.get("subtitulo") else ""
     if it.get("id") is not None:
-        attrs += f' data-pieza="{_e(it["id"])}"'
-    return (f'<article class="{cls}"{attrs}>{_kicker(it)}{ante}'
+        attrs += f' data-pieza="{_e(it["id"])}" id="p-{_e(it["id"])}"'
+    if it.get("player"):
+        attrs += f' data-jugador="{_e(it["player"])}"'
+    return (f'<article class="{cls}"{attrs}>{_kicker(it, rel)}{ante}'
             f'<h3>{_e(it["headline"])}</h3>{sub}{fig}{stat}<div class="txt">{_paras_html(it["body"])}</div>{who}</article>')
 
 
@@ -1136,7 +1238,7 @@ def _sections(ed, rest, rel, v2=False):
     return "".join(html)
 
 
-OPINION_SECTIONS = {"OPINIÓN", "EDITORIAL", "CARTAS", "CARTA DEL DIRECTOR"}
+OPINION_SECTIONS = {"OPINIÓN", "EDITORIAL", "CARTAS", "CARTA DEL DIRECTOR", "DERECHO DE RÉPLICA"}
 
 
 def _sections_v2(ed, rest, rel):
@@ -1151,10 +1253,13 @@ def _sections_v2(ed, rest, rel):
             '<section class="secblock sec-datos" id="sec-datos"><header class="sec-head"><h3 class="sec-name">Resultados</h3>'
             '<span class="sec-desk">Arena de Noxus · Lonja de Aguasturbias · Islas de la Sombra</span></header>'
             f'<div class="datos-grid"><div class="board"><h4 class="kicker">Resultados del día</h4>'
-            f'{_ranking_table(ed["ranking"], rel)}</div>{market}</div>{_weather(ed["ranking"])}</section>')
+            f'{_ranking_table(ed["ranking"], rel)}</div>{market}</div>{_bolsa(ed)}</section>')
     voz_items = [it for it in rest if it.get("lector")]
     opinion = [it for it in rest if not it.get("lector") and it.get("section") in OPINION_SECTIONS]
-    well = [it for it in rest if not it.get("lector") and it.get("section") not in OPINION_SECTIONS]
+    weather_items = [it for it in rest if not it.get("lector") and it.get("section") == "EL TIEMPO"]
+    ace_items = [it for it in rest if not it.get("lector") and it.get("section") == "ACE LEAGUE"]
+    well = [it for it in rest if not it.get("lector") and it.get("section") not in OPINION_SECTIONS
+            and it.get("section") not in ("EL TIEMPO", "ACE LEAGUE")]
     pics = {"left": 8}
 
     def card(it, i):
@@ -1175,6 +1280,26 @@ def _sections_v2(ed, rest, rel):
                     '<h3 class="sec-name">Actualidad</h3><span class="sec-desk">Corresponsales por toda Runeterra</span>'
                     '</header><div class="sec-grid pozo">' + "".join(card(it, i) for i, it in enumerate(well))
                     + '</div></section>')
+    if ace_items or _ace_matches():
+        rows = "".join(f'<tr><td>{_e(m.get("fecha", ""))}</td><td>{_e(m.get("rival", ""))}</td>'
+                       f'<td class="{"win" if m.get("resultado") == "victoria" else "loss" if m.get("resultado") == "derrota" else ""}">'
+                       f'{_e((m.get("resultado") or "pendiente").capitalize())}</td><td>{_e(m.get("marcador", ""))}</td></tr>'
+                       for m in _ace_matches(8))
+        table = ('<div class="board"><h4 class="kicker">Calendario y resultados</h4><div class="tablewrap"><table><thead><tr>'
+                 '<th>Fecha</th><th>Rival</th><th>Resultado</th><th>Marcador</th></tr></thead><tbody>' + rows
+                 + '</tbody></table></div></div>') if rows else ""
+        html.append(f'<section class="secblock sec-ace" id="sec-ace"><header class="sec-head"><h3 class="sec-name">'
+                    f'{_e(ACE.get("competicion", "ACE League"))}</h3><span class="sec-desk">{_e(ACE.get("equipo", ""))} · '
+                    f'{_e(ACE.get("division", ""))}</span></header>{table}'
+                    + ('<div class="sec-grid pozo">' + "".join(card(it, i) for i, it in enumerate(ace_items)) + '</div>'
+                       if ace_items else "") + '</section>')
+    if ed.get("ranking"):
+        forecasts = {t["jugador"]: t["texto"] for t in ed.get("tiempo") or []}
+        html.append('<section class="secblock sec-tiempo" id="sec-tiempo"><header class="sec-head"><h3 class="sec-name">'
+                    'El Tiempo</h3><span class="sec-desk">Islas de la Sombra · previsión de Madame Niebla</span></header>'
+                    + _weather(ed["ranking"], forecasts)
+                    + ('<div class="sec-grid pozo">' + "".join(card(it, i) for i, it in enumerate(weather_items)) + '</div>'
+                       if weather_items else "") + '</section>')
     if voz_items:
         html.append('<section class="secblock sec-voz" id="sec-voz"><header class="sec-head"><h3 class="sec-name">'
                     'La Voz de Runeterra</h3><span class="sec-desk">Las noticias que mandan los lectores</span></header>'
@@ -1262,10 +1387,96 @@ def _sorteo(ed, rel, latest):
             f'<p class="origen">Combinación ganadora: {_e(origen)}.</p><p>{verdict}</p>{form}</div>')
 
 
-def _pasatiempos(ed, rel, latest):
+def _porra(ed, latest, seers):
+    res = ed.get("porra") or {}
+    lines = []
+    if res.get("peor"):
+        hits = ", ".join(_e(a["nombre"]) for a in res.get("acertantes", []))
+        lines.append(f'<p>El peor de esta edición fue <b>{_e(res["peor"])}</b>. '
+                     + (f'Lo vieron venir: <b>{hits}</b>.' if hits else
+                        ("Nadie acertó." if res.get("participantes") else "Nadie apostó.")) + '</p>')
+        if res.get("votos"):
+            lines.append('<p class="small">Votos: ' + ", ".join(f'{_e(k)} ({n})' for k, n in res["votos"].items()) + '</p>')
+    form = ""
+    if latest:
+        opts = "".join(f'<option value="{_e(r["slug"])}">{_e(r["alias"])}</option>' for r in ROSTER)
+        desde = datetime.fromtimestamp(ed.get("generated_at", ed["window"][1]) / 1000, timezone.utc).isoformat()
+        form = (f'<form class="papel porra" id="porra" data-desde="{_e(desde)}"><p class="small">¿Quién será el peor del '
+                f'grupo en la próxima edición? Sin dinero: solo gloria. Apuestas ya hechas: <b id="porra-cuenta">0</b>.</p>'
+                f'<label>Tu nombre de invocador<input type="text" name="nombre" maxlength="40" required></label>'
+                f'<label>El peor será<select name="prediccion" required><option value="">Elige…</option>{opts}</select></label>'
+                f'<input class="hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">'
+                f'<button type="submit">Apostar</button><span class="msg"></span></form>')
+    rank = ""
+    if seers:
+        rank = ('<p class="small"><b>Videntes:</b> ' + ", ".join(f'{_e(n)} ({k})' for n, k in seers) + '</p>')
+    return f'<div class="porra-box"><h4>La porra</h4>{"".join(lines)}{rank}{form}</div>'
+
+
+def _pasatiempos(ed, rel, latest, seers=None):
     return (f'<section class="secblock sec-pasatiempos" id="sorteo"><header class="sec-head">'
-            f'<h3 class="sec-name">Pasatiempos</h3><span class="sec-desk">Sorteo y horóscopo</span></header>'
-            f'<div class="pasa-grid">{_sorteo(ed, rel, latest)}{_horoscopo(ed)}</div></section>')
+            f'<h3 class="sec-name">Pasatiempos</h3><span class="sec-desk">Sorteo, porra y horóscopo</span></header>'
+            f'<div class="pasa-grid">{_sorteo(ed, rel, latest)}{_porra(ed, latest, seers or [])}{_horoscopo(ed)}</div></section>')
+
+
+def _bolsa(ed):
+    b = ed.get("bolsa") or {}
+    if not b.get("filas"):
+        return ""
+
+    def cell(e):
+        if not e:
+            return '<td>–</td><td class="num">–</td>'
+        d = e.get("delta")
+        cls, arrow = ("up", "▲") if (d or 0) > 0 else ("down", "▼") if (d or 0) < 0 else ("", "=")
+        tag = f' <i>({_e(e["cambio"])})</i>' if e.get("cambio") else ""
+        return (f'<td>{_e(e["posicion"])}{tag}</td><td class="num {cls}">'
+                + (f'{arrow} {abs(d)}' if d is not None else "nuevo") + '</td>')
+    rows = "".join(f'<tr><td>{_e(r["alias"])}</td>{cell(r.get("solo"))}{cell(r.get("flex"))}</tr>' for r in b["filas"])
+    since = f' (frente al {short_date(_date(b["desde"]))})' if b.get("desde") else ""
+    return (f'<div class="board bolsa"><h4 class="kicker">Bolsa de LP{_e(since)}</h4><div class="tablewrap"><table><thead><tr>'
+            '<th>Valor</th><th>SoloQ</th><th class="num">LP</th><th>Flex</th><th class="num">LP</th></tr></thead><tbody>'
+            + rows + '</tbody></table></div></div>')
+
+
+def _ace_matches(limit=6):
+    ms = sorted(ACE.get("partidos") or [], key=lambda m: m.get("fecha", ""))
+    return ms[-limit:]
+
+
+def _ace_box(rel):
+    if not ACE:
+        return ""
+    ms = _ace_matches(4)
+    if ms:
+        lis = "".join(f'<li><span class="small">{_e(short_date(_date(m["fecha"])) if m.get("fecha") else "")}</span> '
+                      f'vs <b>{_e(m.get("rival", "?"))}</b> · <span class="{"win" if m.get("resultado") == "victoria" else "loss" if m.get("resultado") == "derrota" else ""}">'
+                      f'{_e((m.get("resultado") or "pendiente").capitalize())}</span>'
+                      + (f' {_e(m["marcador"])}' if m.get("marcador") else "") + '</li>' for m in ms)
+        inner = f'<ul class="ace">{lis}</ul>'
+    else:
+        inner = (f'<p class="small">{_e(ACE.get("historia", ""))} El calendario de la temporada saldrá aquí en cuanto '
+                 'se apunten los partidos.</p>')
+    return (f'<div class="box ace-box"><h4>{_e(ACE.get("competicion", "ACE League"))}</h4>'
+            f'<p class="small" style="text-align:center"><b>{_e(ACE.get("equipo", ""))}</b> · {_e(ACE.get("division", ""))}</p>'
+            f'{inner}</div>')
+
+
+def _readers_boxes(ed, rel):
+    out = []
+    fb = ed.get("lectores_ayer") or {}
+    top = (fb.get("mas_reaccionadas") or [])[:3]
+    if top:
+        lis = "".join(f'<li><a href="{rel}ediciones/{_e(fb["edicion"])}.html#p-{_e(t["pieza"])}">{_e(t["titular"])}</a>'
+                      f'<span class="emojis">{"".join(f"{e}{n}" for e, n in t["emojis"].items())}</span></li>' for t in top)
+        out.append(f'<div class="box mas-reido"><h4>Lo más reído de ayer</h4><ol>{lis}</ol></div>')
+    cot = [c for c in (ed.get("cotillas") or []) if c["veces"] >= 1][:4]
+    if cot:
+        lis = "".join(f'<li><b>{_e(c["cotilla"])}</b> '
+                      + ("se miró a sí mismo" if c["se_mira_a_si_mismo"] else f'miró la ficha de <b>{_e(c["ficha"])}</b>')
+                      + f' {c["veces"]} {"vez" if c["veces"] == 1 else "veces"}</li>' for c in cot)
+        out.append(f'<div class="box cotilla"><h4>El cotilla del día</h4><ul>{lis}</ul></div>')
+    return "".join(out)
 
 
 def _breves(items, rel):
@@ -1374,7 +1585,7 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
         stat_box = (f'<div class="bigstat"><div class="n">{_e(lead["stat"])}</div>'
                     f'<div class="l">{_e(lead["stat_label"])}</div>{who}</div>') if lead.get("stat") else ""
         sub = f'<p class="sub">{_e(lead["subtitulo"])}</p>' if lead.get("subtitulo") else ""
-        lead_html = (f'<section class="lead{" lead-v2" if v2 else ""}" data-pieza="{_e(lead.get("id", 0))}"><div>{_kicker(lead)}'
+        lead_html = (f'<section class="lead{" lead-v2" if v2 else ""}" data-pieza="{_e(lead.get("id", 0))}"><div>{_kicker(lead, rel)}'
                      f'<h2>{_e(lead["headline"])}</h2>{sub}<div class="txt">{_paras_html(lead["body"])}</div>{sent}</div>'
                      f'<div>{_figure(lead, rel)}{stat_box}</div></section><div class="orn">✦ ✦ ✦</div>')
     special = ""
@@ -1397,12 +1608,14 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
 {special}
 {lead_html}
 <div class="cols edicion">
-  <main>{_sections_v2(ed, rest, rel) if v2 else _sections(ed, rest, rel)}{_pasatiempos(ed, rel, latest)}{_comments(ed)}</main>{_fillers(ed)}
+  <main>{_sections_v2(ed, rest, rel) if v2 else _sections(ed, rest, rel)}{_pasatiempos(ed, rel, latest, seers(editions_until))}{_comments(ed)}</main>{_fillers(ed)}
   <aside>
     <div class="box"><h4>General de la vergüenza</h4>{_general_table(board, rel)}</div>
     <div class="box"><h4>Frase del día</h4><p class="quote">«{_e(ed["frase"])}»</p></div>
     <div class="box"><h4>El día en cifras</h4>{totals}{writer}</div>
+    {_readers_boxes(ed, rel)}
     {_breves(breves, rel)}
+    {_ace_box(rel)}
     <div class="box"><h4>Quién ha leído esta edición</h4><p class="small visitas" data-visitas="edicion:{_e(ed["date"])}">Cargando…</p></div>
     <div class="anuncios-extra"></div>
     <div class="box"><h4>Buzón del lector</h4><p class="small" style="text-align:center">¿Tienes una noticia, una foto o un meme?
@@ -1411,7 +1624,44 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
 </div>"""
     title = f"{cfg['site_title']} · {short_date(_date(ed['date']))}"
     desc = lead["headline"] if lead else cfg["site_tagline"]
-    return page(cfg, title, body, rel, edition=ed, description=desc)
+    image = None
+    if lead and lead.get("imagen") and cfg.get("site_url"):
+        image = cfg["site_url"].rstrip("/") + "/img/" + lead["imagen"]
+    elif lead and (lead.get("campeon") or (lead.get("facts") or {}).get("champ")):
+        image = ("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"
+                 f"{_ddragon_id(lead.get('campeon') or lead['facts']['champ'])}_0.jpg")
+    return page(cfg, title, body, rel, edition=ed, description=desc, image=image)
+
+
+def render_sagas(cfg, canon, editions):
+    """Every story thread of the newspaper, with its chapters."""
+    dates = {e["date"] for e in editions}
+    names = {s: p.get("alias", s) for s, p in canon["personajes"].items()}
+    blocks = []
+    hilos = sorted(canon["hilos"], key=lambda h: (canon_mod.hilo_estado(h) == "cerrado", h.get("abierto", "")))
+    for h in hilos:
+        est = canon_mod.hilo_estado(h)
+        prot = ", ".join(f'<a href="jugadores/{_e(x)}.html">{_e(names.get(x, x))}</a>' for x in h.get("protagonistas", []))
+        caps = "".join(
+            f'<li><span class="small">{_e(short_date(_date(c["fecha"])))}</span> '
+            + (f'<a href="ediciones/{c["fecha"]}.html">' if c["fecha"] in dates else "<span>")
+            + _e(c.get("titulares", [None])[0] if c.get("titulares") else c["resumen"])
+            + ("</a>" if c["fecha"] in dates else "</span>")
+            + (f'<p>{_e(c["resumen"])}</p>' if c.get("titulares") else "") + '</li>'
+            for c in h.get("capitulos", []))
+        blocks.append(f'<article class="saga-ficha est-{est}" id="{_e(h["id"])}"><div class="kicker">{_e(est.upper())}'
+                      f'<span class="desk"> · desde el {_e(short_date(_date(h["abierto"])))}</span></div>'
+                      f'<h3>{_e(h["titulo"])}</h3><p>{_e(h.get("resumen", ""))}</p>'
+                      + (f'<p class="small">Protagonistas: {prot}</p>' if prot else "")
+                      + (f'<ol class="capitulos">{caps}</ol>' if caps else "") + '</article>')
+    cast = "".join(f'<li><b>{_e(e["nombre"])}</b>, {_e(e["cargo"])}. <i>{_e(e.get("rasgo", ""))}</i></li>'
+                   for e in canon["elenco"])
+    body = (f'<section class="secblock"><header class="sec-head"><h3 class="sec-name">Sagas</h3>'
+            f'<span class="sec-desk">Las historias que el periódico no deja de contar</span></header>'
+            f'<div class="sec-grid sagas">{"".join(blocks) or "<p>Aún no hay sagas.</p>"}</div></section>'
+            f'<section class="secblock"><header class="sec-head"><h3 class="sec-name">El elenco</h3>'
+            f'<span class="sec-desk">Personajes fijos de la redacción</span></header><ul class="elenco">{cast}</ul></section>')
+    return page(cfg, f"Sagas · {cfg['site_title']}", body, "", pagina="sagas")
 
 
 def render_proponer(cfg):
@@ -1449,8 +1699,56 @@ def _sparkline(values, w=320, h=70):
             '<p class="small">Puntos de vergüenza por día (más alto, peor).</p>')
 
 
-def render_player(cfg, friend, editions):
+def _logros(slug, alias, games, editions):
+    """Achievements (good and mostly bad) earned in the archive."""
+    out = []
+    portadas = sum(1 for e in editions if e.get("ranking") and e["ranking"][0]["slug"] == slug)
+    if portadas:
+        out.append(("💀", f"Portada de la vergüenza ×{portadas}"))
+    faros = sum(1 for e in editions for it in e["items"] if it.get("player") == slug
+                and it.get("section") in ("EL FARO DE LA ESPERANZA", "MENCIÓN"))
+    if faros:
+        out.append(("☼", f"Iluminado por el Faro ×{faros}"))
+    if games:
+        worst = max(games, key=lambda x: x["d"])
+        out.append(("⚰", f"Récord de muertes: {worst['d']} con {champ_name(worst['champ'])}"))
+        best = max(games, key=lambda x: ((x["k"] + x["a"]) / max(x["d"], 1)))
+        out.append(("👑", f"Mejor partida: {best['k']}/{best['d']}/{best['a']} con {champ_name(best['champ'])}"))
+        champs = Counter(champ_name(x["champ"]) for x in games)
+        fav, n = champs.most_common(1)[0]
+        if n >= 3:
+            out.append(("♥", f"Fiel a {fav} ({n} partidas)"))
+        for c, n in champs.items():
+            if n >= 3 and not any(x["win"] for x in games if champ_name(x["champ"]) == c):
+                out.append(("☠", f"Maldito con {c} (0–{n})"))
+    porras = sum(1 for e in editions if alias in [a["nombre"] for a in (e.get("porra") or {}).get("acertantes", [])])
+    if porras:
+        out.append(("🔮", f"Vidente de la porra ×{porras}"))
+    return out
+
+
+def _ficha_runeterra(p, slug, canon):
+    if not p:
+        return ""
+    title = canon_mod.current_title(p)
+    rows = []
+    for label, key in (("Apodos", "apodos"), ("Rasgos", "rasgos"), ("Maldiciones", "maldiciones"), ("Rivales", "rivales")):
+        vals = canon_mod.texts(p.get(key))
+        if vals:
+            rows.append(f'<li><b>{label}:</b> {_e(" · ".join(vals))}</li>')
+    hilos = [h for h in canon["hilos"] if slug in h.get("protagonistas", [])]
+    if hilos:
+        rows.append('<li><b>Sagas:</b> ' + ", ".join(f'<a href="../sagas.html#{_e(h["id"])}">{_e(h["titulo"])}</a>'
+                                                   for h in hilos) + '</li>')
+    return (f'<div class="box ficha-rt"><h4>Ficha de Runeterra</h4>'
+            + (f'<p class="titulo-rt">{_e(title)}</p>' if title else "")
+            + (f'<p class="small faccion">{_e(p["faccion"])}</p>' if p.get("faccion") else "")
+            + f'<ul>{"".join(rows)}</ul></div>')
+
+
+def render_player(cfg, friend, editions, canon=None):
     slug = friend["slug"]
+    canon = canon or canon_mod.empty()
     games, items, scores = [], [], []
     portadas = 0
     for ed in editions:
@@ -1488,6 +1786,9 @@ def render_player(cfg, friend, editions):
     table = ('<div class="tablewrap"><table><thead><tr><th>Día</th><th>Campeón</th><th>Rol</th><th>Cola</th><th></th>'
              '<th class="num">KDA</th><th class="num">Daño</th></tr></thead><tbody>' + rows + '</tbody></table></div>'
              ) if rows else '<p class="small">Sin partidas todavía.</p>'
+    logros = _logros(slug, friend["alias"], games, editions)
+    logros_html = ('<div class="box logros"><h4>Logros (y deshonras)</h4><ul>'
+                   + "".join(f'<li><span>{i}</span>{_e(t)}</li>' for i, t in logros) + '</ul></div>') if logros else ""
     body = f"""
 <section class="profile">
   <div><div class="kicker">Ficha policial</div><h2>{_e(friend["alias"])}</h2>
@@ -1498,7 +1799,9 @@ def render_player(cfg, friend, editions):
 <div class="cols">
   <section class="secblock"><header class="sec-head"><h3 class="sec-name">Su hemeroteca</h3><span class="sec-desk">Todo lo publicado sobre {_e(friend["alias"])}</span></header>
     <div class="sec-grid">{news or '<p class="small">Todavía no ha salido en el periódico.</p>'}</div></section>
-  <aside><div class="box"><h4>Quién cotillea esta ficha</h4><p class="small visitas" data-visitas="jugador:{_e(slug)}">Cargando…</p></div>
+  <aside>{_ficha_runeterra(canon["personajes"].get(slug), slug, canon)}
+    {logros_html}
+    <div class="box"><h4>Quién cotillea esta ficha</h4><p class="small visitas" data-visitas="jugador:{_e(slug)}">Cargando…</p></div>
     <div class="box"><h4>Últimas partidas</h4>{table}</div></aside>
 </div>"""
     return page(cfg, f"{friend['alias']} · {cfg['site_title']}", body, "../", pagina=f"jugador:{slug}",
@@ -1531,7 +1834,7 @@ def render_players_index(cfg, friends, editions):
     return page(cfg, f"Jugadores · {cfg['site_title']}", body, "", pagina="jugadores")
 
 
-def build_site(cfg, friends, editions, out_dir):
+def build_site(cfg, friends, editions, out_dir, canon=None):
     out = Path(out_dir)
     (out / "ediciones").mkdir(parents=True, exist_ok=True)
     (out / "jugadores").mkdir(parents=True, exist_ok=True)
@@ -1547,6 +1850,8 @@ def build_site(cfg, friends, editions, out_dir):
             known.setdefault(r["slug"], {"slug": r["slug"], "alias": r["alias"], "riot_id": r.get("riot_id", "")})
     friends_all = list(known.values())
     ROSTER[:] = [{"slug": f["slug"], "alias": f["alias"]} for f in friends_all]
+    ACE.clear()
+    ACE.update(load_json(ROOT / "data" / "ace_league.json", None) or {})
 
     for i, ed in enumerate(editions):
         html = render_edition(cfg, ed, editions[:i + 1], "../", latest=i == len(editions) - 1)
@@ -1561,6 +1866,8 @@ def build_site(cfg, friends, editions, out_dir):
     (out / "archivo.html").write_text(render_archive(cfg, editions), encoding="utf-8")
     (out / "jugadores.html").write_text(render_players_index(cfg, friends_all, editions), encoding="utf-8")
     (out / "proponer.html").write_text(render_proponer(cfg), encoding="utf-8")
+    canon = canon if canon is not None else canon_mod.load()
+    (out / "sagas.html").write_text(render_sagas(cfg, canon, editions), encoding="utf-8")
     for f in friends_all:
-        (out / "jugadores" / f"{f['slug']}.html").write_text(render_player(cfg, f, editions), encoding="utf-8")
+        (out / "jugadores" / f"{f['slug']}.html").write_text(render_player(cfg, f, editions, canon), encoding="utf-8")
     return out

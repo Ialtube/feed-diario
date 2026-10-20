@@ -1,0 +1,11 @@
+{
+  "_instrucciones": "Edita este archivo (también desde la web de GitHub, con el lápiz) para que el periódico siga la ACE League. En 'partidos', añade cada partido con fecha (AAAA-MM-DD), rival, resultado ('victoria', 'derrota' o 'pendiente'), marcador opcional y notas. El periódico los cuenta en su sección y los usa para sus sagas.",
+  "equipo": "El Rincón del Viciado",
+  "competicion": "ACE League",
+  "division": "Primera división",
+  "temporada": "",
+  "plantilla": ["grangalax", "thetrevur", "wolf", "fr4nux", "gsjoseador", "dierophant", "ipredatorz", "sunraku", "rdv-canyon", "giroroo", "saiko"],
+  "historia": "La temporada pasada se metió en los playoffs de la primera división. Vuelve con la plantilla de siempre y el fichaje de Saiko.",
+  "partidos": [],
+  "clasificacion": []
+}

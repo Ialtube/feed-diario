@@ -52,6 +52,28 @@ class Store:
         self.matches()[summary["id"]] = summary
         return True
 
+    def update_match(self, summary):
+        """Rewrites a stored match (to add its timeline summary)."""
+        month = datetime.fromtimestamp(summary["end"] / 1000, timezone.utc).strftime("%Y-%m")
+        path = self.dir / "matches" / f"{month}.jsonl"
+        lines = []
+        with open(path, encoding="utf-8") as fh:
+            for line in fh:
+                if line.strip():
+                    m = json.loads(line)
+                    lines.append(summary if m["id"] == summary["id"] else m)
+        with open(path, "w", encoding="utf-8") as fh:
+            for m in lines:
+                fh.write(json.dumps(m, ensure_ascii=False, separators=(",", ":")) + "\n")
+        self.matches()[summary["id"]] = summary
+
+    # ---------------------------------------------------------------- ranks
+    def ranks(self):
+        return load_json(self.dir / "rangos.json", None) or {}
+
+    def save_ranks(self, ranks):
+        save_json(self.dir / "rangos.json", ranks)
+
     # ---------------------------------------------------------------- editions
     def editions(self):
         out = []

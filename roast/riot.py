@@ -101,3 +101,10 @@ class RiotClient:
 
     def match(self, match_id):
         return self._get(self._regional(f"/lol/match/v5/matches/{match_id}"))
+
+    def timeline(self, match_id):
+        return self._get(self._regional(f"/lol/match/v5/matches/{match_id}/timeline"))
+
+    def league_entries(self, puuid):
+        """Ranked entries (Solo/Duo and Flex) of a player: tier, division, LP, wins, losses."""
+        return self._get(f"https://{self.platform}.api.riotgames.com/lol/league/v4/entries/by-puuid/{puuid}") or []

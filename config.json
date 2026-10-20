@@ -19,5 +19,6 @@
   "llm_model": "claude-opus-5-5",
   "items_per_player": 2,
   "supabase_url": "https://mdaiktkmmpskutcyuimw.supabase.co",
-  "supabase_anon_key": "sb_publishable_-PqXKXMMx8t29MG3tMksbQ_kLQIWdPj"
+  "supabase_anon_key": "sb_publishable_-PqXKXMMx8t29MG3tMksbQ_kLQIWdPj",
+  "site_url": "https://ialtube.github.io/feed-diario/"
 }

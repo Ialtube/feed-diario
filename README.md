@@ -241,3 +241,17 @@ docs/                   la web publicada (la genera el robot)
 .github/workflows/      el robot diario
 tests/                  pruebas
 ```
+
+## Memoria del periódico, lectores y ACE League
+
+- **Canon** (`data/canon.json`): personajes, elenco ficticio, sagas (hilos que se abren, escalan y se
+  cierran), costumbres y chistes. Lo actualiza la rutina cada día; se ve en la página **Sagas** y en
+  la «Ficha de Runeterra» de cada jugador.
+- **Lectores**: «¿Quién eres?» (cuenta y smurfs), reacciones y comentarios en cada noticia, derecho de
+  réplica del aludido, porra de quién será el peor, sorteo, visitas y «el cotilla del día». Todo vive en
+  Supabase: si añades funciones nuevas, vuelve a ejecutar `supabase/setup.sql`.
+- **ACE League**: edita [`data/ace_league.json`](data/ace_league.json) (también desde GitHub, con el
+  lápiz) y añade los partidos con fecha, rival, resultado y marcador. El periódico abre su sección y
+  lo cuenta como una temporada.
+- **Riot**: además de las partidas, el robot descarga cada mañana la línea temporal de cada partida
+  (primera sangre, muertes en el mismo sitio, objetivos) y los rangos de SoloQ y Flex para la Bolsa de LP.

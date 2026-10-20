@@ -14,7 +14,9 @@ import time
 from datetime import datetime, timedelta
 
 from .ai import AIError, ai_status, apply_file, mark_stale_on_regenerate, read_events, write_context
-from .fetch import fetch_new_matches, resolve_players
+from .fetch import fetch_new_matches, fetch_ranks, fetch_timelines, resolve_players
+from . import porra as porra_mod
+from .rangos import market
 from .llm import polish
 from .notify import post_discord
 from .pipeline import make_edition
@@ -61,8 +63,15 @@ def cmd_run(args):
     except RiotError as e:
         sys.exit(f"Error con la API de Riot: {e}")
     print(f"  {added} partidas nuevas guardadas ({client.requests_made} peticiones a Riot)")
+    # extras: what happened inside the games, and the ranked positions (never stop the paper for them)
+    try:
+        fetch_timelines(client, store, players, start_ms, end_ms)
+        fetch_ranks(client, store, players, date_str)
+    except RiotError as e:
+        print(f"  ! No se pudieron descargar líneas temporales o rangos: {e}")
 
     edition = make_edition(cfg, store, players, start_ms, end_ms, date_str, number)
+    edition["bolsa"] = market(store.ranks(), date_str, [{"slug": p["slug"], "alias": p["alias"]} for p in players])
     print(f"  {edition['totals']['games']} partidas del grupo en la ventana, {len(edition['items'])} noticias")
     same_games = existing and {g["match"] for g in existing.get("games", [])} == {g["match"] for g in edition["games"]}
     if existing and existing.get("ai") and same_games and existing["window"] == edition["window"]:
@@ -74,10 +83,12 @@ def cmd_run(args):
     if existing and existing.get("sorteo"):
         # the draw already happened: re-running the robot must not move it or re-check tickets
         edition["sorteo"], edition["generated_at"] = existing["sorteo"], existing["generated_at"]
+        edition["porra"] = existing.get("porra")
     else:
         previous = next((e for e in sorted(store.editions(), key=lambda e: e["date"], reverse=True)
                          if e["date"] < date_str), None)
         edition["sorteo"] = draw(cfg, edition, previous)
+        edition["porra"] = porra_mod.resolve(cfg, edition, previous)
         s = edition["sorteo"]
         print(f"  Sorteo: {'-'.join(map(str, s['combinacion']))}, {s['participantes']} boletos, "
               f"{len(s['acertantes'])} acertantes")

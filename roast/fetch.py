@@ -71,6 +71,73 @@ def resolve_players(client, store, friends, log=print):
     return players
 
 
+QUEUES = {"RANKED_SOLO_5x5": "solo", "RANKED_FLEX_SR": "flex"}
+
+
+def summarize_timeline(tl, puuids):
+    """What happened inside a match for the friends: first blood, when and where they died,
+    deaths to towers or minions, and the epic monsters they took."""
+    info = (tl or {}).get("info") or {}
+    pid = {p.get("participantId"): p.get("puuid") for p in info.get("participants", [])}
+    out = {"fb": None, "jug": {}}
+    deaths = {}
+    for fr in info.get("frames", []):
+        for ev in fr.get("events", []):
+            t = ev.get("type")
+            if t == "CHAMPION_KILL":
+                victim, killer = pid.get(ev.get("victimId")), pid.get(ev.get("killerId"))
+                if out["fb"] is None:
+                    out["fb"] = {"killer": killer, "victim": victim, "min": round(ev.get("timestamp", 0) / 60000, 1)}
+                if victim in puuids:
+                    deaths.setdefault(victim, []).append((ev.get("timestamp", 0), ev.get("position") or {},
+                                                          not ev.get("killerId")))
+            elif t == "ELITE_MONSTER_KILL":
+                k = pid.get(ev.get("killerId"))
+                if k in puuids:
+                    out["jug"].setdefault(k, {}).setdefault("objetivos", []).append(ev.get("monsterType"))
+    for p, ds in deaths.items():
+        mins = [round(ts / 60000, 1) for ts, _, _ in ds]
+        pts = [(pos["x"], pos["y"]) for _, pos, _ in ds if "x" in pos and "y" in pos]
+        spot = max((sum(1 for a, b in pts if (a - x) ** 2 + (b - y) ** 2 <= 1200 ** 2) for x, y in pts), default=0)
+        out["jug"].setdefault(p, {}).update({
+            "muertes_min": mins, "antes_del_10": sum(1 for m in mins if m < 10),
+            "mismo_sitio": spot, "ejecutado": sum(1 for *_, e in ds if e)})
+    return out
+
+
+def fetch_timelines(client, store, players, start_ms, end_ms, log=print):
+    """Adds the timeline summary to every match of the window that does not have it yet."""
+    puuids = {p["puuid"] for p in players}
+    done = 0
+    for m in sorted(store.matches().values(), key=lambda m: m["end"]):
+        if not (start_ms <= m["end"] < end_ms) or "tl" in m:
+            continue
+        if not any(p["puuid"] in puuids for p in m["parts"]):
+            continue
+        tl = client.timeline(m["id"])
+        if tl:
+            store.update_match(dict(m, tl=summarize_timeline(tl, puuids)))
+            done += 1
+    log(f"  {done} líneas temporales de partidas descargadas")
+    return done
+
+
+def fetch_ranks(client, store, players, date_str, log=print):
+    """Today's ranked position of every friend, kept day by day in data/rangos.json."""
+    ranks = store.ranks()
+    today = {}
+    for p in players:
+        entries = client.league_entries(p["puuid"])
+        today[p["slug"]] = {QUEUES[e["queueType"]]: {"tier": e.get("tier"), "rank": e.get("rank"),
+                                                     "lp": e.get("leaguePoints", 0), "wins": e.get("wins", 0),
+                                                     "losses": e.get("losses", 0)}
+                            for e in entries if e.get("queueType") in QUEUES}
+    ranks[date_str] = today
+    store.save_ranks(ranks)
+    log(f"  Rangos guardados de {sum(1 for v in today.values() if v)} jugadores")
+    return today
+
+
 def fetch_new_matches(client, store, players, since_ms, max_per_player=20, log=print):
     """Downloads matches ended after since_ms that are not stored yet. Returns how many were added."""
     added = 0

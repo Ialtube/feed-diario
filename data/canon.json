@@ -1,0 +1,499 @@
+{
+  "personajes": {
+    "grangalax": {
+      "alias": "grangalax",
+      "titulo_inicial": "Barón de la Moneda",
+      "faccion": "Casa de la Moneda de Piltover",
+      "apodos": [
+        "la moneda"
+      ],
+      "rasgos": [
+        "Su winrate histórico es un 50 % exacto: gana una, pierde otra",
+        "Es el que más partidas juega del grupo",
+        "Locke en negativo"
+      ],
+      "maldiciones": [
+        {
+          "fecha": "2026-10-20",
+          "texto": "Diana: 17 muertes en su estreno"
+        }
+      ],
+      "rivales": [],
+      "titulos": []
+    },
+    "thetrevur": {
+      "alias": "TheTrevur",
+      "titulo_inicial": "Gran Maestre del Cangrejo",
+      "faccion": "Talleres de Zaun",
+      "apodos": [
+        "Urgot.exe"
+      ],
+      "rasgos": [
+        "One-trick de Urgot",
+        "El que mejor juega del grupo, y lo sabe",
+        {
+          "fecha": "2026-10-20",
+          "texto": "Desaparecido mientras otros conducen su Urgot"
+        }
+      ],
+      "maldiciones": [],
+      "rivales": [],
+      "titulos": []
+    },
+    "wolf": {
+      "alias": "Wôlf",
+      "titulo_inicial": "Heraldo de los Pings",
+      "faccion": "Radio Zaun",
+      "apodos": [
+        "más perro que lobo"
+      ],
+      "rasgos": [
+        "Cien campeones y ninguno fijo",
+        "Tiltea fatal",
+        "Abusa de los pings"
+      ],
+      "maldiciones": [
+        {
+          "fecha": "2026-10-20",
+          "texto": "Gragas (0–3 en la hemeroteca)"
+        }
+      ],
+      "rivales": [
+        {
+          "fecha": "2026-10-20",
+          "texto": "Saiko, por el trono de los pings"
+        }
+      ],
+      "titulos": []
+    },
+    "fr4nux": {
+      "alias": "Fr4nux",
+      "titulo_inicial": "El Tirador sin Pólvora",
+      "faccion": "Expedientes del Instituto Hextech",
+      "apodos": [
+        "CARRY NOT FOUND"
+      ],
+      "rasgos": [
+        "Tirador de profesión que nunca hace daño",
+        "Firmó un pentakill en la primera semana"
+      ],
+      "maldiciones": [],
+      "rivales": [],
+      "titulos": [
+        {
+          "fecha": "2026-10-20",
+          "texto": "El Tirador en Remisión"
+        }
+      ]
+    },
+    "gsjoseador": {
+      "alias": "GSJoseador",
+      "titulo_inicial": "El Comodín de Noxus",
+      "faccion": "Arena de Noxus",
+      "apodos": [],
+      "rasgos": [
+        "Juega donde haga falta: jungla, top o mid",
+        "Capaz de lo mejor y de batir su propio récord de muertes la misma semana"
+      ],
+      "maldiciones": [],
+      "rivales": [],
+      "titulos": []
+    },
+    "dierophant": {
+      "alias": "Dierophant",
+      "titulo_inicial": "El Primer Condenado",
+      "faccion": "Centinelas de la Luz (en prácticas)",
+      "apodos": [],
+      "rasgos": [
+        "Fue la primera portada de la vergüenza de la historia del periódico (1–4 y 37 muertes)",
+        "Desde entonces, el que más visión pone del grupo"
+      ],
+      "maldiciones": [],
+      "rivales": [],
+      "titulos": [
+        {
+          "fecha": "2026-10-20",
+          "texto": "Farero de los Centinelas"
+        }
+      ]
+    },
+    "ipredatorz": {
+      "alias": "iPredatoRz",
+      "titulo_inicial": "El Fantasma del Vacío",
+      "faccion": "Perdidos en el Vacío",
+      "apodos": [],
+      "rasgos": [
+        "Apenas aparece por la Grieta"
+      ],
+      "maldiciones": [],
+      "rivales": [],
+      "titulos": []
+    },
+    "sunraku": {
+      "alias": "Sunraku",
+      "titulo_inicial": "El Recolector Distraído",
+      "faccion": "Cosechas de Demacia",
+      "apodos": [
+        {
+          "fecha": "2026-10-20",
+          "texto": "el ladrón de cangrejos"
+        }
+      ],
+      "rasgos": [
+        "Top que se olvida de los súbditos",
+        "Se atrevió con el Urgot de TheTrevur"
+      ],
+      "maldiciones": [],
+      "rivales": [],
+      "titulos": []
+    },
+    "rdv-canyon": {
+      "alias": "RDV Canyon",
+      "titulo_inicial": "Locutor Jefe de Radio Zaun",
+      "faccion": "Radio Zaun",
+      "apodos": [],
+      "rasgos": [
+        "Récord de pings de la primera semana",
+        "Soporte de voz incansable"
+      ],
+      "maldiciones": [],
+      "rivales": [],
+      "titulos": []
+    },
+    "giroroo": {
+      "alias": "Giroroo",
+      "titulo_inicial": "El Invicto Intermitente",
+      "faccion": "Monasterios de Jonia",
+      "apodos": [],
+      "rasgos": [
+        "Juega poco, pero cuando juega gana"
+      ],
+      "maldiciones": [],
+      "rivales": [],
+      "titulos": []
+    },
+    "saiko": {
+      "alias": "Saiko",
+      "titulo_inicial": "La Reliquia del Arcón",
+      "faccion": "El Rincón del Viciado",
+      "apodos": [
+        {
+          "fecha": "2026-10-20",
+          "texto": "el que no pierde"
+        }
+      ],
+      "rasgos": [
+        "Vieja gloria rescatada para la ACE League",
+        "Soporte",
+        {
+          "fecha": "2026-10-20",
+          "texto": "Soporte que gana y te lo recuerda a pings"
+        }
+      ],
+      "maldiciones": [],
+      "rivales": [],
+      "titulos": []
+    }
+  },
+  "elenco": [
+    {
+      "nombre": "Comisario Ambrosio Cobretuerca",
+      "cargo": "Jefe de la Comisaría de Piltover",
+      "institucion": "Comisaría de Piltover",
+      "rasgo": "Lleva un expediente por jugador y ya no le caben en el archivo",
+      "semilla": true
+    },
+    {
+      "nombre": "Fiscal Lucrecia Hexwick",
+      "cargo": "Fiscal del Tribunal de Piltover",
+      "institucion": "Tribunal de Piltover",
+      "rasgo": "Nunca ha perdido un juicio por feed",
+      "semilla": true
+    },
+    {
+      "nombre": "Doctor Ezequiel Humoverde",
+      "cargo": "Forense de Zaun",
+      "institucion": "Laboratorios de Zaun",
+      "rasgo": "Hace las autopsias de las partidas; cobra por muerte",
+      "semilla": true
+    },
+    {
+      "nombre": "Barbanegra el Contable",
+      "cargo": "Corredor de la Lonja",
+      "institucion": "Lonja de Aguasturbias",
+      "rasgo": "Cotiza a cada jugador como un valor en bolsa",
+      "semilla": true
+    },
+    {
+      "nombre": "Madame Niebla",
+      "cargo": "Vidente y meteoróloga",
+      "institucion": "Islas de la Sombra",
+      "rasgo": "Firma el horóscopo y la previsión del tiempo; nunca acierta nada bueno",
+      "semilla": true
+    },
+    {
+      "nombre": "Hermano Venda",
+      "cargo": "Cronista de los Centinelas de la Luz",
+      "institucion": "El Faro de la Esperanza",
+      "rasgo": "Busca algo bueno que contar y casi nunca lo encuentra",
+      "semilla": true
+    }
+  ],
+  "hilos": [
+    {
+      "id": "la-moneda",
+      "titulo": "La moneda de grangalax",
+      "abierto": "2026-10-12",
+      "semilla": true,
+      "protagonistas": [
+        "grangalax"
+      ],
+      "resumen": "grangalax gana una y pierde otra con precisión de reloj: su winrate es un 50 % exacto y juega más que nadie, así que es el que más veces cae del lado malo.",
+      "estados": [
+        {
+          "fecha": "2026-10-12",
+          "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-15",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-20",
+          "estado": "escalando"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-15",
+          "resumen": "Jueves negro: 84 muertes en 9 partidas y su primera portada.",
+          "titulares": [
+            "Jueves negro: grangalax muere 84 veces en 9 partidas"
+          ]
+        },
+        {
+          "fecha": "2026-10-18",
+          "resumen": "Vuelve Locke y cierra el domingo 3–5 con 70 muertes.",
+          "titulares": [
+            "Vuelve Locke y vuelve el desastre: grangalax cierra el domingo 3–5 con 70 muertes"
+          ]
+        },
+        {
+          "fecha": "2026-10-20",
+          "resumen": "Estrena Diana, muere diecisiete veces (nuevo récord de la hemeroteca, el anterior también era suyo) y gana de madrugada con Ekko. Día 2–1 y portada otra vez.",
+          "titulares": [
+            "Diana, estrenada y enterrada en la misma noche"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-trono-de-la-verguenza",
+      "titulo": "El trono de la vergüenza",
+      "abierto": "2026-10-15",
+      "semilla": true,
+      "protagonistas": [
+        "grangalax"
+      ],
+      "resumen": "grangalax se ha sentado en lo alto de la General de la vergüenza y nadie consigue quitarle el sitio.",
+      "estados": [
+        {
+          "fecha": "2026-10-15",
+          "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-19",
+          "estado": "escalando"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-19",
+          "resumen": "Tras ocho ediciones manda en la General con 21 puntos y tres portadas.",
+          "titulares": [
+            "Una semana de periódico y grangalax ya tiene despacho propio"
+          ]
+        },
+        {
+          "fecha": "2026-10-20",
+          "resumen": "grangalax suma su cuarta portada y llega a 26 puntos, diez por delante de Wôlf.",
+          "titulares": [
+            "El trono no se mueve"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carry-not-found",
+      "titulo": "En busca del daño perdido de Fr4nux",
+      "abierto": "2026-10-12",
+      "semilla": true,
+      "protagonistas": [
+        "fr4nux"
+      ],
+      "resumen": "El Instituto Hextech investiga a un tirador que no hace daño. Un pentakill en la primera semana complicó el expediente.",
+      "estados": [
+        {
+          "fecha": "2026-10-12",
+          "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-14",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-20",
+          "estado": "desenlace"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-14",
+          "resumen": "Del pentakill a la portada de la vergüenza en un día.",
+          "titulares": [
+            "Resaca de gloria: Fr4nux pasa del pentakill a la portada de la vergüenza"
+          ]
+        },
+        {
+          "fecha": "2026-10-19",
+          "resumen": "Juzgado por la Kalista de 12 muertes, nuevo récord personal, con el 9,6 % del daño.",
+          "titulares": [
+            "Piltover juzga a la Kalista de Fr4nux"
+          ]
+        },
+        {
+          "fecha": "2026-10-20",
+          "resumen": "Remisión inesperada: 4–1, casi un tercio del daño con Caitlyn y triple con Jinx. El Instituto Hextech se plantea cerrar el expediente.",
+          "titulares": [
+            "Parte médico: remisión inesperada en el síndrome de daño ausente de Fr4nux"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-rincon-del-viciado",
+      "titulo": "El Rincón del Viciado vuelve a la ACE League",
+      "abierto": "2026-10-20",
+      "protagonistas": [
+        "dierophant",
+        "fr4nux",
+        "grangalax",
+        "gsjoseador",
+        "saiko",
+        "sunraku"
+      ],
+      "resumen": "Un lector anuncia el regreso del equipo del grupo a la ACE League, con Saiko rescatado del arcón. El ensayo del lunes acaba 2–1.",
+      "estados": [
+        {
+          "fecha": "2026-10-20",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-20",
+          "resumen": "Un lector anuncia el regreso del equipo del grupo a la ACE League, con Saiko rescatado del arcón. El ensayo del lunes acaba 2–1.",
+          "titulares": [
+            "NO ESTABAN MUERTOS, ESTABAN DE PARRANDA: vuelve el Rincón del Viciado y rescata a Saiko del arcón",
+            "El ensayo general: una noche de Flex con dos victorias, un funeral y ningún culpable reconocido"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "la-maldicion-del-tabernero",
+      "titulo": "La maldición del tabernero",
+      "abierto": "2026-10-20",
+      "protagonistas": [
+        "wolf"
+      ],
+      "resumen": "Wôlf pierde su tercera partida con Gragas en la hemeroteca. El tribunal inhabilita al tabernero.",
+      "estados": [
+        {
+          "fecha": "2026-10-20",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-20",
+          "resumen": "Wôlf pierde su tercera partida con Gragas en la hemeroteca. El tribunal inhabilita al tabernero.",
+          "titulares": [
+            "Gragas, acusado de arruinar a Wôlf por tercera vez"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-cangrejo-huerfano",
+      "titulo": "El cangrejo huérfano",
+      "abierto": "2026-10-20",
+      "protagonistas": [
+        "sunraku",
+        "thetrevur"
+      ],
+      "resumen": "Con TheTrevur desaparecido, Sunraku se lleva su Urgot y lo conduce mejor que su propio Gnar.",
+      "estados": [
+        {
+          "fecha": "2026-10-20",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-20",
+          "resumen": "Con TheTrevur desaparecido, Sunraku se lleva su Urgot y lo conduce mejor que su propio Gnar.",
+          "titulares": [
+            "El cangrejo huérfano: Sunraku se lleva el Urgot de TheTrevur y lo devuelve mejor de lo que estaba"
+          ]
+        }
+      ]
+    }
+  ],
+  "costumbres": [
+    {
+      "texto": "Las Flex del grupo empiezan pasadas las 21:00 y se alargan hasta cerca de la medianoche.",
+      "semilla": true
+    },
+    {
+      "texto": "Cuando se juntan cinco en Flex, el periódico tiene portada.",
+      "semilla": true
+    },
+    {
+      "fecha": "2026-10-20",
+      "texto": "Los lunes, la Flex del grupo arranca a las 21:00 y encadena tres partidas hasta cerca de medianoche."
+    }
+  ],
+  "chistes": [
+    {
+      "texto": "la moneda de grangalax",
+      "fechas": [
+        "2026-10-20"
+      ],
+      "usos": 1,
+      "semilla": true
+    },
+    {
+      "texto": "Urgot.exe",
+      "fechas": [
+        "2026-10-20"
+      ],
+      "usos": 1,
+      "semilla": true
+    },
+    {
+      "texto": "más perro que lobo",
+      "fechas": [],
+      "usos": 0,
+      "semilla": true
+    },
+    {
+      "texto": "CARRY NOT FOUND",
+      "fechas": [
+        "2026-10-20"
+      ],
+      "usos": 1,
+      "semilla": true
+    }
+  ]
+}

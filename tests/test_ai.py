@@ -181,7 +181,9 @@ class AIFlowTest(unittest.TestCase):
                 ]
                 horos = [{"signo": s, "texto": "Los astros dicen algo bastante largo sobre tu rol hoy."}
                          for s in ai.SIGNOS]
-                data = {"piezas": piezas, "horoscopo": horos, "frase": "Una frase nueva para hoy.",
+                tiempo = [{"jugador": r["slug"], "texto": "Niebla persistente con chubascos de muertes al caer la tarde."}
+                          for r in ed["ranking"]]
+                data = {"piezas": piezas, "horoscopo": horos, "frase": "Una frase nueva para hoy.", "tiempo": tiempo,
                         "columna": {"titulo": "Columna de prueba", "cuerpo": ["Un párrafo de columna de prueba."]}}
                 known = {f["slug"] for f in FRIENDS}
                 clean = ai.validate_v2(data, ed, known, dossier)
@@ -229,6 +231,78 @@ class AIFlowTest(unittest.TestCase):
             self.assertEqual(datetime.fromtimestamp(end / 1000, tz).hour, 7)
             self.assertEqual(end - start, 24 * 3600 * 1000)
 
+    def test_canon_threads(self):
+        from roast import canon
+        with tempfile.TemporaryDirectory() as tmp:
+            cfg, store = demo_store(tmp)
+            ed = store.edition("2026-10-19")
+            from roast.dossier import build_dossier
+            dossier = build_dossier(cfg, store, FRIENDS, ed, store.editions())
+            known = {f["slug"] for f in FRIENDS}
+            path = Path(tmp) / "canon.json"
+            seed = canon.empty()
+            for hid in ("moneda", "dano"):
+                seed["hilos"].append({"id": hid, "titulo": f"Hilo {hid}", "abierto": "2026-10-10", "semilla": True,
+                                      "estados": [{"fecha": "2026-10-10", "estado": "abierto"}], "capitulos": []})
+            canon.save(seed, path)
+            roll = ", ".join(r["alias"] for r in ed["ranking"])
+            angles = dossier["angulos"]
+            faro = next((a for a in angles if a["tipo"] == "faro"), None)
+            required = [a for a in angles if a["tipo"] in ("sesion_flex", "colas")]
+            first = next(a for a in angles if a is not faro and a not in required)
+            body = "Una historia larga contada con calma y sin tantas cifras por medio. " * 12 + roll + "."
+            mid = "Una pieza mediana que avanza la trama del día con mala leche. " * 7 + roll + "."
+            brief = "Breve con su veneno correspondiente para el lector. " * 3
+            piezas = [
+                {"angulo": first["id"], "peso": "grande", "portada": True, "formato": "crónica", "hilo": "moneda",
+                 "headline": "Portada con saga", "body": body},
+                {"angulo": faro["id"] if faro else None, "peso": "mediana", "formato": "nota de prensa",
+                 "seccion": "EL FARO DE LA ESPERANZA", "hilo": "dano", "headline": "Luz en el Faro", "body": mid},
+                {"angulo": None, "peso": "mediana", "formato": "reportaje", "hilo": "nuevo-hilo",
+                 "headline": "Se abre una trama", "body": mid},
+                {"angulo": required[0]["id"] if required else None, "peso": "breve", "formato": "telegrama",
+                 "headline": "Breve uno", "body": brief},
+                {"angulo": required[1]["id"] if len(required) > 1 else None, "peso": "breve", "formato": "breve",
+                 "headline": "Breve dos", "body": brief},
+                {"angulo": None, "peso": "breve", "formato": "anuncio por palabras", "headline": "Breve tres", "body": brief},
+            ]
+            data = {"piezas": piezas, "frase": "Frase del día de prueba.",
+                    "columna": {"titulo": "Columna", "cuerpo": ["Un párrafo de columna de prueba."]},
+                    "horoscopo": [{"signo": s, "texto": "Los astros dicen algo bastante largo sobre tu rol hoy."}
+                                  for s in ai.SIGNOS],
+                    "tiempo": [{"jugador": r["slug"], "texto": "Niebla Negra persistente sobre su carril."}
+                               for r in ed["ranking"]],
+                    "canon": {"hilos": [
+                        {"id": "moneda", "accion": "avanzar", "estado": "escalando", "resumen": "La moneda vuelve a caer de cruz."},
+                        {"id": "dano", "accion": "avanzar", "resumen": "El daño sigue sin aparecer."},
+                        {"id": "nuevo-hilo", "accion": "abrir", "titulo": "Una trama nueva", "resumen": "Empieza algo raro."}],
+                        "personajes": {"fr4nux": {"apodo": "El Desaparecido"}}, "chistes": ["la moneda"]}}
+            c = canon.load(path)
+            clean = ai.validate_v2(data, ed, known, dossier, c)
+            ai.apply_v2(ed, clean, path)
+            clean = ai.validate_v2(data, ed, known, dossier, canon.load(path))   # the same day validates again
+            ai.apply_v2(ed, clean, path)        # rewriting the same day does not pile up chapters
+            c = canon.load(path)
+            ids = [h["id"] for h in c["hilos"]]
+            self.assertEqual(ids.count("nuevo-hilo"), 1)
+            moneda = next(h for h in c["hilos"] if h["id"] == "moneda")
+            self.assertEqual(len(moneda["capitulos"]), 1)
+            self.assertEqual(canon.hilo_estado(moneda), "escalando")
+            self.assertEqual(ed["items"][0]["saga"], {"id": "moneda", "titulo": "Hilo moneda", "capitulo": 1, "estado": "escalando"})
+            self.assertEqual(canon.texts(c["personajes"]["fr4nux"]["apodos"]), ["El Desaparecido"])
+            bad = [
+                dict(data, piezas=[dict(p, hilo=None) for p in piezas]),                      # no threads
+                dict(data, piezas=[dict(piezas[0], hilo=None)] + piezas[1:]),                  # front page without saga
+                dict(data, canon={"hilos": []}),                                               # threads not recorded
+                dict(data, tiempo=[]),                                                         # no weather
+                dict(data, piezas=[dict(piezas[0], body="El 4/17/23 de las 21:55, con 38 minutos y 59 muertes, "
+                                         "deja 7.060 de oro, 9,9 minutos y 0 objetivos. " * 10 + roll)] + piezas[1:]),
+                dict(data, piezas=piezas[:5] + [dict(piezas[5], formato="parte meteorológico", seccion="DEPORTES")]),
+            ]
+            for b in bad:
+                with self.assertRaises(ai.AIError):
+                    ai.validate_v2(b, ed, known, dossier, canon.load(path))
+
     def test_lottery(self):
         from roast import sorteo
         ed = {"date": "2026-10-20", "number": 9, "window": [0, 10], "generated_at": 10,
@@ -245,6 +319,54 @@ class AIFlowTest(unittest.TestCase):
         self.assertEqual(sorteo.draw({}, ed, {"sorteo": {"bote": 200}}, tickets=[])["bote"], 300)
         two = dict(ed, ranking=ed["ranking"][:1])
         self.assertEqual(len(sorteo.combination(two)[0]), 3)
+
+    def test_timeline_summary(self):
+        from roast.fetch import summarize_timeline
+        ev = lambda t, k, v, x=1000, y=1000: {"type": "CHAMPION_KILL", "timestamp": t, "killerId": k, "victimId": v,
+                                              "position": {"x": x, "y": y}}
+        tl = {"info": {"participants": [{"participantId": 1, "puuid": "yo"}, {"participantId": 6, "puuid": "rival"}],
+                       "frames": [{"events": [ev(120000, 6, 1), ev(300000, 6, 1, 1200, 1100), ev(400000, 0, 1, 900, 1000),
+                                              ev(900000, 1, 6, 9000, 9000),
+                                              {"type": "ELITE_MONSTER_KILL", "killerId": 1, "monsterType": "BARON_NASHOR"}]}]}}
+        out = summarize_timeline(tl, {"yo"})
+        self.assertEqual(out["fb"], {"killer": "rival", "victim": "yo", "min": 2.0})
+        self.assertEqual(out["jug"]["yo"]["mismo_sitio"], 3)
+        self.assertEqual(out["jug"]["yo"]["ejecutado"], 1)
+        self.assertEqual(out["jug"]["yo"]["antes_del_10"], 3)
+        self.assertEqual(out["jug"]["yo"]["objetivos"], ["BARON_NASHOR"])
+
+    def test_lp_market(self):
+        from roast.rangos import market, value
+        ranks = {"2026-10-20": {"a": {"solo": {"tier": "GOLD", "rank": "I", "lp": 90}}},
+                 "2026-10-21": {"a": {"solo": {"tier": "PLATINUM", "rank": "IV", "lp": 10}, "flex": {"tier": "SILVER", "rank": "II", "lp": 5}}}}
+        m = market(ranks, "2026-10-21", [{"slug": "a", "alias": "A"}])
+        row = m["filas"][0]
+        self.assertEqual(row["solo"]["cambio"], "ascenso")
+        self.assertEqual(row["solo"]["delta"], value({"tier": "PLATINUM", "rank": "IV", "lp": 10}) - value({"tier": "GOLD", "rank": "I", "lp": 90}))
+        self.assertIsNone(row["flex"]["delta"])
+        self.assertEqual(m["desde"], "2026-10-20")
+
+    def test_pool_and_readers(self):
+        from roast import porra, lectores
+        ed = {"date": "2026-10-21", "window": [0, 10], "generated_at": 10,
+              "ranking": [{"slug": "a", "alias": "A"}, {"slug": "b", "alias": "B"}],
+              "items": [{"id": 1, "headline": "Uno"}, {"id": 2, "headline": "Dos"}]}
+        res = porra.resolve({}, ed, None, bets=[{"nombre": "X", "lector": "1", "prediccion": "b"},
+                                                {"nombre": "X", "lector": "1", "prediccion": "a"},   # last bet counts
+                                                {"nombre": "Y", "lector": "2", "prediccion": "b"}])
+        self.assertEqual(res["peor"], "A")
+        self.assertEqual([a["nombre"] for a in res["acertantes"]], ["X"])
+        self.assertEqual(porra.seers([{"porra": res}, {"porra": res}]), [("X", 2)])
+        fb = lectores.feedback({}, ed, reactions=[{"pieza": 2, "emoji": "😂", "nombre": "X"}, {"pieza": 2, "emoji": "💀", "nombre": None}],
+                               comments=[{"pieza": 1, "nombre": "Y", "texto": "Vaya"}])
+        self.assertEqual(fb["mas_reaccionadas"][0]["titular"], "Dos")
+        self.assertEqual(fb["mas_reaccionadas"][0]["total"], 2)
+        self.assertEqual(fb["comentarios"][0]["titular"], "Uno")
+        sn = lectores.snoops({}, 0, 10, [{"slug": "a", "alias": "A"}],
+                             visits=[{"pagina": "jugador:a", "nombre": "B"}, {"pagina": "jugador:a", "nombre": "B"},
+                                     {"pagina": "jugador:a", "nombre": "A"}, {"pagina": "jugador:a", "nombre": None}])
+        self.assertEqual(sn[0], {"cotilla": "B", "ficha": "A", "veces": 2, "se_mira_a_si_mismo": False})
+        self.assertTrue(sn[1]["se_mira_a_si_mismo"])
 
     def test_overused_phrases(self):
         eds = [{"items": [{"headline": "La Comisaría de Piltover abre expediente", "body": "otra vez"}]}] * 3

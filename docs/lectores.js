@@ -133,10 +133,20 @@
       var id = el.getAttribute('data-pieza'), host = el.classList.contains('lead') ? el.firstElementChild : el;
       var d = document.createElement('div'); d.className = 'rx'; d.setAttribute('data-id', id);
       d.innerHTML = EMOJIS.map(function(e){ return '<button type="button" class="rx-e" data-e="'+e+'">'+e+'<b></b></button>'; }).join('') +
+        '<button type="button" class="rx-share" title="Compartir esta noticia">↗</button>' +
         '<span class="rx-c"><button type="button" class="rx-com" aria-label="Comentarios">💬<b></b></button>' +
-        '<div class="rx-pop"><div class="rx-list"></div><form class="rx-form"><textarea name="texto" maxlength="600" ' +
-        'placeholder="¿Qué opinas de esto?" required></textarea><button type="submit">Comentar</button>' +
-        '<span class="msg small"></span></form></div></span>';
+        '<div class="rx-pop"><div class="rx-list"></div><form class="rx-form"><textarea name="texto" maxlength="800" ' +
+        'placeholder="¿Qué opinas de esto?" required></textarea>' +
+        '<label class="rx-rep" hidden><input type="checkbox" name="rep"> Es mi derecho de réplica: soy el aludido</label>' +
+        '<button type="submit">Comentar</button><span class="msg small"></span></form></div></span>';
+      var jug = el.getAttribute('data-jugador');
+      var showRep = function(){ var y = Yo.get(); d.querySelector('.rx-rep').hidden = !(jug && y && (y.cuentas || []).indexOf(jug) >= 0); };
+      showRep(); d.querySelector('.rx-c').addEventListener('mouseenter', showRep);
+      d.querySelector('.rx-share').addEventListener('click', function(){
+        var url = location.href.split('#')[0] + '#p-' + id, t = (el.querySelector('h2,h3,h5') || {}).textContent || document.title;
+        if (navigator.share) navigator.share({title: t, url: url}).catch(function(){});
+        else window.open('https://wa.me/?text=' + encodeURIComponent(t + ' ' + url), '_blank', 'noopener');
+      });
       host.appendChild(d); bars[id] = d;
       d.querySelector('.rx-com').addEventListener('click', function(){ d.querySelector('.rx-c').classList.toggle('open'); });
       Array.prototype.forEach.call(d.querySelectorAll('.rx-e'), function(b){
@@ -148,6 +158,15 @@
         var send = function(y){
           if (!y) return;
           f.querySelector('button').disabled = true; f.querySelector('.msg').textContent = 'Enviando…';
+          if (f.rep.checked && !f.querySelector('.rx-rep').hidden) {
+            if (texto.length < 10) { f.querySelector('.msg').textContent = 'La réplica necesita al menos 10 caracteres.'; f.querySelector('button').disabled = false; return; }
+            post('replicas', {edicion: EDICION, pieza: Number(id), nombre: y.nombre, texto: texto.slice(0, 800)})
+              .then(function(){ f.texto.value = ''; f.rep.checked = false;
+                                f.querySelector('.msg').textContent = 'Réplica enviada: saldrá en la próxima edición.'; })
+              .catch(function(){ f.querySelector('.msg').textContent = 'No se pudo enviar la réplica.'; })
+              .then(function(){ f.querySelector('button').disabled = false; });
+            return;
+          }
           post('comentarios', {edicion: EDICION, pieza: Number(id), nombre: y.nombre, texto: texto.slice(0, 600)})
             .then(function(){ f.texto.value = ''; f.querySelector('.msg').textContent = '';
                               (com[id] = com[id] || []).push({nombre: y.nombre, texto: texto, created_at: new Date().toISOString()}); paint(id); })
@@ -244,6 +263,32 @@
           .then(function(){ bmsg.textContent = 'Boleto sellado: ' + nums.join(' · ') + '. Suerte mañana.'; count(); })
           .catch(function(){ bmsg.textContent = 'No se pudo sellar el boleto. Inténtalo de nuevo.'; })
           .then(function(){ bf.querySelector('button').disabled = false; });
+      });
+    }
+  }
+
+  // ------------------------------------------------------------------ the pool: who will be the worst tomorrow
+  var pz = document.getElementById('porra');
+  if (pz) {
+    var zmsg = pz.querySelector('.msg'), zc = document.getElementById('porra-cuenta');
+    if (!ok) { pz.querySelector('button').disabled = true; zmsg.textContent = 'La porra se abrirá en cuanto se configure la base de datos.'; }
+    else {
+      var zcount = function(){
+        api('/rest/v1/porras?select=id&limit=1&created_at=gt.'+encodeURIComponent(pz.getAttribute('data-desde')),
+            {headers:{Prefer:'count=exact'}}).then(function(r){
+          var n = (r.headers.get('content-range')||'').split('/')[1]; if (zc && n && n !== '*') zc.textContent = n;
+        }).catch(function(){});
+      };
+      zcount();
+      pz.addEventListener('submit', function(ev){
+        ev.preventDefault(); if (pz.web.value) return;
+        var nombre = pz.nombre.value.trim(), pred = pz.prediccion.value; if (!nombre || !pred) return;
+        Yo.remember(nombre);
+        pz.querySelector('button').disabled = true; zmsg.textContent = 'Apostando…';
+        post('porras', {nombre: nombre.slice(0, 40), lector: Yo.lector(), prediccion: pred})
+          .then(function(){ zmsg.textContent = 'Apuesta hecha: ' + pz.prediccion.options[pz.prediccion.selectedIndex].text + '. Vale la última que hagas.'; zcount(); })
+          .catch(function(){ zmsg.textContent = 'No se pudo apostar. Inténtalo de nuevo.'; })
+          .then(function(){ pz.querySelector('button').disabled = false; });
       });
     }
   }

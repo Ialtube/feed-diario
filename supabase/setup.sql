@@ -95,5 +95,38 @@ drop policy if exists "visitar" on public.visitas;
 create policy "visitar" on public.visitas for insert to anon
   with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
 
+-- ---------------------------------------------------------------- derecho de réplica
+-- El aludido en una noticia contesta; la redacción la publica (con su respuesta) en la siguiente edición.
+create table if not exists public.replicas (
+  id bigint generated always as identity primary key,
+  edicion date not null,
+  pieza integer not null,
+  nombre text not null check (char_length(nombre) between 1 and 40),
+  texto text not null check (char_length(texto) between 10 and 800),
+  created_at timestamptz not null default now()
+);
+alter table public.replicas enable row level security;
+drop policy if exists "leer replicas" on public.replicas;
+create policy "leer replicas" on public.replicas for select to anon using (true);
+drop policy if exists "replicar" on public.replicas;
+create policy "replicar" on public.replicas for insert to anon
+  with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
+
+-- ---------------------------------------------------------------- la porra
+-- Cada lector apuesta (sin dinero) quién será el peor del grupo en la próxima edición.
+create table if not exists public.porras (
+  id bigint generated always as identity primary key,
+  nombre text not null check (char_length(nombre) between 1 and 40),
+  lector text check (lector is null or char_length(lector) <= 60),
+  prediccion text not null check (char_length(prediccion) between 1 and 40),
+  created_at timestamptz not null default now()
+);
+alter table public.porras enable row level security;
+drop policy if exists "leer porras" on public.porras;
+create policy "leer porras" on public.porras for select to anon using (true);
+drop policy if exists "apostar" on public.porras;
+create policy "apostar" on public.porras for insert to anon
+  with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
+
 -- Hace que la API vea las tablas nuevas al momento
 notify pgrst, 'reload schema';
