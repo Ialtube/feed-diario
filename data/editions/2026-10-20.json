@@ -8,14 +8,34 @@
   ],
   "items": [
     {
+      "id": 1000,
+      "kind": "ia",
+      "section": "LA VOZ DE RUNETERRA",
+      "desk": "",
+      "player": null,
+      "alias": null,
+      "headline": "NO ESTABAN MUERTOS, ESTABAN DE PARRANDA: vuelve el Rincón del Viciado y rescata a Saiko del arcón",
+      "body": "Según nos cuenta nuestro lector, el Rincón del Viciado, que la temporada pasada se metió en los playoffs de la primera división de la ACE League, regresa para demostrar que aquello no fue un golpe de suerte. La plantilla será la de siempre (los diez de este periódico) más un fichaje que nadie vio venir: Saiko, vieja gloria desempolvada del baúl de los recuerdos. En los despachos rivales ya se oye el rumor y en los foros se discute si es un regreso triunfal o una maniobra de nostalgia. Esta redacción solo puede confirmar una cosa: cinco de sus miembros ganaron hoy juntos una Flex de 43 minutos.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": "voz-2.png",
+      "campeon": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": "ACE LEAGUE",
+      "severity": 1000,
+      "facts": {}
+    },
+    {
       "id": 0,
       "kind": "portada",
-      "section": "PORTADA",
+      "section": "TAMBIÉN EN PORTADA",
       "desk": "",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "GSJoseador, peor jugador del día: 1–0 y 11 muertes en 1 partidas",
-      "body": "Con un KDA de 2,45 y el 18,8 % del daño de su equipo, GSJoseador se corona hoy como lastre oficial del grupo. Fuentes cercanas confirman que ya está en cola para la siguiente.",
+      "headline": "Ganar también tiene castigo: GSJoseador se lleva la portada con una victoria y 11 muertes",
+      "body": "Su equipo celebró el 1–0, pero el baremo no perdona: KDA de 2,45 y el 18,8 % del daño de su equipo con Kayn. GSJoseador es el primer jugador de la historia del periódico que abre edición sin haber perdido nada salvo la dignidad en la jungla rival.",
       "stat": "1–0",
       "stat_label": "victorias–derrotas",
       "severity": 100,
@@ -30,7 +50,69 @@
         "champ": "Kayn",
         "champs": "Kayn",
         "hours": "0,7"
-      }
+      },
+      "template_headline": "GSJoseador, peor jugador del día: 1–0 y 11 muertes en 1 partidas",
+      "template_body": "Con un KDA de 2,45 y el 18,8 % del daño de su equipo, GSJoseador se corona hoy como lastre oficial del grupo. Fuentes cercanas confirman que ya está en cola para la siguiente."
+    },
+    {
+      "id": 1001,
+      "kind": "ia",
+      "section": "DEPORTES",
+      "desk": "Arena de Noxus",
+      "player": null,
+      "alias": null,
+      "headline": "Ficha técnica del Rincón del Viciado: así llega la plantilla a la nueva temporada",
+      "body": "Repaso del general del periódico: grangalax llega con 19–23 y la moneda boca abajo; Wôlf, 15–13; GSJoseador, 12–8; Fr4nux y Dierophant, 13–10 y 13–12; TheTrevur, 13–12 con Urgot pegado al ratón; RDV Canyon, 10–10 exacto; Giroroo, invicto 3–0 en tres apariciones. De Saiko no hay estadísticas: viene directamente del arcón, sin datos de Riot y con todo el misterio intacto.",
+      "stat": "59",
+      "stat_label": "kills en el ensayo de hoy",
+      "imagen": null,
+      "campeon": "Darius",
+      "pie": "El cuerpo técnico de Noxus revisa la plantilla con la delicadeza habitual.",
+      "meme_arriba": "CUANDO DICES QUE LO DEL AÑO PASADO NO FUE SUERTE",
+      "meme_abajo": "Y FICHAS A ALGUIEN DEL ARCÓN",
+      "lector": null,
+      "severity": 98,
+      "facts": {}
+    },
+    {
+      "id": 1002,
+      "kind": "ia",
+      "section": "CIENCIA",
+      "desk": "Academia de Piltover",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "Estudio de la Academia: quién estuvo y quién no en las 59 kills del ensayo de cinco",
+      "body": "Participación en kills de la Flex conjunta: Dierophant, 76,3 %; Fr4nux, 64,4 %; Sunraku, 50,8 %; GSJoseador, 45,8 %; grangalax, 35,6 %. Los investigadores concluyen que el mid de Aurelion Sol orbitaba el mapa a una distancia prudencial de las peleas, como corresponde a un dragón cósmico con agenda propia.",
+      "stat": "35,6 %",
+      "stat_label": "de participación de grangalax",
+      "imagen": null,
+      "campeon": "Aurelion Sol",
+      "pie": "Aurelion Sol observa las peleas desde una órbita segura.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 97,
+      "facts": {}
+    },
+    {
+      "id": 1003,
+      "kind": "ia",
+      "section": "ANUNCIOS",
+      "desk": "Mercadillo de Zaun",
+      "player": "sunraku",
+      "alias": "Sunraku",
+      "headline": "Anuncio por palabras: se devuelve Urgot en buen estado, apenas usado, con 17 kills de regalo",
+      "body": "Particular vende, o más bien devuelve, Urgot encontrado en la calle de arriba mientras su propietario habitual estaba ausente. Una sola victoria de uso, motor afinado, ruedas de cadena sin desgaste. Interesados, preguntar por TheTrevur, si alguien lo encuentra.",
+      "stat": "17/9/13",
+      "stat_label": "Urgot de Sunraku",
+      "imagen": null,
+      "campeon": "Urgot",
+      "pie": "El Urgot, aparcado en doble fila frente al taller de Singed.",
+      "meme_arriba": "CUANDO TE DEJAS EL URGOT EN CASA",
+      "meme_abajo": "Y OTRO LO SACA A PASEAR",
+      "lector": null,
+      "severity": 96,
+      "facts": {}
     },
     {
       "id": 1,
@@ -39,8 +121,8 @@
       "desk": "Comisaría de Piltover",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "GSJoseador muere 11 veces en una sola partida y la policía de Piltover abre una investigación",
-      "body": "Kayn, 12/11/15, victoria. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
+      "headline": "Parte de incidencias: el Kayn de GSJoseador cae cada 3:58 durante 43 minutos",
+      "body": "Expediente abierto por la sheriff Caitlyn: 12/11/15 en Ranked Flex y once visitas voluntarias a la fuente. La victoria final ha obligado a archivar el caso, pero Vi se ha quedado con su foto en el corcho por si acaso.",
       "stat": "11",
       "stat_label": "muertes en una partida",
       "severity": 5.4,
@@ -61,7 +143,9 @@
         "every": "3:58",
         "res": "victoria",
         "res_cap": "Aun así ganaron, de milagro"
-      }
+      },
+      "template_headline": "GSJoseador muere 11 veces en una sola partida y la policía de Piltover abre una investigación",
+      "template_body": "Kayn, 12/11/15, victoria. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez."
     },
     {
       "id": 2,
@@ -70,8 +154,8 @@
       "desk": "Islas de la Sombra",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "grangalax se pasa 8 minutos en la pantalla gris",
-      "body": "El 11,8 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
+      "headline": "Boletín de las Islas de la Sombra: chubascos de reaparición sobre grangalax, 8 minutos",
+      "body": "El 11,8 % de su jornada transcurrió en blanco y negro, aunque cerró el día 2–0 con Aurelion Sol y Ekko. La moneda, por una vez, cayó de cara dos veces seguidas; los meteorólogos de la Ruina lo atribuyen a una borrasca de buena suerte.",
       "stat": "8 min",
       "stat_label": "en la pantalla gris",
       "severity": 3.37,
@@ -88,7 +172,9 @@
         "hours": "1,2",
         "dead_mins": 8,
         "dead_pct": "11,8 %"
-      }
+      },
+      "template_headline": "grangalax se pasa 8 minutos en la pantalla gris",
+      "template_body": "El 11,8 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro."
     },
     {
       "id": 3,
@@ -97,8 +183,8 @@
       "desk": "Ecos de Jonia",
       "player": "sunraku",
       "alias": "Sunraku",
-      "headline": "Día anodino para Sunraku (1–0), lo cual para él ya es un éxito",
-      "body": "Sin escándalos, sin hazañas. La redacción se ha quedado sin material, que es lo más cerca que estará de un elogio.",
+      "headline": "Urgot cambia de manos por un día: Sunraku firma 17/9/13 y el 26,6 % del daño",
+      "body": "Con TheTrevur desaparecido, Sunraku cogió el Urgot del grupo y lo devolvió con 17 kills y una victoria. Urgot.exe tiene una segunda instalación y el dueño original no ha dado señales de vida.",
       "stat": "1–0",
       "stat_label": "victorias–derrotas",
       "severity": 1,
@@ -113,7 +199,9 @@
         "champ": "Urgot",
         "champs": "Urgot",
         "hours": "0,7"
-      }
+      },
+      "template_headline": "Día anodino para Sunraku (1–0), lo cual para él ya es un éxito",
+      "template_body": "Sin escándalos, sin hazañas. La redacción se ha quedado sin material, que es lo más cerca que estará de un elogio."
     },
     {
       "id": 4,
@@ -122,8 +210,8 @@
       "desk": "Ecos de Jonia",
       "player": "fr4nux",
       "alias": "Fr4nux",
-      "headline": "Sin noticias de Fr4nux: 1–0 y KDA 4,22",
-      "body": "Ni para bien ni para mal. El gris absoluto. Es casi peor.",
+      "headline": "Alerta en el Instituto Hextech: Fr4nux hace el 27,1 % del daño y los científicos piden calma",
+      "body": "Xayah, 21/9/17, KDA de 4,22 y el mayor porcentaje de daño del grupo en la partida. El laboratorio ha recalibrado los sensores tres veces: no es un error de lectura. CARRY NOT FOUND se busca ahora a sí mismo.",
       "stat": "1–0",
       "stat_label": "victorias–derrotas",
       "severity": 1,
@@ -138,7 +226,9 @@
         "champ": "Xayah",
         "champs": "Xayah",
         "hours": "0,7"
-      }
+      },
+      "template_headline": "Sin noticias de Fr4nux: 1–0 y KDA 4,22",
+      "template_body": "Ni para bien ni para mal. El gris absoluto. Es casi peor."
     },
     {
       "id": 5,
@@ -147,8 +237,8 @@
       "desk": "Centinelas de la Luz",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Una luz en la Ruina: Dierophant (1–0) no ha sido el peor",
-      "body": "Los Centinelas de la Luz confirman un rayo de esperanza en el grupo: KDA 5,62. Que nadie se emocione; mañana vuelve la Niebla.",
+      "headline": "43 asistencias con Rell: Dierophant reparte más que un tabernero de Aguasturbias",
+      "body": "Los Centinelas de la Luz certifican un 2/8/43 y un KDA de 5,62, el mejor del día. Hizo poco daño, como manda el oficio de support, pero estuvo en casi todo lo que se rompió en la Grieta.",
       "stat": "1–0",
       "stat_label": "victorias–derrotas",
       "severity": 0.5,
@@ -163,7 +253,9 @@
         "champ": "Rell",
         "champs": "Rell",
         "hours": "0,7"
-      }
+      },
+      "template_headline": "Una luz en la Ruina: Dierophant (1–0) no ha sido el peor",
+      "template_body": "Los Centinelas de la Luz confirman un rayo de esperanza en el grupo: KDA 5,62. Que nadie se emocione; mañana vuelve la Niebla."
     },
     {
       "id": 6,
@@ -172,17 +264,19 @@
       "desk": "Perdidos en el Vacío",
       "player": null,
       "alias": null,
-      "headline": "Desaparecidos del día: TheTrevur, Wôlf, iPredatoRz, RDV Canyon y Giroroo",
-      "body": "Ni una partida. La Grieta respira tranquila por un día.",
+      "headline": "Cinco plazas vacías en el autobús: Giroroo, TheTrevur, Wôlf, iPredatoRz y RDV Canyon no se presentan",
+      "body": "Ni una partida entre los cinco. El Vacío los reclama y la Grieta, por primera vez en semanas, se ha permitido dormir la siesta.",
       "stat": "5",
       "stat_label": "no jugaron",
       "severity": 0.2,
       "facts": {
         "names": "TheTrevur, Wôlf, iPredatoRz, RDV Canyon y Giroroo"
-      }
+      },
+      "template_headline": "Desaparecidos del día: TheTrevur, Wôlf, iPredatoRz, RDV Canyon y Giroroo",
+      "template_body": "Ni una partida. La Grieta respira tranquila por un día."
     }
   ],
-  "frase": "Si te rindes a los 15, por lo menos has perdido rápido.",
+  "frase": "Cinco amigos en la misma cola: la única partida en la que el culpable siempre tiene nombre y apellido.",
   "ranking": [
     {
       "slug": "gsjoseador",
@@ -447,5 +541,28 @@
       "lowest_dmg": false,
       "support": false
     }
-  ]
+  ],
+  "template_frase": "Si te rindes a los 15, por lo menos has perdido rápido.",
+  "columna": {
+    "titulo": "Cinco en la cola y ninguna excusa",
+    "autor": "La Analista de Pretemporada",
+    "cuerpo": [
+      "Hay un fenómeno que la ciencia de la Grieta todavía no ha conseguido explicar: cuando cinco amigos entran juntos en la misma partida, el que muere ya no puede echarle la culpa a un desconocido. Hoy cinco miembros de este grupo lo intentaron en una Flex de 43 minutos, sumaron 44 muertes entre todos y aun así ganaron.",
+      "Algunos lo llamarán química de equipo. Yo prefiero llamarlo compensación: por cada Kayn que se perdía en la jungla rival había una Xayah haciendo el 27,1 % del daño y un Rell con 43 asistencias tapando agujeros. Así se construye un equipo de playoffs, dicen en los despachos: no con cinco estrellas, sino con cinco desastres que se reparten el turno.",
+      "Llega la nueva temporada, vuelve un nombre del arcón y la afición se ilusiona. Mi consejo como analista es el de siempre: disfrutad de la victoria de hoy, porque mañana la moneda de grangalax volverá a girar."
+    ]
+  },
+  "especial": {
+    "antetitulo": "EDICIÓN ESPECIAL · ACE LEAGUE",
+    "titulo": "Vuelve el Rincón del Viciado",
+    "subtitulo": "La afición anuncia el regreso del equipo que llegó a playoffs, con Saiko rescatado del arcón; cinco de sus jugadores ganaron hoy juntos su primer ensayo: 43 minutos y 59 kills",
+    "tema": "oro"
+  },
+  "ai": {
+    "version": 1,
+    "updated_at": 1792482082579,
+    "firma": "Claude",
+    "stale": false
+  },
+  "written_by": "Claude"
 }
