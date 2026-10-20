@@ -302,6 +302,7 @@ nav.menu a.yo{border:1px solid var(--ink);padding:0 8px}
 .yo-dialog h4{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:1.8rem}
 .yo-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 12px;margin:6px 0}
 .yo-op{font-family:"IM Fell English SC",serif;font-size:1.02rem;cursor:pointer}
+.yo-op small{display:block;margin-left:22px;font-family:"Old Standard TT",serif;font-style:italic;font-size:.8rem;color:var(--muted)}
 .yo-botones{display:flex;gap:10px;flex-wrap:wrap}
 form.papel button.sec{background:transparent;color:var(--ink);border:1px solid var(--ink)}
 .yo-nota{margin:0 0 4px}

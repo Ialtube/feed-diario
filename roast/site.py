@@ -324,6 +324,7 @@ nav.menu a.yo{border:1px solid var(--ink);padding:0 8px}
 .yo-dialog h4{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:1.8rem}
 .yo-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 12px;margin:6px 0}
 .yo-op{font-family:"IM Fell English SC",serif;font-size:1.02rem;cursor:pointer}
+.yo-op small{display:block;margin-left:22px;font-family:"Old Standard TT",serif;font-style:italic;font-size:.8rem;color:var(--muted)}
 .yo-botones{display:flex;gap:10px;flex-wrap:wrap}
 form.papel button.sec{background:transparent;color:var(--ink);border:1px solid var(--ink)}
 .yo-nota{margin:0 0 4px}
@@ -481,10 +482,11 @@ LECTORES_JS = r"""(function(){
       if (!d) {
         d = document.createElement('dialog'); d.id = 'yo-dialog'; d.className = 'yo-dialog';
         var lista = (C.jugadores || []).map(function(j){
-          return '<label class="yo-op"><input type="checkbox" value="'+esc(j.slug)+'" data-alias="'+esc(j.alias)+'"> '+esc(j.alias)+'</label>';
+          return '<label class="yo-op"><input type="checkbox" value="'+esc(j.slug)+'" data-alias="'+esc(j.alias)+'"> '+esc(j.alias)+
+            ((j.cuentas || []).length ? '<small>'+(j.cuentas || []).map(esc).join(' · ')+'</small>' : '')+'</label>';
         }).join('');
         d.innerHTML = '<form method="dialog" class="papel"><h4>¿Quién eres?</h4>'+
-          '<p class="small">Marca tu cuenta, o tus cuentas si tienes smurfs (la primera que marques será tu nombre). '+
+          '<p class="small">Marca quién eres. Debajo de cada nombre salen sus cuentas, smurfs incluidos. '+
           'Se guarda en este navegador: no tendrás que volver a escribirlo para comentar, reaccionar, proponer noticias '+
           'o jugar al sorteo. Tus visitas a las páginas quedarán apuntadas con ese nombre.</p>'+
           '<div class="yo-lista">'+lista+'</div>'+
@@ -1858,13 +1860,14 @@ def _sparkline(values, w=320, h=70):
             '<p class="small">Puntos de vergüenza por día (más alto, peor).</p>')
 
 
-def _logros(slug, alias, games, editions):
+def _logros(slug, alias, games, editions, owner=None):
     """Achievements (good and mostly bad) earned in the archive."""
     out = []
-    portadas = sum(1 for e in editions if day_points(e.get("ranking", [])).get(slug) == POINTS[0])
+    portadas = sum(1 for e in editions for s, pts in day_points(e.get("ranking", [])).items()
+                   if pts == POINTS[0] and _owner_of(e, owner)(s) == slug)
     if portadas:
         out.append(("💀", f"Portada de la vergüenza ×{portadas}"))
-    faros = sum(1 for e in editions for it in e["items"] if it.get("player") == slug
+    faros = sum(1 for e in editions for it in e["items"] if it.get("player") and _owner_of(e, owner)(it["player"]) == slug
                 and it.get("section") in ("EL FARO DE LA ESPERANZA", "MENCIÓN"))
     if faros:
         out.append(("☼", f"Iluminado por el Faro ×{faros}"))
@@ -1905,18 +1908,25 @@ def _ficha_runeterra(p, slug, canon):
             + f'<ul>{"".join(rows)}</ul></div>')
 
 
-def render_player(cfg, friend, editions, canon=None):
+def _owner_of(ed, owner):
+    """In an old edition, who each name really was (by account): a smurf counts for its owner."""
+    rid = {r["slug"]: (r.get("riot_id") or "").lower() for r in ed.get("ranking", [])}
+    return lambda s: (owner or {}).get(rid.get(s), s)
+
+
+def render_player(cfg, friend, editions, canon=None, owner=None):
     slug = friend["slug"]
     canon = canon or canon_mod.empty()
     games, items, scores = [], [], []
     portadas = 0
     for ed in editions:
+        who = _owner_of(ed, owner)
         for i, r in enumerate(ed.get("ranking", [])):
-            if r["slug"] == slug:
+            if who(r["slug"]) == slug:
                 scores.append(r["score"])
                 portadas += 1 if i == 0 else 0
-        games += [dict(g, date=ed["date"]) for g in ed.get("games", []) if g["slug"] == slug]
-        items += [dict(it, date=ed["date"]) for it in ed["items"] if it.get("player") == slug]
+        games += [dict(g, date=ed["date"]) for g in ed.get("games", []) if who(g["slug"]) == slug]
+        items += [dict(it, date=ed["date"]) for it in ed["items"] if it.get("player") and who(it["player"]) == slug]
     g = len(games)
     wins = sum(x["win"] for x in games)
     k = sum(x["k"] for x in games); d = sum(x["d"] for x in games); a = sum(x["a"] for x in games)
@@ -1945,13 +1955,13 @@ def render_player(cfg, friend, editions, canon=None):
     table = ('<div class="tablewrap"><table><thead><tr><th>Día</th><th>Campeón</th><th>Rol</th><th>Cola</th><th></th>'
              '<th class="num">KDA</th><th class="num">Daño</th></tr></thead><tbody>' + rows + '</tbody></table></div>'
              ) if rows else '<p class="small">Sin partidas todavía.</p>'
-    logros = _logros(slug, friend["alias"], games, editions)
+    logros = _logros(slug, friend["alias"], games, editions, owner)
     logros_html = ('<div class="box logros"><h4>Logros (y deshonras)</h4><ul>'
                    + "".join(f'<li><span>{i}</span>{_e(t)}</li>' for i, t in logros) + '</ul></div>') if logros else ""
     body = f"""
 <section class="profile">
   <div><div class="kicker">Ficha policial</div><h2>{_e(friend["alias"])}</h2>
-    <p class="small">{_e(friend["riot_id"])} · {g} partidas registradas</p>
+    <p class="small">{_e(" · ".join(friend.get("cuentas") or [friend["riot_id"]]))} · {g} partidas registradas</p>
     <div style="margin-top:16px">{_sparkline(scores[-30:])}</div></div>
   <div class="kpis">{kpi_html}</div>
 </section>
@@ -1982,10 +1992,18 @@ def render_archive(cfg, editions):
     return page(cfg, f"Hemeroteca · {cfg['site_title']}", body, "", pagina="hemeroteca")
 
 
+def _redirect_page(cfg, old_alias, person):
+    body = (f'<section class="secblock"><header class="sec-head"><h3 class="sec-name">{_e(old_alias)}</h3></header>'
+            f'<p>{_e(old_alias)} es una cuenta de <a href="{_e(person["slug"])}.html">{_e(person["alias"])}</a>. '
+            'Su ficha está ahí.</p></section>')
+    html = page(cfg, f"{old_alias} · {cfg['site_title']}", body, "../")
+    return html.replace("<head>", f'<head>\n<meta http-equiv="refresh" content="0; url={_e(person["slug"])}.html">', 1)
+
+
 def render_players_index(cfg, friends, editions):
     board = {t["slug"]: t for t in general_leaderboard(editions)}
     cards = "".join(
-        f'<article><div class="kicker">{_e(f["riot_id"])}</div><h3><a href="jugadores/{_e(f["slug"])}.html">'
+        f'<article><div class="kicker">{_e(" · ".join(f.get("cuentas") or [f["riot_id"]]))}</div><h3><a href="jugadores/{_e(f["slug"])}.html">'
         f'{_e(f["alias"])}</a></h3><p class="small">{board.get(f["slug"], {}).get("points", 0)} puntos de vergüenza · '
         f'{board.get(f["slug"], {}).get("portadas", 0)} portadas</p></article>' for f in friends)
     body = (f'<section class="secblock"><header class="sec-head"><h3 class="sec-name">Jugadores</h3>'
@@ -2003,12 +2021,24 @@ def build_site(cfg, friends, editions, out_dir, canon=None):
     (out / ".nojekyll").write_text("", encoding="utf-8")
     editions = sorted(editions, key=lambda e: e["date"])
 
-    known = {f["slug"]: f for f in friends}
+    # people: the accounts in friends.json grouped by alias (a smurf shares its owner's alias)
+    people = {}
+    for f in friends:
+        person = people.setdefault(f["slug"], {"slug": f["slug"], "alias": f["alias"], "riot_id": f["riot_id"], "cuentas": []})
+        person["cuentas"].append(f["riot_id"])
+    owner = {f["riot_id"].lower(): f["slug"] for f in friends}
+    redirects = {}
     for ed in editions:
         for r in ed.get("ranking", []):
-            known.setdefault(r["slug"], {"slug": r["slug"], "alias": r["alias"], "riot_id": r.get("riot_id", "")})
-    friends_all = list(known.values())
-    ROSTER[:] = list({f["slug"]: {"slug": f["slug"], "alias": f["alias"]} for f in friends_all}.values())
+            rid = (r.get("riot_id") or "").lower()
+            if rid in owner:
+                if owner[rid] != r["slug"] and r["slug"] not in people:
+                    redirects[r["slug"]] = (r["alias"], owner[rid])   # an old name that is now someone's smurf
+                continue
+            people.setdefault(r["slug"], {"slug": r["slug"], "alias": r["alias"], "riot_id": r.get("riot_id", ""),
+                                          "cuentas": [r.get("riot_id", "")], "antiguo": True})
+    friends_all = list(people.values())
+    ROSTER[:] = [{"slug": f["slug"], "alias": f["alias"], "cuentas": f["cuentas"]} for f in friends_all if not f.get("antiguo")]
     ACE.clear()
     ACE.update(load_json(ROOT / "data" / "ace_league.json", None) or {})
 
@@ -2029,5 +2059,12 @@ def build_site(cfg, friends, editions, out_dir, canon=None):
     canon = canon if canon is not None else canon_mod.load()
     (out / "sagas.html").write_text(render_sagas(cfg, canon, editions), encoding="utf-8")
     for f in friends_all:
-        (out / "jugadores" / f"{f['slug']}.html").write_text(render_player(cfg, f, editions, canon), encoding="utf-8")
+        (out / "jugadores" / f"{f['slug']}.html").write_text(render_player(cfg, f, editions, canon, owner), encoding="utf-8")
+    for old, (alias, slug) in redirects.items():
+        (out / "jugadores" / f"{old}.html").write_text(_redirect_page(cfg, alias, people[slug]), encoding="utf-8")
+    # profiles of names that no longer exist (renamed or turned into smurfs) are removed
+    wanted = {f"{f['slug']}.html" for f in friends_all} | {f"{old}.html" for old in redirects}
+    for stale in (out / "jugadores").glob("*.html"):
+        if stale.name not in wanted:
+            stale.unlink()
     return out

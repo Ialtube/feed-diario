@@ -49,10 +49,11 @@
       if (!d) {
         d = document.createElement('dialog'); d.id = 'yo-dialog'; d.className = 'yo-dialog';
         var lista = (C.jugadores || []).map(function(j){
-          return '<label class="yo-op"><input type="checkbox" value="'+esc(j.slug)+'" data-alias="'+esc(j.alias)+'"> '+esc(j.alias)+'</label>';
+          return '<label class="yo-op"><input type="checkbox" value="'+esc(j.slug)+'" data-alias="'+esc(j.alias)+'"> '+esc(j.alias)+
+            ((j.cuentas || []).length ? '<small>'+(j.cuentas || []).map(esc).join(' · ')+'</small>' : '')+'</label>';
         }).join('');
         d.innerHTML = '<form method="dialog" class="papel"><h4>¿Quién eres?</h4>'+
-          '<p class="small">Marca tu cuenta, o tus cuentas si tienes smurfs (la primera que marques será tu nombre). '+
+          '<p class="small">Marca quién eres. Debajo de cada nombre salen sus cuentas, smurfs incluidos. '+
           'Se guarda en este navegador: no tendrás que volver a escribirlo para comentar, reaccionar, proponer noticias '+
           'o jugar al sorteo. Tus visitas a las páginas quedarán apuntadas con ese nombre.</p>'+
           '<div class="yo-lista">'+lista+'</div>'+
