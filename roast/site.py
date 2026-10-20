@@ -3,12 +3,12 @@ reader comments and the "propose a story" page."""
 import hashlib
 import json
 from collections import Counter, defaultdict
-from datetime import date
+from datetime import date, datetime, timezone
 from html import escape
 from pathlib import Path
 
 from .roasts import DESKS
-from .util import champ_name, fmt_int, fmt_num, fmt_pct, long_date, short_date
+from .util import champ_name, fmt_int, fmt_num, fmt_pct, long_date, short_date, slugify
 
 POINTS = [5, 3, 2, 1]  # daily shame points by position in the ranking
 
@@ -80,8 +80,9 @@ nav.menu a:hover,nav.menu a.cta{color:var(--accent)}
 /* lead story */
 .lead{display:grid;grid-template-columns:1.7fr 1fr;gap:34px;border-bottom:3px double var(--ink);padding-bottom:22px}
 .lead h2{font-family:"Old Standard TT",Georgia,serif;font-weight:700;font-size:clamp(2.1rem,4.6vw,3.8rem);line-height:1.03;margin:6px 0 14px}
-.lead p{font-size:1.1rem;text-align:justify;hyphens:auto;column-count:2;column-gap:28px;column-rule:1px solid var(--rule)}
-.lead p::first-letter{font-family:"Old Standard TT",serif;font-weight:700;float:left;font-size:3.7rem;line-height:.82;padding:6px 8px 0 0}
+.lead .txt{column-count:2;column-gap:28px;column-rule:1px solid var(--rule)}
+.lead .txt p{font-size:1.1rem;text-align:justify;hyphens:auto}
+.lead .txt p:first-child::first-letter{font-family:"Old Standard TT",serif;font-weight:700;float:left;font-size:3.7rem;line-height:.82;padding:6px 8px 0 0}
 .bigstat{border:4px double var(--ink);padding:16px;text-align:center;margin-top:10px}
 .bigstat .n{font-family:"Old Standard TT",serif;font-weight:700;font-size:clamp(2.4rem,6vw,4.2rem);line-height:1;color:var(--accent)}
 .bigstat .l{font-style:italic;font-size:.92rem;color:var(--muted);margin-top:6px}
@@ -243,9 +244,86 @@ footer{text-align:center;font-family:"Old Standard TT",serif;font-style:italic;f
 .k-farmacia .t{font-family:"Anton",Impact,sans-serif;font-weight:400;letter-spacing:.08em;color:var(--good)}
 .k-alquila{border-style:double;border-width:4px;outline:none}
 .sec-row .sec-opinion article.column .cbody{column-count:1}
+
+
+/* format 2: the news well and the data band */
+.sec-grid.pozo{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+.full .sec-grid.pozo{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+/* medium stories: the picture sits beside the text, like a printed module */
+@media (min-width:1000px){
+  .pozo article.pieza-mediana figure{float:left;width:46%;margin:4px 18px 8px 0}
+  .pozo article.pieza-mediana .stat{overflow:hidden}
+}
+.datos-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:14px}
+.datos-grid .board{margin-bottom:0}
+.sec-grid>article.wide2{grid-column:span 2}
+.pozo article.s-sucesos{border:1px dashed var(--ink);padding:14px 14px 16px;margin:10px 0;background:rgba(255,248,225,.06)}
+.pozo article.s-sucesos::after{content:attr(data-exp);position:absolute;top:10px;right:2px;transform:rotate(8deg);
+  font-family:"IM Fell English SC",serif;font-size:.78rem;color:var(--accent);border:2px solid var(--accent);padding:1px 6px;opacity:.8}
+.pozo article.s-el-faro-de-la-esperanza{border:3px double #6b5214;padding:12px 14px 14px;margin:10px 0;
+  background:conic-gradient(from 200deg at 92% 8%,rgba(212,170,60,.22),transparent 12%,rgba(212,170,60,.16) 24%,transparent 36%)}
+.pozo article.s-el-faro-de-la-esperanza .kicker::before{content:"\263C ";color:#6b5214}
+.pozo article.radio{font-family:"Courier Prime","Courier New",monospace;background:rgba(40,30,20,.06);padding:12px 14px;margin:10px 0;border:1px solid var(--rule)}
+.pozo article.radio h3{font-family:"Courier Prime","Courier New",monospace;font-size:1.12rem}
+/* weights: big stories take two columns and run their text in two columns, without growing the type */
+.sec-grid{grid-auto-flow:row dense}
+.sec-grid>article.pieza-grande{grid-column:span 2}
+.pieza-grande h3{font-size:1.7rem;line-height:1.12}
+.pieza-grande .txt{column-count:2;column-gap:26px;column-rule:1px solid var(--rule)}
+.pieza-grande .txt p{break-inside:avoid-column}
+.txt p+p{margin-top:8px;text-indent:1.2em}
+p.sub{font-family:"Old Standard TT",serif;font-style:italic;font-size:1.05rem;line-height:1.35;color:var(--muted);margin:-2px 0 10px;text-align:left}
+.lead p.sub{font-size:1.25rem;margin-bottom:14px}
+.ante{font-family:"Old Standard TT",serif;font-style:italic;font-size:.95rem;color:var(--ink);border-bottom:1px solid var(--rule);
+  display:inline-block;padding:0 6px 1px 0;margin-top:4px}
+/* formats with a look of their own */
+article.f-telegrama{font-family:"Courier Prime","Courier New",monospace;background:rgba(255,248,225,.14);border:1px solid var(--rule);padding:12px 14px}
+article.f-telegrama h3,article.f-telegrama .txt{font-family:"Courier Prime","Courier New",monospace;text-transform:uppercase;letter-spacing:.02em}
+article.f-telegrama .txt{font-size:.92rem}
+article.f-esquela{border:5px solid var(--ink)!important;padding:14px 16px;text-align:center}
+article.f-esquela h3::before{content:"† ";}
+article.f-esquela .txt p{text-align:center;font-style:italic}
+article.f-carta-al-director .txt p,article.f-editorial .txt p{font-style:italic}
+article.f-editorial h3{text-transform:uppercase;letter-spacing:.03em}
+article.f-anuncio-por-palabras{border:2px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;padding:14px 16px;text-align:center}
+article.f-entrevista .txt p:first-child{font-weight:700}
+article.f-parte-policial .txt,article.f-juicio .txt{border-left:3px double var(--ink);padding-left:10px}
+article.f-ranking .txt p,article.f-encuesta .txt p{font-family:"Old Standard TT",serif}
+article.f-parte-meteorologico{background:rgba(160,175,190,.08)}
+/* briefs column */
+.breves .breve{padding:10px 0;border-bottom:1px dotted var(--rule)}
+.breves .breve:last-child{border-bottom:0}
+.breve .bk{font-family:"IM Fell English SC",serif;font-size:.85rem;color:var(--accent);letter-spacing:.05em}
+.breve h5{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.06rem;line-height:1.2;margin:2px 0 4px}
+.breve p{font-size:.92rem;line-height:1.45;text-align:justify;hyphens:auto}
+.breve.f-telegrama p,.breve.f-telegrama h5{font-family:"Courier Prime","Courier New",monospace;text-transform:uppercase;font-size:.85rem}
+.anuncios-extra .anuncio{margin:0 0 20px}
+/* pastimes: the lottery and the horoscope */
+.pasa-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.sorteo,.horoscopo{border:3px double var(--ink);padding:16px 18px;background:rgba(255,248,225,.1)}
+.sorteo h4,.horoscopo h4{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:1.7rem;text-align:center;
+  border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:12px}
+.bolas{display:flex;justify-content:center;gap:14px;margin:6px 0 10px}
+.bolas span{width:3.2rem;height:3.2rem;border-radius:50%;border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;
+  font-family:"Old Standard TT",serif;font-weight:700;font-size:1.5rem;color:var(--accent);
+  background:radial-gradient(circle at 35% 30%,rgba(255,248,225,.7),rgba(255,248,225,.1))}
+.sorteo .origen{text-align:center;font-style:italic;color:var(--muted);font-size:.92rem;margin-bottom:8px}
+.sorteo form{margin-top:12px;border-top:1px dashed var(--ink);padding-top:12px}
+.sorteo .nums{display:flex;gap:10px}
+.sorteo .nums input{width:5em;font:inherit;font-size:1.3rem;text-align:center;color:var(--ink);background:rgba(255,248,225,.25);border:2px solid var(--ink);padding:6px}
+.horoscopo ul{list-style:none}
+.horoscopo li{padding:8px 0;border-bottom:1px dotted var(--rule);line-height:1.45}
+.horoscopo li:last-child{border-bottom:0}
+.horoscopo .glifo{font-size:1.3rem;margin-right:6px;color:var(--accent)}
 @media (max-width:980px){
   .cols,.lead,.profile{grid-template-columns:1fr}
-  .lead p,.sec-opinion article.column .cbody{column-count:1}
+  .lead .txt,.sec-opinion article.column .cbody{column-count:1}
+}
+@media (max-width:700px){
+  .sec-grid>article.pieza-grande{grid-column:auto}
+  .pieza-grande .txt{column-count:1}
+  .pasa-grid,.datos-grid{grid-template-columns:1fr}
+  .sec-grid>article.wide2{grid-column:auto}
 }
 @media (max-width:560px){
   body{font-size:16px}
@@ -313,6 +391,35 @@ LECTORES_JS = r"""(function(){
     }
   }
 
+  var bf = document.getElementById('boleto');
+  if (bf) {
+    var bmsg = bf.querySelector('.msg'), cnt = document.getElementById('boletos-cuenta');
+    if (!ok) { bf.querySelector('button').disabled = true; bmsg.textContent = 'El sorteo se abrirá en cuanto se configure la base de datos.'; }
+    else {
+      var count = function(){
+        api('/rest/v1/boletos?select=id&limit=1&created_at=gt.'+encodeURIComponent(bf.getAttribute('data-desde')),
+            {headers:{Prefer:'count=exact'}}).then(function(r){
+          var n = (r.headers.get('content-range')||'').split('/')[1]; if (cnt && n && n !== '*') cnt.textContent = n;
+        }).catch(function(){});
+      };
+      count();
+      bf.nombre.value = remember('feeder-nombre');
+      bf.addEventListener('submit', function(ev){
+        ev.preventDefault(); if (bf.web.value) return;
+        var nums = [bf.n1, bf.n2, bf.n3].map(function(i){ return parseInt(i.value, 10); });
+        if (nums.some(function(n){ return isNaN(n) || n < 0 || n > 99; })) { bmsg.textContent = 'Elige tres números del 0 al 99.'; return; }
+        var nombre = bf.nombre.value.trim(); if (!nombre) return;
+        remember('feeder-nombre', nombre);
+        bf.querySelector('button').disabled = true; bmsg.textContent = 'Sellando…';
+        api('/rest/v1/boletos',{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=minimal'},
+          body:JSON.stringify({nombre:nombre.slice(0,40),numeros:nums})})
+          .then(function(){ bmsg.textContent = 'Boleto sellado: ' + nums.join(' · ') + '. Suerte mañana.'; count(); })
+          .catch(function(){ bmsg.textContent = 'No se pudo sellar el boleto. Inténtalo de nuevo.'; })
+          .then(function(){ bf.querySelector('button').disabled = false; });
+      });
+    }
+  }
+
   var pf = document.getElementById('proponer');
   if (pf) {
     var pmsg = pf.querySelector('.msg');
@@ -364,7 +471,8 @@ LECTORES_JS = r"""(function(){
   var pool = tpl ? Array.prototype.slice.call(tpl.content.children) : [];
   var used = 0;
   function clearFill(){
-    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid .anuncio'), function(a){ a.remove(); });
+    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid .anuncio, .anuncios-extra .anuncio'),
+                                 function(a){ a.remove(); });
     used = 0;
   }
   // A story much shorter than its neighbours gets a small ad underneath, if one fits in the hole.
@@ -385,11 +493,16 @@ LECTORES_JS = r"""(function(){
     Array.prototype.forEach.call(document.querySelectorAll('.sec-grid'), function(g){
       var cols = getComputedStyle(g).gridTemplateColumns.split(' ').filter(Boolean).length;
       if (cols < 2) return;
-      var n = 0;
+      if (!g.children.length) return;
+      // cells taken in the last row, measured (big stories span two columns)
+      var st = getComputedStyle(g), cw = parseFloat(st.gridTemplateColumns), gap = parseFloat(st.columnGap) || 0;
+      var lastTop = -1e9, taken = 0;
+      Array.prototype.forEach.call(g.children, function(c){ lastTop = Math.max(lastTop, Math.round(c.getBoundingClientRect().top)); });
       Array.prototype.forEach.call(g.children, function(c){
-        n = c.classList.contains('wide') ? (Math.ceil(n / cols) + 1) * cols : n + 1;
+        var b = c.getBoundingClientRect();
+        if (Math.round(b.top) === lastTop) taken += Math.max(1, Math.round((b.width + gap) / (cw + gap)));
       });
-      var rem = (cols - n % cols) % cols;
+      var rem = Math.max(0, cols - taken);
       while (rem > 0 && used < pool.length) {
         var el = pool[used++].cloneNode(true), span = (rem >= 2 && el.dataset.wide) ? 2 : 1;
         el.style.gridColumn = 'span ' + span;
@@ -407,7 +520,14 @@ LECTORES_JS = r"""(function(){
       if (a.getBoundingClientRect().bottom - inner > 40) a.classList.add('grow');
     });
   }
-  function run(){ clearFill(); restore(); layout(); fill(); fillGaps(); grow(); }
+  // never fewer than three small ads: whatever did not fit in a hole goes under the briefs
+  function spare(){
+    var box = document.querySelector('.anuncios-extra');
+    while (box && used < Math.min(3, pool.length)) {
+      var el = pool[used++].cloneNode(true); el.classList.add('mini'); box.appendChild(el);
+    }
+  }
+  function run(){ clearFill(); restore(); layout(); fill(); fillGaps(); spare(); grow(); }
   function layout(){
     var mr = main.getBoundingClientRect(), ar = aside.getBoundingClientRect();
     if (ar.left < mr.right) return;                       // phone: sidebar already below
@@ -428,7 +548,7 @@ LECTORES_JS = r"""(function(){
     var rest = best.sec;
     if (best.grid) {
       var cont = document.createElement('section'), g = document.createElement('div');
-      cont.className = best.sec.className + ' cont'; g.className = 'sec-grid'; cont.appendChild(g); full.appendChild(cont);
+      cont.className = best.sec.className + ' cont'; g.className = best.grid.className; cont.appendChild(g); full.appendChild(cont);
       Array.prototype.slice.call(best.grid.children).forEach(function(a){
         if (Math.round(a.getBoundingClientRect().top) >= best.row) move(a, g);
       });
@@ -676,6 +796,13 @@ def _stat(it):
             f'<span class="l">{_e(it["stat_label"])}</span></div>')
 
 
+def _paras_html(text):
+    return "".join(f"<p>{_e(p)}</p>" for p in str(text).split("\n\n") if p.strip())
+
+
+PLAIN_FORMATS = ("noticia", "breve", "")
+
+
 def _article(it, rel, image=False, cls="", attrs="", placard=False):
     who = ""
     if it.get("lector"):
@@ -690,8 +817,13 @@ def _article(it, rel, image=False, cls="", attrs="", placard=False):
         stat = (f'<div class="cartel"><div class="o">✦ ✦ ✦</div><div class="n">{_e(it["stat"])}</div>'
                 f'<div class="l">{_e(it["stat_label"])}</div></div>')
         cls = (cls + " con-cartel").strip()
-    return (f'<article class="{cls}"{attrs}>{_kicker(it)}'
-            f'<h3>{_e(it["headline"])}</h3>{fig}{stat}<p>{_e(it["body"])}</p>{who}</article>')
+    formato = it.get("formato") or ""
+    if it.get("peso"):
+        cls = f'{cls} pieza-{it["peso"]} f-{slugify(formato)}'.strip()
+    ante = f'<div class="ante">{_e(formato.capitalize())}</div>' if formato not in PLAIN_FORMATS else ""
+    sub = f'<p class="sub">{_e(it["subtitulo"])}</p>' if it.get("subtitulo") else ""
+    return (f'<article class="{cls}"{attrs}>{_kicker(it)}{ante}'
+            f'<h3>{_e(it["headline"])}</h3>{sub}{fig}{stat}<div class="txt">{_paras_html(it["body"])}</div>{who}</article>')
 
 
 # --------------------------------------------------------------------------- sections
@@ -719,16 +851,18 @@ def _block_of(section):
     return "reportajes"
 
 
-def _sections(ed, rest, rel):
+def _sections(ed, rest, rel, v2=False):
     groups = defaultdict(list)
     for it in rest:
         groups[_block_of(it.get("section", ""))].append(it)
-    pics = {"left": 6}
+    pics = {"left": 8 if v2 else 6}
 
     def arts(items, key):
         out = []
+        if v2:
+            items = sorted(items, key=lambda it: it.get("peso") != "grande")
         for i, it in enumerate(items):
-            image = pics["left"] > 0 and i < 2 and _has_picture(it)
+            image = pics["left"] > 0 and (i < 2 or v2) and _has_picture(it)
             if image:
                 pics["left"] -= 1
             cls, attrs = "", ""
@@ -769,7 +903,8 @@ def _sections(ed, rest, rel):
         block = (f'<section class="secblock sec-{key}"><header class="sec-head"><h3 class="sec-name">{_e(title)}</h3>'
                  f'<span class="sec-desk">{_e(desk)}</span></header>{widget}<div class="sec-grid">{body}</div></section>')
         # Sections with a single story (or none) share a row, like the small pieces of a printed page.
-        if len(items) + (1 if col else 0) <= 1 and key not in ("deportes", "economia", "tiempo"):
+        small = len(items) + (1 if col else 0) <= 1 and not any(it.get("peso") == "grande" for it in items)
+        if small and key not in ("deportes", "economia", "tiempo"):
             row.append(block)
             if len(row) == 3:
                 flush()
@@ -779,6 +914,64 @@ def _sections(ed, rest, rel):
             html.append(block)
     if row:
         flush()
+    return "".join(html)
+
+
+OPINION_SECTIONS = {"OPINIÓN", "EDITORIAL", "CARTAS", "CARTA DEL DIRECTOR"}
+
+
+def _sections_v2(ed, rest, rel):
+    """Format-2 editions: Claude already chose what matters, so stories are not split into one
+    section per topic (that left one story per section and rows full of holes). They share one
+    news well, each with its own section label; the day's tables get a band of their own."""
+    html = []
+    games = ed.get("games") or []
+    if ed.get("ranking"):
+        market = _market_table(games)
+        html.append(
+            '<section class="secblock sec-datos" id="sec-datos"><header class="sec-head"><h3 class="sec-name">Resultados</h3>'
+            '<span class="sec-desk">Arena de Noxus · Lonja de Aguasturbias · Islas de la Sombra</span></header>'
+            f'<div class="datos-grid"><div class="board"><h4 class="kicker">Resultados del día</h4>'
+            f'{_ranking_table(ed["ranking"], rel)}</div>{market}</div>{_weather(ed["ranking"])}</section>')
+    voz_items = [it for it in rest if it.get("lector")]
+    opinion = [it for it in rest if not it.get("lector") and it.get("section") in OPINION_SECTIONS]
+    well = [it for it in rest if not it.get("lector") and it.get("section") not in OPINION_SECTIONS]
+    pics = {"left": 8}
+
+    def card(it, i):
+        image = pics["left"] > 0 and _has_picture(it)
+        if image:
+            pics["left"] -= 1
+        sec = it.get("section", "")
+        cls, attrs = f"s-{slugify(sec)}", ""
+        if sec == "SUCESOS":
+            attrs = f' data-exp="Expediente nº {ed["number"]}-{i + 1}"'
+        elif sec == "COMUNICACIÓN":
+            cls += " radio"
+        return _article(it, rel, image=image, cls=cls, attrs=attrs, placard=True)
+
+    if well:
+        well = sorted(well, key=lambda it: it.get("peso") != "grande")
+        html.append('<section class="secblock sec-actualidad" id="sec-actualidad"><header class="sec-head">'
+                    '<h3 class="sec-name">Actualidad</h3><span class="sec-desk">Corresponsales por toda Runeterra</span>'
+                    '</header><div class="sec-grid pozo">' + "".join(card(it, i) for i, it in enumerate(well))
+                    + '</div></section>')
+    if voz_items:
+        html.append('<section class="secblock sec-voz" id="sec-voz"><header class="sec-head"><h3 class="sec-name">'
+                    'La Voz de Runeterra</h3><span class="sec-desk">Las noticias que mandan los lectores</span></header>'
+                    '<div class="sec-grid pozo">' + "".join(card(it, i) for i, it in enumerate(voz_items)) + '</div></section>')
+    col = ed.get("columna")
+    if col or opinion:
+        body = ""
+        if col:
+            paras = "".join(f"<p>{_e(p)}</p>" for p in col["cuerpo"])
+            body = (f'<article class="{"wide2" if opinion else "wide"} column"><div class="kicker">La columna</div>'
+                    f'<h3>{_e(col["titulo"])}</h3><div class="byline">Por {_e(col["autor"])}</div>'
+                    f'<div class="cbody">{paras}</div></article>')
+        body += "".join(card(it, i) for i, it in enumerate(opinion))
+        html.append('<section class="secblock sec-opinion" id="sec-opinion"><header class="sec-head"><h3 class="sec-name">'
+                    'Opinión</h3><span class="sec-desk">Tribuna libre</span></header>'
+                    f'<div class="sec-grid">{body}</div></section>')
     return "".join(html)
 
 
@@ -799,6 +992,74 @@ HOROSCOPO = {
                 "Los astros ven un ward en tu futuro. Uno."],
 }
 ROLE_NAMES = {"top": "Top", "jungle": "Jungla", "mid": "Mid", "adc": "Tirador", "support": "Soporte"}
+MAX_ADS = 5   # small ads per edition; the page script always shows at least 3
+SIGNOS = [("Top", "top", "♈"), ("Jungla", "jungle", "♏"), ("Mid", "mid", "♌"), ("Tirador", "adc", "♐"),
+          ("Soporte", "support", "♓")]
+
+
+def _horoscopo(ed):
+    """Claude writes it in AI editions; otherwise the stock lines, rotating by date."""
+    texts = {h["signo"]: h["texto"] for h in ed.get("horoscopo") or []}
+    seed = sum(map(ord, ed["date"]))
+    lis = "".join(
+        f'<li><span class="glifo">{g}</span><b>{name}.</b> '
+        f'{_e(texts.get(name) or HOROSCOPO[key][(seed + i) % len(HOROSCOPO[key])])}</li>'
+        for i, (name, key, g) in enumerate(SIGNOS))
+    return f'<div class="horoscopo"><h4>Horóscopo de Runeterra</h4><ul>{lis}</ul></div>'
+
+
+def _sorteo(ed, rel, latest):
+    from .sorteo import combination
+    res = ed.get("sorteo")
+    if not res:
+        combo, origin = combination(ed)
+        res = {"combinacion": combo, "origen": origin, "participantes": 0, "acertantes": [], "segundos": [], "bote": 0}
+    bolas = "".join(f'<span>{n}</span>' for n in res["combinacion"])
+    origen = ", ".join(res.get("origen") or [])
+    if res["acertantes"]:
+        verdict = ("¡Premio! Acertaron los tres números: <b>" + ", ".join(_e(a["nombre"]) for a in res["acertantes"])
+                   + "</b>. Su nombre queda grabado como Oráculo de la Grieta.")
+    elif res["participantes"]:
+        verdict = (f'{res["participantes"]} boleto{"s" if res["participantes"] != 1 else ""} y ningún pleno. '
+                   f'El bote sube a <b>{fmt_int(res.get("bote", 0))} LP</b>.')
+    else:
+        verdict = "Nadie jugó a este sorteo. El bote sigue esperando a alguien con valor."
+    if res.get("segundos"):
+        verdict += " Con dos aciertos: " + ", ".join(_e(a["nombre"]) for a in res["segundos"]) + "."
+    form = ""
+    if latest:
+        desde = datetime.fromtimestamp(ed.get("generated_at", ed["window"][1]) / 1000, timezone.utc).isoformat()
+        form = f"""<form class="papel boleto" id="boleto" data-desde="{_e(desde)}">
+  <p class="small">Juega para el sorteo de mañana: tres números del 0 al 99. La combinación serán las muertes de los
+  tres que más mueran. Boletos ya sellados: <b id="boletos-cuenta">0</b>.</p>
+  <label>Tu nombre de invocador<input type="text" name="nombre" maxlength="40" required></label>
+  <div class="nums"><input type="number" name="n1" min="0" max="99" required aria-label="Primer número">
+  <input type="number" name="n2" min="0" max="99" required aria-label="Segundo número">
+  <input type="number" name="n3" min="0" max="99" required aria-label="Tercer número"></div>
+  <input class="hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <button type="submit">Sellar boleto</button><span class="msg"></span>
+</form>"""
+    return (f'<div class="sorteo"><h4>Sorteo de la Grieta · nº {ed["number"]}</h4><div class="bolas">{bolas}</div>'
+            f'<p class="origen">Combinación ganadora: {_e(origen)}.</p><p>{verdict}</p>{form}</div>')
+
+
+def _pasatiempos(ed, rel, latest):
+    return (f'<section class="secblock sec-pasatiempos" id="sorteo"><header class="sec-head">'
+            f'<h3 class="sec-name">Pasatiempos</h3><span class="sec-desk">Sorteo y horóscopo</span></header>'
+            f'<div class="pasa-grid">{_sorteo(ed, rel, latest)}{_horoscopo(ed)}</div></section>')
+
+
+def _breves(items, rel):
+    if not items:
+        return ""
+    out = []
+    for it in items:
+        who = (f' <a href="{rel}jugadores/{_e(it["player"])}.html">{_e(it["alias"])}</a>'
+               if it.get("player") and it.get("alias") else "")
+        out.append(f'<div class="breve f-{slugify(it.get("formato") or "")}"><div class="bk">{_e(it["section"])}</div>'
+                   f'<h5>{_e(it["headline"])}</h5>{_paras_html(it["body"])}'
+                   + (f'<div class="byline">Sobre{who}</div>' if who else "") + '</div>')
+    return '<div class="box breves"><h4>Breves</h4>' + "".join(out) + '</div>'
 
 
 def _plural(n, word):
@@ -846,18 +1107,8 @@ def _fillers(ed):
                   f'<li><b>Se ofrecen</b> clases de supervivencia. Profesor: {_e(best["alias"])}.</li></ul>', wide=True)
     add("aviso", f'<div class="t">Aviso</div><p>Se ruega a quien encuentre la dignidad de <b>{_e(second["alias"])}</b> '
                  'que la entregue en la Comisaría de Piltover. Se gratificará.</p>')
-    roles = [r for r, _ in Counter(g["role"] for g in games if g.get("role") in HOROSCOPO).most_common(3)]
-    if roles:
-        lis = "".join(f'<li><b>{ROLE_NAMES[r]}.</b> {_e(HOROSCOPO[r][(seed + i) % len(HOROSCOPO[r])])}</li>'
-                      for i, r in enumerate(roles))
-        add("horos", f'<div class="t">Horóscopo de Runeterra</div><ul>{lis}</ul>', wide=True)
     add("publi", '<div class="t">¿Cansado de perder?</div><div class="s">Botón de rendición a domicilio</div>'
                  '<p>Rápido, discreto y sin esperar al minuto 15. Demacia no lo aprueba.</p>')
-    top3 = sorted(rk, key=lambda r: -r["d"])[:3]
-    add("loteria", '<div class="t">Sorteo de la Grieta</div><div class="s">Combinación ganadora</div>'
-                   '<div class="nums">' + "".join(f'<span>{r["d"]}</span>' for r in top3) + '</div>'
-                   f'<p>Las muertes de {_e(", ".join(r["alias"] for r in top3[:-1]))} y {_e(top3[-1]["alias"])}. '
-                   'Nadie acertó: todos perdieron.</p>' if len(top3) > 1 else '')
     if games:
         g = max(games, key=lambda g: g["d"])
         add("cartelera", f'<div class="t">Cartelera</div><div class="s">Teatro de Piltover</div>'
@@ -872,7 +1123,7 @@ def _fillers(ed):
     add("erratas", f'<div class="t">Fe de erratas</div><p>En una edición anterior, donde decía «{_e(best["alias"])} jugó bien», '
                    f'debía decir «{_e(best["alias"])} jugó». Pedimos disculpas a los lectores.</p>')
     k = seed % len(out)
-    return '<template id="relleno">' + "".join(out[k:] + out[:k]) + '</template>'
+    return '<template id="relleno">' + "".join((out[k:] + out[:k])[:MAX_ADS]) + '</template>'
 
 
 def _comments(ed):
@@ -888,10 +1139,12 @@ def _comments(ed):
 </section>"""
 
 
-def render_edition(cfg, ed, editions_until, rel):
+def render_edition(cfg, ed, editions_until, rel, latest=False):
     items = ed["items"]
     lead = items[0] if items else None
-    rest = items[1:]
+    v2 = (ed.get("ai") or {}).get("formato") == 2
+    rest = [it for it in items[1:] if not (v2 and it.get("peso") == "breve")]
+    breves = [it for it in items[1:] if v2 and it.get("peso") == "breve"]
     ticker = " ".join(f"<span>{_e(i['headline'])}</span>" for i in items[:8])
     t = ed["totals"]
     lead_html = ""
@@ -900,8 +1153,9 @@ def render_edition(cfg, ed, editions_until, rel):
                if lead.get("player") else "")
         stat_box = (f'<div class="bigstat"><div class="n">{_e(lead["stat"])}</div>'
                     f'<div class="l">{_e(lead["stat_label"])}</div>{who}</div>') if lead.get("stat") else ""
-        lead_html = (f'<section class="lead"><div>{_kicker(lead)}'
-                     f'<h2>{_e(lead["headline"])}</h2><p>{_e(lead["body"])}</p></div>'
+        sub = f'<p class="sub">{_e(lead["subtitulo"])}</p>' if lead.get("subtitulo") else ""
+        lead_html = (f'<section class="lead{" lead-v2" if v2 else ""}"><div>{_kicker(lead)}'
+                     f'<h2>{_e(lead["headline"])}</h2>{sub}<div class="txt">{_paras_html(lead["body"])}</div></div>'
                      f'<div>{_figure(lead, rel)}{stat_box}</div></section><div class="orn">✦ ✦ ✦</div>')
     special = ""
     esp = ed.get("especial")
@@ -923,11 +1177,13 @@ def render_edition(cfg, ed, editions_until, rel):
 {special}
 {lead_html}
 <div class="cols edicion">
-  <main>{_sections(ed, rest, rel)}{_comments(ed)}</main>{_fillers(ed)}
+  <main>{_sections_v2(ed, rest, rel) if v2 else _sections(ed, rest, rel)}{_pasatiempos(ed, rel, latest)}{_comments(ed)}</main>{_fillers(ed)}
   <aside>
     <div class="box"><h4>General de la vergüenza</h4>{_general_table(board, rel)}</div>
     <div class="box"><h4>Frase del día</h4><p class="quote">«{_e(ed["frase"])}»</p></div>
     <div class="box"><h4>El día en cifras</h4>{totals}{writer}</div>
+    {_breves(breves, rel)}
+    <div class="anuncios-extra"></div>
     <div class="box"><h4>Buzón del lector</h4><p class="small" style="text-align:center">¿Tienes una noticia, una foto o un meme?
       <br><a href="{rel}proponer.html">Envíala a La Voz de Runeterra</a>.</p></div>
   </aside>
@@ -1070,10 +1326,10 @@ def build_site(cfg, friends, editions, out_dir):
     friends_all = list(known.values())
 
     for i, ed in enumerate(editions):
-        html = render_edition(cfg, ed, editions[:i + 1], "../")
+        html = render_edition(cfg, ed, editions[:i + 1], "../", latest=i == len(editions) - 1)
         (out / "ediciones" / f"{ed['date']}.html").write_text(html, encoding="utf-8")
     if editions:
-        index = render_edition(cfg, editions[-1], editions, "")
+        index = render_edition(cfg, editions[-1], editions, "", latest=True)
     else:
         index = page(cfg, cfg["site_title"],
                      '<section class="secblock"><h2 class="kicker">Próximamente</h2>'

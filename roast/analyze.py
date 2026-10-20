@@ -60,9 +60,19 @@ def game_rows(match, friend_by_puuid):
         rivals = [friend_by_puuid[q["puuid"]]["alias"] for q in parts
                   if q["team"] != p["team"] and q["puuid"] in friend_by_puuid]
         kda = (p["k"] + p["a"]) / max(p["d"], 1)
+        team_taken = sum(q.get("taken", 0) for q in team) or 1
+        # the enemy in the same position, for lane comparisons
+        opp = next((q for q in parts if q["team"] != p["team"] and p["pos"] and q["pos"] == p["pos"]), None)
         r = {
             "match": match["id"], "queue": match["queue"], "queue_name": queue_name(match["queue"]),
+            "start": match.get("start") or match["end"] - match["dur"] * 1000,
             "end": match["end"], "dur": match["dur"],
+            "cs": p.get("cs", 0), "vision": p.get("vision", 0), "wards": p.get("wards", 0),
+            "taken_share": p.get("taken", 0) / team_taken, "obj": p.get("obj", 0), "solo": p.get("solo", 0),
+            "opp_champ": champ_name(opp["champ"]) if opp else None,
+            "gold_diff": p["gold"] - opp["gold"] if opp else None,
+            "cs_diff": p.get("cs", 0) - opp.get("cs", 0) if opp else None,
+            "opp_kda": f"{opp['k']}/{opp['d']}/{opp['a']}" if opp else None,
             "alias": friend["alias"], "slug": friend["slug"],
             "champ": champ_name(p["champ"]), "pos": p["pos"], "role": ROLE_NAMES.get(p["pos"], p["pos"].lower() or "?"),
             "support": p["pos"] == "UTILITY",

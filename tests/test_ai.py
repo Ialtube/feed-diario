@@ -41,10 +41,11 @@ class AIFlowTest(unittest.TestCase):
     def test_context_apply_and_site(self):
         with tempfile.TemporaryDirectory() as tmp:
             cfg, store = demo_store(tmp)
-            ctx = ai.build_context(store, "2026-10-19")
+            ctx = ai.build_context(store, "2026-10-19", cfg=cfg, friends=FRIENDS)
             self.assertEqual(ctx["estado_ia"], "pendiente")
             self.assertEqual(len(ctx["historial"]), 2)
-            first = ctx["noticias"][0]
+            self.assertEqual(ctx["formato_edicion"], 2)
+            first = store.edition("2026-10-19")["items"][0]
             data = {
                 "items": [{"id": first["id"], "headline": "Titular nuevo escrito por la IA",
                            "body": "Cuerpo nuevo con mucha más gracia que la plantilla."}],
@@ -144,6 +145,87 @@ class AIFlowTest(unittest.TestCase):
                                 ed, {f["slug"] for f in FRIENDS})
         finally:
             voz.pending_cache, voz.mark = old_cache, old_mark
+
+    def test_edition_format_2(self):
+        from roast.dossier import build_dossier
+        from roast import propuestas as voz
+        old_cache = voz.pending_cache
+        voz.pending_cache = lambda: {}
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                cfg, store = demo_store(tmp)
+                ed = store.edition("2026-10-19")
+                dossier = build_dossier(cfg, store, FRIENDS, ed, store.editions())
+                angles = dossier["angulos"]
+                self.assertTrue(angles)
+                faro = next((a for a in angles if a["tipo"] == "faro"), None)
+                others = [a for a in angles if a is not faro]
+                long_text = "Texto de prueba con suficiente longitud para una pieza. " * 16
+                mid_text = "Texto de prueba para una pieza mediana del periódico. " * 9
+                short_text = "Breve de prueba con unas pocas frases. " * 4
+                piezas = [
+                    {"angulo": others[0]["id"], "peso": "grande", "portada": True, "formato": "crónica",
+                     "headline": "Titular de portada", "body": long_text},
+                    {"angulo": faro["id"] if faro else None, "peso": "mediana", "formato": "nota de prensa",
+                     "seccion": "EL FARO DE LA ESPERANZA", "headline": "Titular del Faro", "body": mid_text},
+                    {"angulo": None, "peso": "mediana", "formato": "parte policial", "seccion": "SUCESOS",
+                     "headline": "Titular mediano", "body": mid_text},
+                    {"angulo": None, "peso": "breve", "formato": "telegrama", "headline": "Breve uno", "body": short_text},
+                    {"angulo": None, "peso": "breve", "formato": "breve", "headline": "Breve dos", "body": short_text},
+                    {"angulo": None, "peso": "breve", "formato": "anuncio por palabras", "headline": "Breve tres",
+                     "body": short_text},
+                ]
+                horos = [{"signo": s, "texto": "Los astros dicen algo bastante largo sobre tu rol hoy."}
+                         for s in ai.SIGNOS]
+                data = {"piezas": piezas, "horoscopo": horos, "frase": "Una frase nueva para hoy.",
+                        "columna": {"titulo": "Columna de prueba", "cuerpo": ["Un párrafo de columna de prueba."]}}
+                known = {f["slug"] for f in FRIENDS}
+                clean = ai.validate_v2(data, ed, known, dossier)
+                ai.apply_v2(ed, clean)
+                self.assertEqual(ed["items"][0]["headline"], "Titular de portada")
+                self.assertEqual(ed["ai"]["formato"], 2)
+                self.assertIn(others[0]["clave"], ed["angulos_usados"])
+                self.assertTrue(ed["items_plantilla"])
+                store.save_edition(ed)
+                out = build_site(cfg, FRIENDS, store.editions(), Path(tmp) / "docs")
+                html = (out / "index.html").read_text(encoding="utf-8")
+                for text in ("Titular de portada", "Breves", "Horóscopo de Runeterra", "Sorteo de la Grieta",
+                             'id="boleto"', "Actualidad"):
+                    self.assertIn(text, html)
+                # the next day, that angle counts as recently used
+                nxt = build_dossier(cfg, store, FRIENDS, {**ed, "date": "2026-10-20"}, store.editions())
+                same = [a for a in nxt["angulos"] if a["clave"] == others[0]["clave"]]
+                if same and same[0]["tipo"] not in ("faro", "ausentes"):
+                    self.assertTrue(same[0]["novedad"].startswith("usado"))
+                bad = [
+                    dict(data, piezas=[dict(p, portada=False) for p in piezas]),          # no front page
+                    dict(data, piezas=[dict(p, formato="noticia") for p in piezas]),      # one format only
+                    dict(data, piezas=piezas[:3]),                                       # too few briefs
+                    dict(data, horoscopo=horos[:4]),                                     # a sign missing
+                    dict(data, piezas=[dict(piezas[0], body="Demasiado corto")] + piezas[1:]),
+                ]
+                for b in bad:
+                    with self.assertRaises(ai.AIError):
+                        ai.validate_v2(b, ed, known, dossier)
+        finally:
+            voz.pending_cache = old_cache
+
+    def test_lottery(self):
+        from roast import sorteo
+        ed = {"date": "2026-10-20", "number": 9, "window": [0, 10], "generated_at": 10,
+              "ranking": [{"alias": "A", "d": 12}, {"alias": "B", "d": 9}, {"alias": "C", "d": 11}],
+              "totals": {"games": 4, "dead_seconds": 600, "deaths": 32}}
+        combo, origin = sorteo.combination(ed)
+        self.assertEqual(sorted(combo), [9, 11, 12])
+        res = sorteo.draw({}, ed, {"sorteo": {"bote": 200}}, tickets=[
+            {"nombre": "Lector", "numeros": [12, 9, 11]}, {"nombre": "Otro", "numeros": [12, 9, 50]},
+            {"nombre": "Nada", "numeros": [1, 2, 3]}])
+        self.assertEqual([a["nombre"] for a in res["acertantes"]], ["Lector"])
+        self.assertEqual([a["nombre"] for a in res["segundos"]], ["Otro"])
+        self.assertEqual(res["bote"], 0)
+        self.assertEqual(sorteo.draw({}, ed, {"sorteo": {"bote": 200}}, tickets=[])["bote"], 300)
+        two = dict(ed, ranking=ed["ranking"][:1])
+        self.assertEqual(len(sorteo.combination(two)[0]), 3)
 
     def test_overused_phrases(self):
         eds = [{"items": [{"headline": "La Comisaría de Piltover abre expediente", "body": "otra vez"}]}] * 3

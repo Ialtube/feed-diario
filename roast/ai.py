@@ -7,11 +7,14 @@ Flow (see ai/GUIA.md):
 """
 import re
 import time
+from collections import Counter
 from pathlib import Path
 
+from .dossier import FIXED, build_dossier, detailed_games
+from .roasts import DESKS
 from .site import general_leaderboard
 from . import propuestas as voz
-from .util import ROOT, load_config, load_json, save_json
+from .util import ROOT, load_config, load_friends, load_json, save_json
 
 EVENTS_FILE = ROOT / "eventos.md"
 IMG_DIR = ROOT / "docs" / "img"
@@ -19,6 +22,22 @@ AI_DIR = ROOT / "ai"
 THEMES = ("rojo", "oro", "negro", "verde", "azul", "morado")
 MAX_EXTRA = 6        # newspaper extras
 MAX_VOZ = 6          # reader proposals published per edition
+
+
+# ---- edition format 2: Claude is the editor (picks angles, weight and format of every story)
+FORMATOS = (
+    "noticia", "crónica", "crónica deportiva", "parte policial", "entrevista", "análisis", "reportaje",
+    "perfil", "editorial", "carta al director", "esquela", "anuncio por palabras", "telegrama",
+    "parte meteorológico", "previa", "nota de prensa", "comunicado oficial", "juicio", "boletín médico",
+    "encuesta", "ranking", "hace una semana", "fe de erratas", "breve",
+)
+PESOS = {  # stories of each weight per edition (min, max) and body length in characters
+    "grande": ((1, 3), (700, 1900)),
+    "mediana": ((2, 6), (350, 1100)),
+    "breve": ((3, 10), (90, 450)),
+}
+SIGNOS = ("Top", "Jungla", "Mid", "Tirador", "Soporte")
+MAX_REPEATED = 0.5  # at most half of the data stories may reuse an angle from the last days
 
 
 class AIError(ValueError):
@@ -94,7 +113,7 @@ def overused_phrases(editions, min_count=3, limit=30):
     return common[:limit]
 
 
-def build_context(store, date_str, history_days=7, fetch_proposals=True):
+def build_context(store, date_str, history_days=7, fetch_proposals=True, cfg=None, friends=None):
     editions = sorted(store.editions(), key=lambda e: e["date"])
     today = next((e for e in editions if e["date"] == date_str), None)
     if not today:
@@ -103,15 +122,23 @@ def build_context(store, date_str, history_days=7, fetch_proposals=True):
     previous = [e for e in editions if e["date"] < date_str][-history_days:]
     events = read_events()
     weekday = time.strptime(date_str, "%Y-%m-%d").tm_wday
+    cfg, friends = cfg or load_config(), friends or load_friends()
+    dossier = build_dossier(cfg, store, friends, today, editions)
+    template = today.get("items_plantilla") or [it for it in today["items"] if it.get("kind") != "ia"]
     return {
+        "formato_edicion": 2,
+        "dossier": dossier,
+        "partidas_detalle": detailed_games(cfg, store, friends, today),
+        "sorteo": today.get("sorteo"),
+        "formatos_disponibles": list(FORMATOS),
+        "formatos_recientes": [it.get("formato") for e in previous[-3:] for it in e["items"] if it.get("formato")],
+        "secciones_recientes": [it.get("section") for e in previous[-3:] for it in e["items"]],
         "fecha": date_str,
         "dia_semana": ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"][weekday],
         "numero": today["number"],
         "estado_ia": ai_status(today),
         "eventos_pendientes": events,
-        "noticias": [{k: it.get(k) for k in ("id", "kind", "section", "player", "alias", "headline", "body",
-                                              "stat", "stat_label", "facts")}
-                     for it in today["items"] if it.get("kind") != "ia"],
+        "portada_del_robot": template[0]["headline"] if template else None,
         "clasificacion_hoy": today["ranking"],
         "partidas_hoy": today["games"],
         "duos": today["duos"],
@@ -154,6 +181,190 @@ def _text(value, field, lo, hi):
     if not lo <= len(v) <= hi:
         raise AIError(f"'{field}' debe tener entre {lo} y {hi} caracteres (tiene {len(v)}): {v[:60]!r}")
     return v
+
+
+def _voz_fields(it, where, pending, clean):
+    prop = it.get("propuesta")
+    lector, imagen = None, it.get("imagen")
+    if prop is not None:
+        if prop not in pending:
+            raise AIError(f"{where}.propuesta {prop!r} no está entre las propuestas pendientes")
+        lector = voz.safe_name(pending[prop]["nombre"]) or "Un lector"
+        imagen = imagen or pending[prop].get("imagen_local")
+        clean["propuestas_usadas"].append(prop)
+    if imagen:
+        if not re.fullmatch(r"[\w.\-]+\.(jpe?g|png|gif|webp)", imagen, re.I) or not (IMG_DIR / imagen).exists():
+            raise AIError(f"{where}.imagen {imagen!r} no existe en docs/img/ (pon solo el nombre del archivo)")
+    return lector, imagen
+
+
+def validate_v2(data, edition, known_slugs, dossier):
+    """Edition format 2: a list of 'piezas' chosen by Claude from the dossier."""
+    angles = {a["id"]: a for a in dossier["angulos"]}
+    clean = {"formato": 2, "piezas": [], "horoscopo": [], "columna": None, "especial": None, "frase": None,
+             "eventos_usados": [], "firma": "Claude", "propuestas_usadas": [], "propuestas_descartadas": []}
+    pending = voz.pending_cache()
+    seen = set()
+    for i, it in enumerate(data.get("piezas") or []):
+        w = f"piezas[{i}]"
+        peso = it.get("peso")
+        if peso not in PESOS:
+            raise AIError(f"{w}.peso debe ser uno de {tuple(PESOS)}")
+        formato = (it.get("formato") or "").strip().lower()
+        if formato not in FORMATOS:
+            raise AIError(f"{w}.formato {formato!r} no está en el catálogo: {', '.join(FORMATOS)}")
+        angle = None
+        if it.get("angulo") is not None:
+            angle = angles.get(it["angulo"])
+            if not angle:
+                raise AIError(f"{w}.angulo {it['angulo']!r} no existe en el dossier de hoy")
+            if it["angulo"] in seen:
+                raise AIError(f"{w}: el ángulo {it['angulo']} ya se usa en otra pieza")
+            seen.add(it["angulo"])
+        player = it.get("player") or (angle["jugador"] if angle and angle["jugador"] in known_slugs else None)
+        if player is not None and player not in known_slugs:
+            raise AIError(f"{w}.player {player!r} no es un jugador conocido ({', '.join(sorted(known_slugs))})")
+        lector, imagen = _voz_fields(it, w, pending, clean)
+        lo, hi = PESOS[peso][1]
+        section = _text(it.get("seccion") or (angle or {}).get("tema") or "SOCIEDAD", f"{w}.seccion", 3, 30).upper()
+        if lector:
+            section = "LA VOZ DE RUNETERRA"
+        clean["piezas"].append({
+            "angulo": it.get("angulo"), "clave": angle["clave"] if angle else None,
+            "angle_campeon": angle.get("campeon") if angle else None,
+            "repetido": bool(angle and angle["tipo"] not in FIXED and angle["novedad"] != "nuevo"),
+            "peso": peso, "formato": formato, "section": section,
+            "desk": _text(it.get("desk") or DESKS.get(section, ""), f"{w}.desk", 0, 50),
+            "headline": _text(it.get("headline"), f"{w}.headline", 8, 140),
+            "subtitulo": _text(it.get("subtitulo") or "", f"{w}.subtitulo", 0, 220),
+            "body": _paras(it.get("body"), f"{w}.body", lo, hi if not lector else max(hi, 1100)),
+            "stat": _text(it.get("stat") or "", f"{w}.stat", 0, 16),
+            "stat_label": _text(it.get("stat_label") or "", f"{w}.stat_label", 0, 50),
+            "player": player, "portada": bool(it.get("portada")), "imagen": imagen,
+            "campeon": _text(it.get("campeon") or "", f"{w}.campeon", 0, 30) or None,
+            "pie": _text(it.get("pie") or "", f"{w}.pie", 0, 200),
+            "meme_arriba": _text(it.get("meme_arriba") or "", f"{w}.meme_arriba", 0, 60),
+            "meme_abajo": _text(it.get("meme_abajo") or "", f"{w}.meme_abajo", 0, 60),
+            "lector": lector,
+        })
+    news = [p for p in clean["piezas"] if not p["lector"]]
+    portadas = [p for p in news if p["portada"]]
+    if len(portadas) != 1 or portadas[0]["peso"] != "grande":
+        raise AIError("Tiene que haber exactamente una pieza con portada: true, y de peso «grande»")
+    for peso, ((lo, hi), _) in PESOS.items():
+        n = sum(1 for p in news if p["peso"] == peso)
+        if not lo <= n <= hi:
+            raise AIError(f"Hay {n} piezas de peso «{peso}»: tienen que ser entre {lo} y {hi}")
+    with_angle = [p for p in news if p["clave"]]
+    repeated = [p for p in with_angle if p["repetido"]]
+    if with_angle and len(repeated) > MAX_REPEATED * len(with_angle):
+        raise AIError(f"{len(repeated)} de {len(with_angle)} piezas repiten ángulos de los últimos días "
+                      f"({', '.join(p['clave'] for p in repeated)}); como mucho la mitad")
+    formats = Counter(p["formato"] for p in news)
+    if len(formats) < 4:
+        raise AIError(f"Usa al menos 4 formatos distintos (ahora: {', '.join(formats)})")
+    top, n = formats.most_common(1)[0]
+    if top != "breve" and n > 0.4 * len(news):
+        raise AIError(f"El formato «{top}» se repite en {n} de {len(news)} piezas: varía más")
+    if any(a["tipo"] == "faro" for a in dossier["angulos"]) and \
+            not any(p["section"] == "EL FARO DE LA ESPERANZA" for p in news):
+        raise AIError("Falta El Faro de la Esperanza: al menos una pieza con seccion «EL FARO DE LA ESPERANZA»")
+    n_voz = len(clean["piezas"]) - len(news)
+    if n_voz > MAX_VOZ:
+        raise AIError(f"Como mucho {MAX_VOZ} piezas de La Voz de Runeterra")
+
+    horos = data.get("horoscopo") or []
+    signos = [h.get("signo") for h in horos]
+    if sorted(signos) != sorted(SIGNOS):
+        raise AIError(f"horoscopo debe tener una entrada por signo: {', '.join(SIGNOS)}")
+    clean["horoscopo"] = [{"signo": h["signo"], "texto": _text(h.get("texto"), f"horoscopo.{h['signo']}", 30, 260)}
+                          for h in sorted(horos, key=lambda h: SIGNOS.index(h["signo"]))]
+    if not data.get("frase") or not data.get("columna"):
+        raise AIError("Faltan la frase del día o la columna")
+    _common(data, clean, pending)
+    return clean
+
+
+def _paras(value, field, lo, hi):
+    """Body text; paragraphs separated by a blank line."""
+    if not isinstance(value, str):
+        raise AIError(f"'{field}' debe ser texto")
+    paras = [re.sub(r"\s+", " ", p).strip() for p in re.split(r"\n\s*\n", value) if p.strip()]
+    total = sum(len(p) for p in paras)
+    if not lo <= total <= hi:
+        raise AIError(f"'{field}' debe tener entre {lo} y {hi} caracteres (tiene {total})")
+    return "\n\n".join(paras)
+
+
+def _common(data, clean, pending):
+    """Column, special edition, quote, events and discarded proposals (both formats)."""
+    col = data.get("columna")
+    if col:
+        paras = col.get("cuerpo") or []
+        if not isinstance(paras, list) or not 1 <= len(paras) <= 6:
+            raise AIError("columna.cuerpo debe ser una lista de 1 a 6 párrafos")
+        clean["columna"] = {
+            "titulo": _text(col.get("titulo"), "columna.titulo", 5, 120),
+            "autor": _text(col.get("autor") or "La Redacción", "columna.autor", 3, 60),
+            "cuerpo": [_text(p, f"columna.cuerpo[{i}]", 20, 900) for i, p in enumerate(paras)],
+        }
+    esp = data.get("especial")
+    if esp:
+        tema = esp.get("tema") or "rojo"
+        if tema not in THEMES:
+            raise AIError(f"especial.tema debe ser uno de {THEMES}")
+        clean["especial"] = {
+            "antetitulo": _text(esp.get("antetitulo") or "EDICIÓN ESPECIAL", "especial.antetitulo", 3, 40).upper(),
+            "titulo": _text(esp.get("titulo"), "especial.titulo", 5, 120),
+            "subtitulo": _text(esp.get("subtitulo") or "", "especial.subtitulo", 0, 260),
+            "tema": tema,
+        }
+    if data.get("frase"):
+        clean["frase"] = _text(data["frase"], "frase", 10, 220)
+    discarded = data.get("propuestas_descartadas") or []
+    for n in discarded:
+        if n not in pending:
+            raise AIError(f"propuestas_descartadas: {n!r} no está entre las propuestas pendientes")
+    clean["propuestas_descartadas"] = discarded
+    used = data.get("eventos_usados") or []
+    if not all(isinstance(n, int) for n in used):
+        raise AIError("eventos_usados debe ser una lista de números (el campo 'n' del contexto)")
+    clean["eventos_usados"] = used
+    if data.get("firma"):
+        clean["firma"] = _text(data["firma"], "firma", 3, 60)
+
+
+def apply_v2(edition, clean):
+    """Replaces the robot's stories with Claude's; the robot's stay in items_plantilla."""
+    if "items_plantilla" not in edition:
+        edition["items_plantilla"] = [it for it in edition["items"] if it.get("kind") != "ia"]
+    aliases = {r["slug"]: r["alias"] for r in edition["ranking"]}
+    base = {"portada": 1000, "grande": 600, "mediana": 400, "breve": 200}
+    items = []
+    for i, p in enumerate(clean["piezas"]):
+        campeon = p["campeon"] or (p["angle_campeon"] if p["peso"] != "breve" else None)
+        items.append({
+            "id": i + 1, "kind": "ia", "peso": p["peso"], "formato": p["formato"], "clave": p["clave"],
+            "section": p["section"], "desk": p["desk"], "player": p["player"],
+            "alias": aliases.get(p["player"]) if p["player"] else None,
+            "headline": p["headline"], "subtitulo": p["subtitulo"], "body": p["body"],
+            "stat": p["stat"], "stat_label": p["stat_label"], "imagen": p["imagen"], "campeon": campeon,
+            "pie": p["pie"], "meme_arriba": p["meme_arriba"], "meme_abajo": p["meme_abajo"], "lector": p["lector"],
+            "severity": (base["portada"] if p["portada"] else base[p["peso"]]) - i, "facts": {},
+        })
+    edition["items"] = sorted(items, key=lambda it: -it["severity"])
+    edition["angulos_usados"] = [p["clave"] for p in clean["piezas"] if p["clave"]]
+    edition["horoscopo"] = clean["horoscopo"]
+    if "template_frase" not in edition:
+        edition["template_frase"] = edition["frase"]
+    edition["frase"] = clean["frase"] or edition["template_frase"]
+    edition["columna"] = clean["columna"]
+    edition["especial"] = clean["especial"]
+    prev = edition.get("ai") or {}
+    edition["ai"] = {"version": prev.get("version", 0) + 1, "updated_at": int(time.time() * 1000),
+                     "firma": clean["firma"], "stale": False, "formato": 2}
+    edition["written_by"] = clean["firma"]
+    return edition
 
 
 def validate(data, edition, known_slugs):
@@ -296,7 +507,7 @@ def apply(edition, clean, date_str):
     return edition
 
 
-def apply_file(store, path, date_str=None):
+def apply_file(store, path, date_str=None, cfg=None, friends=None):
     data = load_json(path)
     m = re.search(r"(\d{4}-\d{2}-\d{2})", Path(path).name)
     date_str = date_str or (m.group(1) if m else None)
@@ -306,8 +517,13 @@ def apply_file(store, path, date_str=None):
     if not edition:
         raise AIError(f"No existe la edición del {date_str}")
     known = {r["slug"] for e in store.editions() for r in e["ranking"]}
-    clean = validate(data, edition, known)
-    apply(edition, clean, date_str)
+    if "piezas" in data:
+        dossier = build_dossier(cfg or load_config(), store, friends or load_friends(), edition, store.editions())
+        clean = validate_v2(data, edition, known, dossier)
+        apply_v2(edition, clean)
+    else:
+        clean = validate(data, edition, known)
+        apply(edition, clean, date_str)
     store.save_edition(edition)
     published = mark_events_published(clean["eventos_usados"], date_str)
     if clean["propuestas_usadas"] or clean["propuestas_descartadas"]:
@@ -319,6 +535,14 @@ def mark_stale_on_regenerate(old, new):
     """Called by `run` when it regenerates a day that already had an AI pass: keep the
     column/special/extras and flag it so the routine rewrites it again."""
     if not old or not old.get("ai"):
+        return new
+    if old["ai"].get("formato") == 2:
+        new["items_plantilla"] = new["items"]
+        new["items"] = old["items"]
+        for k in ("horoscopo", "angulos_usados", "columna", "especial", "template_frase", "frase", "written_by"):
+            if k in old:
+                new[k] = old[k]
+        new["ai"] = dict(old["ai"], stale=True)
         return new
     new["columna"] = old.get("columna")
     new["especial"] = old.get("especial")

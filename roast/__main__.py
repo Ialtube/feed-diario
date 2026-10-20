@@ -6,6 +6,7 @@
   python -m roast demo     full pipeline with fake data -> demo_site/ (no key needed)
 """
 import argparse
+from collections import Counter
 import os
 import shutil
 import sys
@@ -19,6 +20,7 @@ from .notify import post_discord
 from .pipeline import make_edition
 from .riot import RiotClient, RiotError
 from .site import build_site
+from .sorteo import draw
 from .store import Store
 from .util import ROOT, get_tz, load_config, load_friends
 
@@ -64,6 +66,16 @@ def cmd_run(args):
     if existing and existing.get("ai"):
         edition = mark_stale_on_regenerate(existing, edition)
         print("  La edición ya tenía versión IA: se conservan columna/especial y queda marcada para reescribir")
+    if existing and existing.get("sorteo"):
+        # the draw already happened: re-running the robot must not move it or re-check tickets
+        edition["sorteo"], edition["generated_at"] = existing["sorteo"], existing["generated_at"]
+    else:
+        previous = next((e for e in sorted(store.editions(), key=lambda e: e["date"], reverse=True)
+                         if e["date"] < date_str), None)
+        edition["sorteo"] = draw(cfg, edition, previous)
+        s = edition["sorteo"]
+        print(f"  Sorteo: {'-'.join(map(str, s['combinacion']))}, {s['participantes']} boletos, "
+              f"{len(s['acertantes'])} acertantes")
     if not args.no_llm:
         try:
             polish(edition, cfg["llm_model"])
@@ -178,7 +190,7 @@ def cmd_ai_context(args):
     except AIError as e:
         sys.exit(str(e))
     print(f"Contexto escrito en {path.relative_to(ROOT)}")
-    print(f"  estado IA: {ctx['estado_ia']} · {len(ctx['noticias'])} noticias · "
+    print(f"  estado IA: {ctx['estado_ia']} · {len(ctx['dossier']['angulos'])} ángulos en el dossier · "
           f"{len(ctx['eventos_pendientes'])} eventos pendientes · {len(ctx['propuestas_lectores'])} propuestas de lectores · "
           f"{len(ctx['historial'])} días de historial")
 
@@ -191,8 +203,13 @@ def cmd_apply_ai(args):
     except AIError as e:
         sys.exit(f"ERROR en el archivo de la IA: {e}")
     build_site(cfg, friends, store.editions(), ROOT / "docs")
-    print(f"Edición del {ed['date']} actualizada (versión IA {ed['ai']['version']}): "
-          f"{len(clean['items'])} noticias reescritas, {len(clean['extra'])} artículos nuevos"
+    if clean.get("formato") == 2:
+        pesos = Counter(p["peso"] for p in clean["piezas"])
+        summary = (f"{len(clean['piezas'])} piezas ({pesos['grande']} grandes, {pesos['mediana']} medianas, "
+                   f"{pesos['breve']} breves), {len({p['formato'] for p in clean['piezas']})} formatos")
+    else:
+        summary = f"{len(clean['items'])} noticias reescritas, {len(clean['extra'])} artículos nuevos"
+    print(f"Edición del {ed['date']} actualizada (versión IA {ed['ai']['version']}): " + summary
           + (", columna" if clean["columna"] else "") + (", edición especial" if clean["especial"] else "")
           + (f", {published} eventos publicados" if published else "")
           + (f", {len(clean['propuestas_usadas'])} propuestas de lectores" if clean["propuestas_usadas"] else "")

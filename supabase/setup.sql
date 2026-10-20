@@ -40,5 +40,21 @@ drop policy if exists "subir imagenes de propuestas" on storage.objects;
 create policy "subir imagenes de propuestas" on storage.objects
   for insert to anon with check (bucket_id = 'propuestas');
 
+-- ---------------------------------------------------------------- sorteo de la grieta
+-- Cada boleto: un nombre y tres números del 0 al 99. La fecha la pone siempre el servidor.
+create table if not exists public.boletos (
+  id bigint generated always as identity primary key,
+  nombre text not null check (char_length(nombre) between 1 and 40),
+  numeros smallint[] not null check (array_length(numeros, 1) = 3 and 0 <= all(numeros) and 99 >= all(numeros)),
+  created_at timestamptz not null default now()
+);
+alter table public.boletos enable row level security;
+drop policy if exists "leer boletos" on public.boletos;
+create policy "leer boletos" on public.boletos for select to anon using (true);
+drop policy if exists "comprar boletos" on public.boletos;
+-- nadie puede colar un boleto con fecha antigua para un sorteo ya celebrado
+create policy "comprar boletos" on public.boletos for insert to anon
+  with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
+
 -- Hace que la API vea las tablas nuevas al momento
 notify pgrst, 'reload schema';
