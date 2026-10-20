@@ -267,6 +267,83 @@
     }
   }
 
+
+  // ------------------------------------------------------------------ admin: corrections and edit mode
+  // Everyone sees the latest corrections at once; only the admin (with the key) can make them.
+  var FIELD_LIST = ['body', 'columna.cuerpo'];
+  var piezaOf = function(el){ var h = el.closest('[data-pieza],[data-ed]');
+    return h ? Number(h.getAttribute('data-pieza') || h.getAttribute('data-ed')) : 0; };
+  var textOf = function(el){
+    if (FIELD_LIST.indexOf(el.getAttribute('data-campo')) >= 0) {
+      var kids = Array.prototype.filter.call(el.children, function(c){ return /^(P|DIV)$/.test(c.tagName); });
+      if (kids.length) return kids.map(function(c){ return c.innerText.trim(); }).filter(Boolean).join('\n\n');
+    }
+    return el.innerText.trim();
+  };
+  var setText = function(el, t){
+    if (FIELD_LIST.indexOf(el.getAttribute('data-campo')) >= 0)
+      el.innerHTML = t.split(/\n\s*\n/).map(function(p){ return '<p>' + esc(p.trim()) + '</p>'; }).join('');
+    else el.textContent = t;
+  };
+  var fields = function(){ return Array.prototype.slice.call(document.querySelectorAll('[data-campo]')); };
+  if (ok && EDICION) {
+    api('/rest/v1/correcciones?select=pieza,campo,despues&edicion=eq.' + EDICION + '&order=created_at.asc')
+      .then(function(r){ return r.json(); }).then(function(rows){
+        var last = {}; rows.forEach(function(c){ last[c.pieza + '|' + c.campo] = c.despues; });
+        fields().forEach(function(el){ var k = piezaOf(el) + '|' + el.getAttribute('data-campo'); if (last[k] != null) setText(el, last[k]); });
+      }).catch(function(){});
+  }
+  var editing = false, originals = new Map(), bar = null;
+  var rpc = function(fn, args){ return api('/rest/v1/rpc/' + fn, {method: 'POST', headers: {'Content-Type': 'application/json'},
+                                                                   body: JSON.stringify(args)}).then(function(r){ return r.json(); }); };
+  var changed = function(){ return fields().filter(function(el){ return originals.has(el) && textOf(el) !== originals.get(el); }); };
+  var stop = function(discard){
+    fields().forEach(function(el){ if (discard && originals.has(el)) setText(el, originals.get(el)); el.removeAttribute('contenteditable'); });
+    originals = new Map(); editing = false; document.body.classList.remove('editando'); if (bar) bar.remove(); bar = null;
+  };
+  var start = function(){
+    if (!ok || !EDICION) { alert('El modo edición solo funciona en las páginas de una edición.'); return; }
+    var key = remember('feeder-admin') || prompt('Clave de administrador:');
+    if (!key) return;
+    rpc('es_admin', {clave: key}).then(function(isAdmin){
+      if (isAdmin !== true) { remember('feeder-admin', ''); alert('Clave incorrecta.'); return; }
+      remember('feeder-admin', key);
+      editing = true; document.body.classList.add('editando');
+      fields().forEach(function(el){ originals.set(el, textOf(el)); el.setAttribute('contenteditable', 'true'); });
+      bar = document.createElement('div'); bar.className = 'admin-bar';
+      bar.innerHTML = '<b>Modo edición</b> <span class="small">Cambia titulares, entradillas, textos, la columna o la frase. ' +
+        'Ctrl+Mayús+E para salir.</span><input type="text" class="nota" maxlength="500" placeholder="¿Por qué lo cambias? (opcional, ayuda a la redacción a aprender)">' +
+        '<button type="button" data-a="save">Guardar cambios</button><button type="button" data-a="discard">Descartar</button><span class="msg"></span>';
+      document.body.appendChild(bar);
+      bar.querySelector('[data-a=discard]').onclick = function(){ stop(true); };
+      bar.querySelector('[data-a=save]').onclick = function(){
+        var list = changed(), note = bar.querySelector('.nota').value.trim(), msgEl = bar.querySelector('.msg');
+        if (!list.length) { msgEl.textContent = 'No has cambiado nada.'; return; }
+        msgEl.textContent = 'Guardando…';
+        list.reduce(function(prev, el){
+          return prev.then(function(){
+            return rpc('guardar_correccion', {clave: key, p_edicion: EDICION, p_pieza: piezaOf(el), p_campo: el.getAttribute('data-campo'),
+                                              p_antes: originals.get(el), p_despues: textOf(el), p_nota: note || null})
+              .then(function(){ originals.set(el, textOf(el)); });
+          });
+        }, Promise.resolve()).then(function(){ msgEl.textContent = 'Guardadas ' + list.length + ' correcciones. La redacción las estudiará.'; })
+          .catch(function(){ msgEl.textContent = 'No se pudo guardar. ¿La clave sigue siendo válida?'; });
+      };
+    }).catch(function(){ alert('No se pudo comprobar la clave.'); });
+  };
+  document.addEventListener('keydown', function(e){
+    if (e.ctrlKey && e.shiftKey && e.code === 'KeyE') {
+      e.preventDefault();
+      if (!editing) start();
+      else if (!changed().length || confirm('Hay cambios sin guardar. ¿Salir y descartarlos?')) stop(true);
+    }
+  });
+  document.addEventListener('paste', function(e){   // paste plain text only while editing
+    if (!editing || !e.target.closest('[contenteditable]')) return;
+    e.preventDefault(); document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text'));
+  });
+  if (location.hash === '#editar') start();
+
   // ------------------------------------------------------------------ the pool: who will be the worst tomorrow
   var pz = document.getElementById('porra');
   if (pz) {

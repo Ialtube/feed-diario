@@ -1,0 +1,10 @@
+{
+  "pautas": [
+    {"texto": "El administrador odia el humor blandito y de manual: nada de chistes de cortesía ni de «los astros dicen». Si una frase no pica, se quita.", "desde": "inicio"},
+    {"texto": "Más narrativa y menos números: una historia con conflicto y consecuencias; las cifras solo como prueba de la humillación.", "desde": "inicio"},
+    {"texto": "Más duro y adulto: humillación pública, mala leche y tacos cuando suman, siempre sobre cómo juegan.", "desde": "inicio"},
+    {"texto": "Recordar lo que pasó otros días (rachas, costumbres, frases que ya se dijeron) y hacer que las historias se influyan entre sí.", "desde": "inicio"},
+    {"texto": "Mezclar el lore de Runeterra con los datos: gusta mucho, pero como envoltorio de un chiste, no como relleno descriptivo.", "desde": "inicio"}
+  ],
+  "ejemplos": []
+}

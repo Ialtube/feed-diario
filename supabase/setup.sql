@@ -128,5 +128,47 @@ drop policy if exists "apostar" on public.porras;
 create policy "apostar" on public.porras for insert to anon
   with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
 
+-- ---------------------------------------------------------------- correcciones del administrador
+-- El administrador edita las noticias en la web (modo edición) y cada cambio se guarda como
+-- «antes / después». Todos pueden leerlas (la web las muestra al momento y la redacción aprende de
+-- ellas), pero solo se pueden escribir a través de la función de abajo, con la clave de administrador.
+-- En la base de datos solo se guarda la huella SHA-256 de la clave, nunca la clave.
+create extension if not exists pgcrypto with schema extensions;
+create table if not exists public.correcciones (
+  id bigint generated always as identity primary key,
+  edicion date not null,
+  pieza integer not null,
+  campo text not null check (char_length(campo) between 1 and 40),
+  antes text not null check (char_length(antes) <= 6000),
+  despues text not null check (char_length(despues) <= 6000),
+  nota text check (nota is null or char_length(nota) <= 500),
+  created_at timestamptz not null default now()
+);
+alter table public.correcciones enable row level security;
+drop policy if exists "leer correcciones" on public.correcciones;
+create policy "leer correcciones" on public.correcciones for select to anon using (true);
+
+create or replace function public.es_admin(clave text) returns boolean
+language sql security definer set search_path = public, extensions as $$
+  select encode(extensions.digest(clave, 'sha256'), 'hex') = 'c29d3ebfa59f425dd4d9a2a20ed916587425674dcc96f441b9dd433ba5acd551'
+$$;
+
+create or replace function public.guardar_correccion(clave text, p_edicion date, p_pieza integer, p_campo text,
+                                                     p_antes text, p_despues text, p_nota text default null)
+returns bigint language plpgsql security definer set search_path = public, extensions as $$
+declare nuevo bigint;
+begin
+  if not public.es_admin(clave) then
+    raise exception 'Clave de administrador incorrecta' using errcode = '42501';
+  end if;
+  insert into public.correcciones (edicion, pieza, campo, antes, despues, nota)
+  values (p_edicion, p_pieza, p_campo, p_antes, p_despues, nullif(trim(p_nota), ''))
+  returning id into nuevo;
+  return nuevo;
+end $$;
+revoke all on function public.guardar_correccion(text, date, integer, text, text, text, text) from public;
+grant execute on function public.guardar_correccion(text, date, integer, text, text, text, text) to anon;
+grant execute on function public.es_admin(text) to anon;
+
 -- Hace que la API vea las tablas nuevas al momento
 notify pgrst, 'reload schema';

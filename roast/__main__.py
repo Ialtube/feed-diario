@@ -21,6 +21,7 @@ from .llm import polish
 from .notify import post_discord
 from .pipeline import make_edition
 from .riot import RiotClient, RiotError
+from . import correcciones
 from .site import build_site
 from .sorteo import draw
 from .store import Store
@@ -206,9 +207,21 @@ def cmd_ai_status(args):
     print(f"{status.upper()} {date_str} eventos_pendientes={len(events)} propuestas_pendientes={len(props)}")
 
 
+def cmd_correcciones(args):
+    """Applies the admin's corrections to the stored editions and rebuilds the site."""
+    cfg, friends = load_config(), load_friends()
+    store = Store(ROOT / "data")
+    new = correcciones.sync(cfg, store)
+    build_site(cfg, friends, store.editions(), ROOT / "docs")
+    print(f"{len(new)} correcciones nuevas aplicadas. Web regenerada en docs/")
+
+
 def cmd_ai_context(args):
     cfg = load_config()
     store = Store(ROOT / "data")
+    new = correcciones.sync(cfg, store)       # the admin's corrections go into the style memory first
+    if new:
+        print(f"  {len(new)} correcciones nuevas del administrador incorporadas a la memoria de estilo")
     date_str = args.date or _today(cfg)
     try:
         path, ctx = write_context(store, date_str)
@@ -279,6 +292,7 @@ def main(argv=None):
     b.add_argument("--days", type=int, default=7)
     b.set_defaults(fn=cmd_backfill)
     sub.add_parser("build", help="regenerar la web").set_defaults(fn=cmd_build)
+    sub.add_parser("correcciones", help="aplica las correcciones del administrador y regenera la web").set_defaults(fn=cmd_correcciones)
     sub.add_parser("check", help="comprobar clave y jugadores").set_defaults(fn=cmd_check)
     s = sub.add_parser("ai-status", help="¿la edición de hoy ya tiene versión IA?")
     s.add_argument("--date")

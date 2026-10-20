@@ -12,6 +12,7 @@ from collections import Counter
 from pathlib import Path
 
 from . import canon as canon_mod
+from . import correcciones
 from . import lectores
 from . import porra as porra_mod
 from .dossier import FIXED, REQUIRED, build_dossier, detailed_games
@@ -146,6 +147,7 @@ def build_context(store, date_str, history_days=7, fetch_proposals=True, cfg=Non
     template = today.get("items_plantilla") or [it for it in today["items"] if it.get("kind") != "ia"]
     return {
         "formato_edicion": 2,
+        "estilo": correcciones.for_context(Path(store.dir) / "estilo.json"),
         "canon": canon_mod.for_context(canon_mod.load(Path(store.dir) / "canon.json")),
         "lectores_ayer": lectores.feedback(cfg, previous[-1] if previous else None) if fetch_proposals else None,
         "cotillas": lectores.snoops(cfg, previous[-1]["generated_at"] if previous else today["window"][0],
@@ -347,6 +349,19 @@ def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=N
     n_voz = len(clean["piezas"]) - len(news)
     if n_voz > MAX_VOZ:
         raise AIError(f"Como mucho {MAX_VOZ} piezas de La Voz de Runeterra")
+
+    # the admin's corrections must be studied and turned into guidelines
+    est = data.get("estilo") or {}
+    new_corr = (context_extra or {}).get("correcciones_nuevas") or []
+    nuevas = [str(t).strip() for t in est.get("pautas_nuevas") or [] if str(t).strip()]
+    for t in nuevas:
+        if not 15 <= len(t) <= 300:
+            raise AIError(f"estilo.pautas_nuevas: cada pauta entre 15 y 300 caracteres ({t[:40]!r}…)")
+    if new_corr and not nuevas:
+        raise AIError(f"Hay {len(new_corr)} correcciones nuevas del administrador en estilo.correcciones_nuevas: "
+                      "estúdialas y escribe en estilo.pautas_nuevas qué has aprendido de su humor (sin copiar sus chistes)")
+    clean["estilo"] = {"pautas_nuevas": nuevas,
+                       "pautas_retiradas": [str(t) for t in est.get("pautas_retiradas") or []]}
 
     # every reply waiting is published (with the paper's answer) or discarded
     pending_r = lectores.pending_replies()
@@ -663,10 +678,13 @@ def apply_file(store, path, date_str=None, cfg=None, friends=None):
         canon_path = Path(store.dir) / "canon.json"
         cfg = cfg or load_config()
         prev = [e for e in sorted(store.editions(), key=lambda e: e["date"]) if e["date"] < edition["date"]]
-        extra = {"lectores_ayer": lectores.feedback(cfg, prev[-1] if prev else None)}
+        style_path = Path(store.dir) / "estilo.json"
+        extra = {"lectores_ayer": lectores.feedback(cfg, prev[-1] if prev else None),
+                 "correcciones_nuevas": correcciones.for_context(style_path)["correcciones_nuevas"]}
         clean = validate_v2(data, edition, known, dossier, canon_mod.load(canon_path), extra)
         apply_v2(edition, clean, canon_path)
         edition["lectores_ayer"] = extra["lectores_ayer"]
+        correcciones.apply_learning(clean["estilo"], edition["date"], style_path)
         roster = [{"slug": f["slug"], "alias": f["alias"]} for f in (friends or load_friends())]
         edition["cotillas"] = lectores.snoops(cfg, prev[-1]["generated_at"] if prev else edition["window"][0],
                                               edition.get("generated_at") or edition["window"][1], roster)

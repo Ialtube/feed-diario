@@ -302,6 +302,13 @@ class AIFlowTest(unittest.TestCase):
             for b in bad:
                 with self.assertRaises(ai.AIError):
                     ai.validate_v2(b, ed, known, dossier, canon.load(path))
+            # the admin's new corrections must be turned into style guidelines
+            extra = {"correcciones_nuevas": [{"id": 1, "antes": "a", "despues": "b"}]}
+            with self.assertRaises(ai.AIError):
+                ai.validate_v2(data, ed, known, dossier, canon.load(path), extra)
+            ok = ai.validate_v2(dict(data, estilo={"pautas_nuevas": ["Menos adjetivos y remates más secos al final"]}),
+                                ed, known, dossier, canon.load(path), extra)
+            self.assertEqual(ok["estilo"]["pautas_nuevas"], ["Menos adjetivos y remates más secos al final"])
 
     def test_lottery(self):
         from roast import sorteo
@@ -367,6 +374,32 @@ class AIFlowTest(unittest.TestCase):
                                      {"pagina": "jugador:a", "nombre": "A"}, {"pagina": "jugador:a", "nombre": None}])
         self.assertEqual(sn[0], {"cotilla": "B", "ficha": "A", "veces": 2, "se_mira_a_si_mismo": False})
         self.assertTrue(sn[1]["se_mira_a_si_mismo"])
+
+    def test_admin_corrections_and_style(self):
+        from roast import correcciones
+        with tempfile.TemporaryDirectory() as tmp:
+            cfg, store = demo_store(tmp, days=1)
+            ed = store.edition("2026-10-19")
+            first = ed["items"][0]
+            rows = [{"id": 1, "edicion": "2026-10-19", "pieza": first["id"], "campo": "headline",
+                     "antes": first["headline"], "despues": "Titular corregido por el admin", "nota": "más seco"},
+                    {"id": 2, "edicion": "2026-10-19", "pieza": 0, "campo": "frase", "antes": ed["frase"],
+                     "despues": "Frase corregida", "nota": None}]
+            st, sty = Path(tmp) / "corr.json", Path(tmp) / "estilo.json"
+            new = correcciones.sync(cfg, store, rows=rows, state_path=st, style_path=sty)
+            self.assertEqual(len(new), 2)
+            ed = store.edition("2026-10-19")
+            self.assertEqual(ed["items"][0]["headline"], "Titular corregido por el admin")
+            self.assertEqual(ed["frase"], "Frase corregida")
+            self.assertEqual(correcciones.sync(cfg, store, rows=rows, state_path=st, style_path=sty), [])  # only once
+            ctx = correcciones.for_context(sty)
+            self.assertEqual(len(ctx["correcciones_nuevas"]), 2)
+            correcciones.apply_learning({"pautas_nuevas": ["Titulares secos, sin adjetivos de relleno"]}, "2026-10-20", sty)
+            correcciones.apply_learning({"pautas_nuevas": ["Titulares secos, sin adjetivos de relleno"]}, "2026-10-20", sty)
+            ctx = correcciones.for_context(sty)
+            self.assertEqual([p["texto"] for p in ctx["pautas"]], ["Titulares secos, sin adjetivos de relleno"])
+            self.assertEqual(ctx["correcciones_nuevas"], [])
+            self.assertEqual(len(ctx["ejemplos_anteriores"]), 2)
 
     def test_overused_phrases(self):
         eds = [{"items": [{"headline": "La Comisaría de Piltover abre expediente", "body": "otra vez"}]}] * 3

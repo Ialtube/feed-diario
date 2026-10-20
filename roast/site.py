@@ -382,6 +382,15 @@ ul.elenco li{padding:6px 0;break-inside:avoid;border-bottom:1px dotted var(--rul
 .bolsa{margin-top:14px}
 .rx .rx-share{margin-left:4px}
 .rx-rep{display:flex;gap:6px;align-items:center;font-size:.85rem}
+
+/* admin edit mode */
+body.editando [data-campo]{outline:2px dashed var(--accent);outline-offset:3px;cursor:text}
+body.editando [data-campo]:focus{outline-style:solid;background:rgba(255,248,225,.35)}
+.admin-bar{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  width:min(920px,94vw);background:var(--ink);color:var(--paper);padding:10px 14px;border:3px double var(--paper);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.admin-bar .nota{flex:1;min-width:220px;font:inherit;font-size:.9rem;padding:5px 8px;border:1px solid var(--paper);background:rgba(255,248,225,.1);color:var(--paper)}
+.admin-bar button{font-family:"IM Fell English SC",serif;background:var(--paper);color:var(--ink);border:0;padding:5px 12px;cursor:pointer}
+.admin-bar .small{color:#d8ccae}
 @media (max-width:980px){
   .cols,.lead,.profile{grid-template-columns:1fr}
   .lead .txt,.sec-opinion article.column .cbody{column-count:1}
@@ -685,6 +694,83 @@ LECTORES_JS = r"""(function(){
       });
     }
   }
+
+
+  // ------------------------------------------------------------------ admin: corrections and edit mode
+  // Everyone sees the latest corrections at once; only the admin (with the key) can make them.
+  var FIELD_LIST = ['body', 'columna.cuerpo'];
+  var piezaOf = function(el){ var h = el.closest('[data-pieza],[data-ed]');
+    return h ? Number(h.getAttribute('data-pieza') || h.getAttribute('data-ed')) : 0; };
+  var textOf = function(el){
+    if (FIELD_LIST.indexOf(el.getAttribute('data-campo')) >= 0) {
+      var kids = Array.prototype.filter.call(el.children, function(c){ return /^(P|DIV)$/.test(c.tagName); });
+      if (kids.length) return kids.map(function(c){ return c.innerText.trim(); }).filter(Boolean).join('\n\n');
+    }
+    return el.innerText.trim();
+  };
+  var setText = function(el, t){
+    if (FIELD_LIST.indexOf(el.getAttribute('data-campo')) >= 0)
+      el.innerHTML = t.split(/\n\s*\n/).map(function(p){ return '<p>' + esc(p.trim()) + '</p>'; }).join('');
+    else el.textContent = t;
+  };
+  var fields = function(){ return Array.prototype.slice.call(document.querySelectorAll('[data-campo]')); };
+  if (ok && EDICION) {
+    api('/rest/v1/correcciones?select=pieza,campo,despues&edicion=eq.' + EDICION + '&order=created_at.asc')
+      .then(function(r){ return r.json(); }).then(function(rows){
+        var last = {}; rows.forEach(function(c){ last[c.pieza + '|' + c.campo] = c.despues; });
+        fields().forEach(function(el){ var k = piezaOf(el) + '|' + el.getAttribute('data-campo'); if (last[k] != null) setText(el, last[k]); });
+      }).catch(function(){});
+  }
+  var editing = false, originals = new Map(), bar = null;
+  var rpc = function(fn, args){ return api('/rest/v1/rpc/' + fn, {method: 'POST', headers: {'Content-Type': 'application/json'},
+                                                                   body: JSON.stringify(args)}).then(function(r){ return r.json(); }); };
+  var changed = function(){ return fields().filter(function(el){ return originals.has(el) && textOf(el) !== originals.get(el); }); };
+  var stop = function(discard){
+    fields().forEach(function(el){ if (discard && originals.has(el)) setText(el, originals.get(el)); el.removeAttribute('contenteditable'); });
+    originals = new Map(); editing = false; document.body.classList.remove('editando'); if (bar) bar.remove(); bar = null;
+  };
+  var start = function(){
+    if (!ok || !EDICION) { alert('El modo edición solo funciona en las páginas de una edición.'); return; }
+    var key = remember('feeder-admin') || prompt('Clave de administrador:');
+    if (!key) return;
+    rpc('es_admin', {clave: key}).then(function(isAdmin){
+      if (isAdmin !== true) { remember('feeder-admin', ''); alert('Clave incorrecta.'); return; }
+      remember('feeder-admin', key);
+      editing = true; document.body.classList.add('editando');
+      fields().forEach(function(el){ originals.set(el, textOf(el)); el.setAttribute('contenteditable', 'true'); });
+      bar = document.createElement('div'); bar.className = 'admin-bar';
+      bar.innerHTML = '<b>Modo edición</b> <span class="small">Cambia titulares, entradillas, textos, la columna o la frase. ' +
+        'Ctrl+Mayús+E para salir.</span><input type="text" class="nota" maxlength="500" placeholder="¿Por qué lo cambias? (opcional, ayuda a la redacción a aprender)">' +
+        '<button type="button" data-a="save">Guardar cambios</button><button type="button" data-a="discard">Descartar</button><span class="msg"></span>';
+      document.body.appendChild(bar);
+      bar.querySelector('[data-a=discard]').onclick = function(){ stop(true); };
+      bar.querySelector('[data-a=save]').onclick = function(){
+        var list = changed(), note = bar.querySelector('.nota').value.trim(), msgEl = bar.querySelector('.msg');
+        if (!list.length) { msgEl.textContent = 'No has cambiado nada.'; return; }
+        msgEl.textContent = 'Guardando…';
+        list.reduce(function(prev, el){
+          return prev.then(function(){
+            return rpc('guardar_correccion', {clave: key, p_edicion: EDICION, p_pieza: piezaOf(el), p_campo: el.getAttribute('data-campo'),
+                                              p_antes: originals.get(el), p_despues: textOf(el), p_nota: note || null})
+              .then(function(){ originals.set(el, textOf(el)); });
+          });
+        }, Promise.resolve()).then(function(){ msgEl.textContent = 'Guardadas ' + list.length + ' correcciones. La redacción las estudiará.'; })
+          .catch(function(){ msgEl.textContent = 'No se pudo guardar. ¿La clave sigue siendo válida?'; });
+      };
+    }).catch(function(){ alert('No se pudo comprobar la clave.'); });
+  };
+  document.addEventListener('keydown', function(e){
+    if (e.ctrlKey && e.shiftKey && e.code === 'KeyE') {
+      e.preventDefault();
+      if (!editing) start();
+      else if (!changed().length || confirm('Hay cambios sin guardar. ¿Salir y descartarlos?')) stop(true);
+    }
+  });
+  document.addEventListener('paste', function(e){   // paste plain text only while editing
+    if (!editing || !e.target.closest('[contenteditable]')) return;
+    e.preventDefault(); document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text'));
+  });
+  if (location.hash === '#editar') start();
 
   // ------------------------------------------------------------------ the pool: who will be the worst tomorrow
   var pz = document.getElementById('porra');
@@ -1137,13 +1223,13 @@ def _article(it, rel, image=False, cls="", attrs="", placard=False):
     if it.get("peso"):
         cls = f'{cls} pieza-{it["peso"]} f-{slugify(formato)}'.strip()
     ante = f'<div class="ante">{_e(formato.capitalize())}</div>' if formato not in PLAIN_FORMATS else ""
-    sub = f'<p class="sub">{_e(it["subtitulo"])}</p>' if it.get("subtitulo") else ""
+    sub = f'<p class="sub" data-campo="subtitulo">{_e(it["subtitulo"])}</p>' if it.get("subtitulo") else ""
     if it.get("id") is not None:
         attrs += f' data-pieza="{_e(it["id"])}" id="p-{_e(it["id"])}"'
     if it.get("player"):
         attrs += f' data-jugador="{_e(it["player"])}"'
     return (f'<article class="{cls}"{attrs}>{_kicker(it, rel)}{ante}'
-            f'<h3>{_e(it["headline"])}</h3>{sub}{fig}{stat}<div class="txt">{_paras_html(it["body"])}</div>{who}</article>')
+            f'<h3 data-campo="headline">{_e(it["headline"])}</h3>{sub}{fig}{stat}<div class="txt" data-campo="body">{_paras_html(it["body"])}</div>{who}</article>')
 
 
 # --------------------------------------------------------------------------- sections
@@ -1308,9 +1394,9 @@ def _sections_v2(ed, rest, rel):
         body = ""
         if col:
             paras = "".join(f"<p>{_e(p)}</p>" for p in col["cuerpo"])
-            body = (f'<article class="{"wide2" if opinion else "wide"} column"><div class="kicker">La columna</div>'
-                    f'<h3>{_e(col["titulo"])}</h3><div class="byline">Por {_e(col["autor"])}</div>'
-                    f'<div class="cbody">{paras}</div></article>')
+            body = (f'<article class="{"wide2" if opinion else "wide"} column" data-ed="0"><div class="kicker">La columna</div>'
+                    f'<h3 data-campo="columna.titulo">{_e(col["titulo"])}</h3><div class="byline">Por {_e(col["autor"])}</div>'
+                    f'<div class="cbody" data-campo="columna.cuerpo">{paras}</div></article>')
         body += "".join(card(it, i) for i, it in enumerate(opinion))
         html.append('<section class="secblock sec-opinion" id="sec-opinion"><header class="sec-head"><h3 class="sec-name">'
                     'Opinión</h3><span class="sec-desk">Tribuna libre</span></header>'
@@ -1486,7 +1572,7 @@ def _breves(items, rel):
         who = (f' <a href="{rel}jugadores/{_e(it["player"])}.html">{_e(it["alias"])}</a>'
                if it.get("player") and it.get("alias") else "")
         out.append(f'<div class="breve f-{slugify(it.get("formato") or "")}" data-pieza="{_e(it["id"])}"><div class="bk">{_e(it["section"])}</div>'
-                   f'<h5>{_e(it["headline"])}</h5>{_paras_html(it["body"])}'
+                   f'<h5 data-campo="headline">{_e(it["headline"])}</h5><div class="txt" data-campo="body">{_paras_html(it["body"])}</div>'
                    + (f'<div class="byline">Sobre{who}</div>' if who else "") + '</div>')
     return '<div class="box breves"><h4>Breves</h4>' + "".join(out) + '</div>'
 
@@ -1583,9 +1669,9 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
         sent = f'<div class="byline">Enviado por {_e(lead["lector"])}</div>' if lead.get("lector") else ""
         stat_box = (f'<div class="bigstat"><div class="n">{_e(lead["stat"])}</div>'
                     f'<div class="l">{_e(lead["stat_label"])}</div>{who}</div>') if lead.get("stat") else ""
-        sub = f'<p class="sub">{_e(lead["subtitulo"])}</p>' if lead.get("subtitulo") else ""
+        sub = f'<p class="sub" data-campo="subtitulo">{_e(lead["subtitulo"])}</p>' if lead.get("subtitulo") else ""
         lead_html = (f'<section class="lead{" lead-v2" if v2 else ""}" data-pieza="{_e(lead.get("id", 0))}"><div>{_kicker(lead, rel)}'
-                     f'<h2>{_e(lead["headline"])}</h2>{sub}<div class="txt">{_paras_html(lead["body"])}</div>{sent}</div>'
+                     f'<h2 data-campo="headline">{_e(lead["headline"])}</h2>{sub}<div class="txt" data-campo="body">{_paras_html(lead["body"])}</div>{sent}</div>'
                      f'<div>{_figure(lead, rel)}{stat_box}</div></section><div class="orn">✦ ✦ ✦</div>')
     special = ""
     esp = ed.get("especial")
@@ -1610,7 +1696,7 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
   <main>{_sections_v2(ed, rest, rel) if v2 else _sections(ed, rest, rel)}{_pasatiempos(ed, rel, latest, seers(editions_until))}{_comments(ed)}</main>{_fillers(ed)}
   <aside>
     <div class="box"><h4>General de la vergüenza</h4>{_general_table(board, rel)}</div>
-    <div class="box"><h4>Frase del día</h4><p class="quote">«{_e(ed["frase"])}»</p></div>
+    <div class="box" data-ed="0"><h4>Frase del día</h4><p class="quote">«<span data-campo="frase">{_e(ed["frase"])}</span>»</p></div>
     <div class="box"><h4>El día en cifras</h4>{totals}{writer}</div>
     {_readers_boxes(ed, rel)}
     {_breves(breves, rel)}

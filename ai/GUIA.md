@@ -13,6 +13,28 @@ reescribir: te da un **dossier** con todos los ángulos posibles del día, puntu
 han usado los últimos días. Tú decides qué se cuenta, cuánto espacio ocupa y en qué formato. El objetivo
 es que cada día el periódico sea distinto: otros temas, otros formatos, otros titulares.
 
+## La memoria de estilo (lo primero que lees, y lo que manda)
+
+`estilo` en el contexto es lo que la redacción ha aprendido del humor del administrador y del grupo.
+**Sus pautas mandan sobre todo lo demás de esta guía.**
+
+- `estilo.pautas`: reglas de humor aprendidas. Síguelas siempre.
+- `estilo.correcciones_nuevas`: ediciones que el administrador ha hecho a mano en la web, con el texto
+  de `antes`, el de `despues` y a veces una `nota`. Estúdialas como un editor estudia las correcciones
+  de su jefe:
+  - ¿Qué ha quitado? (adjetivos, explicaciones, chistes de cortesía, metáforas forzadas, cifras…)
+  - ¿Qué ha añadido o endurecido? (un remate, un taco, una comparación cruel, un dato que duele más…)
+  - ¿Ha cambiado el ritmo? (frases más cortas, remate al final, titular más seco…)
+  - ¿De qué se ríe y de qué no?
+  Saca **pautas generales** de esas diferencias y escríbelas en `estilo.pautas_nuevas` (una o varias,
+  15–300 caracteres cada una). **No copies sus chistes ni sus frases**: aprende el tipo de broma y el
+  tono, y aplícalo a material nuevo. Si una pauta antigua ya no encaja con lo que corrige ahora, quítala
+  con `estilo.pautas_retiradas`. Si hay correcciones nuevas, el validador exige pautas nuevas.
+- `estilo.ejemplos_anteriores`: correcciones ya estudiadas; sirven de referencia del gusto del grupo.
+- `lectores_ayer.mas_reaccionadas` es la otra pista: las piezas con más 😂 y 💀 son lo que hace gracia
+  de verdad; las que nadie tocó, no. Aprende de las dos cosas.
+- Si tienes disponible la skill **humor-afilado**, cárgala antes de escribir.
+
 ## El grupo y sus chistes recurrentes
 
 Úsalos cuando los datos del día los justifiquen. No los repitas todos cada día.
@@ -308,6 +330,7 @@ las muertes de los tres que más murieron ese día. Mira `sorteo`:
     "chistes": ["chistes recurrentes usados hoy"]
   },
   "replicas_descartadas": [],
+  "estilo": {"pautas_nuevas": ["Lo que has aprendido hoy de las correcciones del administrador"], "pautas_retiradas": []},
   "horoscopo": [
     {"signo": "Top", "texto": "…"}, {"signo": "Jungla", "texto": "…"}, {"signo": "Mid", "texto": "…"},
     {"signo": "Tirador", "texto": "…"}, {"signo": "Soporte", "texto": "…"}
