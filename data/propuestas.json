@@ -5,5 +5,13 @@
   "descartadas": [
     1
   ],
-  "pendientes": {}
+  "pendientes": {},
+  "publicadas": {
+    "2": {
+      "id": 2,
+      "nombre": "ACE LEAGUE",
+      "titulo": null,
+      "imagen_local": "voz-2.png"
+    }
+  }
 }

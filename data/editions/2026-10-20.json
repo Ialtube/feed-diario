@@ -11,6 +11,30 @@
       "id": 1,
       "kind": "ia",
       "peso": "grande",
+      "formato": "noticia",
+      "clave": null,
+      "section": "LA VOZ DE RUNETERRA",
+      "desk": "",
+      "player": null,
+      "alias": null,
+      "headline": "NO ESTABAN MUERTOS, ESTABAN DE PARRANDA: vuelve el Rincón del Viciado y rescata a Saiko del arcón",
+      "subtitulo": "El equipo del grupo regresa a la ACE League con la plantilla de siempre y un fichaje que nadie vio venir.",
+      "body": "Según nos cuenta nuestro lector, el Rincón del Viciado, que la temporada pasada se metió en los playoffs de la primera división de la ACE League, regresa para demostrar que aquello no fue un golpe de suerte. La plantilla será la de siempre, los diez de este periódico, más un fichaje que nadie vio venir: Saiko, vieja gloria desempolvada del baúl de los recuerdos.\n\nEn los despachos rivales ya se oye el rumor y en los foros se discute si es un regreso triunfal o una maniobra de nostalgia. De Saiko, eso sí, esta redacción no tiene ni una sola partida en sus archivos: llega directamente del arcón, sin estadísticas de Riot y con todo el misterio intacto.\n\nEl ensayo de anoche invita al optimismo: cinco de los diez ganaron juntos una Ranked Flex de 44 minutos, y nadie del grupo perdió una sola partida en todo el día. La ACE League queda avisada.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": "voz-2.png",
+      "campeon": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": "ACE LEAGUE",
+      "severity": 1000,
+      "facts": {}
+    },
+    {
+      "id": 2,
+      "kind": "ia",
+      "peso": "grande",
       "formato": "crónica deportiva",
       "clave": "premade:EUW1_8018930561",
       "section": "DEPORTES",
@@ -28,11 +52,11 @@
       "meme_arriba": "CUANDO JUGÁIS LOS CINCO",
       "meme_abajo": "Y POR UNA VEZ GANÁIS",
       "lector": null,
-      "severity": 1000,
+      "severity": 599,
       "facts": {}
     },
     {
-      "id": 2,
+      "id": 3,
       "kind": "ia",
       "peso": "grande",
       "formato": "perfil",
@@ -52,11 +76,11 @@
       "meme_arriba": "CARRY NOT FOUND",
       "meme_abajo": "…HASTA HOY",
       "lector": null,
-      "severity": 599,
+      "severity": 598,
       "facts": {}
     },
     {
-      "id": 3,
+      "id": 4,
       "kind": "ia",
       "peso": "mediana",
       "formato": "editorial",
@@ -76,11 +100,11 @@
       "meme_arriba": "",
       "meme_abajo": "",
       "lector": null,
-      "severity": 398,
+      "severity": 397,
       "facts": {}
     },
     {
-      "id": 4,
+      "id": 5,
       "kind": "ia",
       "peso": "mediana",
       "formato": "comunicado oficial",
@@ -100,11 +124,11 @@
       "meme_arriba": "",
       "meme_abajo": "",
       "lector": null,
-      "severity": 397,
+      "severity": 396,
       "facts": {}
     },
     {
-      "id": 5,
+      "id": 6,
       "kind": "ia",
       "peso": "mediana",
       "formato": "parte policial",
@@ -124,11 +148,11 @@
       "meme_arriba": "",
       "meme_abajo": "",
       "lector": null,
-      "severity": 396,
+      "severity": 395,
       "facts": {}
     },
     {
-      "id": 6,
+      "id": 7,
       "kind": "ia",
       "peso": "mediana",
       "formato": "nota de prensa",
@@ -148,11 +172,11 @@
       "meme_arriba": "",
       "meme_abajo": "",
       "lector": null,
-      "severity": 395,
+      "severity": 394,
       "facts": {}
     },
     {
-      "id": 7,
+      "id": 8,
       "kind": "ia",
       "peso": "breve",
       "formato": "telegrama",
@@ -172,11 +196,11 @@
       "meme_arriba": "",
       "meme_abajo": "",
       "lector": null,
-      "severity": 194,
+      "severity": 193,
       "facts": {}
     },
     {
-      "id": 8,
+      "id": 9,
       "kind": "ia",
       "peso": "breve",
       "formato": "hace una semana",
@@ -196,11 +220,11 @@
       "meme_arriba": "",
       "meme_abajo": "",
       "lector": null,
-      "severity": 193,
+      "severity": 192,
       "facts": {}
     },
     {
-      "id": 9,
+      "id": 10,
       "kind": "ia",
       "peso": "breve",
       "formato": "ranking",
@@ -220,11 +244,11 @@
       "meme_arriba": "",
       "meme_abajo": "",
       "lector": null,
-      "severity": 192,
+      "severity": 191,
       "facts": {}
     },
     {
-      "id": 10,
+      "id": 11,
       "kind": "ia",
       "peso": "breve",
       "formato": "anuncio por palabras",
@@ -244,11 +268,11 @@
       "meme_arriba": "",
       "meme_abajo": "",
       "lector": null,
-      "severity": 191,
+      "severity": 190,
       "facts": {}
     },
     {
-      "id": 11,
+      "id": 12,
       "kind": "ia",
       "peso": "breve",
       "formato": "noticia",
@@ -268,11 +292,11 @@
       "meme_arriba": "",
       "meme_abajo": "",
       "lector": null,
-      "severity": 190,
+      "severity": 189,
       "facts": {}
     },
     {
-      "id": 12,
+      "id": 13,
       "kind": "ia",
       "peso": "breve",
       "formato": "breve",
@@ -292,7 +316,7 @@
       "meme_arriba": "",
       "meme_abajo": "",
       "lector": null,
-      "severity": 189,
+      "severity": 188,
       "facts": {}
     }
   ],
@@ -574,8 +598,8 @@
   },
   "especial": null,
   "ai": {
-    "version": 3,
-    "updated_at": 1792485038446,
+    "version": 4,
+    "updated_at": 1792485859702,
     "firma": "Claude",
     "stale": false,
     "formato": 2

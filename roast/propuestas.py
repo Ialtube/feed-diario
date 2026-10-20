@@ -87,9 +87,23 @@ def pending_cache():
     return {int(k): v for k, v in _state()["pendientes"].items()}
 
 
+def known_cache():
+    """Pending proposals plus the ones already published, so a day can be rewritten
+    without losing the readers' stories it carried."""
+    st = _state()
+    known = {int(k): v for k, v in st.get("publicadas", {}).items()}
+    known.update(pending_cache())
+    return known
+
+
 def mark(used, discarded):
     st = _state()
     st["usadas"] = sorted(set(st["usadas"]) | set(used))
+    published = st.setdefault("publicadas", {})
+    for i in used:
+        p = st["pendientes"].get(str(i)) or published.get(str(i))
+        if p:
+            published[str(i)] = {k: p.get(k) for k in ("id", "nombre", "titulo", "imagen_local")}
     st["descartadas"] = sorted(set(st["descartadas"]) | set(discarded))
     for i in list(used) + list(discarded):
         st["pendientes"].pop(str(i), None)

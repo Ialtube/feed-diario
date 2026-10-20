@@ -203,7 +203,7 @@ def validate_v2(data, edition, known_slugs, dossier):
     angles = {a["id"]: a for a in dossier["angulos"]}
     clean = {"formato": 2, "piezas": [], "horoscopo": [], "columna": None, "especial": None, "frase": None,
              "eventos_usados": [], "firma": "Claude", "propuestas_usadas": [], "propuestas_descartadas": []}
-    pending = voz.pending_cache()
+    pending = voz.known_cache()
     seen = set()
     for i, it in enumerate(data.get("piezas") or []):
         w = f"piezas[{i}]"
@@ -248,7 +248,7 @@ def validate_v2(data, edition, known_slugs, dossier):
             "lector": lector,
         })
     news = [p for p in clean["piezas"] if not p["lector"]]
-    portadas = [p for p in news if p["portada"]]
+    portadas = [p for p in clean["piezas"] if p["portada"]]  # a reader's story can open the paper too
     if len(portadas) != 1 or portadas[0]["peso"] != "grande":
         raise AIError("Tiene que haber exactamente una pieza con portada: true, y de peso «grande»")
     for peso, ((lo, hi), _) in PESOS.items():

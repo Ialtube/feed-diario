@@ -1151,11 +1151,12 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
     if lead:
         who = (f'<div class="who"><a href="{rel}jugadores/{_e(lead["player"])}.html">{_e(lead["alias"])}</a></div>'
                if lead.get("player") else "")
+        sent = f'<div class="byline">Enviado por {_e(lead["lector"])}</div>' if lead.get("lector") else ""
         stat_box = (f'<div class="bigstat"><div class="n">{_e(lead["stat"])}</div>'
                     f'<div class="l">{_e(lead["stat_label"])}</div>{who}</div>') if lead.get("stat") else ""
         sub = f'<p class="sub">{_e(lead["subtitulo"])}</p>' if lead.get("subtitulo") else ""
         lead_html = (f'<section class="lead{" lead-v2" if v2 else ""}"><div>{_kicker(lead)}'
-                     f'<h2>{_e(lead["headline"])}</h2>{sub}<div class="txt">{_paras_html(lead["body"])}</div></div>'
+                     f'<h2>{_e(lead["headline"])}</h2>{sub}<div class="txt">{_paras_html(lead["body"])}</div>{sent}</div>'
                      f'<div>{_figure(lead, rel)}{stat_box}</div></section><div class="orn">✦ ✦ ✦</div>')
     special = ""
     esp = ed.get("especial")
