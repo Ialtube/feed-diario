@@ -167,7 +167,9 @@ def build_facts(matches, players, start_ms, end_ms, ignored_queues=(0, 1700)):
         for r in rows:
             rows_by_player[r["slug"]].append(r)
 
-    summaries = [player_summary(p, rows_by_player.get(p["slug"], [])) for p in players]
+    # one summary per person: smurf accounts share the alias (and so the slug) of their owner
+    people = list({p["slug"]: p for p in reversed(players)}.values())[::-1]
+    summaries = [player_summary(p, rows_by_player.get(p["slug"], [])) for p in people]
     active = sorted([s for s in summaries if s["games"]], key=lambda s: -s["score"])
     absent = [s["alias"] for s in summaries if not s["games"]]
 

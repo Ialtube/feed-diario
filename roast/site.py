@@ -1848,7 +1848,7 @@ def build_site(cfg, friends, editions, out_dir, canon=None):
         for r in ed.get("ranking", []):
             known.setdefault(r["slug"], {"slug": r["slug"], "alias": r["alias"], "riot_id": r.get("riot_id", "")})
     friends_all = list(known.values())
-    ROSTER[:] = [{"slug": f["slug"], "alias": f["alias"]} for f in friends_all]
+    ROSTER[:] = list({f["slug"]: {"slug": f["slug"], "alias": f["alias"]} for f in friends_all}.values())
     ACE.clear()
     ACE.update(load_json(ROOT / "data" / "ace_league.json", None) or {})
 

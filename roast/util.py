@@ -50,13 +50,17 @@ def load_config(root=ROOT):
 
 
 def load_friends(root=ROOT):
-    friends = []
+    """Accounts to follow. Several accounts with the same alias are one person (smurfs)."""
+    friends, seen = [], set()
     for f in load_json(Path(root) / "friends.json", []) or []:
         if f.get("enabled", True) is False:
             continue
         riot_id = f["riot_id"].strip()
         if "#" not in riot_id:
             raise ValueError(f"Riot ID sin '#': {riot_id!r} (formato: Nombre#TAG)")
+        if riot_id.lower() in seen:   # the same account listed twice
+            continue
+        seen.add(riot_id.lower())
         alias = f.get("alias") or riot_id.split("#")[0]
         friends.append({"riot_id": riot_id, "alias": alias, "slug": slugify(alias)})
     return friends
