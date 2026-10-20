@@ -161,7 +161,8 @@ class AIFlowTest(unittest.TestCase):
                 faro = next((a for a in angles if a["tipo"] == "faro"), None)
                 required = [a for a in angles if a["tipo"] in ("sesion_flex", "colas")]
                 others = [a for a in angles if a is not faro and a not in required]
-                long_text = "Texto de prueba con suficiente longitud para una pieza. " * 16
+                roll = ", ".join(r["alias"] for r in ed["ranking"])   # everybody who played gets a mention
+                long_text = "Texto de prueba con suficiente longitud para una pieza. " * 14 + roll + "."
                 mid_text = "Texto de prueba para una pieza mediana del periódico. " * 9
                 short_text = "Breve de prueba con unas pocas frases. " * 4
                 piezas = [
@@ -170,7 +171,7 @@ class AIFlowTest(unittest.TestCase):
                     {"angulo": faro["id"] if faro else None, "peso": "mediana", "formato": "nota de prensa",
                      "seccion": "EL FARO DE LA ESPERANZA", "headline": "Titular del Faro", "body": mid_text},
                     {"angulo": None, "peso": "mediana", "formato": "parte policial", "seccion": "SUCESOS",
-                     "headline": "Titular mediano", "body": mid_text},
+                     "headline": "Titular mediano", "body": mid_text + " " + roll + "."},
                     {"angulo": required[0]["id"] if required else None, "peso": "breve", "formato": "telegrama",
                      "headline": "Breve uno", "body": short_text},
                     {"angulo": required[1]["id"] if len(required) > 1 else None, "peso": "breve", "formato": "breve",
@@ -207,6 +208,7 @@ class AIFlowTest(unittest.TestCase):
                     dict(data, horoscopo=horos[:4]),                                     # a sign missing
                     dict(data, piezas=[dict(piezas[0], body="Demasiado corto")] + piezas[1:]),
                     dict(data, piezas=piezas[:3] + [dict(p, angulo=None) for p in piezas[3:]]),  # Flex/SoloQ left out
+                    dict(data, piezas=[dict(p, body=p["body"].replace(roll, "")) for p in piezas]),  # someone spared
                 ]
                 for b in bad:
                     with self.assertRaises(ai.AIError):

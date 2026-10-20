@@ -13,6 +13,7 @@ from .site import general_leaderboard
 from .util import fmt_int, fmt_minutes, fmt_num, fmt_pct, get_tz, ms_to_local
 
 RECENT_DAYS = 3          # an angle used in the last 3 editions loses most of its score
+TARGET_BOOST = 1.3       # the worst player of all time gets his bad news pushed up
 # appear every day on purpose (never penalised); the first two must always get a story
 REQUIRED = {"faro", "sesion_flex", "colas"}
 FIXED = REQUIRED | {"ausentes"}
@@ -81,9 +82,13 @@ def build_dossier(cfg, store, friends, edition, editions):
     type_count = Counter(k.split(":")[0] for e in recent for k in set(used_keys(e)))
 
     angles = []
+    board = general_leaderboard(prev)
+    target = board[0]["slug"] if board else None
 
     def add(tipo, slug, tema, titulo, datos, score, positivo=False, extra=None, campeon=None, alias=None):
         key = ":".join(str(x) for x in (tipo, slug, extra) if x)
+        if slug and slug == target and not positivo:
+            score *= TARGET_BOOST
         novedad = "nuevo"
         if tipo not in FIXED:
             if key in used_on:
@@ -363,6 +368,7 @@ def build_dossier(cfg, store, friends, edition, editions):
     for i, a in enumerate(angles):
         a["id"] = f"a{i + 1}"
     return {
+        "blanco_historico": board[0] if board else None,
         "angulos": angles,
         "dias_recientes": [e["date"] for e in recent],
         "tipos_recientes": dict(type_count),

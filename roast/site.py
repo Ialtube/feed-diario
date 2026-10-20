@@ -315,6 +315,37 @@ article.f-parte-meteorologico{background:rgba(160,175,190,.08)}
 .horoscopo li{padding:8px 0;border-bottom:1px dotted var(--rule);line-height:1.45}
 .horoscopo li:last-child{border-bottom:0}
 .horoscopo .glifo{font-size:1.3rem;margin-right:6px;color:var(--accent)}
+
+/* who are you */
+nav.menu a.yo{border:1px solid var(--ink);padding:0 8px}
+.yo-dialog{border:3px double var(--ink);background:var(--paper);color:var(--ink);padding:18px 22px;max-width:min(560px,92vw)}
+.yo-dialog::backdrop{background:rgba(20,14,8,.6)}
+.yo-dialog h4{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:1.8rem}
+.yo-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 12px;margin:6px 0}
+.yo-op{font-family:"IM Fell English SC",serif;font-size:1.02rem;cursor:pointer}
+.yo-botones{display:flex;gap:10px;flex-wrap:wrap}
+form.papel button.sec{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.yo-nota{margin:0 0 4px}
+/* reactions and comments on each story */
+.rx{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-top:10px;padding-top:6px;border-top:1px dotted var(--rule);position:relative}
+.rx button{font:inherit;font-size:.92rem;background:transparent;border:1px solid transparent;border-radius:12px;padding:1px 6px;cursor:pointer;color:var(--ink);line-height:1.4}
+.rx button:hover{border-color:var(--rule);background:rgba(255,248,225,.25)}
+.rx button b{font-family:"Old Standard TT",serif;font-size:.85rem;margin-left:3px}
+.rx button.mine{border-color:var(--accent);background:rgba(122,36,22,.08)}
+.rx-c{position:relative;margin-left:auto}
+.rx-pop{display:none;position:absolute;right:0;top:100%;z-index:20;width:min(340px,86vw);background:var(--paper);
+  border:3px double var(--ink);padding:10px 12px;box-shadow:0 10px 30px rgba(0,0,0,.35);text-align:left}
+.rx-c:hover .rx-pop,.rx-c.open .rx-pop,.rx-c:focus-within .rx-pop{display:block}
+.rx-pop .comentario{padding:6px 0}
+.rx-pop .comentario p{font-size:.92rem;text-align:left}
+.rx-list{max-height:260px;overflow:auto;margin-bottom:6px}
+.rx-form{display:grid;gap:6px}
+.rx-form textarea{font:inherit;font-size:.92rem;min-height:60px;resize:vertical;color:var(--ink);background:rgba(255,248,225,.3);border:1px solid var(--ink);padding:6px}
+.rx-form button{justify-self:start;font-family:"IM Fell English SC",serif;background:var(--ink);color:var(--paper);border:0;padding:5px 12px;border-radius:0}
+.lead .rx{margin-top:14px}
+.breve .rx button{font-size:.82rem;padding:0 4px}
+.sec-grid{overflow-x:clip;overflow-y:visible}  /* clips the column rules, lets comment pop-ups drop down */
+.visitas b{font-family:"IM Fell English SC",serif;font-weight:400;color:var(--ink)}
 @media (max-width:980px){
   .cols,.lead,.profile{grid-template-columns:1fr}
   .lead .txt,.sec-opinion article.column .cbody{column-count:1}
@@ -353,13 +384,100 @@ LEGAL = ("{title} no está avalado por Riot Games y no refleja las opiniones de 
 LECTORES_JS = r"""(function(){
   var C = window.FEEDER || {}, ok = !!(C.url && C.key);
   var H = ok ? {apikey: C.key, Authorization: 'Bearer ' + C.key} : {};
+  var EDICION = document.body.getAttribute('data-edicion'), PAGINA = document.body.getAttribute('data-pagina');
+  var EMOJIS = ['😂', '💀', '🔥', '🤡', '🧂', '👑'];
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function when(t){try{return new Date(t).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});}catch(e){return '';}}
   function api(path, opts){opts=opts||{};var h=Object.assign({},H,opts.headers||{});
     return fetch(C.url.replace(/\/$/,'')+path,Object.assign({},opts,{headers:h})).then(function(r){
-      if(!r.ok) return r.text().then(function(t){throw new Error(t||r.status);}); return r;});}
+      if(!r.ok) return r.text().then(function(t){var e=new Error(t||r.status);e.status=r.status;throw e;}); return r;});}
+  function post(table, row){return api('/rest/v1/'+table,{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(row)});}
   function remember(k,v){try{if(v===undefined)return localStorage.getItem(k)||'';localStorage.setItem(k,v);}catch(e){return '';}}
 
+  // ------------------------------------------------------------------ who is reading
+  // Each reader says once who they are (one or several accounts, for the smurfs); it stays in
+  // this browser and fills every form: comments, proposals, lottery tickets.
+  var Yo = {
+    get: function(){
+      try { var y = JSON.parse(localStorage.getItem('feeder-yo') || 'null'); if (y && y.nombre) return y; } catch(e){}
+      var n = remember('feeder-nombre'); return n ? {nombre: n, cuentas: []} : null;
+    },
+    set: function(y){
+      try { if (y) { localStorage.setItem('feeder-yo', JSON.stringify(y)); localStorage.setItem('feeder-nombre', y.nombre); }
+            else { localStorage.removeItem('feeder-yo'); localStorage.removeItem('feeder-nombre'); } } catch(e){}
+      Yo.render();
+    },
+    lector: function(){
+      var id = remember('feeder-lector');
+      if (!id) { id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2);
+                 remember('feeder-lector', id); }
+      return id;
+    },
+    render: function(){
+      var y = Yo.get(), b = document.getElementById('yo-btn');
+      if (b) b.textContent = y ? 'Eres: ' + y.nombre : '¿Quién eres?';
+      Array.prototype.forEach.call(document.querySelectorAll('form input[name=nombre]'), function(inp){
+        var label = inp.closest('label'), f = inp.form, note = f.querySelector('.yo-nota');
+        if (y) {
+          inp.value = y.nombre; if (label) label.hidden = true;
+          if (!note) { note = document.createElement('p'); note.className = 'yo-nota small'; f.insertBefore(note, f.firstElementChild); }
+          note.innerHTML = 'Escribes como <b></b> · <a href="#">cambiar</a>';
+          note.querySelector('b').textContent = y.nombre;
+          note.querySelector('a').onclick = function(e){ e.preventDefault(); Yo.open(); };
+        } else { if (label) label.hidden = false; if (note) note.remove(); }
+      });
+    },
+    open: function(done){
+      var d = document.getElementById('yo-dialog');
+      if (!d) {
+        d = document.createElement('dialog'); d.id = 'yo-dialog'; d.className = 'yo-dialog';
+        var lista = (C.jugadores || []).map(function(j){
+          return '<label class="yo-op"><input type="checkbox" value="'+esc(j.slug)+'" data-alias="'+esc(j.alias)+'"> '+esc(j.alias)+'</label>';
+        }).join('');
+        d.innerHTML = '<form method="dialog" class="papel"><h4>¿Quién eres?</h4>'+
+          '<p class="small">Marca tu cuenta, o tus cuentas si tienes smurfs (la primera que marques será tu nombre). '+
+          'Se guarda en este navegador: no tendrás que volver a escribirlo para comentar, reaccionar, proponer noticias '+
+          'o jugar al sorteo. Tus visitas a las páginas quedarán apuntadas con ese nombre.</p>'+
+          '<div class="yo-lista">'+lista+'</div>'+
+          '<label>¿No estás en la lista? Tu nombre<input type="text" name="otro" maxlength="40"></label>'+
+          '<div class="yo-botones"><button type="submit" value="ok">Guardar</button>'+
+          '<button type="button" class="sec" data-a="cancel">Cancelar</button>'+
+          '<button type="button" class="sec" data-a="forget">Olvidarme</button></div></form>';
+        document.body.appendChild(d);
+        var order = [];
+        d.addEventListener('change', function(e){
+          if (e.target.type !== 'checkbox') return;
+          order = order.filter(function(s){ return s !== e.target.value; });
+          if (e.target.checked) order.push(e.target.value);
+        });
+        d.querySelector('[data-a=cancel]').onclick = function(){ d.close(); };
+        d.querySelector('[data-a=forget]').onclick = function(){ Yo.set(null); d.close(); };
+        d.querySelector('form').addEventListener('submit', function(){
+          var otro = d.querySelector('[name=otro]').value.trim();
+          var checked = order.map(function(s){ return d.querySelector('input[value="'+s+'"]'); }).filter(Boolean);
+          var nombre = checked.length ? checked[0].getAttribute('data-alias') : otro;
+          if (!nombre) return;
+          Yo.set({nombre: nombre.slice(0, 40), cuentas: checked.map(function(i){ return i.value; })});
+          if (d._done) { var f = d._done; d._done = null; f(Yo.get()); }
+        });
+        d._order = function(v){ order = v; };
+      }
+      var y = Yo.get() || {cuentas: []};
+      Array.prototype.forEach.call(d.querySelectorAll('input[type=checkbox]'), function(i){ i.checked = y.cuentas.indexOf(i.value) >= 0; });
+      d._order((y.cuentas || []).slice());
+      d.querySelector('[name=otro]').value = y.cuentas && y.cuentas.length ? '' : (y.nombre || '');
+      d._done = done || null;
+      if (d.showModal) d.showModal(); else d.setAttribute('open', '');
+    },
+    // a name for a form: the saved identity, or the one just typed (saved for next time)
+    remember: function(nombre){ if (!Yo.get() && nombre) Yo.set({nombre: nombre.slice(0, 40), cuentas: []}); }
+  };
+  window.FeederYo = Yo;
+  var yb = document.getElementById('yo-btn');
+  if (yb) yb.addEventListener('click', function(e){ e.preventDefault(); Yo.open(); });
+  Yo.render();
+
+  // ------------------------------------------------------------------ letters to the editor (whole edition)
   var box = document.getElementById('comentarios');
   if (box) {
     var lista = box.querySelector('.lista'), form = box.querySelector('form'), msg = box.querySelector('.msg');
@@ -367,7 +485,7 @@ LECTORES_JS = r"""(function(){
     if (!ok) { lista.innerHTML = '<p class="small">Los comentarios se activarán en cuanto se configure la base de datos.</p>'; form.hidden = true; }
     else {
       var load = function(){
-        api('/rest/v1/comentarios?select=nombre,texto,created_at&edicion=eq.'+ed+'&order=created_at.asc')
+        api('/rest/v1/comentarios?select=nombre,texto,created_at&edicion=eq.'+ed+'&pieza=is.null&order=created_at.asc')
           .then(function(r){return r.json();}).then(function(rows){
             lista.innerHTML = rows.length ? rows.map(function(c){return '<div class="comentario"><b>'+esc(c.nombre)+
               '</b><time>'+when(c.created_at)+'</time><p>'+esc(c.texto)+'</p></div>';}).join('')
@@ -375,15 +493,13 @@ LECTORES_JS = r"""(function(){
           }).catch(function(){lista.innerHTML='<p class="small">No se han podido cargar los comentarios.</p>';});
       };
       load();
-      form.nombre.value = remember('feeder-nombre');
       form.addEventListener('submit', function(ev){
         ev.preventDefault(); if (form.web.value) return;
         var nombre = form.nombre.value.trim(), texto = form.texto.value.trim();
         if (!nombre || !texto) return;
         form.querySelector('button').disabled = true; msg.textContent = 'Enviando…';
-        remember('feeder-nombre', nombre);
-        api('/rest/v1/comentarios',{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=minimal'},
-          body:JSON.stringify({edicion:ed,nombre:nombre.slice(0,40),texto:texto.slice(0,1000)})})
+        Yo.remember(nombre);
+        post('comentarios', {edicion:ed, nombre:nombre.slice(0,40), texto:texto.slice(0,1000)})
           .then(function(){form.texto.value='';msg.textContent='Publicado.';load();})
           .catch(function(){msg.textContent='No se pudo enviar. Inténtalo de nuevo.';})
           .then(function(){form.querySelector('button').disabled=false;});
@@ -391,6 +507,103 @@ LECTORES_JS = r"""(function(){
     }
   }
 
+  // ------------------------------------------------------------------ reactions and comments on each story
+  var piezas = document.querySelectorAll('[data-pieza]');
+  if (EDICION && piezas.length) {
+    var rx = {}, com = {}, mine = {};
+    var bars = {};
+    Array.prototype.forEach.call(piezas, function(el){
+      var id = el.getAttribute('data-pieza'), host = el.classList.contains('lead') ? el.firstElementChild : el;
+      var d = document.createElement('div'); d.className = 'rx'; d.setAttribute('data-id', id);
+      d.innerHTML = EMOJIS.map(function(e){ return '<button type="button" class="rx-e" data-e="'+e+'">'+e+'<b></b></button>'; }).join('') +
+        '<span class="rx-c"><button type="button" class="rx-com" aria-label="Comentarios">💬<b></b></button>' +
+        '<div class="rx-pop"><div class="rx-list"></div><form class="rx-form"><textarea name="texto" maxlength="600" ' +
+        'placeholder="¿Qué opinas de esto?" required></textarea><button type="submit">Comentar</button>' +
+        '<span class="msg small"></span></form></div></span>';
+      host.appendChild(d); bars[id] = d;
+      d.querySelector('.rx-com').addEventListener('click', function(){ d.querySelector('.rx-c').classList.toggle('open'); });
+      Array.prototype.forEach.call(d.querySelectorAll('.rx-e'), function(b){
+        b.addEventListener('click', function(){ react(id, b.getAttribute('data-e')); });
+      });
+      d.querySelector('.rx-form').addEventListener('submit', function(ev){
+        ev.preventDefault();
+        var f = ev.target, texto = f.texto.value.trim(); if (!texto) return;
+        var send = function(y){
+          if (!y) return;
+          f.querySelector('button').disabled = true; f.querySelector('.msg').textContent = 'Enviando…';
+          post('comentarios', {edicion: EDICION, pieza: Number(id), nombre: y.nombre, texto: texto.slice(0, 600)})
+            .then(function(){ f.texto.value = ''; f.querySelector('.msg').textContent = '';
+                              (com[id] = com[id] || []).push({nombre: y.nombre, texto: texto, created_at: new Date().toISOString()}); paint(id); })
+            .catch(function(){ f.querySelector('.msg').textContent = 'No se pudo enviar.'; })
+            .then(function(){ f.querySelector('button').disabled = false; });
+        };
+        var y = Yo.get(); if (y) send(y); else Yo.open(send);
+      });
+    });
+    var paint = function(id){
+      var d = bars[id]; if (!d) return;
+      Array.prototype.forEach.call(d.querySelectorAll('.rx-e'), function(b){
+        var who = (rx[id] || {})[b.getAttribute('data-e')] || [];
+        b.querySelector('b').textContent = who.length ? who.length : '';
+        b.classList.toggle('mine', !!mine[id + b.getAttribute('data-e')]);
+        b.title = who.length ? who.join(', ') : 'Reaccionar';
+      });
+      var cs = com[id] || [];
+      d.querySelector('.rx-com b').textContent = cs.length ? cs.length : '';
+      d.querySelector('.rx-list').innerHTML = cs.length ? cs.map(function(c){
+        return '<div class="comentario"><b>'+esc(c.nombre)+'</b><time>'+when(c.created_at)+'</time><p>'+esc(c.texto)+'</p></div>';
+      }).join('') : '<p class="small">Sin comentarios todavía.</p>';
+    };
+    var react = function(id, e){
+      if (!ok || mine[id + e]) return;
+      var y = Yo.get(), name = y ? y.nombre : 'anónimo';
+      mine[id + e] = true; ((rx[id] = rx[id] || {})[e] = rx[id][e] || []).push(name); paint(id);
+      post('reacciones', {edicion: EDICION, pieza: Number(id), emoji: e, lector: Yo.lector(), nombre: y ? y.nombre : null})
+        .catch(function(err){ if (err.status !== 409) { mine[id + e] = false; rx[id][e].pop(); paint(id); } });
+    };
+    Object.keys(bars).forEach(paint);
+    if (ok) {
+      var me = Yo.lector();
+      api('/rest/v1/reacciones?select=pieza,emoji,nombre,lector&edicion=eq.' + EDICION).then(function(r){ return r.json(); })
+        .then(function(rows){
+          rx = {};
+          rows.forEach(function(x){ ((rx[x.pieza] = rx[x.pieza] || {})[x.emoji] = rx[x.pieza][x.emoji] || []).push(x.nombre || 'anónimo');
+                                    if (x.lector === me) mine[x.pieza + x.emoji] = true; });
+          Object.keys(bars).forEach(paint);
+        }).catch(function(){});
+      api('/rest/v1/comentarios?select=pieza,nombre,texto,created_at&edicion=eq.' + EDICION + '&pieza=not.is.null&order=created_at.asc')
+        .then(function(r){ return r.json(); })
+        .then(function(rows){ com = {}; rows.forEach(function(c){ (com[c.pieza] = com[c.pieza] || []).push(c); });
+                              Object.keys(bars).forEach(paint); }).catch(function(){});
+    }
+  }
+
+  // ------------------------------------------------------------------ visits: who reads what
+  if (ok && PAGINA) {
+    var today = new Date().toISOString().slice(0, 10), key = 'feeder-v-' + PAGINA;
+    if (remember(key) !== today) {
+      var yv = Yo.get();
+      post('visitas', {pagina: PAGINA, nombre: yv ? yv.nombre : null, lector: Yo.lector()})
+        .then(function(){ remember(key, today); }).catch(function(){});
+    }
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-visitas]'), function(el){
+    if (!ok) { el.textContent = 'Se verá en cuanto se configure la base de datos.'; return; }
+    api('/rest/v1/visitas?select=nombre,lector,created_at&pagina=eq.' + encodeURIComponent(el.getAttribute('data-visitas')) +
+        '&order=created_at.desc&limit=1000').then(function(r){ return r.json(); }).then(function(rows){
+      var names = {}, anon = {}, order = [];
+      rows.forEach(function(v){
+        if (v.nombre) { if (!names[v.nombre]) { names[v.nombre] = 0; order.push(v.nombre); } names[v.nombre]++; }
+        else anon[v.lector || Math.random()] = 1;
+      });
+      var n = Object.keys(anon).length;
+      var parts = order.map(function(nm){ return '<b>' + esc(nm) + '</b>' + (names[nm] > 1 ? ' (' + names[nm] + ')' : ''); });
+      if (n) parts.push(n + ' anónimo' + (n > 1 ? 's' : ''));
+      el.innerHTML = parts.length ? parts.join(', ') : 'Nadie todavía.';
+    }).catch(function(){ el.textContent = 'No se han podido cargar las visitas.'; });
+  });
+
+  // ------------------------------------------------------------------ lottery tickets
   var bf = document.getElementById('boleto');
   if (bf) {
     var bmsg = bf.querySelector('.msg'), cnt = document.getElementById('boletos-cuenta');
@@ -403,16 +616,14 @@ LECTORES_JS = r"""(function(){
         }).catch(function(){});
       };
       count();
-      bf.nombre.value = remember('feeder-nombre');
       bf.addEventListener('submit', function(ev){
         ev.preventDefault(); if (bf.web.value) return;
         var nums = [bf.n1, bf.n2, bf.n3].map(function(i){ return parseInt(i.value, 10); });
         if (nums.some(function(n){ return isNaN(n) || n < 0 || n > 99; })) { bmsg.textContent = 'Elige tres números del 0 al 99.'; return; }
         var nombre = bf.nombre.value.trim(); if (!nombre) return;
-        remember('feeder-nombre', nombre);
+        Yo.remember(nombre);
         bf.querySelector('button').disabled = true; bmsg.textContent = 'Sellando…';
-        api('/rest/v1/boletos',{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=minimal'},
-          body:JSON.stringify({nombre:nombre.slice(0,40),numeros:nums})})
+        post('boletos', {nombre:nombre.slice(0,40), numeros:nums})
           .then(function(){ bmsg.textContent = 'Boleto sellado: ' + nums.join(' · ') + '. Suerte mañana.'; count(); })
           .catch(function(){ bmsg.textContent = 'No se pudo sellar el boleto. Inténtalo de nuevo.'; })
           .then(function(){ bf.querySelector('button').disabled = false; });
@@ -420,18 +631,18 @@ LECTORES_JS = r"""(function(){
     }
   }
 
+  // ------------------------------------------------------------------ proposals
   var pf = document.getElementById('proponer');
   if (pf) {
     var pmsg = pf.querySelector('.msg');
     if (!ok) { pf.querySelector('fieldset').disabled = true; pmsg.textContent = 'El buzón se abrirá en cuanto se configure la base de datos.'; }
     else {
-      pf.nombre.value = remember('feeder-nombre');
       pf.addEventListener('submit', function(ev){
         ev.preventDefault(); if (pf.web.value) return;
         var file = pf.imagen.files[0], btn = pf.querySelector('button');
         if (file && file.size > 5*1024*1024) { pmsg.textContent = 'La imagen pesa más de 5 MB.'; return; }
         btn.disabled = true; pmsg.textContent = 'Enviando a la redacción…';
-        remember('feeder-nombre', pf.nombre.value.trim());
+        Yo.remember(pf.nombre.value.trim());
         var up = Promise.resolve(null);
         if (file) {
           var ext = (file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'');
@@ -440,10 +651,9 @@ LECTORES_JS = r"""(function(){
             .then(function(){return path;});
         }
         up.then(function(path){
-          return api('/rest/v1/propuestas',{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=minimal'},
-            body:JSON.stringify({nombre:pf.nombre.value.trim().slice(0,40),titulo:pf.titulo.value.trim().slice(0,140),
-              texto:pf.texto.value.trim().slice(0,2000),imagen:path})});
-        }).then(function(){pf.reset();pf.nombre.value=remember('feeder-nombre');
+          return post('propuestas', {nombre:pf.nombre.value.trim().slice(0,40),titulo:pf.titulo.value.trim().slice(0,140),
+              texto:pf.texto.value.trim().slice(0,2000),imagen:path});
+        }).then(function(){pf.reset();Yo.render();
           pmsg.textContent='¡Recibida! La redacción la revisará y saldrá en La Voz de Runeterra de la próxima edición.';})
           .catch(function(){pmsg.textContent='No se pudo enviar. Revisa los campos e inténtalo de nuevo.';})
           .then(function(){btn.disabled=false;});
@@ -570,6 +780,9 @@ LECTORES_JS = r"""(function(){
 ASSET_VERSION = hashlib.sha1((CSS + LECTORES_JS).encode("utf-8")).hexdigest()[:10]
 
 
+ROSTER = []  # [{slug, alias}] of the players, for the "who are you?" picker; set by build_site
+
+
 def _e(x):
     return escape(str(x), quote=True)
 
@@ -579,14 +792,18 @@ def _date(s):
     return date(y, m, d)
 
 
-def page(cfg, title, body, rel, edition=None, description=""):
+def page(cfg, title, body, rel, edition=None, description="", pagina=""):
     if edition:
         top = (f'<div class="topline"><span>{_e(long_date(_date(edition["date"])).capitalize())}</span>'
                f'<span>Año I · Edición nº {edition["number"]}</span><span>Precio: 1 LP</span></div>')
     else:
         top = ('<div class="topline"><span>Fundado en la Grieta del Invocador</span><span>Año I</span>'
                '<span>Precio: 1 LP</span></div>')
-    feeder = json.dumps({"url": cfg.get("supabase_url", ""), "key": cfg.get("supabase_anon_key", "")})
+    feeder = json.dumps({"url": cfg.get("supabase_url", ""), "key": cfg.get("supabase_anon_key", ""),
+                         "jugadores": ROSTER}, ensure_ascii=False)
+    if edition:
+        pagina = pagina or f"edicion:{edition['date']}"
+    marks = (f' data-edicion="{_e(edition["date"])}"' if edition else "") + (f' data-pagina="{_e(pagina)}"' if pagina else "")
     return f"""<!doctype html>
 <html lang="es">
 <head>
@@ -597,14 +814,14 @@ def page(cfg, title, body, rel, edition=None, description=""):
 {FONTS}
 <link rel="stylesheet" href="{rel}style.css?v={ASSET_VERSION}">
 </head>
-<body>
+<body{marks}>
 <div class="wrap"><div class="paper">
 <header class="mast">
 {top}
 <a class="title" href="{rel}index.html">{_e(cfg['site_title'])}</a>
 <p class="tagline">{_e(cfg['site_tagline'])}</p>
 <div class="rules"></div>
-<nav class="menu"><a href="{rel}index.html">Portada</a><a href="{rel}archivo.html">Hemeroteca</a><a href="{rel}jugadores.html">Jugadores</a><a class="cta" href="{rel}proponer.html">Proponer noticia</a></nav>
+<nav class="menu"><a href="{rel}index.html">Portada</a><a href="{rel}archivo.html">Hemeroteca</a><a href="{rel}jugadores.html">Jugadores</a><a class="cta" href="{rel}proponer.html">Proponer noticia</a><a href="#" class="yo" id="yo-btn">¿Quién eres?</a></nav>
 </header>
 {body}
 </div></div>
@@ -822,6 +1039,8 @@ def _article(it, rel, image=False, cls="", attrs="", placard=False):
         cls = f'{cls} pieza-{it["peso"]} f-{slugify(formato)}'.strip()
     ante = f'<div class="ante">{_e(formato.capitalize())}</div>' if formato not in PLAIN_FORMATS else ""
     sub = f'<p class="sub">{_e(it["subtitulo"])}</p>' if it.get("subtitulo") else ""
+    if it.get("id") is not None:
+        attrs += f' data-pieza="{_e(it["id"])}"'
     return (f'<article class="{cls}"{attrs}>{_kicker(it)}{ante}'
             f'<h3>{_e(it["headline"])}</h3>{sub}{fig}{stat}<div class="txt">{_paras_html(it["body"])}</div>{who}</article>')
 
@@ -1056,7 +1275,7 @@ def _breves(items, rel):
     for it in items:
         who = (f' <a href="{rel}jugadores/{_e(it["player"])}.html">{_e(it["alias"])}</a>'
                if it.get("player") and it.get("alias") else "")
-        out.append(f'<div class="breve f-{slugify(it.get("formato") or "")}"><div class="bk">{_e(it["section"])}</div>'
+        out.append(f'<div class="breve f-{slugify(it.get("formato") or "")}" data-pieza="{_e(it["id"])}"><div class="bk">{_e(it["section"])}</div>'
                    f'<h5>{_e(it["headline"])}</h5>{_paras_html(it["body"])}'
                    + (f'<div class="byline">Sobre{who}</div>' if who else "") + '</div>')
     return '<div class="box breves"><h4>Breves</h4>' + "".join(out) + '</div>'
@@ -1155,7 +1374,7 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
         stat_box = (f'<div class="bigstat"><div class="n">{_e(lead["stat"])}</div>'
                     f'<div class="l">{_e(lead["stat_label"])}</div>{who}</div>') if lead.get("stat") else ""
         sub = f'<p class="sub">{_e(lead["subtitulo"])}</p>' if lead.get("subtitulo") else ""
-        lead_html = (f'<section class="lead{" lead-v2" if v2 else ""}"><div>{_kicker(lead)}'
+        lead_html = (f'<section class="lead{" lead-v2" if v2 else ""}" data-pieza="{_e(lead.get("id", 0))}"><div>{_kicker(lead)}'
                      f'<h2>{_e(lead["headline"])}</h2>{sub}<div class="txt">{_paras_html(lead["body"])}</div>{sent}</div>'
                      f'<div>{_figure(lead, rel)}{stat_box}</div></section><div class="orn">✦ ✦ ✦</div>')
     special = ""
@@ -1184,6 +1403,7 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
     <div class="box"><h4>Frase del día</h4><p class="quote">«{_e(ed["frase"])}»</p></div>
     <div class="box"><h4>El día en cifras</h4>{totals}{writer}</div>
     {_breves(breves, rel)}
+    <div class="box"><h4>Quién ha leído esta edición</h4><p class="small visitas" data-visitas="edicion:{_e(ed["date"])}">Cargando…</p></div>
     <div class="anuncios-extra"></div>
     <div class="box"><h4>Buzón del lector</h4><p class="small" style="text-align:center">¿Tienes una noticia, una foto o un meme?
       <br><a href="{rel}proponer.html">Envíala a La Voz de Runeterra</a>.</p></div>
@@ -1213,7 +1433,7 @@ de la próxima edición. Que sea sobre el LoL y sin pasarse: lo que no sea publi
 <p class="msg"></p>
 </form>
 </section>"""
-    return page(cfg, f"Proponer noticia · {cfg['site_title']}", body, "")
+    return page(cfg, f"Proponer noticia · {cfg['site_title']}", body, "", pagina="proponer")
 
 
 def _sparkline(values, w=320, h=70):
@@ -1278,9 +1498,10 @@ def render_player(cfg, friend, editions):
 <div class="cols">
   <section class="secblock"><header class="sec-head"><h3 class="sec-name">Su hemeroteca</h3><span class="sec-desk">Todo lo publicado sobre {_e(friend["alias"])}</span></header>
     <div class="sec-grid">{news or '<p class="small">Todavía no ha salido en el periódico.</p>'}</div></section>
-  <aside><div class="box"><h4>Últimas partidas</h4>{table}</div></aside>
+  <aside><div class="box"><h4>Quién cotillea esta ficha</h4><p class="small visitas" data-visitas="jugador:{_e(slug)}">Cargando…</p></div>
+    <div class="box"><h4>Últimas partidas</h4>{table}</div></aside>
 </div>"""
-    return page(cfg, f"{friend['alias']} · {cfg['site_title']}", body, "../",
+    return page(cfg, f"{friend['alias']} · {cfg['site_title']}", body, "../", pagina=f"jugador:{slug}",
                 description=f"Expediente de {friend['alias']} en {cfg['site_title']}")
 
 
@@ -1296,7 +1517,7 @@ def render_archive(cfg, editions):
     body = (f'<section class="secblock"><header class="sec-head"><h3 class="sec-name">Hemeroteca</h3>'
             f'<span class="sec-desk">Todas las ediciones</span></header>'
             f'<ul class="archive">{lis or "<li>Aún no hay ediciones.</li>"}</ul></section>')
-    return page(cfg, f"Hemeroteca · {cfg['site_title']}", body, "")
+    return page(cfg, f"Hemeroteca · {cfg['site_title']}", body, "", pagina="hemeroteca")
 
 
 def render_players_index(cfg, friends, editions):
@@ -1307,7 +1528,7 @@ def render_players_index(cfg, friends, editions):
         f'{board.get(f["slug"], {}).get("portadas", 0)} portadas</p></article>' for f in friends)
     body = (f'<section class="secblock"><header class="sec-head"><h3 class="sec-name">Jugadores</h3>'
             f'<span class="sec-desk">Fichas policiales del grupo</span></header><div class="sec-grid">{cards}</div></section>')
-    return page(cfg, f"Jugadores · {cfg['site_title']}", body, "")
+    return page(cfg, f"Jugadores · {cfg['site_title']}", body, "", pagina="jugadores")
 
 
 def build_site(cfg, friends, editions, out_dir):
@@ -1325,6 +1546,7 @@ def build_site(cfg, friends, editions, out_dir):
         for r in ed.get("ranking", []):
             known.setdefault(r["slug"], {"slug": r["slug"], "alias": r["alias"], "riot_id": r.get("riot_id", "")})
     friends_all = list(known.values())
+    ROSTER[:] = [{"slug": f["slug"], "alias": f["alias"]} for f in friends_all]
 
     for i, ed in enumerate(editions):
         html = render_edition(cfg, ed, editions[:i + 1], "../", latest=i == len(editions) - 1)

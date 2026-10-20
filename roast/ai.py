@@ -269,6 +269,18 @@ def validate_v2(data, edition, known_slugs, dossier):
     if any(a["tipo"] == "faro" for a in dossier["angulos"]) and \
             not any(p["section"] == "EL FARO DE LA ESPERANZA" for p in news):
         raise AIError("Falta El Faro de la Esperanza: al menos una pieza con seccion «EL FARO DE LA ESPERANZA»")
+    def mentions(slug, alias):
+        a = alias.lower()
+        return sum(1 for p in news if p["player"] == slug or
+                   a in f'{p["headline"]} {p["subtitulo"]} {p["body"]}'.lower())
+    left_out = [r["alias"] for r in edition.get("ranking", []) if not mentions(r["slug"], r["alias"])]
+    if left_out:
+        raise AIError("Hay que repartir para todos: nadie que haya jugado se libra. Falta caña para " + ", ".join(left_out))
+    target = dossier.get("blanco_historico")
+    if target and any(r["slug"] == target["slug"] for r in edition.get("ranking", [])) \
+            and mentions(target["slug"], target["alias"]) < 2:
+        raise AIError(f"{target['alias']} es el peor de la historia del periódico (lidera la General) y ha jugado: "
+                      "tiene que salir al menos en dos piezas")
     used_ids = {p["angulo"] for p in clean["piezas"] if p["angulo"]}
     missing = [a for a in dossier["angulos"] if a["tipo"] in REQUIRED - {"faro"} and a["id"] not in used_ids]
     if missing:

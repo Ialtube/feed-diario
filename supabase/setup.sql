@@ -56,5 +56,44 @@ drop policy if exists "comprar boletos" on public.boletos;
 create policy "comprar boletos" on public.boletos for insert to anon
   with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
 
+-- ---------------------------------------------------------------- comentarios en cada noticia
+-- pieza vacía = comentario a la edición entera («Cartas al director»)
+alter table public.comentarios add column if not exists pieza integer;
+
+-- ---------------------------------------------------------------- reacciones a las noticias
+-- Cada navegador puede poner cada emoji una vez por noticia (no se pueden quitar).
+create table if not exists public.reacciones (
+  id bigint generated always as identity primary key,
+  edicion date not null,
+  pieza integer not null,
+  emoji text not null check (emoji in ('😂', '💀', '🔥', '🤡', '🧂', '👑')),
+  lector text not null check (char_length(lector) between 8 and 60),
+  nombre text check (nombre is null or char_length(nombre) <= 40),
+  created_at timestamptz not null default now(),
+  unique (edicion, pieza, emoji, lector)
+);
+alter table public.reacciones enable row level security;
+drop policy if exists "leer reacciones" on public.reacciones;
+create policy "leer reacciones" on public.reacciones for select to anon using (true);
+drop policy if exists "reaccionar" on public.reacciones;
+create policy "reaccionar" on public.reacciones for insert to anon
+  with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
+
+-- ---------------------------------------------------------------- visitas
+-- Quién abre cada página (con el nombre que eligió el lector, o anónimo). Una por día y página.
+create table if not exists public.visitas (
+  id bigint generated always as identity primary key,
+  pagina text not null check (char_length(pagina) between 1 and 80),
+  nombre text check (nombre is null or char_length(nombre) <= 40),
+  lector text check (lector is null or char_length(lector) <= 60),
+  created_at timestamptz not null default now()
+);
+alter table public.visitas enable row level security;
+drop policy if exists "leer visitas" on public.visitas;
+create policy "leer visitas" on public.visitas for select to anon using (true);
+drop policy if exists "visitar" on public.visitas;
+create policy "visitar" on public.visitas for insert to anon
+  with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
+
 -- Hace que la API vea las tablas nuevas al momento
 notify pgrst, 'reload schema';
