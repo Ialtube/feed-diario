@@ -451,12 +451,30 @@ body.editando [data-campo]:focus{outline-style:solid;background:rgba(255,248,225
 .aviso-prueba{background:#7a2416;color:#f3e9d2;text-align:center;font-family:"IM Fell English SC",serif;padding:7px 12px;
   letter-spacing:.05em;font-size:.95rem}
 /* «Tu edición»: what the paper says about the reader */
-.tu-edicion{border:3px double var(--ink);padding:12px 16px;margin:0 0 20px;background:rgba(255,248,225,.18)}
+/* it lives in a drawer behind a tab on the right edge, not on the front page */
+.tu-pestana{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:40;writing-mode:vertical-rl;
+  font-family:"IM Fell English SC",serif;font-size:1rem;letter-spacing:.08em;background:var(--ink);color:var(--paper);border:0;
+  border-radius:6px 0 0 6px;padding:16px 8px;cursor:pointer;box-shadow:-3px 3px 12px rgba(0,0,0,.35)}
+.tu-pestana:hover{background:var(--accent)}
+.tu-pestana b{display:inline-block;margin-top:8px;writing-mode:horizontal-tb;background:var(--accent);color:var(--paper);
+  border-radius:50%;min-width:1.5em;line-height:1.5em;text-align:center;font-family:"Old Standard TT",serif;font-size:.85rem}
+.tu-pestana:hover b{background:var(--ink)}
+.tu-edicion{position:fixed;top:0;right:0;bottom:0;width:min(360px,88vw);z-index:45;overflow:auto;padding:18px 18px 26px;
+  background:var(--noise),var(--paper);border-left:3px double var(--ink);box-shadow:-12px 0 30px rgba(0,0,0,.45);
+  transform:translateX(110%);transition:transform .25s ease;visibility:hidden}
+.tu-edicion.abierto{transform:none;visibility:visible}
+.tu-edicion .cerrar{float:right;font-size:1.5rem;line-height:1;background:transparent;color:var(--ink);padding:0 4px}
+.tu-edicion ol.tus-piezas{margin:6px 0 2px 20px}
+.tu-edicion ol.tus-piezas li{border:0;padding:2px 0}
+@media (prefers-reduced-motion:reduce){.tu-edicion{transition:none}}
+@media (max-width:700px){   /* on a phone the tab is a pill in the corner, not a strip over the text */
+  .tu-pestana{top:auto;bottom:14px;right:12px;transform:none;writing-mode:horizontal-tb;border-radius:20px;padding:8px 14px}
+  .tu-pestana b{margin:0 0 0 6px}
+}
 /* on a phone the front page story shows its opening and folds the rest */
 .seguir{display:none;font-family:"IM Fell English SC",serif;background:var(--ink);color:var(--paper);border:0;padding:5px 14px;margin-top:8px;cursor:pointer}
 @media (max-width:700px){
   .lead .txt.plegado p:nth-child(n+2){display:none}
-  .tu-edicion li.extra{display:none}
   .lead .txt.plegado+.seguir,.lead .txt.plegado~.seguir{display:inline-block}
 }
 .tu-edicion h4{font-family:"IM Fell English SC",serif;font-weight:400;font-size:1.15rem;letter-spacing:.04em}
@@ -1031,24 +1049,39 @@ LECTORES_JS = r"""(function(){
   var DATOS = (function(){ var n = document.getElementById('ed-datos'); try { return n ? JSON.parse(n.textContent) : {}; } catch(e){ return {}; } })();
 
   // ------------------------------------------------------------------ «Tu edición»: what today's paper says about you
-  var tu = document.getElementById('tu-edicion');
+  // It lives in a drawer behind a tab on the edge of the page, so the front page stays a front page.
+  var tu = document.getElementById('tu-edicion'), tab = document.getElementById('tu-pestana');
+  var cajon = function(open){
+    if (!tu) return;
+    tu.classList.toggle('abierto', open); tu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    if (tab) tab.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  if (tab) tab.addEventListener('click', function(){ cajon(!tu.classList.contains('abierto')); });
+  if (tu) tu.addEventListener('click', function(e){ if (e.target.closest('a,[data-a=cerrar]')) cajon(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cajon(false); });
+  document.addEventListener('click', function(e){
+    if (tu && tu.classList.contains('abierto') && !e.target.closest('#tu-edicion,#tu-pestana,dialog')) cajon(false);
+  });
+  var cabecera = function(t){ return '<button type="button" class="cerrar" data-a="cerrar" aria-label="Cerrar">×</button><h4>' + t + '</h4>'; };
   function pintaTu(){
     if (!tu) return;
     var y = Yo.get(), J = DATOS.jugadores || {}, li = [];
+    if (tab) tab.hidden = false;
     if (!y) {
-      tu.innerHTML = '<h4>Tu edición</h4><p class="small">Dinos quién eres y te enseñamos, antes que nada, lo que el periódico dice hoy de ti.</p>' +
-        '<p style="margin-top:6px"><button type="button">¿Quién eres?</button></p>';
-      tu.querySelector('button').onclick = function(){ Yo.open(); };
-      tu.hidden = false; return;
+      tu.innerHTML = cabecera('Tu edición') + '<p class="small">Dinos quién eres y te enseñamos lo que el periódico dice hoy de ti.</p>' +
+        '<p style="margin-top:8px"><button type="button" class="yo-cajon">¿Quién eres?</button></p>';
+      tu.querySelector('.yo-cajon').onclick = function(){ cajon(false); Yo.open(); };
+      if (tab) tab.innerHTML = 'Tu edición';
+      return;
     }
     var slug = (y.cuentas || [])[0], me = slug ? J[slug] : null;
-    if (me && me.piezas.length) li.push('Hoy sales en <b>' + me.piezas.length + '</b> pieza' + (me.piezas.length > 1 ? 's' : '') + ': ' +
-      me.piezas.slice(0, 3).map(function(p){ return '<a href="#p-' + esc(p[0]) + '">' + esc(p[1]) + '</a>'; }).join(' · ') +
-      (me.piezas.length > 3 ? ' y ' + (me.piezas.length - 3) + ' más.' : ''));
+    if (me && me.piezas.length) li.push('Hoy sales en <b>' + me.piezas.length + '</b> pieza' + (me.piezas.length > 1 ? 's' : '') + ':<ol class="tus-piezas">' +
+      me.piezas.map(function(p){ return '<li><a href="#p-' + esc(p[0]) + '">' + esc(p[1]) + '</a></li>'; }).join('') + '</ol>');
     else if (slug) li.push('Hoy no sales en el periódico. Disfrútalo: no durará.');
     if (me && me.puesto) li.push('Tu día: <b>' + esc(me.dia) + '</b>, puesto ' + me.puesto + ' de ' + me.de + ' en la tabla de la vergüenza' +
       (me.puesto === 1 ? ' (sí, el peor)' : '') + '.');
-    if (me && me.tiempo) li.push('<span data-extra></span>Tu tiempo, según Madame Niebla: <i>' + esc(me.tiempo.split(/(?<=\.)\s/)[0]) + '</i>');
+    if (me && me.tiempo) li.push('Tu tiempo, según Madame Niebla: <i>' + esc(me.tiempo) + '</i>');
+    if (tab) tab.innerHTML = 'Tu edición' + (me && me.piezas.length ? ' <b>' + me.piezas.length + '</b>' : '');
     var saldo = (DATOS.saldos || {})[Yo.key()];
     li.push('Lonja de Coronas: ' + (saldo != null ? '<b>' + saldo + '</b> coronas.' : 'aún no tienes cuenta; empiezas con 100 coronas.') + ' <a href="#lonja">Apostar</a>');
     if (document.getElementById('jurado')) li.push(remember('feeder-jurado-' + EDICION) ? 'Ya has votado en el jurado popular.' : 'El jurado popular espera <a href="#jurado">tu voto</a>.');
@@ -1057,9 +1090,7 @@ LECTORES_JS = r"""(function(){
       li.push(q.fin ? '¿Quién fue?: ' + (q.acierto ? 'resuelto en ' + q.intentos + ' intento' + (q.intentos > 1 ? 's' : '') + '.' : 'hoy no lo sacaste.')
                     : '<a href="#quienfue">¿Quién fue?</a> sigue sin resolver.');
     }
-    tu.innerHTML = '<h4>Tu edición, ' + esc(y.nombre) + '</h4><ul>' + li.map(function(t){
-      return '<li' + (t.indexOf('data-extra') >= 0 ? ' class="extra"' : '') + '>' + t + '</li>'; }).join('') + '</ul>';
-    tu.hidden = false;
+    tu.innerHTML = cabecera('Tu edición, ' + esc(y.nombre)) + '<ul>' + li.map(function(t){ return '<li>' + t + '</li>'; }).join('') + '</ul>';
   }
   pintaTu(); Yo.listeners.push(pintaTu);
 
@@ -2413,7 +2444,7 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
                    'aunque duelan.</p></section>')
     body = f"""
 <div class="ticker"><b>ÚLTIMA HORA</b><div class="run">{ticker}</div></div>
-{'<div class="tu-edicion" id="tu-edicion" hidden></div>' if latest and not imprenta else ""}
+{'<button type="button" class="tu-pestana" id="tu-pestana" aria-controls="tu-edicion" aria-expanded="false" hidden>Tu edición</button><aside class="tu-edicion" id="tu-edicion" aria-hidden="true" aria-label="Tu edición"></aside>' if latest and not imprenta else ""}
 {special}
 {lead_html}
 {_franja(ed, latest)}

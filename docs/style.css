@@ -426,12 +426,30 @@ body.editando [data-campo]:focus{outline-style:solid;background:rgba(255,248,225
 .aviso-prueba{background:#7a2416;color:#f3e9d2;text-align:center;font-family:"IM Fell English SC",serif;padding:7px 12px;
   letter-spacing:.05em;font-size:.95rem}
 /* «Tu edición»: what the paper says about the reader */
-.tu-edicion{border:3px double var(--ink);padding:12px 16px;margin:0 0 20px;background:rgba(255,248,225,.18)}
+/* it lives in a drawer behind a tab on the right edge, not on the front page */
+.tu-pestana{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:40;writing-mode:vertical-rl;
+  font-family:"IM Fell English SC",serif;font-size:1rem;letter-spacing:.08em;background:var(--ink);color:var(--paper);border:0;
+  border-radius:6px 0 0 6px;padding:16px 8px;cursor:pointer;box-shadow:-3px 3px 12px rgba(0,0,0,.35)}
+.tu-pestana:hover{background:var(--accent)}
+.tu-pestana b{display:inline-block;margin-top:8px;writing-mode:horizontal-tb;background:var(--accent);color:var(--paper);
+  border-radius:50%;min-width:1.5em;line-height:1.5em;text-align:center;font-family:"Old Standard TT",serif;font-size:.85rem}
+.tu-pestana:hover b{background:var(--ink)}
+.tu-edicion{position:fixed;top:0;right:0;bottom:0;width:min(360px,88vw);z-index:45;overflow:auto;padding:18px 18px 26px;
+  background:var(--noise),var(--paper);border-left:3px double var(--ink);box-shadow:-12px 0 30px rgba(0,0,0,.45);
+  transform:translateX(110%);transition:transform .25s ease;visibility:hidden}
+.tu-edicion.abierto{transform:none;visibility:visible}
+.tu-edicion .cerrar{float:right;font-size:1.5rem;line-height:1;background:transparent;color:var(--ink);padding:0 4px}
+.tu-edicion ol.tus-piezas{margin:6px 0 2px 20px}
+.tu-edicion ol.tus-piezas li{border:0;padding:2px 0}
+@media (prefers-reduced-motion:reduce){.tu-edicion{transition:none}}
+@media (max-width:700px){   /* on a phone the tab is a pill in the corner, not a strip over the text */
+  .tu-pestana{top:auto;bottom:14px;right:12px;transform:none;writing-mode:horizontal-tb;border-radius:20px;padding:8px 14px}
+  .tu-pestana b{margin:0 0 0 6px}
+}
 /* on a phone the front page story shows its opening and folds the rest */
 .seguir{display:none;font-family:"IM Fell English SC",serif;background:var(--ink);color:var(--paper);border:0;padding:5px 14px;margin-top:8px;cursor:pointer}
 @media (max-width:700px){
   .lead .txt.plegado p:nth-child(n+2){display:none}
-  .tu-edicion li.extra{display:none}
   .lead .txt.plegado+.seguir,.lead .txt.plegado~.seguir{display:inline-block}
 }
 .tu-edicion h4{font-family:"IM Fell English SC",serif;font-weight:400;font-size:1.15rem;letter-spacing:.04em}

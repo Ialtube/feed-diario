@@ -448,24 +448,39 @@
   var DATOS = (function(){ var n = document.getElementById('ed-datos'); try { return n ? JSON.parse(n.textContent) : {}; } catch(e){ return {}; } })();
 
   // ------------------------------------------------------------------ «Tu edición»: what today's paper says about you
-  var tu = document.getElementById('tu-edicion');
+  // It lives in a drawer behind a tab on the edge of the page, so the front page stays a front page.
+  var tu = document.getElementById('tu-edicion'), tab = document.getElementById('tu-pestana');
+  var cajon = function(open){
+    if (!tu) return;
+    tu.classList.toggle('abierto', open); tu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    if (tab) tab.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  if (tab) tab.addEventListener('click', function(){ cajon(!tu.classList.contains('abierto')); });
+  if (tu) tu.addEventListener('click', function(e){ if (e.target.closest('a,[data-a=cerrar]')) cajon(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cajon(false); });
+  document.addEventListener('click', function(e){
+    if (tu && tu.classList.contains('abierto') && !e.target.closest('#tu-edicion,#tu-pestana,dialog')) cajon(false);
+  });
+  var cabecera = function(t){ return '<button type="button" class="cerrar" data-a="cerrar" aria-label="Cerrar">×</button><h4>' + t + '</h4>'; };
   function pintaTu(){
     if (!tu) return;
     var y = Yo.get(), J = DATOS.jugadores || {}, li = [];
+    if (tab) tab.hidden = false;
     if (!y) {
-      tu.innerHTML = '<h4>Tu edición</h4><p class="small">Dinos quién eres y te enseñamos, antes que nada, lo que el periódico dice hoy de ti.</p>' +
-        '<p style="margin-top:6px"><button type="button">¿Quién eres?</button></p>';
-      tu.querySelector('button').onclick = function(){ Yo.open(); };
-      tu.hidden = false; return;
+      tu.innerHTML = cabecera('Tu edición') + '<p class="small">Dinos quién eres y te enseñamos lo que el periódico dice hoy de ti.</p>' +
+        '<p style="margin-top:8px"><button type="button" class="yo-cajon">¿Quién eres?</button></p>';
+      tu.querySelector('.yo-cajon').onclick = function(){ cajon(false); Yo.open(); };
+      if (tab) tab.innerHTML = 'Tu edición';
+      return;
     }
     var slug = (y.cuentas || [])[0], me = slug ? J[slug] : null;
-    if (me && me.piezas.length) li.push('Hoy sales en <b>' + me.piezas.length + '</b> pieza' + (me.piezas.length > 1 ? 's' : '') + ': ' +
-      me.piezas.slice(0, 3).map(function(p){ return '<a href="#p-' + esc(p[0]) + '">' + esc(p[1]) + '</a>'; }).join(' · ') +
-      (me.piezas.length > 3 ? ' y ' + (me.piezas.length - 3) + ' más.' : ''));
+    if (me && me.piezas.length) li.push('Hoy sales en <b>' + me.piezas.length + '</b> pieza' + (me.piezas.length > 1 ? 's' : '') + ':<ol class="tus-piezas">' +
+      me.piezas.map(function(p){ return '<li><a href="#p-' + esc(p[0]) + '">' + esc(p[1]) + '</a></li>'; }).join('') + '</ol>');
     else if (slug) li.push('Hoy no sales en el periódico. Disfrútalo: no durará.');
     if (me && me.puesto) li.push('Tu día: <b>' + esc(me.dia) + '</b>, puesto ' + me.puesto + ' de ' + me.de + ' en la tabla de la vergüenza' +
       (me.puesto === 1 ? ' (sí, el peor)' : '') + '.');
-    if (me && me.tiempo) li.push('<span data-extra></span>Tu tiempo, según Madame Niebla: <i>' + esc(me.tiempo.split(/(?<=\.)\s/)[0]) + '</i>');
+    if (me && me.tiempo) li.push('Tu tiempo, según Madame Niebla: <i>' + esc(me.tiempo) + '</i>');
+    if (tab) tab.innerHTML = 'Tu edición' + (me && me.piezas.length ? ' <b>' + me.piezas.length + '</b>' : '');
     var saldo = (DATOS.saldos || {})[Yo.key()];
     li.push('Lonja de Coronas: ' + (saldo != null ? '<b>' + saldo + '</b> coronas.' : 'aún no tienes cuenta; empiezas con 100 coronas.') + ' <a href="#lonja">Apostar</a>');
     if (document.getElementById('jurado')) li.push(remember('feeder-jurado-' + EDICION) ? 'Ya has votado en el jurado popular.' : 'El jurado popular espera <a href="#jurado">tu voto</a>.');
@@ -474,9 +489,7 @@
       li.push(q.fin ? '¿Quién fue?: ' + (q.acierto ? 'resuelto en ' + q.intentos + ' intento' + (q.intentos > 1 ? 's' : '') + '.' : 'hoy no lo sacaste.')
                     : '<a href="#quienfue">¿Quién fue?</a> sigue sin resolver.');
     }
-    tu.innerHTML = '<h4>Tu edición, ' + esc(y.nombre) + '</h4><ul>' + li.map(function(t){
-      return '<li' + (t.indexOf('data-extra') >= 0 ? ' class="extra"' : '') + '>' + t + '</li>'; }).join('') + '</ul>';
-    tu.hidden = false;
+    tu.innerHTML = cabecera('Tu edición, ' + esc(y.nombre)) + '<ul>' + li.map(function(t){ return '<li>' + t + '</li>'; }).join('') + '</ul>';
   }
   pintaTu(); Yo.listeners.push(pintaTu);
 
