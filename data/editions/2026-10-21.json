@@ -1129,7 +1129,484 @@
   "bolsa": {
     "fecha": "2026-10-21",
     "desde": null,
-    "filas": []
+    "filas": [
+      {
+        "slug": "grangalax",
+        "alias": "grangalax",
+        "cuenta": "grangalax#OVD",
+        "principal": true,
+        "desde": null,
+        "solo": {
+          "posicion": "Oro IV · 37 LP",
+          "lp": 37,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 251,
+          "derrotas": 252
+        },
+        "flex": {
+          "posicion": "Plata III · 71 LP",
+          "lp": 71,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 99,
+          "derrotas": 95
+        }
+      },
+      {
+        "slug": "grangalax",
+        "alias": "grangalax",
+        "cuenta": "VitasUchiha#EUW",
+        "principal": false,
+        "desde": null,
+        "solo": {
+          "posicion": "Plata II · 65 LP",
+          "lp": 65,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 4,
+          "derrotas": 4
+        }
+      },
+      {
+        "slug": "thetrevur",
+        "alias": "TheTrevur",
+        "cuenta": "TheTrevur#URGOD",
+        "principal": true,
+        "desde": null,
+        "solo": {
+          "posicion": "Diamante IV · 0 LP",
+          "lp": 0,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 71,
+          "derrotas": 70
+        },
+        "flex": {
+          "posicion": "Diamante III · 40 LP",
+          "lp": 40,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 78,
+          "derrotas": 65
+        }
+      },
+      {
+        "slug": "thetrevur",
+        "alias": "TheTrevur",
+        "cuenta": "Sunraku#998",
+        "principal": false,
+        "desde": null,
+        "solo": {
+          "posicion": "Platino II · 81 LP",
+          "lp": 81,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 40,
+          "derrotas": 30
+        },
+        "flex": {
+          "posicion": "Platino IV · 28 LP",
+          "lp": 28,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 32,
+          "derrotas": 23
+        }
+      },
+      {
+        "slug": "wolf",
+        "alias": "Wôlf",
+        "cuenta": "Wôlf172#1075",
+        "principal": true,
+        "desde": null,
+        "solo": {
+          "posicion": "Esmeralda IV · 53 LP",
+          "lp": 53,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 167,
+          "derrotas": 160
+        },
+        "flex": {
+          "posicion": "Esmeralda IV · 32 LP",
+          "lp": 32,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 67,
+          "derrotas": 64
+        }
+      },
+      {
+        "slug": "wolf",
+        "alias": "Wôlf",
+        "cuenta": "crak172#EUW",
+        "principal": false,
+        "desde": null,
+        "solo": {
+          "posicion": "Platino IV · 72 LP",
+          "lp": 72,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 88,
+          "derrotas": 93
+        },
+        "flex": {
+          "posicion": "Plata III · 77 LP",
+          "lp": 77,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 18,
+          "derrotas": 22
+        }
+      },
+      {
+        "slug": "fr4nux",
+        "alias": "Fr4nux",
+        "cuenta": "Fr4nux#EUW",
+        "principal": true,
+        "desde": null,
+        "solo": {
+          "posicion": "Platino III · 89 LP",
+          "lp": 89,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 246,
+          "derrotas": 231
+        },
+        "flex": {
+          "posicion": "Oro I · 2 LP",
+          "lp": 2,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 109,
+          "derrotas": 96
+        }
+      },
+      {
+        "slug": "gsjoseador",
+        "alias": "GSJoseador",
+        "cuenta": "GSJoseador#2711",
+        "principal": true,
+        "desde": null,
+        "solo": {
+          "posicion": "Diamante III · 65 LP",
+          "lp": 65,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 79,
+          "derrotas": 59
+        },
+        "flex": {
+          "posicion": "Diamante IV · 66 LP",
+          "lp": 66,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 77,
+          "derrotas": 52
+        }
+      },
+      {
+        "slug": "gsjoseador",
+        "alias": "GSJoseador",
+        "cuenta": "killuasatoru#6257",
+        "principal": false,
+        "desde": null,
+        "solo": {
+          "posicion": "Esmeralda III · 23 LP",
+          "lp": 23,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 153,
+          "derrotas": 150
+        },
+        "flex": {
+          "posicion": "Plata I · 63 LP",
+          "lp": 63,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 6,
+          "derrotas": 5
+        }
+      },
+      {
+        "slug": "dierophant",
+        "alias": "Dierophant",
+        "cuenta": "Dierophant Green#EUW",
+        "principal": true,
+        "desde": null,
+        "solo": {
+          "posicion": "Esmeralda I · 3 LP",
+          "lp": 3,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 102,
+          "derrotas": 106
+        },
+        "flex": {
+          "posicion": "Diamante IV · 0 LP",
+          "lp": 0,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 98,
+          "derrotas": 96
+        }
+      },
+      {
+        "slug": "ipredatorz",
+        "alias": "iPredatoRz",
+        "cuenta": "iPredatoRz#EUW",
+        "principal": true,
+        "desde": null,
+        "solo": {
+          "posicion": "Esmeralda II · 94 LP",
+          "lp": 94,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 168,
+          "derrotas": 156
+        },
+        "flex": {
+          "posicion": "Oro II · 68 LP",
+          "lp": 68,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 92,
+          "derrotas": 102
+        }
+      },
+      {
+        "slug": "ipredatorz",
+        "alias": "iPredatoRz",
+        "cuenta": "호아킨#OVD",
+        "principal": false,
+        "desde": null,
+        "solo": {
+          "posicion": "Platino II · 14 LP",
+          "lp": 14,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 30,
+          "derrotas": 24
+        },
+        "flex": {
+          "posicion": "Oro II · 25 LP",
+          "lp": 25,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 26,
+          "derrotas": 24
+        }
+      },
+      {
+        "slug": "ipredatorz",
+        "alias": "iPredatoRz",
+        "cuenta": "IPRZ#ESP",
+        "principal": false,
+        "desde": null,
+        "solo": {
+          "posicion": "Esmeralda IV · 17 LP",
+          "lp": 17,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 59,
+          "derrotas": 54
+        },
+        "flex": {
+          "posicion": "Platino IV · 96 LP",
+          "lp": 96,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 25,
+          "derrotas": 24
+        }
+      },
+      {
+        "slug": "rdv-canyon",
+        "alias": "RDV Canyon",
+        "cuenta": "RDV Canyon#RDV",
+        "principal": true,
+        "desde": null,
+        "solo": {
+          "posicion": "Diamante IV · 51 LP",
+          "lp": 51,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 79,
+          "derrotas": 71
+        },
+        "flex": {
+          "posicion": "Diamante II · 8 LP",
+          "lp": 8,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 69,
+          "derrotas": 63
+        }
+      },
+      {
+        "slug": "rdv-canyon",
+        "alias": "RDV Canyon",
+        "cuenta": "SAIIIIIIKO#EUW",
+        "principal": false,
+        "desde": null,
+        "solo": {
+          "posicion": "Esmeralda III · 53 LP",
+          "lp": 53,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 57,
+          "derrotas": 51
+        },
+        "flex": {
+          "posicion": "Oro II · 97 LP",
+          "lp": 97,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 8,
+          "derrotas": 6
+        }
+      },
+      {
+        "slug": "giroroo",
+        "alias": "Giroroo",
+        "cuenta": "Giroroo#RdV",
+        "principal": true,
+        "desde": null,
+        "solo": {
+          "posicion": "Diamante IV · 41 LP",
+          "lp": 41,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 79,
+          "derrotas": 72
+        },
+        "flex": {
+          "posicion": "Platino I · 53 LP",
+          "lp": 53,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 31,
+          "derrotas": 37
+        }
+      },
+      {
+        "slug": "giroroo",
+        "alias": "Giroroo",
+        "cuenta": "飛 べ#rdv",
+        "principal": false,
+        "desde": null,
+        "solo": {
+          "posicion": "Esmeralda II · 16 LP",
+          "lp": 16,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 217,
+          "derrotas": 188
+        },
+        "flex": {
+          "posicion": "Esmeralda IV · 2 LP",
+          "lp": 2,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 28,
+          "derrotas": 15
+        }
+      },
+      {
+        "slug": "saiko",
+        "alias": "Saiko",
+        "cuenta": "Kailordl#EUW",
+        "principal": true,
+        "desde": null,
+        "solo": {
+          "posicion": "Esmeralda IV · 0 LP",
+          "lp": 0,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 104,
+          "derrotas": 97
+        },
+        "flex": {
+          "posicion": "Oro III · 24 LP",
+          "lp": 24,
+          "delta": null,
+          "cambio": null,
+          "antes": null,
+          "partidas": null,
+          "victorias": 8,
+          "derrotas": 10
+        }
+      }
+    ]
   },
   "sorteo": {
     "combinacion": [
