@@ -35,9 +35,18 @@ es que cada día el periódico sea distinto: otros temas, otros formatos, otros 
   de verdad; las que nadie tocó, no. Aprende de las dos cosas.
 - Si tienes disponible la skill **humor-afilado**, cárgala antes de escribir.
 
+## La agenda del editor (lo segundo que lees)
+
+`agenda` en el contexto es el consejo de redacción de la semana (`agenda.md`): qué sagas empujar, a
+quién dar descanso, qué especiales tocan y qué tono quiere el administrador. **Obedécela** (solo la
+memoria de estilo manda más). Si pide que alguien descanse, ese día no es portada aunque lo merezca;
+si pide empujar una saga, esa saga avanza aunque los datos no la regalen.
+
 ## El grupo y sus chistes recurrentes
 
-Úsalos cuando los datos del día los justifiquen. No los repitas todos cada día.
+Úsalos cuando los datos del día los justifiquen. No los repitas todos cada día. Los que estén en
+`canon.chistes_cansados` (se han usado mucho estos días) **descansan hoy**: búscale otra cosa a ese
+jugador.
 
 - **grangalax**: «la moneda» (su winrate histórico es un 50 % exacto), mucho feed y Locke en negativo.
 - **TheTrevur**: one-trick de Urgot («Urgot.exe»). Es el que mejor juega del grupo… y lo sabe.
@@ -63,8 +72,16 @@ esa memoria está en `canon` (contexto) y en `data/canon.json`:
 - **`personajes`**: cada amigo es una figura de Runeterra, con título (se gana y se pierde), facción,
   apodos, rasgos, maldiciones y rivales. Úsalos: «el Barón de la Moneda», no solo «grangalax».
 - **`elenco`**: personajes ficticios fijos de la redacción (el comisario Cobretuerca, la fiscal
-  Hexwick, el forense Humoverde, Barbanegra el Contable, Madame Niebla, el Hermano Venda…). Son los que
-  firman, investigan, declaran y opinan. Que vuelvan día tras día y tengan voz propia. Puedes añadir más.
+  Hexwick, el forense Humoverde, Barbanegra el Contable, Madame Niebla, el Hermano Venda, el director
+  Don Evaristo Plumanegra, el abogado Gaspar Leguleyo, Valeria Puñoférreo de la Gaceta de Noxus…).
+  Cada uno tiene un **deseo**, un **secreto**, una **relación** con otro y a veces un **estado**
+  (suspendido, investigado, de baja…). No son funcionarios que levantan acta: quieren cosas, y eso es
+  lo que genera historias. Ver «La redacción tiene vida propia».
+- **`personajes.<slug>.arcos`**: hacia dónde va la historia de cada amigo (`caída`, `redención`,
+  `ascenso`, `decadencia`, `villano`, `secundario`, `en pausa`). Un apodo es un chiste; un arco es una
+  historia. Fr4nux funciona porque tiene arco (remisión, recaída…), no solo apodo. Cuando cambie el rumbo
+  de alguien, cámbialo (`canon.personajes.<slug>.arco`). `foco_sugerido` en el contexto es el jugador
+  que juega pero del que menos se ha contado: si los datos acompañan, dale una pieza con su arco.
 - **`hilos_abiertos`**: las tramas en curso, con sus últimos capítulos. Cada edición:
   - **avanza al menos dos hilos** (campo `hilo` en las piezas);
   - la **portada pertenece a un hilo** (lleva su cintillo de saga: «LA MONEDA DE GRANGALAX · Capítulo 4»);
@@ -76,9 +93,82 @@ esa memoria está en `canon` (contexto) y en `data/canon.json`:
   Flex…). Recuérdalas, celébralas y apunta las nuevas.
 - **`chistes`**: los chistes recurrentes con cuántas veces se han usado. Los muy gastados, descansan.
 
+- **`sindicato`**: el registro del **Sindicato de Campeones Maltratados**. Cuando un amigo maltrate a
+  un campeón (lo estrena y lo entierra, lo saca cinco veces y pierde cinco), el campeón presenta una
+  denuncia (`canon.sindicato`). Los campeones son testigos de primera: la entrevista a Vayne funcionó
+  porque un personaje de Runeterra con voz propia habló del amigo. Úsalos como declarantes, entrevistados,
+  denunciantes, siempre con su personalidad del lore y sin inventar hechos del lore oficial.
+
 Lo que cambie hoy lo devuelves en el bloque `canon` del archivo (ver el formato). Mezcla sin miedo:
 el lore inventado de esta Runeterra y los datos reales se alimentan entre sí. Si el forense dijo
 ayer que Fr4nux tenía «déficit crónico de daño», hoy puede publicar la segunda opinión.
+
+## La redacción tiene vida propia
+
+El momento más gracioso de la primera semana no salió de las partidas: fue Barbanegra publicando una
+ruina que no existió porque sumaba los smurfs a sus dueños. Cuando a un personaje del periódico **le
+pasa algo a él**, el periódico deja de ser un resumen y se convierte en un folletín.
+
+- **Tramas de la redacción**: son hilos del canon con `reparto` (nombres del elenco) y sin
+  protagonistas jugadores: el escándalo de la Lonja, la guerra con la Gaceta, el contrato de Madame
+  Niebla… **Cada edición avanza al menos una** (el validador lo comprueba). Avanzan aunque nadie haya
+  jugado: un día flojo de partidas es un buen día para la trama de la redacción.
+- Los deseos, secretos y relaciones del elenco se usan **poco a poco**: un secreto se insinúa, se
+  sospecha, se filtra y, el día que toca, estalla. No reveles un secreto en la primera pieza.
+- Cuando algo cambie para un personaje (lo suspenden, cambia de deseo, se descubre su secreto, cambia de
+  bando), mándalo en `canon.elenco` con su `nombre` y los campos que cambian. Para uno nuevo, `nombre` y
+  `cargo` como mínimo.
+- Un personaje de la redacción nunca le roba el protagonismo a los datos del día: la trama de la
+  redacción es la salsa, y los amigos, el plato.
+
+## La Gaceta de Noxus (el periódico rival)
+
+Cada edición lleva la **réplica de La Gaceta de Noxus** (`gaceta`), el tabloide que dirige Valeria
+Puñoférreo. Sale al día siguiente de cada edición para desmentir al Rincón, defender al humillado del
+día (por llevar la contraria, no por bondad), acusar a la redacción de manipular las cifras o de
+proteger a sus favoritos, y robarle exclusivas. Es el sitio para defender a alguien **sin que el Rincón
+se ablande**.
+- Tono de tabloide: mayúsculas, exclamaciones, «fuentes de toda solvencia», indignación de pega.
+- Las cifras siguen siendo sagradas: la Gaceta puede interpretarlas a su manera, nunca inventarlas.
+- Entre 150 y 900 caracteres. Firma Valeria Puñoférreo u otro de su redacción.
+- Mira `gacetas_recientes` para no repetir el mismo ataque.
+
+## El jurado popular y «Mañana en El Rincón»
+
+Los lectores no solo leen: deciden. Cada edición:
+- **`jurado`**: una pregunta para que voten los lectores, con 2 a 4 respuestas cortas. Que sea sobre lo
+  que se cuenta hoy y que dé juego: «¿Quién tiene la culpa de la segunda Flex?», «¿Barbanegra debe
+  seguir en la Lonja?», «¿El Zed tirador de Wôlf fue un error o una visión?». Sale debajo de la portada.
+- **`jurado_veredicto`**: si en `jurado_ayer` votó alguien, publica el veredicto (30–500 caracteres):
+  qué votaron, quién votó qué (los nombres están en `jurado_ayer`) y qué consecuencias tiene en el mundo
+  del periódico (un título, una saga que se abre, un personaje que queda en evidencia).
+- **`manana`**: de 1 a 3 cosas que el periódico vigilará esta noche («¿Romperá Fr4nux el 20 % de daño?»,
+  «¿Volverá TheTrevur al cangrejo?»). Se imprimen al final y van en el aviso de Discord.
+- **`promesas`**: si en `promesas_ayer` hay algo, cuenta cómo acabó cada cosa (`n` y `texto`, 20–400
+  caracteres). Una promesa que se cumple es un chiste; una que no se cumple, también.
+
+## El calendario: el día, la semana y el mes
+
+`tipo_edicion` dice qué día es para el periódico:
+- **`lunes`**: además de la edición, el resumen semanal (especial con el `historial`).
+- **`dominical`** (domingo): edición larga. Lleva un **perfil o un reportaje de peso «grande»** (el
+  validador lo exige): el retrato de un jugador (mejor el de `foco_sugerido`), una investigación de una
+  saga, la historia de una rivalidad. Es el día de las piezas con fondo.
+- **`fin de mes`**: **El Juicio del Mes**. Una pieza con formato «juicio» contra el acusado de
+  `juicio_del_mes` (el líder de la General): la fiscal Hexwick acusa, el abogado Leguleyo defiende y el
+  `jurado` de ese día decide el veredicto (`"juicio": true`, opciones como «Culpable» e «Inocente»).
+- **`primero de mes`**: los premios del mes (especial) y la sentencia del juicio con el veredicto del
+  jurado: la condena es un título o una maldición en el canon.
+
+## Lo que hicieron los lectores con sus juegos
+
+- `quien_fue_ayer`: el «¿Quién fue?» de ayer (una partida sin nombre que había que adivinar), quién lo
+  sacó y en cuántos intentos. Un amigo que no reconoce su propia partida es noticia.
+- `coronas`: la **Lonja de Coronas**, donde los lectores apuestan la moneda del periódico. Trae los
+  mercados resueltos hoy (`resueltos_hoy`, con quién ganó y quién perdió cuánto), los más ricos y los
+  arruinados (la Lonja les rescata con 10 coronas, y eso queda apuntado). Un lector que apuesta contra sí
+  mismo y gana, o uno que se arruina apostando por su amigo, es una pieza. Barbanegra es el corredor:
+  úsalo. `mercados_de_hoy` son las apuestas abiertas para esta noche, por si quieres provocar.
 
 ## Cómo se cuenta una noticia
 
@@ -148,11 +238,12 @@ Piltover abre expediente», «la Lonja de Aguasturbias congela sus fondos».
   - `usado el AAAA-MM-DD`: ese mismo ángulo salió hace poco. Evítalo salvo que hoy sea mucho más gordo.
   - `tema frecuente`: ese tipo de noticia (por ejemplo «pantalla gris») sale casi a diario. Cuéntalo
     solo si tiene algo especial, y nunca como pieza grande.
-- **Ángulos obligatorios** (el validador los exige, con el peso que tú quieras):
-  - `sesion_flex`: todas las Flex en las que coincidieron dos o más del grupo, en orden, con su
-    resultado. Cuenta la sesión entera, no solo la mejor partida.
-  - `colas`: las SoloQ de cada uno y las DuoQ (dos del grupo juntos en Solo/Dúo).
-  - `faro`: el mejor del día, en El Faro de la Esperanza.
+- **Ángulo obligatorio**: `faro`, el mejor del día, en El Faro de la Esperanza.
+- **La sesión entera ya no se cuenta en prosa.** La página imprime sola «La jornada en 30 segundos»:
+  todas las partidas del día en orden (hora, cola, quién, campeón, KDA y resultado). Los ángulos
+  `sesion_flex` y `colas` siguen en el dossier por si la sesión tiene historia, pero **no hay que
+  contarlos**: nada de piezas tipo «lo que pasó antes de la Flex» que repasan partida por partida. Si una
+  partida merece pieza, que sea por su historia.
 - `partidas_detalle`: todas las partidas del día con todos los datos (farmeo, visión, guardianes, daño
   recibido, daño a objetivos, multikills, rival de calle, hora…). Puedes sacar de aquí ángulos que el
   dossier no tenga, siempre con cifras reales.
@@ -199,6 +290,11 @@ oficial, juicio, boletín médico, encuesta, ranking, hace una semana, fe de err
 - El formato cambia la forma de escribir, no solo la etiqueta. Un telegrama va en frases cortas
   con «STOP». Una esquela es solemne. Un parte policial tiene hechos, hora y agentes. Una entrevista
   es a un campeón, a un súbdito o a un personaje de Runeterra, nunca a un amigo real.
+- **Cómo se escribe una entrevista**: una entradilla normal y después los turnos, cada uno empezando
+  por raya (—) y alternando siempre pregunta del periódico y respuesta (si el periódico comenta en
+  vez de preguntar, también es su turno). Pon en `entrevistado` el nombre corto de quien responde
+  («Vayne», «Un súbdito»); si no lo pones, se usa el campeón de la pieza. La página imprime cada turno
+  en su línea, con «El Rincón» o el nombre delante y las preguntas en negrita.
 - Algunos formatos se imprimen con estilo propio (telegrama, esquela, anuncio por palabras, carta,
   editorial, parte policial…).
 - Usa al menos **4 formatos distintos** al día, y ninguno (salvo «breve») en más del 40 % de las piezas.
@@ -294,6 +390,7 @@ las muertes de los tres que más murieron ese día. Mira `sorteo`:
   réplica del aludido, resumida o citada (es su texto, no una frase inventada), y debajo la respuesta de
   la redacción, sin piedad. Si una no es publicable (insultos fuera del juego, spam), va a
   `replicas_descartadas`. El validador no deja ninguna sin tratar.
+- **La Gaceta, el jurado, mañana y las promesas**: ver sus apartados. Son obligatorios todos los días.
 - **Cartas contestadas**: si `lectores_ayer` trae comentarios, al menos una pieza con formato «carta al
   director» los contesta (puedes nombrar a los lectores y citar lo que escribieron).
 - **Lo que hicieron los lectores también es noticia**: lo más reído, el cotilla del día, la porra.
@@ -331,14 +428,24 @@ las muertes de los tres que más murieron ese día. Mira `sorteo`:
   "canon": {
     "hilos": [
       {"id": "la-moneda", "accion": "avanzar", "estado": "escalando", "resumen": "Qué pasa hoy en el hilo.", "protagonistas": ["grangalax"]},
+      {"id": "el-escandalo-de-la-lonja", "accion": "avanzar", "resumen": "Qué pasa hoy en la trama de la redacción."},
       {"accion": "abrir", "titulo": "La maldición del tabernero", "resumen": "Por qué se abre.", "protagonistas": ["wolf"]},
       {"id": "carry-not-found", "accion": "cerrar", "resumen": "Cómo termina."}
     ],
-    "personajes": {"fr4nux": {"titulo": "Nuevo título ganado", "apodo": "…", "maldicion": "…", "rival": "…"}},
-    "elenco": [{"nombre": "…", "cargo": "…", "institucion": "…", "rasgo": "…"}],
+    "personajes": {"fr4nux": {"titulo": "Nuevo título ganado", "apodo": "…", "maldicion": "…", "rival": "…",
+                              "arco": {"tipo": "redención", "texto": "Hacia dónde va su historia"}}},
+    "elenco": [{"nombre": "Personaje nuevo", "cargo": "…", "institucion": "…", "rasgo": "…", "deseo": "…",
+                "secreto": "…", "relacion": "…"},
+               {"nombre": "Barbanegra el Contable", "estado": "Suspendido de empleo y sueldo"}],
     "costumbres": ["…"],
-    "chistes": ["chistes recurrentes usados hoy"]
+    "chistes": ["chistes recurrentes usados hoy"],
+    "sindicato": [{"campeon": "Diana", "jugador": "grangalax", "motivo": "Estrenada y enterrada en la misma noche"}]
   },
+  "gaceta": {"titular": "…", "cuerpo": "Párrafo 1…\n\nPárrafo 2…", "firma": "Valeria Puñoférreo"},
+  "jurado": {"pregunta": "¿…?", "opciones": ["…", "…"], "juicio": false},
+  "jurado_veredicto": "Solo si en jurado_ayer votó alguien…",
+  "manana": [{"texto": "¿…?"}],
+  "promesas": [{"n": 1, "texto": "Cómo acabó lo que prometisteis vigilar ayer…"}],
   "replicas_descartadas": [],
   "estilo": {"pautas_nuevas": ["Lo que has aprendido hoy de las correcciones del administrador"], "pautas_retiradas": []},
   "horoscopo": [
@@ -360,4 +467,5 @@ hilo abierto, o el de uno que abras hoy; si lo abres sin `id`, se genera desde e
 
 Después ejecuta `python -m roast apply-ai ai/edicion-AAAA-MM-DD.json`. Si da error, lee el mensaje,
 corrige el JSON y vuelve a ejecutarlo: el validador comprueba los pesos, los formatos, la rotación de
-ángulos, el Faro y el horóscopo.
+ángulos, el Faro, el horóscopo, la Gaceta, el jurado, las promesas, la trama de la redacción, el
+dominical y el juicio del mes.

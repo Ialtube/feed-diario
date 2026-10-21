@@ -15,9 +15,11 @@ from .util import fmt_int, fmt_minutes, fmt_num, fmt_pct, get_tz, ms_to_local
 
 RECENT_DAYS = 3          # an angle used in the last 3 editions loses most of its score
 TARGET_BOOST = 1.3       # the worst player of all time gets his bad news pushed up
-# appear every day on purpose (never penalised); the first two must always get a story
-REQUIRED = {"faro", "sesion_flex", "colas"}
-FIXED = REQUIRED | {"ausentes"}
+# appear every day on purpose (never penalised). Only the Faro must get a story: the whole session
+# (every Flex, SoloQ and DuoQ game) is printed by the page itself in «La jornada en 30 segundos»,
+# so the stories are free to tell only what deserves telling.
+REQUIRED = {"faro"}
+FIXED = REQUIRED | {"sesion_flex", "colas", "ausentes"}
 FLEX, SOLOQ = 440, 420
 
 # Angles of editions written before the dossier existed, rebuilt from the kind of their items.

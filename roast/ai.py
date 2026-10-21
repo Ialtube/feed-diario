@@ -5,6 +5,7 @@ Flow (see ai/GUIA.md):
   2. Claude writes ai/edicion-AAAA-MM-DD.json
   3. python -m roast apply-ai <file>       -> validates, merges into the day's edition, rebuilds docs/
 """
+import calendar
 import copy
 import re
 import time
@@ -12,7 +13,9 @@ from collections import Counter
 from pathlib import Path
 
 from . import canon as canon_mod
+from . import coronas
 from . import correcciones
+from . import juegos
 from . import lectores
 from . import porra as porra_mod
 from .dossier import FIXED, REQUIRED, build_dossier, detailed_games
@@ -22,6 +25,7 @@ from . import propuestas as voz
 from .util import ROOT, load_config, load_friends, load_json, save_json
 
 EVENTS_FILE = ROOT / "eventos.md"
+AGENDA_FILE = ROOT / "agenda.md"
 IMG_DIR = ROOT / "docs" / "img"
 AI_DIR = ROOT / "ai"
 THEMES = ("rojo", "oro", "negro", "verde", "azul", "morado")
@@ -79,6 +83,50 @@ def read_events(path=EVENTS_FILE):
             if text and not text.startswith("("):
                 pending.append(text)
     return [{"n": i + 1, "texto": t} for i, t in enumerate(pending)]
+
+
+def read_agenda(path=AGENDA_FILE):
+    """The editor's plan for the week (agenda.md): every section with its '- ' lines."""
+    if not Path(path).exists():
+        return {}
+    out, section = {}, None
+    for line in Path(path).read_text(encoding="utf-8").splitlines():
+        if line.startswith("## "):
+            section = line[3:].strip()
+            continue
+        t = line.strip()
+        if section and t.startswith("- ") and len(t) > 2 and not t[2:].startswith("("):
+            out.setdefault(section, []).append(t[2:].strip())
+    return out
+
+
+def edition_kind(date_str):
+    """What kind of day it is for the paper: Sundays are long, the last day of the month has its trial."""
+    y, m, d = map(int, date_str.split("-"))
+    wd = calendar.weekday(y, m, d)
+    kinds = []
+    if wd == 0:
+        kinds.append("lunes")
+    if wd == 6:
+        kinds.append("dominical")
+    if d == 1:
+        kinds.append("primero de mes")
+    if d == calendar.monthrange(y, m)[1]:
+        kinds.append("fin de mes")
+    return kinds or ["diaria"]
+
+
+def spotlight(editions, date_str, days=14):
+    """The player who played in the last days but was told about the least: deserves the focus."""
+    recent = [e for e in editions if e["date"] <= date_str][-days:]
+    played = Counter(r["slug"] for e in recent for r in e.get("ranking") or [])
+    alias = {r["slug"]: r["alias"] for e in recent for r in e.get("ranking") or []}
+    told = Counter(it.get("player") for e in recent for it in e.get("items") or [] if it.get("player"))
+    cand = [s for s, n in played.items() if n >= 2]
+    if not cand:
+        return None
+    s = min(cand, key=lambda s: (told[s] / played[s], -played[s]))
+    return {"slug": s, "alias": alias[s], "dias_jugados": played[s], "piezas_sobre_el": told[s]}
 
 
 def mark_events_published(numbers, date_str, path=EVENTS_FILE):
@@ -148,7 +196,20 @@ def build_context(store, date_str, history_days=7, fetch_proposals=True, cfg=Non
     return {
         "formato_edicion": 2,
         "estilo": correcciones.for_context(Path(store.dir) / "estilo.json"),
-        "canon": canon_mod.for_context(canon_mod.load(Path(store.dir) / "canon.json")),
+        "canon": canon_mod.for_context(canon_mod.load(Path(store.dir) / "canon.json"),
+                                       recent_dates=[e["date"] for e in previous[-5:]]),
+        "agenda": read_agenda(),
+        "tipo_edicion": edition_kind(date_str),
+        "juicio_del_mes": ({"acusado": (general_leaderboard(editions[:editions.index(today) + 1]) or [None])[0]}
+                           if "fin de mes" in edition_kind(date_str) else None),
+        "foco_sugerido": spotlight(editions, date_str),
+        "promesas_ayer": [dict(p, n=i + 1) for i, p in enumerate(previous[-1].get("manana") or [])] if previous else [],
+        "jurado_ayer": juegos.jury_result(cfg, previous[-1]) if previous and fetch_proposals else None,
+        "quien_fue_ayer": juegos.puzzle_result(cfg, previous[-1]) if previous and fetch_proposals else None,
+        "coronas": coronas.summary(editions, date_str),
+        "mercados_de_hoy": [{"pregunta": m["pregunta"], "opciones": [f'{o["texto"]} ({o["cuota"]})' for o in m["opciones"]]}
+                            for m in (today.get("mercados") or {}).get("lista", [])],
+        "gacetas_recientes": [g["titular"] for e in previous[-4:] for g in [e.get("gaceta")] if g],
         "lectores_ayer": lectores.feedback(cfg, previous[-1] if previous else None) if fetch_proposals else None,
         "cotillas": lectores.snoops(cfg, previous[-1]["generated_at"] if previous else today["window"][0],
                                     today.get("generated_at") or today["window"][1],
@@ -308,6 +369,7 @@ def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=N
             "stat_label": _text(it.get("stat_label") or "", f"{w}.stat_label", 0, 50),
             "player": player, "portada": bool(it.get("portada")), "imagen": imagen,
             "campeon": _text(it.get("campeon") or "", f"{w}.campeon", 0, 30) or None,
+            "entrevistado": _text(it.get("entrevistado") or "", f"{w}.entrevistado", 0, 40) or None,
             "pie": _text(it.get("pie") or "", f"{w}.pie", 0, 200),
             "meme_arriba": _text(it.get("meme_arriba") or "", f"{w}.meme_arriba", 0, 60),
             "meme_abajo": _text(it.get("meme_abajo") or "", f"{w}.meme_abajo", 0, 60),
@@ -429,7 +491,14 @@ def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=N
         raise AIError("El periódico tiene memoria: avanza al menos dos hilos abiertos del canon (campo «hilo» de las piezas)")
     if valid and not portadas[0]["hilo"]:
         raise AIError("La portada tiene que pertenecer a un hilo (lleva su cintillo de saga): ponle «hilo»")
+    # the newsroom has a life of its own: one of its threads moves on every day
+    newsroom = {h["id"] for h in canon_mod.open_threads(canon) if canon_mod.is_redaccion(h)}
+    newsroom |= {h["id"] for h in changes["hilos"] if h["accion"] == "abrir" and h["reparto"] and not h["protagonistas"]}
+    if newsroom and not in_pieces & newsroom:
+        raise AIError("La redacción también tiene vida: al menos una pieza avanza una trama de la redacción "
+                      f"(hilos con «reparto»: {', '.join(sorted(newsroom))})")
     clean["canon"] = changes
+    _newsroom_v2(data, clean, edition, news, context_extra or {})
 
     # El Tiempo: a forecast for everyone who played
     tiempo = {t.get("jugador"): t.get("texto") for t in data.get("tiempo") or []}
@@ -448,6 +517,62 @@ def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=N
         raise AIError("Faltan la frase del día o la columna")
     _common(data, clean, pending)
     return clean
+
+
+def _newsroom_v2(data, clean, edition, news, extra):
+    """What every edition carries besides its stories: the rival paper's answer, the question for the
+    popular jury (and yesterday's verdict), what the paper promises to watch tomorrow (and how
+    yesterday's promises ended), plus the Sunday and end-of-month obligations."""
+    g = data.get("gaceta")
+    if not isinstance(g, dict):
+        raise AIError("Falta «gaceta»: la respuesta de La Gaceta de Noxus a la edición de hoy "
+                      '({"titular": …, "cuerpo": …, "firma": …})')
+    clean["gaceta"] = {"titular": _text(g.get("titular"), "gaceta.titular", 8, 140),
+                       "cuerpo": _paras(g.get("cuerpo"), "gaceta.cuerpo", 150, 900),
+                       "firma": _text(g.get("firma") or "Valeria Puñoférreo", "gaceta.firma", 3, 60)}
+
+    j = data.get("jurado")
+    if not isinstance(j, dict):
+        raise AIError("Falta «jurado»: la pregunta del día para el jurado popular "
+                      '({"pregunta": …, "opciones": [2 a 4 respuestas]})')
+    opts = j.get("opciones") or []
+    if not isinstance(opts, list) or not 2 <= len(opts) <= 4:
+        raise AIError("jurado.opciones: entre 2 y 4 respuestas")
+    clean["jurado"] = {"pregunta": _text(j.get("pregunta"), "jurado.pregunta", 10, 160),
+                       "opciones": [_text(o, f"jurado.opciones[{i}]", 1, 60) for i, o in enumerate(opts)],
+                       "juicio": bool(j.get("juicio"))}
+
+    prev = extra.get("jurado_ayer") or {}
+    if prev.get("total"):
+        clean["jurado_veredicto"] = _text(data.get("jurado_veredicto"), "jurado_veredicto", 30, 500)
+    elif data.get("jurado_veredicto"):
+        clean["jurado_veredicto"] = _text(data["jurado_veredicto"], "jurado_veredicto", 30, 500)
+
+    manana = data.get("manana") or []
+    if not isinstance(manana, list) or not 1 <= len(manana) <= 3:
+        raise AIError("Falta «manana»: de 1 a 3 cosas que el periódico vigilará en la próxima edición "
+                      '([{"texto": …}]); mañana tendrás que contar cómo acabaron')
+    clean["manana"] = [{"texto": _text(m.get("texto") if isinstance(m, dict) else m, f"manana[{i}]", 15, 160)}
+                       for i, m in enumerate(manana)]
+
+    promised = extra.get("promesas_ayer") or []
+    answers = {a.get("n"): a.get("texto") for a in data.get("promesas") or [] if isinstance(a, dict)}
+    clean["promesas"] = []
+    for p in promised:
+        if not answers.get(p["n"]):
+            raise AIError(f"Ayer prometisteis vigilar «{p['texto']}» (n={p['n']}): cuenta en «promesas» cómo acabó "
+                          '([{"n": …, "texto": …}])')
+        clean["promesas"].append({"pregunta": p["texto"], "texto": _text(answers[p["n"]], f"promesas.{p['n']}", 20, 400)})
+
+    kinds = edition_kind(edition["date"])
+    if "dominical" in kinds and not any(p["peso"] == "grande" and p["formato"] in ("perfil", "reportaje") for p in news):
+        raise AIError("Es domingo: la edición dominical lleva un perfil o un reportaje largo (peso «grande»)")
+    if "fin de mes" in kinds:
+        if not any(p["formato"] == "juicio" for p in news):
+            raise AIError("Último día del mes: toca El Juicio del Mes (una pieza con formato «juicio» al líder de la General)")
+        if not clean["jurado"]["juicio"]:
+            raise AIError("Último día del mes: el jurado popular decide el veredicto del juicio "
+                          "(jurado.juicio: true, con opciones como «Culpable» e «Inocente»)")
 
 
 def _paras(value, field, lo, hi):
@@ -515,7 +640,8 @@ def apply_v2(edition, clean, canon_path=None):
             "alias": aliases.get(p["player"]) if p["player"] else None,
             "headline": p["headline"], "subtitulo": p["subtitulo"], "body": p["body"],
             "stat": p["stat"], "stat_label": p["stat_label"], "imagen": p["imagen"], "campeon": campeon,
-            "pie": p["pie"], "meme_arriba": p["meme_arriba"], "meme_abajo": p["meme_abajo"], "lector": p["lector"],
+            "entrevistado": p["entrevistado"], "pie": p["pie"], "meme_arriba": p["meme_arriba"],
+            "meme_abajo": p["meme_abajo"], "lector": p["lector"],
             "severity": (base["portada"] if p["portada"] else base[p["peso"]]) - i, "facts": {},
             "hilo": p["hilo"], "replica": p.get("replica"),
         })
@@ -546,6 +672,8 @@ def apply_v2(edition, clean, canon_path=None):
     edition["frase"] = clean["frase"] or edition["template_frase"]
     edition["columna"] = clean["columna"]
     edition["especial"] = clean["especial"]
+    for k in ("gaceta", "jurado", "jurado_veredicto", "manana", "promesas"):
+        edition[k] = clean.get(k)
     prev = edition.get("ai") or {}
     edition["ai"] = {"version": prev.get("version", 0) + 1, "updated_at": int(time.time() * 1000),
                      "firma": clean["firma"], "stale": False, "formato": 2}
@@ -710,10 +838,15 @@ def apply_file(store, path, date_str=None, cfg=None, friends=None):
         prev = [e for e in sorted(store.editions(), key=lambda e: e["date"]) if e["date"] < edition["date"]]
         style_path = Path(store.dir) / "estilo.json"
         extra = {"lectores_ayer": lectores.feedback(cfg, prev[-1] if prev else None),
-                 "correcciones_nuevas": correcciones.for_context(style_path)["correcciones_nuevas"]}
+                 "correcciones_nuevas": correcciones.for_context(style_path)["correcciones_nuevas"],
+                 "jurado_ayer": juegos.jury_result(cfg, prev[-1]) if prev else None,
+                 "promesas_ayer": [dict(p, n=i + 1) for i, p in enumerate(prev[-1].get("manana") or [])] if prev else []}
         clean = validate_v2(data, edition, known, dossier, canon_mod.load(canon_path), extra)
         apply_v2(edition, clean, canon_path)
         edition["lectores_ayer"] = extra["lectores_ayer"]
+        edition["jurado_ayer"] = extra["jurado_ayer"]
+        edition["quien_fue_ayer"] = juegos.puzzle_result(cfg, prev[-1]) if prev else None
+        prepare_games(edition, store.editions(), cfg)
         correcciones.apply_learning(clean["estilo"], edition["date"], style_path)
         roster = [{"slug": f["slug"], "alias": f["alias"]} for f in (friends or load_friends())]
         edition["cotillas"] = lectores.snoops(cfg, prev[-1]["generated_at"] if prev else edition["window"][0],
@@ -730,6 +863,16 @@ def apply_file(store, path, date_str=None, cfg=None, friends=None):
     return edition, clean, published
 
 
+def prepare_games(edition, editions, cfg):
+    """The day's reader games that come from the data: «¿Quién fue?» and the Lonja de Coronas
+    markets. Made once: re-running the robot or the editor never moves them."""
+    if "quien_fue" not in edition:
+        edition["quien_fue"] = juegos.puzzle(edition, cfg.get("timezone", "Europe/Madrid"))
+    if "mercados" not in edition:
+        edition["mercados"] = coronas.create(edition, editions, cfg)
+    return edition
+
+
 def mark_stale_on_regenerate(old, new):
     """Called by `run` when it regenerates a day that already had an AI pass: keep the
     column/special/extras and flag it so the routine rewrites it again."""
@@ -738,7 +881,8 @@ def mark_stale_on_regenerate(old, new):
     if old["ai"].get("formato") == 2:
         new["items_plantilla"] = new["items"]
         new["items"] = old["items"]
-        for k in ("horoscopo", "angulos_usados", "columna", "especial", "template_frase", "frase", "written_by"):
+        for k in ("horoscopo", "angulos_usados", "columna", "especial", "template_frase", "frase", "written_by",
+                  "gaceta", "jurado", "jurado_veredicto", "manana", "promesas", "jurado_ayer", "quien_fue_ayer"):
             if k in old:
                 new[k] = old[k]
         new["ai"] = dict(old["ai"], stale=True)

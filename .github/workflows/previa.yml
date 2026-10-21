@@ -1,0 +1,29 @@
+name: Previa de la noche
+
+# «Esta noche en la Grieta»: los mercados de la Lonja de Coronas con sus cuotas y la hora de cierre,
+# las sagas en juego y lo que vigila la redacción, en Discord antes de la Flex.
+on:
+  schedule:
+    # 16:00 UTC = 18:00 en Madrid en verano, 17:00 en invierno
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  previa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Mandar la previa
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: python -m roast previa

@@ -4,7 +4,11 @@
   python -m roast build    rebuild docs/ from the stored editions
   python -m roast check    check the Riot key and find every friend
   python -m roast demo     full pipeline with fake data -> demo_site/ (no key needed)
+  python -m roast avisar   tell Discord that today's edition by Claude is out (once)
+  python -m roast previa   the evening preview of the night's markets on Discord
+  python -m roast informe  the editor's weekly report in informes/
 """
+import json
 import argparse
 from collections import Counter
 import os
@@ -13,12 +17,14 @@ import sys
 import time
 from datetime import datetime, timedelta
 
-from .ai import AIError, ai_status, apply_file, mark_stale_on_regenerate, read_events, write_context
+from .ai import AIError, ai_status, apply_file, mark_stale_on_regenerate, prepare_games, read_events, write_context
+from . import coronas
+from . import informe
 from .fetch import fetch_new_matches, fetch_ranks, fetch_timelines, resolve_players
 from . import porra as porra_mod
 from .rangos import market
 from .llm import polish
-from .notify import post_discord
+from .notify import discord_payload, post_discord, post_previa, previa_payload
 from .pipeline import make_edition
 from .riot import RiotClient, RiotError
 from . import correcciones
@@ -81,6 +87,11 @@ def cmd_run(args):
     if existing and existing.get("ai"):
         edition = mark_stale_on_regenerate(existing, edition)
         print("  La edición ya tenía versión IA: se conservan columna/especial y queda marcada para reescribir")
+    for k in ("quien_fue", "mercados"):        # the day's games never move once published
+        if existing and k in existing:
+            edition[k] = existing[k]
+    prepare_games(edition, store.editions() + ([] if existing else [edition]), cfg)
+    coronas.sync(cfg)
     if existing and existing.get("sorteo"):
         # the draw already happened: re-running the robot must not move it or re-check tickets
         edition["sorteo"], edition["generated_at"] = existing["sorteo"], existing["generated_at"]
@@ -103,11 +114,10 @@ def cmd_run(args):
     store.save_state()
     build_site(cfg, friends, store.editions(), ROOT / "docs")
     print("Web regenerada en docs/")
-    if not args.no_notify:
-        try:
-            post_discord(edition, cfg)
-        except Exception as e:
-            print(f"  ! Fallo inesperado con Discord ({e!r})")
+    # Discord hears about the paper when Claude's edition is out (python -m roast avisar), never
+    # about the robot's numbers: a notice with the edition still at the printer's is a wasted click.
+    if not args.no_notify and edition.get("ai") and not edition["ai"].get("stale"):
+        cmd_avisar(args)
 
 
 def cmd_backfill(args):
@@ -167,6 +177,54 @@ def cmd_rangos(args):
         store.save_edition(edition)
         build_site(cfg, friends, store.editions(), ROOT / "docs")
         print(f"Bolsa de LP de la edición del {date_str} actualizada")
+
+
+def _latest(store):
+    eds = sorted(store.editions(), key=lambda e: e["date"])
+    return eds[-1] if eds else None
+
+
+def cmd_avisar(args):
+    """Posts today's edition to Discord once, as soon as Claude has written it."""
+    cfg = load_config()
+    store = Store(ROOT / "data")
+    ed = store.edition(args.date) if getattr(args, "date", None) else _latest(store)
+    if not ed or not ed.get("ai"):
+        print("La edición de hoy aún no tiene versión IA: no se avisa")
+        return
+    if getattr(args, "dry_run", False):
+        sys.stdout.reconfigure(encoding="utf-8")
+        print(json.dumps(discord_payload(ed, cfg, cfg.get("site_url", "")), ensure_ascii=False, indent=2))
+        return
+    if ed.get("avisado") and not getattr(args, "forzar", False):
+        print(f"La edición del {ed['date']} ya se avisó a Discord")
+        return
+    try:
+        if post_discord(ed, cfg):
+            ed["avisado"] = ed["ai"]["version"]
+            store.save_edition(ed)
+    except Exception as e:
+        print(f"  ! Fallo inesperado con Discord ({e!r})")
+
+
+def cmd_previa(args):
+    cfg = load_config()
+    ed = _latest(Store(ROOT / "data"))
+    if not ed:
+        return
+    if args.dry_run:
+        sys.stdout.reconfigure(encoding="utf-8")
+        print(json.dumps(previa_payload(ed, cfg, cfg.get("site_url", "")), ensure_ascii=False, indent=2))
+        return
+    post_previa(ed, cfg)
+
+
+def cmd_informe(args):
+    cfg = load_config()
+    store = Store(ROOT / "data")
+    coronas.sync(cfg)
+    path = informe.write(cfg, store.editions(), args.dias)
+    print(f"Informe escrito en {path.relative_to(ROOT)}" if path else "No hay ediciones")
 
 
 def cmd_build(args):
@@ -258,6 +316,7 @@ def cmd_apply_ai(args):
         ed, clean, published = apply_file(store, args.file, args.date)
     except AIError as e:
         sys.exit(f"ERROR en el archivo de la IA: {e}")
+    coronas.sync(cfg)
     build_site(cfg, friends, store.editions(), ROOT / "docs")
     if clean.get("formato") == 2:
         pesos = Counter(p["peso"] for p in clean["piezas"])
@@ -323,6 +382,17 @@ def main(argv=None):
     a.add_argument("file")
     a.add_argument("--date")
     a.set_defaults(fn=cmd_apply_ai)
+    v = sub.add_parser("avisar", help="avisa a Discord de la edición IA de hoy (una sola vez)")
+    v.add_argument("--date")
+    v.add_argument("--dry-run", action="store_true", help="enseña el mensaje sin mandarlo")
+    v.add_argument("--forzar", action="store_true", help="avisa aunque ya se avisara")
+    v.set_defaults(fn=cmd_avisar)
+    pv = sub.add_parser("previa", help="la previa de la noche en Discord (mercados de la Lonja de Coronas)")
+    pv.add_argument("--dry-run", action="store_true", help="enseña el mensaje sin mandarlo")
+    pv.set_defaults(fn=cmd_previa)
+    inf = sub.add_parser("informe", help="informe semanal de la redacción en informes/")
+    inf.add_argument("--dias", type=int, default=7)
+    inf.set_defaults(fn=cmd_informe)
     d = sub.add_parser("demo", help="demo con datos falsos")
     d.add_argument("--days", type=int, default=7)
     d.add_argument("--seed", type=int, default=7)

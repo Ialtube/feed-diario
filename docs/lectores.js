@@ -2,13 +2,18 @@
   var C = window.FEEDER || {}, ok = !!(C.url && C.key);
   var H = ok ? {apikey: C.key, Authorization: 'Bearer ' + C.key} : {};
   var EDICION = document.body.getAttribute('data-edicion'), PAGINA = document.body.getAttribute('data-pagina');
-  var EMOJIS = ['😂', '💀', '🔥', '🤡', '🧂', '👑'];
+  var EMOJIS = ['😂', '💀', '🔥', '🤡'];
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function when(t){try{return new Date(t).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});}catch(e){return '';}}
   function api(path, opts){opts=opts||{};var h=Object.assign({},H,opts.headers||{});
     return fetch(C.url.replace(/\/$/,'')+path,Object.assign({},opts,{headers:h})).then(function(r){
       if(!r.ok) return r.text().then(function(t){var e=new Error(t||r.status);e.status=r.status;throw e;}); return r;});}
-  function post(table, row){return api('/rest/v1/'+table,{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(row)});}
+  // In the test version only the new games write to the database: comments, reactions and the rest
+  // would land on the official paper.
+  var NUEVAS = ['jurado', 'quienfue', 'apuestas'];
+  function post(table, row){
+    if (C.prueba && NUEVAS.indexOf(table) < 0) { alert('Versión de prueba: esto no se guarda para no mezclarlo con la edición oficial.'); var e = new Error('prueba'); e.status = 0; return Promise.reject(e); }
+    return api('/rest/v1/'+table,{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(row)});}
   function remember(k,v){try{if(v===undefined)return localStorage.getItem(k)||'';localStorage.setItem(k,v);}catch(e){return '';}}
 
   // ------------------------------------------------------------------ who is reading
@@ -23,6 +28,7 @@
       try { if (y) { localStorage.setItem('feeder-yo', JSON.stringify(y)); localStorage.setItem('feeder-nombre', y.nombre); }
             else { localStorage.removeItem('feeder-yo'); localStorage.removeItem('feeder-nombre'); } } catch(e){}
       Yo.render();
+      Yo.listeners.forEach(function(f){ try { f(Yo.get()); } catch(e){} });
     },
     lector: function(){
       var id = remember('feeder-lector');
@@ -88,7 +94,10 @@
       if (d.showModal) d.showModal(); else d.setAttribute('open', '');
     },
     // a name for a form: the saved identity, or the one just typed (saved for next time)
-    remember: function(nombre){ if (!Yo.get() && nombre) Yo.set({nombre: nombre.slice(0, 40), cuentas: []}); }
+    remember: function(nombre){ if (!Yo.get() && nombre) Yo.set({nombre: nombre.slice(0, 40), cuentas: []}); },
+    listeners: [],
+    // the reader's name as the Lonja de Coronas keys its accounts
+    key: function(){ var y = Yo.get(); return y ? y.nombre.trim().replace(/\s+/g, ' ').toLowerCase() : ''; }
   };
   window.FeederYo = Yo;
   var yb = document.getElementById('yo-btn');
@@ -134,7 +143,7 @@
       var id = el.getAttribute('data-pieza'), host = el.classList.contains('lead') ? el.firstElementChild : el;
       var d = document.createElement('div'); d.className = 'rx'; d.setAttribute('data-id', id);
       d.innerHTML = EMOJIS.map(function(e){ return '<button type="button" class="rx-e" data-e="'+e+'">'+e+'<b></b></button>'; }).join('') +
-        '<button type="button" class="rx-share" title="Compartir esta noticia">↗</button>' +
+        '<button type="button" class="rx-share" title="Compartir el recorte de esta noticia">↗</button>' +
         '<span class="rx-c"><button type="button" class="rx-com" aria-label="Comentarios">💬<b></b></button>' +
         '<div class="rx-pop"><div class="rx-list"></div><form class="rx-form"><textarea name="texto" maxlength="800" ' +
         'placeholder="¿Qué opinas de esto?" required></textarea>' +
@@ -145,8 +154,17 @@
       showRep(); d.querySelector('.rx-c').addEventListener('mouseenter', showRep);
       d.querySelector('.rx-share').addEventListener('click', function(){
         var url = location.href.split('#')[0] + '#p-' + id, t = (el.querySelector('h2,h3,h5') || {}).textContent || document.title;
-        if (navigator.share) navigator.share({title: t, url: url}).catch(function(){});
-        else window.open('https://wa.me/?text=' + encodeURIComponent(t + ' ' + url), '_blank', 'noopener');
+        recorte(el).then(function(blob){
+          var file = blob && window.File ? new File([blob], 'rincon-del-feeder.png', {type: 'image/png'}) : null;
+          if (file && navigator.canShare && navigator.canShare({files: [file]}))
+            return navigator.share({files: [file], title: t, text: t + ' ' + url});
+          if (blob) { var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'rincon-del-feeder.png';
+                      document.body.appendChild(a); a.click(); a.remove(); }
+          if (navigator.clipboard) navigator.clipboard.writeText(t + ' ' + url).catch(function(){});
+        }).catch(function(){
+          if (navigator.share) navigator.share({title: t, url: url}).catch(function(){});
+          else window.open('https://wa.me/?text=' + encodeURIComponent(t + ' ' + url), '_blank', 'noopener');
+        });
       });
       host.appendChild(d); bars[id] = d;
       d.querySelector('.rx-com').addEventListener('click', function(){ d.querySelector('.rx-c').classList.toggle('open'); });
@@ -216,7 +234,7 @@
   }
 
   // ------------------------------------------------------------------ visits: who reads what
-  if (ok && PAGINA) {
+  if (ok && PAGINA && !C.prueba) {
     var today = new Date().toISOString().slice(0, 10), key = 'feeder-v-' + PAGINA;
     if (remember(key) !== today) {
       var yv = Yo.get();
@@ -281,8 +299,23 @@
     }
     return el.innerText.trim();
   };
+  // an interview keeps its turns after a correction (same rule as the server: a dash that opens a sentence)
+  var dialogo = function(el, t){
+    var g = el.querySelector('.turno.respuesta'), guest = g ? g.getAttribute('data-quien') : 'El entrevistado', n = 0;
+    return t.split(/\n\s*\n/).map(function(p){
+      p = p.trim(); if (!p) return '';
+      if (p.charAt(0) !== '—') return '<p>' + esc(p) + '</p>';
+      return '<div class="dialogo">' + p.split(/\s+(?=—[¿¡«"A-ZÁÉÍÓÚÑ0-9])/).map(function(x){
+        x = x.trim().replace(/^—\s*/, ''); if (!x) return '';
+        var q = n++ % 2 === 0;
+        return '<span class="turno ' + (q ? 'pregunta' : 'respuesta') + '" data-quien="' + esc(q ? 'El Rincón' : guest) +
+               '"><span class="raya">—</span>' + esc(x) + '</span>';
+      }).join('') + '</div>';
+    }).join('');
+  };
   var setText = function(el, t){
-    if (FIELD_LIST.indexOf(el.getAttribute('data-campo')) >= 0)
+    if (el.getAttribute('data-campo') === 'body' && el.closest('.f-entrevista')) el.innerHTML = dialogo(el, t);
+    else if (FIELD_LIST.indexOf(el.getAttribute('data-campo')) >= 0)
       el.innerHTML = t.split(/\n\s*\n/).map(function(p){ return '<p>' + esc(p.trim()) + '</p>'; }).join('');
     else el.textContent = t;
   };
@@ -369,6 +402,229 @@
           .then(function(){ pz.querySelector('button').disabled = false; });
       });
     }
+  }
+
+
+  // ------------------------------------------------------------------ a clipping of a story, as a picture to share
+  function recorte(el){
+    var W = 1080, H = 1350, c = document.createElement('canvas'); c.width = W; c.height = H;
+    var x = c.getContext('2d'); if (!x || !c.toBlob) return Promise.reject(new Error('sin canvas'));
+    var pick = function(sel){ var n = el.querySelector(sel); return n ? n.textContent.trim() : ''; };
+    var head = pick('h2,h3,h5'), sub = pick('p.sub'), kick = pick('.kicker').replace(/\s+/g, ' ');
+    var body = Array.prototype.map.call(el.querySelectorAll('.txt p'), function(p){ return p.textContent.trim(); }).join(' ');
+    var fonts = ['72px UnifrakturMaguntia', '700 64px "Old Standard TT"', 'italic 36px "Old Standard TT"', '30px "Libre Caslon Text"', '28px "IM Fell English SC"'];
+    var ready = document.fonts ? Promise.all(fonts.map(function(f){ return document.fonts.load(f); })) : Promise.resolve();
+    return ready.then(function(){
+      x.fillStyle = '#d8ccae'; x.fillRect(0, 0, W, H);
+      var g = x.createRadialGradient(W/2, H/2, W*.3, W/2, H/2, W*.8); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(70,48,18,.35)');
+      x.fillStyle = g; x.fillRect(0, 0, W, H);
+      x.strokeStyle = '#2a2017'; x.lineWidth = 3; x.strokeRect(30, 30, W - 60, H - 60); x.lineWidth = 1; x.strokeRect(42, 42, W - 84, H - 84);
+      x.fillStyle = '#2a2017'; x.textAlign = 'center';
+      x.font = '84px UnifrakturMaguntia'; x.fillText(document.querySelector('.title') ? document.querySelector('.title').textContent : 'El Rincón del Feeder', W/2, 150);
+      x.font = '26px "IM Fell English SC"'; x.fillText((document.querySelector('.topline span') || {}).textContent || '', W/2, 196);
+      x.fillRect(80, 220, W - 160, 5); x.fillRect(80, 232, W - 160, 1.5);
+      var wrap = function(text, font, lh, y, maxLines, align){
+        x.font = font; x.textAlign = align || 'left'; var words = text.split(/\s+/), line = '', n = 0, X = align === 'center' ? W/2 : 90;
+        for (var i = 0; i < words.length; i++) {
+          var test = line ? line + ' ' + words[i] : words[i];
+          if (x.measureText(test).width > W - 180 && line) {
+            n++; if (n === maxLines) { x.fillText(line.replace(/[,.;:]?$/, '…'), X, y); return y + lh; }
+            x.fillText(line, X, y); y += lh; line = words[i];
+          } else line = test;
+        }
+        if (line) { x.fillText(line, X, y); y += lh; } return y;
+      };
+      x.fillStyle = '#7a2416'; var y = wrap(kick.toUpperCase(), '28px "IM Fell English SC"', 36, 300, 2, 'center');
+      x.fillStyle = '#2a2017'; y = wrap(head, '700 66px "Old Standard TT"', 74, y + 40, 5, 'center');
+      if (sub) { x.fillStyle = '#5a4a37'; y = wrap(sub, 'italic 36px "Old Standard TT"', 46, y + 20, 3, 'center'); }
+      x.fillStyle = '#7b6850'; x.fillRect(W/2 - 120, y + 10, 240, 2);
+      x.fillStyle = '#2a2017'; wrap(body, '30px "Libre Caslon Text"', 44, y + 70, Math.max(3, Math.floor((H - 160 - y - 70) / 44)));
+      x.font = '24px "IM Fell English SC"'; x.textAlign = 'center'; x.fillStyle = '#5a4a37';
+      x.fillText(location.host + location.pathname.replace(/index\.html$/, ''), W/2, H - 70);
+      return new Promise(function(res){ c.toBlob(res, 'image/png'); });
+    });
+  }
+
+  var DATOS = (function(){ var n = document.getElementById('ed-datos'); try { return n ? JSON.parse(n.textContent) : {}; } catch(e){ return {}; } })();
+
+  // ------------------------------------------------------------------ «Tu edición»: what today's paper says about you
+  var tu = document.getElementById('tu-edicion');
+  function pintaTu(){
+    if (!tu) return;
+    var y = Yo.get(), J = DATOS.jugadores || {}, li = [];
+    if (!y) {
+      tu.innerHTML = '<h4>Tu edición</h4><p class="small">Dinos quién eres y te enseñamos, antes que nada, lo que el periódico dice hoy de ti.</p>' +
+        '<p style="margin-top:6px"><button type="button">¿Quién eres?</button></p>';
+      tu.querySelector('button').onclick = function(){ Yo.open(); };
+      tu.hidden = false; return;
+    }
+    var slug = (y.cuentas || [])[0], me = slug ? J[slug] : null;
+    if (me && me.piezas.length) li.push('Hoy sales en <b>' + me.piezas.length + '</b> pieza' + (me.piezas.length > 1 ? 's' : '') + ': ' +
+      me.piezas.slice(0, 3).map(function(p){ return '<a href="#p-' + esc(p[0]) + '">' + esc(p[1]) + '</a>'; }).join(' · ') +
+      (me.piezas.length > 3 ? ' y ' + (me.piezas.length - 3) + ' más.' : ''));
+    else if (slug) li.push('Hoy no sales en el periódico. Disfrútalo: no durará.');
+    if (me && me.puesto) li.push('Tu día: <b>' + esc(me.dia) + '</b>, puesto ' + me.puesto + ' de ' + me.de + ' en la tabla de la vergüenza' +
+      (me.puesto === 1 ? ' (sí, el peor)' : '') + '.');
+    if (me && me.tiempo) li.push('<span data-extra></span>Tu tiempo, según Madame Niebla: <i>' + esc(me.tiempo.split(/(?<=\.)\s/)[0]) + '</i>');
+    var saldo = (DATOS.saldos || {})[Yo.key()];
+    li.push('Lonja de Coronas: ' + (saldo != null ? '<b>' + saldo + '</b> coronas.' : 'aún no tienes cuenta; empiezas con 100 coronas.') + ' <a href="#lonja">Apostar</a>');
+    if (document.getElementById('jurado')) li.push(remember('feeder-jurado-' + EDICION) ? 'Ya has votado en el jurado popular.' : 'El jurado popular espera <a href="#jurado">tu voto</a>.');
+    if (document.getElementById('quienfue')) {
+      var q = {}; try { q = JSON.parse(remember('feeder-qf-' + EDICION) || '{}'); } catch(e){}
+      li.push(q.fin ? '¿Quién fue?: ' + (q.acierto ? 'resuelto en ' + q.intentos + ' intento' + (q.intentos > 1 ? 's' : '') + '.' : 'hoy no lo sacaste.')
+                    : '<a href="#quienfue">¿Quién fue?</a> sigue sin resolver.');
+    }
+    tu.innerHTML = '<h4>Tu edición, ' + esc(y.nombre) + '</h4><ul>' + li.map(function(t){
+      return '<li' + (t.indexOf('data-extra') >= 0 ? ' class="extra"' : '') + '>' + t + '</li>'; }).join('') + '</ul>';
+    tu.hidden = false;
+  }
+  pintaTu(); Yo.listeners.push(pintaTu);
+
+  // the front page story, folded on a phone after its opening
+  var lt = document.querySelector('.lead .txt');
+  if (lt && lt.children.length > 1) {
+    lt.classList.add('plegado');
+    var sb = document.createElement('button'); sb.type = 'button'; sb.className = 'seguir'; sb.textContent = 'Seguir leyendo';
+    sb.onclick = function(){ lt.classList.remove('plegado'); sb.remove(); };
+    lt.parentNode.insertBefore(sb, lt.nextSibling);
+  }
+
+  // ------------------------------------------------------------------ the popular jury
+  var jb = document.getElementById('jurado');
+  if (jb) {
+    var JED = jb.getAttribute('data-edicion'), jopen = jb.getAttribute('data-abierto') === '1';
+    var jops = jb.querySelectorAll('.jurado-op'), jmsg = jb.querySelector('.msg'), jvotes = [];
+    var jmine = remember('feeder-jurado-' + JED);
+    var jpaint = function(){
+      var counts = [], total = 0; for (var i = 0; i < jops.length; i++) counts.push(0);
+      jvotes.forEach(function(v){ if (v.opcion >= 0 && v.opcion < counts.length) { counts[v.opcion]++; total++; } });
+      var show = !!jmine || !jopen;
+      Array.prototype.forEach.call(jops, function(b, i){
+        b.querySelector('.barra').style.width = show && total ? Math.round(100 * counts[i] / total) + '%' : '0';
+        b.querySelector('.n').textContent = show ? counts[i] + (total ? ' · ' + Math.round(100 * counts[i] / total) + ' %' : '') : '';
+        b.classList.toggle('mia', String(i) === jmine); b.disabled = show;
+      });
+      jmsg.textContent = !ok ? 'El jurado se abrirá en cuanto se configure la base de datos.' :
+        show ? total + ' voto' + (total !== 1 ? 's' : '') + (jopen ? '. El veredicto sale mañana.' : '. Votación cerrada.') : 'Vota para ver cómo va.';
+    };
+    var jload = function(){
+      if (!ok) return jpaint();
+      api('/rest/v1/jurado?select=opcion,nombre&edicion=eq.' + JED).then(function(r){ return r.json(); })
+        .then(function(rows){ jvotes = rows; jpaint(); }).catch(function(){ jmsg.textContent = 'El jurado aún no está abierto (falta crear su tabla).'; });
+    };
+    Array.prototype.forEach.call(jops, function(b, i){
+      b.addEventListener('click', function(){
+        if (!ok || jmine || !jopen) return;
+        var y = Yo.get(); jmine = String(i); remember('feeder-jurado-' + JED, jmine);
+        jvotes.push({opcion: i}); jpaint(); pintaTu();
+        post('jurado', {edicion: JED, opcion: i, lector: Yo.lector(), nombre: y ? y.nombre : null})
+          .catch(function(err){ if (err.status !== 409) { jmsg.textContent = 'No se pudo guardar tu voto.'; } });
+      });
+    });
+    jload();
+  }
+
+  // ------------------------------------------------------------------ ¿Quién fue?
+  var qf = document.getElementById('quienfue');
+  if (qf) {
+    var QD = JSON.parse(qf.querySelector('script').textContent), QED = qf.getAttribute('data-edicion');
+    var qopen = qf.getAttribute('data-abierto') === '1', qkey = 'feeder-qf-' + QED;
+    var answer = (function(){ try { return atob(QD.clave).split('').reverse().join(''); } catch(e){ return ''; } })();
+    var st = {}; try { st = JSON.parse(remember(qkey) || '{}'); } catch(e){}
+    st.mal = st.mal || [];
+    var qpaint = function(){
+      var shown = st.fin ? QD.pistas.length : Math.min(QD.pistas.length, 1 + st.mal.length);
+      qf.querySelector('ol').innerHTML = QD.pistas.map(function(p, i){
+        return i < shown ? '<li>' + esc(p) + '</li>' : '<li class="oculta">Pista ' + (i + 1) + ': se destapa si fallas.</li>'; }).join('');
+      qf.querySelector('.qf-ops').innerHTML = QD.opciones.map(function(o){
+        var cls = st.mal.indexOf(o.slug) >= 0 ? 'mal' : (st.fin && o.slug === answer ? 'bien' : '');
+        return '<button type="button" data-s="' + esc(o.slug) + '" class="' + cls + '"' + (st.fin || cls ? ' disabled' : '') + '>' + esc(o.alias) + '</button>';
+      }).join('');
+      var racha = {}; try { racha = JSON.parse(remember('feeder-qf-racha') || '{}'); } catch(e){}
+      qf.querySelector('.qf-fin').innerHTML = st.fin ? (st.acierto ?
+        '¡Era ' + esc(QD.alias) + ' con ' + esc(QD.campeon) + '! Lo has sacado en ' + st.intentos + ' intento' + (st.intentos > 1 ? 's' : '') + '.' :
+        'Era <b>' + esc(QD.alias) + '</b>, con ' + esc(QD.campeon) + '. Mañana, más suerte.') +
+        (racha.n ? ' Racha: ' + racha.n + ' día' + (racha.n > 1 ? 's' : '') + ' seguido' + (racha.n > 1 ? 's' : '') + '.' : '') : '';
+      Array.prototype.forEach.call(qf.querySelectorAll('.qf-ops button:not([disabled])'), function(b){
+        b.addEventListener('click', function(){ guess(b.getAttribute('data-s')); });
+      });
+    };
+    var guess = function(slug){
+      if (st.fin) return;
+      if (slug === answer) { st.fin = true; st.acierto = true; st.intentos = st.mal.length + 1; }
+      else { st.mal.push(slug); if (st.mal.length >= QD.pistas.length) { st.fin = true; st.acierto = false; st.intentos = st.mal.length; } }
+      if (st.fin) {
+        var r = {}; try { r = JSON.parse(remember('feeder-qf-racha') || '{}'); } catch(e){}
+        if (st.acierto) { r.n = (r.ultima && r.ultima < QED && (new Date(QED) - new Date(r.ultima)) <= 86400000 ? (r.n || 0) : 0) + 1; r.ultima = QED; }
+        else r = {n: 0, ultima: QED};
+        remember('feeder-qf-racha', JSON.stringify(r));
+        if (ok && qopen) { var y = Yo.get();
+          post('quienfue', {edicion: QED, lector: Yo.lector(), nombre: y ? y.nombre : null, intentos: st.intentos, acierto: st.acierto})
+            .then(qload).catch(function(){}); }
+      }
+      remember(qkey, JSON.stringify(st)); qpaint(); pintaTu();
+    };
+    var qload = function(){
+      var box = qf.querySelector('.qf-detectives'); if (!ok || !box) return;
+      api('/rest/v1/quienfue?select=nombre,intentos,acierto&edicion=eq.' + QED + '&order=intentos.asc').then(function(r){ return r.json(); })
+        .then(function(rows){
+          var good = rows.filter(function(r){ return r.acierto; });
+          box.innerHTML = rows.length ? '<b>Detectives de hoy:</b> ' + (good.length ? good.slice(0, 8).map(function(r){
+            return esc(r.nombre || 'anónimo') + ' (' + r.intentos + ')'; }).join(', ') : 'nadie lo ha sacado todavía') +
+            ' · ' + rows.length + ' han jugado.' : 'Nadie ha jugado todavía.';
+        }).catch(function(){});
+    };
+    qpaint(); qload();
+  }
+
+  // ------------------------------------------------------------------ La Lonja de Coronas
+  var lj = document.getElementById('lonja');
+  if (lj) {
+    var LD = JSON.parse(lj.querySelector('script').textContent);
+    var closed = !lj.getAttribute('data-abierto') || Date.now() > new Date(LD.cierre).getTime();
+    var lsaldo = lj.querySelector('.saldo'), mine = [];
+    var available = function(){ var base = (LD.saldos || {})[Yo.key()]; base = base != null ? base : LD.inicial;
+      return base - mine.filter(function(b){ return b.created_at > LD.corte; }).reduce(function(a, b){ return a + b.importe; }, 0); };
+    var lpaint = function(){
+      var y = Yo.get();
+      lsaldo.innerHTML = !y ? 'Para apostar, <a href="#" class="lj-yo">dinos quién eres</a>. Todos empiezan con ' + LD.inicial + ' coronas.' :
+        'Saldo de ' + esc(y.nombre) + ': <b>' + available() + '</b> coronas';
+      var a = lsaldo.querySelector('.lj-yo'); if (a) a.onclick = function(e){ e.preventDefault(); Yo.open(); };
+      Array.prototype.forEach.call(lj.querySelectorAll('.mercado'), function(m){
+        var id = m.getAttribute('data-id'), bets = mine.filter(function(b){ return b.mercado === id; });
+        m.querySelector('.mias').textContent = bets.length ? 'Tus apuestas: ' + bets.map(function(b){
+          var o = m.querySelector('input[value="' + b.opcion + '"]'); return b.importe + ' a ' + (o ? o.getAttribute('data-t') : b.opcion); }).join(', ') : '';
+        var f = m.querySelector('.apostar'); if (f) f.hidden = closed;
+      });
+      var cl = lj.querySelector('.lj-cerrado'); if (cl) cl.hidden = !closed;
+    };
+    var lload = function(){
+      var y = Yo.get(); if (!ok || !y) return lpaint();
+      var ids = LD.mercados.map(function(m){ return '"' + m + '"'; }).join(',');
+      api('/rest/v1/apuestas?select=mercado,opcion,importe,created_at&nombre=ilike.' + encodeURIComponent(y.nombre) + '&mercado=in.(' + encodeURIComponent(ids) + ')')
+        .then(function(r){ return r.json(); }).then(function(rows){ mine = rows; lpaint(); }).catch(function(){ lpaint(); });
+    };
+    Array.prototype.forEach.call(lj.querySelectorAll('.mercado .apostar'), function(f){
+      f.addEventListener('submit', function(ev){
+        ev.preventDefault();
+        var m = f.closest('.mercado'), msg = f.querySelector('.msg'), y = Yo.get();
+        if (!ok) { msg.textContent = 'La Lonja abrirá en cuanto se configure la base de datos.'; return; }
+        if (!y) { Yo.open(function(){ lload(); }); return; }
+        var op = m.querySelector('input[type=radio]:checked'), imp = parseInt(f.importe.value, 10);
+        if (!op) { msg.textContent = 'Elige una respuesta.'; return; }
+        if (!(imp >= 1)) { msg.textContent = 'Apuesta al menos 1 corona.'; return; }
+        if (imp > available()) { msg.textContent = 'No te llega: tienes ' + available() + '.'; return; }
+        if (Date.now() > new Date(LD.cierre).getTime()) { closed = true; lpaint(); return; }
+        f.querySelector('button').disabled = true; msg.textContent = 'Firmando el boleto…';
+        var row = {nombre: y.nombre, lector: Yo.lector(), mercado: m.getAttribute('data-id'), opcion: op.value, importe: imp};
+        post('apuestas', row).then(function(){
+          mine.push({mercado: row.mercado, opcion: row.opcion, importe: imp, created_at: new Date().toISOString()});
+          msg.textContent = 'Apuesta registrada. Se paga mañana.'; f.importe.value = ''; lpaint(); pintaTu();
+        }).catch(function(){ msg.textContent = 'No se pudo apostar (¿está creada la tabla de la Lonja?).'; })
+          .then(function(){ f.querySelector('button').disabled = false; });
+      });
+    });
+    Yo.listeners.push(lload); lload();
   }
 
   // ------------------------------------------------------------------ proposals

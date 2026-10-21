@@ -2,15 +2,18 @@
 reader comments and the "propose a story" page."""
 import hashlib
 import json
+import re
 from collections import Counter, defaultdict
 from datetime import date, datetime, timezone
 from html import escape
 from pathlib import Path
 
 from . import canon as canon_mod
+from . import coronas
 from .porra import seers
 from .roasts import DESKS
-from .util import ROOT, champ_name, fmt_int, fmt_num, fmt_pct, load_json, long_date, short_date, slugify
+from .util import (ROOT, champ_name, fmt_int, fmt_num, fmt_pct, get_tz, load_json, long_date, ms_to_local,
+                   short_date, slugify)
 
 POINTS = [5, 3, 2, 1]  # daily shame points by position in the ranking
 
@@ -288,6 +291,14 @@ article.f-carta-al-director .txt p,article.f-editorial .txt p{font-style:italic}
 article.f-editorial h3{text-transform:uppercase;letter-spacing:.03em}
 article.f-anuncio-por-palabras{border:2px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;padding:14px 16px;text-align:center}
 article.f-entrevista .txt p:first-child{font-weight:700}
+/* interviews, turn by turn: who speaks in small capitals, the paper's questions in bold */
+.dialogo{margin:6px 0 8px}
+.turno{display:block;padding:3px 0;text-align:left;hyphens:auto}
+.turno::before{content:attr(data-quien) ". ";font-family:"IM Fell English SC",serif;font-weight:400;font-style:normal;
+  letter-spacing:.04em;color:var(--accent)}
+.turno.pregunta{font-weight:700}
+.turno.respuesta::before{color:var(--ink)}
+.raya{font-size:0}
 article.f-parte-policial .txt,article.f-juicio .txt{border-left:3px double var(--ink);padding-left:10px}
 article.f-ranking .txt p,article.f-encuesta .txt p{font-family:"Old Standard TT",serif}
 article.f-parte-meteorologico{background:rgba(160,175,190,.08)}
@@ -384,6 +395,16 @@ ul.elenco li{padding:6px 0;break-inside:avoid;border-bottom:1px dotted var(--rul
 .porra-box select{font:inherit;color:var(--ink);background:rgba(255,248,225,.25);border:1px solid var(--ink);padding:6px;width:100%}
 .porra-box form{margin-top:10px;border-top:1px dashed var(--ink);padding-top:10px}
 .pasa-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+/* pastimes in rows: three games of the same size, then the Lonja and the horoscope across the page */
+.pasa-grid.pasa-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.pasa-grid>*{min-width:0}
+.sorteo .nums input{flex:1;min-width:0;width:auto}
+.sec-pasatiempos .lonja,.sec-pasatiempos .horoscopo{margin-top:24px}
+.lonja .mercados{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 26px}
+.lonja .pie-lonja{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 26px;border-top:1px dashed var(--ink);margin-top:6px}
+.lonja .pie-lonja h5{margin-top:12px}
+.horoscopo ul{columns:2 340px;column-gap:28px;column-rule:1px solid var(--rule)}
+.horoscopo li{break-inside:avoid}
 .bolsa{margin-top:14px}
 .bolsa table{font-size:.84rem}
 .bolsa td{white-space:nowrap}
@@ -426,6 +447,104 @@ body.editando [data-campo]:focus{outline-style:solid;background:rgba(255,248,225
 .admin-bar .nota{flex:1;min-width:220px;font:inherit;font-size:.9rem;padding:5px 8px;border:1px solid var(--paper);background:rgba(255,248,225,.1);color:var(--paper)}
 .admin-bar button{font-family:"IM Fell English SC",serif;background:var(--paper);color:var(--ink);border:0;padding:5px 12px;cursor:pointer}
 .admin-bar .small{color:#d8ccae}
+/* test version banner */
+.aviso-prueba{background:#7a2416;color:#f3e9d2;text-align:center;font-family:"IM Fell English SC",serif;padding:7px 12px;
+  letter-spacing:.05em;font-size:.95rem}
+/* «Tu edición»: what the paper says about the reader */
+.tu-edicion{border:3px double var(--ink);padding:12px 16px;margin:0 0 20px;background:rgba(255,248,225,.18)}
+/* on a phone the front page story shows its opening and folds the rest */
+.seguir{display:none;font-family:"IM Fell English SC",serif;background:var(--ink);color:var(--paper);border:0;padding:5px 14px;margin-top:8px;cursor:pointer}
+@media (max-width:700px){
+  .lead .txt.plegado p:nth-child(n+2){display:none}
+  .tu-edicion li.extra{display:none}
+  .lead .txt.plegado+.seguir,.lead .txt.plegado~.seguir{display:inline-block}
+}
+.tu-edicion h4{font-family:"IM Fell English SC",serif;font-weight:400;font-size:1.15rem;letter-spacing:.04em}
+.tu-edicion ul{list-style:none;margin-top:6px}
+.tu-edicion li{padding:4px 0;border-bottom:1px dotted var(--rule);font-size:.95rem}
+.tu-edicion li:last-child{border-bottom:0}
+.tu-edicion button{font-family:"IM Fell English SC",serif;background:var(--ink);color:var(--paper);border:0;padding:4px 12px;cursor:pointer}
+/* the strip under the front page: popular jury, yesterday's verdict and promises */
+.franja{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;margin:20px 0 6px}
+.jurado,.veredicto,.promesas,.quienfue,.lonja{border:3px double var(--ink);padding:14px 16px;background:rgba(255,248,225,.1)}
+.jurado h4,.veredicto h4,.promesas h4,.quienfue h4,.lonja h4{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:1.6rem;
+  text-align:center;border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
+.preg{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.2rem;line-height:1.25;text-align:center;margin:2px 0 10px}
+.jurado-op{display:block;width:100%;text-align:left;font:inherit;font-size:.98rem;background:transparent;border:1px solid var(--ink);
+  padding:7px 10px;margin:6px 0;cursor:pointer;position:relative;color:var(--ink);overflow:hidden}
+.jurado-op:disabled{cursor:default}
+.jurado-op .barra{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(122,36,22,.16);transition:width .5s}
+.jurado-op span{position:relative}
+.jurado-op .n{float:right;font-family:"Old Standard TT",serif;font-weight:700}
+.jurado-op.mia{border:2px solid var(--accent)}
+.veredicto .fallo{font-style:italic;margin-top:8px}
+.promesas li{list-style:none;padding:6px 0;border-bottom:1px dotted var(--rule);font-size:.94rem}
+.promesas li:last-child{border-bottom:0}
+.promesas li b{display:block;font-family:"IM Fell English SC",serif;font-weight:400;color:var(--accent)}
+/* «La jornada en 30 segundos» */
+.jornada .resumen{font-style:italic;color:var(--muted);margin-bottom:8px}
+.jornada ol{list-style:none;columns:2 380px;column-gap:28px;column-rule:1px solid var(--rule)}
+.jornada li{break-inside:avoid;display:grid;grid-template-columns:3.1em 1fr auto;gap:0 10px;padding:5px 0;
+  border-bottom:1px dotted var(--rule);font-size:.92rem;line-height:1.35}
+.jornada time{font-family:"Old Standard TT",serif;font-weight:700}
+.jornada .cola{display:block;font-family:"IM Fell English SC",serif;font-size:.82rem;color:var(--accent);letter-spacing:.03em}
+.jornada .res{font-family:"Old Standard TT",serif;font-weight:700;font-size:1.05rem}
+/* La Gaceta de Noxus: the rival tabloid */
+.gaceta{border:4px solid #7c1414;outline:1px solid #7c1414;outline-offset:-9px;padding:18px 20px 16px;
+  background:repeating-linear-gradient(135deg,rgba(124,20,20,.04) 0 6px,transparent 6px 12px),rgba(255,248,225,.14);position:relative}
+.gaceta .cab{font-family:"Anton",Impact,sans-serif;color:#7c1414;font-size:clamp(1.9rem,4.4vw,2.8rem);text-transform:uppercase;
+  letter-spacing:.05em;line-height:1;text-align:center}
+.gaceta .lema{text-align:center;font-family:"Courier Prime","Courier New",monospace;font-size:.82rem;text-transform:uppercase;
+  border-top:2px solid #7c1414;border-bottom:2px solid #7c1414;padding:3px 0;margin:6px 0 12px;letter-spacing:.08em}
+.gaceta h3{font-family:"Anton",Impact,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.5rem,3.4vw,2.1rem);
+  line-height:1.05;letter-spacing:.01em;margin-bottom:10px}
+.gaceta .txt{column-count:2;column-gap:24px;column-rule:1px solid rgba(124,20,20,.4)}
+.gaceta .txt p{font-family:"Courier Prime","Courier New",monospace;font-size:.95rem;line-height:1.45}
+.gaceta .sello{position:absolute;top:14px;right:16px;transform:rotate(9deg);font-family:"Anton",Impact,sans-serif;color:#7c1414;
+  border:3px solid #7c1414;padding:2px 8px;font-size:.95rem;letter-spacing:.06em;opacity:.85}
+.gaceta .byline{font-family:"Courier Prime","Courier New",monospace}
+/* «¿Quién fue?» */
+.quienfue ol{margin:4px 0 10px 20px}
+.quienfue li{padding:3px 0;font-size:.95rem}
+.quienfue li.oculta{color:var(--muted);font-style:italic;list-style:none;margin-left:-20px}
+.qf-ops{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:6px}
+.qf-ops button{font-family:"IM Fell English SC",serif;font-size:1rem;background:transparent;color:var(--ink);border:1px solid var(--ink);
+  padding:5px 6px;cursor:pointer}
+.qf-ops button:hover{background:rgba(255,248,225,.3)}
+.qf-ops button.mal{text-decoration:line-through;opacity:.45;cursor:default}
+.qf-ops button.bien{background:var(--good);color:var(--paper)}
+.qf-fin{font-style:italic;margin-top:10px}
+.qf-detectives{margin-top:8px}
+/* La Lonja de Coronas */
+.lonja .saldo{text-align:center;font-family:"Old Standard TT",serif;font-size:1.1rem;margin-bottom:6px}
+.lonja .saldo b{color:var(--accent);font-size:1.4rem}
+.mercado{border-top:1px dashed var(--ink);padding:10px 0}
+.mercado p{font-family:"Old Standard TT",serif;font-weight:700;margin-bottom:6px;line-height:1.25}
+.mercado .ops{display:flex;flex-wrap:wrap;gap:6px}
+.mercado label.op{border:1px solid var(--ink);padding:3px 8px;cursor:pointer;font-size:.92rem;display:inline-flex;gap:6px;align-items:center}
+.mercado label.op b{color:var(--accent);font-family:"Old Standard TT",serif}
+.mercado label.op:has(input:checked){background:var(--ink);color:var(--paper)}
+.mercado label.op:has(input:checked) b{color:#f0c27a}
+.mercado label.op input{position:absolute;opacity:0;pointer-events:none}
+.mercado .apostar{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap}
+.mercado .apostar input{width:6em;font:inherit;color:var(--ink);background:rgba(255,248,225,.25);border:1px solid var(--ink);padding:4px 6px}
+.mercado .apostar button{font-family:"IM Fell English SC",serif;background:var(--ink);color:var(--paper);border:0;padding:5px 12px;cursor:pointer}
+.mercado .mias{font-size:.85rem;color:var(--muted);font-style:italic;margin-top:4px}
+.lonja table{font-size:.86rem}
+.lonja .resuelto{font-size:.9rem;padding:5px 0;border-bottom:1px dotted var(--rule)}
+/* «Mañana en El Rincón» */
+.manana ul{list-style:none}
+.manana li{padding:8px 0 8px 34px;border-bottom:1px dotted var(--rule);position:relative;font-family:"Old Standard TT",serif;font-size:1.08rem}
+.manana li::before{content:"\2316";position:absolute;left:4px;top:4px;font-size:1.4rem;color:var(--accent)}
+/* the full LP market folds away; only the accounts that moved stay in sight */
+details.bolsa-todo summary{cursor:pointer;font-family:"IM Fell English SC",serif;margin:6px 0}
+/* sagas page: the cast's secrets are printed blacked out */
+.secreto{background:var(--ink);color:var(--ink);padding:0 3px;cursor:help;transition:color .2s}
+.secreto:hover,.secreto:focus{color:var(--paper)}
+.etiqueta{display:inline-block;font-family:"IM Fell English SC",serif;font-size:.78rem;border:1px solid var(--ink);padding:0 6px;margin-left:6px;letter-spacing:.04em}
+ul.sindicato{list-style:none}
+ul.sindicato li{padding:6px 0;border-bottom:1px dotted var(--rule);font-size:.94rem}
+.arco{font-family:"IM Fell English SC",serif;color:var(--accent)}
 @media (max-width:980px){
   .cols,.lead,.profile{grid-template-columns:1fr}
   .lead .txt,.sec-opinion article.column .cbody{column-count:1}
@@ -434,6 +553,7 @@ body.editando [data-campo]:focus{outline-style:solid;background:rgba(255,248,225
   .sec-grid>article.pieza-grande{grid-column:auto}
   .pieza-grande .txt{column-count:1}
   .pasa-grid,.datos-grid{grid-template-columns:1fr}
+  .gaceta .txt{column-count:1}
   .sec-grid>article.wide2{grid-column:auto}
 }
 @media (max-width:560px){
@@ -465,13 +585,18 @@ LECTORES_JS = r"""(function(){
   var C = window.FEEDER || {}, ok = !!(C.url && C.key);
   var H = ok ? {apikey: C.key, Authorization: 'Bearer ' + C.key} : {};
   var EDICION = document.body.getAttribute('data-edicion'), PAGINA = document.body.getAttribute('data-pagina');
-  var EMOJIS = ['😂', '💀', '🔥', '🤡', '🧂', '👑'];
+  var EMOJIS = ['😂', '💀', '🔥', '🤡'];
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function when(t){try{return new Date(t).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});}catch(e){return '';}}
   function api(path, opts){opts=opts||{};var h=Object.assign({},H,opts.headers||{});
     return fetch(C.url.replace(/\/$/,'')+path,Object.assign({},opts,{headers:h})).then(function(r){
       if(!r.ok) return r.text().then(function(t){var e=new Error(t||r.status);e.status=r.status;throw e;}); return r;});}
-  function post(table, row){return api('/rest/v1/'+table,{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(row)});}
+  // In the test version only the new games write to the database: comments, reactions and the rest
+  // would land on the official paper.
+  var NUEVAS = ['jurado', 'quienfue', 'apuestas'];
+  function post(table, row){
+    if (C.prueba && NUEVAS.indexOf(table) < 0) { alert('Versión de prueba: esto no se guarda para no mezclarlo con la edición oficial.'); var e = new Error('prueba'); e.status = 0; return Promise.reject(e); }
+    return api('/rest/v1/'+table,{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(row)});}
   function remember(k,v){try{if(v===undefined)return localStorage.getItem(k)||'';localStorage.setItem(k,v);}catch(e){return '';}}
 
   // ------------------------------------------------------------------ who is reading
@@ -486,6 +611,7 @@ LECTORES_JS = r"""(function(){
       try { if (y) { localStorage.setItem('feeder-yo', JSON.stringify(y)); localStorage.setItem('feeder-nombre', y.nombre); }
             else { localStorage.removeItem('feeder-yo'); localStorage.removeItem('feeder-nombre'); } } catch(e){}
       Yo.render();
+      Yo.listeners.forEach(function(f){ try { f(Yo.get()); } catch(e){} });
     },
     lector: function(){
       var id = remember('feeder-lector');
@@ -551,7 +677,10 @@ LECTORES_JS = r"""(function(){
       if (d.showModal) d.showModal(); else d.setAttribute('open', '');
     },
     // a name for a form: the saved identity, or the one just typed (saved for next time)
-    remember: function(nombre){ if (!Yo.get() && nombre) Yo.set({nombre: nombre.slice(0, 40), cuentas: []}); }
+    remember: function(nombre){ if (!Yo.get() && nombre) Yo.set({nombre: nombre.slice(0, 40), cuentas: []}); },
+    listeners: [],
+    // the reader's name as the Lonja de Coronas keys its accounts
+    key: function(){ var y = Yo.get(); return y ? y.nombre.trim().replace(/\s+/g, ' ').toLowerCase() : ''; }
   };
   window.FeederYo = Yo;
   var yb = document.getElementById('yo-btn');
@@ -597,7 +726,7 @@ LECTORES_JS = r"""(function(){
       var id = el.getAttribute('data-pieza'), host = el.classList.contains('lead') ? el.firstElementChild : el;
       var d = document.createElement('div'); d.className = 'rx'; d.setAttribute('data-id', id);
       d.innerHTML = EMOJIS.map(function(e){ return '<button type="button" class="rx-e" data-e="'+e+'">'+e+'<b></b></button>'; }).join('') +
-        '<button type="button" class="rx-share" title="Compartir esta noticia">↗</button>' +
+        '<button type="button" class="rx-share" title="Compartir el recorte de esta noticia">↗</button>' +
         '<span class="rx-c"><button type="button" class="rx-com" aria-label="Comentarios">💬<b></b></button>' +
         '<div class="rx-pop"><div class="rx-list"></div><form class="rx-form"><textarea name="texto" maxlength="800" ' +
         'placeholder="¿Qué opinas de esto?" required></textarea>' +
@@ -608,8 +737,17 @@ LECTORES_JS = r"""(function(){
       showRep(); d.querySelector('.rx-c').addEventListener('mouseenter', showRep);
       d.querySelector('.rx-share').addEventListener('click', function(){
         var url = location.href.split('#')[0] + '#p-' + id, t = (el.querySelector('h2,h3,h5') || {}).textContent || document.title;
-        if (navigator.share) navigator.share({title: t, url: url}).catch(function(){});
-        else window.open('https://wa.me/?text=' + encodeURIComponent(t + ' ' + url), '_blank', 'noopener');
+        recorte(el).then(function(blob){
+          var file = blob && window.File ? new File([blob], 'rincon-del-feeder.png', {type: 'image/png'}) : null;
+          if (file && navigator.canShare && navigator.canShare({files: [file]}))
+            return navigator.share({files: [file], title: t, text: t + ' ' + url});
+          if (blob) { var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'rincon-del-feeder.png';
+                      document.body.appendChild(a); a.click(); a.remove(); }
+          if (navigator.clipboard) navigator.clipboard.writeText(t + ' ' + url).catch(function(){});
+        }).catch(function(){
+          if (navigator.share) navigator.share({title: t, url: url}).catch(function(){});
+          else window.open('https://wa.me/?text=' + encodeURIComponent(t + ' ' + url), '_blank', 'noopener');
+        });
       });
       host.appendChild(d); bars[id] = d;
       d.querySelector('.rx-com').addEventListener('click', function(){ d.querySelector('.rx-c').classList.toggle('open'); });
@@ -679,7 +817,7 @@ LECTORES_JS = r"""(function(){
   }
 
   // ------------------------------------------------------------------ visits: who reads what
-  if (ok && PAGINA) {
+  if (ok && PAGINA && !C.prueba) {
     var today = new Date().toISOString().slice(0, 10), key = 'feeder-v-' + PAGINA;
     if (remember(key) !== today) {
       var yv = Yo.get();
@@ -744,8 +882,23 @@ LECTORES_JS = r"""(function(){
     }
     return el.innerText.trim();
   };
+  // an interview keeps its turns after a correction (same rule as the server: a dash that opens a sentence)
+  var dialogo = function(el, t){
+    var g = el.querySelector('.turno.respuesta'), guest = g ? g.getAttribute('data-quien') : 'El entrevistado', n = 0;
+    return t.split(/\n\s*\n/).map(function(p){
+      p = p.trim(); if (!p) return '';
+      if (p.charAt(0) !== '—') return '<p>' + esc(p) + '</p>';
+      return '<div class="dialogo">' + p.split(/\s+(?=—[¿¡«"A-ZÁÉÍÓÚÑ0-9])/).map(function(x){
+        x = x.trim().replace(/^—\s*/, ''); if (!x) return '';
+        var q = n++ % 2 === 0;
+        return '<span class="turno ' + (q ? 'pregunta' : 'respuesta') + '" data-quien="' + esc(q ? 'El Rincón' : guest) +
+               '"><span class="raya">—</span>' + esc(x) + '</span>';
+      }).join('') + '</div>';
+    }).join('');
+  };
   var setText = function(el, t){
-    if (FIELD_LIST.indexOf(el.getAttribute('data-campo')) >= 0)
+    if (el.getAttribute('data-campo') === 'body' && el.closest('.f-entrevista')) el.innerHTML = dialogo(el, t);
+    else if (FIELD_LIST.indexOf(el.getAttribute('data-campo')) >= 0)
       el.innerHTML = t.split(/\n\s*\n/).map(function(p){ return '<p>' + esc(p.trim()) + '</p>'; }).join('');
     else el.textContent = t;
   };
@@ -832,6 +985,229 @@ LECTORES_JS = r"""(function(){
           .then(function(){ pz.querySelector('button').disabled = false; });
       });
     }
+  }
+
+
+  // ------------------------------------------------------------------ a clipping of a story, as a picture to share
+  function recorte(el){
+    var W = 1080, H = 1350, c = document.createElement('canvas'); c.width = W; c.height = H;
+    var x = c.getContext('2d'); if (!x || !c.toBlob) return Promise.reject(new Error('sin canvas'));
+    var pick = function(sel){ var n = el.querySelector(sel); return n ? n.textContent.trim() : ''; };
+    var head = pick('h2,h3,h5'), sub = pick('p.sub'), kick = pick('.kicker').replace(/\s+/g, ' ');
+    var body = Array.prototype.map.call(el.querySelectorAll('.txt p'), function(p){ return p.textContent.trim(); }).join(' ');
+    var fonts = ['72px UnifrakturMaguntia', '700 64px "Old Standard TT"', 'italic 36px "Old Standard TT"', '30px "Libre Caslon Text"', '28px "IM Fell English SC"'];
+    var ready = document.fonts ? Promise.all(fonts.map(function(f){ return document.fonts.load(f); })) : Promise.resolve();
+    return ready.then(function(){
+      x.fillStyle = '#d8ccae'; x.fillRect(0, 0, W, H);
+      var g = x.createRadialGradient(W/2, H/2, W*.3, W/2, H/2, W*.8); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(70,48,18,.35)');
+      x.fillStyle = g; x.fillRect(0, 0, W, H);
+      x.strokeStyle = '#2a2017'; x.lineWidth = 3; x.strokeRect(30, 30, W - 60, H - 60); x.lineWidth = 1; x.strokeRect(42, 42, W - 84, H - 84);
+      x.fillStyle = '#2a2017'; x.textAlign = 'center';
+      x.font = '84px UnifrakturMaguntia'; x.fillText(document.querySelector('.title') ? document.querySelector('.title').textContent : 'El Rincón del Feeder', W/2, 150);
+      x.font = '26px "IM Fell English SC"'; x.fillText((document.querySelector('.topline span') || {}).textContent || '', W/2, 196);
+      x.fillRect(80, 220, W - 160, 5); x.fillRect(80, 232, W - 160, 1.5);
+      var wrap = function(text, font, lh, y, maxLines, align){
+        x.font = font; x.textAlign = align || 'left'; var words = text.split(/\s+/), line = '', n = 0, X = align === 'center' ? W/2 : 90;
+        for (var i = 0; i < words.length; i++) {
+          var test = line ? line + ' ' + words[i] : words[i];
+          if (x.measureText(test).width > W - 180 && line) {
+            n++; if (n === maxLines) { x.fillText(line.replace(/[,.;:]?$/, '…'), X, y); return y + lh; }
+            x.fillText(line, X, y); y += lh; line = words[i];
+          } else line = test;
+        }
+        if (line) { x.fillText(line, X, y); y += lh; } return y;
+      };
+      x.fillStyle = '#7a2416'; var y = wrap(kick.toUpperCase(), '28px "IM Fell English SC"', 36, 300, 2, 'center');
+      x.fillStyle = '#2a2017'; y = wrap(head, '700 66px "Old Standard TT"', 74, y + 40, 5, 'center');
+      if (sub) { x.fillStyle = '#5a4a37'; y = wrap(sub, 'italic 36px "Old Standard TT"', 46, y + 20, 3, 'center'); }
+      x.fillStyle = '#7b6850'; x.fillRect(W/2 - 120, y + 10, 240, 2);
+      x.fillStyle = '#2a2017'; wrap(body, '30px "Libre Caslon Text"', 44, y + 70, Math.max(3, Math.floor((H - 160 - y - 70) / 44)));
+      x.font = '24px "IM Fell English SC"'; x.textAlign = 'center'; x.fillStyle = '#5a4a37';
+      x.fillText(location.host + location.pathname.replace(/index\.html$/, ''), W/2, H - 70);
+      return new Promise(function(res){ c.toBlob(res, 'image/png'); });
+    });
+  }
+
+  var DATOS = (function(){ var n = document.getElementById('ed-datos'); try { return n ? JSON.parse(n.textContent) : {}; } catch(e){ return {}; } })();
+
+  // ------------------------------------------------------------------ «Tu edición»: what today's paper says about you
+  var tu = document.getElementById('tu-edicion');
+  function pintaTu(){
+    if (!tu) return;
+    var y = Yo.get(), J = DATOS.jugadores || {}, li = [];
+    if (!y) {
+      tu.innerHTML = '<h4>Tu edición</h4><p class="small">Dinos quién eres y te enseñamos, antes que nada, lo que el periódico dice hoy de ti.</p>' +
+        '<p style="margin-top:6px"><button type="button">¿Quién eres?</button></p>';
+      tu.querySelector('button').onclick = function(){ Yo.open(); };
+      tu.hidden = false; return;
+    }
+    var slug = (y.cuentas || [])[0], me = slug ? J[slug] : null;
+    if (me && me.piezas.length) li.push('Hoy sales en <b>' + me.piezas.length + '</b> pieza' + (me.piezas.length > 1 ? 's' : '') + ': ' +
+      me.piezas.slice(0, 3).map(function(p){ return '<a href="#p-' + esc(p[0]) + '">' + esc(p[1]) + '</a>'; }).join(' · ') +
+      (me.piezas.length > 3 ? ' y ' + (me.piezas.length - 3) + ' más.' : ''));
+    else if (slug) li.push('Hoy no sales en el periódico. Disfrútalo: no durará.');
+    if (me && me.puesto) li.push('Tu día: <b>' + esc(me.dia) + '</b>, puesto ' + me.puesto + ' de ' + me.de + ' en la tabla de la vergüenza' +
+      (me.puesto === 1 ? ' (sí, el peor)' : '') + '.');
+    if (me && me.tiempo) li.push('<span data-extra></span>Tu tiempo, según Madame Niebla: <i>' + esc(me.tiempo.split(/(?<=\.)\s/)[0]) + '</i>');
+    var saldo = (DATOS.saldos || {})[Yo.key()];
+    li.push('Lonja de Coronas: ' + (saldo != null ? '<b>' + saldo + '</b> coronas.' : 'aún no tienes cuenta; empiezas con 100 coronas.') + ' <a href="#lonja">Apostar</a>');
+    if (document.getElementById('jurado')) li.push(remember('feeder-jurado-' + EDICION) ? 'Ya has votado en el jurado popular.' : 'El jurado popular espera <a href="#jurado">tu voto</a>.');
+    if (document.getElementById('quienfue')) {
+      var q = {}; try { q = JSON.parse(remember('feeder-qf-' + EDICION) || '{}'); } catch(e){}
+      li.push(q.fin ? '¿Quién fue?: ' + (q.acierto ? 'resuelto en ' + q.intentos + ' intento' + (q.intentos > 1 ? 's' : '') + '.' : 'hoy no lo sacaste.')
+                    : '<a href="#quienfue">¿Quién fue?</a> sigue sin resolver.');
+    }
+    tu.innerHTML = '<h4>Tu edición, ' + esc(y.nombre) + '</h4><ul>' + li.map(function(t){
+      return '<li' + (t.indexOf('data-extra') >= 0 ? ' class="extra"' : '') + '>' + t + '</li>'; }).join('') + '</ul>';
+    tu.hidden = false;
+  }
+  pintaTu(); Yo.listeners.push(pintaTu);
+
+  // the front page story, folded on a phone after its opening
+  var lt = document.querySelector('.lead .txt');
+  if (lt && lt.children.length > 1) {
+    lt.classList.add('plegado');
+    var sb = document.createElement('button'); sb.type = 'button'; sb.className = 'seguir'; sb.textContent = 'Seguir leyendo';
+    sb.onclick = function(){ lt.classList.remove('plegado'); sb.remove(); };
+    lt.parentNode.insertBefore(sb, lt.nextSibling);
+  }
+
+  // ------------------------------------------------------------------ the popular jury
+  var jb = document.getElementById('jurado');
+  if (jb) {
+    var JED = jb.getAttribute('data-edicion'), jopen = jb.getAttribute('data-abierto') === '1';
+    var jops = jb.querySelectorAll('.jurado-op'), jmsg = jb.querySelector('.msg'), jvotes = [];
+    var jmine = remember('feeder-jurado-' + JED);
+    var jpaint = function(){
+      var counts = [], total = 0; for (var i = 0; i < jops.length; i++) counts.push(0);
+      jvotes.forEach(function(v){ if (v.opcion >= 0 && v.opcion < counts.length) { counts[v.opcion]++; total++; } });
+      var show = !!jmine || !jopen;
+      Array.prototype.forEach.call(jops, function(b, i){
+        b.querySelector('.barra').style.width = show && total ? Math.round(100 * counts[i] / total) + '%' : '0';
+        b.querySelector('.n').textContent = show ? counts[i] + (total ? ' · ' + Math.round(100 * counts[i] / total) + ' %' : '') : '';
+        b.classList.toggle('mia', String(i) === jmine); b.disabled = show;
+      });
+      jmsg.textContent = !ok ? 'El jurado se abrirá en cuanto se configure la base de datos.' :
+        show ? total + ' voto' + (total !== 1 ? 's' : '') + (jopen ? '. El veredicto sale mañana.' : '. Votación cerrada.') : 'Vota para ver cómo va.';
+    };
+    var jload = function(){
+      if (!ok) return jpaint();
+      api('/rest/v1/jurado?select=opcion,nombre&edicion=eq.' + JED).then(function(r){ return r.json(); })
+        .then(function(rows){ jvotes = rows; jpaint(); }).catch(function(){ jmsg.textContent = 'El jurado aún no está abierto (falta crear su tabla).'; });
+    };
+    Array.prototype.forEach.call(jops, function(b, i){
+      b.addEventListener('click', function(){
+        if (!ok || jmine || !jopen) return;
+        var y = Yo.get(); jmine = String(i); remember('feeder-jurado-' + JED, jmine);
+        jvotes.push({opcion: i}); jpaint(); pintaTu();
+        post('jurado', {edicion: JED, opcion: i, lector: Yo.lector(), nombre: y ? y.nombre : null})
+          .catch(function(err){ if (err.status !== 409) { jmsg.textContent = 'No se pudo guardar tu voto.'; } });
+      });
+    });
+    jload();
+  }
+
+  // ------------------------------------------------------------------ ¿Quién fue?
+  var qf = document.getElementById('quienfue');
+  if (qf) {
+    var QD = JSON.parse(qf.querySelector('script').textContent), QED = qf.getAttribute('data-edicion');
+    var qopen = qf.getAttribute('data-abierto') === '1', qkey = 'feeder-qf-' + QED;
+    var answer = (function(){ try { return atob(QD.clave).split('').reverse().join(''); } catch(e){ return ''; } })();
+    var st = {}; try { st = JSON.parse(remember(qkey) || '{}'); } catch(e){}
+    st.mal = st.mal || [];
+    var qpaint = function(){
+      var shown = st.fin ? QD.pistas.length : Math.min(QD.pistas.length, 1 + st.mal.length);
+      qf.querySelector('ol').innerHTML = QD.pistas.map(function(p, i){
+        return i < shown ? '<li>' + esc(p) + '</li>' : '<li class="oculta">Pista ' + (i + 1) + ': se destapa si fallas.</li>'; }).join('');
+      qf.querySelector('.qf-ops').innerHTML = QD.opciones.map(function(o){
+        var cls = st.mal.indexOf(o.slug) >= 0 ? 'mal' : (st.fin && o.slug === answer ? 'bien' : '');
+        return '<button type="button" data-s="' + esc(o.slug) + '" class="' + cls + '"' + (st.fin || cls ? ' disabled' : '') + '>' + esc(o.alias) + '</button>';
+      }).join('');
+      var racha = {}; try { racha = JSON.parse(remember('feeder-qf-racha') || '{}'); } catch(e){}
+      qf.querySelector('.qf-fin').innerHTML = st.fin ? (st.acierto ?
+        '¡Era ' + esc(QD.alias) + ' con ' + esc(QD.campeon) + '! Lo has sacado en ' + st.intentos + ' intento' + (st.intentos > 1 ? 's' : '') + '.' :
+        'Era <b>' + esc(QD.alias) + '</b>, con ' + esc(QD.campeon) + '. Mañana, más suerte.') +
+        (racha.n ? ' Racha: ' + racha.n + ' día' + (racha.n > 1 ? 's' : '') + ' seguido' + (racha.n > 1 ? 's' : '') + '.' : '') : '';
+      Array.prototype.forEach.call(qf.querySelectorAll('.qf-ops button:not([disabled])'), function(b){
+        b.addEventListener('click', function(){ guess(b.getAttribute('data-s')); });
+      });
+    };
+    var guess = function(slug){
+      if (st.fin) return;
+      if (slug === answer) { st.fin = true; st.acierto = true; st.intentos = st.mal.length + 1; }
+      else { st.mal.push(slug); if (st.mal.length >= QD.pistas.length) { st.fin = true; st.acierto = false; st.intentos = st.mal.length; } }
+      if (st.fin) {
+        var r = {}; try { r = JSON.parse(remember('feeder-qf-racha') || '{}'); } catch(e){}
+        if (st.acierto) { r.n = (r.ultima && r.ultima < QED && (new Date(QED) - new Date(r.ultima)) <= 86400000 ? (r.n || 0) : 0) + 1; r.ultima = QED; }
+        else r = {n: 0, ultima: QED};
+        remember('feeder-qf-racha', JSON.stringify(r));
+        if (ok && qopen) { var y = Yo.get();
+          post('quienfue', {edicion: QED, lector: Yo.lector(), nombre: y ? y.nombre : null, intentos: st.intentos, acierto: st.acierto})
+            .then(qload).catch(function(){}); }
+      }
+      remember(qkey, JSON.stringify(st)); qpaint(); pintaTu();
+    };
+    var qload = function(){
+      var box = qf.querySelector('.qf-detectives'); if (!ok || !box) return;
+      api('/rest/v1/quienfue?select=nombre,intentos,acierto&edicion=eq.' + QED + '&order=intentos.asc').then(function(r){ return r.json(); })
+        .then(function(rows){
+          var good = rows.filter(function(r){ return r.acierto; });
+          box.innerHTML = rows.length ? '<b>Detectives de hoy:</b> ' + (good.length ? good.slice(0, 8).map(function(r){
+            return esc(r.nombre || 'anónimo') + ' (' + r.intentos + ')'; }).join(', ') : 'nadie lo ha sacado todavía') +
+            ' · ' + rows.length + ' han jugado.' : 'Nadie ha jugado todavía.';
+        }).catch(function(){});
+    };
+    qpaint(); qload();
+  }
+
+  // ------------------------------------------------------------------ La Lonja de Coronas
+  var lj = document.getElementById('lonja');
+  if (lj) {
+    var LD = JSON.parse(lj.querySelector('script').textContent);
+    var closed = !lj.getAttribute('data-abierto') || Date.now() > new Date(LD.cierre).getTime();
+    var lsaldo = lj.querySelector('.saldo'), mine = [];
+    var available = function(){ var base = (LD.saldos || {})[Yo.key()]; base = base != null ? base : LD.inicial;
+      return base - mine.filter(function(b){ return b.created_at > LD.corte; }).reduce(function(a, b){ return a + b.importe; }, 0); };
+    var lpaint = function(){
+      var y = Yo.get();
+      lsaldo.innerHTML = !y ? 'Para apostar, <a href="#" class="lj-yo">dinos quién eres</a>. Todos empiezan con ' + LD.inicial + ' coronas.' :
+        'Saldo de ' + esc(y.nombre) + ': <b>' + available() + '</b> coronas';
+      var a = lsaldo.querySelector('.lj-yo'); if (a) a.onclick = function(e){ e.preventDefault(); Yo.open(); };
+      Array.prototype.forEach.call(lj.querySelectorAll('.mercado'), function(m){
+        var id = m.getAttribute('data-id'), bets = mine.filter(function(b){ return b.mercado === id; });
+        m.querySelector('.mias').textContent = bets.length ? 'Tus apuestas: ' + bets.map(function(b){
+          var o = m.querySelector('input[value="' + b.opcion + '"]'); return b.importe + ' a ' + (o ? o.getAttribute('data-t') : b.opcion); }).join(', ') : '';
+        var f = m.querySelector('.apostar'); if (f) f.hidden = closed;
+      });
+      var cl = lj.querySelector('.lj-cerrado'); if (cl) cl.hidden = !closed;
+    };
+    var lload = function(){
+      var y = Yo.get(); if (!ok || !y) return lpaint();
+      var ids = LD.mercados.map(function(m){ return '"' + m + '"'; }).join(',');
+      api('/rest/v1/apuestas?select=mercado,opcion,importe,created_at&nombre=ilike.' + encodeURIComponent(y.nombre) + '&mercado=in.(' + encodeURIComponent(ids) + ')')
+        .then(function(r){ return r.json(); }).then(function(rows){ mine = rows; lpaint(); }).catch(function(){ lpaint(); });
+    };
+    Array.prototype.forEach.call(lj.querySelectorAll('.mercado .apostar'), function(f){
+      f.addEventListener('submit', function(ev){
+        ev.preventDefault();
+        var m = f.closest('.mercado'), msg = f.querySelector('.msg'), y = Yo.get();
+        if (!ok) { msg.textContent = 'La Lonja abrirá en cuanto se configure la base de datos.'; return; }
+        if (!y) { Yo.open(function(){ lload(); }); return; }
+        var op = m.querySelector('input[type=radio]:checked'), imp = parseInt(f.importe.value, 10);
+        if (!op) { msg.textContent = 'Elige una respuesta.'; return; }
+        if (!(imp >= 1)) { msg.textContent = 'Apuesta al menos 1 corona.'; return; }
+        if (imp > available()) { msg.textContent = 'No te llega: tienes ' + available() + '.'; return; }
+        if (Date.now() > new Date(LD.cierre).getTime()) { closed = true; lpaint(); return; }
+        f.querySelector('button').disabled = true; msg.textContent = 'Firmando el boleto…';
+        var row = {nombre: y.nombre, lector: Yo.lector(), mercado: m.getAttribute('data-id'), opcion: op.value, importe: imp};
+        post('apuestas', row).then(function(){
+          mine.push({mercado: row.mercado, opcion: row.opcion, importe: imp, created_at: new Date().toISOString()});
+          msg.textContent = 'Apuesta registrada. Se paga mañana.'; f.importe.value = ''; lpaint(); pintaTu();
+        }).catch(function(){ msg.textContent = 'No se pudo apostar (¿está creada la tabla de la Lonja?).'; })
+          .then(function(){ f.querySelector('button').disabled = false; });
+      });
+    });
+    Yo.listeners.push(lload); lload();
   }
 
   // ------------------------------------------------------------------ proposals
@@ -989,6 +1365,7 @@ ASSET_VERSION = hashlib.sha1((CSS + LECTORES_JS).encode("utf-8")).hexdigest()[:1
 
 ROSTER = []  # [{slug, alias}] of the players, for the "who are you?" picker; set by build_site
 ACE = {}     # data/ace_league.json; set by build_site
+LEDGER = {}  # balances of the Lonja de Coronas (coronas.ledger); set by build_site
 
 
 def _e(x):
@@ -1008,7 +1385,9 @@ def page(cfg, title, body, rel, edition=None, description="", pagina="", image=N
         top = ('<div class="topline"><span>Fundado en la Grieta del Invocador</span><span>Año I</span>'
                '<span>Precio: 1 LP</span></div>')
     feeder = json.dumps({"url": cfg.get("supabase_url", ""), "key": cfg.get("supabase_anon_key", ""),
-                         "jugadores": ROSTER}, ensure_ascii=False)
+                         "jugadores": ROSTER, "prueba": bool(cfg.get("prueba"))}, ensure_ascii=False)
+    banner = ('<div class="aviso-prueba">Versión de prueba · no es la edición oficial · aquí solo se guardan el jurado, '
+              '«¿Quién fue?» y la Lonja de Coronas</div>' if cfg.get("prueba") else "")
     if edition:
         pagina = pagina or f"edicion:{edition['date']}"
     marks = (f' data-edicion="{_e(edition["date"])}"' if edition else "") + (f' data-pagina="{_e(pagina)}"' if pagina else "")
@@ -1028,6 +1407,7 @@ def page(cfg, title, body, rel, edition=None, description="", pagina="", image=N
 <link rel="stylesheet" href="{rel}style.css?v={ASSET_VERSION}">
 </head>
 <body{marks}>
+{banner}
 <div class="wrap"><div class="paper">
 <header class="mast">
 {top}
@@ -1273,6 +1653,41 @@ def _paras_html(text):
     return "".join(f"<p>{_e(p)}</p>" for p in str(text).split("\n\n") if p.strip())
 
 
+# a new turn of an interview: a dash that opens a sentence (not a dash that opens an aside, «—dice—»)
+TURN = re.compile(r"\s+(?=—[¿¡«\"A-ZÁÉÍÓÚÑ0-9])")
+
+
+def _dialogue_html(text, guest):
+    """An interview printed turn by turn: the paper's questions in bold, the answers in roman, each
+    on its own line with the speaker's name in front. The dashes stay in the text (invisible), so
+    the admin's corrections keep the format the editor writes in."""
+    out, turn = [], 0
+    for para in str(text).split("\n\n"):
+        para = para.strip()
+        if not para:
+            continue
+        if not para.startswith("—"):
+            out.append(f"<p>{_e(para)}</p>")
+            continue
+        lines = []
+        for t in TURN.split(para):
+            t = t.strip().lstrip("—").strip()
+            if not t:
+                continue
+            who, cls = ("El Rincón", "pregunta") if turn % 2 == 0 else (guest, "respuesta")
+            lines.append(f'<span class="turno {cls}" data-quien="{_e(who)}"><span class="raya">—</span>{_e(t)}</span>')
+            turn += 1
+        out.append(f'<div class="dialogo">{"".join(lines)}</div>')
+    return "".join(out)
+
+
+def _body_html(it):
+    if it.get("formato") == "entrevista":
+        guest = it.get("entrevistado") or (champ_name(it["campeon"]) if it.get("campeon") else "El entrevistado")
+        return _dialogue_html(it["body"], guest)
+    return _paras_html(it["body"])
+
+
 PLAIN_FORMATS = ("noticia", "breve", "")
 
 
@@ -1302,7 +1717,7 @@ def _article(it, rel, image=False, cls="", attrs="", placard=False):
     if it.get("player"):
         attrs += f' data-jugador="{_e(it["player"])}"'
     return (f'<article class="{cls}"{attrs}>{_kicker(it, rel)}{ante}'
-            f'<h3 data-campo="headline">{_e(it["headline"])}</h3>{sub}{fig}{stat}<div class="txt" data-campo="body">{_paras_html(it["body"])}</div>{who}</article>')
+            f'<h3 data-campo="headline">{_e(it["headline"])}</h3>{sub}{fig}{stat}<div class="txt" data-campo="body">{_body_html(it)}</div>{who}</article>')
 
 
 # --------------------------------------------------------------------------- sections
@@ -1405,9 +1820,10 @@ def _sections_v2(ed, rest, rel):
     news well, each with its own section label; the day's tables get a band of their own."""
     html = []
     games = ed.get("games") or []
+    datos = ""
     if ed.get("ranking"):
         market = _market_table(games)
-        html.append(
+        datos = (
             '<section class="secblock sec-datos" id="sec-datos"><header class="sec-head"><h3 class="sec-name">Resultados</h3>'
             '<span class="sec-desk">Arena de Noxus · Lonja de Aguasturbias · Islas de la Sombra</span></header>'
             f'<div class="datos-grid"><div class="board"><h4 class="kicker">Resultados del día</h4>'
@@ -1439,6 +1855,8 @@ def _sections_v2(ed, rest, rel):
                     '<h3 class="sec-name">Actualidad</h3><span class="sec-desk">Corresponsales por toda Runeterra</span>'
                     '</header><div class="sec-grid pozo">' + "".join(card(it, i) for i, it in enumerate(well))
                     + '</div></section>')
+    html.append(_gaceta(ed))
+    html.append(datos)
     if ace_items or _ace_matches():
         rows = "".join(f'<tr><td>{_e(m.get("fecha", ""))}</td><td>{_e(m.get("rival", ""))}</td>'
                        f'<td class="{"win" if m.get("resultado") == "victoria" else "loss" if m.get("resultado") == "derrota" else ""}">'
@@ -1572,10 +1990,11 @@ def _porra(ed, latest, seers):
     return f'<div class="porra-box"><h4>La porra</h4>{"".join(lines)}{rank}{form}</div>'
 
 
-def _pasatiempos(ed, rel, latest, seers=None):
+def _pasatiempos(ed, rel, latest, seers=None, editions_until=()):
     return (f'<section class="secblock sec-pasatiempos" id="sorteo"><header class="sec-head">'
-            f'<h3 class="sec-name">Pasatiempos</h3><span class="sec-desk">Sorteo, porra y horóscopo</span></header>'
-            f'<div class="pasa-grid">{_sorteo(ed, rel, latest)}{_porra(ed, latest, seers or [])}{_horoscopo(ed)}</div></section>')
+            f'<h3 class="sec-name">Pasatiempos</h3><span class="sec-desk">¿Quién fue?, la Lonja de Coronas, sorteo, porra y horóscopo</span></header>'
+            f'<div class="pasa-grid pasa-3">{_quienfue(ed, latest)}{_sorteo(ed, rel, latest)}{_porra(ed, latest, seers or [])}</div>'
+            f'{_lonja(ed, list(editions_until), latest)}{_horoscopo(ed)}</section>')
 
 
 def _bolsa(ed):
@@ -1609,16 +2028,25 @@ def _bolsa(ed):
         return ('<tbody class="persona">' + "".join(
             f'<tr>{name if i == 0 else ""}{account(r)}{cell(r.get("solo"))}{cell(r.get("flex"))}</tr>'
             for i, r in enumerate(accs)) + '</tbody>')
+    def moved(r):
+        return any((r.get(q) or {}).get("delta") or (r.get(q) or {}).get("cambio") for q in ("solo", "flex"))
+    head = ('<div class="tablewrap"><table><thead><tr><th>Jugador</th><th>Cuenta</th><th>SoloQ</th><th class="num">LP</th>'
+            '<th>Flex</th><th class="num">LP</th></tr></thead>')
+    movers = {}
+    for slug, accs in people.items():
+        if any(moved(r) for r in accs):
+            movers[slug] = [r for r in accs if moved(r)]
     body = "".join(person(accs) for accs in people.values())
     since = f' (frente al {short_date(_date(b["desde"]))})' if b.get("desde") else ""
-    return (f'<div class="board bolsa"><h4 class="kicker">Bolsa de LP{_e(since)}</h4><div class="tablewrap"><table><thead><tr>'
-            '<th>Jugador</th><th>Cuenta</th><th>SoloQ</th><th class="num">LP</th><th>Flex</th><th class="num">LP</th></tr></thead>'
-            + body + '</table></div>'
+    top = (head + "".join(person(accs) for accs in movers.values()) + '</table></div>' if movers else
+           '<p class="small">Ninguna cuenta se ha movido desde la última vez. Ni para arriba ni, milagro, para abajo.</p>')
+    return (f'<div class="board bolsa"><h4 class="kicker">Bolsa de LP{_e(since)}</h4>{top}'
+            f'<details class="bolsa-todo"><summary>Ver todas las cuentas</summary>{head}{body}</table></div>'
             '<p class="small bolsa-nota">Cada cuenta se compara solo consigo misma, con la última vez que la miramos '
             '(normalmente el día anterior); los smurfs van aparte, en la fila de su dueño. La cifra es la diferencia en LP '
             'contando 100 por división y 400 por liga: pasar de Oro IV con 20 LP a Plata I con 80 LP son ▼ 40. '
             '«nuevo»: es la primera vez que vemos esa cuenta en esa cola. «?»: el cambio no cuadra con las partidas '
-            'jugadas y no se cuenta.</p></div>')
+            'jugadas y no se cuenta.</p></details></div>')
 
 
 def _ace_matches(limit=6):
@@ -1668,7 +2096,7 @@ def _breves(items, rel):
     for it in items:
         who = (f' <a href="{rel}jugadores/{_e(it["player"])}.html">{_e(it["alias"])}</a>'
                if it.get("player") and it.get("alias") else "")
-        out.append(f'<div class="breve f-{slugify(it.get("formato") or "")}" data-pieza="{_e(it["id"])}"><div class="bk">{_e(it["section"])}</div>'
+        out.append(f'<div class="breve f-{slugify(it.get("formato") or "")}" data-pieza="{_e(it["id"])}" id="p-{_e(it["id"])}"><div class="bk">{_e(it["section"])}</div>'
                    f'<h5 data-campo="headline">{_e(it["headline"])}</h5><div class="txt" data-campo="body">{_paras_html(it["body"])}</div>'
                    + (f'<div class="byline">Sobre{who}</div>' if who else "") + '</div>')
     return '<div class="box breves"><h4>Breves</h4>' + "".join(out) + '</div>'
@@ -1751,6 +2179,188 @@ def _comments(ed):
 </section>"""
 
 
+# --------------------------------------------------------------------------- the day at a glance and the newsroom's extras
+SHORT_QUEUE = {"Ranked Flex": "Flex", "Ranked Solo/Dúo": "SoloQ", "Normal Draft": "Normal"}
+
+
+def _jornada(ed, cfg, rel):
+    """«La jornada en 30 segundos»: every game of the day in order, so the stories never have to list them."""
+    games = ed.get("games") or []
+    if not games:
+        return ""
+    tz = get_tz(cfg.get("timezone", "Europe/Madrid"))
+    by_match = defaultdict(list)
+    for g in games:
+        by_match[g["match"]].append(g)
+    rows = []
+    flex_w = flex_l = solo_w = solo_l = 0
+    for mid, gs in by_match.items():
+        start = min(g["end"] - g["dur"] * 1000 for g in gs)
+        q = SHORT_QUEUE.get(gs[0]["queue_name"], gs[0]["queue_name"])
+        sides = defaultdict(list)
+        for g in gs:
+            sides[g["win"]].append(g)
+        for won, team in sorted(sides.items(), key=lambda kv: not kv[0]):
+            if q == "Flex" and len(team) >= 2:
+                label = f"Flex del grupo ({len(team)})"
+                flex_w, flex_l = flex_w + won, flex_l + (not won)
+            elif q == "SoloQ" and len(team) >= 2:
+                label = "DuoQ"
+            else:
+                label = q
+            if q == "SoloQ":
+                solo_w, solo_l = solo_w + won * len(team), solo_l + (not won) * len(team)
+            if len(sides) == 2:
+                label += " · derbi"
+            who = " · ".join(f'<a href="{rel}jugadores/{_e(g["slug"])}.html">{_e(g["alias"])}</a> '
+                             f'<span class="small">{_e(champ_name(g["champ"]))} {g["k"]}/{g["d"]}/{g["a"]}</span>'
+                             for g in sorted(team, key=lambda g: g["alias"].lower()))
+            rows.append((start, f'<li><time>{ms_to_local(start, tz):%H:%M}</time><div><span class="cola">{_e(label)}</span>{who}</div>'
+                                f'<span class="res {"win" if won else "loss"}">{"V" if won else "D"}</span></li>'))
+    rows.sort(key=lambda r: r[0])
+    t = ed["totals"]
+    bits = [f'{len(ed.get("ranking") or [])} jugaron', f'{t["games"]} partidas del grupo']
+    if flex_w + flex_l:
+        bits.append(f"Flex del grupo: {flex_w}–{flex_l}")
+    if solo_w + solo_l:
+        bits.append(f"SoloQ/DuoQ: {solo_w}–{solo_l}")
+    return ('<section class="secblock jornada" id="jornada"><header class="sec-head"><h3 class="sec-name">La jornada en 30 segundos</h3>'
+            '<span class="sec-desk">Todas las partidas de ayer, en orden</span></header>'
+            f'<p class="resumen">{" · ".join(bits)}.</p><ol>{"".join(r for _, r in rows)}</ol></section>')
+
+
+def _gaceta(ed):
+    g = ed.get("gaceta")
+    if not g:
+        return ""
+    return ('<section class="secblock sec-gaceta" id="gaceta"><header class="sec-head"><h3 class="sec-name">Lo que dice la competencia</h3>'
+            '<span class="sec-desk">Reproducido sin permiso y sin ganas</span></header>'
+            '<article class="gaceta" data-ed="0"><div class="sello">¡EXCLUSIVA!</div><div class="cab">La Gaceta de Noxus</div>'
+            '<div class="lema">El diario que no se arrodilla · Sale cuando el Rincón miente</div>'
+            f'<h3>{_e(g["titular"])}</h3><div class="txt">{_paras_html(g["cuerpo"])}</div>'
+            f'<div class="byline">Firma: {_e(g["firma"])}</div></article></section>')
+
+
+def _franja(ed, latest):
+    """Under the front page: today's question for the popular jury, yesterday's verdict and how the
+    things the paper promised to watch ended."""
+    boxes = []
+    abierto = ' data-abierto="1"' if latest else ""
+    j = ed.get("jurado")
+    if j:
+        ops = "".join(f'<button type="button" class="jurado-op" data-i="{i}"><span class="barra"></span>'
+                      f'<span>{_e(o)}</span><span class="n"></span></button>' for i, o in enumerate(j["opciones"]))
+        boxes.append(f'<div class="jurado" id="jurado" data-edicion="{_e(ed["date"])}"{abierto}>'
+                     f'<h4>{"El Juicio del Mes" if j.get("juicio") else "El jurado popular"}</h4>'
+                     f'<p class="preg">{_e(j["pregunta"])}</p>{ops}<p class="small msg"></p></div>')
+    prev = ed.get("jurado_ayer")
+    if prev and (prev.get("total") or ed.get("jurado_veredicto")):
+        total = prev.get("total") or 0
+        bars = "".join(
+            f'<button type="button" class="jurado-op" disabled><span class="barra" style="width:{round(100 * o["votos"] / total) if total else 0}%"></span>'
+            f'<span>{_e(o["texto"])}</span><span class="n">{o["votos"]}</span></button>' for o in prev["opciones"])
+        boxes.append(f'<div class="veredicto"><h4>Veredicto de ayer</h4><p class="preg">{_e(prev["pregunta"])}</p>{bars}'
+                     + (f'<p class="fallo">{_e(ed["jurado_veredicto"])}</p>' if ed.get("jurado_veredicto") else "")
+                     + f'<p class="small">{total} voto{"s" if total != 1 else ""}.</p></div>')
+    if ed.get("promesas"):
+        lis = "".join(f'<li><b>{_e(p["pregunta"])}</b>{_e(p["texto"])}</li>' for p in ed["promesas"])
+        boxes.append(f'<div class="promesas"><h4>Lo que prometimos ayer</h4><ul>{lis}</ul></div>')
+    return f'<div class="franja">{"".join(boxes)}</div>' if boxes else ""
+
+
+def _manana(ed):
+    if not ed.get("manana"):
+        return ""
+    lis = "".join(f'<li>{_e(m["texto"])}</li>' for m in ed["manana"])
+    return ('<section class="secblock manana" id="manana"><header class="sec-head"><h3 class="sec-name">Mañana en El Rincón</h3>'
+            f'<span class="sec-desk">Lo que la redacción vigila esta noche</span></header><ul>{lis}</ul></section>')
+
+
+def _quienfue(ed, latest):
+    q = ed.get("quien_fue")
+    if not q:
+        return ""
+    data = {k: q[k] for k in ("pistas", "opciones", "clave", "campeon", "alias")}
+    abierto = ' data-abierto="1"' if latest else ""
+    return (f'<div class="quienfue" id="quienfue" data-edicion="{_e(ed["date"])}"{abierto}>'
+            '<h4>¿Quién fue?</h4><p class="small">Una partida de ayer, sin nombre. Cada fallo destapa una pista más.</p>'
+            f'<ol></ol><div class="qf-ops"></div><p class="qf-fin"></p><p class="small qf-detectives"></p>'
+            f'<script type="application/json">{_json_script(data)}</script></div>')
+
+
+def _json_script(data):
+    return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+
+def _lonja(ed, editions_until, latest):
+    mk = ed.get("mercados")
+    if not mk:
+        return ""
+    markets = []
+    for m in mk["lista"]:
+        ops = "".join(f'<label class="op"><input type="radio" name="op-{_e(m["id"])}" value="{_e(o["id"])}" data-t="{_e(o["texto"])}">'
+                      f'{_e(o["texto"])} <b>×{fmt_num(o["cuota"], 1)}</b></label>' for o in m["opciones"])
+        form = ('<form class="apostar"><input type="number" name="importe" min="1" step="1" placeholder="Coronas" aria-label="Coronas">'
+                '<button type="submit">Apostar</button><span class="small msg"></span></form>') if latest else ""
+        markets.append(f'<div class="mercado" data-id="{_e(m["id"])}"><p>{_e(m["pregunta"])}</p><div class="ops">{ops}</div>'
+                       f'{form}<div class="mias"></div></div>')
+    prev = editions_until[-2]["date"] if len(editions_until) > 1 else None
+    results = [r for r in (LEDGER.get("resultados") or {}).values() if r["edicion"] == prev]
+    res_html = ""
+    if results:
+        def line(r):
+            if r["nula"]:
+                return f'<div class="resuelto">{_e(r["pregunta"])} <i>Anulada: se devuelve lo apostado.</i></div>'
+            won = [a for a in r["apuestas"] if a["premio"]]
+            return (f'<div class="resuelto">{_e(r["pregunta"])} <b>{_e(", ".join(r["ganadoras"]) or "—")}</b>. '
+                    + (("Cobran: " + ", ".join(f'{_e(a["nombre"])} ({a["premio"]})' for a in won)) if won else
+                       ("Nadie acertó." if r["apuestas"] else "Nadie apostó.")) + '</div>')
+        res_html = '<h5 class="kicker" style="margin-top:12px">Así acabaron los mercados de ayer</h5>' + "".join(line(r) for r in results)
+    board = (LEDGER.get("cuentas") or [])[:8]
+    rank = ""
+    if board:
+        rank = ('<h5 class="kicker" style="margin-top:12px">Los más ricos de la Lonja</h5><div class="tablewrap"><table><tbody>'
+                + "".join(f'<tr><td>{i + 1}</td><td>{_e(a["nombre"])}</td><td class="num">{a["saldo"]}</td>'
+                          f'<td class="small">{"rescatado ×" + str(a["rescates"]) if a["rescates"] else ""}</td></tr>'
+                          for i, a in enumerate(board)) + '</tbody></table></div>')
+    corte = datetime.fromtimestamp((ed.get("generated_at") or ed["window"][1]) / 1000, timezone.utc).isoformat()
+    if LEDGER.get("hasta"):
+        corte = LEDGER["hasta"]
+    data = {"cierre": mk["cierre"], "mercados": [m["id"] for m in mk["lista"]], "inicial": coronas.SALDO_INICIAL,
+            "saldos": {a["nombre"].lower(): a["saldo"] for a in LEDGER.get("cuentas") or []}, "corte": corte}
+    tz_close = datetime.fromisoformat(mk["cierre"].replace("Z", "+00:00"))
+    abierto = ' data-abierto="1"' if latest else ""
+    return (f'<div class="lonja" id="lonja"{abierto}><h4>La Lonja de Coronas</h4>'
+            '<p class="saldo"></p><p class="small" style="text-align:center">Apuesta coronas sobre la próxima edición. Se paga según la cuota; '
+            f'las apuestas cierran a las {tz_close.astimezone(get_tz("Europe/Madrid")):%H:%M} y se resuelven mañana.</p>'
+            '<p class="small lj-cerrado" hidden><b>Apuestas cerradas.</b> Se resuelven en la próxima edición.</p>'
+            + '<div class="mercados">' + "".join(markets) + '</div>'
+            + ('<div class="pie-lonja">' + (f'<div>{res_html}</div>' if res_html else "") + (f'<div>{rank}</div>' if rank else "")
+               + '</div>' if res_html or rank else "")
+            + f'<script type="application/json">{_json_script(data)}</script></div>')
+
+
+def _ed_datos(ed):
+    """What «Tu edición» needs for each player: the stories about them, their day and their forecast."""
+    rk = ed.get("ranking") or []
+    pos = {r["slug"]: (i + 1, f'{r["wins"]}–{r["losses"]}') for i, r in enumerate(rk)}
+    tiempo = {t["jugador"]: t["texto"] for t in ed.get("tiempo") or []}
+    alias = {r["slug"]: r["alias"] for r in rk}
+    alias.update({f["slug"]: f["alias"] for f in ROSTER})
+    players = {}
+    for it in ed.get("items") or []:
+        text = f'{it["headline"]} {it.get("subtitulo") or ""} {it["body"]}'.lower()
+        for slug, name in alias.items():       # the stories about them, and the ones that name them
+            if it.get("player") == slug or name.lower() in text:
+                players.setdefault(slug, []).append([it.get("id"), it["headline"]])
+    out = {}
+    for slug in set(players) | set(pos) | set(tiempo):
+        p, dia = pos.get(slug, (None, None))
+        out[slug] = {"piezas": players.get(slug, []), "puesto": p, "de": len(rk), "dia": dia, "tiempo": tiempo.get(slug)}
+    data = {"jugadores": out, "saldos": {a["nombre"].lower(): a["saldo"] for a in LEDGER.get("cuentas") or []}}
+    return f'<script type="application/json" id="ed-datos">{_json_script(data)}</script>'
+
+
 IMPRENTA_DESDE = "2026-10-20"   # from here on, the robot's template stories are never published
 
 
@@ -1777,7 +2387,7 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
                     f'<div class="l">{_e(lead["stat_label"])}</div>{who}</div>') if lead.get("stat") else ""
         sub = f'<p class="sub" data-campo="subtitulo">{_e(lead["subtitulo"])}</p>' if lead.get("subtitulo") else ""
         lead_html = (f'<section class="lead{" lead-v2" if v2 else ""}" data-pieza="{_e(lead.get("id", 0))}"><div>{_kicker(lead, rel)}'
-                     f'<h2 data-campo="headline">{_e(lead["headline"])}</h2>{sub}<div class="txt" data-campo="body">{_paras_html(lead["body"])}</div>{sent}</div>'
+                     f'<h2 data-campo="headline">{_e(lead["headline"])}</h2>{sub}<div class="txt" data-campo="body">{_body_html(lead)}</div>{sent}</div>'
                      f'<div>{_figure(lead, rel)}{stat_box}</div></section><div class="orn">✦ ✦ ✦</div>')
     special = ""
     esp = ed.get("especial")
@@ -1803,10 +2413,12 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
                    'aunque duelan.</p></section>')
     body = f"""
 <div class="ticker"><b>ÚLTIMA HORA</b><div class="run">{ticker}</div></div>
+{'<div class="tu-edicion" id="tu-edicion" hidden></div>' if latest and not imprenta else ""}
 {special}
 {lead_html}
+{_franja(ed, latest)}
 <div class="cols edicion">
-  <main>{_sections_v2(ed, rest, rel) if v2 else _sections(ed, rest, rel)}{_pasatiempos(ed, rel, latest, seers(editions_until))}{_comments(ed)}</main>{_fillers(ed)}
+  <main>{_jornada(ed, cfg, rel)}{_sections_v2(ed, rest, rel) if v2 else _sections(ed, rest, rel)}{_pasatiempos(ed, rel, latest, seers(editions_until), editions_until)}{_manana(ed)}{_comments(ed)}</main>{_fillers(ed)}{_ed_datos(ed)}
   <aside>
     <div class="box"><h4>General de la vergüenza</h4>{_general_table(board, rel, since)}</div>
     {"" if imprenta else f'<div class="box" data-ed="0"><h4>Frase del día</h4><p class="quote">«<span data-campo="frase">{_e(ed["frase"])}</span>»</p></div>'}
@@ -1847,18 +2459,42 @@ def render_sagas(cfg, canon, editions):
             + ("</a>" if c["fecha"] in dates else "</span>")
             + (f'<p>{_e(c["resumen"])}</p>' if c.get("titulares") else "") + '</li>'
             for c in h.get("capitulos", []))
+        reparto = ", ".join(_e(n) for n in h.get("reparto", []))
+        tag = '<span class="etiqueta">La redacción</span>' if canon_mod.is_redaccion(h) else ""
         blocks.append(f'<article class="saga-ficha est-{est}" id="{_e(h["id"])}"><div class="kicker">{_e(est.upper())}'
-                      f'<span class="desk"> · desde el {_e(short_date(_date(h["abierto"])))}</span></div>'
+                      f'<span class="desk"> · desde el {_e(short_date(_date(h["abierto"])))}</span>{tag}</div>'
                       f'<h3>{_e(h["titulo"])}</h3><p>{_e(h.get("resumen", ""))}</p>'
                       + (f'<p class="small">Protagonistas: {prot}</p>' if prot else "")
+                      + (f'<p class="small">Reparto: {reparto}</p>' if reparto else "")
                       + (f'<ol class="capitulos">{caps}</ol>' if caps else "") + '</article>')
-    cast = "".join(f'<li><b>{_e(e["nombre"])}</b>, {_e(e["cargo"])}. <i>{_e(e.get("rasgo", ""))}</i></li>'
-                   for e in canon["elenco"])
+    def member(e):
+        v = canon_mod.cast_view(e)
+        bits = [f'<b>{_e(v["nombre"])}</b>, {_e(v.get("cargo", ""))}.']
+        if v.get("rasgo"):
+            bits.append(f'<i>{_e(v["rasgo"])}</i>')
+        if v.get("estado"):
+            bits.append(f'<br><span class="small"><b>Situación:</b> {_e(v["estado"])}</span>')
+        if v.get("deseo"):
+            bits.append(f'<br><span class="small"><b>Quiere:</b> {_e(v["deseo"])}</span>')
+        if v.get("relacion"):
+            bits.append(f'<br><span class="small"><b>Con los demás:</b> {_e(v["relacion"])}</span>')
+        if v.get("secreto"):
+            bits.append(f'<br><span class="small"><b>Secreto:</b> <span class="secreto" tabindex="0" '
+                        f'title="Pasa por encima si te atreves">{_e(v["secreto"])}</span></span>')
+        return "<li>" + " ".join(bits) + "</li>"
+    cast = "".join(member(e) for e in canon["elenco"])
+    names = {s: p.get("alias", s) for s, p in canon["personajes"].items()}
+    union = "".join(f'<li><span class="small">{_e(short_date(_date(d["fecha"])))}</span> <b>{_e(d["campeon"])}</b> denuncia a '
+                    f'<a href="jugadores/{_e(d["jugador"])}.html">{_e(names.get(d["jugador"], d["jugador"]))}</a>: {_e(d["motivo"])}</li>'
+                    for d in reversed(canon.get("sindicato") or []))
     body = (f'<section class="secblock"><header class="sec-head"><h3 class="sec-name">Sagas</h3>'
             f'<span class="sec-desk">Las historias que el periódico no deja de contar</span></header>'
             f'<div class="sec-grid sagas">{"".join(blocks) or "<p>Aún no hay sagas.</p>"}</div></section>'
             f'<section class="secblock"><header class="sec-head"><h3 class="sec-name">El elenco</h3>'
-            f'<span class="sec-desk">Personajes fijos de la redacción</span></header><ul class="elenco">{cast}</ul></section>')
+            f'<span class="sec-desk">Personajes fijos de la redacción, con lo que quieren y lo que esconden</span></header>'
+            f'<ul class="elenco">{cast}</ul></section>'
+            + (f'<section class="secblock" id="sindicato"><header class="sec-head"><h3 class="sec-name">El Sindicato de Campeones Maltratados</h3>'
+               f'<span class="sec-desk">Registro de denuncias</span></header><ul class="sindicato">{union}</ul></section>' if union else ""))
     return page(cfg, f"Sagas · {cfg['site_title']}", body, "", pagina="sagas")
 
 
@@ -1969,6 +2605,13 @@ def _ficha_runeterra(p, slug, canon):
         vals = canon_mod.texts(p.get(key))
         if vals:
             rows.append(f'<li><b>{label}:</b> {_e(" · ".join(vals))}</li>')
+    arc = canon_mod.current_arc(p)
+    if arc:
+        rows.insert(0, f'<li><b>Su historia:</b> <span class="arco">{_e(arc["tipo"].capitalize())}</span>. {_e(arc["texto"])}</li>')
+    union = [d for d in canon.get("sindicato") or [] if d["jugador"] == slug]
+    if union:
+        rows.append('<li><b>Denuncias del Sindicato:</b> ' + " · ".join(f'{_e(d["campeon"])} ({_e(d["motivo"])})'
+                                                                         for d in union[-4:]) + '</li>')
     hilos = [h for h in canon["hilos"] if slug in h.get("protagonistas", [])]
     if hilos:
         rows.append('<li><b>Sagas:</b> ' + ", ".join(f'<a href="../sagas.html#{_e(h["id"])}">{_e(h["titulo"])}</a>'
@@ -2114,6 +2757,9 @@ def build_site(cfg, friends, editions, out_dir, canon=None):
     ROSTER[:] = [{"slug": f["slug"], "alias": f["alias"], "cuentas": f["cuentas"]} for f in friends_all if not f.get("antiguo")]
     ACE.clear()
     ACE.update(load_json(ROOT / "data" / "ace_league.json", None) or {})
+    LEDGER.clear()
+    LEDGER.update(coronas.ledger(editions, coronas.stored_bets()))
+    LEDGER["hasta"] = datetime.now(timezone.utc).isoformat()
 
     for i, ed in enumerate(editions):
         html = render_edition(cfg, ed, editions[:i + 1], "../", latest=i == len(editions) - 1)

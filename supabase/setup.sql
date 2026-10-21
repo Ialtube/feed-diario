@@ -170,5 +170,60 @@ revoke all on function public.guardar_correccion(text, date, integer, text, text
 grant execute on function public.guardar_correccion(text, date, integer, text, text, text, text) to anon;
 grant execute on function public.es_admin(text) to anon;
 
+-- ---------------------------------------------------------------- el jurado popular
+-- Una pregunta por edición; cada navegador vota una vez. La edición siguiente publica el veredicto.
+create table if not exists public.jurado (
+  id bigint generated always as identity primary key,
+  edicion date not null,
+  opcion smallint not null check (opcion between 0 and 3),
+  lector text not null check (char_length(lector) between 8 and 60),
+  nombre text check (nombre is null or char_length(nombre) <= 40),
+  created_at timestamptz not null default now(),
+  unique (edicion, lector)
+);
+alter table public.jurado enable row level security;
+drop policy if exists "leer jurado" on public.jurado;
+create policy "leer jurado" on public.jurado for select to anon using (true);
+drop policy if exists "votar jurado" on public.jurado;
+create policy "votar jurado" on public.jurado for insert to anon
+  with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
+
+-- ---------------------------------------------------------------- ¿Quién fue?
+create table if not exists public.quienfue (
+  id bigint generated always as identity primary key,
+  edicion date not null,
+  lector text not null check (char_length(lector) between 8 and 60),
+  nombre text check (nombre is null or char_length(nombre) <= 40),
+  intentos smallint not null check (intentos between 1 and 10),
+  acierto boolean not null,
+  created_at timestamptz not null default now(),
+  unique (edicion, lector)
+);
+alter table public.quienfue enable row level security;
+drop policy if exists "leer quienfue" on public.quienfue;
+create policy "leer quienfue" on public.quienfue for select to anon using (true);
+drop policy if exists "jugar quienfue" on public.quienfue;
+create policy "jugar quienfue" on public.quienfue for insert to anon
+  with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
+
+-- ---------------------------------------------------------------- la Lonja de Coronas
+-- Apuestas con la moneda del periódico. El robot calcula los saldos desde cero en cada edición:
+-- una apuesta tardía, a una respuesta que no existe o sin saldo suficiente, no cuenta.
+create table if not exists public.apuestas (
+  id bigint generated always as identity primary key,
+  nombre text not null check (char_length(nombre) between 1 and 40),
+  lector text check (lector is null or char_length(lector) <= 60),
+  mercado text not null check (char_length(mercado) between 3 and 80),
+  opcion text not null check (char_length(opcion) between 1 and 40),
+  importe integer not null check (importe between 1 and 100000),
+  created_at timestamptz not null default now()
+);
+alter table public.apuestas enable row level security;
+drop policy if exists "leer apuestas" on public.apuestas;
+create policy "leer apuestas" on public.apuestas for select to anon using (true);
+drop policy if exists "apostar coronas" on public.apuestas;
+create policy "apostar coronas" on public.apuestas for insert to anon
+  with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
+
 -- Hace que la API vea las tablas nuevas al momento
 notify pgrst, 'reload schema';

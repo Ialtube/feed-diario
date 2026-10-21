@@ -19,6 +19,15 @@ from test_pipeline import FRIENDS  # noqa: E402
 
 TZ = timezone(timedelta(hours=2))
 
+# what every format-2 edition carries besides its stories
+NEWSROOM = {
+    "gaceta": {"titular": "¡EL RINCÓN MIENTE OTRA VEZ!",
+               "cuerpo": "Fuentes de toda solvencia aseguran a esta Gaceta que el Rincón del Feeder ha vuelto a "
+                         "retorcer las cifras para humillar a quien le conviene. Exigimos rectificación inmediata."},
+    "jurado": {"pregunta": "¿Quién tuvo la culpa de la segunda Flex?", "opciones": ["El jungla", "El tirador", "Todos"]},
+    "manana": [{"texto": "¿Romperá alguien la racha de derrotas en Flex?"}],
+}
+
 
 def demo_store(tmp, days=3):
     cfg = load_config()
@@ -184,10 +193,14 @@ class AIFlowTest(unittest.TestCase):
                 tiempo = [{"jugador": r["slug"], "texto": "Niebla persistente con chubascos de muertes al caer la tarde."}
                           for r in ed["ranking"]]
                 data = {"piezas": piezas, "horoscopo": horos, "frase": "Una frase nueva para hoy.", "tiempo": tiempo,
-                        "columna": {"titulo": "Columna de prueba", "cuerpo": ["Un párrafo de columna de prueba."]}}
+                        "columna": {"titulo": "Columna de prueba", "cuerpo": ["Un párrafo de columna de prueba."]},
+                        **NEWSROOM}
                 known = {f["slug"] for f in FRIENDS}
                 clean = ai.validate_v2(data, ed, known, dossier)
                 ai.apply_v2(ed, clean)
+                ai.prepare_games(ed, store.editions(), cfg)
+                self.assertEqual(ed["gaceta"]["firma"], "Valeria Puñoférreo")
+                self.assertEqual(len(ed["jurado"]["opciones"]), 3)
                 self.assertEqual(ed["items"][0]["headline"], "Titular de portada")
                 self.assertEqual(ed["ai"]["formato"], 2)
                 self.assertIn(others[0]["clave"], ed["angulos_usados"])
@@ -196,7 +209,9 @@ class AIFlowTest(unittest.TestCase):
                 out = build_site(cfg, FRIENDS, store.editions(), Path(tmp) / "docs")
                 html = (out / "index.html").read_text(encoding="utf-8")
                 for text in ("Titular de portada", "Breves", "Horóscopo de Runeterra", "Sorteo de la Grieta",
-                             'id="boleto"', "Actualidad"):
+                             'id="boleto"', "Actualidad", "La jornada en 30 segundos", "La Gaceta de Noxus",
+                             "El jurado popular", "Mañana en El Rincón", 'id="quienfue"', "La Lonja de Coronas",
+                             'id="tu-edicion"', 'id="ed-datos"'):
                     self.assertIn(text, html)
                 # the next day, that angle counts as recently used
                 nxt = build_dossier(cfg, store, FRIENDS, {**ed, "date": "2026-10-20"}, store.editions())
@@ -209,12 +224,25 @@ class AIFlowTest(unittest.TestCase):
                     dict(data, piezas=piezas[:3]),                                       # too few briefs
                     dict(data, horoscopo=horos[:4]),                                     # a sign missing
                     dict(data, piezas=[dict(piezas[0], body="Demasiado corto")] + piezas[1:]),
-                    dict(data, piezas=piezas[:3] + [dict(p, angulo=None) for p in piezas[3:]]),  # Flex/SoloQ left out
                     dict(data, piezas=[dict(p, body=p["body"].replace(roll, "")) for p in piezas]),  # someone spared
+                    dict(data, gaceta=None),                                             # no rival paper
+                    dict(data, jurado={"pregunta": "¿Una sola respuesta?", "opciones": ["Sí"]}),
+                    dict(data, manana=[]),                                               # nothing to watch
                 ]
                 for b in bad:
                     with self.assertRaises(ai.AIError):
                         ai.validate_v2(b, ed, known, dossier)
+                # the whole session is printed by the page: Flex and SoloQ need no story of their own
+                ai.validate_v2(dict(data, piezas=piezas[:3] + [dict(p, angulo=None) for p in piezas[3:]]), ed, known, dossier)
+                # yesterday's promises and jury: tomorrow's paper must answer them
+                extra = {"promesas_ayer": [{"n": 1, "texto": "¿Romperá alguien la racha?"}],
+                         "jurado_ayer": {"pregunta": "¿Culpa?", "opciones": [], "total": 3}}
+                with self.assertRaises(ai.AIError):
+                    ai.validate_v2(data, ed, known, dossier, None, extra)
+                ok = ai.validate_v2(dict(data, promesas=[{"n": 1, "texto": "Nadie la rompió: tres derrotas más."}],
+                                         jurado_veredicto="El pueblo ha hablado: la culpa fue del jungla, por goleada."),
+                                    ed, known, dossier, None, extra)
+                self.assertEqual(ok["promesas"][0]["pregunta"], "¿Romperá alguien la racha?")
         finally:
             voz.pending_cache = old_cache
 
@@ -264,9 +292,10 @@ class AIFlowTest(unittest.TestCase):
                  "headline": "Breve uno", "body": brief},
                 {"angulo": required[1]["id"] if len(required) > 1 else None, "peso": "breve", "formato": "breve",
                  "headline": "Breve dos", "body": brief},
-                {"angulo": None, "peso": "breve", "formato": "anuncio por palabras", "headline": "Breve tres", "body": brief},
+                {"angulo": None, "peso": "breve", "formato": "anuncio por palabras", "headline": "Breve tres", "body": brief,
+                 "hilo": "el-escandalo-de-la-lonja"},
             ]
-            data = {"piezas": piezas, "frase": "Frase del día de prueba.",
+            data = {"piezas": piezas, "frase": "Frase del día de prueba.", **NEWSROOM,
                     "columna": {"titulo": "Columna", "cuerpo": ["Un párrafo de columna de prueba."]},
                     "horoscopo": [{"signo": s, "texto": "Los astros dicen algo bastante largo sobre tu rol hoy."}
                                   for s in ai.SIGNOS],
@@ -275,8 +304,14 @@ class AIFlowTest(unittest.TestCase):
                     "canon": {"hilos": [
                         {"id": "moneda", "accion": "avanzar", "estado": "escalando", "resumen": "La moneda vuelve a caer de cruz."},
                         {"id": "dano", "accion": "avanzar", "resumen": "El daño sigue sin aparecer."},
-                        {"id": "nuevo-hilo", "accion": "abrir", "titulo": "Una trama nueva", "resumen": "Empieza algo raro."}],
-                        "personajes": {"fr4nux": {"apodo": "El Desaparecido"}}, "chistes": ["la moneda"]}}
+                        {"id": "nuevo-hilo", "accion": "abrir", "titulo": "Una trama nueva", "resumen": "Empieza algo raro."},
+                        {"id": "el-escandalo-de-la-lonja", "accion": "avanzar", "resumen": "Barbanegra, suspendido de empleo."}],
+                        "personajes": {"fr4nux": {"apodo": "El Desaparecido",
+                                                  "arco": {"tipo": "redención", "texto": "Busca el daño que nunca tuvo"}}},
+                        "elenco": [{"nombre": "Barbanegra el Contable", "estado": "Suspendido de empleo y sueldo"},
+                                   {"nombre": "Sor Pólvora", "cargo": "Armera de Aguasturbias", "deseo": "Venderle balas a Fr4nux"}],
+                        "sindicato": [{"campeon": "Diana", "jugador": "fr4nux", "motivo": "Estrenada y enterrada la misma noche"}],
+                        "chistes": ["la moneda"]}}
             c = canon.load(path)
             clean = ai.validate_v2(data, ed, known, dossier, c)
             ai.apply_v2(ed, clean, path)
@@ -290,6 +325,13 @@ class AIFlowTest(unittest.TestCase):
             self.assertEqual(canon.hilo_estado(moneda), "escalando")
             self.assertEqual(ed["items"][0]["saga"], {"id": "moneda", "titulo": "Hilo moneda", "capitulo": 1, "estado": "escalando"})
             self.assertEqual(canon.texts(c["personajes"]["fr4nux"]["apodos"]), ["El Desaparecido"])
+            self.assertEqual(canon.current_arc(c["personajes"]["fr4nux"])["tipo"], "redención")
+            barba = next(e for e in c["elenco"] if e["nombre"] == "Barbanegra el Contable")
+            self.assertEqual(canon.cast_value(barba, "estado"), "Suspendido de empleo y sueldo")
+            self.assertEqual(len(barba["cambios"]), 1)          # rewriting the day does not pile up changes
+            self.assertEqual(sum(1 for e in c["elenco"] if e["nombre"] == "Sor Pólvora"), 1)
+            self.assertEqual(len(c["sindicato"]), 1)
+            self.assertTrue(any(h["id"] == "la-guerra-de-los-periodicos" for h in c["hilos"]))   # the newsroom's bible
             bad = [
                 dict(data, piezas=[dict(p, hilo=None) for p in piezas]),                      # no threads
                 dict(data, piezas=[dict(piezas[0], hilo=None)] + piezas[1:]),                  # front page without saga
@@ -298,6 +340,11 @@ class AIFlowTest(unittest.TestCase):
                 dict(data, piezas=[dict(piezas[0], body="El 4/17/23 de las 21:55, con 38 minutos y 59 muertes, "
                                          "deja 7.060 de oro, 9,9 minutos y 0 objetivos. " * 10 + roll)] + piezas[1:]),
                 dict(data, piezas=piezas[:5] + [dict(piezas[5], formato="parte meteorológico", seccion="DEPORTES")]),
+                dict(data, piezas=piezas[:5] + [dict(piezas[5], hilo=None)]),                  # the newsroom stands still
+                dict(data, canon=dict(data["canon"], elenco=[{"nombre": "Alguien nuevo sin cargo"}])),
+                dict(data, canon=dict(data["canon"], hilos=data["canon"]["hilos"] + [
+                    {"accion": "abrir", "titulo": "Trama con un desconocido", "resumen": "Alguien que no existe.",
+                     "reparto": ["Nadie Conocido"]}])),
             ]
             for b in bad:
                 with self.assertRaises(ai.AIError):
@@ -465,7 +512,8 @@ class AIFlowTest(unittest.TestCase):
                 ]
                 common = {"frase": "Frase del día de prueba.", "columna": {"titulo": "Columna", "cuerpo": ["Un párrafo de columna de prueba."]},
                           "horoscopo": [{"signo": x, "texto": "Los astros dicen algo bastante largo sobre tu rol hoy."} for x in ai.SIGNOS],
-                          "tiempo": [{"jugador": r["slug"], "texto": "Niebla persistente sobre su carril."} for r in ed["ranking"]]}
+                          "tiempo": [{"jugador": r["slug"], "texto": "Niebla persistente sobre su carril."} for r in ed["ranking"]],
+                          **NEWSROOM}
                 voz_text = "Varias fuentes nos hacen llegar que el teclado no sobrevivió a Gragas. " * 6
                 merged = base + [{"angulo": None, "peso": "mediana", "formato": "noticia", "propuestas": [11, 12],
                                   "headline": "El teclado que no sobrevivió", "body": voz_text}]
@@ -490,6 +538,77 @@ class AIFlowTest(unittest.TestCase):
                     ai.validate_v2(dict(common, piezas=twice), ed, known, dossier)
         finally:
             voz.known_cache = old
+
+    def test_lonja_de_coronas(self):
+        from roast import coronas
+        with tempfile.TemporaryDirectory() as tmp:
+            cfg, store = demo_store(tmp)
+            eds = sorted(store.editions(), key=lambda e: e["date"])
+            day, nxt = eds[-2], eds[-1]
+            day["mercados"] = coronas.create(day, eds, cfg)
+            ids = {m["tipo"]: m for m in day["mercados"]["lista"]}
+            self.assertIn("flex", ids)
+            for m in day["mercados"]["lista"]:
+                self.assertTrue(all(1.1 <= o["cuota"] <= 20 for o in m["opciones"]))
+            flex = ids["flex"]
+            win = coronas.resolve(flex, nxt)[0]
+            lose = next(o["id"] for o in flex["opciones"] if o["id"] != win)
+            cuota = next(o["cuota"] for o in flex["opciones"] if o["id"] == win)
+            before = coronas._iso(datetime(2026, 10, 18, 10, 0, tzinfo=TZ))
+            after = coronas._iso(datetime(2026, 10, 18, 23, 0, tzinfo=TZ))
+            bets = [
+                {"nombre": "Ana", "mercado": flex["id"], "opcion": win, "importe": 40, "created_at": before},
+                {"nombre": "ana ", "mercado": flex["id"], "opcion": lose, "importe": 50, "created_at": before},
+                {"nombre": "Ana", "mercado": flex["id"], "opcion": win, "importe": 999, "created_at": before},   # no money
+                {"nombre": "Luis", "mercado": flex["id"], "opcion": win, "importe": 10, "created_at": after},    # too late
+                {"nombre": "Eva", "mercado": flex["id"], "opcion": "nada", "importe": 10, "created_at": before}, # no such answer
+            ]
+            led = coronas.ledger(eds, bets)
+            acc = {a["nombre"].lower(): a for a in led["cuentas"]}
+            self.assertEqual(acc["ana"]["saldo"], 100 - 40 - 50 + int(40 * cuota))
+            self.assertNotIn("luis", acc)
+            self.assertNotIn("eva", acc)
+            self.assertEqual(led["resultados"][flex["id"]]["apuestas"][0]["premio"], int(40 * cuota))
+            # a broke reader is rescued once per market day
+            broke = coronas.ledger(eds, [{"nombre": "Pepe", "mercado": flex["id"], "opcion": lose, "importe": 100, "created_at": before},
+                                         {"nombre": "Pepe", "mercado": flex["id"], "opcion": lose, "importe": 10, "created_at": before}])
+            self.assertEqual(broke["cuentas"][0]["rescates"], 1)
+
+    def test_jury_and_puzzle(self):
+        from roast import juegos
+        with tempfile.TemporaryDirectory() as tmp:
+            _, store = demo_store(tmp)
+            ed = store.edition("2026-10-19")
+            ed["jurado"] = {"pregunta": "¿Culpable?", "opciones": ["Sí", "No"]}
+            res = juegos.jury_result({}, ed, votes=[{"opcion": 0, "nombre": "Ana", "lector": "x" * 8},
+                                                    {"opcion": 0, "nombre": "Ana", "lector": "x" * 8},   # one vote each
+                                                    {"opcion": 1, "nombre": None, "lector": "y" * 8}])
+            self.assertEqual([o["votos"] for o in res["opciones"]], [1, 1])
+            self.assertEqual(res["total"], 2)
+            q = juegos.puzzle(ed)
+            self.assertEqual(len(q["pistas"]), 4)
+            for role in ("soporte", "tirador", "jungla", "mid", "top"):     # the role would give it away
+                self.assertNotIn(role, " ".join(q["pistas"][:3]).lower())
+            self.assertIn(q["alias"], [o["alias"] for o in q["opciones"]])
+            import base64
+            self.assertIn(base64.b64decode(q["clave"]).decode()[::-1], [o["slug"] for o in q["opciones"]])
+            self.assertEqual(q, juegos.puzzle(ed))            # the same game all day
+            ed["quien_fue"] = q
+            r = juegos.puzzle_result({}, ed, rows=[{"nombre": "Ana", "lector": "a", "intentos": 2, "acierto": True},
+                                                   {"nombre": "Luis", "lector": "b", "intentos": 4, "acierto": False}])
+            self.assertEqual((r["jugaron"], len(r["acertaron"]), r["fallaron"]), (2, 1, 1))
+
+    def test_calendar_and_agenda(self):
+        self.assertEqual(ai.edition_kind("2026-10-25"), ["dominical"])
+        self.assertEqual(ai.edition_kind("2026-10-26"), ["lunes"])
+        self.assertEqual(ai.edition_kind("2026-10-31"), ["fin de mes"])
+        self.assertEqual(ai.edition_kind("2026-11-01"), ["dominical", "primero de mes"])
+        self.assertEqual(ai.edition_kind("2026-10-21"), ["diaria"])
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "agenda.md"
+            path.write_text("# Agenda\n\n## Esta semana\n- (ejemplo)\n- Semana de la ACE League\n\n## Descanso\n- grangalax\n",
+                            encoding="utf-8")
+            self.assertEqual(ai.read_agenda(path), {"Esta semana": ["Semana de la ACE League"], "Descanso": ["grangalax"]})
 
     def test_overused_phrases(self):
         eds = [{"items": [{"headline": "La Comisaría de Piltover abre expediente", "body": "otra vez"}]}] * 3

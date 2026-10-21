@@ -213,6 +213,9 @@ cambio de política.
 | `python -m roast ai-status` | Indica si la edición de hoy ya tiene versión IA |
 | `python -m roast ai-context` | Prepara `ai/contexto-FECHA.json` para la rutina |
 | `python -m roast apply-ai ai/edicion-FECHA.json` | Aplica lo que escribió Claude y regenera la web |
+| `python -m roast avisar` | Avisa a Discord de la edición IA de hoy (una vez; lo hace solo el workflow «Aviso de la edición IA») |
+| `python -m roast previa` | Manda a Discord la previa de la noche con los mercados de la Lonja (workflow «Previa de la noche», 18:00) |
+| `python -m roast informe` | Escribe el informe semanal de la redacción en `informes/` |
 
 ## Límites y cosas a saber
 
@@ -255,3 +258,22 @@ tests/                  pruebas
   lo cuenta como una temporada.
 - **Riot**: además de las partidas, el robot descarga cada mañana la línea temporal de cada partida
   (primera sangre, muertes en el mismo sitio, objetivos) y los rangos de SoloQ y Flex para la Bolsa de LP.
+
+## Redacción con vida propia y juegos de los lectores
+
+- **La redacción** tiene su propia biblia (`roast/biblia.py`): cada personaje del elenco quiere algo, esconde algo
+  y se lleva bien o mal con otro, y hay tramas de la redacción que avanzan cada día. Cada edición lleva además la
+  réplica de **La Gaceta de Noxus**, el periódico rival.
+- **La agenda** ([`agenda.md`](agenda.md)) es tu consejo de redacción de la semana: qué sagas empujar, quién
+  descansa, qué especiales tocan. La rutina de Claude la obedece.
+- **El calendario**: los domingos, perfil o reportaje largo; el último día del mes, El Juicio del Mes con veredicto
+  del jurado popular.
+- **La jornada en 30 segundos** imprime todas las partidas del día en orden, así que la redacción ya no tiene que
+  contarlas una a una.
+- **Para los lectores**: «Tu edición» (lo que el periódico dice hoy de ti), el **jurado popular** (veredicto al día
+  siguiente), «Mañana en El Rincón», **¿Quién fue?** (adivinar de quién es una partida) y la **Lonja de Coronas**
+  (apuestas con la moneda del periódico; el robot calcula los saldos desde cero en cada edición, así que no se
+  pueden trampear desde el navegador).
+- **Discord**: avisa con la edición de la IA cuando la rutina la sube (no con la de imprenta) y a las 18:00 manda
+  la previa de la noche con las cuotas.
+- Los juegos necesitan las tablas `jurado`, `quienfue` y `apuestas`: vuelve a ejecutar `supabase/setup.sql`.
