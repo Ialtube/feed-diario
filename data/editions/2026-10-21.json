@@ -76,21 +76,21 @@
       "kind": "ia",
       "peso": "grande",
       "formato": "análisis",
-      "clave": "descenso:gsjoseador:flex",
+      "clave": "errata:bolsa",
       "section": "ECONOMÍA",
       "desk": "Lonja de Aguasturbias",
-      "player": "gsjoseador",
-      "alias": "GSJoseador",
-      "headline": "El Rincón del Viciado pierde una división entera sin jugar un partido",
-      "subtitulo": "Barbanegra el Contable cierra la sesión con casi todo el grupo en rojo. Los únicos valores que suben en Flex son los de dos que no jugaron Flex.",
-      "body": "Barbanegra el Contable abrió la pizarra de la Lonja de Aguasturbias el martes por la mañana y la cerró con un trapo húmedo. De los diez valores del Rincón del Viciado que cotizan, nueve se dejaron puntos en SoloQ. En Flex, la sangría fue peor.\n\nEl hundimiento más escandaloso es el de GSJoseador: ayer era Diamante IV en Flex y hoy es Plata I. Más de mil trescientos LP evaporados en una noche, el mismo día en que fue el mejor del grupo. RDV Canyon baja de Diamante II a Oro II. Wôlf, de Esmeralda IV a Plata III. TheTrevur cae de Diamante a Platino en las dos colas, que para un hombre que firma como Urgot.exe es como despertarse en una cuneta de Zaun con el cangrejo empeñado.\n\nBarbanegra no se cree que esto se explique jugando. «Aquí ha metido la mano alguien con más oro que nosotros», murmura, mirando hacia donde viven los que escriben las reglas. Pero en Aguasturbias un mercado no se discute: se paga. Y los únicos que suben en Flex son iPredatoRz, de Oro II a Platino IV, y Giroroo, que ni se presentó. Ninguno de los dos jugó una Flex en todo el día. La Lonja ha tomado nota: en este grupo, el valor refugio es no jugar.\n\nMala noticia para la ACE League. El Rincón del Viciado vuelve a la primera división con una plantilla que, en la pizarra, ya no es de primera. El Barón de la Moneda ni se inmuta: baja de Oro IV a Plata II en SoloQ. Cuando ya vives en el sótano, que se hunda el edificio te pilla con las escaleras hechas.",
+      "player": null,
+      "alias": null,
+      "headline": "La Lonja anula la sesión del martes: Barbanegra sumaba los smurfs a la cuenta de sus dueños",
+      "subtitulo": "Nadie del Rincón del Viciado bajó de división. La tabla mezclaba cuentas principales con cuentas de tapadillo, y cada una borraba a la anterior.",
+      "body": "La Lonja de Aguasturbias comunica que la sesión del martes queda anulada. Las caídas publicadas esta mañana en estas páginas —GSJoseador de Diamante IV a Plata I en Flex, RDV Canyon de Diamante II a Oro II, Wôlf de Esmeralda IV a Plata III, TheTrevur de Diamante a Platino— no ocurrieron. Ninguna.\n\nEl error tiene nombre y ya está atado al palo mayor. Barbanegra el Contable apuntaba a cada jugador en una sola línea del libro, y cuando alguien tenía dos cuentas, la segunda borraba a la primera. Así, la cuenta principal de uno se comparaba con su smurf, y la diferencia entre lo que uno es y lo que juega a escondidas se anotó como una noche de pérdidas. Mil trescientos LP en un día no son una racha: son dos cuentas con el mismo dueño.\n\nLo inquietante no es el error. Es que en todo el grupo no hubo una sola protesta por inverosímil. A nadie le extrañó ver a GSJoseador en Plata I. La única reclamación que llegó a la redacción no negaba la caída: preguntaba qué era aquella tabla.\n\nDesde hoy cada cuenta cotiza por separado y solo se compara consigo misma; los smurfs salen debajo de su dueño, con su nombre, para que cada uno responda de lo suyo. Y si una cuenta se mueve más de lo que permiten las partidas que ha jugado, la Lonja no se lo cree y pone un interrogante.\n\nBarbanegra conserva el puesto. La ruina era falsa, pero vendió periódicos.",
       "stat": "",
       "stat_label": "",
       "imagen": null,
       "campeon": "Gangplank",
-      "pie": "Gangplank revisa la cartera del Rincón del Viciado. Ha pedido un barril más grande.",
-      "meme_arriba": "COMPRÉ ACCIONES DEL RINCÓN DEL VICIADO",
-      "meme_abajo": "AHORA SOY PLATA I",
+      "pie": "Gangplank, al saber que la ruina del martes era un error de contabilidad. Ya lo había vendido todo.",
+      "meme_arriba": "VENDÍ TODO EL RINCÓN DEL VICIADO",
+      "meme_abajo": "ERA UN SMURF",
       "lector": null,
       "severity": 598,
       "facts": {},
@@ -115,7 +115,7 @@
       "alias": "GSJoseador",
       "headline": "Los Centinelas premian al mejor del martes, que ganó la mitad",
       "subtitulo": "GSJoseador recibe la distinción con un 1–1, lo que da una idea del nivel del certamen.",
-      "body": "Los Centinelas de la Luz comunican que GSJoseador ha sido el mejor jugador del grupo en la jornada del martes. El Hermano Venda, encargado de redactar esta nota, ha pedido que conste en acta que el premio se otorga con un balance de 1–1.\n\nMéritos: un Mordekaiser que ganó seis duelos en solitario y perdió igual, en dúo con Fr4nux; luego, un Renekton a las once de la noche que se tragó más de un tercio del daño que recibió su equipo y ganó en 38 minutos. El cocodrilo hizo de muro. GSJoseador, de albañil.\n\nLos Centinelas recuerdan que ese mismo día la Lonja le bajó de Diamante IV a Plata I en Flex. Es el primer caso documentado de un faro que alumbra desde el fondo de un pozo.",
+      "body": "Los Centinelas de la Luz comunican que GSJoseador ha sido el mejor jugador del grupo en la jornada del martes. El Hermano Venda, encargado de redactar esta nota, ha pedido que conste en acta que el premio se otorga con un balance de 1–1.\n\nMéritos: un Mordekaiser que ganó seis duelos en solitario y perdió igual, en dúo con Fr4nux; luego, un Renekton a las once de la noche que se tragó más de un tercio del daño que recibió su equipo y ganó en 38 minutos. El cocodrilo hizo de muro. GSJoseador, de albañil.\n\nLos Centinelas aclaran que el listón no lo ponen ellos, sino el resto del grupo. Ayer, para ser el faro, bastaba con apagarse solo la mitad de las veces.",
       "stat": "",
       "stat_label": "",
       "imagen": null,
@@ -1128,220 +1128,8 @@
   ],
   "bolsa": {
     "fecha": "2026-10-21",
-    "desde": "2026-10-20",
-    "filas": [
-      {
-        "slug": "gsjoseador",
-        "alias": "GSJoseador",
-        "solo": {
-          "posicion": "Esmeralda III · 23 LP",
-          "lp": 23,
-          "delta": -442,
-          "cambio": "descenso",
-          "antes": "Diamante III · 65 LP",
-          "victorias": 153,
-          "derrotas": 150
-        },
-        "flex": {
-          "posicion": "Plata I · 63 LP",
-          "lp": 63,
-          "delta": -1303,
-          "cambio": "descenso",
-          "antes": "Diamante IV · 66 LP",
-          "victorias": 6,
-          "derrotas": 5
-        }
-      },
-      {
-        "slug": "rdv-canyon",
-        "alias": "RDV Canyon",
-        "solo": {
-          "posicion": "Esmeralda III · 53 LP",
-          "lp": 53,
-          "delta": -298,
-          "cambio": "descenso",
-          "antes": "Diamante IV · 51 LP",
-          "victorias": 57,
-          "derrotas": 51
-        },
-        "flex": {
-          "posicion": "Oro II · 97 LP",
-          "lp": 97,
-          "delta": -1111,
-          "cambio": "descenso",
-          "antes": "Diamante II · 8 LP",
-          "victorias": 8,
-          "derrotas": 6
-        }
-      },
-      {
-        "slug": "wolf",
-        "alias": "Wôlf",
-        "solo": {
-          "posicion": "Platino IV · 72 LP",
-          "lp": 72,
-          "delta": -364,
-          "cambio": "descenso",
-          "antes": "Esmeralda IV · 36 LP",
-          "victorias": 88,
-          "derrotas": 93
-        },
-        "flex": {
-          "posicion": "Plata III · 77 LP",
-          "lp": 77,
-          "delta": -1095,
-          "cambio": "descenso",
-          "antes": "Esmeralda IV · 72 LP",
-          "victorias": 18,
-          "derrotas": 22
-        }
-      },
-      {
-        "slug": "thetrevur",
-        "alias": "TheTrevur",
-        "solo": {
-          "posicion": "Platino II · 81 LP",
-          "lp": 81,
-          "delta": -519,
-          "cambio": "descenso",
-          "antes": "Diamante IV · 0 LP",
-          "victorias": 40,
-          "derrotas": 30
-        },
-        "flex": {
-          "posicion": "Platino IV · 28 LP",
-          "lp": 28,
-          "delta": -912,
-          "cambio": "descenso",
-          "antes": "Diamante III · 40 LP",
-          "victorias": 32,
-          "derrotas": 23
-        }
-      },
-      {
-        "slug": "ipredatorz",
-        "alias": "iPredatoRz",
-        "solo": {
-          "posicion": "Esmeralda IV · 17 LP",
-          "lp": 17,
-          "delta": -277,
-          "cambio": "descenso",
-          "antes": "Esmeralda II · 94 LP",
-          "victorias": 59,
-          "derrotas": 54
-        },
-        "flex": {
-          "posicion": "Platino IV · 96 LP",
-          "lp": 96,
-          "delta": 228,
-          "cambio": "ascenso",
-          "antes": "Oro II · 68 LP",
-          "victorias": 25,
-          "derrotas": 24
-        }
-      },
-      {
-        "slug": "giroroo",
-        "alias": "Giroroo",
-        "solo": {
-          "posicion": "Esmeralda II · 16 LP",
-          "lp": 16,
-          "delta": -225,
-          "cambio": "descenso",
-          "antes": "Diamante IV · 41 LP",
-          "victorias": 217,
-          "derrotas": 188
-        },
-        "flex": {
-          "posicion": "Esmeralda IV · 2 LP",
-          "lp": 2,
-          "delta": 49,
-          "cambio": "ascenso",
-          "antes": "Platino I · 53 LP",
-          "victorias": 28,
-          "derrotas": 15
-        }
-      },
-      {
-        "slug": "saiko",
-        "alias": "Saiko",
-        "solo": {
-          "posicion": "Esmeralda IV · 0 LP",
-          "lp": 0,
-          "delta": -153,
-          "cambio": "descenso",
-          "antes": "Esmeralda III · 53 LP",
-          "victorias": 104,
-          "derrotas": 97
-        },
-        "flex": {
-          "posicion": "Oro III · 24 LP",
-          "lp": 24,
-          "delta": -198,
-          "cambio": "descenso",
-          "antes": "Oro I · 22 LP",
-          "victorias": 8,
-          "derrotas": 10
-        }
-      },
-      {
-        "slug": "grangalax",
-        "alias": "grangalax",
-        "solo": {
-          "posicion": "Plata II · 65 LP",
-          "lp": 65,
-          "delta": -158,
-          "cambio": "descenso",
-          "antes": "Oro IV · 23 LP",
-          "victorias": 4,
-          "derrotas": 4
-        }
-      },
-      {
-        "slug": "fr4nux",
-        "alias": "Fr4nux",
-        "solo": {
-          "posicion": "Platino III · 89 LP",
-          "lp": 89,
-          "delta": -39,
-          "cambio": "descenso",
-          "antes": "Platino II · 28 LP",
-          "victorias": 246,
-          "derrotas": 231
-        },
-        "flex": {
-          "posicion": "Oro I · 2 LP",
-          "lp": 2,
-          "delta": 0,
-          "cambio": null,
-          "antes": "Oro I · 2 LP",
-          "victorias": 109,
-          "derrotas": 96
-        }
-      },
-      {
-        "slug": "dierophant",
-        "alias": "Dierophant",
-        "solo": {
-          "posicion": "Esmeralda I · 3 LP",
-          "lp": 3,
-          "delta": 0,
-          "cambio": null,
-          "antes": "Esmeralda I · 3 LP",
-          "victorias": 102,
-          "derrotas": 106
-        },
-        "flex": {
-          "posicion": "Diamante IV · 0 LP",
-          "lp": 0,
-          "delta": -19,
-          "cambio": null,
-          "antes": "Diamante IV · 19 LP",
-          "victorias": 98,
-          "derrotas": 96
-        }
-      }
-    ]
+    "desde": null,
+    "filas": []
   },
   "sorteo": {
     "combinacion": [
@@ -1903,7 +1691,7 @@
         "accion": "avanzar",
         "titulo": null,
         "estado": "escalando",
-        "resumen": "La Lonja hunde la cotización de casi toda la plantilla antes del primer partido de la ACE League; GSJoseador cae de Diamante IV a Plata I en Flex.",
+        "resumen": "La Lonja publica una ruina de la plantilla que no existió (sumaba los smurfs a sus dueños) y la anula el mismo día. Barbanegra conserva el puesto.",
         "protagonistas": [
           "gsjoseador",
           "rdv-canyon",
@@ -1987,12 +1775,12 @@
     },
     {
       "jugador": "gsjoseador",
-      "texto": "Seis minutos cubierto y sol tardío a las once de la noche. Previsión: despejado en la Grieta, temporal en la Lonja."
+      "texto": "Seis minutos cubierto y sol tardío a las once de la noche. Previsión: despejado en la Grieta, riesgo de que se lo crea."
     }
   ],
   "angulos_usados": [
     "sesion_flex",
-    "descenso:gsjoseador:flex",
+    "errata:bolsa",
     "faro:gsjoseador",
     "mismo_sitio:thetrevur:EUW1_8019622991",
     "calle:fr4nux",

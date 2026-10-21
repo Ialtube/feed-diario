@@ -315,21 +315,24 @@ def build_dossier(cfg, store, friends, edition, editions):
     _queues(add, players_today, tz)
 
     # the LP stock market
-    bolsa = market(store.ranks(), edition["date"], [{"slug": p["slug"], "alias": p["alias"]} for p in players])
+    # (each account against itself; a smurf's climb is the smurf's, and says so)
+    bolsa = market(store.ranks(), edition["date"], players)
     for row in bolsa["filas"]:
         for q, cola in COLAS.items():
             e = row.get(q)
-            if not e or e["delta"] is None:
+            if not e or e["delta"] is None or not e.get("partidas"):
                 continue
+            quien = row["alias"] if row["principal"] else f"{row['alias']} (con su smurf {row['cuenta']})"
+            datos = {"cola": cola, "cuenta": row["cuenta"], "cuenta_principal": row["principal"],
+                     "ahora": e["posicion"], "lp_de_diferencia": e["delta"], "partidas_desde_entonces": e["partidas"]}
             if e["cambio"]:
-                add(e["cambio"], row["slug"], "ECONOMÍA", f"{row['alias']}: {e['cambio']} en {cola}",
-                    {"cola": cola, "antes": e["antes"], "ahora": e["posicion"], "lp_de_diferencia": e["delta"]},
-                    40 + abs(e["delta"]) / 5, positivo=e["cambio"] == "ascenso", extra=q, alias=row["alias"])
+                add(e["cambio"], row["slug"], "ECONOMÍA", f"{quien}: {e['cambio']} en {cola}",
+                    dict(datos, antes=e["antes"]),
+                    40 + abs(e["delta"]) / 5, positivo=e["cambio"] == "ascenso", extra=q + row["cuenta"], alias=row["alias"])
             elif abs(e["delta"]) >= 50:
-                add("lp", row["slug"], "ECONOMÍA", f"{row['alias']} {'gana' if e['delta'] > 0 else 'pierde'} "
-                    f"{abs(e['delta'])} LP en {cola}",
-                    {"cola": cola, "ahora": e["posicion"], "lp_de_diferencia": e["delta"]},
-                    26 + abs(e["delta"]) / 4, positivo=e["delta"] > 0, extra=q, alias=row["alias"])
+                add("lp", row["slug"], "ECONOMÍA", f"{quien} {'gana' if e['delta'] > 0 else 'pierde'} "
+                    f"{abs(e['delta'])} LP en {cola}", datos,
+                    26 + abs(e["delta"]) / 4, positivo=e["delta"] > 0, extra=q + row["cuenta"], alias=row["alias"])
     tot = facts["totals"]
     if tot["games"] >= 3 and all(s["losses"] == 0 for s in players_today):
         add("pleno", None, "OPINIÓN", f"El grupo no pierde ni una: {tot['games']} de {tot['games']}",

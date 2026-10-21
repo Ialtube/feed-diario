@@ -343,15 +343,34 @@ class AIFlowTest(unittest.TestCase):
         self.assertEqual(out["jug"]["yo"]["objetivos"], ["BARON_NASHOR"])
 
     def test_lp_market(self):
-        from roast.rangos import market, value
-        ranks = {"2026-10-20": {"a": {"solo": {"tier": "GOLD", "rank": "I", "lp": 90}}},
-                 "2026-10-21": {"a": {"solo": {"tier": "PLATINUM", "rank": "IV", "lp": 10}, "flex": {"tier": "SILVER", "rank": "II", "lp": 5}}}}
-        m = market(ranks, "2026-10-21", [{"slug": "a", "alias": "A"}])
-        row = m["filas"][0]
-        self.assertEqual(row["solo"]["cambio"], "ascenso")
-        self.assertEqual(row["solo"]["delta"], value({"tier": "PLATINUM", "rank": "IV", "lp": 10}) - value({"tier": "GOLD", "rank": "I", "lp": 90}))
-        self.assertIsNone(row["flex"]["delta"])
+        from roast.rangos import market, value, snapshot
+        roster = [{"slug": "a", "alias": "A", "riot_id": "Main#EUW"}, {"slug": "a", "alias": "A", "riot_id": "Smurf#EUW"},
+                  {"slug": "b", "alias": "B", "riot_id": "Bee#EUW"}]
+        pos = {"20": {"Main#EUW": {"solo": {"tier": "GOLD", "rank": "I", "lp": 90, "wins": 10, "losses": 10}},
+                      "Smurf#EUW": {"flex": {"tier": "DIAMOND", "rank": "IV", "lp": 0, "wins": 5, "losses": 5}}},
+               "21": {"Main#EUW": {"solo": {"tier": "PLATINUM", "rank": "IV", "lp": 10, "wins": 11, "losses": 10},
+                                   "flex": {"tier": "SILVER", "rank": "II", "lp": 5, "wins": 1, "losses": 0}},
+                      "Smurf#EUW": {"flex": {"tier": "DIAMOND", "rank": "IV", "lp": 20, "wins": 6, "losses": 5}},
+                      "Bee#EUW": {"solo": {"tier": "IRON", "rank": "IV", "lp": 0, "wins": 0, "losses": 1}}}}
+        ranks = {"2026-10-19": {"a": {"solo": {"tier": "IRON", "rank": "IV", "lp": 0}}},     # old file, keyed by person
+                 "2026-10-20": snapshot(roster[:2], lambda p: pos["20"][p["riot_id"]]),
+                 "2026-10-21": snapshot(roster, lambda p: pos["21"][p["riot_id"]])}
+        m = market(ranks, "2026-10-21", roster)
+        main, smurf, bee = m["filas"]
+        self.assertEqual((main["cuenta"], main["principal"]), ("Main#EUW", True))
+        self.assertEqual((smurf["cuenta"], smurf["principal"]), ("Smurf#EUW", False))
+        self.assertEqual(main["solo"]["cambio"], "ascenso")
+        self.assertEqual(main["solo"]["delta"], value({"tier": "PLATINUM", "rank": "IV", "lp": 10}) - value({"tier": "GOLD", "rank": "I", "lp": 90}))
+        self.assertIsNone(main["flex"]["delta"])                      # new in Flex: never compared with the smurf
+        self.assertEqual(smurf["flex"]["delta"], 20)
+        self.assertIsNone(bee["solo"]["delta"])                       # the old per-person day is ignored
         self.assertEqual(m["desde"], "2026-10-20")
+        # a jump that the games played cannot explain is not believed
+        pos["21"]["Main#EUW"]["solo"] = {"tier": "DIAMOND", "rank": "IV", "lp": 0, "wins": 11, "losses": 10}
+        ranks["2026-10-21"] = snapshot(roster, lambda p: pos["21"][p["riot_id"]])
+        row = market(ranks, "2026-10-21", roster)["filas"][0]
+        self.assertIsNone(row["solo"]["delta"])
+        self.assertTrue(row["solo"]["dudoso"])
 
     def test_pool_and_readers(self):
         from roast import porra, lectores

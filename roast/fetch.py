@@ -1,5 +1,6 @@
 """Resolve friends' Riot IDs and download their new matches."""
 import time
+from .rangos import snapshot
 
 
 def summarize_match(m):
@@ -123,18 +124,18 @@ def fetch_timelines(client, store, players, start_ms, end_ms, log=print):
 
 
 def fetch_ranks(client, store, players, date_str, log=print):
-    """Today's ranked position of every friend, kept day by day in data/rangos.json."""
+    """Today's ranked position of every account (smurfs apart), kept day by day in data/rangos.json."""
     ranks = store.ranks()
-    today = {}
-    for p in players:
-        entries = client.league_entries(p["puuid"])
-        today[p["slug"]] = {QUEUES[e["queueType"]]: {"tier": e.get("tier"), "rank": e.get("rank"),
-                                                     "lp": e.get("leaguePoints", 0), "wins": e.get("wins", 0),
-                                                     "losses": e.get("losses", 0)}
-                            for e in entries if e.get("queueType") in QUEUES}
+
+    def entries_of(p):
+        return {QUEUES[e["queueType"]]: {"tier": e.get("tier"), "rank": e.get("rank"),
+                                         "lp": e.get("leaguePoints", 0), "wins": e.get("wins", 0),
+                                         "losses": e.get("losses", 0)}
+                for e in client.league_entries(p["puuid"]) if e.get("queueType") in QUEUES}
+    today = snapshot(players, entries_of)
     ranks[date_str] = today
     store.save_ranks(ranks)
-    log(f"  Rangos guardados de {sum(1 for v in today.values() if v)} jugadores")
+    log(f"  Rangos guardados de {sum(1 for v in today.values() if 'solo' in v or 'flex' in v)} cuentas")
     return today
 
 

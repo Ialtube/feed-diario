@@ -72,7 +72,7 @@ def cmd_run(args):
         print(f"  ! No se pudieron descargar líneas temporales o rangos: {e}")
 
     edition = make_edition(cfg, store, players, start_ms, end_ms, date_str, number)
-    edition["bolsa"] = market(store.ranks(), date_str, [{"slug": p["slug"], "alias": p["alias"]} for p in players])
+    edition["bolsa"] = market(store.ranks(), date_str, players)
     print(f"  {edition['totals']['games']} partidas del grupo en la ventana, {len(edition['items'])} noticias")
     same_games = existing and {g["match"] for g in existing.get("games", [])} == {g["match"] for g in edition["games"]}
     if existing and existing.get("ai") and same_games and existing["window"] == edition["window"]:
@@ -149,6 +149,24 @@ def cmd_backfill(args):
     store.save_state()
     build_site(cfg, friends, store.editions(), ROOT / "docs")
     print(f"{created} ediciones nuevas. Web regenerada en docs/")
+
+
+def cmd_rangos(args):
+    """Only the ranked positions: stores today's (per account) and refreshes the LP market of today's paper."""
+    cfg, friends = load_config(), load_friends()
+    store = Store(ROOT / "data")
+    date_str = edition_window(cfg, datetime.now(get_tz(cfg["timezone"])))[0]
+    try:
+        players = resolve_players(_client(cfg), store, friends)
+        fetch_ranks(_client(cfg), store, players, date_str)
+    except RiotError as e:
+        sys.exit(f"Error con la API de Riot: {e}")
+    edition = store.edition(date_str)
+    if edition:
+        edition["bolsa"] = market(store.ranks(), date_str, players)
+        store.save_edition(edition)
+        build_site(cfg, friends, store.editions(), ROOT / "docs")
+        print(f"Bolsa de LP de la edición del {date_str} actualizada")
 
 
 def cmd_build(args):
@@ -292,6 +310,7 @@ def main(argv=None):
     b.add_argument("--days", type=int, default=7)
     b.set_defaults(fn=cmd_backfill)
     sub.add_parser("build", help="regenerar la web").set_defaults(fn=cmd_build)
+    sub.add_parser("rangos", help="guardar los rangos de hoy y actualizar la bolsa de LP").set_defaults(fn=cmd_rangos)
     sub.add_parser("correcciones", help="aplica las correcciones del administrador y regenera la web").set_defaults(fn=cmd_correcciones)
     sub.add_parser("check", help="comprobar clave y jugadores").set_defaults(fn=cmd_check)
     s = sub.add_parser("ai-status", help="¿la edición de hoy ya tiene versión IA?")

@@ -163,7 +163,7 @@ Piltover abre expediente», «la Lonja de Aguasturbias congela sus fondos».
 - `lectores_ayer`: cómo reaccionaron los lectores a la edición anterior (lo más reído, con emojis y
   nombres) y sus comentarios. `cotillas`: quién miró la ficha de quién (y quién se miró a sí mismo).
 - `replicas_pendientes`: los aludidos que ejercen su derecho de réplica.
-- `bolsa_lp`: la bolsa de LP (rangos de SoloQ y Flex, subidas, bajadas, ascensos y descensos).
+- `bolsa_lp`: la bolsa de LP. Una fila por **cuenta** (`cuenta`, `principal`: false = smurf de ese jugador), comparada solo consigo misma con la última vez que se vio (`desde`). `delta` en LP (100 por división, 400 por liga) y `partidas` jugadas desde entonces; `delta` nulo = cuenta nueva o cambio que no cuadra (`dudoso`): de eso no se escribe. Lo que sube o baja un smurf es del smurf: dilo así, nunca como si fuera la cuenta principal.
 - `ace_league`: el Rincón del Viciado en la ACE League (plantilla, partidos, resultados).
 - En `partidas_detalle`, `dentro_de_la_partida` cuenta quién dio o entregó la primera sangre, en qué
   minutos murió cada uno, cuántas veces en el mismo sitio, cuántas a manos de torres o súbditos y qué

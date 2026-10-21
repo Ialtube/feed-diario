@@ -363,6 +363,9 @@ ul.elenco li{padding:6px 0;break-inside:avoid;border-bottom:1px dotted var(--rul
 .porra-box form{margin-top:10px;border-top:1px dashed var(--ink);padding-top:10px}
 .pasa-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 .bolsa{margin-top:14px}
+.bolsa td small{display:block;font-size:.72rem;color:var(--muted);font-style:italic}
+.bolsa td.smurf{padding-left:18px;color:var(--muted)}
+.bolsa-nota{margin-top:6px;line-height:1.35}
 .rx .rx-share{margin-left:4px}
 .rx-rep{display:flex;gap:6px;align-items:center;font-size:.85rem}
 

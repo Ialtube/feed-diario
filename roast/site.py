@@ -385,6 +385,9 @@ ul.elenco li{padding:6px 0;break-inside:avoid;border-bottom:1px dotted var(--rul
 .porra-box form{margin-top:10px;border-top:1px dashed var(--ink);padding-top:10px}
 .pasa-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 .bolsa{margin-top:14px}
+.bolsa td small{display:block;font-size:.72rem;color:var(--muted);font-style:italic}
+.bolsa td.smurf{padding-left:18px;color:var(--muted)}
+.bolsa-nota{margin-top:6px;line-height:1.35}
 .rx .rx-share{margin-left:4px}
 .rx-rep{display:flex;gap:6px;align-items:center;font-size:.85rem}
 
@@ -1556,7 +1559,8 @@ def _pasatiempos(ed, rel, latest, seers=None):
 
 def _bolsa(ed):
     b = ed.get("bolsa") or {}
-    if not b.get("filas"):
+    rows = [r for r in b.get("filas") or [] if r.get("cuenta")]     # older editions mixed smurfs: not shown
+    if not rows:
         return ""
 
     def cell(e):
@@ -1565,13 +1569,26 @@ def _bolsa(ed):
         d = e.get("delta")
         cls, arrow = ("up", "▲") if (d or 0) > 0 else ("down", "▼") if (d or 0) < 0 else ("", "=")
         tag = f' <i>({_e(e["cambio"])})</i>' if e.get("cambio") else ""
-        return (f'<td>{_e(e["posicion"])}{tag}</td><td class="num {cls}">'
-                + (f'{arrow} {abs(d)}' if d is not None else "nuevo") + '</td>')
-    rows = "".join(f'<tr><td>{_e(r["alias"])}</td>{cell(r.get("solo"))}{cell(r.get("flex"))}</tr>' for r in b["filas"])
+        if d is not None:
+            change = f'{arrow} {abs(d)}' if d else "="
+        else:
+            change = "?" if e.get("dudoso") else "nuevo"
+        return f'<td>{_e(e["posicion"])}{tag}</td><td class="num {cls}">{change}</td>'
+
+    def who(r):
+        if r.get("principal", True):
+            return f'<td>{_e(r["alias"])}<small>{_e(r["cuenta"])}</small></td>'
+        return f'<td class="smurf">↳ smurf<small>{_e(r["cuenta"])}</small></td>'
+    body = "".join(f'<tr>{who(r)}{cell(r.get("solo"))}{cell(r.get("flex"))}</tr>' for r in rows)
     since = f' (frente al {short_date(_date(b["desde"]))})' if b.get("desde") else ""
     return (f'<div class="board bolsa"><h4 class="kicker">Bolsa de LP{_e(since)}</h4><div class="tablewrap"><table><thead><tr>'
-            '<th>Valor</th><th>SoloQ</th><th class="num">LP</th><th>Flex</th><th class="num">LP</th></tr></thead><tbody>'
-            + rows + '</tbody></table></div></div>')
+            '<th>Cuenta</th><th>SoloQ</th><th class="num">LP</th><th>Flex</th><th class="num">LP</th></tr></thead><tbody>'
+            + body + '</tbody></table></div>'
+            '<p class="small bolsa-nota">Cada cuenta se compara solo consigo misma, con la última vez que la miramos '
+            '(normalmente el día anterior); los smurfs van aparte, debajo de su dueño. La cifra es la diferencia en LP '
+            'contando 100 por división y 400 por liga: pasar de Oro IV con 20 LP a Plata I con 80 LP son ▼ 40. '
+            '«nuevo»: es la primera vez que vemos esa cuenta en esa cola. «?»: el cambio no cuadra con las partidas '
+            'jugadas y no se cuenta.</p></div>')
 
 
 def _ace_matches(limit=6):

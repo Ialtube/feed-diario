@@ -10,6 +10,10 @@ on:
         description: "Días anteriores a recuperar (0 = edición normal de hoy)"
         required: false
         default: "0"
+      solo_rangos:
+        description: "Solo guardar los rangos de hoy y actualizar la bolsa de LP (no toca la edición)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -39,8 +43,11 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           SITE_URL: ${{ vars.SITE_URL }}
           BACKFILL_DAYS: ${{ inputs.backfill_days || '0' }}
+          SOLO_RANGOS: ${{ inputs.solo_rangos || false }}
         run: |
-          if [ "$BACKFILL_DAYS" != "0" ]; then
+          if [ "$SOLO_RANGOS" = "true" ]; then
+            python -m roast rangos
+          elif [ "$BACKFILL_DAYS" != "0" ]; then
             python -m roast backfill --days "$BACKFILL_DAYS"
           else
             python -m roast run
