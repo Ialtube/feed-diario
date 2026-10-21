@@ -1,0 +1,163 @@
+{
+  "piezas": [
+    {"angulo": null, "peso": "grande", "portada": true, "formato": "fe de erratas", "hilo": "el-trono-de-la-verguenza",
+     "seccion": "POLÍTICA", "player": "grangalax",
+     "headline": "Esta casa se equivocó, y el Barón se queda sin trono",
+     "subtitulo": "La fórmula castigaba a quien jugaba solo y jugaba bien. La General vuelve a cero y grangalax abdica con un récord que habría ganado igual.",
+     "body": "Esta redacción, que lleva diez ediciones señalando errores ajenos, hoy tiene que señalarse a sí misma. La General de la vergüenza estaba mal calculada. Repartía los puntos por puesto aunque solo hubiera jugado una persona o aunque esa persona hubiera jugado bien: podías presentarte un día, hacerlo decentemente y llevarte cinco puntos de castigo por el delito de asistir. La fiscal Hexwick lo ha llamado «condena por asistencia». Desde hoy, la General se pone a cero.\n\nLa cuenta nueva está entera en la página «Cómo se puntúa». Cada partida tiene su nota de vergüenza: suma cada muerte, resta asesinatos y asistencias, castiga al que no llega al 20 % del daño de su equipo sin ser soporte —y más al que menos hizo—, castiga perder, morir diez veces o más y no aparecer en las peleas, y premia ganar con un KDA de 5 o más. La vergüenza del día es la media de tus partidas más medio punto por derrota.\n\nY lo importante: solo puntúa quien tuvo un día malo de verdad. El peor se lleva 5 puntos; el segundo, 3; el tercero, 2; el cuarto, 1. Si juegas solo, solo puntúas si tu día es un desastre. Llevarse los 5 sigue contando como portada.\n\nQueda despedir al rey. Con la fórmula nueva aplicada a todo el histórico, el Barón de la Moneda habría terminado primero igual: 26 puntos y 4 portadas. Segundo, Wôlf, con 16; tercero, Fr4nux, con 13. No era un error de cálculo. Era talento. grangalax abdica sin que nadie le derrote, que es la forma más humillante de perder una corona: por auditoría.\n\nEl trono estuvo vacío lo que tardó el robot en bajar los datos del martes. El primer rey de la nueva era es iPredatoRz, que jugó una partida, la ganó y murió doce veces en ella.",
+     "campeon": "Azir", "pie": "El Disco Solar de Shurima, recalculado. El emperador sigue siendo el mismo.",
+     "meme_arriba": "CAMBIAN LA FÓRMULA PARA QUITARTE EL TRONO", "meme_abajo": "LA FÓRMULA NUEVA TAMBIÉN TE DA EL TRONO"},
+
+    {"angulo": "a19", "peso": "grande", "formato": "crónica deportiva", "hilo": "la-moneda", "seccion": "DEPORTES",
+     "propuesta": 3,
+     "headline": "Un Zed de tirador y otras decisiones del martes",
+     "subtitulo": "El grupo se juntó a las siete, perdió dos Flex seguidas y a las ocho ya buscaba a quién echarle la culpa. Hay candidatos.",
+     "body": "Fuentes de confianza nos hacen llegar el chivatazo, y los datos no lo desmienten: en la primera Flex del martes, uno de los dos sospechosos habituales arrancó la partida AFK y el otro se plantó en la calle de abajo con Zed de tirador. La fuente no aclara quién hizo qué. No hace falta. El Ekko de grangalax terminó con un Gragas rival a 20/6/10 y 5.674 de oro por delante de él; Wôlf, con su Zed tirador, dejó ochenta y nueve súbditos más que el Smolder de enfrente pudriéndose en la calle.\n\nConviene aclarar que nuestra fuente jugaba esa misma partida. Con Nautilus, RDV Canyon puso noventa de visión y murió once veces, cinco en el mismo sitio: iluminaba el mapa para que el rival supiera dónde ir a recogerle. TheTrevur, con Gnar, fue el único con cara de saber a qué jugaba, y Dierophant se llevó con Wukong el Barón, el Heraldo, un dragón y tres larvas del Vacío, que es como fregar la cocina de una casa en llamas.\n\nLa segunda, a las 19:41, fue más corta y peor. RDV Canyon salió de soporte con Ashe y entregó la primera sangre en el minuto dos. grangalax estrenó Syndra contra un Kassadin y la enterró en veinticuatro minutos con un 1/8/3. Y TheTrevur, el mejor de la partida anterior, se pasó al otro bando de la estadística: 0/7/1.\n\nPor la mañana, en SoloQ, la moneda de grangalax había caído cruz, cara, cruz, cara, con la puntualidad de un péndulo. Por la tarde, con público, cayó cruz las dos veces.\n\nLo mejor de la Flex del martes es que no hubo tercera.",
+     "campeon": "Zed", "pie": "Zed, maestro de las sombras, a la espera de que alguien le explique qué hace en la calle de abajo.",
+     "meme_arriba": "NADIE ME DIJO QUE ERA ADC", "meme_abajo": "NADIE ME DIJO QUE ERA FLEX"},
+
+    {"angulo": "a1", "peso": "grande", "formato": "análisis", "hilo": "el-rincon-del-viciado", "seccion": "ECONOMÍA",
+     "headline": "El Rincón del Viciado pierde una división entera sin jugar un partido",
+     "subtitulo": "Barbanegra el Contable cierra la sesión con casi todo el grupo en rojo. Los únicos valores que suben en Flex son los de dos que no jugaron Flex.",
+     "body": "Barbanegra el Contable abrió la pizarra de la Lonja de Aguasturbias el martes por la mañana y la cerró con un trapo húmedo. De los diez valores del Rincón del Viciado que cotizan, nueve se dejaron puntos en SoloQ. En Flex, la sangría fue peor.\n\nEl hundimiento más escandaloso es el de GSJoseador: ayer era Diamante IV en Flex y hoy es Plata I. Más de mil trescientos LP evaporados en una noche, el mismo día en que fue el mejor del grupo. RDV Canyon baja de Diamante II a Oro II. Wôlf, de Esmeralda IV a Plata III. TheTrevur cae de Diamante a Platino en las dos colas, que para un hombre que firma como Urgot.exe es como despertarse en una cuneta de Zaun con el cangrejo empeñado.\n\nBarbanegra no se cree que esto se explique jugando. «Aquí ha metido la mano alguien con más oro que nosotros», murmura, mirando hacia donde viven los que escriben las reglas. Pero en Aguasturbias un mercado no se discute: se paga. Y los únicos que suben en Flex son iPredatoRz, de Oro II a Platino IV, y Giroroo, que ni se presentó. Ninguno de los dos jugó una Flex en todo el día. La Lonja ha tomado nota: en este grupo, el valor refugio es no jugar.\n\nMala noticia para la ACE League. El Rincón del Viciado vuelve a la primera división con una plantilla que, en la pizarra, ya no es de primera. El Barón de la Moneda ni se inmuta: baja de Oro IV a Plata II en SoloQ. Cuando ya vives en el sótano, que se hunda el edificio te pilla con las escaleras hechas.",
+     "campeon": "Gangplank", "pie": "Gangplank revisa la cartera del Rincón del Viciado. Ha pedido un barril más grande.",
+     "meme_arriba": "COMPRÉ ACCIONES DEL RINCÓN DEL VICIADO", "meme_abajo": "AHORA SOY PLATA I"},
+
+    {"angulo": "a38", "peso": "mediana", "formato": "nota de prensa", "seccion": "EL FARO DE LA ESPERANZA",
+     "headline": "Los Centinelas premian al mejor del martes, que ganó la mitad",
+     "subtitulo": "GSJoseador recibe la distinción con un 1–1, lo que da una idea del nivel del certamen.",
+     "body": "Los Centinelas de la Luz comunican que GSJoseador ha sido el mejor jugador del grupo en la jornada del martes. El Hermano Venda, encargado de redactar esta nota, ha pedido que conste en acta que el premio se otorga con un balance de 1–1.\n\nMéritos: un Mordekaiser que ganó seis duelos en solitario y perdió igual, en dúo con Fr4nux; luego, un Renekton a las once de la noche que se tragó más de un tercio del daño que recibió su equipo y ganó en 38 minutos. El cocodrilo hizo de muro. GSJoseador, de albañil.\n\nLos Centinelas recuerdan que ese mismo día la Lonja le bajó de Diamante IV a Plata I en Flex. Es el primer caso documentado de un faro que alumbra desde el fondo de un pozo.",
+     "campeon": "Renekton", "pie": "Renekton, el Carnicero de las Arenas, haciendo el trabajo sucio. Como siempre."},
+
+    {"angulo": "a20", "peso": "mediana", "formato": "parte policial", "hilo": "el-cangrejo-huerfano", "seccion": "SUCESOS",
+     "headline": "Vuelve TheTrevur, deja el cangrejo en casa y lo detienen igual",
+     "body": "Hora: 19:41. Lugar: la calle de arriba, siempre el mismo rincón. Agentes: la patrulla de Vi, que ya tenía la dirección apuntada. Hechos: el sospechoso TheTrevur, desaparecido el lunes mientras Sunraku le conducía el Urgot, reaparece el martes, se pone a Gnar y muere siete veces en veinticuatro minutos, cuatro en el mismo sitio, sin un solo asesinato. Cobró el 16,1 % del oro de su equipo y devolvió el 8,3 % del daño.\n\nAntecedentes: esa tarde ya había perdido una SoloQ con su Urgot contra un Heimerdinger, con tres muertes antes del minuto diez. Atenuante alegado: en la primera Flex fue el mejor del grupo con el mismo Gnar. El tribunal lo considera agravante: demuestra que sabe.\n\nEl comisario Cobretuerca cierra el atestado con una conclusión: el cangrejo no estaba huérfano. Estaba a salvo.",
+     "stat": "4", "stat_label": "muertes en el mismo rincón"},
+
+    {"angulo": "a41", "peso": "mediana", "formato": "entrevista", "hilo": "carry-not-found", "seccion": "DEPORTES",
+     "headline": "Vayne: «Me esperaba un tirador. Me mandaron un recado»",
+     "body": "La Cazadora Nocturna de Demacia atiende a este periódico tras su paso por la calle de abajo, donde Fr4nux estrenaba Kai'Sa.\n\n—¿Cómo fue?\n—Corta. Veintiún minutos. Catorce asesinatos míos, dos muertes. A él le dejé uno.\n—¿Uno?\n—Asesinato. Por educación.\n—Le sacó casi seis mil de oro.\n—Los conté mientras él los buscaba.\n—Los laboratorios hablaban ayer de remisión.\n—Lo leí. Yo cazo cosas que salen de noche. Lo de Fr4nux no sale ni de día.\n\nFr4nux cerró el martes 0–2. En la segunda, con Xayah, una Ashe le sacó cuatro mil de oro. La remisión ha durado lo que dura una Kai'Sa en la calle de abajo. El expediente vuelve a la mesa.",
+     "campeon": "Vayne", "pie": "Vayne, satisfecha. Dice que ha cazado presas más grandes, pero ninguna tan quieta."},
+
+    {"angulo": "a74", "peso": "mediana", "formato": "previa", "hilo": "el-heredero-accidental", "seccion": "POLÍTICA",
+     "headline": "¿Quién es iPredatoRz y por qué manda?",
+     "body": "La nueva General de la vergüenza no ha cumplido un día y ya tiene líder. Se llama iPredatoRz, la hemeroteca lo conoce como El Fantasma del Vacío y el martes jugó una partida. La ganó. Con Yasuo, en la calle de arriba, muriendo doce veces en treinta y cuatro minutos: un 2/12/9 que en cualquier otro equipo habría sido una derrota y que en el suyo fue una victoria que nadie del bando ganador piensa agradecerle.\n\nLa hemeroteca dice poco más: catorce partidas, 8–6, y Yasuo cinco veces, que en cualquier tribunal de Jonia cuenta como confesión.\n\nLa porra de los lectores no le vio venir: dos votos para grangalax, uno para Wôlf, ninguno para él. Es lo que tiene ser un fantasma: no te apuntan ni para fallar. Previsión del reinado: dura hasta que otro juegue peor. En este grupo, eso puede ser esta tarde.",
+     "campeon": "Yasuo", "pie": "Yasuo, el Imperdonable. Doce veces imperdonable, para ser exactos."},
+
+    {"angulo": null, "peso": "mediana", "formato": "carta al director", "seccion": "OPINIÓN",
+     "headline": "Querido lector: horrible es otra cosa",
+     "body": "Nuestro lector TheTrevur dejó ayer este comentario bajo la pieza del Cho'Gath condecorado: «Si gue sinedo horrible». El director recoge el guante.\n\nHorrible, en este periódico, tiene definición técnica, y el martes la cumplió usted: un Gnar con 0/7/1 y cuatro muertes en el mismo rincón de la calle de arriba. Nosotros solo escribimos lo que pasa. Si quiere un periódico más bonito, juegue partidas más bonitas.\n\nNos consta también que abrió en la web su propia ficha, y después las de grangalax y Wôlf, por si alguien estaba peor. Lo estaban. Por poco.\n\nLamentamos que la lectura le resultara horrible. Más horrible fue jugarla.",
+     "player": "thetrevur"},
+
+    {"angulo": "a23", "peso": "mediana", "formato": "crónica", "seccion": "DEPORTES",
+     "headline": "Lo que pasó antes de la Flex",
+     "body": "La tarde empezó a la una menos un minuto, con grangalax. A las siete ya llevaba cuatro SoloQ, todas con Ekko, y las había repartido con la frialdad de un notario: perder, ganar, perder, ganar. Wôlf encadenó dos victorias, la segunda con un Zed de exhibición, y cometió el error de seguir jugando: la tercera la perdió. Fr4nux jugó dos y perdió dos. GSJoseador, una y una. TheTrevur jugó una, con Urgot, y la perdió. iPredatoRz jugó una y la ganó, de aquella manera.\n\nLos dúos fueron peor. TheTrevur y Wôlf se juntaron a las seis y diez y perdieron contra un Heimerdinger y un Singed que se repartieron sus calles. GSJoseador y Fr4nux lo intentaron a las ocho menos diez con Mordekaiser y Xayah, y tampoco. Dos dúos, dos derrotas. En SoloQ, al menos, cada uno pierde por su cuenta y nadie tiene que mirar a la cara al otro."},
+
+    {"angulo": "a24", "peso": "breve", "formato": "breve", "seccion": "EL FARO DE LA ESPERANZA",
+     "headline": "Un triple a deshoras",
+     "body": "A las seis y cuarto, con Ekko, grangalax firmó un 21/9/8, un triple asesinato y seis mil seiscientos de oro de ventaja sobre su Sylas. Los Centinelas lo celebran con la boca pequeña: al terminar, se fue directo a la Flex a perder dos."},
+
+    {"angulo": "a45", "peso": "breve", "formato": "breve", "seccion": "EL FARO DE LA ESPERANZA",
+     "headline": "Zed, en su sitio (una vez)",
+     "body": "A las 17:34, Wôlf jugó Zed en la calle de arriba: 11/1/1, seis duelos ganados y el 31 % del daño. Después lo llevó a mid y perdió, y luego a tirador y perdió. El mismo campeón en tres calles en un día: los Centinelas lo llaman versatilidad; Radio Zaun, mudanza."},
+
+    {"angulo": "a18", "peso": "breve", "formato": "anuncio por palabras", "seccion": "SUCESOS",
+     "headline": "Se busca otro camino",
+     "body": "SE BUSCA ruta alternativa para Nautilus. El actual conductor ha muerto cinco veces en el mismo sitio y once en total, récord personal. Interesados, preguntar por RDV Canyon. Abstenerse quien ya sepa dónde está: lo sabe todo el equipo rival."},
+
+    {"angulo": "a30", "peso": "breve", "formato": "breve", "seccion": "CULTURA",
+     "headline": "El Rey Arruinado no perdona",
+     "body": "Viego lleva siglos buscando a su reina por las Islas de la Sombra. Dierophant lleva tres partidas buscándole una victoria. El martes, 9/7/3, lo mejor de una partida perdida, y el balance en la hemeroteca se queda en 0–3. El Rey Arruinado tiene paciencia. Dierophant, de momento, también."},
+
+    {"angulo": "a35", "peso": "breve", "formato": "breve", "hilo": "la-maldicion-del-tabernero", "seccion": "AGRICULTURA",
+     "headline": "Gragas cambia de bando",
+     "body": "La maldición del tabernero ya no se conforma con Wôlf. En la primera Flex, un Gragas rival se fue a 20/6/10 mientras el Ekko de grangalax recogía setenta y un súbditos menos que él. El tribunal inhabilitó al tabernero para jugar con nosotros. Nadie dijo nada de jugar contra."},
+
+    {"angulo": null, "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD",
+     "headline": "El bote, intacto",
+     "body": "Dos lectores jugaron al Sorteo de la Grieta y ninguno acertó el 45-36-20: las muertes de grangalax, Wôlf y TheTrevur. El bote se queda en 300. Consejo de la casa para el próximo: apostad por grangalax, que siempre sale."},
+
+    {"angulo": "a43", "peso": "breve", "formato": "breve", "seccion": "CULTURA",
+     "headline": "Quinn, bautizo con barro",
+     "body": "Wôlf estrenó a Quinn en la hemeroteca a las 16:51, en mid, y ganó muriendo doce veces. Quinn y Valor salen juntos a explorar Demacia. Esta vez, casi siempre, Valor volvió solo."},
+
+    {"angulo": "a42", "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD",
+     "headline": "Ni juntos ni revueltos",
+     "body": "TheTrevur y Wôlf compartieron tres partidas el martes, una DuoQ y dos Flex, y perdieron las tres. Es la peor pareja del día, y el día tenía competencia de sobra."}
+  ],
+  "tiempo": [
+    {"jugador": "grangalax", "texto": "Veinticuatro minutos bajo la bruma repartidos en seis partidas. Para hoy, chubascos de cruz por la tarde y un claro a deshoras que nadie llegará a ver."},
+    {"jugador": "wolf", "texto": "Quince minutos nublado y rachas de Zed en tres direcciones. Hoy, viento cambiante de rol: se recomienda no salir de la calle de arriba."},
+    {"jugador": "thetrevur", "texto": "Nueve minutos de cielo cerrado, casi siempre en el mismo rincón del mapa. Se aconseja volver al cangrejo antes de que anochezca."},
+    {"jugador": "ipredatorz", "texto": "Doce chaparrones en una tarde y, contra todo pronóstico, cielo despejado al final. Previsión: bruma espesa sobre el trono, de la que no se levanta sola."},
+    {"jugador": "rdv-canyon", "texto": "Visibilidad excelente, la que él mismo puso. Siete minutos a la sombra, casi todos en el mismo punto. Hoy se esperan emboscadas en lugares conocidos."},
+    {"jugador": "dierophant", "texto": "Siete minutos de bruma y un Barón en el bolsillo que no sirvió de nada. Hoy, cielos de Ruina sobre cualquier partida con Viego."},
+    {"jugador": "gsjoseador", "texto": "Seis minutos cubierto y sol tardío a las once de la noche. Previsión: despejado en la Grieta, temporal en la Lonja."},
+    {"jugador": "fr4nux", "texto": "Apenas cuatro minutos de sombra: para morir hay que acercarse a la pelea. Hoy, frente frío desde la calle de abajo."}
+  ],
+  "canon": {
+    "hilos": [
+      {"id": "el-trono-de-la-verguenza", "accion": "cerrar", "estado": "cerrado", "resumen": "La General se reinicia por un error de fórmula. Recalculada, grangalax habría ganado igual (26 puntos y 4 portadas). Abdica sin que nadie le derrote.", "protagonistas": ["grangalax"]},
+      {"id": "el-heredero-accidental", "accion": "abrir", "titulo": "El heredero accidental", "resumen": "Con la General recién reiniciada, el primer líder es iPredatoRz, que jugó una partida, la ganó con Yasuo y murió doce veces.", "protagonistas": ["ipredatorz"]},
+      {"id": "la-moneda", "accion": "avanzar", "estado": "escalando", "resumen": "Cuatro SoloQ con Ekko alternando derrota y victoria; después, dos Flex perdidas, una estrenando Syndra (1/8/3). Día 2–4.", "protagonistas": ["grangalax"]},
+      {"id": "carry-not-found", "accion": "avanzar", "estado": "escalando", "resumen": "Recaída: 0–2 en SoloQ. Una Vayne 14/2/3 le saca casi seis mil de oro en su estreno con Kai'Sa.", "protagonistas": ["fr4nux"]},
+      {"id": "el-cangrejo-huerfano", "accion": "avanzar", "estado": "escalando", "resumen": "TheTrevur reaparece, pierde con Urgot en SoloQ y con Gnar en Flex muere cuatro veces en el mismo rincón: 0–3. El cangrejo estaba mejor con Sunraku.", "protagonistas": ["thetrevur", "sunraku"]},
+      {"id": "la-maldicion-del-tabernero", "accion": "avanzar", "estado": "escalando", "resumen": "Gragas ya castiga desde el bando rival: 20/6/10 contra el Ekko de grangalax en la primera Flex.", "protagonistas": ["wolf", "grangalax"]},
+      {"id": "el-rincon-del-viciado", "accion": "avanzar", "estado": "escalando", "resumen": "La Lonja hunde la cotización de casi toda la plantilla antes del primer partido de la ACE League; GSJoseador cae de Diamante IV a Plata I en Flex.", "protagonistas": ["gsjoseador", "rdv-canyon", "wolf", "thetrevur"]}
+    ],
+    "personajes": {
+      "grangalax": {"titulo": "Rey Emérito de la Vergüenza", "maldicion": "Syndra: 1/8/3 en su estreno"},
+      "ipredatorz": {"titulo": "Primer Rey de la Nueva General", "apodo": "el heredero accidental"},
+      "thetrevur": {"maldicion": "Gnar: cuatro muertes en el mismo rincón"},
+      "wolf": {"apodo": "el Zed de las tres calles"},
+      "fr4nux": {"rival": "Vayne, que le dejó un asesinato por educación"},
+      "gsjoseador": {"apodo": "el faro del pozo"},
+      "dierophant": {"maldicion": "Viego (0–3 en la hemeroteca)"},
+      "rdv-canyon": {"apodo": "el chivato del mismo sitio"}
+    },
+    "elenco": [
+      {"nombre": "Un Súbdito Anónimo", "cargo": "Columnista", "institucion": "Calle central de la Grieta", "rasgo": "Muere cada treinta segundos y lleva la cuenta de quién no le recoge"}
+    ],
+    "costumbres": ["Los martes la Flex se adelanta a las siete de la tarde y a las ocho ya está perdida."],
+    "chistes": ["la moneda de grangalax", "Urgot.exe"]
+  },
+  "replicas_descartadas": [],
+  "estilo": {
+    "pautas_nuevas": [
+      "Metáforas sencillas: si la imagen necesita dos vueltas para entenderse (la moneda que cae de canto y rueda), sobra. Mejor la frase corta y seca que remata.",
+      "Cambiar el adorno descriptivo por un golpe concreto sobre cómo juega en su rol: la caña pica más que el decorado, y la jerga de jugador vale.",
+      "Incluso al elogiar se deja un pinchazo (no «disparaba balas de verdad», sino «dejó de disparar balas de goma»). Un taco bien puesto en el remate suma.",
+      "No anunciar el humor («con algo de cachondeo»): cara de palo. Vocabulario claro aunque el tono sea formal, y el remate final en su propio párrafo corto.",
+      "Una lista de datos sin giro no es humor: el telegrama con STOP no hizo gracia. Cada línea necesita un chiste o sobra.",
+      "Las propuestas de los lectores se atribuyen a «fuentes de confianza», no a «nuestro lector»."
+    ],
+    "pautas_retiradas": []
+  },
+  "horoscopo": [
+    {"signo": "Top", "texto": "Ser el mejor de la primera Flex no te exime de la segunda. Hoy elige un Gnar y quédate con él: el grande o el pequeño, no los dos."},
+    {"signo": "Jungla", "texto": "Robarás el Barón y perderás igual. Dejarás de limpiar el mapa cuando entiendas que nadie te lo va a agradecer."},
+    {"signo": "Mid", "texto": "Cuatro partidas, dos y dos. Lo que pase en la siguiente ya lo sabes: lo contrario de lo que pasó en la anterior."},
+    {"signo": "Tirador", "texto": "Alguien elegirá Zed en tu posición. Será tu compañero o serás tú, y en los dos casos perderás la calle."},
+    {"signo": "Soporte", "texto": "Pondrás noventa de visión para ver mejor cómo te matan en el mismo arbusto. Cámbialo: el rival ya lo tiene en favoritos."}
+  ],
+  "columna": {
+    "titulo": "A los súbditos nadie nos reinicia la General",
+    "autor": "Un Súbdito Anónimo",
+    "cuerpo": [
+      "Soy un súbdito de la calle central. Nazco cada treinta segundos, camino hacia el enemigo y muero. No me quejo: es el trabajo. Lo que me molesta es que el martes, en la primera Flex, el Ekko que tenía que recogerme dejó setenta y uno de los míos sin tocar. Morí de viejo en una calle donde nadie me quería.",
+      "Hoy leo que este periódico pone la General a cero. Que hay una nueva oportunidad para todos. Qué bonito. A nosotros nos reinician cada treinta segundos y nadie lo llama justicia. Lo llaman oleada.",
+      "Me piden que diga algo bueno. Lo diré: el Zed de la calle de arriba me farmeó con respeto. Luego se lo llevaron a la calle de abajo, de tirador, y allí dejó ochenta y nueve compañeros míos tirados delante de un Smolder. Respeto, el justo.",
+      "Borrón y cuenta nueva, dicen. Desde aquí abajo os lo aclaro: la cuenta es la misma. El borrón sois vosotros."
+    ]
+  },
+  "especial": {
+    "antetitulo": "EDICIÓN ESPECIAL · LA GENERAL, A CERO",
+    "titulo": "Borrón y vergüenza nueva",
+    "subtitulo": "La fórmula estaba mal, el trono queda vacante y grangalax abdica con unos números que habría sacado igual.",
+    "tema": "oro"
+  },
+  "frase": "La vergüenza no se reinicia: solo cambia de dueño.",
+  "eventos_usados": [1],
+  "propuestas_descartadas": [],
+  "firma": "Claude"
+}

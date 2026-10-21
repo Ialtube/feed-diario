@@ -83,7 +83,7 @@
       "alias": "grangalax",
       "headline": "Diana, estrenada y enterrada en la misma noche",
       "subtitulo": "El Barón de la Moneda saca a Diana por primera vez y bate el récord de muertes de la hemeroteca. Era su propio récord.",
-      "body": "Con profundo pesar y algo de cachondeo, la Comisaría de Piltover comunica el fallecimiento, diecisiete veces, de la Diana de grangalax, ocurrido en la segunda Flex del lunes tras casi cuarenta minutos de agonía pública. La finada no había aparecido nunca en la hemeroteca en manos de su verdugo: era su estreno, y fue también su despedida.\n\nEl forense de Zaun, el doctor Humoverde, ha firmado el certificado con una sola línea: «Causa de la muerte: grangalax». Deja cuatro asesinatos, una montaña de asistencias de consolación, casi diez minutos en la pantalla gris y ni un solo punto de daño a objetivos, porque para tirar una torre hay que estar vivo cerca de ella. Le sobrevive un Vladimir rival que terminó la partida con siete mil de oro más y cara de no creérselo.\n\nLas diecisiete muertes son el nuevo récord del periódico. El anterior, dieciséis con Ekko, también era suyo. Y aquí está la gracia de la moneda: esa misma madrugada, con Ekko, grangalax ganó su SoloQ dando una clase de duelos. Una cara, una cruz y otra cara. El Barón cerró el día con dos victorias y una derrota, y aun así vuelve a la portada de la vergüenza. Hay talentos que no se entrenan.",
+      "body": "Con profundo pesar, la Comisaría de Piltover comunica el fallecimiento, diecisiete veces, de la Diana de grangalax, ocurrido en la segunda Flex del lunes tras casi cuarenta minutos de agonía pública. La fallecida no había aparecido nunca en la hemeroteca en manos de su verdugo: era su estreno, y fue también su despedida.\n\nEl forense de Zaun, el doctor Humoverde, ha firmado el certificado con una sola línea: «Causa de la muerte: grangalax». Deja cuatro asesinatos, una montaña de asistencias de consolación, casi diez minutos en la pantalla gris y ni un solo punto de daño a objetivos, porque para tirar una torre hay que estar vivo cerca de ella. Le sobrevive un Vladimir rival que terminó la partida con siete mil de oro más y cara de no creérselo.\n\nLas diecisiete muertes son el nuevo récord del periódico. El anterior, dieciséis con Ekko, también era suyo. Y aquí está la gracia de la moneda: esa misma madrugada, con Ekko, grangalax ganó su SoloQ dando una clase de duelos. Una cara, una cruz y otra cara.\n\nEl Barón cerró el día con dos victorias y una derrota, y aun así vuelve a la portada de la vergüenza. Hay talentos que no se entrenan.",
       "stat": "17",
       "stat_label": "muertes con Diana: récord de la hemeroteca",
       "imagen": null,
@@ -263,7 +263,7 @@
       "alias": null,
       "headline": "SoloQ del lunes",
       "subtitulo": "",
-      "body": "FR4NUX Y SAIKO EN DÚO STOP DOS VICTORIAS STOP CHO'GATH SIN MORIR Y JINX CON TRIPLE STOP WÔLF 1-1: GRAGAS PIERDE, ZED GANA STOP GRANGALAX GANA CON EKKO DE MADRUGADA STOP LA MONEDA SIGUE GIRANDO STOP",
+      "body": "FR4NUX Y SAIKO EN DÚO. DOS VICTORIAS. CHO'GATH SIN MORIR Y JINX CON TRIPLE. WÔLF 1-1: GRAGAS PIERDE, ZED GANA. GRANGALAX GANA CON EKKO DE MADRUGADA. LA MONEDA SIGUE GIRANDO",
       "stat": "",
       "stat_label": "",
       "imagen": null,
@@ -1624,6 +1624,18 @@
       "pieza": 2,
       "campo": "body",
       "created_at": "2026-10-20T16:47:30.883739+00:00"
+    },
+    {
+      "id": 4,
+      "pieza": 3,
+      "campo": "body",
+      "created_at": "2026-10-20T16:51:57.804522+00:00"
+    },
+    {
+      "id": 5,
+      "pieza": 9,
+      "campo": "body",
+      "created_at": "2026-10-20T16:56:04.683078+00:00"
     }
   ]
 }

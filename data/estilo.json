@@ -19,6 +19,30 @@
     {
       "texto": "Mezclar el lore de Runeterra con los datos: gusta mucho, pero como envoltorio de un chiste, no como relleno descriptivo.",
       "desde": "inicio"
+    },
+    {
+      "texto": "Metáforas sencillas: si la imagen necesita dos vueltas para entenderse (la moneda que cae de canto y rueda), sobra. Mejor la frase corta y seca que remata.",
+      "desde": "2026-10-21"
+    },
+    {
+      "texto": "Cambiar el adorno descriptivo por un golpe concreto sobre cómo juega en su rol: la caña pica más que el decorado, y la jerga de jugador vale.",
+      "desde": "2026-10-21"
+    },
+    {
+      "texto": "Incluso al elogiar se deja un pinchazo (no «disparaba balas de verdad», sino «dejó de disparar balas de goma»). Un taco bien puesto en el remate suma.",
+      "desde": "2026-10-21"
+    },
+    {
+      "texto": "No anunciar el humor («con algo de cachondeo»): cara de palo. Vocabulario claro aunque el tono sea formal, y el remate final en su propio párrafo corto.",
+      "desde": "2026-10-21"
+    },
+    {
+      "texto": "Una lista de datos sin giro no es humor: el telegrama con STOP no hizo gracia. Cada línea necesita un chiste o sobra.",
+      "desde": "2026-10-21"
+    },
+    {
+      "texto": "Las propuestas de los lectores se atribuyen a «fuentes de confianza», no a «nuestro lector».",
+      "desde": "2026-10-21"
     }
   ],
   "ejemplos": [
@@ -29,7 +53,7 @@
       "antes": "Según nos cuenta nuestro lector, el Rincón del Viciado, que la temporada pasada se coló en los playoffs de la primera división de la ACE League, vuelve a la competición para demostrar que aquello no fue un golpe de suerte. La plantilla es la de siempre, los diez desgraciados que llenan este periódico cada mañana, más un fichaje que nadie vio venir: Saiko, vieja gloria rescatada del arcón, con el polvo todavía en los hombros.\n\nEn los despachos rivales se ríen. En los foros se discute si es un regreso triunfal o un acto de nostalgia de gente que ya no sabe ganar sola. Esta redacción, que no tiene amigos, ha preferido mirar los datos: el lunes, Saiko jugó tres partidas y ganó las tres. Dos en dúo con Fr4nux, al que llevó de la mano como quien saca a pasear a un perro viejo, y la primera Flex de la noche con el grupo, de soporte con Alistar, repartiendo asistencias como quien reparte octavillas.\n\nEl comisario Cobretuerca, que ya ha abierto ficha al recién llegado por si acaso, resume el sentir de Piltover: «Un fichaje que no pierde en un equipo que no gana. Algo se va a romper, y no va a ser él». La ACE League queda avisada. El resto del grupo, también.",
       "despues": "Según nos cuentan fuentes de confianza, el Rincón del Viciado, que la temporada pasada se coló en los playoffs de la primera división de la ACE League, vuelve a la competición para demostrar que aquello no fue un golpe de suerte. La plantilla es la de siempre, los diez desgraciados que llenan este periódico cada mañana, más un fichaje que nadie vio venir: Saiko, vieja gloria rescatada del baul de los recuerdos que se dedica a intear las desde la posicion de support.\n\nEn los despachos rivales se ríen. En los foros se discute si es un regreso triunfal o un acto de nostalgia de gente que ya no sabe ganar sola. Esta redacción, que no tiene amigos, ha preferido mirar los datos: el lunes, Saiko jugó tres partidas y ganó las tres. Dos en dúo con Fr4nux, al que llevó de la mano como quien saca a pasear a un perro viejo, y la primera Flex de la noche con el grupo, de soporte con Alistar, repartiendo asistencias como quien reparte octavillas.\n\nEl comisario Cobretuerca, que ya ha abierto ficha al recién llegado por si acaso, resume el sentir de Piltover: «Un fichaje que no pierde en un equipo que no gana. Algo se va a romper, y no va a ser él». La ACE League queda avisada. El resto del grupo, también.",
       "nota": null,
-      "analizado": false
+      "analizado": "2026-10-21"
     },
     {
       "id": 2,
@@ -38,7 +62,25 @@
       "antes": "La primera fue un paseo. Saiko se plantó de soporte, Dierophant estrenó Wukong en la jungla y entró a las peleas con la tranquilidad de quien ha leído el final del libro, y GSJoseador se fabricó un triple asesinato con Vex para que constara en acta. Hasta Sunraku, que no hizo gran cosa con su Gnar, acabó ganando: en un buen equipo, hasta el mobiliario suma.\n\nLa segunda fue un velatorio con banda de música. Entró grangalax, se puso una Diana que no había tocado en su vida, y el Barón de la Moneda cumplió con su leyenda: la moneda no cayó de cara ni de cruz, cayó al suelo y rodó hasta la base enemiga. Ni el Cho'Gath de GSJoseador, que se comió a medio equipo rival, ni una Caitlyn de Fr4nux que por fin disparaba balas de verdad pudieron con aquello. Treinta y ocho minutos de agonía y derrota.\n\nLa tercera, ya con el reloj apuntando a medianoche, fue la de la dignidad: cuarenta y cuatro minutos, Fr4nux convertido en el carry que juraba no ser, Sunraku con el Urgot prestado de un ausente y Dierophant iluminando el mapa con Rell como si le pagaran por cada guardián. Victoria y dos a uno en la noche. Los cronistas de Noxus coinciden: si este es el ensayo de la ACE League, la temporada va a ser larga. Y ruidosa.",
       "despues": "La primera fue un paseo. Saiko se plantó de soporte, Dierophant estrenó Wukong en la jungla y entró a las peleas con la tranquilidad de quien ha leído el final del libro, y GSJoseador se fabricó un triple asesinato con Vex para que constara en acta. Hasta Sunraku, que no hizo gran cosa con su Gnar, acabó ganando: en un buen equipo, hasta el mobiliario suma.\n\nLa segunda fue un velatorio con banda de música. Entró grangalax, se puso una Diana que no había tocado en su puta vida, y el Barón de la Moneda cumplió con su leyenda: la moneda cayó cruz un dia mas. Ni el Cho'Gath de GSJoseador, que se comió a medio equipo rival, ni una Caitlyn de Fr4nux que por fin dejo de disparar balas de goma pudieron con aquello. Treinta y ocho minutos de agonía y derrota.\n\nLa tercera, ya con el reloj apuntando a medianoche, fue la de la dignidad: cuarenta y cuatro minutos, Fr4nux convertido en el carry que juraba no ser, Sunraku con el Urgot prestado de un ausente y Dierophant iluminando el mapa con Rell como si le pagaran por cada guardián. Victoria y dos a uno en la noche. Los cronistas de Noxus coinciden: si este es el ensayo de la ACE League, la temporada va a ser larga. Y ruidosa.",
       "nota": "Por qu eel humor era bastante castroso",
-      "analizado": false
+      "analizado": "2026-10-21"
+    },
+    {
+      "id": 4,
+      "edicion": "2026-10-20",
+      "campo": "body",
+      "antes": "Con profundo pesar y algo de cachondeo, la Comisaría de Piltover comunica el fallecimiento, diecisiete veces, de la Diana de grangalax, ocurrido en la segunda Flex del lunes tras casi cuarenta minutos de agonía pública. La finada no había aparecido nunca en la hemeroteca en manos de su verdugo: era su estreno, y fue también su despedida.\n\nEl forense de Zaun, el doctor Humoverde, ha firmado el certificado con una sola línea: «Causa de la muerte: grangalax». Deja cuatro asesinatos, una montaña de asistencias de consolación, casi diez minutos en la pantalla gris y ni un solo punto de daño a objetivos, porque para tirar una torre hay que estar vivo cerca de ella. Le sobrevive un Vladimir rival que terminó la partida con siete mil de oro más y cara de no creérselo.\n\nLas diecisiete muertes son el nuevo récord del periódico. El anterior, dieciséis con Ekko, también era suyo. Y aquí está la gracia de la moneda: esa misma madrugada, con Ekko, grangalax ganó su SoloQ dando una clase de duelos. Una cara, una cruz y otra cara. El Barón cerró el día con dos victorias y una derrota, y aun así vuelve a la portada de la vergüenza. Hay talentos que no se entrenan.",
+      "despues": "Con profundo pesar, la Comisaría de Piltover comunica el fallecimiento, diecisiete veces, de la Diana de grangalax, ocurrido en la segunda Flex del lunes tras casi cuarenta minutos de agonía pública. La fallecida no había aparecido nunca en la hemeroteca en manos de su verdugo: era su estreno, y fue también su despedida.\n\nEl forense de Zaun, el doctor Humoverde, ha firmado el certificado con una sola línea: «Causa de la muerte: grangalax». Deja cuatro asesinatos, una montaña de asistencias de consolación, casi diez minutos en la pantalla gris y ni un solo punto de daño a objetivos, porque para tirar una torre hay que estar vivo cerca de ella. Le sobrevive un Vladimir rival que terminó la partida con siete mil de oro más y cara de no creérselo.\n\nLas diecisiete muertes son el nuevo récord del periódico. El anterior, dieciséis con Ekko, también era suyo. Y aquí está la gracia de la moneda: esa misma madrugada, con Ekko, grangalax ganó su SoloQ dando una clase de duelos. Una cara, una cruz y otra cara.\n\nEl Barón cerró el día con dos victorias y una derrota, y aun así vuelve a la portada de la vergüenza. Hay talentos que no se entrenan.",
+      "nota": "Palabras mas entendibles, aunque manteniendo el formalismo",
+      "analizado": "2026-10-21"
+    },
+    {
+      "id": 5,
+      "edicion": "2026-10-20",
+      "campo": "body",
+      "antes": "FR4NUX Y SAIKO EN DÚO STOP DOS VICTORIAS STOP CHO'GATH SIN MORIR Y JINX CON TRIPLE STOP WÔLF 1-1: GRAGAS PIERDE, ZED GANA STOP GRANGALAX GANA CON EKKO DE MADRUGADA STOP LA MONEDA SIGUE GIRANDO STOP",
+      "despues": "FR4NUX Y SAIKO EN DÚO. DOS VICTORIAS. CHO'GATH SIN MORIR Y JINX CON TRIPLE. WÔLF 1-1: GRAGAS PIERDE, ZED GANA. GRANGALAX GANA CON EKKO DE MADRUGADA. LA MONEDA SIGUE GIRANDO",
+      "nota": "No le veo la gracia",
+      "analizado": "2026-10-21"
     }
   ]
 }

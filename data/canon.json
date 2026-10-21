@@ -16,10 +16,19 @@
         {
           "fecha": "2026-10-20",
           "texto": "Diana: 17 muertes en su estreno"
+        },
+        {
+          "fecha": "2026-10-21",
+          "texto": "Syndra: 1/8/3 en su estreno"
         }
       ],
       "rivales": [],
-      "titulos": []
+      "titulos": [
+        {
+          "fecha": "2026-10-21",
+          "texto": "Rey Emérito de la Vergüenza"
+        }
+      ]
     },
     "thetrevur": {
       "alias": "TheTrevur",
@@ -36,7 +45,12 @@
           "texto": "Desaparecido mientras otros conducen su Urgot"
         }
       ],
-      "maldiciones": [],
+      "maldiciones": [
+        {
+          "fecha": "2026-10-21",
+          "texto": "Gnar: cuatro muertes en el mismo rincón"
+        }
+      ],
       "rivales": [],
       "titulos": []
     },
@@ -45,7 +59,11 @@
       "titulo_inicial": "Heraldo de los Pings",
       "faccion": "Radio Zaun",
       "apodos": [
-        "más perro que lobo"
+        "más perro que lobo",
+        {
+          "fecha": "2026-10-21",
+          "texto": "el Zed de las tres calles"
+        }
       ],
       "rasgos": [
         "Cien campeones y ninguno fijo",
@@ -78,7 +96,12 @@
         "Firmó un pentakill en la primera semana"
       ],
       "maldiciones": [],
-      "rivales": [],
+      "rivales": [
+        {
+          "fecha": "2026-10-21",
+          "texto": "Vayne, que le dejó un asesinato por educación"
+        }
+      ],
       "titulos": [
         {
           "fecha": "2026-10-20",
@@ -90,7 +113,12 @@
       "alias": "GSJoseador",
       "titulo_inicial": "El Comodín de Noxus",
       "faccion": "Arena de Noxus",
-      "apodos": [],
+      "apodos": [
+        {
+          "fecha": "2026-10-21",
+          "texto": "el faro del pozo"
+        }
+      ],
       "rasgos": [
         "Juega donde haga falta: jungla, top o mid",
         "Capaz de lo mejor y de batir su propio récord de muertes la misma semana"
@@ -108,7 +136,12 @@
         "Fue la primera portada de la vergüenza de la historia del periódico (1–4 y 37 muertes)",
         "Desde entonces, el que más visión pone del grupo"
       ],
-      "maldiciones": [],
+      "maldiciones": [
+        {
+          "fecha": "2026-10-21",
+          "texto": "Viego (0–3 en la hemeroteca)"
+        }
+      ],
       "rivales": [],
       "titulos": [
         {
@@ -121,13 +154,23 @@
       "alias": "iPredatoRz",
       "titulo_inicial": "El Fantasma del Vacío",
       "faccion": "Perdidos en el Vacío",
-      "apodos": [],
+      "apodos": [
+        {
+          "fecha": "2026-10-21",
+          "texto": "el heredero accidental"
+        }
+      ],
       "rasgos": [
         "Apenas aparece por la Grieta"
       ],
       "maldiciones": [],
       "rivales": [],
-      "titulos": []
+      "titulos": [
+        {
+          "fecha": "2026-10-21",
+          "texto": "Primer Rey de la Nueva General"
+        }
+      ]
     },
     "sunraku": {
       "alias": "Sunraku",
@@ -151,7 +194,12 @@
       "alias": "RDV Canyon",
       "titulo_inicial": "Locutor Jefe de Radio Zaun",
       "faccion": "Radio Zaun",
-      "apodos": [],
+      "apodos": [
+        {
+          "fecha": "2026-10-21",
+          "texto": "el chivato del mismo sitio"
+        }
+      ],
       "rasgos": [
         "Récord de pings de la primera semana",
         "Soporte de voz incansable"
@@ -237,6 +285,13 @@
       "institucion": "El Faro de la Esperanza",
       "rasgo": "Busca algo bueno que contar y casi nunca lo encuentra",
       "semilla": true
+    },
+    {
+      "nombre": "Un Súbdito Anónimo",
+      "cargo": "Columnista",
+      "institucion": "Calle central de la Grieta",
+      "rasgo": "Muere cada treinta segundos y lleva la cuenta de quién no le recoge",
+      "fecha": "2026-10-21"
     }
   ],
   "hilos": [
@@ -261,6 +316,10 @@
         {
           "fecha": "2026-10-20",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-21",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -284,6 +343,13 @@
           "titulares": [
             "Diana, estrenada y enterrada en la misma noche"
           ]
+        },
+        {
+          "fecha": "2026-10-21",
+          "resumen": "Cuatro SoloQ con Ekko alternando derrota y victoria; después, dos Flex perdidas, una estrenando Syndra (1/8/3). Día 2–4.",
+          "titulares": [
+            "Un Zed de tirador y otras decisiones del martes"
+          ]
         }
       ]
     },
@@ -304,6 +370,10 @@
         {
           "fecha": "2026-10-19",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-21",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -319,6 +389,13 @@
           "resumen": "grangalax suma su cuarta portada y llega a 26 puntos, diez por delante de Wôlf.",
           "titulares": [
             "El trono no se mueve"
+          ]
+        },
+        {
+          "fecha": "2026-10-21",
+          "resumen": "La General se reinicia por un error de fórmula. Recalculada, grangalax habría ganado igual (26 puntos y 4 portadas). Abdica sin que nadie le derrote.",
+          "titulares": [
+            "Esta casa se equivocó, y el Barón se queda sin trono"
           ]
         }
       ]
@@ -344,6 +421,10 @@
         {
           "fecha": "2026-10-20",
           "estado": "desenlace"
+        },
+        {
+          "fecha": "2026-10-21",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -367,6 +448,13 @@
           "titulares": [
             "Parte médico: remisión inesperada en el síndrome de daño ausente de Fr4nux"
           ]
+        },
+        {
+          "fecha": "2026-10-21",
+          "resumen": "Recaída: 0–2 en SoloQ. Una Vayne 14/2/3 le saca casi seis mil de oro en su estreno con Kai'Sa.",
+          "titulares": [
+            "Vayne: «Me esperaba un tirador. Me mandaron un recado»"
+          ]
         }
       ]
     },
@@ -379,14 +467,21 @@
         "fr4nux",
         "grangalax",
         "gsjoseador",
+        "rdv-canyon",
         "saiko",
-        "sunraku"
+        "sunraku",
+        "thetrevur",
+        "wolf"
       ],
       "resumen": "Un lector anuncia el regreso del equipo del grupo a la ACE League, con Saiko rescatado del arcón. El ensayo del lunes acaba 2–1.",
       "estados": [
         {
           "fecha": "2026-10-20",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-21",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -397,6 +492,13 @@
             "NO ESTABAN MUERTOS, ESTABAN DE PARRANDA: vuelve el Rincón del Viciado y rescata a Saiko del arcón",
             "El ensayo general: una noche de Flex con dos victorias, un funeral y ningún culpable reconocido"
           ]
+        },
+        {
+          "fecha": "2026-10-21",
+          "resumen": "La Lonja hunde la cotización de casi toda la plantilla antes del primer partido de la ACE League; GSJoseador cae de Diamante IV a Plata I en Flex.",
+          "titulares": [
+            "El Rincón del Viciado pierde una división entera sin jugar un partido"
+          ]
         }
       ]
     },
@@ -405,6 +507,7 @@
       "titulo": "La maldición del tabernero",
       "abierto": "2026-10-20",
       "protagonistas": [
+        "grangalax",
         "wolf"
       ],
       "resumen": "Wôlf pierde su tercera partida con Gragas en la hemeroteca. El tribunal inhabilita al tabernero.",
@@ -412,6 +515,10 @@
         {
           "fecha": "2026-10-20",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-21",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -420,6 +527,13 @@
           "resumen": "Wôlf pierde su tercera partida con Gragas en la hemeroteca. El tribunal inhabilita al tabernero.",
           "titulares": [
             "Gragas, acusado de arruinar a Wôlf por tercera vez"
+          ]
+        },
+        {
+          "fecha": "2026-10-21",
+          "resumen": "Gragas ya castiga desde el bando rival: 20/6/10 contra el Ekko de grangalax en la primera Flex.",
+          "titulares": [
+            "Gragas cambia de bando"
           ]
         }
       ]
@@ -437,6 +551,10 @@
         {
           "fecha": "2026-10-20",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-21",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -445,6 +563,37 @@
           "resumen": "Con TheTrevur desaparecido, Sunraku se lleva su Urgot y lo conduce mejor que su propio Gnar.",
           "titulares": [
             "El cangrejo huérfano: Sunraku se lleva el Urgot de TheTrevur y lo devuelve mejor de lo que estaba"
+          ]
+        },
+        {
+          "fecha": "2026-10-21",
+          "resumen": "TheTrevur reaparece, pierde con Urgot en SoloQ y con Gnar en Flex muere cuatro veces en el mismo rincón: 0–3. El cangrejo estaba mejor con Sunraku.",
+          "titulares": [
+            "Vuelve TheTrevur, deja el cangrejo en casa y lo detienen igual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-heredero-accidental",
+      "titulo": "El heredero accidental",
+      "abierto": "2026-10-21",
+      "protagonistas": [
+        "ipredatorz"
+      ],
+      "resumen": "Con la General recién reiniciada, el primer líder es iPredatoRz, que jugó una partida, la ganó con Yasuo y murió doce veces.",
+      "estados": [
+        {
+          "fecha": "2026-10-21",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-21",
+          "resumen": "Con la General recién reiniciada, el primer líder es iPredatoRz, que jugó una partida, la ganó con Yasuo y murió doce veces.",
+          "titulares": [
+            "¿Quién es iPredatoRz y por qué manda?"
           ]
         }
       ]
@@ -462,23 +611,29 @@
     {
       "fecha": "2026-10-20",
       "texto": "Los lunes, la Flex del grupo arranca a las 21:00 y encadena tres partidas hasta cerca de medianoche."
+    },
+    {
+      "fecha": "2026-10-21",
+      "texto": "Los martes la Flex se adelanta a las siete de la tarde y a las ocho ya está perdida."
     }
   ],
   "chistes": [
     {
       "texto": "la moneda de grangalax",
       "fechas": [
-        "2026-10-20"
+        "2026-10-20",
+        "2026-10-21"
       ],
-      "usos": 1,
+      "usos": 2,
       "semilla": true
     },
     {
       "texto": "Urgot.exe",
       "fechas": [
-        "2026-10-20"
+        "2026-10-20",
+        "2026-10-21"
       ],
-      "usos": 1,
+      "usos": 2,
       "semilla": true
     },
     {
