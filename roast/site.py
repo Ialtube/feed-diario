@@ -385,8 +385,29 @@ ul.elenco li{padding:6px 0;break-inside:avoid;border-bottom:1px dotted var(--rul
 .porra-box form{margin-top:10px;border-top:1px dashed var(--ink);padding-top:10px}
 .pasa-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 .bolsa{margin-top:14px}
-.bolsa td small{display:block;font-size:.72rem;color:var(--muted);font-style:italic}
-.bolsa td.smurf{padding-left:18px;color:var(--muted)}
+.bolsa table{font-size:.84rem}
+.bolsa td{white-space:nowrap}
+.bolsa tbody.persona{border-top:2px solid var(--ink)}
+.bolsa tbody.persona:last-child{border-bottom:2px solid var(--ink)}
+.bolsa th.jug{font-family:"IM Fell English SC",serif;font-size:1.05rem;color:var(--ink);vertical-align:top;
+  border-right:1px solid var(--ink);border-bottom:0;padding:7px 6px 5px 2px;white-space:nowrap}
+.bolsa tbody.persona tr:first-child td{padding-top:7px}
+.bolsa tbody.persona tr:last-child td{border-bottom:0}
+.bolsa td.cuenta{padding-left:7px}
+.bolsa td.smurf{font-style:italic;color:var(--muted)}
+.bolsa .tipo{font-family:"IM Fell English SC",serif;font-style:normal;font-size:.78rem;letter-spacing:.04em;margin-left:4px}
+@media (max-width:560px){
+  .bolsa thead{display:none}
+  .bolsa table,.bolsa tbody.persona{display:block}
+  .bolsa tbody.persona{padding:4px 0 6px}
+  .bolsa tr{display:grid;grid-template-columns:1fr auto;column-gap:8px}
+  .bolsa th.jug{display:block;grid-column:1/-1;border-right:0;padding:4px 0 2px}
+  .bolsa td{display:block;border-bottom:0;padding:1px 0}
+  .bolsa td.cuenta{grid-column:1/-1;padding:4px 0 0 10px}
+  .bolsa td:not(.cuenta):not(.num){padding-left:10px}
+  .bolsa tr>td:nth-last-child(4)::before{content:"SoloQ · ";color:var(--muted)}
+  .bolsa tr>td:nth-last-child(2)::before{content:"Flex · ";color:var(--muted)}
+}
 .bolsa-nota{margin-top:6px;line-height:1.35}
 .rx .rx-share{margin-left:4px}
 .rx-rep{display:flex;gap:6px;align-items:center;font-size:.85rem}
@@ -1575,17 +1596,26 @@ def _bolsa(ed):
             change = "?" if e.get("dudoso") else "nuevo"
         return f'<td>{_e(e["posicion"])}{tag}</td><td class="num {cls}">{change}</td>'
 
-    def who(r):
-        if r.get("principal", True):
-            return f'<td>{_e(r["alias"])}<small>{_e(r["cuenta"])}</small></td>'
-        return f'<td class="smurf">↳ smurf<small>{_e(r["cuenta"])}</small></td>'
-    body = "".join(f'<tr>{who(r)}{cell(r.get("solo"))}{cell(r.get("flex"))}</tr>' for r in rows)
+    people = {}
+    for r in rows:      # already in order: each person with the main account first and the smurfs below
+        people.setdefault(r["slug"], []).append(r)
+
+    def account(r):
+        smurf = "" if r.get("principal", True) else ' <span class="tipo">smurf</span>'
+        return f'<td class="cuenta{"" if r.get("principal", True) else " smurf"}">{_e(r["cuenta"])}{smurf}</td>'
+
+    def person(accs):
+        name = f'<th scope="rowgroup" rowspan="{len(accs)}" class="jug">{_e(accs[0]["alias"])}</th>'
+        return ('<tbody class="persona">' + "".join(
+            f'<tr>{name if i == 0 else ""}{account(r)}{cell(r.get("solo"))}{cell(r.get("flex"))}</tr>'
+            for i, r in enumerate(accs)) + '</tbody>')
+    body = "".join(person(accs) for accs in people.values())
     since = f' (frente al {short_date(_date(b["desde"]))})' if b.get("desde") else ""
     return (f'<div class="board bolsa"><h4 class="kicker">Bolsa de LP{_e(since)}</h4><div class="tablewrap"><table><thead><tr>'
-            '<th>Cuenta</th><th>SoloQ</th><th class="num">LP</th><th>Flex</th><th class="num">LP</th></tr></thead><tbody>'
-            + body + '</tbody></table></div>'
+            '<th>Jugador</th><th>Cuenta</th><th>SoloQ</th><th class="num">LP</th><th>Flex</th><th class="num">LP</th></tr></thead>'
+            + body + '</table></div>'
             '<p class="small bolsa-nota">Cada cuenta se compara solo consigo misma, con la última vez que la miramos '
-            '(normalmente el día anterior); los smurfs van aparte, debajo de su dueño. La cifra es la diferencia en LP '
+            '(normalmente el día anterior); los smurfs van aparte, en la fila de su dueño. La cifra es la diferencia en LP '
             'contando 100 por división y 400 por liga: pasar de Oro IV con 20 LP a Plata I con 80 LP son ▼ 40. '
             '«nuevo»: es la primera vez que vemos esa cuenta en esa cola. «?»: el cambio no cuadra con las partidas '
             'jugadas y no se cuenta.</p></div>')
