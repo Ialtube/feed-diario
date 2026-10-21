@@ -125,19 +125,19 @@
       "slug": "ipredatorz",
       "alias": "iPredatoRz",
       "principal": true,
-      "flex": {
-        "tier": "GOLD",
-        "rank": "II",
-        "lp": 68,
-        "wins": 92,
-        "losses": 102
-      },
       "solo": {
         "tier": "EMERALD",
         "rank": "II",
         "lp": 94,
         "wins": 168,
         "losses": 156
+      },
+      "flex": {
+        "tier": "GOLD",
+        "rank": "II",
+        "lp": 68,
+        "wins": 92,
+        "losses": 102
       }
     },
     "sunraku#998": {
@@ -265,18 +265,18 @@
       "slug": "ipredatorz",
       "alias": "iPredatoRz",
       "principal": false,
-      "flex": {
-        "tier": "GOLD",
-        "rank": "II",
-        "lp": 25,
-        "wins": 26,
-        "losses": 24
-      },
       "solo": {
         "tier": "PLATINUM",
         "rank": "II",
         "lp": 14,
         "wins": 30,
+        "losses": 24
+      },
+      "flex": {
+        "tier": "GOLD",
+        "rank": "II",
+        "lp": 25,
+        "wins": 26,
         "losses": 24
       }
     },
