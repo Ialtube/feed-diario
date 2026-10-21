@@ -388,6 +388,12 @@ ul.elenco li{padding:6px 0;break-inside:avoid;border-bottom:1px dotted var(--rul
 .rx .rx-share{margin-left:4px}
 .rx-rep{display:flex;gap:6px;align-items:center;font-size:.85rem}
 
+/* boxed stories hug their content and line up with their neighbours (no half-empty frames) */
+.pozo article.s-sucesos,.pozo article.s-el-faro-de-la-esperanza,.pozo article.radio,
+.sec-grid>article.f-esquela,.sec-grid>article.f-telegrama,.sec-grid>article.f-anuncio-por-palabras,
+.sec-opinion .sec-grid>article.column{margin:0;align-self:start}
+.celda-anuncios{align-self:start;display:flex;flex-direction:column;gap:16px;padding-top:12px}
+.celda-anuncios .anuncio{margin:0}
 /* admin edit mode */
 body.editando [data-campo]{outline:2px dashed var(--accent);outline-offset:3px;cursor:text}
 body.editando [data-campo]:focus{outline-style:solid;background:rgba(255,248,225,.35)}
@@ -854,7 +860,7 @@ LECTORES_JS = r"""(function(){
   var pool = tpl ? Array.prototype.slice.call(tpl.content.children) : [];
   var used = 0;
   function clearFill(){
-    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid .anuncio, .anuncios-extra .anuncio'),
+    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid .celda-anuncios, .sec-grid .anuncio, .anuncios-extra .anuncio'),
                                  function(a){ a.remove(); });
     used = 0;
   }
@@ -879,18 +885,22 @@ LECTORES_JS = r"""(function(){
       if (!g.children.length) return;
       // cells taken in the last row, measured (big stories span two columns)
       var st = getComputedStyle(g), cw = parseFloat(st.gridTemplateColumns), gap = parseFloat(st.columnGap) || 0;
-      var lastTop = -1e9, taken = 0;
+      var lastTop = -1e9, taken = 0, rowH = 0;
       Array.prototype.forEach.call(g.children, function(c){ lastTop = Math.max(lastTop, Math.round(c.getBoundingClientRect().top)); });
       Array.prototype.forEach.call(g.children, function(c){
         var b = c.getBoundingClientRect();
-        if (Math.round(b.top) === lastTop) taken += Math.max(1, Math.round((b.width + gap) / (cw + gap)));
+        if (Math.abs(Math.round(b.top) - lastTop) <= 2) {
+          taken += Math.max(1, Math.round((b.width + gap) / (cw + gap)));
+          rowH = Math.max(rowH, b.height);
+        }
       });
       var rem = Math.max(0, cols - taken);
+      // each empty cell gets small ads stacked at their own size, never one ad stretched to the row
       while (rem > 0 && used < pool.length) {
-        var el = pool[used++].cloneNode(true), span = (rem >= 2 && el.dataset.wide) ? 2 : 1;
-        el.style.gridColumn = 'span ' + span;
-        g.appendChild(el);
-        rem -= span;
+        var cell = document.createElement('div'); cell.className = 'celda-anuncios';
+        g.appendChild(cell); rem -= 1;
+        do { cell.appendChild(pool[used++].cloneNode(true)); }
+        while (used < pool.length && rowH - cell.getBoundingClientRect().height > 220);
       }
     });
   }
@@ -1694,10 +1704,19 @@ def _comments(ed):
 </section>"""
 
 
+IMPRENTA_DESDE = "2026-10-20"   # from here on, the robot's template stories are never published
+
+
+def en_imprenta(ed):
+    """An edition Claude has not written yet: the page shows only the day's data."""
+    return not ed.get("ai") and ed["date"] >= IMPRENTA_DESDE
+
+
 def render_edition(cfg, ed, editions_until, rel, latest=False):
-    items = ed["items"]
+    imprenta = en_imprenta(ed)
+    items = [] if imprenta else ed["items"]
     lead = items[0] if items else None
-    v2 = (ed.get("ai") or {}).get("formato") == 2
+    v2 = (ed.get("ai") or {}).get("formato") == 2 or imprenta
     rest = [it for it in items[1:] if not (v2 and it.get("peso") == "breve")]
     breves = [it for it in items[1:] if v2 and it.get("peso") == "breve"]
     ticker = " ".join(f"<span>{_e(i['headline'])}</span>" for i in items[:8])
@@ -1730,6 +1749,11 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
         version = (ed.get("ai") or {}).get("version")
         writer = (f'<p class="small" style="margin-top:10px">Redacción: {_e(ed["written_by"])}'
                   + (f' (versión {version})' if version and version > 1 else "") + '.</p>')
+    if imprenta:
+        special = ('<section class="special t-negro"><div class="kicker">En imprenta</div>'
+                   '<h2>La redacción está escribiendo la edición de hoy</h2>'
+                   '<p>Sale a lo largo de la mañana. Mientras tanto, los números fríos del día, que no mienten '
+                   'aunque duelan.</p></section>')
     body = f"""
 <div class="ticker"><b>ÚLTIMA HORA</b><div class="run">{ticker}</div></div>
 {special}
@@ -1738,7 +1762,7 @@ def render_edition(cfg, ed, editions_until, rel, latest=False):
   <main>{_sections_v2(ed, rest, rel) if v2 else _sections(ed, rest, rel)}{_pasatiempos(ed, rel, latest, seers(editions_until))}{_comments(ed)}</main>{_fillers(ed)}
   <aside>
     <div class="box"><h4>General de la vergüenza</h4>{_general_table(board, rel, since)}</div>
-    <div class="box" data-ed="0"><h4>Frase del día</h4><p class="quote">«<span data-campo="frase">{_e(ed["frase"])}</span>»</p></div>
+    {"" if imprenta else f'<div class="box" data-ed="0"><h4>Frase del día</h4><p class="quote">«<span data-campo="frase">{_e(ed["frase"])}</span>»</p></div>'}
     <div class="box"><h4>El día en cifras</h4>{totals}{writer}</div>
     {_readers_boxes(ed, rel)}
     {_breves(breves, rel)}
@@ -1981,6 +2005,8 @@ def render_archive(cfg, editions):
     def title(ed):
         if ed.get("especial"):
             return f'{ed["especial"]["antetitulo"].capitalize()}: {ed["especial"]["titulo"]}'
+        if en_imprenta(ed):
+            return "En imprenta"
         return ed["items"][0]["headline"] if ed["items"] else "Sin noticias"
     lis = "".join(
         f'<li><span class="small">{_e(long_date(_date(ed["date"])).capitalize())}<br>Edición nº {ed["number"]}</span>'

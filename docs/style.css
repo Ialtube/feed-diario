@@ -366,6 +366,12 @@ ul.elenco li{padding:6px 0;break-inside:avoid;border-bottom:1px dotted var(--rul
 .rx .rx-share{margin-left:4px}
 .rx-rep{display:flex;gap:6px;align-items:center;font-size:.85rem}
 
+/* boxed stories hug their content and line up with their neighbours (no half-empty frames) */
+.pozo article.s-sucesos,.pozo article.s-el-faro-de-la-esperanza,.pozo article.radio,
+.sec-grid>article.f-esquela,.sec-grid>article.f-telegrama,.sec-grid>article.f-anuncio-por-palabras,
+.sec-opinion .sec-grid>article.column{margin:0;align-self:start}
+.celda-anuncios{align-self:start;display:flex;flex-direction:column;gap:16px;padding-top:12px}
+.celda-anuncios .anuncio{margin:0}
 /* admin edit mode */
 body.editando [data-campo]{outline:2px dashed var(--accent);outline-offset:3px;cursor:text}
 body.editando [data-campo]:focus{outline-style:solid;background:rgba(255,248,225,.35)}

@@ -421,7 +421,7 @@
   var pool = tpl ? Array.prototype.slice.call(tpl.content.children) : [];
   var used = 0;
   function clearFill(){
-    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid .anuncio, .anuncios-extra .anuncio'),
+    Array.prototype.forEach.call(document.querySelectorAll('.sec-grid .celda-anuncios, .sec-grid .anuncio, .anuncios-extra .anuncio'),
                                  function(a){ a.remove(); });
     used = 0;
   }
@@ -446,18 +446,22 @@
       if (!g.children.length) return;
       // cells taken in the last row, measured (big stories span two columns)
       var st = getComputedStyle(g), cw = parseFloat(st.gridTemplateColumns), gap = parseFloat(st.columnGap) || 0;
-      var lastTop = -1e9, taken = 0;
+      var lastTop = -1e9, taken = 0, rowH = 0;
       Array.prototype.forEach.call(g.children, function(c){ lastTop = Math.max(lastTop, Math.round(c.getBoundingClientRect().top)); });
       Array.prototype.forEach.call(g.children, function(c){
         var b = c.getBoundingClientRect();
-        if (Math.round(b.top) === lastTop) taken += Math.max(1, Math.round((b.width + gap) / (cw + gap)));
+        if (Math.abs(Math.round(b.top) - lastTop) <= 2) {
+          taken += Math.max(1, Math.round((b.width + gap) / (cw + gap)));
+          rowH = Math.max(rowH, b.height);
+        }
       });
       var rem = Math.max(0, cols - taken);
+      // each empty cell gets small ads stacked at their own size, never one ad stretched to the row
       while (rem > 0 && used < pool.length) {
-        var el = pool[used++].cloneNode(true), span = (rem >= 2 && el.dataset.wide) ? 2 : 1;
-        el.style.gridColumn = 'span ' + span;
-        g.appendChild(el);
-        rem -= span;
+        var cell = document.createElement('div'); cell.className = 'celda-anuncios';
+        g.appendChild(cell); rem -= 1;
+        do { cell.appendChild(pool[used++].cloneNode(true)); }
+        while (used < pool.length && rowH - cell.getBoundingClientRect().height > 220);
       }
     });
   }
