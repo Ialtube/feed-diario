@@ -277,3 +277,7 @@ tests/                  pruebas
 - **Discord**: avisa con la edición de la IA cuando la rutina la sube (no con la de imprenta) y a las 18:00 manda
   la previa de la noche con las cuotas.
 - Los juegos necesitan las tablas `jurado`, `quienfue` y `apuestas`: vuelve a ejecutar `supabase/setup.sql`.
+- **Memes**: la redacción usa plantillas clásicas y el arte de los campeones (con sus aspectos), dibujados con
+  memegen.link y guardados en `docs/img/memes/`. Las portadas de las ediciones especiales siempre llevan uno.
+- **Biblioteca del grupo** ([`docs/img/biblioteca`](docs/img/biblioteca)): deja ahí tus memes y fotos (desde GitHub,
+  *Add file → Upload files*) y descríbelos en su `LEEME.md`; la redacción los usa cuando encajan.
