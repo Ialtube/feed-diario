@@ -1,1 +1,4 @@
-Imágenes que el grupo sube para el periódico (se muestran en blanco y negro).
+Imágenes del periódico (se muestran en blanco y negro).
+- biblioteca/: memes e imágenes del grupo para que la redacción los use. Lee su LEEME.md.
+- memes/: los memes que dibuja la redacción (los genera el robot; no hace falta tocarlos).
+- voz-*.ext: las fotos que mandan los lectores con sus noticias (se guardan solas).

@@ -2385,7 +2385,7 @@ def _ed_datos(ed):
             if it.get("player") == slug or name.lower() in text:
                 players.setdefault(slug, []).append([it.get("id"), it["headline"]])
     out = {}
-    for slug in set(players) | set(pos) | set(tiempo):
+    for slug in sorted(set(players) | set(pos) | set(tiempo)):   # sorted: the same page every build
         p, dia = pos.get(slug, (None, None))
         out[slug] = {"piezas": players.get(slug, []), "puesto": p, "de": len(rk), "dia": dia, "tiempo": tiempo.get(slug)}
     data = {"jugadores": out, "saldos": {a["nombre"].lower(): a["saldo"] for a in LEDGER.get("cuentas") or []}}

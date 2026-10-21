@@ -232,6 +232,18 @@ class AIFlowTest(unittest.TestCase):
                 for b in bad:
                     with self.assertRaises(ai.AIError):
                         ai.validate_v2(b, ed, known, dossier)
+                # a special edition opens with a meme or a picture from the group's library
+                especial = {"titulo": "Edición especial de prueba", "tema": "oro"}
+                with self.assertRaises(ai.AIError):
+                    ai.validate_v2(dict(data, especial=especial), ed, known, dossier)
+                meme = {"plantilla": "drake", "lineas": ["Ganar la Flex", "Pickear Zed de tirador"]}
+                ok = ai.validate_v2(dict(data, especial=especial, piezas=[dict(piezas[0], meme=meme)] + piezas[1:]),
+                                    ed, known, dossier)
+                self.assertEqual(ok["piezas"][0]["meme"], meme)
+                for bad_meme in ({"plantilla": "no-existe", "lineas": ["a"]}, {"plantilla": "cmm", "lineas": ["a", "b"]},
+                                 {"lineas": ["sin plantilla ni campeón"]}, {"campeon": "Zed", "lineas": ["a", "b", "c"]}):
+                    with self.assertRaises(ai.AIError):
+                        ai.validate_v2(dict(data, piezas=[dict(piezas[0], meme=bad_meme)] + piezas[1:]), ed, known, dossier)
                 # the whole session is printed by the page: Flex and SoloQ need no story of their own
                 ai.validate_v2(dict(data, piezas=piezas[:3] + [dict(p, angulo=None) for p in piezas[3:]]), ed, known, dossier)
                 # yesterday's promises and jury: tomorrow's paper must answer them
@@ -597,6 +609,32 @@ class AIFlowTest(unittest.TestCase):
             r = juegos.puzzle_result({}, ed, rows=[{"nombre": "Ana", "lector": "a", "intentos": 2, "acierto": True},
                                                    {"nombre": "Luis", "lector": "b", "intentos": 4, "acierto": False}])
             self.assertEqual((r["jugaron"], len(r["acertaron"]), r["fallaron"]), (2, 1, 1))
+
+    def test_memes(self):
+        from roast import memes
+        drake = memes.validate({"plantilla": "drake", "lineas": ["¿Daño? 100%", "a/b_c-d"]}, "t")
+        self.assertEqual(memes.url(drake),
+                         "https://api.memegen.link/images/drake/%C2%BFDa%C3%B1o~q_100~p/a~sb__c--d.jpg")
+        gru = memes.validate({"plantilla": "gru", "lineas": ["uno"]}, "t")
+        self.assertEqual(gru["lineas"], ["uno", "", "", ""])          # missing lines go blank
+        champ = memes.validate({"campeon": "Kai'Sa", "aspecto": 1, "lineas": ["¿Daño?"]}, "t")
+        self.assertIn("background=https%3A%2F%2Fddragon.leagueoflegends.com%2Fcdn%2Fimg%2Fchampion%2Fsplash%2FKaisa_1.jpg",
+                      memes.url(champ))
+        for ok in ("voz-2.png", "biblioteca/escudo.png", "memes/2026-10-22-1.jpg"):
+            self.assertTrue(memes.IMAGE_RE.fullmatch(ok))
+        for bad in ("../config.json", "biblioteca/../../x.png", "otra/x.png", ".oculta.png"):
+            self.assertFalse(memes.IMAGE_RE.fullmatch(bad))
+        # if memegen cannot draw it, the story keeps the text over the champion instead
+        clean = {"piezas": [{"headline": "Titular", "campeon": None, "imagen": None, "meme_arriba": "", "meme_abajo": "",
+                             "meme": {"campeon": "Zed", "aspecto": 0, "lineas": ["Arriba", "Abajo"]}}]}
+        old = memes.make
+        memes.make = lambda m, name: (_ for _ in ()).throw(memes.MemeError("sin red"))
+        try:
+            ai.draw_memes(clean, "2026-10-22", log=lambda *_: None)
+        finally:
+            memes.make = old
+        p = clean["piezas"][0]
+        self.assertEqual((p["meme_arriba"], p["meme_abajo"], p["campeon"], p["meme"]), ("Arriba", "Abajo", "Zed", None))
 
     def test_calendar_and_agenda(self):
         self.assertEqual(ai.edition_kind("2026-10-25"), ["dominical"])

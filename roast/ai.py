@@ -17,6 +17,7 @@ from . import coronas
 from . import correcciones
 from . import juegos
 from . import lectores
+from . import memes
 from . import porra as porra_mod
 from .dossier import FIXED, REQUIRED, build_dossier, detailed_games
 from .roasts import DESKS
@@ -257,6 +258,13 @@ def build_context(store, date_str, history_days=7, fetch_proposals=True, cfg=Non
         "imagenes_disponibles": sorted(p.name for p in IMG_DIR.glob("*")
                                        if p.suffix.lower() in (".jpg", ".jpeg", ".png", ".gif", ".webp"))
                                 if IMG_DIR.exists() else [],
+        "memes": {
+            "plantillas": memes.catalog(),
+            "biblioteca": memes.library(editions),
+            "aspectos": memes.skins({g["champ"] for g in today.get("games") or []}) if fetch_proposals else {},
+            "recientes": [{"fecha": e["date"], **it["meme"]} for e in previous[-5:] for it in e.get("items") or []
+                          if it.get("meme")],
+        },
     }
 
 
@@ -299,8 +307,9 @@ def _voz_fields(it, where, pending, clean):
         clean["propuestas_usadas"].append(prop)
     clean.setdefault("_props_por_pieza", []).append(ids)
     if imagen:
-        if not re.fullmatch(r"[\w.\-]+\.(jpe?g|png|gif|webp)", imagen, re.I) or not (IMG_DIR / imagen).exists():
-            raise AIError(f"{where}.imagen {imagen!r} no existe en docs/img/ (pon solo el nombre del archivo)")
+        if not memes.IMAGE_RE.fullmatch(imagen) or not (IMG_DIR / imagen).exists():
+            raise AIError(f"{where}.imagen {imagen!r} no existe en docs/img/ (pon el nombre del archivo, o "
+                          "«biblioteca/archivo» para las de la biblioteca)")
     return names, imagen
 
 
@@ -345,6 +354,14 @@ def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=N
         if player is not None and player not in known_slugs:
             raise AIError(f"{w}.player {player!r} no es un jugador conocido ({', '.join(sorted(known_slugs))})")
         fuentes, imagen = _voz_fields(it, w, pending, clean)
+        meme = None
+        if it.get("meme"):
+            if imagen:
+                raise AIError(f"{w}: o «imagen» o «meme», no los dos (una pieza lleva una sola foto)")
+            try:
+                meme = memes.validate(it["meme"], w)
+            except memes.MemeError as e:
+                raise AIError(str(e))
         lo, hi = PESOS[peso][1]
         # a proposal is its own story in La Voz de Runeterra unless it is told inside another section
         section = _text(it.get("seccion") or (angle or {}).get("tema") or
@@ -374,6 +391,7 @@ def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=N
             "meme_arriba": _text(it.get("meme_arriba") or "", f"{w}.meme_arriba", 0, 60),
             "meme_abajo": _text(it.get("meme_abajo") or "", f"{w}.meme_abajo", 0, 60),
             "lector": lector, "voz": es_voz, "hilo": it.get("hilo") or None, "replica": it.get("replica"),
+            "meme": meme,
         })
         if it.get("replica") is not None:
             rep = replies.get(it["replica"])
@@ -418,6 +436,8 @@ def validate_v2(data, edition, known_slugs, dossier, canon=None, context_extra=N
     top, n = formats.most_common(1)[0]
     if top != "breve" and n > 0.4 * len(news):
         raise AIError(f"El formato «{top}» se repite en {n} de {len(news)} piezas: varía más")
+    if data.get("especial") and not (portadas[0]["meme"] or portadas[0]["imagen"]):
+        raise AIError("Hay edición especial: la portada lleva un meme («meme») o una imagen de la biblioteca («imagen»)")
     if any(a["tipo"] == "faro" for a in dossier["angulos"]) and \
             not any(p["section"] == "EL FARO DE LA ESPERANZA" for p in news):
         raise AIError("Falta El Faro de la Esperanza: al menos una pieza con seccion «EL FARO DE LA ESPERANZA»")
@@ -643,7 +663,7 @@ def apply_v2(edition, clean, canon_path=None):
             "entrevistado": p["entrevistado"], "pie": p["pie"], "meme_arriba": p["meme_arriba"],
             "meme_abajo": p["meme_abajo"], "lector": p["lector"],
             "severity": (base["portada"] if p["portada"] else base[p["peso"]]) - i, "facts": {},
-            "hilo": p["hilo"], "replica": p.get("replica"),
+            "hilo": p["hilo"], "replica": p.get("replica"), "meme": p.get("meme"),
         })
     edition["items"] = sorted(items, key=lambda it: -it["severity"])
     if canon_path and clean.get("canon"):
@@ -821,6 +841,23 @@ def apply(edition, clean, date_str):
     return edition
 
 
+def draw_memes(clean, date_str, log=print):
+    """Draws every meme of the edition and saves it in docs/img/memes/. If memegen cannot, the story
+    keeps the meme text over the champion's picture instead (never stops the edition)."""
+    for i, p in enumerate(clean["piezas"]):
+        m = p.get("meme")
+        if not m:
+            continue
+        try:
+            p["imagen"] = memes.make(m, f"{date_str}-{i + 1}")
+        except memes.MemeError as e:
+            log(f"  ! {e}: la pieza «{p['headline'][:40]}» lleva el texto encima de la foto")
+            lines = [x for x in m["lineas"] if x]
+            p["meme_arriba"], p["meme_abajo"] = (lines[0][:60] if lines else ""), (lines[-1][:60] if len(lines) > 1 else "")
+            p["campeon"] = p["campeon"] or m.get("campeon")
+            p["meme"] = None
+
+
 def apply_file(store, path, date_str=None, cfg=None, friends=None):
     data = load_json(path)
     m = re.search(r"(\d{4}-\d{2}-\d{2})", Path(path).name)
@@ -842,6 +879,7 @@ def apply_file(store, path, date_str=None, cfg=None, friends=None):
                  "jurado_ayer": juegos.jury_result(cfg, prev[-1]) if prev else None,
                  "promesas_ayer": [dict(p, n=i + 1) for i, p in enumerate(prev[-1].get("manana") or [])] if prev else []}
         clean = validate_v2(data, edition, known, dossier, canon_mod.load(canon_path), extra)
+        draw_memes(clean, edition["date"])
         apply_v2(edition, clean, canon_path)
         edition["lectores_ayer"] = extra["lectores_ayer"]
         edition["jurado_ayer"] = extra["jurado_ayer"]

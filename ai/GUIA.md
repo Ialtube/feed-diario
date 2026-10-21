@@ -316,14 +316,39 @@ Este es el punto en el que más se fija el grupo.
 
 ## Imágenes y memes
 
-El periódico imprime fotos en blanco y negro envejecido, y muchas llevan texto de meme.
-- Las piezas grandes y medianas con ángulo llevan solas el arte del campeón del ángulo. Puedes
-  cambiarlo con `campeon`, o usar `imagen` (un archivo de `imagenes_disponibles`, subido por el grupo).
+El periódico imprime fotos en blanco y negro envejecido, y muchas llevan texto de meme. Cada pieza
+lleva como mucho una foto, y hay cuatro maneras de dársela:
+- **El arte del campeón** (lo de siempre): las piezas grandes y medianas con ángulo llevan solas el
+  campeón del ángulo; cámbialo con `campeon`. Con `meme_arriba` y `meme_abajo` (60 caracteres como
+  mucho) le pones texto de meme encima.
+- **Un meme de plantilla** (`meme`): `{"plantilla": "drake", "lineas": ["Ganar la Flex", "Pickear Zed de
+  tirador"]}`. Las plantillas, con cuántas líneas lleva cada una y para qué sirve cada línea, están en
+  `memes.plantillas` del contexto (Drake, el novio distraído, «this is fine», el plan de Gru, Scooby-Doo
+  desenmascarando…). El robot lo dibuja con memegen.link al aplicar la edición y lo guarda en el
+  repositorio.
+- **Un meme sobre el arte de un campeón** (`meme`): `{"campeon": "Kai'Sa", "aspecto": 1, "lineas":
+  ["¿Daño?", "No sé qué es eso"]}`: dos líneas, arriba y abajo. `aspecto` es el número de uno de sus
+  aspectos (0, el básico); los de los campeones de hoy están en `memes.aspectos`, con su nombre. Elige
+  el aspecto que remate el chiste (el Zed de Proyecto para un Zed que no funcionó, un aspecto de
+  campeón de mundiales para el que juega como un plata…).
+- **Una imagen de la biblioteca del grupo** (`imagen`: `"biblioteca/archivo.png"`): los memes, fotos y
+  capturas que el grupo deja en `docs/img/biblioteca/`. Están en `memes.biblioteca` con su descripción y
+  la última vez que salieron. Si no tienen descripción, ábrela para ver qué sale antes de usarla. Son
+  oro: úsalas cuando encajen, y no repitas la misma en pocos días. Las fotos de los lectores siguen en
+  `imagenes_disponibles`.
+
+Cuándo:
+- **Ediciones especiales**: la portada lleva siempre un meme o una imagen de la biblioteca (el validador
+  lo exige). Es lo que se comparte.
+- Los demás días, uno o dos memes por edición, en las piezas donde el meme diga algo que el texto no
+  dice. Un meme que repite el titular sobra.
+- El meme sigue las reglas del humor de la casa: blanco claro, el giro en la última línea, nada de
+  explicarlo. Mira `memes.recientes` para no repetir plantilla en días seguidos.
 - `pie`: pie de foto gracioso, mejor con referencia a Runeterra.
-- `meme_arriba` y `meme_abajo`: texto de meme clásico, 60 caracteres como mucho cada uno.
 - Si una pieza sin foto tiene una cifra potente, ponla en `stat` y `stat_label`: se imprime como un
   cartel grande.
-- No descargues ni enlaces imágenes de internet.
+- No descargues ni enlaces imágenes de internet: solo las plantillas del catálogo, el arte de Riot y la
+  biblioteca del grupo.
 
 ## La Voz de Runeterra (noticias de los lectores)
 
@@ -420,6 +445,12 @@ las muertes de los tres que más murieron ese día. Mira `sorteo`:
      "campeon": "Kayn", "pie": "…", "meme_arriba": "…", "meme_abajo": "…"},
     {"angulo": "a4", "peso": "mediana", "formato": "parte policial", "headline": "…", "body": "…",
      "stat": "11", "stat_label": "muertes en 43 minutos"},
+    {"angulo": "a9", "peso": "mediana", "formato": "noticia", "headline": "…", "body": "…",
+     "meme": {"plantilla": "drake", "lineas": ["…", "…"]}, "pie": "…"},
+    {"angulo": "a12", "peso": "mediana", "formato": "análisis", "headline": "…", "body": "…",
+     "meme": {"campeon": "Zed", "aspecto": 1, "lineas": ["…", "…"]}},
+    {"angulo": null, "peso": "mediana", "formato": "crónica", "seccion": "ACE LEAGUE", "headline": "…", "body": "…",
+     "imagen": "biblioteca/escudo-rincon-del-viciado.png", "pie": "…"},
     {"angulo": "a7", "peso": "breve", "formato": "telegrama", "headline": "…", "body": "…"},
     {"angulo": null, "peso": "mediana", "formato": "reportaje", "seccion": "CULTURA", "headline": "…", "body": "…"},
     {"angulo": null, "peso": "mediana", "propuesta": 12, "formato": "noticia", "headline": "…", "body": "…"}
@@ -462,7 +493,7 @@ las muertes de los tres que más murieron ese día. Mira `sorteo`:
 ```
 
 Son opcionales en cada pieza: `seccion`, `desk`, `subtitulo`, `player`, `stat`, `stat_label`,
-`campeon`, `imagen`, `pie`, `meme_arriba`, `meme_abajo`, `propuesta`, `replica` y `hilo` (el `id` de un
+`campeon`, `imagen`, `meme`, `entrevistado`, `pie`, `meme_arriba`, `meme_abajo`, `propuesta`, `replica` y `hilo` (el `id` de un
 hilo abierto, o el de uno que abras hoy; si lo abres sin `id`, se genera desde el título).
 
 Después ejecuta `python -m roast apply-ai ai/edicion-AAAA-MM-DD.json`. Si da error, lee el mensaje,
