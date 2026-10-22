@@ -370,9 +370,9 @@
       "solo": {
         "tier": "GOLD",
         "rank": "IV",
-        "lp": 52,
-        "wins": 253,
-        "losses": 253
+        "lp": 50,
+        "wins": 254,
+        "losses": 254
       }
     },
     "thetrevur#urgod": {
@@ -623,7 +623,7 @@
       "solo": {
         "tier": "PLATINUM",
         "rank": "III",
-        "lp": 98,
+        "lp": 93,
         "wins": 30,
         "losses": 25
       },
@@ -693,19 +693,19 @@
       "slug": "rdv-canyon",
       "alias": "RDV Canyon",
       "principal": false,
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "III",
-        "lp": 34,
-        "wins": 57,
-        "losses": 52
-      },
       "flex": {
         "tier": "GOLD",
         "rank": "I",
         "lp": 10,
         "wins": 9,
         "losses": 7
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "III",
+        "lp": 34,
+        "wins": 57,
+        "losses": 52
       }
     }
   }
