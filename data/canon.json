@@ -5,7 +5,11 @@
       "titulo_inicial": "Barón de la Moneda",
       "faccion": "Casa de la Moneda de Piltover",
       "apodos": [
-        "la moneda"
+        "la moneda",
+        {
+          "fecha": "2026-10-22",
+          "texto": "el coach del minuto veinte"
+        }
       ],
       "rasgos": [
         "Su winrate histórico es un 50 % exacto: gana una, pierde otra",
@@ -28,14 +32,19 @@
           "fecha": "2026-10-21",
           "texto": "Rey Emérito de la Vergüenza"
         }
-      ]
+      ],
+      "arcos": []
     },
     "thetrevur": {
       "alias": "TheTrevur",
       "titulo_inicial": "Gran Maestre del Cangrejo",
       "faccion": "Talleres de Zaun",
       "apodos": [
-        "Urgot.exe"
+        "Urgot.exe",
+        {
+          "fecha": "2026-10-22",
+          "texto": "el ladrón de su propio cangrejo"
+        }
       ],
       "rasgos": [
         "One-trick de Urgot",
@@ -52,7 +61,8 @@
         }
       ],
       "rivales": [],
-      "titulos": []
+      "titulos": [],
+      "arcos": []
     },
     "wolf": {
       "alias": "Wôlf",
@@ -68,7 +78,11 @@
       "rasgos": [
         "Cien campeones y ninguno fijo",
         "Tiltea fatal",
-        "Abusa de los pings"
+        "Abusa de los pings",
+        {
+          "fecha": "2026-10-22",
+          "texto": "Juega la jungla sin guardianes y gana igual"
+        }
       ],
       "maldiciones": [
         {
@@ -82,7 +96,8 @@
           "texto": "Saiko, por el trono de los pings"
         }
       ],
-      "titulos": []
+      "titulos": [],
+      "arcos": []
     },
     "fr4nux": {
       "alias": "Fr4nux",
@@ -107,6 +122,13 @@
           "fecha": "2026-10-20",
           "texto": "El Tirador en Remisión"
         }
+      ],
+      "arcos": [
+        {
+          "tipo": "redención",
+          "texto": "Del síndrome de daño ausente a un cuádruple con Jinx; el Instituto no cierra el caso porque el mismo día murió once veces con Kog'Maw.",
+          "fecha": "2026-10-22"
+        }
       ]
     },
     "gsjoseador": {
@@ -125,7 +147,8 @@
       ],
       "maldiciones": [],
       "rivales": [],
-      "titulos": []
+      "titulos": [],
+      "arcos": []
     },
     "dierophant": {
       "alias": "Dierophant",
@@ -148,7 +171,8 @@
           "fecha": "2026-10-20",
           "texto": "Farero de los Centinelas"
         }
-      ]
+      ],
+      "arcos": []
     },
     "ipredatorz": {
       "alias": "iPredatoRz",
@@ -170,6 +194,13 @@
           "fecha": "2026-10-21",
           "texto": "Primer Rey de la Nueva General"
         }
+      ],
+      "arcos": [
+        {
+          "tipo": "villano",
+          "texto": "Gana muriendo más que nadie y así conserva el trono de la General sin que nadie sepa cómo quitárselo.",
+          "fecha": "2026-10-22"
+        }
       ]
     },
     "sunraku": {
@@ -188,7 +219,14 @@
       ],
       "maldiciones": [],
       "rivales": [],
-      "titulos": []
+      "titulos": [],
+      "arcos": [
+        {
+          "tipo": "en pausa",
+          "texto": "Resultó ser una cuenta de TheTrevur: el ladrón de cangrejos era el dueño con bigote postizo.",
+          "fecha": "2026-10-22"
+        }
+      ]
     },
     "rdv-canyon": {
       "alias": "RDV Canyon",
@@ -206,7 +244,8 @@
       ],
       "maldiciones": [],
       "rivales": [],
-      "titulos": []
+      "titulos": [],
+      "arcos": []
     },
     "giroroo": {
       "alias": "Giroroo",
@@ -218,7 +257,8 @@
       ],
       "maldiciones": [],
       "rivales": [],
-      "titulos": []
+      "titulos": [],
+      "arcos": []
     },
     "saiko": {
       "alias": "Saiko",
@@ -228,6 +268,10 @@
         {
           "fecha": "2026-10-20",
           "texto": "el que no pierde"
+        },
+        {
+          "fecha": "2026-10-22",
+          "texto": "el amuleto con devolución"
         }
       ],
       "rasgos": [
@@ -240,7 +284,8 @@
       ],
       "maldiciones": [],
       "rivales": [],
-      "titulos": []
+      "titulos": [],
+      "arcos": []
     }
   },
   "elenco": [
@@ -249,49 +294,118 @@
       "cargo": "Jefe de la Comisaría de Piltover",
       "institucion": "Comisaría de Piltover",
       "rasgo": "Lleva un expediente por jugador y ya no le caben en el archivo",
-      "semilla": true
+      "semilla": true,
+      "deseo": "Meter entre rejas al Barón de la Moneda con una prueba que aguante un juicio",
+      "secreto": "Juega a escondidas con una cuenta de Plata y tiene peor KDA que cualquiera de sus fichados",
+      "relacion": "La fiscal Hexwick le tumba los atestados por defectos de forma, y él lo vive como algo personal",
+      "cambios": []
     },
     {
       "nombre": "Fiscal Lucrecia Hexwick",
       "cargo": "Fiscal del Tribunal de Piltover",
       "institucion": "Tribunal de Piltover",
       "rasgo": "Nunca ha perdido un juicio por feed",
-      "semilla": true
+      "semilla": true,
+      "deseo": "Sentar en el banquillo a un jugador entero, no solo a sus partidas",
+      "secreto": "No ha ganado un juicio en su vida: todos sus acusados se declararon culpables antes de empezar",
+      "relacion": "Rival jurada del abogado Leguleyo; desprecia los atestados de Cobretuerca",
+      "cambios": []
     },
     {
       "nombre": "Doctor Ezequiel Humoverde",
       "cargo": "Forense de Zaun",
       "institucion": "Laboratorios de Zaun",
       "rasgo": "Hace las autopsias de las partidas; cobra por muerte",
-      "semilla": true
+      "semilla": true,
+      "deseo": "Que le asciendan a jefe de los Laboratorios de Zaun",
+      "secreto": "Cobra por autopsia, así que necesita que el grupo siga muriendo",
+      "relacion": "Le pasa a Barbanegra las cifras de muertes antes de que salgan en el periódico",
+      "cambios": []
     },
     {
       "nombre": "Barbanegra el Contable",
       "cargo": "Corredor de la Lonja",
       "institucion": "Lonja de Aguasturbias",
       "rasgo": "Cotiza a cada jugador como un valor en bolsa",
-      "semilla": true
+      "semilla": true,
+      "deseo": "Recuperar la confianza de la Lonja antes de que le pasen por la quilla",
+      "secreto": "Tiene apuestas abiertas contra los mismos jugadores que cotiza",
+      "relacion": "Socio en la sombra del doctor Humoverde; el director le protege y nadie sabe por qué",
+      "estado": "Bajo investigación interna por el escándalo de los smurfs",
+      "cambios": []
     },
     {
       "nombre": "Madame Niebla",
       "cargo": "Vidente y meteoróloga",
       "institucion": "Islas de la Sombra",
       "rasgo": "Firma el horóscopo y la previsión del tiempo; nunca acierta nada bueno",
-      "semilla": true
+      "semilla": true,
+      "deseo": "Acertar una predicción buena, una sola, antes de jubilarse",
+      "secreto": "Copia sus previsiones del parte de bajas del día anterior",
+      "relacion": "El Hermano Venda le lleva la contraria por principio",
+      "estado": "Su contrato depende de su porcentaje de aciertos",
+      "cambios": []
     },
     {
       "nombre": "Hermano Venda",
       "cargo": "Cronista de los Centinelas de la Luz",
       "institucion": "El Faro de la Esperanza",
       "rasgo": "Busca algo bueno que contar y casi nunca lo encuentra",
-      "semilla": true
+      "semilla": true,
+      "deseo": "Ver un día entero en que nadie del grupo muera más de cinco veces",
+      "secreto": "Se le está acabando la fe: tiene una carta de traslado a la Gaceta de Noxus sin enviar",
+      "relacion": "Discute con Madame Niebla por cada previsión",
+      "cambios": [
+        {
+          "fecha": "2026-10-22",
+          "campo": "estado",
+          "texto": "Reasignado al horóscopo, bajo supervisión de Madame Niebla, tras encontrar el papel del pagaré"
+        }
+      ]
     },
     {
       "nombre": "Un Súbdito Anónimo",
       "cargo": "Columnista",
       "institucion": "Calle central de la Grieta",
       "rasgo": "Muere cada treinta segundos y lleva la cuenta de quién no le recoge",
-      "fecha": "2026-10-21"
+      "fecha": "2026-10-21",
+      "cambios": []
+    },
+    {
+      "nombre": "Don Evaristo Plumanegra",
+      "cargo": "Director de El Rincón del Feeder",
+      "institucion": "La redacción",
+      "deseo": "Vender más que la Gaceta de Noxus, aunque sea un solo día",
+      "secreto": "Aprobó él la fórmula equivocada de la General y dejó que la culpa se la llevaran los números",
+      "relacion": "Protege a Barbanegra porque le debe dinero; enemigo público de Valeria Puñoférreo",
+      "semilla": true,
+      "cambios": [
+        {
+          "fecha": "2026-10-22",
+          "campo": "estado",
+          "texto": "Acusado por la Gaceta de deber dinero a Barbanegra; lo niega por comunicado"
+        }
+      ]
+    },
+    {
+      "nombre": "Gaspar Leguleyo",
+      "cargo": "Abogado de oficio de los acusados",
+      "institucion": "Bufete Leguleyo, Zaun",
+      "deseo": "Ganarle un juicio a la fiscal Hexwick",
+      "secreto": "Cobra en LP prestados y todavía no ha cobrado a nadie",
+      "relacion": "Defiende a cualquiera que la fiscal acuse, con razón o sin ella",
+      "semilla": true,
+      "cambios": []
+    },
+    {
+      "nombre": "Valeria Puñoférreo",
+      "cargo": "Directora de La Gaceta de Noxus",
+      "institucion": "La Gaceta de Noxus",
+      "deseo": "Hundir al Rincón del Feeder y quedarse con sus lectores",
+      "secreto": "Lee el Rincón cada mañana antes que su propio periódico",
+      "relacion": "Enemiga pública del director Plumanegra; defiende a quien el Rincón humilla, por llevar la contraria",
+      "semilla": true,
+      "cambios": []
     }
   ],
   "hilos": [
@@ -319,6 +433,10 @@
         },
         {
           "fecha": "2026-10-21",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-22",
           "estado": "escalando"
         }
       ],
@@ -349,6 +467,13 @@
           "resumen": "Cuatro SoloQ con Ekko alternando derrota y victoria; después, dos Flex perdidas, una estrenando Syndra (1/8/3). Día 2–4.",
           "titulares": [
             "Un Zed de tirador y otras decisiones del martes"
+          ]
+        },
+        {
+          "fecha": "2026-10-22",
+          "resumen": "Día 2–1 con Ekko, diez muertes en la derrota y 52 pings en una partida. Dierophant pide por carta que le bajen los humos.",
+          "titulares": [
+            "Querido Dierophant: los humos se bajan solos"
           ]
         }
       ]
@@ -425,6 +550,10 @@
         {
           "fecha": "2026-10-21",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-22",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -455,6 +584,13 @@
           "titulares": [
             "Vayne: «Me esperaba un tirador. Me mandaron un recado»"
           ]
+        },
+        {
+          "fecha": "2026-10-22",
+          "resumen": "Cuádruple con Jinx (14/6/8, 33,5 % del daño) y 4–2 en el día. El Instituto reabre el expediente, aunque el Kog'Maw de estreno murió once veces.",
+          "titulares": [
+            "Fr4nux da positivo en daño y el Instituto Hextech pide una segunda opinión"
+          ]
         }
       ]
     },
@@ -482,6 +618,10 @@
         {
           "fecha": "2026-10-21",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-22",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -498,6 +638,13 @@
           "resumen": "La Lonja publica una ruina de la plantilla que no existió (sumaba los smurfs a sus dueños) y la anula el mismo día. Barbanegra conserva el puesto.",
           "titulares": [
             "La Lonja anula la sesión del martes: Barbanegra sumaba los smurfs a la cuenta de sus dueños"
+          ]
+        },
+        {
+          "fecha": "2026-10-22",
+          "resumen": "Saiko pierde su primera partida con el grupo (Thresh 1/10/11) y muere el apodo «el que no pierde». El grupo va 4–1 en Flex el miércoles.",
+          "titulares": [
+            "Ha fallecido «el que no pierde»"
           ]
         }
       ]
@@ -519,6 +666,10 @@
         {
           "fecha": "2026-10-21",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-22",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -534,6 +685,13 @@
           "resumen": "Gragas ya castiga desde el bando rival: 20/6/10 contra el Ekko de grangalax en la primera Flex.",
           "titulares": [
             "Gragas cambia de bando"
+          ]
+        },
+        {
+          "fecha": "2026-10-22",
+          "resumen": "Wôlf gana por fin con Gragas (2/1/5 contra Teemo). El tribunal levanta la inhabilitación.",
+          "titulares": [
+            "El tabernero, absuelto"
           ]
         }
       ]
@@ -555,6 +713,10 @@
         {
           "fecha": "2026-10-21",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-22",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -571,6 +733,13 @@
           "titulares": [
             "Vuelve TheTrevur, deja el cangrejo en casa y lo detienen igual"
           ]
+        },
+        {
+          "fecha": "2026-10-22",
+          "resumen": "El registro confirma que Sunraku#998 es una cuenta de TheTrevur: el ladrón del cangrejo era su dueño. TheTrevur vuelve al Urgot y gana 14/7/8.",
+          "titulares": [
+            "El ladrón del cangrejo tenía las llaves de casa"
+          ]
         }
       ]
     },
@@ -586,6 +755,10 @@
         {
           "fecha": "2026-10-21",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-22",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -594,6 +767,99 @@
           "resumen": "Con la General recién reiniciada, el primer líder es iPredatoRz, que jugó una partida, la ganó con Yasuo y murió doce veces.",
           "titulares": [
             "¿Quién es iPredatoRz y por qué manda?"
+          ]
+        },
+        {
+          "fecha": "2026-10-22",
+          "resumen": "Yasuo en tres Flex ganadas con 14, 5 y 12 muertes; el 18,8 % del día en gris. Sigue líder de la General.",
+          "titulares": [
+            "Yasuo ingresa tres veces y le dan el alta con tres victorias"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-escandalo-de-la-lonja",
+      "titulo": "El escándalo de la Lonja",
+      "abierto": "2026-10-21",
+      "reparto": [
+        "Barbanegra el Contable",
+        "Don Evaristo Plumanegra"
+      ],
+      "resumen": "Tras publicar una ruina que no existió (sumaba los smurfs a sus dueños), Barbanegra está bajo investigación interna. El director le protege. ¿Por qué?",
+      "protagonistas": [],
+      "semilla": true,
+      "capitulos": [
+        {
+          "fecha": "2026-10-22",
+          "resumen": "El Hermano Venda encuentra en el libro de la Lonja un papel con las iniciales del director y la palabra «pagaré». El director lo niega y manda a Venda al horóscopo.",
+          "titulares": [
+            "La dirección niega el pagaré y reasigna a quien lo encontró"
+          ]
+        }
+      ],
+      "estados": [
+        {
+          "fecha": "2026-10-21",
+          "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-22",
+          "estado": "escalando"
+        }
+      ]
+    },
+    {
+      "id": "la-guerra-de-los-periodicos",
+      "titulo": "La guerra de los periódicos",
+      "abierto": "2026-10-21",
+      "reparto": [
+        "Don Evaristo Plumanegra",
+        "Valeria Puñoférreo"
+      ],
+      "resumen": "La Gaceta de Noxus sale a la calle para desmentir cada mañana al Rincón del Feeder y quitarle los lectores.",
+      "protagonistas": [],
+      "semilla": true,
+      "capitulos": [
+        {
+          "fecha": "2026-10-22",
+          "resumen": "La Gaceta de Noxus publica antes que el Rincón la exclusiva del pagaré, con una fuente «con hábito y venda». Primera exclusiva robada.",
+          "titulares": []
+        }
+      ],
+      "estados": [
+        {
+          "fecha": "2026-10-21",
+          "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-22",
+          "estado": "escalando"
+        }
+      ]
+    },
+    {
+      "id": "el-coach-de-la-soloq",
+      "titulo": "El coach que se fue en el descanso",
+      "abierto": "2026-10-22",
+      "protagonistas": [
+        "grangalax",
+        "ipredatorz"
+      ],
+      "reparto": [],
+      "resumen": "Una fuente atribuye la última Flex del miércoles al coacheo de grangalax, que a los veinte minutos ya jugaba su propia SoloQ. Juicio pendiente del jurado popular.",
+      "estados": [
+        {
+          "fecha": "2026-10-22",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-22",
+          "resumen": "Una fuente atribuye la última Flex del miércoles al coacheo de grangalax, que a los veinte minutos ya jugaba su propia SoloQ. Juicio pendiente del jurado popular.",
+          "titulares": [
+            "Juicio al coach que abandonó el banquillo en el minuto veinte"
           ]
         }
       ]
@@ -615,6 +881,10 @@
     {
       "fecha": "2026-10-21",
       "texto": "Los martes la Flex se adelanta a las siete de la tarde y a las ocho ya está perdida."
+    },
+    {
+      "fecha": "2026-10-22",
+      "texto": "Los miércoles la Flex arranca pasadas las ocho y encadena cinco partidas hasta cerca de la medianoche."
     }
   ],
   "chistes": [
@@ -638,17 +908,40 @@
     },
     {
       "texto": "más perro que lobo",
-      "fechas": [],
-      "usos": 0,
+      "fechas": [
+        "2026-10-22"
+      ],
+      "usos": 1,
       "semilla": true
     },
     {
       "texto": "CARRY NOT FOUND",
       "fechas": [
-        "2026-10-20"
+        "2026-10-20",
+        "2026-10-22"
       ],
-      "usos": 1,
+      "usos": 2,
       "semilla": true
+    }
+  ],
+  "sindicato": [
+    {
+      "campeon": "Thresh",
+      "jugador": "saiko",
+      "motivo": "Diez muertes y la primera sangre entregada en su primera derrota con el grupo",
+      "fecha": "2026-10-22"
+    },
+    {
+      "campeon": "Yasuo",
+      "jugador": "ipredatorz",
+      "motivo": "Treinta y una muertes en tres Flex que encima se ganaron, y ni una carta de agradecimiento",
+      "fecha": "2026-10-22"
+    },
+    {
+      "campeon": "Kog'Maw",
+      "jugador": "fr4nux",
+      "motivo": "Estrenado y muerto cuatro veces en el mismo rincón",
+      "fecha": "2026-10-22"
     }
   ]
 }

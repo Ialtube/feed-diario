@@ -1,0 +1,149 @@
+{
+  "piezas": [
+    {"angulo": "a61", "peso": "grande", "portada": true, "formato": "noticia", "hilo": "carry-not-found",
+     "seccion": "DAÑO", "player": "fr4nux",
+     "headline": "Fr4nux da positivo en daño y el Instituto Hextech pide una segunda opinión",
+     "subtitulo": "Un cuádruple con Jinx en la cuarta Flex del miércoles obliga a reabrir el expediente CARRY NOT FOUND, que ya tenía el sello de archivado.",
+     "body": "A las 22:33 del miércoles, los sensores del Instituto Hextech de Piltover dieron un pitido que nadie en el laboratorio había oído nunca. Venía de la calle de abajo. Fr4nux, paciente cero del síndrome de daño ausente, llevaba a Jinx y acababa de matar a cuatro rivales seguidos. En la misma partida firmó además un triple y dos dobles, terminó 14/6/8 y se quedó con el 33,5 % del daño de su equipo. La Xayah de enfrente, que había venido a lo mismo, se fue a casa con nueve muertes.\n\nLos técnicos revisaron el aparato dos veces. Ayer el expediente hablaba de recaída, con una Vayne paseándole en su estreno con Kai'Sa. Hoy el miércoles se cierra con cuatro victorias, dos derrotas y una subida de 73 LP en Flex hasta Oro I. Hasta su Xayah había dejado antes otro triple, con solo tres muertes.\n\nAhora, la letra pequeña, que es para lo que existe este periódico. La tarde empezó con una Kalista en SoloQ que se llevó la primera sangre y, con ella, toda la suerte disponible: derrota. Siguió con un estreno de Kog'Maw en el que murió once veces, cuatro en el mismo rincón, como quien vuelve al bar donde le partieron la cara. Y en la única Flex perdida, su Xayah puso cuatro guardianes en treinta minutos. El tirador que por fin acierta a los rivales sigue sin ver el mapa.\n\nEl Instituto no cierra el caso. Lo cambia de cajón: de «paciente sin daño» a «paciente que solo dispara cuando le apetece».\n\nQue, para un tirador, es peor.",
+     "campeon": "Jinx", "pie": "Jinx, aportada por el Instituto Hextech como prueba de cargo."},
+
+    {"angulo": "a34", "peso": "grande", "formato": "reportaje", "hilo": "el-cangrejo-huerfano",
+     "seccion": "REPORTAJE", "player": "thetrevur",
+     "headline": "El ladrón del cangrejo tenía las llaves de casa",
+     "subtitulo": "El registro de cuentas confirma que Sunraku#998 es de TheTrevur. El Urgot nunca estuvo huérfano: estuvo de incógnito.",
+     "body": "El lunes, este periódico contó con todo el dramatismo del mundo que TheTrevur había desaparecido y que un tal Sunraku, el ladrón de cangrejos, se había llevado su Urgot y lo conducía mejor que el dueño. El martes publicamos la vuelta del Gran Maestre, su detención, sus cuatro muertes en el mismo rincón y una frase que hoy duele releer: el cangrejo estaba mejor con Sunraku.\n\nEl miércoles, el registro de cuentas de la Lonja de Aguasturbias zanjó el caso con una sola línea: Sunraku#998 figura a nombre de TheTrevur. No hubo robo. Hubo un hombre que se ponía bigote postizo para jugar con su propio campeón y luego leía en el periódico que el desconocido lo hacía mejor. Esa cuenta, por cierto, subió 50 LP en Flex. En la Lonja, donde Barbanegra está bajo investigación precisamente por liar las cuentas de cada jugador con las de sus smurfs, la noticia se ha recibido con un silencio muy incómodo.\n\nYa sin careta, TheTrevur sacó el Urgot en la última Flex del día: entregó la primera sangre a los dos minutos y medio, se recompuso, se llevó el Heraldo y terminó 14/7/8 con victoria. Antes había estrenado Malphite y lo había perdido, y con el Cho'Gath se llevó el dragón y el Barón para acabar como el peor del grupo en una partida ganada. Tres victorias y una derrota, y el talento intacto para quedar mal incluso cuando gana.\n\nEl comisario Cobretuerca ha archivado la ficha de Sunraku con una nota a mano: «Denunciante y sospechoso firman con la misma letra».\n\nQueda cerrado el caso del cangrejo huérfano. Nunca tuvo un padre ausente. Tuvo un padre con dos cuentas que se leía los elogios a sí mismo en tercera persona.",
+     "meme": {"plantilla": "reveal", "lineas": ["Sunraku, el ladrón de cangrejos", "Veamos quién eres", "TheTrevur con bigote postizo", "Por eso lo conducía tan bien"]},
+     "pie": "Scooby-Doo, asesor externo de la comisaría, resuelve el caso en una tarde."},
+
+    {"angulo": "a3", "peso": "grande", "formato": "juicio", "hilo": "el-coach-de-la-soloq", "propuesta": 4,
+     "seccion": "SUCESOS", "player": "grangalax",
+     "headline": "Juicio al coach que abandonó el banquillo en el minuto veinte",
+     "subtitulo": "Una fuente de confianza atribuye la última victoria del miércoles a las instrucciones de grangalax. La fiscal Hexwick ha mirado el reloj.",
+     "body": "Una fuente de confianza, que conoce a grangalax mejor que nadie, nos hace llegar su versión de la última Flex del miércoles: si no llega a ser por el coacheo de grangalax, el grupo la pierde seguro, porque cuando llegó el Yasuo iba 1/3. La fuente no aclara qué se le dijo al Yasuo. El Yasuo acabó 9/12/6 y fue el peor del grupo en una partida ganada, así que, si hubo instrucciones, se cumplieron a medias o se cumplieron demasiado bien.\n\nLa fiscal Lucrecia Hexwick presentó una sola prueba: la hora. Aquella Flex arrancó a las 23:14 y duró 35 minutos. A las 23:34, el coach ya estaba jugando su propia SoloQ con Ekko. Veinte minutos de banquillo y a lo suyo. «Un seleccionador que se marcha en el descanso no ha entrenado al equipo, lo ha abandonado», expuso la fiscal, que pidió juzgar también su tarde: tres SoloQ con Ekko, una de ellas con diez muertes en 33 minutos y otra con 52 pings, que es lo más parecido a dar instrucciones que se le ha visto.\n\nEl abogado Gaspar Leguleyo, que cobra en LP prestados, sostuvo que el método de su cliente funciona precisamente cuando él no está: el equipo ganó y su Ekko también, 9/9/12. Dos victorias simultáneas con un solo entrenador. La fiscal le recordó que el Barón pasó dieciséis minutos del día mirando la pantalla gris, el 16,1 % de lo que jugó, y que los entrenadores de verdad no se mueren en directo.\n\nEl veredicto queda en manos del jurado popular. La fiscal, por si acaso, ya tiene redactada la condena: obligarle a coachearse a sí mismo."},
+
+    {"angulo": "a28", "peso": "mediana", "formato": "perfil", "seccion": "EL FARO DE LA ESPERANZA", "player": "dierophant",
+     "headline": "El farero que empezó prendiéndose fuego",
+     "subtitulo": "Dierophant cierra el miércoles 4–0 y es el mejor del día. Los Centinelas recomiendan no preguntar por la primera partida.",
+     "body": "El Hermano Venda llevaba días buscando algo bueno que contar y el miércoles se lo sirvió Dierophant: cuatro Flex, cuatro victorias y 75 LP más, hasta Diamante IV. El Primer Condenado, el que inauguró la General de la vergüenza, cierra el día como el mejor del grupo.\n\nEl principio fue otra cosa. Con Kindred entregó la primera sangre al minuto tres y murió once veces, y ganó porque entre muerte y muerte se llevó tres larvas del Vacío y un dragón. Después se pasó a soporte y se convirtió en lo que dice su título: con Rakan puso cincuenta y cinco guardianes, con Braum repartió veintidós asistencias y con Milio, veintitrés. Un faro, sí. Los faros también se quedan quietos mientras los demás reman.\n\nEl Hermano Venda lo ha apuntado en su libro de milagros con una nota al margen: el día en que nadie muera más de cinco veces todavía no ha llegado, y Dierophant fue el primero en impedirlo."},
+
+    {"angulo": "a16", "peso": "mediana", "formato": "ranking", "seccion": "LA VOZ DE RUNETERRA", "player": "wolf",
+     "headline": "Tres bosques, ningún mapa y seis victorias",
+     "body": "Una fuente de confianza nos manda una foto con un pie muy preciso: «Wolf con cara de perdido por la jungla». No la publicamos. Los datos son más crueles que la cara: el miércoles jugó tres Flex en la jungla, puso ocho guardianes entre las tres y el jungla rival le ganó en oro en todas. Este es el ranking de los que le encontraron antes de que se encontrara él:\n\n1. Viego, 19/8/1, que acabó 6.594 de oro por delante de la Evelynn que Wôlf estrenaba en la hemeroteca.\n2. Zed, 14/7/4, con 5.134 de ventaja sobre su Ekko. Que te pasee por el bosque el campeón que tú mismo sacas en mid no tiene nombre ni en Noxus.\n3. Ekko, que solo le sacó 528 a su Lillia, en la partida en la que Wôlf puso un guardián. Uno.\n\nY aun así ganó las tres. Siete partidas, seis victorias, casi cuatro horas en la Grieta y un ascenso a Esmeralda III en Flex. El perro no sabe dónde está, pero vuelve a casa con el periódico en la boca.",
+     "meme": {"plantilla": "gandalf", "lineas": ["Tres junglas, ocho guardianes", "No recuerdo este lugar"]},
+     "pie": "Imagen de archivo de un lobo de Radio Zaun buscando el campamento azul."},
+
+    {"angulo": "a11", "peso": "mediana", "formato": "esquela", "hilo": "el-rincon-del-viciado", "seccion": "SUCESOS", "player": "saiko",
+     "headline": "Ha fallecido «el que no pierde»",
+     "body": "EL QUE NO PIERDE, apodo de Saiko, la Reliquia del Arcón, falleció el miércoles a las 21:06, en la única Flex que perdió el grupo, a los dos días de su primer 3–0. Le sobreviven un Thresh 1/10/11, una primera sangre entregada al minuto tres y tres muertes en el mismo sitio, que es donde el soporte suele esperar al tirador y donde esta vez le esperaba el rival.\n\nSu familia en el Rincón del Viciado, que lo había fichado para la ACE League como amuleto, comunica que el amuleto admite devoluciones. La porra de los lectores, que apostó por Wôlf o por Fr4nux como peores del día, no le dedicó un solo voto: se fue como había llegado, sin que nadie le viera venir.\n\nNo se admiten flores. Se admiten guardianes, que él ya puso treinta y uno."},
+
+    {"angulo": null, "peso": "mediana", "formato": "comunicado oficial", "hilo": "el-escandalo-de-la-lonja", "seccion": "ECONOMÍA",
+     "headline": "La dirección niega el pagaré y reasigna a quien lo encontró",
+     "body": "COMUNICADO DE LA DIRECCIÓN. Ante las informaciones publicadas esta mañana por un tabloide noxiano, El Rincón del Feeder quiere aclarar tres cosas.\n\nPrimera: el documento hallado por el Hermano Venda en el libro de la Lonja de Aguasturbias no es un pagaré. Es un papel con las iniciales del director, una cantidad y la palabra «pagaré», que no es lo mismo. Segunda: Barbanegra el Contable sigue bajo investigación interna por mezclar cuentas y smurfs, y conserva su mesa por razones que no vienen al caso y que nada tienen que ver con el papel. Tercera: el Hermano Venda, que bajó a la Lonja a buscar una buena noticia para El Faro y volvió con esta, queda reasignado al horóscopo hasta nueva orden, bajo la supervisión de Madame Niebla.\n\nLa dirección confía plenamente en la honradez de su corredor de apuestas.\n\nLe va mucho en ello.\n\nFirmado: Don Evaristo Plumanegra, director."},
+
+    {"angulo": "a7", "peso": "mediana", "formato": "boletín médico", "hilo": "el-heredero-accidental", "seccion": "SALUD", "player": "ipredatorz",
+     "headline": "Yasuo ingresa tres veces y le dan el alta con tres victorias",
+     "body": "PARTE MÉDICO. Laboratorios de Zaun. Paciente: Yasuo, en manos de iPredatoRz, líder de la General de la vergüenza. Ingreso de urgencia en la Flex de las 21:46: catorce muertes en 39 minutos, una cada 2:46, con victoria. Recaída leve a las 22:33: cinco muertes y victoria. Nuevo ingreso a las 23:14: doce muertes y, otra vez, victoria. Antes había pasado por SoloQ en una visita de dieciséis minutos que acabó en derrota.\n\nDiagnóstico del doctor Humoverde, que cobra por autopsia y está encantado: síndrome del heredero. El paciente muere más que nadie a su alrededor, pasa el 18,8 % de lo que juega en la pantalla gris, la mayor proporción del grupo, y aun así su equipo sale del quirófano ganando. En dos de esas tres victorias fue el peor del grupo.\n\nPronóstico: reservado. El trono de la vergüenza no se conserva perdiendo.\n\nSe conserva así."},
+
+    {"angulo": null, "peso": "mediana", "formato": "carta al director", "hilo": "la-moneda", "seccion": "OPINIÓN", "player": "grangalax",
+     "headline": "Querido Dierophant: los humos se bajan solos",
+     "body": "Escribe el lector Dierophant: «grangalax se cree faker, hay que bajarle los humos». Esta casa recoge el encargo y lo da casi por cumplido, porque el interesado hace el trabajo solo. Faker no muere diez veces con Ekko en una SoloQ, no se pasa dieciséis minutos del día mirando la pantalla gris y no manda cincuenta y dos pings en una partida para que sus compañeros sepan que está disgustado.\n\nAhora bien, querido lector, quien pide humildad debería traerla puesta: usted abrió su miércoles entregando la primera sangre con Kindred al minuto tres y muriendo once veces en esa misma partida. Que después ganara las cuatro no le da derecho a humos. Se los prestan.\n\nY en esta casa los préstamos los lleva Barbanegra, así que cuente con que se los cobren dos veces."},
+
+    {"angulo": "a13", "peso": "breve", "formato": "breve", "seccion": "SUCESOS", "player": "gsjoseador",
+     "headline": "Ornn llega tarde a su propia fragua",
+     "body": "En la última SoloQ del miércoles, el Ornn de GSJoseador murió tres veces antes del minuto diez: a los cinco, a los siete y a los casi nueve. El dios de la forja no tuvo tiempo de encender el horno. Acabó 8/10/25, con 28 súbditos menos que el Darius de enfrente, y perdió."},
+
+    {"angulo": "a1", "peso": "breve", "formato": "breve", "seccion": "DEPORTES", "player": "rdv-canyon",
+     "headline": "La única que se escapó",
+     "body": "De las cinco Flex del miércoles, el grupo perdió una: la de Saiko y la Orianna recién estrenada por RDV Canyon. Un Yone le pasó por encima en mid hasta dejarle 2/7/4 y 4.956 de oro en contra. Los Centinelas la anotan como la peor partida del grupo. La comisaría, como la única que hacía falta."},
+
+    {"angulo": "a21", "peso": "breve", "formato": "breve", "seccion": "ECONOMÍA", "player": "rdv-canyon",
+     "headline": "Un smurf con nombre de compañero",
+     "body": "RDV Canyon sube 13 LP en Flex, de Oro II a Oro I, con su smurf SAIIIIIIKO#EUW. La Lonja, escaldada tras el escándalo de esta semana, lo apunta en línea aparte y sin preguntar por qué una cuenta suya lleva el nombre de otro. Barbanegra ha pedido que conste que él no ha sumado nada."},
+
+    {"angulo": null, "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD",
+     "headline": "El bote crece a golpe de muerte",
+     "body": "La combinación del Sorteo de la Grieta salió de los tres que más murieron el miércoles: 40, 40 y 41, cortesía del trío Fr4nux, GSJoseador y el lobo. Dos boletos, ningún acertante. El bote sigue en 400 coronas, esperando a alguien que confíe lo bastante en ellos como para apostar a que se mueren."},
+
+    {"angulo": null, "peso": "breve", "formato": "breve", "hilo": "la-maldicion-del-tabernero", "seccion": "CULTURA", "player": "wolf",
+     "headline": "El tabernero, absuelto",
+     "body": "Gragas había perdido sus tres partidas en manos del lobo y el martes castigó al grupo desde el bando rival. El miércoles volvió a sus manos, en top y contra un Teemo: 2/1/5 y victoria en 25 minutos. Sin brillo y sin muertes de más. El tribunal levanta la inhabilitación: el tabernero vuelve a servir, y Wôlf, a pagar en pings."},
+
+    {"angulo": "a19", "peso": "breve", "formato": "breve", "seccion": "EL FARO DE LA ESPERANZA", "player": "rdv-canyon",
+     "headline": "Diecisiete asistencias para nadie",
+     "body": "En el dúo de SoloQ con Fr4nux, RDV Canyon hizo con Leona lo que pudo: 2/3/17 y el 63,3 % de participación en las muertes de su equipo. Perdieron igual. Los Centinelas premian al soporte que encendió todas las luces de una casa que ya estaba vendida."}
+  ],
+  "tiempo": [
+    {"jugador": "grangalax", "texto": "Dieciséis minutos de pantalla gris sobre el mid. Se esperan claros siempre que no haya nadie a quien coachear."},
+    {"jugador": "saiko", "texto": "Apenas cuatro minutos de gris, pero concentrados en el mismo sitio. Bancos de niebla persistentes junto al tirador."},
+    {"jugador": "ipredatorz", "texto": "Veintitrés minutos de gris, el 18,8 % de su jornada. Chubascos de Yasuo en la calle central con alta probabilidad de victoria igualmente."},
+    {"jugador": "gsjoseador", "texto": "Veinticinco minutos de gris en seis partidas. Heladas tempranas antes del minuto diez en la zona de la fragua."},
+    {"jugador": "rdv-canyon", "texto": "Nueve minutos de gris, buena parte con Orianna. Cielos despejados con Leona, que no sirvieron de nada."},
+    {"jugador": "thetrevur", "texto": "Dieciocho minutos de gris repartidos entre dos identidades. Se esperan confusiones en la parte alta del mapa y en el registro."},
+    {"jugador": "fr4nux", "texto": "Veintiún minutos de gris con tormenta eléctrica a las 22:33. Despejado el resto del tiempo, salvo el mapa, que sigue a oscuras."},
+    {"jugador": "wolf", "texto": "Veinticinco minutos de gris en siete partidas. Bosque cerrado: se recomienda no entrar sin guardianes, si es que le queda alguno."},
+    {"jugador": "dierophant", "texto": "Quince minutos de gris, casi todos en la Flex de las ocho. Después, luz de faro toda la noche."}
+  ],
+  "canon": {
+    "hilos": [
+      {"id": "carry-not-found", "accion": "avanzar", "estado": "escalando", "resumen": "Cuádruple con Jinx (14/6/8, 33,5 % del daño) y 4–2 en el día. El Instituto reabre el expediente, aunque el Kog'Maw de estreno murió once veces.", "protagonistas": ["fr4nux"]},
+      {"id": "el-cangrejo-huerfano", "accion": "cerrar", "estado": "cerrado", "resumen": "El registro confirma que Sunraku#998 es una cuenta de TheTrevur: el ladrón del cangrejo era su dueño. TheTrevur vuelve al Urgot y gana 14/7/8.", "protagonistas": ["thetrevur"]},
+      {"id": "la-moneda", "accion": "avanzar", "estado": "escalando", "resumen": "Día 2–1 con Ekko, diez muertes en la derrota y 52 pings en una partida. Dierophant pide por carta que le bajen los humos.", "protagonistas": ["grangalax"]},
+      {"id": "el-coach-de-la-soloq", "accion": "abrir", "titulo": "El coach que se fue en el descanso", "resumen": "Una fuente atribuye la última Flex del miércoles al coacheo de grangalax, que a los veinte minutos ya jugaba su propia SoloQ. Juicio pendiente del jurado popular.", "protagonistas": ["grangalax", "ipredatorz"]},
+      {"id": "el-heredero-accidental", "accion": "avanzar", "estado": "escalando", "resumen": "Yasuo en tres Flex ganadas con 14, 5 y 12 muertes; el 18,8 % del día en gris. Sigue líder de la General.", "protagonistas": ["ipredatorz"]},
+      {"id": "el-escandalo-de-la-lonja", "accion": "avanzar", "estado": "escalando", "resumen": "El Hermano Venda encuentra en el libro de la Lonja un papel con las iniciales del director y la palabra «pagaré». El director lo niega y manda a Venda al horóscopo."},
+      {"id": "la-guerra-de-los-periodicos", "accion": "avanzar", "estado": "escalando", "resumen": "La Gaceta de Noxus publica antes que el Rincón la exclusiva del pagaré, con una fuente «con hábito y venda». Primera exclusiva robada."},
+      {"id": "la-maldicion-del-tabernero", "accion": "cerrar", "estado": "cerrado", "resumen": "Wôlf gana por fin con Gragas (2/1/5 contra Teemo). El tribunal levanta la inhabilitación.", "protagonistas": ["wolf"]},
+      {"id": "el-rincon-del-viciado", "accion": "avanzar", "estado": "escalando", "resumen": "Saiko pierde su primera partida con el grupo (Thresh 1/10/11) y muere el apodo «el que no pierde». El grupo va 4–1 en Flex el miércoles.", "protagonistas": ["saiko", "rdv-canyon"]}
+    ],
+    "personajes": {
+      "fr4nux": {"arco": {"tipo": "redención", "texto": "Del síndrome de daño ausente a un cuádruple con Jinx; el Instituto no cierra el caso porque el mismo día murió once veces con Kog'Maw."}},
+      "thetrevur": {"apodo": "el ladrón de su propio cangrejo"},
+      "saiko": {"apodo": "el amuleto con devolución"},
+      "grangalax": {"apodo": "el coach del minuto veinte"},
+      "ipredatorz": {"arco": {"tipo": "villano", "texto": "Gana muriendo más que nadie y así conserva el trono de la General sin que nadie sepa cómo quitárselo."}},
+      "sunraku": {"arco": {"tipo": "en pausa", "texto": "Resultó ser una cuenta de TheTrevur: el ladrón de cangrejos era el dueño con bigote postizo."}},
+      "wolf": {"rasgo": "Juega la jungla sin guardianes y gana igual"}
+    },
+    "elenco": [
+      {"nombre": "Hermano Venda", "estado": "Reasignado al horóscopo, bajo supervisión de Madame Niebla, tras encontrar el papel del pagaré"},
+      {"nombre": "Don Evaristo Plumanegra", "estado": "Acusado por la Gaceta de deber dinero a Barbanegra; lo niega por comunicado"}
+    ],
+    "costumbres": ["Los miércoles la Flex arranca pasadas las ocho y encadena cinco partidas hasta cerca de la medianoche."],
+    "chistes": ["CARRY NOT FOUND", "más perro que lobo"],
+    "sindicato": [
+      {"campeon": "Thresh", "jugador": "saiko", "motivo": "Diez muertes y la primera sangre entregada en su primera derrota con el grupo"},
+      {"campeon": "Yasuo", "jugador": "ipredatorz", "motivo": "Treinta y una muertes en tres Flex que encima se ganaron, y ni una carta de agradecimiento"},
+      {"campeon": "Kog'Maw", "jugador": "fr4nux", "motivo": "Estrenado y muerto cuatro veces en el mismo rincón"}
+    ]
+  },
+  "gaceta": {
+    "titular": "¡EXCLUSIVA! EL DIRECTOR DEL RINCÓN DEBE DINERO A SU PROPIO CORREDOR",
+    "cuerpo": "Fuentes de toda solvencia, una de ellas con hábito y la venda puesta, han hecho llegar a esta redacción lo que el Rincón del Feeder no se atrevía a publicar: un papel hallado en el libro de la Lonja con las iniciales de Don Evaristo Plumanegra y la palabra PAGARÉ. ¡Por eso Barbanegra sigue en su mesa! ¡No le protegen: LE DEBEN!\n\nY mientras tanto, ese pasquín le escribe una ESQUELA a Saiko por perder UNA partida después de ganar TRES. En Noxus eso se llama un 75 % de victorias. En el Rincón se llama funeral. Que cada lector saque sus conclusiones.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "jurado": {"pregunta": "¿Quién ganó de verdad la última Flex del miércoles?", "opciones": ["El coach grangalax", "TheTrevur y su Urgot", "El Milio de Dierophant", "El Yasuo, muriendo"], "juicio": false},
+  "manana": [
+    {"texto": "¿Volverá Fr4nux a pasar del 30 % del daño o el cuádruple fue un préstamo?"},
+    {"texto": "¿Aguantará grangalax en el banquillo una Flex entera?"},
+    {"texto": "Si Wôlf vuelve a la jungla, ¿pondrá más de un guardián por partida?"}
+  ],
+  "replicas_descartadas": [],
+  "estilo": {"pautas_nuevas": ["Cuando un jugador se chiva (de otro o de sí mismo), la gracia está en tomarse su versión en serio y contrastarla en frío con un dato concreto (la hora, el KDA), sin explicar el chiste."], "pautas_retiradas": []},
+  "horoscopo": [
+    {"signo": "Top", "texto": "Hoy descubrirás que la cuenta que te robaba era la tuya. Tu Malphite de estreno pide que no vuelvas a sacarlo sin avisar."},
+    {"signo": "Jungla", "texto": "Los astros te ven en el bosque, que es más de lo que vas a hacer tú. Compra un guardián: dicen que alumbran."},
+    {"signo": "Mid", "texto": "Morirás doce veces y te darán la victoria. Disfrútalo: el universo no suele equivocarse dos días seguidos."},
+    {"signo": "Tirador", "texto": "Un cuádruple no es un cambio de vida, es un día raro. Mañana tu Kog'Maw volverá al rincón de siempre."},
+    {"signo": "Soporte", "texto": "Treinta y un guardianes no sirven de nada si la primera sangre la pones tú. Hoy el amuleto eres tú, y no funciona."}
+  ],
+  "columna": {"titulo": "Manual del coach de sofá", "autor": "El Coach que Nadie Contrató", "cuerpo": [
+    "Llevo años ofreciendo mis servicios a este grupo y nadie me ha contratado. Esta semana he entendido por qué: el puesto ya estaba ocupado, y por alguien que ni siquiera se sienta en el banquillo.",
+    "El coach moderno no necesita ver la partida entera. Le basta con ver veinte minutos, notar que el Yasuo va 1/3, cosa que ve cualquiera, y marcharse a jugar su propia SoloQ antes de que el Yasuo muera doce veces. Si se gana, el mérito es del método. Si se pierde, el método no estaba presente.",
+    "Yo cometí el error de quedarme hasta el final de las partidas. Así no hay manera de cobrar."
+  ]},
+  "especial": null,
+  "frase": "Coachear es la única forma de perder una partida sin que salga en tu historial.",
+  "eventos_usados": [],
+  "propuestas_descartadas": [],
+  "firma": "Claude"
+}
