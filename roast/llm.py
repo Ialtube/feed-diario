@@ -67,7 +67,7 @@ def polish(edition, model, log=print):
             max_tokens=16000,
             betas=["server-side-fallback-2026-07-01"],
             fallbacks="default",
-            output_config={"effort": "medium",
+            output_config={"effort": "high",
                            "format": {"type": "json_schema", "schema": SCHEMA}},
             system=SYSTEM,
             messages=[{"role": "user", "content": json.dumps(payload, ensure_ascii=False)}],
