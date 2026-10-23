@@ -1,0 +1,138 @@
+{
+  "piezas": [
+    {"angulo": "a3", "peso": "grande", "portada": true, "formato": "crónica deportiva", "hilo": "la-moneda", "seccion": "DEPORTES", "player": "grangalax",
+     "headline": "El señor del tiempo pasó veintinueve minutos muerto",
+     "subtitulo": "El Ekko de grangalax ganó tres SoloQ sin despeinarse y por la noche, en la Flex, fue otro.",
+     "body": "Ekko controla el tiempo. grangalax, de momento, solo controla cuánto pasa muerto.\n\nDe día, con Ekko, el Barón de la Moneda fue un reloj suizo: tres SoloQ, tres victorias, veinticinco asesinatos y cinco muertes en total. El 6/1/3 de las 11:43 duró quince minutos y no dio tiempo ni a sudar.\n\nLuego llegó la Flex del grupo, con cuatro amigos mirando. A las 20:31 el mismo Ekko firmó un 7/17/10: una muerte cada minuto y medio, tres puntos de visión y veintisiete minutos de derrota. Iguala el récord de la hemeroteca, que era suyo y se llamaba Diana. Ya ni necesita rivales.\n\nEl día entero fueron ocho partidas, casi cuatro horas, cinco victorias y 57 muertes, justo el primer número del Sorteo de la Grieta. El doctor Humoverde, que cobra por cadáver, ha pedido que le dejen el expediente en propiedad.\n\nLa SoloQ le quiere. La Flex le conoce.",
+     "campeon": "Ekko", "pie": "Ekko, señor del tiempo, retratado antes del turno de noche."},
+
+    {"angulo": "a1", "peso": "grande", "formato": "parte policial", "hilo": "el-rincon-del-viciado", "seccion": "SUCESOS",
+     "headline": "Atestado de la segunda Flex: cinco detenidos y ningún testigo con ganas de hablar",
+     "subtitulo": "La plantilla titular del Rincón del Viciado entra en la Grieta a las 20:31 y sale con 55 muertes encima.",
+     "body": "PARTE DE LA COMISARÍA DE PILTOVER · 20:31\n\nHECHOS. Cinco miembros del Rincón del Viciado, plantilla titular de la ACE League, entran a jugar una Flex. A los veintisiete minutos salen con 55 muertes y 25 asesinatos que no compensan nada: una muerte cada medio minuto, de media.\n\nDETENIDOS. grangalax, con Ekko, diecisiete muertes y ninguna prisa. TheTrevur, con Malphite, diez, tres de ellas en el mismo sitio, y un Pantheon rival que le sacó la calle entera. Wôlf, con Nidalee, diez, y un Fiddlesticks enfrente que acabó con dos muertes en toda la tarde. Saiko, con Blitzcrank, diez, cuatro en el mismo sitio y once guardianes puestos para que nadie dijera que no ayudó. RDV Canyon, con Sivir, se libra por los pelos: 9/8/2, pero con el 27,4 % del daño, que en esta banda cuenta como honradez.\n\nOBSERVACIONES. El comisario Cobretuerca visitó la escena y dictaminó que «a esto le falta un culpable». Un agente le oyó murmurar, ya en el coche, que el martes le pasó lo mismo con su otra cuenta, y se negó a precisar cuál.\n\nSi esta es la plantilla titular, la ACE League debería haber pedido el parte antes de aceptar la inscripción.",
+     "meme": {"plantilla": "woman-cat", "lineas": ["Saiko: 10 muertes y líder de la General", "grangalax: 17 muertes, ni se inmuta"]},
+     "pie": "Reconstrucción de los hechos por la Comisaría de Piltover."},
+
+    {"angulo": "a38", "peso": "grande", "formato": "nota de prensa", "hilo": "carry-not-found", "seccion": "DAÑO", "player": "fr4nux",
+     "headline": "El Instituto Hextech cierra el diagnóstico en «intermitente»",
+     "subtitulo": "Fr4nux pasó del 30 % del daño en la Flex y sube a Platino II, pero su Xayah tiene otra opinión.",
+     "body": "El Instituto Hextech de Piltover comunica que el expediente «Carry Not Found» sigue abierto, aunque por primera vez con el paciente de pie y ganando.\n\nLos hechos del jueves: tres partidas, tres victorias. En la Flex, con la Caitlyn, Fr4nux puso el 34,5 % del daño de su equipo y cuatro dobles, que en su historial clínico se anota como brote. Eso responde a la pregunta de ayer: sí, volvió a pasar del 30 %, y esta vez no fue un préstamo.\n\nPero el Instituto no firma el alta. Con Xayah, en SoloQ, el paciente cobró el 20,1 % del oro de su equipo y devolvió el 11,1 % del daño, el último de los cinco. Quien paga esa diferencia no es él.\n\nEntretanto, el tirador sin pólvora sube de Platino III a Platino II con cuarenta puntos de LP de ventaja. Subir de liga sin hacer daño: el Instituto lo estudia como fenómeno meteorológico.\n\nDiagnóstico provisional: intermitente. Se recomienda no despedir a nadie.",
+     "meme": {"plantilla": "panik-kalm-panik", "lineas": ["Fr4nux hace el 34 % del daño", "El Instituto cierra el expediente", "Xayah: 11 % del daño, 20 % del oro"]}},
+
+    {"angulo": "a17", "peso": "mediana", "formato": "entrevista", "seccion": "EL FARO DE LA ESPERANZA", "player": "rdv-canyon", "entrevistado": "Lux",
+     "headline": "Lux, sobre su soporte: «Yo pongo la luz y él pone los pings»",
+     "subtitulo": "RDV Canyon fue el mejor del jueves: 3–1 y un KDA de 4,50. Hablamos con la que le aguanta.",
+     "body": "RDV Canyon cerró el jueves 3–1, igualó su récord de pings (82, con Ashe) y puso 41 guardianes en una sola partida. Hemos hablado con Lux, su soporte en la Flex, sobre lo que es vivir a la sombra de un focomaníaco de la visión.\n\n—¿Cómo es trabajar con RDV Canyon?\n\n—Treinta asistencias en treinta y siete minutos, treinta y dos guardianes y una victoria. Yo ilumino; él me avisa de que ilumine. Es una colaboración.\n\n—Treinta y tres pings con usted y ochenta y dos con Ashe. ¿Quién sale ganando?\n\n—Yo, a su lado, soy una vela en una discoteca. A Ashe lo llevó al límite. Pero se ganó, y cuando se gana nadie recuerda los pings. Se recuerdan después, en el juicio.\n\n—¿Algo para el Faro de la Esperanza?\n\n—Que el mejor del día sea un soporte con 4/6/30 prueba que en Runeterra la esperanza se paga en asistencias.",
+     "campeon": "Lux", "pie": "Lux, tras la entrevista, pidiendo que le bajen el volumen a Radio Zaun."},
+
+    {"angulo": null, "peso": "mediana", "formato": "crónica", "propuesta": 5, "player": "wolf",
+     "headline": "Wôlf, visto por última vez en la jungla preguntando por dónde se sale",
+     "subtitulo": "Una imagen enviada por fuentes de confianza retrata el jueves de la jungla del grupo.",
+     "body": "Fuentes de confianza nos hacen llegar una imagen que ya circula por la Grieta: Wôlf, en la jungla, con el gesto de quien ha perdido algo, probablemente el mapa. Contrastada en frío con las partidas del jueves, la imagen resulta verosímil.\n\nA las 19:46, Qiyana: 6/9/19 y 161 súbditos menos que el Hecarim rival. Ganó porque los demás cargaron con la partida. A las 20:31, Nidalee: 2/10/6, una participación del 32 % y un Fiddlesticks enemigo que acabó 13/2/17, lo que significa que el único que sabía dónde estaba era el Fiddlesticks. Y veintiún pings de socorro, que en Radio Zaun llaman un SOS sin dirección.\n\nBalance del jueves: una victoria, una derrota y dos guardianes por partida.",
+     "pie": "Wôlf, según nuestra fuente, buscando el campamento de gromp."},
+
+    {"angulo": null, "peso": "mediana", "formato": "noticia", "hilo": "el-escandalo-de-la-lonja", "seccion": "ECONOMÍA",
+     "headline": "El mercado de las muertes pagó sin una sola apuesta de lector",
+     "subtitulo": "La Comisaría pide el libro de la Lonja. La Gaceta se nos adelanta otra vez.",
+     "body": "La Lonja de Aguasturbias cerró ayer el mercado «¿Quién morirá más veces?» con un ganador previsible, grangalax, y un detalle que ha puesto nerviosa a la Comisaría: ningún lector registrado apostó en él. Alguien cobró igual, o eso sospecha el comisario Cobretuerca.\n\nEl comisario ha pedido el libro de la Lonja para ver quién compró la cuota de 2,7 antes del cierre. Barbanegra, bajo investigación por la ruina fantasma de los smurfs, ha contestado que grangalax mata a los mercados desde el primer día y que cualquiera con ojos lo habría visto venir. El doctor Humoverde, citado como testigo, ha declarado que «solo certifica» y que las cifras de muertes se las da a quien se las pide.\n\nEl director Plumanegra ha preferido no hablar, que en su caso es lo mismo que mirar al techo. Esta redacción tenía la exclusiva cerrada desde la medianoche; La Gaceta de Noxus se nos ha adelantado por segunda vez en dos días.\n\nYa se sabe quién gana cuando grangalax muere diecisiete veces: la Lonja. Falta saber quién de la Lonja."},
+
+    {"angulo": "a32", "peso": "mediana", "formato": "análisis", "hilo": "el-heredero-accidental", "seccion": "POLÍTICA", "player": "saiko",
+     "headline": "Saiko hereda un trono que nadie había terminado de abandonar",
+     "subtitulo": "Una partida y diez muertes bastan para liderar la General de la vergüenza.",
+     "body": "La General de la vergüenza tiene nuevo líder y ni siquiera ha tenido que esforzarse. Saiko, una sola partida y diez muertes con su Blitzcrank, suma diez puntos y dos portadas, y le saca dos puntos a iPredatoRz, que ayer era el rey y hoy ni pasó por palacio. El Fantasma del Vacío perdió el trono sin jugar: la forma más elegante de abdicar que ha visto la Corte de Demacia.\n\nEn tres días, el trono ha pasado por un heredero accidental y por un amuleto con devolución. A Saiko, que llegó como el que no pierde, solo le queda aprender a ganar algo que no sea la General: lleva dos partidas con el grupo y las dos son derrotas.\n\niPredatoRz, ausente con aviso de nadie, guarda silencio. Los que le conocen dicen que prepara el regreso. Los que le han visto jugar dicen que ya sabemos cómo empieza: con doce muertes."},
+
+    {"angulo": "a50", "peso": "breve", "formato": "hace una semana", "seccion": "CULTURA",
+     "headline": "Hace siete días: una partida y portada",
+     "body": "Hace una semana, grangalax jugó una sola partida, la ganó y fue portada igual. Hoy ha jugado ocho, ha ganado cinco y vuelve a ser portada. Conclusión del archivo: no depende de lo que haga, sino de que exista."},
+
+    {"angulo": null, "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD",
+     "headline": "Tres detectives, un Kog'Maw y un culpable",
+     "body": "El «¿Quién fue?» de ayer escondía el Kog'Maw de Fr4nux, el de las once muertes. Lo resolvieron tres lectores: grangalax a la primera, GSJoseador en cuatro intentos y un anónimo, también en cuatro. Reconocer a la primera una partida de once muertes ajenas es un talento. Reconocerla de memoria, una confesión."},
+
+    {"angulo": "a6", "peso": "breve", "formato": "breve", "seccion": "EL FARO DE LA ESPERANZA", "player": "thetrevur",
+     "headline": "Treinta y siete minutos de Gran Maestre",
+     "body": "El Cho'Gath de TheTrevur ganó ocho duelos en solitario, se llevó dos Barones y dejó a un K'Sante rival con 2/11/5. Fue el mejor top del grupo en la Flex de las 19:46. En la de las 20:31, con Malphite, murió diez veces. El Faro lo dice con pena: la luz dura lo que dura una partida."},
+
+    {"angulo": null, "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD",
+     "headline": "57, 20 y 19: ganaron los muertos",
+     "body": "La combinación del Sorteo de la Grieta salió de las muertes de grangalax, RDV Canyon y Wôlf: 57, 20 y 19. Participaron dos lectores y no acertó ninguno. El bote sigue en 500. Barbanegra lo mira con cariño."},
+
+    {"angulo": "a20", "peso": "breve", "formato": "fe de erratas", "seccion": "SALUD", "player": "gsjoseador",
+     "headline": "Fe de erratas: GSJoseador",
+     "body": "Donde dijimos «El Comodín de Noxus», léase «el saco de boxeo del equipo»: con Cho'Gath recibió el 30,5 % del daño de los suyos, murió nueve veces, tres antes del minuto diez, y ganó. Con Ornn, antes, había perdido la calle contra Fiora. Se mantiene lo de comodín: lo mismo vale de tanque que de blanco."}
+  ],
+  "tiempo": [
+    {"jugador": "grangalax", "texto": "Gris persistente al caer la noche, con casi media hora de Niebla Negra acumulada. Sube a rachas de Ekko por la mañana."},
+    {"jugador": "wolf", "texto": "Niebla en la jungla con visibilidad nula. Diez minutos de gris: se recomienda llevar mapa."},
+    {"jugador": "gsjoseador", "texto": "Chubascos de daño recibido en el carril de arriba. Nueve minutos de gris y un sol tímido al final."},
+    {"jugador": "thetrevur", "texto": "Despejado a las 19:46, tormenta de Malphite a las 20:31. Cambio de tiempo en cuarenta y cinco minutos."},
+    {"jugador": "fr4nux", "texto": "Cielos abiertos con Caitlyn y nubes de oro mal gastado con Xayah. Ocho minutos de gris."},
+    {"jugador": "rdv-canyon", "texto": "Soleado y con vientos de pings. Ráfagas de ochenta y dos en la zona de Ashe."},
+    {"jugador": "saiko", "texto": "Niebla en el cuadrante de siempre: cuatro muertes en el mismo sitio. Casi cuatro minutos de gris."}
+  ],
+  "canon": {
+    "hilos": [
+      {"id": "la-moneda", "accion": "avanzar", "estado": "escalando", "resumen": "Ocho partidas, 5–3 y 57 muertes: Ekko de SoloQ gana tres sin despeinarse y Ekko de Flex iguala el récord de 17 muertes.", "protagonistas": ["grangalax"]},
+      {"id": "carry-not-found", "accion": "avanzar", "resumen": "34,5 % del daño con Caitlyn y subida a Platino II, pero 11,1 % con Xayah: el Instituto firma «intermitente»."},
+      {"id": "el-rincon-del-viciado", "accion": "avanzar", "resumen": "La plantilla titular suma 55 muertes en una Flex de 27 minutos; la Comisaría abre atestado."},
+      {"id": "el-escandalo-de-la-lonja", "accion": "avanzar", "resumen": "El mercado de las muertes se paga sin apuestas de lectores; Cobretuerca pide el libro y Humoverde declara que solo certifica."},
+      {"id": "la-guerra-de-los-periodicos", "accion": "avanzar", "resumen": "La Gaceta de Noxus roba otra exclusiva al Rincón: el forense que le pasa las cifras de muertes a Barbanegra."},
+      {"id": "el-coach-de-la-soloq", "accion": "avanzar", "estado": "desenlace", "resumen": "El jurado concede el título de coach a grangalax con dos votos, uno firmado por él mismo."},
+      {"id": "el-heredero-accidental", "accion": "cerrar", "resumen": "iPredatoRz pierde el trono sin jugar: Saiko lidera la General con diez puntos."},
+      {"accion": "abrir", "titulo": "El amuleto en el trono", "resumen": "Saiko, la reliquia del arcón, lidera la General de la vergüenza tras dos derrotas con el grupo.", "protagonistas": ["saiko"]}
+    ],
+    "personajes": {
+      "saiko": {"titulo": "Rey de la Vergüenza", "arco": {"tipo": "caída", "texto": "Del que no perdía al líder de la General: dos partidas con el grupo, dos derrotas y diez muertes en la última."}},
+      "ipredatorz": {"arco": {"tipo": "en pausa", "texto": "Pierde el trono sin jugar y guarda silencio; el grupo teme su regreso."}},
+      "grangalax": {"apodo": "el señor del tiempo muerto"},
+      "fr4nux": {"arco": {"tipo": "redención", "texto": "34,5 % del daño con Caitlyn y Platino II, pero Xayah devuelve solo el 11,1 %: el Instituto firma «intermitente»."}}
+    },
+    "elenco": [
+      {"nombre": "Doctor Ezequiel Humoverde", "estado": "Citado como testigo por la Comisaría: declara que «solo certifica»"},
+      {"nombre": "Comisario Ambrosio Cobretuerca", "estado": "Pide el libro de la Lonja y evita hablar de su propia cuenta de Plata"},
+      {"nombre": "Valeria Puñoférreo", "estado": "Presume de su segunda exclusiva robada al Rincón"}
+    ],
+    "costumbres": ["Los jueves la Flex arranca a las 19:46 y se rompe en la segunda partida."],
+    "chistes": ["la moneda de grangalax"],
+    "sindicato": [
+      {"campeon": "Ekko", "jugador": "grangalax", "motivo": "Tres SoloQ impecables y, por la noche, diecisiete muertes en la Flex: pide custodia compartida"},
+      {"campeon": "Malphite", "jugador": "thetrevur", "motivo": "Diez muertes, tres en el mismo sitio, y una calle perdida contra Pantheon"}
+    ]
+  },
+  "gaceta": {
+    "titular": "¡EXCLUSIVA DE LA GACETA! EL FORENSE DE ZAUN COBRA POR CADÁVER Y SE LO CUENTA TODO A BARBANEGRA",
+    "cuerpo": "NOXUS — Mientras el Rincón del Feeder todavía buscaba el cuaderno del comisario, esta Gaceta ya tenía la historia: el doctor Humoverde cobra por cada muerte que certifica y le pasa las cifras a Barbanegra antes que a nadie. ¡Con los diecisiete óbitos de grangalax, la caja de Zaun ha tenido un jueves redondo!\n\nFuentes de toda solvencia, con bata de forense y mala conciencia, aseguran que el director Plumanegra «no sabe nada», que es exactamente lo que dijo del pagaré. Y mientras el Rincón humilla a grangalax por sus funerales, esta Gaceta recuerda lo que el Rincón no cuenta: tres SoloQ con Ekko, veinticinco asesinatos. La Gaceta no copia: la Gaceta madruga.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "jurado": {"pregunta": "¿Quién destrozó la segunda Flex del jueves?", "opciones": ["El Ekko de grangalax", "El Malphite de TheTrevur", "La Nidalee de Wôlf", "La Blitzcrank de Saiko"], "juicio": false},
+  "jurado_veredicto": "El jurado popular concede el título de coach a grangalax con dos votos de cuatro, uno de ellos firmado por el propio grangalax, que se votó a sí mismo. TheTrevur votó por su Urgot y un anónimo por el Milio de Dierophant. Efecto inmediato: grangalax queda inscrito como Coach de Honor sin Banquillo, y el Yasuo, muriendo, se queda en cero votos.",
+  "manana": [
+    {"texto": "¿Repetirá grangalax diecisiete muertes o el Ekko de la SoloQ se hará con la Flex?"},
+    {"texto": "¿Reclamará iPredatoRz el trono a Saiko o seguirá de brazos cruzados?"},
+    {"texto": "¿Hablará Humoverde ante el comisario Cobretuerca?"}
+  ],
+  "promesas": [
+    {"n": 1, "texto": "Cumplida: Fr4nux volvió a pasar del 30 % del daño, con el 34,5 % de su Caitlyn en la Flex. No fue un préstamo, aunque con la Xayah devolvió el 11,1 %."},
+    {"n": 2, "texto": "Incumplida: grangalax jugó ocho partidas, las dos Flex incluidas. El banquillo duró lo que su Ekko vivo."},
+    {"n": 3, "texto": "Cumplida por los pelos: Wôlf puso dos guardianes con Qiyana y otros dos con Nidalee. Más de uno, sí; mapa, no."}
+  ],
+  "replicas_descartadas": [],
+  "estilo": {"pautas_nuevas": [], "pautas_retiradas": []},
+  "horoscopo": [
+    {"signo": "Top", "texto": "Hoy recibirás el 30 % de los golpes de tu equipo y te lo tomarás como un cumplido. Un Pantheon rival confirmará que acertaste."},
+    {"signo": "Jungla", "texto": "Los guardianes están en la tienda, no en el mapa. Hoy tu camino te lleva a un campamento vacío; llévate el mapa, o a alguien que lo tenga."},
+    {"signo": "Mid", "texto": "El reloj se detendrá, pero será el tuyo. Cuida los primeros diecisiete minutos de tu vida y los últimos de tu Ekko."},
+    {"signo": "Tirador", "texto": "Habrá oro y habrá daño, y no se encontrarán. Una Caitlyn te dará la razón, una Xayah te la quitará."},
+    {"signo": "Soporte", "texto": "Pondrás treinta y dos guardianes y alguien se llevará la gloria. Los pings, en cambio, serán todos tuyos."}
+  ],
+  "columna": {"titulo": "La gestión del cadáver", "autor": "La Viuda del Minion", "cuerpo": [
+    "Hay que decirlo: diecisiete muertes con el mismo campeón no son un accidente. Son una disciplina. Se entrena. Se practica por la noche, con público, y se compite contra uno mismo.",
+    "Ayer, además, hubo ganadores. El forense cobró. El corredor cotizó. El director miró al techo. En esta casa todo el mundo vive de las muertes del Barón, menos él, que las paga.",
+    "Pero conviene recordar lo bueno: a las doce de la mañana ese mismo hombre jugaba un Ekko que no morería ni con cita previa. Los muertos de la Flex no son lo que parecen. Son lo que queda del día."
+  ]},
+  "especial": null,
+  "frase": "Dos grangalax caben en una misma cuenta: el de la SoloQ, que gana, y el de la Flex, que lo explica.",
+  "eventos_usados": [],
+  "propuestas_descartadas": [],
+  "firma": "Claude"
+}

@@ -9,6 +9,10 @@
         {
           "fecha": "2026-10-22",
           "texto": "el coach del minuto veinte"
+        },
+        {
+          "fecha": "2026-10-23",
+          "texto": "el señor del tiempo muerto"
         }
       ],
       "rasgos": [
@@ -128,6 +132,11 @@
           "tipo": "redención",
           "texto": "Del síndrome de daño ausente a un cuádruple con Jinx; el Instituto no cierra el caso porque el mismo día murió once veces con Kog'Maw.",
           "fecha": "2026-10-22"
+        },
+        {
+          "tipo": "redención",
+          "texto": "34,5 % del daño con Caitlyn y Platino II, pero Xayah devuelve solo el 11,1 %: el Instituto firma «intermitente».",
+          "fecha": "2026-10-23"
         }
       ]
     },
@@ -200,6 +209,11 @@
           "tipo": "villano",
           "texto": "Gana muriendo más que nadie y así conserva el trono de la General sin que nadie sepa cómo quitárselo.",
           "fecha": "2026-10-22"
+        },
+        {
+          "tipo": "en pausa",
+          "texto": "Pierde el trono sin jugar y guarda silencio; el grupo teme su regreso.",
+          "fecha": "2026-10-23"
         }
       ]
     },
@@ -284,8 +298,19 @@
       ],
       "maldiciones": [],
       "rivales": [],
-      "titulos": [],
-      "arcos": []
+      "titulos": [
+        {
+          "fecha": "2026-10-23",
+          "texto": "Rey de la Vergüenza"
+        }
+      ],
+      "arcos": [
+        {
+          "tipo": "caída",
+          "texto": "Del que no perdía al líder de la General: dos partidas con el grupo, dos derrotas y diez muertes en la última.",
+          "fecha": "2026-10-23"
+        }
+      ]
     }
   },
   "elenco": [
@@ -298,7 +323,13 @@
       "deseo": "Meter entre rejas al Barón de la Moneda con una prueba que aguante un juicio",
       "secreto": "Juega a escondidas con una cuenta de Plata y tiene peor KDA que cualquiera de sus fichados",
       "relacion": "La fiscal Hexwick le tumba los atestados por defectos de forma, y él lo vive como algo personal",
-      "cambios": []
+      "cambios": [
+        {
+          "fecha": "2026-10-23",
+          "campo": "estado",
+          "texto": "Pide el libro de la Lonja y evita hablar de su propia cuenta de Plata"
+        }
+      ]
     },
     {
       "nombre": "Fiscal Lucrecia Hexwick",
@@ -320,7 +351,13 @@
       "deseo": "Que le asciendan a jefe de los Laboratorios de Zaun",
       "secreto": "Cobra por autopsia, así que necesita que el grupo siga muriendo",
       "relacion": "Le pasa a Barbanegra las cifras de muertes antes de que salgan en el periódico",
-      "cambios": []
+      "cambios": [
+        {
+          "fecha": "2026-10-23",
+          "campo": "estado",
+          "texto": "Citado como testigo por la Comisaría: declara que «solo certifica»"
+        }
+      ]
     },
     {
       "nombre": "Barbanegra el Contable",
@@ -405,7 +442,13 @@
       "secreto": "Lee el Rincón cada mañana antes que su propio periódico",
       "relacion": "Enemiga pública del director Plumanegra; defiende a quien el Rincón humilla, por llevar la contraria",
       "semilla": true,
-      "cambios": []
+      "cambios": [
+        {
+          "fecha": "2026-10-23",
+          "campo": "estado",
+          "texto": "Presume de su segunda exclusiva robada al Rincón"
+        }
+      ]
     }
   ],
   "hilos": [
@@ -437,6 +480,10 @@
         },
         {
           "fecha": "2026-10-22",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-23",
           "estado": "escalando"
         }
       ],
@@ -474,6 +521,13 @@
           "resumen": "Día 2–1 con Ekko, diez muertes en la derrota y 52 pings en una partida. Dierophant pide por carta que le bajen los humos.",
           "titulares": [
             "Querido Dierophant: los humos se bajan solos"
+          ]
+        },
+        {
+          "fecha": "2026-10-23",
+          "resumen": "Ocho partidas, 5–3 y 57 muertes: Ekko de SoloQ gana tres sin despeinarse y Ekko de Flex iguala el récord de 17 muertes.",
+          "titulares": [
+            "El señor del tiempo pasó veintinueve minutos muerto"
           ]
         }
       ]
@@ -591,6 +645,13 @@
           "titulares": [
             "Fr4nux da positivo en daño y el Instituto Hextech pide una segunda opinión"
           ]
+        },
+        {
+          "fecha": "2026-10-23",
+          "resumen": "34,5 % del daño con Caitlyn y subida a Platino II, pero 11,1 % con Xayah: el Instituto firma «intermitente».",
+          "titulares": [
+            "El Instituto Hextech cierra el diagnóstico en «intermitente»"
+          ]
         }
       ]
     },
@@ -645,6 +706,13 @@
           "resumen": "Saiko pierde su primera partida con el grupo (Thresh 1/10/11) y muere el apodo «el que no pierde». El grupo va 4–1 en Flex el miércoles.",
           "titulares": [
             "Ha fallecido «el que no pierde»"
+          ]
+        },
+        {
+          "fecha": "2026-10-23",
+          "resumen": "La plantilla titular suma 55 muertes en una Flex de 27 minutos; la Comisaría abre atestado.",
+          "titulares": [
+            "Atestado de la segunda Flex: cinco detenidos y ningún testigo con ganas de hablar"
           ]
         }
       ]
@@ -759,6 +827,10 @@
         {
           "fecha": "2026-10-22",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-23",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -774,6 +846,13 @@
           "resumen": "Yasuo en tres Flex ganadas con 14, 5 y 12 muertes; el 18,8 % del día en gris. Sigue líder de la General.",
           "titulares": [
             "Yasuo ingresa tres veces y le dan el alta con tres victorias"
+          ]
+        },
+        {
+          "fecha": "2026-10-23",
+          "resumen": "iPredatoRz pierde el trono sin jugar: Saiko lidera la General con diez puntos.",
+          "titulares": [
+            "Saiko hereda un trono que nadie había terminado de abandonar"
           ]
         }
       ]
@@ -795,6 +874,13 @@
           "resumen": "El Hermano Venda encuentra en el libro de la Lonja un papel con las iniciales del director y la palabra «pagaré». El director lo niega y manda a Venda al horóscopo.",
           "titulares": [
             "La dirección niega el pagaré y reasigna a quien lo encontró"
+          ]
+        },
+        {
+          "fecha": "2026-10-23",
+          "resumen": "El mercado de las muertes se paga sin apuestas de lectores; Cobretuerca pide el libro y Humoverde declara que solo certifica.",
+          "titulares": [
+            "El mercado de las muertes pagó sin una sola apuesta de lector"
           ]
         }
       ],
@@ -825,6 +911,11 @@
           "fecha": "2026-10-22",
           "resumen": "La Gaceta de Noxus publica antes que el Rincón la exclusiva del pagaré, con una fuente «con hábito y venda». Primera exclusiva robada.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-10-23",
+          "resumen": "La Gaceta de Noxus roba otra exclusiva al Rincón: el forense que le pasa las cifras de muertes a Barbanegra.",
+          "titulares": []
         }
       ],
       "estados": [
@@ -852,6 +943,10 @@
         {
           "fecha": "2026-10-22",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-23",
+          "estado": "desenlace"
         }
       ],
       "capitulos": [
@@ -861,6 +956,34 @@
           "titulares": [
             "Juicio al coach que abandonó el banquillo en el minuto veinte"
           ]
+        },
+        {
+          "fecha": "2026-10-23",
+          "resumen": "El jurado concede el título de coach a grangalax con dos votos, uno firmado por él mismo.",
+          "titulares": []
+        }
+      ]
+    },
+    {
+      "id": "el-amuleto-en-el-trono",
+      "titulo": "El amuleto en el trono",
+      "abierto": "2026-10-23",
+      "protagonistas": [
+        "saiko"
+      ],
+      "reparto": [],
+      "resumen": "Saiko, la reliquia del arcón, lidera la General de la vergüenza tras dos derrotas con el grupo.",
+      "estados": [
+        {
+          "fecha": "2026-10-23",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-23",
+          "resumen": "Saiko, la reliquia del arcón, lidera la General de la vergüenza tras dos derrotas con el grupo.",
+          "titulares": []
         }
       ]
     }
@@ -885,6 +1008,10 @@
     {
       "fecha": "2026-10-22",
       "texto": "Los miércoles la Flex arranca pasadas las ocho y encadena cinco partidas hasta cerca de la medianoche."
+    },
+    {
+      "fecha": "2026-10-23",
+      "texto": "Los jueves la Flex arranca a las 19:46 y se rompe en la segunda partida."
     }
   ],
   "chistes": [
@@ -892,9 +1019,10 @@
       "texto": "la moneda de grangalax",
       "fechas": [
         "2026-10-20",
-        "2026-10-21"
+        "2026-10-21",
+        "2026-10-23"
       ],
-      "usos": 2,
+      "usos": 3,
       "semilla": true
     },
     {
@@ -942,6 +1070,18 @@
       "jugador": "fr4nux",
       "motivo": "Estrenado y muerto cuatro veces en el mismo rincón",
       "fecha": "2026-10-22"
+    },
+    {
+      "campeon": "Ekko",
+      "jugador": "grangalax",
+      "motivo": "Tres SoloQ impecables y, por la noche, diecisiete muertes en la Flex: pide custodia compartida",
+      "fecha": "2026-10-23"
+    },
+    {
+      "campeon": "Malphite",
+      "jugador": "thetrevur",
+      "motivo": "Diez muertes, tres en el mismo sitio, y una calle perdida contra Pantheon",
+      "fecha": "2026-10-23"
     }
   ]
 }
