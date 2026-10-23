@@ -755,19 +755,19 @@
       "slug": "wolf",
       "alias": "Wôlf",
       "principal": true,
-      "flex": {
-        "tier": "EMERALD",
-        "rank": "III",
-        "lp": 38,
-        "wins": 72,
-        "losses": 65
-      },
       "solo": {
         "tier": "EMERALD",
         "rank": "IV",
         "lp": 70,
         "wins": 169,
         "losses": 161
+      },
+      "flex": {
+        "tier": "EMERALD",
+        "rank": "III",
+        "lp": 38,
+        "wins": 72,
+        "losses": 65
       }
     },
     "fr4nux#euw": {
