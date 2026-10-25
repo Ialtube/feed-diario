@@ -1,0 +1,163 @@
+{
+  "piezas": [
+    {
+      "angulo": "a3", "peso": "grande", "portada": true, "formato": "crónica deportiva", "hilo": "la-moneda",
+      "seccion": "DEPORTES", "player": "grangalax",
+      "headline": "Ni Ekko le quiere ya",
+      "subtitulo": "Seis partidas, seis derrotas y cuarenta y ocho muertes: el Barón se salta la orden del tribunal, vuelve a Qiyana y descubre que su único campeón fiable también se coge días libres.",
+      "body": "El viernes, el Tribunal de Piltover le prohibió acercarse a cualquier campeón que no fuera Ekko después de medianoche. grangalax cumplió la orden al pie de la letra: esperó a que fuera de día. A las doce menos cinco de la mañana ya estaba en la Flex con una Kindred que no había jugado nunca, y a las doce y media, con Qiyana.\n\nQiyana es el campeón con el que este periódico no le ha visto ganar jamás, y hoy ya van tres de tres. En la de por la mañana, quince minutos: un asesinato, cuatro muertes y menos del diez por ciento del daño de su equipo, cobrando el doble en oro. Por la tarde la repitió en mid contra un Akshan que le sacó más de cinco mil monedas. Y entre medias, otra Qiyana en SoloQ, cuarenta minutos y diez muertes, para que nadie dijera que no lo había intentado.\n\nLo grave no es Qiyana. Lo grave es que sacó dos veces a Ekko, el testigo de la defensa, y perdió las dos. El hombre que el viernes tenía un campeón que funcionaba hoy no tiene ninguno. Seis derrotas seguidas, cuarenta y dos puntos menos en Flex y bajada a Plata IV.\n\nSu abogado ha pedido que conste que cuatro de las seis eran Flex con el grupo, y que allí no ganó nadie.\n\nEs la primera vez que la defensa de grangalax consiste en señalar a sus compañeros. Y la primera vez que tiene razón.",
+      "meme": {"campeon": "Qiyana", "aspecto": 11, "lineas": ["Orden del tribunal: solo Ekko", "Qiyana, tres veces"]},
+      "pie": "La reina guerrera, en su tercera derrota de tres. Foto: archivo del Tribunal de Piltover."
+    },
+    {
+      "angulo": "a5", "peso": "grande", "formato": "perfil", "seccion": "REPORTAJE", "player": "saiko",
+      "headline": "Saiko entró en la Grieta a las nueve de la mañana y salió en Platino",
+      "subtitulo": "Retrato del fichaje estrella del equipo en su jornada más larga: dieciséis partidas, siete horas y media de juego y una caída que empezó a las tres de la tarde.",
+      "body": "Para entender a Saiko hay que verle un sábado. Se sienta a las nueve de la mañana con Sion, gana, y no se levanta hasta pasadas las once de la noche. Dieciséis partidas, siete horas y media de juego. Cuando el resto del grupo se despertaba, él ya llevaba cuatro victorias seguidas, dos de ellas llevando a Fr4nux de la mano con Blitzcrank, una con un uno, uno y veinte que los Centinelas enmarcarían si tuvieran pared.\n\nLuego llegó la Flex. A las doce menos cinco, con Blitzcrank, murió dieciséis veces en veintiocho minutos: una cada minuto y tres cuartos. Media hora después se puso Singed de top y entregó la primera muerte de la partida al segundo minuto. El que el lunes no perdía se había convertido en el soporte que perdía por todos.\n\nLo que define a Saiko es lo que vino después: no paró. De las tres de la tarde a las once de la noche jugó diez SoloQ más y perdió siete. Probó Galio, probó tres veces Taric, volvió a Sion y terminó en mid con Malzahar, donde firmó un triple, hizo un tercio del daño de su equipo y perdió igual. Ciento veintiséis muertes en el día, cincuenta y siete minutos en gris y una bajada de ciento nueve puntos que le saca de Esmeralda III y le deja en Platino I.\n\nEl equipo le fichó por veterano. El sábado demostró la virtud principal del veterano: no saber cuándo irse a casa.",
+      "meme_arriba": "9:04: «Una rápida y me voy»",
+      "meme_abajo": "23:20: Platino I",
+      "campeon": "Blitzcrank",
+      "pie": "Blitzcrank, a la hora de su decimosexto turno. Fotografía tomada sin su permiso."
+    },
+    {
+      "angulo": "a4", "peso": "grande", "formato": "parte policial", "hilo": "los-inseparables", "seccion": "SUCESOS", "player": "gsjoseador",
+      "headline": "GSJoseador gana una de diez y la Comisaría le pregunta por sus compañías",
+      "subtitulo": "El Comodín de Noxus cierra el sábado con nueve derrotas; cinco de ellas, junto a RDV Canyon.",
+      "body": "Atestado del sábado. Hechos ocurridos entre las doce y media del mediodía y las ocho y media de la tarde. El investigado, GSJoseador, alias el Comodín de Noxus, disputa diez partidas y gana una, a las dos y media, con Mordekaiser. De las otras nueve, las seis últimas las pierde seguidas.\n\nA partir de las cinco menos diez se le une un segundo investigado, RDV Canyon, que ya arrastraba su propia racha. Juntos encadenan tres SoloQ y dos Flex. Resultado: cinco derrotas en cinco intentos. En una de ellas, el investigado principal entrega la primera muerte de la partida con Mordekaiser al tercer minuto y su rival de calle, un Darius, termina con más de cinco mil monedas de ventaja. Se recuerda que el viernes este periódico publicó la esquela de un Darius a manos de GSJoseador. Los Darius tienen familia.\n\nConsta además un Malphite con el que el investigado ha perdido las tres veces que lo ha sacado ante la hemeroteca, dos de ellas el sábado, y treinta y seis minutos en gris. RDV Canyon, por su parte, cierra el día con una victoria en ocho y siete derrotas seguidas. Su única alegría fue por la mañana, de soporte con Lux y sesenta pings, antes de conocer a nadie.\n\nSe abre ficha conjunta. Los agentes recomiendan que no vuelvan a jugar juntos hasta nuevo aviso, o al menos que no lo hagan en público.\n\nAgentes actuantes: comisario Ambrosio Cobretuerca y la sheriff Caitlyn, de guardia."
+    },
+    {
+      "angulo": "a58", "peso": "mediana", "formato": "nota de prensa", "hilo": "carry-not-found", "seccion": "EL FARO DE LA ESPERANZA", "player": "fr4nux",
+      "headline": "El único que no fue a la Flex",
+      "body": "Los Centinelas de la Luz informan de que el mejor del sábado fue Fr4nux: tres partidas y tres victorias. Con Kalista, junto a Saiko, terminó once, una y ocho, con casi un tercio del daño de su equipo, frente a una Miss Fortune que no mató a nadie. Con Wukong en la jungla se llevó la horda, el heraldo y tres dragones.\n\nLos Centinelas destacan también su mayor acierto táctico del día. A las doce menos cinco, mientras el grupo se hundía en la Flex, Fr4nux estaba en otra partida, solo, ganando con Wukong.\n\nEl Instituto, prudente, no cierra el expediente. Hoy hizo daño, pero hoy también estaba lejos de sus amigos, y hay que separar las variables."
+    },
+    {
+      "angulo": "a56", "peso": "mediana", "formato": "entrevista", "seccion": "CULTURA", "player": "wolf", "entrevistado": "Lissandra",
+      "headline": "Lissandra: «Llevo siglos encerrando enemigos en hielo. Él me encerró a mí»",
+      "body": "Wôlf cerró el sábado sin ganar ninguna de sus cuatro partidas. La más corta fue el estreno de Lissandra en la Flex del mediodía: quince minutos, casi una muerte cada dos. La bruja de hielo del Fréljord nos atiende con el abrigo puesto.\n\n—¿Cómo fue su estreno?\n\n—Corto. Me sacó en mid contra una Diana que acabó con diez asesinatos y una muerte. Yo encierro enemigos en hielo desde hace siglos. Él me usó para encerrarme a mí.\n\n—Ocho muertes en un cuarto de hora.\n\n—Ocho veces me mandó sola hacia ellos. En el Fréljord a eso lo llamamos sacrificio ritual. Él lo llama jugar mid.\n\n—Media hora antes, con Zed, había hecho diecisiete asesinatos.\n\n—Y doce muertes, y ni un guardián. Me lo contó el propio Zed, que ya está en el Sindicato. Dice que le hizo de todo menos poner visión.\n\n—¿Volvería a jugar con él?\n\n—Por la tarde se puso un tal Locke y mandó sesenta y siete pings contra una Akali. A mí solo me mató ocho veces. Al resto del equipo lo mató a gritos."
+    },
+    {
+      "angulo": "a33", "peso": "mediana", "formato": "análisis", "hilo": "el-rincon-del-viciado", "seccion": "DEPORTES",
+      "headline": "Quince minutos bastan",
+      "body": "El equipo que va a la ACE jugó el sábado cuatro Flex y perdió las cuatro, pero la que explica la temporada es la segunda: quince minutos, cinco asesinatos, veintitrés muertes y rendición antes de que nadie se aprendiera el nombre de los rivales.\n\nAnálisis por posiciones. Arriba, Saiko con Singed entregó la primera muerte al segundo minuto. En la jungla, grangalax con Qiyana hizo menos del diez por ciento del daño. En mid, Wôlf estrenaba Lissandra. Abajo, iPredatoRz con Xayah fue el único que hizo daño, y RDV Canyon con Rakan salió como el menos malo, porque solo murió dos veces.\n\nLa primera del día, media hora antes, ya había avisado: cincuenta y seis muertes del grupo en veintiocho minutos y un Zed que mató diecisiete veces para nada. Por la tarde llegaron Giroroo y GSJoseador de refuerzo, y se perdieron otras dos.\n\nHubo tres que jugaron las cuatro: grangalax, iPredatoRz y RDV Canyon. Los técnicos del equipo ya saben por dónde empezar a mirar."
+    },
+    {
+      "angulo": null, "peso": "mediana", "formato": "fe de erratas", "hilo": "el-escandalo-de-la-lonja", "seccion": "OPINIÓN",
+      "headline": "Donde dijimos «no tiene importancia»",
+      "body": "En el editorial de ayer, esta dirección afirmó que la página arrancada del libro de la Lonja, la del 21 de octubre, «no tiene importancia». Donde dice «no tiene importancia», debe decir «la tenía Madame Niebla en un cajón».\n\nEl Hermano Venda, destinado al horóscopo bajo la supervisión de la vidente, la encontró anoche al darle la vuelta a la previsión del domingo, que Madame Niebla había escrito en el reverso para ahorrar papel. Por la otra cara se lee: «Apruebo la nueva fórmula de la General. E. P.». Debajo, con la letra de Barbanegra: «Guardar. Por si acaso».\n\nEsta dirección precisa que la fórmula se aprobó con todas las garantías, que si salió mal fue culpa de los números y que el hecho de que Barbanegra conserve la firma del director no tiene nada que ver con que siga en su puesto. Tampoco con el pagaré.\n\nMadame Niebla declara que ella solo quería papel. Es la primera predicción suya que se cumple: había anunciado que esta semana alguien de la casa se llevaría una sorpresa desagradable.\n\nLa Dirección."
+    },
+    {
+      "angulo": "a75", "peso": "breve", "formato": "breve", "seccion": "EL FARO DE LA ESPERANZA", "player": "giroroo",
+      "headline": "El Invicto pierde el apellido",
+      "body": "Giroroo reapareció el sábado y ganó una de cuatro. En su estreno con Lillia en la Flex se llevó el heraldo, el barón y un dragón, y terminó con trece asesinatos. Perdieron igual. Hay luces que solo sirven para ver mejor el desastre."
+    },
+    {
+      "angulo": "a19", "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD", "player": "ipredatorz",
+      "headline": "Al trono se llega solo",
+      "body": "El líder de la General jugó seis y ganó una, la única que jugó sin nadie del grupo: Yasuo, siete duelos ganados y un Ahri que terminó con once muertes. Las otras cinco las jugó acompañado. Con grangalax, cuatro derrotas; con RDV Canyon, otras cuatro. Al fondo se baja en grupo."
+    },
+    {
+      "angulo": null, "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD",
+      "headline": "Ciento veintiséis no caben",
+      "body": "La combinación del Sorteo sale de las muertes de los tres que más murieron. El sábado: veintiséis, sesenta y cuatro y cuarenta y nueve. El veintiséis es de Saiko, que murió ciento veintiséis veces; el boleto solo llega al noventa y nueve y la máquina se quedó con lo que sobraba. Nadie jugó. El premio sube a setecientas coronas."
+    },
+    {
+      "angulo": "a113", "peso": "breve", "formato": "hace una semana", "seccion": "CULTURA", "player": "grangalax",
+      "headline": "La semana pasada ganaba tres",
+      "body": "Hace siete días, este periódico abría con un grangalax que cerraba el domingo 3–5 y setenta muertes, y lo llamaba desastre. Este sábado cerró 0–6. La hemeroteca pide disculpas por la palabra: se la gastó demasiado pronto."
+    },
+    {
+      "angulo": "a118", "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD",
+      "headline": "Los que se quedaron en casa",
+      "body": "Dierophant y TheTrevur no jugaron el sábado. Junto a Fr4nux, son los únicos del grupo que no perdieron nada en todo el día. Este periódico no descarta que lo supieran."
+    }
+  ],
+  "tiempo": [
+    {"jugador": "saiko", "texto": "Cincuenta y siete minutos de gris en dieciséis partidas: mañana despejada hasta las tres y temporal sin tregua hasta la medianoche."},
+    {"jugador": "grangalax", "texto": "Veinticuatro minutos de gris. Frente frío con forma de Qiyana estacionado sobre la jungla; ni Ekko consigue abrir claros."},
+    {"jugador": "gsjoseador", "texto": "Treinta y seis minutos de niebla sobre el carril superior. Se recomienda no salir acompañado."},
+    {"jugador": "wolf", "texto": "Catorce minutos de gris y cero guardianes: niebla cerrada que él mismo se fabrica."},
+    {"jugador": "giroroo", "texto": "Doce minutos de gris. Claros con Lillia, chubascos con Kayn y un Ornn que salvó la tarde."},
+    {"jugador": "ipredatorz", "texto": "Dieciséis minutos de gris. Cielo despejado cuando juega solo; tormenta cada vez que se junta con alguien."},
+    {"jugador": "rdv-canyon", "texto": "Veinticuatro minutos de gris y siete derrotas seguidas. La niebla llegó por la tarde y venía en pareja."},
+    {"jugador": "fr4nux", "texto": "Poco más de tres minutos en gris. Sol radiante lejos de la Flex; Madame Niebla no lo había previsto."}
+  ],
+  "canon": {
+    "hilos": [
+      {"id": "la-moneda", "accion": "avanzar", "estado": "escalando", "resumen": "0–6 y 48 muertes: incumple la orden del tribunal (Kindred de estreno y tres Qiyanas, 0–3 en la hemeroteca) y pierde también las dos con Ekko. Baja a Plata IV en Flex.", "protagonistas": ["grangalax"]},
+      {"id": "el-rincon-del-viciado", "accion": "avanzar", "resumen": "Sábado 0–4 en Flex, con una derrota de quince minutos (5 asesinatos, 23 muertes). grangalax, iPredatoRz y RDV Canyon jugaron las cuatro."},
+      {"accion": "abrir", "titulo": "Los inseparables", "resumen": "GSJoseador y RDV Canyon pierden juntos cinco de cinco (tres SoloQ y dos Flex) en un sábado de 1–9 y 1–7.", "protagonistas": ["gsjoseador", "rdv-canyon"]},
+      {"id": "carry-not-found", "accion": "avanzar", "resumen": "3–0 lejos de la Flex del grupo, con Kalista 11/1/8 y casi un tercio del daño. El Instituto no cierra: hay que separar las variables."},
+      {"id": "el-escandalo-de-la-lonja", "accion": "avanzar", "estado": "desenlace", "resumen": "Venda encuentra la página arrancada en el reverso de una previsión de Madame Niebla: la firma del director aprobando la fórmula de la General y una nota de Barbanegra, «Guardar. Por si acaso». Por eso le protege."},
+      {"id": "la-guerra-de-los-periodicos", "accion": "avanzar", "resumen": "Por primera vez el Rincón publica antes la exclusiva (la página arrancada); la Gaceta responde que ya lo había dicho."}
+    ],
+    "personajes": {
+      "grangalax": {"maldicion": "Qiyana: 0–3 en la hemeroteca", "arco": {"tipo": "caída", "texto": "De tener un campeón que funcionaba (Ekko) a perder seis seguidas, Ekko incluido."}},
+      "saiko": {"apodo": "el que no sabe irse a casa", "arco": {"tipo": "caída", "texto": "Dieciséis partidas en un sábado, 7–9 y 126 muertes: baja de Esmeralda III a Platino I."}},
+      "gsjoseador": {"maldicion": "Malphite: 0–3 en la hemeroteca"},
+      "wolf": {"maldicion": "Lissandra: 1/8/2 en su estreno, en quince minutos"},
+      "giroroo": {"apodo": "el Invicto sin apellido"}
+    },
+    "elenco": [
+      {"nombre": "Don Evaristo Plumanegra", "estado": "Su firma aprobando la fórmula de la General aparece en la página arrancada; Barbanegra la guardaba «por si acaso»"},
+      {"nombre": "Barbanegra el Contable", "estado": "Se descubre que guarda la firma del director como seguro de vida"},
+      {"nombre": "Madame Niebla", "estado": "Usó la página arrancada como borrador del horóscopo y acierta su primera predicción"},
+      {"nombre": "Hermano Venda", "estado": "Encuentra la página arrancada y la entrega a la redacción"}
+    ],
+    "costumbres": ["Los sábados la Flex del grupo arranca antes del mediodía, y a la media hora ya está perdida."],
+    "chistes": [],
+    "sindicato": [
+      {"campeon": "Qiyana", "jugador": "grangalax", "motivo": "Sacada tres veces en un día pese a una orden judicial; tres derrotas"},
+      {"campeon": "Lissandra", "jugador": "wolf", "motivo": "Estrenada en mid y muerta ocho veces en quince minutos"},
+      {"campeon": "Blitzcrank", "jugador": "saiko", "motivo": "Dieciséis muertes en una Flex de veintiocho minutos"}
+    ]
+  },
+  "gaceta": {
+    "titular": "¡EL RINCÓN CONFIESA! SU DIRECTOR FIRMÓ LA FÓRMULA… ¡Y LA GACETA LO DIJO PRIMERO!",
+    "cuerpo": "Hace días que LA GACETA DE NOXUS advirtió que el director del Rincón debía dinero a su corredor. Hoy el propio Rincón lo confirma en una fe de erratas escondida entre cadáveres, para que nadie la lea. ¡Nosotros la hemos leído! A primera hora, como siempre. Digo, por la tarde.\n\nY sobre grangalax: ¿seis derrotas? ¡Cuatro fueron Flex con el equipo entero! El Rincón señala a uno para tapar a cinco. En Noxus no se fusila al soldado: se fusila al general. Y aquí el general firma con sus iniciales.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "jurado": {
+    "pregunta": "¿Debe dimitir el director Don Evaristo Plumanegra?",
+    "opciones": ["Sí, hoy mismo", "No, la culpa es de los números", "Que dimita Barbanegra en su lugar"],
+    "juicio": false
+  },
+  "manana": [
+    {"texto": "¿Romperá grangalax la racha de seis derrotas o irá a por la séptima?"},
+    {"texto": "¿Volverán GSJoseador y RDV Canyon a hacer pareja?"},
+    {"texto": "¿Dimitirá el director antes de que lo publique la Gaceta?"}
+  ],
+  "promesas": [
+    {"n": 1, "texto": "Fr4nux ganó sus tres partidas del sábado, pero la Bolsa del periódico todavía le apunta en Platino II. O la Bolsa va lenta o Platino I sigue esperando."},
+    {"n": 2, "texto": "No esperó a la medianoche: a las doce menos cinco de la mañana ya estaba con Kindred, y después tres veces con Qiyana. Cuando volvió a Ekko, perdió también."},
+    {"n": 3, "texto": "No le dio tiempo: la página apareció en el cajón de Madame Niebla y la publica hoy esta casa. Por una vez, la exclusiva es nuestra."}
+  ],
+  "replicas_descartadas": [],
+  "estilo": {"pautas_nuevas": [], "pautas_retiradas": []},
+  "horoscopo": [
+    {"signo": "Top", "texto": "Los Malphite no traen suerte a quien ya ha perdido tres con ellos. Si la hemeroteca dice cero de tres, hazle caso a la hemeroteca."},
+    {"signo": "Jungla", "texto": "Mercurio retrógrado sobre las Qiyanas. Si un tribunal te dice que solo un campeón, no busques la letra pequeña del horario."},
+    {"signo": "Mid", "texto": "Diecisiete asesinatos no compensan doce muertes y cero guardianes. Las estrellas recomiendan comprar un centinela; sin uno, tampoco ven nada."},
+    {"signo": "Tirador", "texto": "Jornada favorable para el tirador que juega lejos de su grupo. Si tus amigos te invitan a la Flex, ten algo urgente que hacer."},
+    {"signo": "Soporte", "texto": "Dieciséis partidas son demasiadas incluso para los astros. Saturno aconseja levantarse de la silla antes de que la silla te cobre los puntos."}
+  ],
+  "columna": {
+    "titulo": "Me llevaron para nada",
+    "autor": "El Heraldo de la Grieta",
+    "cuerpo": [
+      "Me invocaron el sábado por la tarde. Una Lillia que se estrenaba me llevó hasta el carril, me dejó romper lo que pude y se fue a por el barón. Luego, a por un dragón. Todo en la misma partida.",
+      "He visto equipos tirar partidas ganadas. He visto equipos rendirse a los quince minutos, sin ir más lejos ese mismo mediodía y con casi los mismos nombres. Lo que no había visto nunca es a un equipo perder una partida con el heraldo, el barón y un dragón en el bolsillo. Hace falta patrimonio para arruinarse así.",
+      "No guardo rencor a la Lillia, que hizo trece asesinatos y lo intentó. Se lo guardo a los otros cuatro, que me vieron pasar por delante y siguieron muriéndose como si yo fuera parte del decorado.",
+      "Que conste en acta: yo hice mi trabajo. Soy el único de esa partida que puede decirlo."
+    ]
+  },
+  "especial": {
+    "antetitulo": "SÁBADO NEGRO",
+    "titulo": "Cero de cuatro",
+    "subtitulo": "El grupo pierde todas sus Flex, grangalax firma un 0–6, Wôlf se queda en 0–4: solo se salvan los que no fueron",
+    "tema": "rojo"
+  },
+  "frase": "Lo único que el grupo ganó el sábado fue tiempo libre para los que no jugaron.",
+  "eventos_usados": [],
+  "propuestas_descartadas": [],
+  "firma": "Claude"
+}

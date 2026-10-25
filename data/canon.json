@@ -32,6 +32,10 @@
         {
           "fecha": "2026-10-24",
           "texto": "Naafiri: 3/6/1 en su estreno, pasada la medianoche"
+        },
+        {
+          "fecha": "2026-10-25",
+          "texto": "Qiyana: 0–3 en la hemeroteca"
         }
       ],
       "rivales": [],
@@ -41,7 +45,13 @@
           "texto": "Rey Emérito de la Vergüenza"
         }
       ],
-      "arcos": []
+      "arcos": [
+        {
+          "tipo": "caída",
+          "texto": "De tener un campeón que funcionaba (Ekko) a perder seis seguidas, Ekko incluido.",
+          "fecha": "2026-10-25"
+        }
+      ]
     },
     "thetrevur": {
       "alias": "TheTrevur",
@@ -96,6 +106,10 @@
         {
           "fecha": "2026-10-20",
           "texto": "Gragas (0–3 en la hemeroteca)"
+        },
+        {
+          "fecha": "2026-10-25",
+          "texto": "Lissandra: 1/8/2 en su estreno, en quince minutos"
         }
       ],
       "rivales": [
@@ -167,7 +181,12 @@
         "Juega donde haga falta: jungla, top o mid",
         "Capaz de lo mejor y de batir su propio récord de muertes la misma semana"
       ],
-      "maldiciones": [],
+      "maldiciones": [
+        {
+          "fecha": "2026-10-25",
+          "texto": "Malphite: 0–3 en la hemeroteca"
+        }
+      ],
       "rivales": [],
       "titulos": [],
       "arcos": []
@@ -287,7 +306,12 @@
       "alias": "Giroroo",
       "titulo_inicial": "El Invicto Intermitente",
       "faccion": "Monasterios de Jonia",
-      "apodos": [],
+      "apodos": [
+        {
+          "fecha": "2026-10-25",
+          "texto": "el Invicto sin apellido"
+        }
+      ],
       "rasgos": [
         "Juega poco, pero cuando juega gana"
       ],
@@ -308,6 +332,10 @@
         {
           "fecha": "2026-10-22",
           "texto": "el amuleto con devolución"
+        },
+        {
+          "fecha": "2026-10-25",
+          "texto": "el que no sabe irse a casa"
         }
       ],
       "rasgos": [
@@ -336,6 +364,11 @@
           "tipo": "redención",
           "texto": "Pierde el trono de la General ganando y sube a Esmeralda III en SoloQ.",
           "fecha": "2026-10-24"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Dieciséis partidas en un sábado, 7–9 y 126 muertes: baja de Esmeralda III a Platino I.",
+          "fecha": "2026-10-25"
         }
       ]
     }
@@ -401,7 +434,13 @@
       "secreto": "Tiene apuestas abiertas contra los mismos jugadores que cotiza",
       "relacion": "Socio en la sombra del doctor Humoverde; el director le protege y nadie sabe por qué",
       "estado": "Bajo investigación interna por el escándalo de los smurfs",
-      "cambios": []
+      "cambios": [
+        {
+          "fecha": "2026-10-25",
+          "campo": "estado",
+          "texto": "Se descubre que guarda la firma del director como seguro de vida"
+        }
+      ]
     },
     {
       "nombre": "Madame Niebla",
@@ -413,7 +452,13 @@
       "secreto": "Copia sus previsiones del parte de bajas del día anterior",
       "relacion": "El Hermano Venda le lleva la contraria por principio",
       "estado": "Su contrato depende de su porcentaje de aciertos",
-      "cambios": []
+      "cambios": [
+        {
+          "fecha": "2026-10-25",
+          "campo": "estado",
+          "texto": "Usó la página arrancada como borrador del horóscopo y acierta su primera predicción"
+        }
+      ]
     },
     {
       "nombre": "Hermano Venda",
@@ -434,6 +479,11 @@
           "fecha": "2026-10-24",
           "campo": "estado",
           "texto": "Pregunta por escrito quién arrancó la página del 21 de octubre del libro de la Lonja"
+        },
+        {
+          "fecha": "2026-10-25",
+          "campo": "estado",
+          "texto": "Encuentra la página arrancada y la entrega a la redacción"
         }
       ]
     },
@@ -458,6 +508,11 @@
           "fecha": "2026-10-22",
           "campo": "estado",
           "texto": "Acusado por la Gaceta de deber dinero a Barbanegra; lo niega por comunicado"
+        },
+        {
+          "fecha": "2026-10-25",
+          "campo": "estado",
+          "texto": "Su firma aprobando la fórmula de la General aparece en la página arrancada; Barbanegra la guardaba «por si acaso»"
         }
       ]
     },
@@ -531,6 +586,10 @@
         {
           "fecha": "2026-10-24",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-25",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -581,6 +640,13 @@
           "resumen": "Día 3–3 en SoloQ: con Ekko 3–1 y con el resto 0–2 (Hwei y Naafiri de estreno). El Sindicato le lleva a juicio y pierde su récord de muertes a manos de iPredatoRz.",
           "titulares": [
             "El Sindicato lleva a juicio al Barón por abandonar a Ekko"
+          ]
+        },
+        {
+          "fecha": "2026-10-25",
+          "resumen": "0–6 y 48 muertes: incumple la orden del tribunal (Kindred de estreno y tres Qiyanas, 0–3 en la hemeroteca) y pierde también las dos con Ekko. Baja a Plata IV en Flex.",
+          "titulares": [
+            "Ni Ekko le quiere ya"
           ]
         }
       ]
@@ -712,6 +778,13 @@
           "titulares": [
             "El paciente sube a Platino II por la escalera de incendios"
           ]
+        },
+        {
+          "fecha": "2026-10-25",
+          "resumen": "3–0 lejos de la Flex del grupo, con Kalista 11/1/8 y casi un tercio del daño. El Instituto no cierra: hay que separar las variables.",
+          "titulares": [
+            "El único que no fue a la Flex"
+          ]
         }
       ]
     },
@@ -773,6 +846,13 @@
           "resumen": "La plantilla titular suma 55 muertes en una Flex de 27 minutos; la Comisaría abre atestado.",
           "titulares": [
             "Atestado de la segunda Flex: cinco detenidos y ningún testigo con ganas de hablar"
+          ]
+        },
+        {
+          "fecha": "2026-10-25",
+          "resumen": "Sábado 0–4 en Flex, con una derrota de quince minutos (5 asesinatos, 23 muertes). grangalax, iPredatoRz y RDV Canyon jugaron las cuatro.",
+          "titulares": [
+            "Quince minutos bastan"
           ]
         }
       ]
@@ -949,6 +1029,13 @@
           "titulares": [
             "Sobre una página que nunca existió y que alguien ha arrancado"
           ]
+        },
+        {
+          "fecha": "2026-10-25",
+          "resumen": "Venda encuentra la página arrancada en el reverso de una previsión de Madame Niebla: la firma del director aprobando la fórmula de la General y una nota de Barbanegra, «Guardar. Por si acaso». Por eso le protege.",
+          "titulares": [
+            "Donde dijimos «no tiene importancia»"
+          ]
         }
       ],
       "estados": [
@@ -963,6 +1050,10 @@
         {
           "fecha": "2026-10-24",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-25",
+          "estado": "desenlace"
         }
       ]
     },
@@ -991,6 +1082,11 @@
         {
           "fecha": "2026-10-24",
           "resumen": "La Gaceta roba su tercera exclusiva: publica el libro de la Lonja antes que el Rincón, con la página del 21 de octubre arrancada.",
+          "titulares": []
+        },
+        {
+          "fecha": "2026-10-25",
+          "resumen": "Por primera vez el Rincón publica antes la exclusiva (la página arrancada); la Gaceta responde que ya lo había dicho.",
           "titulares": []
         }
       ],
@@ -1098,6 +1194,32 @@
           ]
         }
       ]
+    },
+    {
+      "id": "los-inseparables",
+      "titulo": "Los inseparables",
+      "abierto": "2026-10-25",
+      "protagonistas": [
+        "gsjoseador",
+        "rdv-canyon"
+      ],
+      "reparto": [],
+      "resumen": "GSJoseador y RDV Canyon pierden juntos cinco de cinco (tres SoloQ y dos Flex) en un sábado de 1–9 y 1–7.",
+      "estados": [
+        {
+          "fecha": "2026-10-25",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-25",
+          "resumen": "GSJoseador y RDV Canyon pierden juntos cinco de cinco (tres SoloQ y dos Flex) en un sábado de 1–9 y 1–7.",
+          "titulares": [
+            "GSJoseador gana una de diez y la Comisaría le pregunta por sus compañías"
+          ]
+        }
+      ]
     }
   ],
   "costumbres": [
@@ -1128,6 +1250,10 @@
     {
       "fecha": "2026-10-24",
       "texto": "Los viernes no hay Flex: cada uno se muere por su cuenta en SoloQ."
+    },
+    {
+      "fecha": "2026-10-25",
+      "texto": "Los sábados la Flex del grupo arranca antes del mediodía, y a la media hora ya está perdida."
     }
   ],
   "chistes": [
@@ -1217,6 +1343,24 @@
       "jugador": "ipredatorz",
       "motivo": "Diecinueve muertes en cuarenta y nueve minutos: récord de la hemeroteca a su costa",
       "fecha": "2026-10-24"
+    },
+    {
+      "campeon": "Qiyana",
+      "jugador": "grangalax",
+      "motivo": "Sacada tres veces en un día pese a una orden judicial; tres derrotas",
+      "fecha": "2026-10-25"
+    },
+    {
+      "campeon": "Lissandra",
+      "jugador": "wolf",
+      "motivo": "Estrenada en mid y muerta ocho veces en quince minutos",
+      "fecha": "2026-10-25"
+    },
+    {
+      "campeon": "Blitzcrank",
+      "jugador": "saiko",
+      "motivo": "Dieciséis muertes en una Flex de veintiocho minutos",
+      "fecha": "2026-10-25"
     }
   ]
 }
