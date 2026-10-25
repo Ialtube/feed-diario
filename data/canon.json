@@ -28,6 +28,10 @@
         {
           "fecha": "2026-10-21",
           "texto": "Syndra: 1/8/3 en su estreno"
+        },
+        {
+          "fecha": "2026-10-24",
+          "texto": "Naafiri: 3/6/1 en su estreno, pasada la medianoche"
         }
       ],
       "rivales": [],
@@ -137,6 +141,11 @@
           "tipo": "redención",
           "texto": "34,5 % del daño con Caitlyn y Platino II, pero Xayah devuelve solo el 11,1 %: el Instituto firma «intermitente».",
           "fecha": "2026-10-23"
+        },
+        {
+          "tipo": "redención",
+          "texto": "Sube a Platino II con +89 LP en un día de nueve partidas mientras bate su récord de muertes: asciende sin curarse.",
+          "fecha": "2026-10-24"
         }
       ]
     },
@@ -148,6 +157,10 @@
         {
           "fecha": "2026-10-21",
           "texto": "el faro del pozo"
+        },
+        {
+          "fecha": "2026-10-24",
+          "texto": "el verdugo de Darius"
         }
       ],
       "rasgos": [
@@ -202,6 +215,10 @@
         {
           "fecha": "2026-10-21",
           "texto": "Primer Rey de la Nueva General"
+        },
+        {
+          "fecha": "2026-10-24",
+          "texto": "Plusmarquista de la Necrópolis"
         }
       ],
       "arcos": [
@@ -214,6 +231,11 @@
           "tipo": "en pausa",
           "texto": "Pierde el trono sin jugar y guarda silencio; el grupo teme su regreso.",
           "fecha": "2026-10-23"
+        },
+        {
+          "tipo": "villano",
+          "texto": "Vuelve del silencio con el récord de muertes en una partida y recupera la General: reina muriendo.",
+          "fecha": "2026-10-24"
         }
       ]
     },
@@ -309,6 +331,11 @@
           "tipo": "caída",
           "texto": "Del que no perdía al líder de la General: dos partidas con el grupo, dos derrotas y diez muertes en la última.",
           "fecha": "2026-10-23"
+        },
+        {
+          "tipo": "redención",
+          "texto": "Pierde el trono de la General ganando y sube a Esmeralda III en SoloQ.",
+          "fecha": "2026-10-24"
         }
       ]
     }
@@ -328,6 +355,11 @@
           "fecha": "2026-10-23",
           "campo": "estado",
           "texto": "Pide el libro de la Lonja y evita hablar de su propia cuenta de Plata"
+        },
+        {
+          "fecha": "2026-10-24",
+          "campo": "estado",
+          "texto": "Le han robado el libro de la Lonja de su propio despacho"
         }
       ]
     },
@@ -397,6 +429,11 @@
           "fecha": "2026-10-22",
           "campo": "estado",
           "texto": "Reasignado al horóscopo, bajo supervisión de Madame Niebla, tras encontrar el papel del pagaré"
+        },
+        {
+          "fecha": "2026-10-24",
+          "campo": "estado",
+          "texto": "Pregunta por escrito quién arrancó la página del 21 de octubre del libro de la Lonja"
         }
       ]
     },
@@ -447,6 +484,11 @@
           "fecha": "2026-10-23",
           "campo": "estado",
           "texto": "Presume de su segunda exclusiva robada al Rincón"
+        },
+        {
+          "fecha": "2026-10-24",
+          "campo": "estado",
+          "texto": "Presume de su tercera exclusiva: el libro de la Lonja"
         }
       ]
     }
@@ -484,6 +526,10 @@
         },
         {
           "fecha": "2026-10-23",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-24",
           "estado": "escalando"
         }
       ],
@@ -528,6 +574,13 @@
           "resumen": "Ocho partidas, 5–3 y 57 muertes: Ekko de SoloQ gana tres sin despeinarse y Ekko de Flex iguala el récord de 17 muertes.",
           "titulares": [
             "El señor del tiempo pasó veintinueve minutos muerto"
+          ]
+        },
+        {
+          "fecha": "2026-10-24",
+          "resumen": "Día 3–3 en SoloQ: con Ekko 3–1 y con el resto 0–2 (Hwei y Naafiri de estreno). El Sindicato le lleva a juicio y pierde su récord de muertes a manos de iPredatoRz.",
+          "titulares": [
+            "El Sindicato lleva a juicio al Barón por abandonar a Ekko"
           ]
         }
       ]
@@ -651,6 +704,13 @@
           "resumen": "34,5 % del daño con Caitlyn y subida a Platino II, pero 11,1 % con Xayah: el Instituto firma «intermitente».",
           "titulares": [
             "El Instituto Hextech cierra el diagnóstico en «intermitente»"
+          ]
+        },
+        {
+          "fecha": "2026-10-24",
+          "resumen": "Nueve partidas, 5–4 y +89 LP hasta Platino II, pero récord personal de 15 muertes con Caitlyn ante una Xayah y 8,8 % del daño con Jinx.",
+          "titulares": [
+            "El paciente sube a Platino II por la escalera de incendios"
           ]
         }
       ]
@@ -882,6 +942,13 @@
           "titulares": [
             "El mercado de las muertes pagó sin una sola apuesta de lector"
           ]
+        },
+        {
+          "fecha": "2026-10-24",
+          "resumen": "Desaparece el libro de la Lonja del despacho de Cobretuerca. Falta la página del 21 de octubre, el día en que se cambió la fórmula de la General. El director lo niega en un editorial y manda a Venda a ocuparse de los Soportes.",
+          "titulares": [
+            "Sobre una página que nunca existió y que alguien ha arrancado"
+          ]
         }
       ],
       "estados": [
@@ -891,6 +958,10 @@
         },
         {
           "fecha": "2026-10-22",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-24",
           "estado": "escalando"
         }
       ]
@@ -915,6 +986,11 @@
         {
           "fecha": "2026-10-23",
           "resumen": "La Gaceta de Noxus roba otra exclusiva al Rincón: el forense que le pasa las cifras de muertes a Barbanegra.",
+          "titulares": []
+        },
+        {
+          "fecha": "2026-10-24",
+          "resumen": "La Gaceta roba su tercera exclusiva: publica el libro de la Lonja antes que el Rincón, con la página del 21 de octubre arrancada.",
           "titulares": []
         }
       ],
@@ -977,6 +1053,10 @@
         {
           "fecha": "2026-10-23",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-24",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -984,6 +1064,38 @@
           "fecha": "2026-10-23",
           "resumen": "Saiko, la reliquia del arcón, lidera la General de la vergüenza tras dos derrotas con el grupo.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-10-24",
+          "resumen": "Saiko pierde el trono ganando su única partida (Blitzcrank 2/9/34) y sube a Esmeralda III en SoloQ.",
+          "titulares": [
+            "Se traspasa trono, poco uso"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-regreso-del-fantasma",
+      "titulo": "El regreso del Fantasma",
+      "abierto": "2026-10-24",
+      "protagonistas": [
+        "ipredatorz"
+      ],
+      "reparto": [],
+      "resumen": "iPredatoRz vuelve tras dos días, bate el récord de muertes en una partida (19 con Akali) ganando doce duelos en solitario y recupera la General.",
+      "estados": [
+        {
+          "fecha": "2026-10-24",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-24",
+          "resumen": "iPredatoRz vuelve tras dos días, bate el récord de muertes en una partida (19 con Akali) ganando doce duelos en solitario y recupera la General.",
+          "titulares": [
+            "iPredatoRz gana doce duelos y aun así se lleva el récord de muertes"
+          ]
         }
       ]
     }
@@ -1012,6 +1124,10 @@
     {
       "fecha": "2026-10-23",
       "texto": "Los jueves la Flex arranca a las 19:46 y se rompe en la segunda partida."
+    },
+    {
+      "fecha": "2026-10-24",
+      "texto": "Los viernes no hay Flex: cada uno se muere por su cuenta en SoloQ."
     }
   ],
   "chistes": [
@@ -1037,9 +1153,10 @@
     {
       "texto": "más perro que lobo",
       "fechas": [
-        "2026-10-22"
+        "2026-10-22",
+        "2026-10-24"
       ],
-      "usos": 1,
+      "usos": 2,
       "semilla": true
     },
     {
@@ -1082,6 +1199,24 @@
       "jugador": "thetrevur",
       "motivo": "Diez muertes, tres en el mismo sitio, y una calle perdida contra Pantheon",
       "fecha": "2026-10-23"
+    },
+    {
+      "campeon": "Naafiri",
+      "jugador": "grangalax",
+      "motivo": "Estrenada a las doce y media de la madrugada y abandonada con 3/6/1 frente a una Lux que murió una vez",
+      "fecha": "2026-10-24"
+    },
+    {
+      "campeon": "Caitlyn",
+      "jugador": "fr4nux",
+      "motivo": "Quince muertes ante una Xayah: récord personal de su tirador, a su costa",
+      "fecha": "2026-10-24"
+    },
+    {
+      "campeon": "Akali",
+      "jugador": "ipredatorz",
+      "motivo": "Diecinueve muertes en cuarenta y nueve minutos: récord de la hemeroteca a su costa",
+      "fecha": "2026-10-24"
     }
   ]
 }
