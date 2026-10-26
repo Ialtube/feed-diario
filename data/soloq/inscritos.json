@@ -1,0 +1,28 @@
+{
+  "cuentas": {
+    "thetrevur#urgod": {
+      "riot_id": "TheTrevur#URGOD",
+      "apodo": "Urgod",
+      "jugador": "thetrevur",
+      "objetivo": "CHALLENGER",
+      "lema": "E + Flash",
+      "inscrito": "2026-10-26T17:57:20.703473+00:00",
+      "origen": "web",
+      "id": 1,
+      "estado": "ok",
+      "persona": "TheTrevur",
+      "puuid": "Wy92kmBF_D1c48bBZXZ-qvaBqk74M32tYJSTX-v-MB9FqupyRE8MhW5zOU7nKATH6kUq81sMNhI2Dw",
+      "icono": 693,
+      "nivel": 469,
+      "icono_ms": 1793038484767
+    }
+  },
+  "actualizado": 1793038484767,
+  "ddragon": "16.21.1",
+  "avisos": {
+    "programado": 1793487600000,
+    "diario": "2026-10-26"
+  },
+  "buzon": [],
+  "permisos": []
+}

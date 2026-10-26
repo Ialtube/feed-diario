@@ -1,6 +1,19 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "inscripcion",
- "actualizado": null,
- "clasificacion": []
+ "actualizado": 1793038484767,
+ "clasificacion": [
+  {
+   "puesto": 1,
+   "nombre": "TheTrevur",
+   "apodo": "Urgod",
+   "riot_id": "TheTrevur#URGOD",
+   "liga": "Diamante IV · 0 LP",
+   "lp_hoy": null,
+   "partidas": 0,
+   "victorias": 0,
+   "derrotas": 0,
+   "racha": 0
+  }
+ ]
 }
