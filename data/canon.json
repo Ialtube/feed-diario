@@ -13,6 +13,10 @@
         {
           "fecha": "2026-10-23",
           "texto": "el señor del tiempo muerto"
+        },
+        {
+          "fecha": "2026-10-26",
+          "texto": "el empate con teclado"
         }
       ],
       "rasgos": [
@@ -50,6 +54,11 @@
           "tipo": "caída",
           "texto": "De tener un campeón que funcionaba (Ekko) a perder seis seguidas, Ekko incluido.",
           "fecha": "2026-10-25"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Rompe la racha de siete y la reabre a la media hora con el mismo Ekko: 261–261 en SoloQ, no cae ni sube, oscila.",
+          "fecha": "2026-10-26"
         }
       ]
     },
@@ -110,6 +119,10 @@
         {
           "fecha": "2026-10-25",
           "texto": "Lissandra: 1/8/2 en su estreno, en quince minutos"
+        },
+        {
+          "fecha": "2026-10-26",
+          "texto": "Qiyana prestada: 9/11/8 en la jungla"
         }
       ],
       "rivales": [
@@ -160,6 +173,11 @@
           "tipo": "redención",
           "texto": "Sube a Platino II con +89 LP en un día de nueve partidas mientras bate su récord de muertes: asciende sin curarse.",
           "fecha": "2026-10-24"
+        },
+        {
+          "tipo": "redención",
+          "texto": "Sube a Platino I con dos puntos tras una Kalista de 35,9 % del daño, mientras su Jhin es el que menos daño hace de su equipo.",
+          "fecha": "2026-10-26"
         }
       ]
     },
@@ -175,6 +193,10 @@
         {
           "fecha": "2026-10-24",
           "texto": "el verdugo de Darius"
+        },
+        {
+          "fecha": "2026-10-26",
+          "texto": "el factor común"
         }
       ],
       "rasgos": [
@@ -189,7 +211,13 @@
       ],
       "rivales": [],
       "titulos": [],
-      "arcos": []
+      "arcos": [
+        {
+          "tipo": "caída",
+          "texto": "Diez derrotas seguidas en tres días; separado de RDV Canyon, pierde con todos los demás.",
+          "fecha": "2026-10-26"
+        }
+      ]
     },
     "dierophant": {
       "alias": "Dierophant",
@@ -204,6 +232,10 @@
         {
           "fecha": "2026-10-21",
           "texto": "Viego (0–3 en la hemeroteca)"
+        },
+        {
+          "fecha": "2026-10-26",
+          "texto": "Viego: 0–4 en la hemeroteca"
         }
       ],
       "rivales": [],
@@ -299,7 +331,12 @@
       ],
       "maldiciones": [],
       "rivales": [],
-      "titulos": [],
+      "titulos": [
+        {
+          "fecha": "2026-10-26",
+          "texto": "Absuelto por ausencia"
+        }
+      ],
       "arcos": []
     },
     "giroroo": {
@@ -310,6 +347,10 @@
         {
           "fecha": "2026-10-25",
           "texto": "el Invicto sin apellido"
+        },
+        {
+          "fecha": "2026-10-26",
+          "texto": "el Recaudador"
         }
       ],
       "rasgos": [
@@ -346,7 +387,12 @@
           "texto": "Soporte que gana y te lo recuerda a pings"
         }
       ],
-      "maldiciones": [],
+      "maldiciones": [
+        {
+          "fecha": "2026-10-26",
+          "texto": "Malzahar: una victoria de siete en un día"
+        }
+      ],
       "rivales": [],
       "titulos": [
         {
@@ -369,6 +415,11 @@
           "tipo": "caída",
           "texto": "Dieciséis partidas en un sábado, 7–9 y 126 muertes: baja de Esmeralda III a Platino I.",
           "fecha": "2026-10-25"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Catorce partidas más tras las dieciséis del sábado y 98 muertes: líder de la General sin salir de la Grieta.",
+          "fecha": "2026-10-26"
         }
       ]
     }
@@ -405,7 +456,13 @@
       "deseo": "Sentar en el banquillo a un jugador entero, no solo a sus partidas",
       "secreto": "No ha ganado un juicio en su vida: todos sus acusados se declararon culpables antes de empezar",
       "relacion": "Rival jurada del abogado Leguleyo; desprecia los atestados de Cobretuerca",
-      "cambios": []
+      "cambios": [
+        {
+          "fecha": "2026-10-26",
+          "campo": "estado",
+          "texto": "Gana su primer juicio, contra el acusado que no quería, y reclama el resguardo del día 21"
+        }
+      ]
     },
     {
       "nombre": "Doctor Ezequiel Humoverde",
@@ -439,6 +496,11 @@
           "fecha": "2026-10-25",
           "campo": "estado",
           "texto": "Se descubre que guarda la firma del director como seguro de vida"
+        },
+        {
+          "fecha": "2026-10-26",
+          "campo": "estado",
+          "texto": "Guarda el resguardo de apuestas del 21 de octubre «con lo otro»"
         }
       ]
     },
@@ -513,6 +575,11 @@
           "fecha": "2026-10-25",
           "campo": "estado",
           "texto": "Su firma aprobando la fórmula de la General aparece en la página arrancada; Barbanegra la guardaba «por si acaso»"
+        },
+        {
+          "fecha": "2026-10-26",
+          "campo": "estado",
+          "texto": "Sigue en el cargo con dos votos del jurado y niega una apuesta del 21 de octubre que nadie le había preguntado"
         }
       ]
     },
@@ -544,6 +611,11 @@
           "fecha": "2026-10-24",
           "campo": "estado",
           "texto": "Presume de su tercera exclusiva: el libro de la Lonja"
+        },
+        {
+          "fecha": "2026-10-26",
+          "campo": "estado",
+          "texto": "Presume de su cuarta exclusiva: el resguardo de la apuesta del director"
         }
       ]
     }
@@ -589,6 +661,10 @@
         },
         {
           "fecha": "2026-10-25",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-26",
           "estado": "escalando"
         }
       ],
@@ -647,6 +723,13 @@
           "resumen": "0–6 y 48 muertes: incumple la orden del tribunal (Kindred de estreno y tres Qiyanas, 0–3 en la hemeroteca) y pierde también las dos con Ekko. Baja a Plata IV en Flex.",
           "titulares": [
             "Ni Ekko le quiere ya"
+          ]
+        },
+        {
+          "fecha": "2026-10-26",
+          "resumen": "Pierde la séptima con Lissandra (13/8/20), rompe la racha con Ekko en SoloQ y deja la cuenta en 261–261; media hora después pierde la Flex con el mismo Ekko (11/13/14) y queda 100–101.",
+          "titulares": [
+            "El Barón rompe la racha y la vuelve a empezar con el mismo Ekko"
           ]
         }
       ]
@@ -784,6 +867,13 @@
           "resumen": "3–0 lejos de la Flex del grupo, con Kalista 11/1/8 y casi un tercio del daño. El Instituto no cierra: hay que separar las variables.",
           "titulares": [
             "El único que no fue a la Flex"
+          ]
+        },
+        {
+          "fecha": "2026-10-26",
+          "resumen": "Kalista con el 35,9 % del daño y cuádruple con Kog'Maw, pero Jhin con el menor daño de su equipo. Sube a Platino I con dos puntos.",
+          "titulares": [
+            "El tirador asciende con dos puntos de margen"
           ]
         }
       ]
@@ -1036,6 +1126,13 @@
           "titulares": [
             "Donde dijimos «no tiene importancia»"
           ]
+        },
+        {
+          "fecha": "2026-10-26",
+          "resumen": "El director, mantenido por el jurado, niega en un comunicado una apuesta del 21 de octubre por la que nadie había preguntado. Hexwick pide a Barbanegra el resguardo, que guarda «con lo otro».",
+          "titulares": [
+            "La dirección niega una apuesta por la que nadie había preguntado"
+          ]
         }
       ],
       "estados": [
@@ -1053,6 +1150,10 @@
         },
         {
           "fecha": "2026-10-25",
+          "estado": "desenlace"
+        },
+        {
+          "fecha": "2026-10-26",
           "estado": "desenlace"
         }
       ]
@@ -1087,6 +1188,11 @@
         {
           "fecha": "2026-10-25",
           "resumen": "Por primera vez el Rincón publica antes la exclusiva (la página arrancada); la Gaceta responde que ya lo había dicho.",
+          "titulares": []
+        },
+        {
+          "fecha": "2026-10-26",
+          "resumen": "La Gaceta roba la cuarta exclusiva: publica antes que el Rincón el resguardo de la apuesta del director contra el Barón.",
           "titulares": []
         }
       ],
@@ -1209,6 +1315,10 @@
         {
           "fecha": "2026-10-25",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-26",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -1217,6 +1327,87 @@
           "resumen": "GSJoseador y RDV Canyon pierden juntos cinco de cinco (tres SoloQ y dos Flex) en un sábado de 1–9 y 1–7.",
           "titulares": [
             "GSJoseador gana una de diez y la Comisaría le pregunta por sus compañías"
+          ]
+        },
+        {
+          "fecha": "2026-10-26",
+          "resumen": "Separados un día: RDV Canyon gana cuatro de seis sin él y GSJoseador pierde cuatro de cuatro con otros tres compañeros. RDV Canyon, absuelto por ausencia.",
+          "titulares": [
+            "Absuelto por ausencia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "la-racha-del-comodin",
+      "titulo": "La racha del Comodín",
+      "abierto": "2026-10-26",
+      "protagonistas": [
+        "gsjoseador"
+      ],
+      "reparto": [],
+      "resumen": "GSJoseador suma diez derrotas seguidas en tres días, cambie de pareja o no; ni una Caitlyn 21/7/19 le saca del pozo.",
+      "estados": [
+        {
+          "fecha": "2026-10-26",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-26",
+          "resumen": "GSJoseador suma diez derrotas seguidas en tres días, cambie de pareja o no; ni una Caitlyn 21/7/19 le saca del pozo.",
+          "titulares": []
+        }
+      ]
+    },
+    {
+      "id": "el-que-no-sabe-irse-a-casa",
+      "titulo": "El que no sabe irse a casa",
+      "abierto": "2026-10-26",
+      "protagonistas": [
+        "saiko"
+      ],
+      "reparto": [],
+      "resumen": "Saiko encadena catorce partidas el domingo tras las dieciséis del sábado: 98 muertes, siete Malzahar con una victoria y líder de la General.",
+      "estados": [
+        {
+          "fecha": "2026-10-26",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-26",
+          "resumen": "Saiko encadena catorce partidas el domingo tras las dieciséis del sábado: 98 muertes, siete Malzahar con una victoria y líder de la General.",
+          "titulares": [
+            "Parte médico del paciente que ingresó a las siete menos cuarto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-intercambio-de-maldiciones",
+      "titulo": "El intercambio de maldiciones",
+      "abierto": "2026-10-26",
+      "protagonistas": [
+        "grangalax",
+        "wolf"
+      ],
+      "reparto": [],
+      "resumen": "grangalax juega la Lissandra maldita de Wôlf y Wôlf juega los Ekko y la Qiyana de grangalax. Pierden los dos.",
+      "estados": [
+        {
+          "fecha": "2026-10-26",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-26",
+          "resumen": "grangalax juega la Lissandra maldita de Wôlf y Wôlf juega los Ekko y la Qiyana de grangalax. Pierden los dos.",
+          "titulares": [
+            "Cambio de armario en la Grieta"
           ]
         }
       ]
@@ -1254,6 +1445,10 @@
     {
       "fecha": "2026-10-25",
       "texto": "Los sábados la Flex del grupo arranca antes del mediodía, y a la media hora ya está perdida."
+    },
+    {
+      "fecha": "2026-10-26",
+      "texto": "Los domingos la única Flex del grupo empieza a las doce menos cuarto de la noche y dura hasta pasada la medianoche."
     }
   ],
   "chistes": [
@@ -1262,18 +1457,20 @@
       "fechas": [
         "2026-10-20",
         "2026-10-21",
-        "2026-10-23"
+        "2026-10-23",
+        "2026-10-26"
       ],
-      "usos": 3,
+      "usos": 4,
       "semilla": true
     },
     {
       "texto": "Urgot.exe",
       "fechas": [
         "2026-10-20",
-        "2026-10-21"
+        "2026-10-21",
+        "2026-10-26"
       ],
-      "usos": 2,
+      "usos": 3,
       "semilla": true
     },
     {
@@ -1361,6 +1558,24 @@
       "jugador": "saiko",
       "motivo": "Dieciséis muertes en una Flex de veintiocho minutos",
       "fecha": "2026-10-25"
+    },
+    {
+      "campeon": "Malzahar",
+      "jugador": "saiko",
+      "motivo": "Sacado siete veces en un día, una victoria, y la última en la calle del tirador con quince muertes",
+      "fecha": "2026-10-26"
+    },
+    {
+      "campeon": "Qiyana",
+      "jugador": "wolf",
+      "motivo": "Prestada de un maldito a otro y muerta once veces en la jungla",
+      "fecha": "2026-10-26"
+    },
+    {
+      "campeon": "Viego",
+      "jugador": "dierophant",
+      "motivo": "Cuatro derrotas de cuatro en la hemeroteca, con triple incluido",
+      "fecha": "2026-10-26"
     }
   ]
 }

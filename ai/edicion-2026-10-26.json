@@ -1,0 +1,155 @@
+{
+  "piezas": [
+    {"angulo": "a2", "peso": "grande", "portada": true, "formato": "crónica", "hilo": "la-moneda", "seccion": "DEPORTES", "player": "grangalax",
+     "headline": "El Barón rompe la racha y la vuelve a empezar con el mismo Ekko",
+     "subtitulo": "Séptima derrota con una Lissandra prestada, una victoria de noche para cuadrar las cuentas y, en la Flex de las doce menos cuarto, trece muertes con el campeón que le acababa de salvar.",
+     "body": "Ayer este periódico preguntó si grangalax rompería la racha de seis derrotas o iría a por la séptima. Hizo las dos cosas, en ese orden, y le sobró tiempo para empezar otra.\n\nA las ocho menos un minuto se sentó en una partida de cuatro del grupo con Lissandra, el campeón que el sábado se cobró ocho muertes de Wôlf en quince minutos. grangalax la estrenó con trece asesinatos y más de un cuarto del daño de su equipo: la mejor partida de su semana, y la séptima derrota seguida. Hay rachas que no se rompen jugando bien. Solo jugando otra cosa.\n\nA las once y cuarto volvió a Ekko en SoloQ. Veintidós minutos, una muerte y dos dobles. Racha rota. Y la Bolsa de la Lonja dejó constancia notarial de lo que esta casa lleva semanas diciendo en broma: su cuenta de SoloQ marca 261 victorias y 261 derrotas. No es un jugador. Es un empate con teclado.\n\nTreinta y cinco minutos después de empezar aquella partida ya estaba en la Flex del grupo con el mismo Ekko. Una Ahri le sacó 4.557 de oro y sesenta y dos súbditos, murió trece veces y la Flex le quedó en 100 victorias y 101 derrotas. El equilibrio le duró lo que tarda en cargar una partida.\n\nEl Sindicato de Campeones, que pidió para Ekko la custodia compartida, estudia ahora pedir la orden de alejamiento.",
+     "meme": {"plantilla": "gru", "lineas": ["Romper la racha con Ekko", "Dejar la SoloQ en 261–261", "Volver a la Flex con el mismo Ekko", "Volver a la Flex con el mismo Ekko"]},
+     "pie": "El plan del Barón, según la Casa de la Moneda de Piltover. Dibujo de archivo."},
+
+    {"angulo": "a6", "peso": "grande", "formato": "boletín médico", "hilo": "el-que-no-sabe-irse-a-casa", "seccion": "SALUD", "player": "saiko",
+     "headline": "Parte médico del paciente que ingresó a las siete menos cuarto",
+     "subtitulo": "Catorce partidas y casi ocho horas un día después de las dieciséis del sábado: los Laboratorios de Zaun no encuentran la puerta por la que se le da el alta.",
+     "body": "Laboratorios de Zaun. Parte de primera hora del lunes.\n\nEl paciente, conocido en la Grieta como Saiko, ingresó el domingo a las siete menos cuarto de la mañana con un Malzahar en mid y no ha recibido el alta. Catorce partidas y casi ocho horas de exposición continuada, veinticuatro horas después de las dieciséis del sábado. El equipo médico describe el cuadro como «adicción con síntomas de soporte».\n\nEvolución: Malzahar se le administró siete veces y respondió una. La última dosis fue en la calle del tirador, contra un Varus, y terminó con quince muertes y más de nueve minutos de cuerpo presente. Con Blitzcrank, en cambio, tres victorias de cuatro: el paciente mejora en cuanto se le retira el daño. El forense de guardia, Humoverde, ha pedido que la factura del Malzahar tirador se emita por servicio y no por visita.\n\nPronóstico: noventa y ocho muertes en un día, líder de la General de la vergüenza y Esmeralda IV con cero puntos, que en SoloQ es estar en la división de puntillas.\n\nEl paciente se encuentra estable. Ese es el problema.",
+     "meme": {"campeon": "Malzahar", "aspecto": 3, "lineas": ["Te concedo tres deseos", "Siete Malzahar y una victoria no cuenta"]},
+     "pie": "Malzahar genio, a la séptima frotada. Foto: Laboratorios de Zaun."},
+
+    {"angulo": "a3", "peso": "grande", "formato": "juicio", "hilo": "los-inseparables", "seccion": "SUCESOS", "player": "gsjoseador",
+     "headline": "Absuelto por ausencia",
+     "subtitulo": "La fiscalía separa a GSJoseador de RDV Canyon para demostrar quién gafaba a quién. El experimento dura un día y no deja dudas.",
+     "body": "La fiscal Hexwick llegó a la vista con una tesis sencilla: las cinco derrotas que GSJoseador y RDV Canyon encadenaron juntos el sábado eran obra de RDV Canyon. Pidió una prueba pericial que en Zaun se considera infalible: separarlos un día y mirar.\n\nLos separaron. RDV Canyon jugó seis partidas sin él y ganó cuatro. GSJoseador probó con Dierophant, con grangalax y con el tirador Fr4nux: perdió con los tres: cuatro de cuatro en el día, diez derrotas seguidas en tres días. Cambió de pareja como quien cambia de bombilla en una casa sin luz.\n\nEl abogado Leguleyo presentó como prueba de descargo la Caitlyn de la Flex de medianoche: veintiún asesinatos y el 31,4 % del daño de su equipo, en derrota. «Mi cliente no puede perder mejor», alegó, y no se dio cuenta de lo que había dicho hasta que la sala se rio.\n\nFallo: RDV Canyon queda absuelto por ausencia. GSJoseador, sin cómplice al que señalar, pasa a la categoría que el código de Zaun reserva para los casos sin remedio: factor común.\n\nLa fiscal Hexwick ha ganado su primer juicio. Contra el acusado equivocado, pero lo ha ganado.",
+     "campeon": "Caitlyn", "pie": "La Caitlyn de la defensa, prueba número uno. Foto: juzgado de guardia de Zaun."},
+
+    {"angulo": "a53", "peso": "mediana", "formato": "noticia", "seccion": "EL FARO DE LA ESPERANZA", "player": "giroroo",
+     "headline": "Cuatro dragones, dos barones y una derrota",
+     "subtitulo": "Giroroo, el mejor del día, demuestra que en la jungla se puede hacer todo bien y que dé igual.",
+     "body": "Giroroo fue el mejor del domingo con dos partidas y una idea fija: llevarse todo lo que tenga barra de vida y no sea un campeón. Con Kayn se llevó dos dragones, el heraldo y dos barones, y ganó. Con Rek'Sai, que estrenaba, se llevó cuatro dragones y dos barones, y perdió.\n\nLos Centinelas de la Luz lo celebran con prudencia, porque la Lonja de Aguasturbias ha mirado las cuentas del Kayn: el 23,8 % del oro de su equipo para devolver el 16,7 % del daño. En Aguasturbias eso no se llama jungla. Se llama comisión.\n\nEl Invicto sin apellido ya tiene uno: el Recaudador.",
+     "campeon": "Kayn"},
+
+    {"angulo": "a86", "peso": "mediana", "formato": "noticia", "hilo": "carry-not-found", "seccion": "DAÑO", "player": "fr4nux",
+     "headline": "El tirador asciende con dos puntos de margen",
+     "subtitulo": "Una Kalista de récord, un cuádruple con Kog'Maw y un Jhin que no disparó ni las cuatro balas.",
+     "body": "El expediente del Tirador sin Pólvora ya no cabe en una carpeta. El domingo, su Kalista hizo el 35,9 % del daño de su equipo con veinte asesinatos y tres muertes, y el Kog'Maw que la semana pasada murió cuatro veces en un rincón firmó un cuádruple en la partida del grupo. Los técnicos de Piltover estaban a punto de cerrar el caso cuando llegó el Jhin.\n\nJhin: dos asesinatos, nueve muertes, el que menos daño hizo de su equipo y siete de visión en veintinueve minutos. Una Caitlyn le sacó 6.141 de oro. El arma de cuatro balas no necesitó ninguna.\n\nBalance: tres victorias, tres derrotas y la Bolsa que le sube a Platino I. Con dos puntos. Cuatro partidas para sumar cuatro puntos: el ascenso más caro de Piltover.",
+     "campeon": "Jhin"},
+
+    {"angulo": "a12", "peso": "mediana", "formato": "reportaje", "hilo": "el-intercambio-de-maldiciones", "seccion": "CULTURA", "player": "wolf",
+     "headline": "Cambio de armario en la Grieta",
+     "subtitulo": "Wôlf y grangalax se intercambian los campeones malditos del sábado. La maldición no se entera.",
+     "body": "El sábado, Wôlf estrenó Lissandra y murió ocho veces en quince minutos. El mismo sábado, grangalax sacó tres Qiyanas y perdió las tres. El domingo se cambiaron la ropa.\n\ngrangalax se puso Lissandra y firmó la mejor partida de su semana, aunque perdió. Wôlf se puso todo lo que había en el armario del Barón: dos Ekkos en SoloQ, uno ganado y otro perdido, y a medianoche, en la Flex y con el propio grangalax delante, Qiyana en la jungla. Once muertes y el peor del grupo en aquella partida. Cerró el día 1–3 con Ekko, Zed y Qiyana: tres campeones distintos y ninguno suyo.\n\nLa Biblioteca de Shurima ha abierto un registro de préstamos. Conclusión provisional de los archiveros: la maldición nunca estuvo en los campeones.",
+     "meme": {"plantilla": "spiderman", "lineas": ["Wôlf, de Qiyana", "grangalax, de Lissandra"]},
+     "pie": "Dos malditos se reconocen en la Grieta. Ilustración de la Biblioteca de Shurima."},
+
+    {"angulo": null, "peso": "mediana", "formato": "comunicado oficial", "hilo": "el-escandalo-de-la-lonja", "seccion": "POLÍTICA",
+     "headline": "La dirección niega una apuesta por la que nadie había preguntado",
+     "subtitulo": "Don Evaristo Plumanegra sigue en el cargo y lo celebra desmintiendo lo que todavía no se había publicado.",
+     "body": "COMUNICADO DE LA DIRECCIÓN. Don Evaristo Plumanegra agradece al jurado popular los dos votos que le mantienen en el cargo, que interpreta como un mandato. Asimismo comunica que jamás ha apostado en la Lonja de Aguasturbias, ni a favor ni en contra del Barón de la Moneda, y menos aún el 21 de octubre, día en que se cambió la fórmula de la General y el Barón perdió el trono.\n\nNOTA DE LA REDACCIÓN. Nadie había preguntado por ninguna apuesta. Ni por ninguna fecha. La fiscal Hexwick leyó el comunicado a primera hora y pidió a Barbanegra el resguardo de apuestas de aquel día. Barbanegra respondió que lo guarda «con lo otro».\n\nA la hora de cerrar esta edición, la Gaceta de Noxus anunciaba una exclusiva con la palabra «resguardo» en el titular."},
+
+    {"angulo": "a98", "peso": "mediana", "formato": "ranking", "seccion": "POLÍTICA",
+     "headline": "La semana, por orden de vergüenza",
+     "body": "1. Saiko, 14 puntos. 33 partidas desde que se reinició la General, 14–19. Fichado como amuleto para la liga; ejerce de ancla. 2. iPredatoRz, 13 puntos. 18 partidas para casi el mismo botín: la mejor rentabilidad de la tabla.\n\n3. Wôlf, 11 puntos. 12–13. Este domingo jugó con los campeones de otro; la próxima semana puede jugar con la cuenta. 4. grangalax, 9 puntos. Cuarto en la General nueva y primero en la histórica, con 35 puntos y cinco portadas. No ha bajado: está de gira. 5. GSJoseador, 7 puntos. 8–20 y diez derrotas seguidas en marcha: es el que más rápido sube.\n\nTheTrevur, sexto con 6 puntos, ha pedido que conste que él juega poco."},
+
+    {"angulo": "a9", "peso": "breve", "formato": "breve", "seccion": "SUCESOS", "player": "thetrevur",
+     "headline": "El Gran Maestre sale una vez",
+     "body": "TheTrevur jugó una partida el domingo, la Flex de medianoche, con su Urgot de siempre. Murió diez veces, cuatro en la misma baldosa. Los mecánicos de Zaun descartan un fallo de Urgot.exe: el programa se ejecutó correctamente las cuatro veces."},
+
+    {"angulo": "a15", "peso": "breve", "formato": "anuncio por palabras", "seccion": "CULTURA", "player": "dierophant",
+     "headline": "Vendo Viego, sin estrenar victoria",
+     "body": "VENDO Viego, uso intensivo, cuatro partidas en la hemeroteca y ninguna ganada. Incluye un triple de regalo y nueve muertes del último dueño, que el domingo perdió sus tres partidas y bajó a Esmeralda II. Abstenerse Centinelas: ya lo intentó con Bard, 145 de visión, y tampoco."},
+
+    {"angulo": "a41", "peso": "breve", "formato": "breve", "seccion": "DEPORTES", "player": "ipredatorz",
+     "headline": "Yasuo, ida y vuelta",
+     "body": "iPredatoRz estrenó Cassiopeia y perdió, sacó a Yasuo y murió nueve veces, y repitió Yasuo para ganar con quince asesinatos. El Fantasma no aprende de sus errores: los repite hasta que funcionan. La Lonja resolvió que no pisaría el podio de la vergüenza. No había apostado nadie."},
+
+    {"angulo": "a66", "peso": "breve", "formato": "breve", "seccion": "COMUNICACIÓN", "player": "rdv-canyon",
+     "headline": "El umbral de Radio Zaun",
+     "body": "RDV Canyon mandó setenta y tres pings con Ahri y perdió. Con Leona, sesenta y ocho, y ganó. Radio Zaun sitúa el umbral de la victoria en algún punto entre los dos y ha pedido a su locutor jefe que no lo busque."},
+
+    {"angulo": null, "peso": "breve", "formato": "breve", "seccion": "ECONOMÍA",
+     "headline": "A una muerte del límite",
+     "body": "El Sorteo de la Grieta salió 98, 39 y 32: las muertes de Saiko, Fr4nux e iPredatoRz. Los boletos llegan hasta el 99, así que Saiko se quedó a una muerte de romper el sorteo. El único participante no acertó y el bote sube a 800 coronas."},
+
+    {"angulo": null, "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD", "player": "wolf",
+     "headline": "El vidente se equivocó de armario",
+     "body": "El único participante de la porra votó a grangalax como peor del día. Fue Wôlf, que esa noche jugaba con la Qiyana del Barón. Barbanegra se niega a dar el boleto por bueno: acertó la ropa, no al dueño."}
+  ],
+  "tiempo": [
+    {"jugador": "saiko", "texto": "Cincuenta y tres minutos de gris repartidos en catorce partidas: llovizna desde el amanecer y aguacero en la calle del tirador."},
+    {"jugador": "grangalax", "texto": "Quince minutos de gris. Un claro a las once y cuarto y nubarrones con forma de Ahri a medianoche."},
+    {"jugador": "fr4nux", "texto": "Veinte minutos de gris. Sol con Kalista, granizo con Jhin."},
+    {"jugador": "wolf", "texto": "Dieciséis minutos de gris bajo un cielo prestado: ni las nubes eran suyas."},
+    {"jugador": "rdv-canyon", "texto": "Diecisiete minutos de gris, casi todos con Gnar. Tormenta de pings en el resto del día."},
+    {"jugador": "ipredatorz", "texto": "Diecinueve minutos de gris. Niebla sobre Yasuo que se levanta, por insistencia, a la segunda."},
+    {"jugador": "dierophant", "texto": "Trece minutos de gris. Visión perfecta del temporal que se le venía encima."},
+    {"jugador": "gsjoseador", "texto": "Once minutos de gris. Poca niebla, mucha derrota: el frente no viene del cielo, viene de dentro."},
+    {"jugador": "thetrevur", "texto": "Casi seis minutos de gris en una sola salida, cuatro veces sobre la misma baldosa."},
+    {"jugador": "giroroo", "texto": "Despejado y con dragones a la vista. Madame Niebla avisa de que el oro no se lo lleva el viento: se lo lleva él."}
+  ],
+  "canon": {
+    "hilos": [
+      {"id": "la-moneda", "accion": "avanzar", "estado": "escalando", "resumen": "Pierde la séptima con Lissandra (13/8/20), rompe la racha con Ekko en SoloQ y deja la cuenta en 261–261; media hora después pierde la Flex con el mismo Ekko (11/13/14) y queda 100–101.", "protagonistas": ["grangalax"]},
+      {"id": "los-inseparables", "accion": "cerrar", "resumen": "Separados un día: RDV Canyon gana cuatro de seis sin él y GSJoseador pierde cuatro de cuatro con otros tres compañeros. RDV Canyon, absuelto por ausencia."},
+      {"id": "la-racha-del-comodin", "accion": "abrir", "titulo": "La racha del Comodín", "resumen": "GSJoseador suma diez derrotas seguidas en tres días, cambie de pareja o no; ni una Caitlyn 21/7/19 le saca del pozo.", "protagonistas": ["gsjoseador"]},
+      {"id": "el-que-no-sabe-irse-a-casa", "accion": "abrir", "titulo": "El que no sabe irse a casa", "resumen": "Saiko encadena catorce partidas el domingo tras las dieciséis del sábado: 98 muertes, siete Malzahar con una victoria y líder de la General.", "protagonistas": ["saiko"]},
+      {"id": "el-intercambio-de-maldiciones", "accion": "abrir", "titulo": "El intercambio de maldiciones", "resumen": "grangalax juega la Lissandra maldita de Wôlf y Wôlf juega los Ekko y la Qiyana de grangalax. Pierden los dos.", "protagonistas": ["wolf", "grangalax"]},
+      {"id": "carry-not-found", "accion": "avanzar", "resumen": "Kalista con el 35,9 % del daño y cuádruple con Kog'Maw, pero Jhin con el menor daño de su equipo. Sube a Platino I con dos puntos."},
+      {"id": "el-escandalo-de-la-lonja", "accion": "avanzar", "estado": "desenlace", "resumen": "El director, mantenido por el jurado, niega en un comunicado una apuesta del 21 de octubre por la que nadie había preguntado. Hexwick pide a Barbanegra el resguardo, que guarda «con lo otro»."},
+      {"id": "la-guerra-de-los-periodicos", "accion": "avanzar", "resumen": "La Gaceta roba la cuarta exclusiva: publica antes que el Rincón el resguardo de la apuesta del director contra el Barón."}
+    ],
+    "personajes": {
+      "grangalax": {"apodo": "el empate con teclado", "arco": {"tipo": "caída", "texto": "Rompe la racha de siete y la reabre a la media hora con el mismo Ekko: 261–261 en SoloQ, no cae ni sube, oscila."}},
+      "saiko": {"maldicion": "Malzahar: una victoria de siete en un día", "arco": {"tipo": "caída", "texto": "Catorce partidas más tras las dieciséis del sábado y 98 muertes: líder de la General sin salir de la Grieta."}},
+      "gsjoseador": {"apodo": "el factor común", "arco": {"tipo": "caída", "texto": "Diez derrotas seguidas en tres días; separado de RDV Canyon, pierde con todos los demás."}},
+      "wolf": {"maldicion": "Qiyana prestada: 9/11/8 en la jungla"},
+      "giroroo": {"apodo": "el Recaudador"},
+      "rdv-canyon": {"titulo": "Absuelto por ausencia"},
+      "dierophant": {"maldicion": "Viego: 0–4 en la hemeroteca"},
+      "fr4nux": {"arco": {"tipo": "redención", "texto": "Sube a Platino I con dos puntos tras una Kalista de 35,9 % del daño, mientras su Jhin es el que menos daño hace de su equipo."}}
+    },
+    "elenco": [
+      {"nombre": "Don Evaristo Plumanegra", "estado": "Sigue en el cargo con dos votos del jurado y niega una apuesta del 21 de octubre que nadie le había preguntado"},
+      {"nombre": "Barbanegra el Contable", "estado": "Guarda el resguardo de apuestas del 21 de octubre «con lo otro»"},
+      {"nombre": "Fiscal Lucrecia Hexwick", "estado": "Gana su primer juicio, contra el acusado que no quería, y reclama el resguardo del día 21"},
+      {"nombre": "Valeria Puñoférreo", "estado": "Presume de su cuarta exclusiva: el resguardo de la apuesta del director"}
+    ],
+    "costumbres": ["Los domingos la única Flex del grupo empieza a las doce menos cuarto de la noche y dura hasta pasada la medianoche."],
+    "chistes": ["la moneda de grangalax", "Urgot.exe"],
+    "sindicato": [
+      {"campeon": "Malzahar", "jugador": "saiko", "motivo": "Sacado siete veces en un día, una victoria, y la última en la calle del tirador con quince muertes"},
+      {"campeon": "Qiyana", "jugador": "wolf", "motivo": "Prestada de un maldito a otro y muerta once veces en la jungla"},
+      {"campeon": "Viego", "jugador": "dierophant", "motivo": "Cuatro derrotas de cuatro en la hemeroteca, con triple incluido"}
+    ]
+  },
+  "gaceta": {"titular": "¡EXCLUSIVA! EL DIRECTOR DEL RINCÓN APOSTÓ CONTRA SU PROPIO BARÓN", "cuerpo": "Mientras el Rincón publica comunicados para desmentir lo que nadie ha dicho, LA GACETA DE NOXUS lo dice: fuentes de toda solvencia con acceso a la Lonja confirman que el resguardo del 21 de octubre existe y lleva iniciales. ¡Las de siempre!\n\nY una defensa que nadie más hará: grangalax jugó el domingo su mejor partida de la semana, trece asesinatos con una Lissandra que no había tocado nunca, ¡y el Rincón la titula como «séptima derrota»! En Noxus al soldado se le juzga por lo que mata, no por lo que pierde su equipo.", "firma": "Valeria Puñoférreo"},
+  "jurado": {"pregunta": "¿Quién tiene la culpa de las diez derrotas seguidas de GSJoseador?", "opciones": ["GSJoseador", "Sus compañeros, todos", "RDV Canyon, a distancia"], "juicio": false},
+  "jurado_veredicto": "Dos votos, los dos a «No, la culpa es de los números», y ningún nombre: los votantes prefirieron quedarse tan a oscuras como la fórmula. Don Evaristo sigue en el cargo, lo interpreta como un mandato y hoy lo estrena con un comunicado que nadie le había pedido.",
+  "manana": [
+    {"texto": "¿Volverá grangalax a la Flex con Ekko o le dará el día libre?"},
+    {"texto": "¿Romperá GSJoseador las diez derrotas seguidas?"},
+    {"texto": "¿Bajará Saiko de las catorce partidas, o subirá?"}
+  ],
+  "promesas": [
+    {"n": 1, "texto": "Las dos cosas: a las ocho perdió la séptima con Lissandra y a las once y cuarto la rompió con Ekko. A las doce menos cuarto, el mismo Ekko abrió la siguiente."},
+    {"n": 2, "texto": "No. RDV Canyon ganó cuatro de seis sin él; GSJoseador perdió cuatro de cuatro sin él. La pareja era inocente. Uno de los dos, no."},
+    {"n": 3, "texto": "No dimitió: el jurado le dio dos votos y hoy firma un comunicado. La Gaceta no ha publicado su dimisión porque no existe. Ha publicado otra cosa."}
+  ],
+  "replicas_descartadas": [],
+  "estilo": {"pautas_nuevas": [], "pautas_retiradas": []},
+  "horoscopo": [
+    {"signo": "Top", "texto": "Un Urgot que muere cuatro veces sobre la misma baldosa no tiene mala suerte: tiene domicilio. Cambia de ruta o empadrónate."},
+    {"signo": "Jungla", "texto": "Te llevarás cuatro dragones y dos barones, y perderás igual. Esta semana el mapa es tuyo; la partida, de otro."},
+    {"signo": "Mid", "texto": "Siete Malzahar responden una vez. El octavo tampoco. Hay pacientes que confunden la constancia con el tratamiento."},
+    {"signo": "Tirador", "texto": "Un día veinte asesinatos, otro día dos. La media te sube a Platino; el Jhin se queda donde estaba."},
+    {"signo": "Soporte", "texto": "Ciento cuarenta y cinco de visión: lo verás todo venir, incluida la derrota, con tiempo de sobra para avisar."}
+  ],
+  "columna": {"titulo": "Yo solo os junto", "autor": "La Cola de Emparejamiento", "cuerpo": [
+    "Me culpáis de todo. Que si os junto con tiradores sin daño, que si os pongo enfrente una Ahri que sabe jugar. Os explico mi trabajo: yo elijo a nueve desconocidos. Al décimo lo traéis de casa.",
+    "El domingo, Saiko entró en mí catorce veces. A partir de la séptima dejé de buscarle rivales y empecé a buscarle una salida. No la quiso.",
+    "GSJoseador me pidió compañeros distintos para demostrar que el problema era RDV Canyon. Le di a Dierophant, a grangalax y a Fr4nux. Le di variedad. Más no le puedo dar.",
+    "Y a grangalax le doy lo que se merece, partida a partida, desde hace años. Por eso tiene exactamente la mitad ganadas. En esta casa todos deben algo a alguien. Yo soy la única que va al día."
+  ]},
+  "especial": {"antetitulo": "Resumen semanal", "titulo": "Siete días, dos reyes y ningún campeón", "subtitulo": "Saiko manda en la General de la vergüenza con 14 puntos en 33 partidas; grangalax sigue al frente de la histórica con 35 y cinco portadas, y GSJoseador llega al lunes con diez derrotas seguidas.", "tema": "morado"},
+  "frase": "Romper una racha no es lo mismo que salir de ella.",
+  "eventos_usados": [],
+  "propuestas_descartadas": [],
+  "firma": "Claude"
+}
