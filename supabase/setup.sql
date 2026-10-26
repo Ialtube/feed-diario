@@ -290,5 +290,47 @@ end $$;
 revoke all on function public.soloq_programar(text, timestamptz, timestamptz) from public;
 grant execute on function public.soloq_programar(text, timestamptz, timestamptz) to anon;
 
+-- Buzón de sugerencias del tablón: lo que la gente quiere ver. La redacción IA las revisa cada mañana.
+create table if not exists public.soloq_sugerencias (
+  id bigint generated always as identity primary key,
+  nombre text not null check (char_length(nombre) between 1 and 40),
+  texto text not null check (char_length(texto) between 10 and 400),
+  lector text check (lector is null or char_length(lector) <= 60),
+  created_at timestamptz not null default now()
+);
+alter table public.soloq_sugerencias enable row level security;
+drop policy if exists "leer sugerencias soloq" on public.soloq_sugerencias;
+create policy "leer sugerencias soloq" on public.soloq_sugerencias for select to anon using (true);
+drop policy if exists "sugerir soloq" on public.soloq_sugerencias;
+create policy "sugerir soloq" on public.soloq_sugerencias for insert to anon
+  with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
+
+-- El permiso del jefe para las sugerencias que la redacción no se atreve a aplicar sola. Solo se escribe
+-- con la contraseña, a través de la función.
+create table if not exists public.soloq_permisos (
+  id bigint generated always as identity primary key,
+  sugerencia bigint not null,
+  decision text not null check (decision in ('aprobada', 'rechazada')),
+  nota text check (nota is null or char_length(nota) <= 200),
+  created_at timestamptz not null default now()
+);
+alter table public.soloq_permisos enable row level security;
+drop policy if exists "leer permisos soloq" on public.soloq_permisos;
+create policy "leer permisos soloq" on public.soloq_permisos for select to anon using (true);
+
+create or replace function public.soloq_decidir(clave text, p_sugerencia bigint, p_decision text, p_nota text default null)
+returns bigint language plpgsql security definer set search_path = public, extensions as $$
+declare nuevo bigint;
+begin
+  if encode(extensions.digest(clave, 'sha256'), 'hex') <> 'da248eeaffa573da8c323c3eb56aaf32ec6ce244e401a24c55f30c907d0bbfb5' then
+    raise exception 'Contraseña incorrecta' using errcode = '42501';
+  end if;
+  insert into public.soloq_permisos (sugerencia, decision, nota)
+  values (p_sugerencia, p_decision, nullif(trim(p_nota), '')) returning id into nuevo;
+  return nuevo;
+end $$;
+revoke all on function public.soloq_decidir(text, bigint, text, text) from public;
+grant execute on function public.soloq_decidir(text, bigint, text, text) to anon;
+
 -- Hace que la API vea las tablas nuevas al momento
 notify pgrst, 'reload schema';

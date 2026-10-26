@@ -239,7 +239,7 @@ def cmd_soloq(args):
     notices that are due and rebuilds docs/soloq/. --empezar / --terminar fire the starting gun and
     end the race (the admin does it by hand, from the «SoloQ Challenge» workflow)."""
     from . import canon as canon_mod
-    from . import soloq, soloq_web
+    from . import soloq, soloq_web, sugerencias
     from .notify import _post, _site_url
     cfg, friends = load_config(), load_friends()
     now_ms = int(time.time() * 1000)
@@ -309,10 +309,30 @@ def cmd_soloq(args):
         elif _post(payload):
             print(f"  Aviso del SoloQ Challenge a Discord ({tipo})")
             st[tipo] = done[tipo]
+    # the suggestion box: what the readers asked for, and what waits for the admin's permission
+    rows, perms = sugerencias.leer(cfg) if not args.solo_web else (None, None)
+    if rows is None:
+        rows, perms = datos.inscritos.get("buzon") or [], datos.inscritos.get("permisos") or []
+    else:
+        datos.inscritos["buzon"] = [{k: x.get(k) for k in ("id", "nombre", "texto", "created_at")} for x in rows[:60]]
+        datos.inscritos["permisos"] = perms or []
+    buzon = sugerencias.estados(rows, perms, store.editions())
+    waiting = [b for b in buzon if b["estado"] == "permiso" and b["id"] not in st.get("permiso", [])]
+    if waiting and not args.solo_web:
+        payload = {"username": f"{cfg['site_title']} · SoloQ", "content": "📮 Sugerencias del tablón que esperan el permiso del jefe",
+                   "embeds": [{"title": "El jefe tiene deberes", "color": 0x6B4A2B,
+                               **({"url": _site_url(cfg).rstrip("/") + "/soloq/"} if _site_url(cfg) else {}),
+                               "description": "\n\n".join(f"**«{b['texto'][:200]}»** ({b['nombre']})\n_{b.get('motivo') or ''}_"
+                                                           for b in waiting[:8])[:4000]
+                               + "\n\nSe aprueban o se rechazan en el tablón, con el candado 🔒."}]}
+        if args.dry_run:
+            print(json.dumps(payload, ensure_ascii=False, indent=2))
+        elif _post(payload):
+            st["permiso"] = sorted(set(st.get("permiso", [])) | {b["id"] for b in waiting})
     if not args.dry_run and (not args.solo_web or args.empezar or args.terminar):
         datos.save()
     soloq_web.build(cfg, datos, ROOT / "docs" / "soloq", now_ms, roster, datos.inscritos.get("ddragon"), "../",
-                    store.editions(), cast)
+                    store.editions(), cast, buzon)
     print("Tablón del SoloQ Challenge regenerado en docs/soloq/")
 
 

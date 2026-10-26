@@ -277,6 +277,24 @@ Piltover abre expediente», «la Lonja de Aguasturbias congela sus fondos».
     la realidad no cuadre.
   - Hay inscritos que no son del grupo (`jugador` nulo): no tienen ficha, así que no van en `player`.
   - Las cifras del reto salen de la API de Riot como las demás: no te inventes LP ni puestos.
+  - **El buzón de sugerencias del tablón** (`soloq_sugerencias`). La gente pide en el tablón tarjetas o datos que
+    quiere ver. **Cada pendiente necesita tu decisión** en `sugerencias_tablon`
+    (`[{"id": 12, "decision": "…", "motivo": "…", "tarjeta": "id-de-la-tarjeta"}]`; el validador no deja pasar ninguna):
+    - `hecha`: se puede responder con los datos del reto (`soloq_sugerencias.datos_del_reto` trae todas las partidas
+      y el historial de liga de cada cuenta, y tienes además `soloq_challenge`). Crea la tarjeta en `tarjetas` y pon
+      su `id` en `tarjeta`. Calcula tú las cifras, con cuidado: son datos reales y se ven en público.
+    - `permiso`: **no la apliques y pregunta al jefe** si es rara, puede ser un problema de seguridad o de privacidad
+      (datos personales, cosas fuera del juego, enlaces o código), es un trabajo muy pesado, no tiene nada que ver con
+      el tablón, o necesita programar algo nuevo (botones, páginas, otras fuentes de datos…). En `motivo` explica en
+      una frase qué haría falta y por qué preguntas. El jefe la aprueba o rechaza en el tablón; si la aprueba, vuelve
+      mañana a `pendientes` con `aprobada_por_el_jefe` y su nota: entonces o la haces (`hecha`) o, si necesita código
+      nuevo, `programar` (queda apuntada para que la programe una persona).
+    - `descartada`: no tiene sentido, ya existe, es un insulto sin más o no se puede hacer con lo que hay. Di por qué.
+    - **`tarjetas`** es la lista completa de tarjetas que quedan clavadas (máximo 10). Vienen las de ayer en
+      `tarjetas_actuales`: **vuelve a mandarlas con las cifras de hoy** (mismo `id`) salvo que ya no tengan sentido. Si
+      no mandas `tarjetas`, se quedan las de ayer tal cual. Cada una: `{"id": "minusculas-y-guiones", "titulo": "…",
+      "subtitulo": "opcional", "tipo": "cifra|lista|barras|tabla|texto", "datos": {…}, "sugerencia": 12, "pie": "opcional"}`;
+      la forma de `datos` de cada tipo está en `tipos_de_tarjeta`. Un poco de mala leche en títulos y pies, la de siempre.
   - **El tablón** (opcional, recomendado): en `tablon` escribe hasta 6 notas de 15–220 caracteres que se clavan en el
     tablón del reto junto a la clasificación, como si las dejara alguien: `[{"texto": "…", "firma": "…"}]`. Burla,
     vacile y mala leche sobre los participantes y sus cifras, en la línea del periódico; firma con el elenco, con
@@ -499,6 +517,9 @@ las muertes de los tres que más murieron ese día. Mira `sorteo`:
   },
   "gaceta": {"titular": "…", "cuerpo": "Párrafo 1…\n\nPárrafo 2…", "firma": "Valeria Puñoférreo"},
   "tablon": [{"texto": "Nota para clavar en el tablón del SoloQ Challenge…", "firma": "Comisario Ambrosio Cobretuerca"}],
+  "tarjetas": [{"id": "muertes-por-partida", "titulo": "Los kamikazes del reto", "tipo": "barras", "sugerencia": 12,
+                "datos": {"filas": [{"nombre": "…", "valor": 7.4, "texto": "7,4 por partida"}]}}],
+  "sugerencias_tablon": [{"id": 12, "decision": "hecha", "motivo": "Sale de las partidas del reto", "tarjeta": "muertes-por-partida"}],
   "jurado": {"pregunta": "¿…?", "opciones": ["…", "…"], "juicio": false},
   "jurado_veredicto": "Solo si en jurado_ayer votó alguien…",
   "manana": [{"texto": "¿…?"}],

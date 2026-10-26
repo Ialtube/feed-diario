@@ -16,6 +16,7 @@ from . import canon as canon_mod
 from . import coronas
 from . import correcciones
 from . import soloq
+from . import sugerencias
 from . import juegos
 from . import lectores
 from . import memes
@@ -223,6 +224,9 @@ def build_context(store, date_str, history_days=7, fetch_proposals=True, cfg=Non
         "bolsa_lp": today.get("bolsa"),
         "soloq_challenge": today.get("soloq") or soloq.resumen(cfg, *today["window"],
                                                                datos=soloq.Datos(Path(store.dir) / "soloq")),
+        "soloq_sugerencias": dict(
+            sugerencias.para_contexto(cfg, editions, Path(store.dir) / "soloq" / "sugerencias.json", fetch_proposals),
+            datos_del_reto=_soloq_datos(cfg, store, today)),
         "ace_league": load_json(Path(store.dir) / "ace_league.json", None),
         "dossier": dossier,
         "partidas_detalle": detailed_games(cfg, store, friends, today),
@@ -270,6 +274,12 @@ def build_context(store, date_str, history_days=7, fetch_proposals=True, cfg=Non
                           if it.get("meme")],
         },
     }
+
+
+def _soloq_datos(cfg, store, edition):
+    datos = soloq.Datos(Path(store.dir) / "soloq")
+    r = soloq.reto_de(cfg, datos)
+    return soloq.datos_completos(datos, r, edition["window"][1]) if r["inicio_ms"] else []
 
 
 def write_context(store, date_str):
@@ -563,6 +573,12 @@ def _newsroom_v2(data, clean, edition, news, extra):
     clean["tablon"] = [{"texto": _text(n.get("texto") if isinstance(n, dict) else None, f"tablon[{i}].texto", 15, 220),
                         "firma": _text((n.get("firma") if isinstance(n, dict) else None) or "Anónimo", f"tablon[{i}].firma", 2, 60)}
                        for i, n in enumerate(tablon)]
+    # the board's suggestion box: cards answering the readers, and a decision on every pending suggestion
+    try:
+        clean["tarjetas"], clean["sugerencias_tablon"] = sugerencias.validar(
+            data, extra.get("sugerencias_pendientes") or set(), extra.get("sugerencias_conocidas") or ())
+    except sugerencias.SugerenciaError as e:
+        raise AIError(str(e)) from e
 
     j = data.get("jurado")
     if not isinstance(j, dict):
@@ -705,8 +721,10 @@ def apply_v2(edition, clean, canon_path=None):
     edition["frase"] = clean["frase"] or edition["template_frase"]
     edition["columna"] = clean["columna"]
     edition["especial"] = clean["especial"]
-    for k in ("gaceta", "jurado", "jurado_veredicto", "manana", "promesas", "tablon"):
+    for k in ("gaceta", "jurado", "jurado_veredicto", "manana", "promesas", "tablon", "sugerencias_tablon"):
         edition[k] = clean.get(k)
+    if clean.get("tarjetas") is not None:
+        edition["tarjetas"] = clean["tarjetas"]
     prev = edition.get("ai") or {}
     edition["ai"] = {"version": prev.get("version", 0) + 1, "updated_at": int(time.time() * 1000),
                      "firma": clean["firma"], "stale": False, "formato": 2}
@@ -890,7 +908,9 @@ def apply_file(store, path, date_str=None, cfg=None, friends=None):
         extra = {"lectores_ayer": lectores.feedback(cfg, prev[-1] if prev else None),
                  "correcciones_nuevas": correcciones.for_context(style_path)["correcciones_nuevas"],
                  "jurado_ayer": juegos.jury_result(cfg, prev[-1]) if prev else None,
-                 "promesas_ayer": [dict(p, n=i + 1) for i, p in enumerate(prev[-1].get("manana") or [])] if prev else []}
+                 "promesas_ayer": [dict(p, n=i + 1) for i, p in enumerate(prev[-1].get("manana") or [])] if prev else [],
+                 "sugerencias_pendientes": sugerencias.pendientes_guardadas(Path(store.dir) / "soloq" / "sugerencias.json"),
+                 "sugerencias_conocidas": set(sugerencias.decisiones(prev))}
         clean = validate_v2(data, edition, known, dossier, canon_mod.load(canon_path), extra)
         draw_memes(clean, edition["date"])
         apply_v2(edition, clean, canon_path)
@@ -933,7 +953,8 @@ def mark_stale_on_regenerate(old, new):
         new["items_plantilla"] = new["items"]
         new["items"] = old["items"]
         for k in ("horoscopo", "angulos_usados", "columna", "especial", "template_frase", "frase", "written_by",
-                  "gaceta", "jurado", "jurado_veredicto", "manana", "promesas", "tablon", "jurado_ayer", "quien_fue_ayer"):
+                  "gaceta", "jurado", "jurado_veredicto", "manana", "promesas", "tablon", "tarjetas", "sugerencias_tablon",
+                  "jurado_ayer", "quien_fue_ayer"):
             if k in old:
                 new[k] = old[k]
         new["ai"] = dict(old["ai"], stale=True)

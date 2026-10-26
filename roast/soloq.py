@@ -720,6 +720,24 @@ def puesta_al_dia(datos, r, at_ms, ref_ms=None):
     return rows
 
 
+def datos_completos(datos, r, at_ms, max_games=150):
+    """Everything the newsroom may need to answer a reader's suggestion with a card: every account's
+    games in the race and its league history, in plain words."""
+    out = []
+    for x in puesta_al_dia(datos, r, at_ms):
+        games = [g for g in datos.partidas.get(x["key"]) or [] if r["inicio_ms"] and r["inicio_ms"] <= g["fin"] <= at_ms]
+        out.append({
+            "nombre": x["nombre"], "mote": x["apodo"], "jugador": x["jugador"], "cuenta": x["riot_id"], "liga": x["liga"],
+            "historial_liga": [[datetime.fromtimestamp(h[0] / 1000, r["tz"]).strftime("%Y-%m-%d %H:%M"), liga(h)]
+                               for h in datos.historial.get(x["key"]) or [] if h[0] <= at_ms][-60:],
+            "partidas": [{"fin": datetime.fromtimestamp(g["fin"] / 1000, r["tz"]).strftime("%Y-%m-%d %H:%M"),
+                          "campeon": g["champ"], "victoria": g["win"], "k": g["k"], "d": g["d"], "a": g["a"],
+                          "minutos": round(g["dur"] / 60), "posicion": g.get("pos"), "cs": g.get("cs"),
+                          **({"remake": True} if g.get("rem") else {})} for g in games[-max_games:]],
+        })
+    return out
+
+
 # --------------------------------------------------------------------------- notes pinned to the board
 FIRMAS = ["Anónimo", "Alguien de la cola", "El de la limpieza", "Tu jungla", "La mesa del fondo", "Un smurf arrepentido",
           "El tabernero", "Un soporte cansado", "La Guardia de Piltover", "Tu madre", "El que sube las persianas",

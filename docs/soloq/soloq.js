@@ -115,6 +115,39 @@ if(jd&&jb){var jf=$("#jefe"),jm=$("#jefe-msg");
       .catch(function(e){jm.className="msg err";jm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta. Aquí no entra cualquiera.":
         /final/.test(e.message)?e.message:"No se ha podido guardar. Prueba otra vez en un rato."})})}
 
+// the suggestion box
+var bz=$("#buzon"),bzl=$("#buzon-lista");
+function loadBuzon(){if(!ok||!bzl)return;var seen={};(S.sugerencias||[]).forEach(function(i){seen[i]=1});
+  api("soloq_sugerencias?select=id,nombre,texto&order=id.desc&limit=10").then(function(r){return r.ok?r.json():[]}).then(function(rows){
+    var nuevas=rows.filter(function(x){return !seen[x.id]});
+    nuevas.reverse().forEach(function(x){bzl.insertAdjacentHTML("afterbegin",'<li><span class="sello-s pendiente">En el buzón</span>'+esc(x.texto)+
+      '<small>'+esc(x.nombre)+' · la redacción la revisa mañana</small></li>')})}).catch(function(){})}
+loadBuzon();
+if(bz){var bm=$("#buzon-msg");
+  if(!ok){$$("input,textarea,button",bz).forEach(function(el){el.disabled=true})}
+  if(me&&me.nombre&&bz.nombre)bz.nombre.value=me.nombre;
+  bz.addEventListener("submit",function(ev){ev.preventDefault();if(!ok)return;
+    var t=bz.texto.value.trim(),n=bz.nombre.value.trim();
+    if(t.length<10){bm.className="msg err";bm.textContent="Explica un poco más qué quieres ver. Diez letras, mínimo.";return}
+    if(!n){bm.className="msg err";bm.textContent="Firma la sugerencia, que luego hay que darte las gracias (o las culpas).";return}
+    api("soloq_sugerencias",{method:"POST",headers:{"Content-Type":"application/json",Prefer:"return=minimal"},
+      body:JSON.stringify({nombre:n.slice(0,40),texto:t.slice(0,400),lector:store("feeder-lector")||null})})
+      .then(function(r){if(!r.ok)throw new Error(r.status);bm.className="msg ok";
+        bm.textContent="Al buzón. Mañana la redacción la revisa: si se puede, sale como tarjeta en el tablón.";
+        bz.texto.value="";loadBuzon()})
+      .catch(function(){bm.className="msg err";bm.textContent="El buzón está atascado. Prueba en un rato."})})}
+
+// the boss answers the suggestions that wait for permission
+$$(".permiso [data-decision]").forEach(function(b){b.addEventListener("click",function(){
+  var jfm=$("#jefe"),pm=$("#permiso-msg"),clave=jfm?jfm.clave.value:"";
+  if(!clave){pm.className="msg err";pm.textContent="Pon la contraseña arriba.";return}
+  var row=b.closest(".permiso"),nota=row.querySelector("input")?row.querySelector("input").value.trim():"";
+  api("rpc/soloq_decidir",{method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({clave:clave,p_sugerencia:+row.getAttribute("data-id"),p_decision:b.getAttribute("data-decision"),p_nota:nota||null})})
+    .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error((e&&e.message)||"no")});
+      row.innerHTML='<p><b>'+(b.getAttribute("data-decision")==="aprobada"?"Aprobada":"Rechazada")+'.</b> La redacción se entera mañana.</p>'})
+    .catch(function(e){pm.className="msg err";pm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta.":"No se ha podido guardar."})})});
+
 // readers' notes nailed to the board
 var wall=$("#notas-lectores"),colors=["amarilla","rosa","verde",""];
 function pin(n,i){var r=((i*37)%9-4)*0.8;return '<div class="cosa nota lector hoja '+colors[i%4]+'" style="--r:'+r+'deg"><i class="chincheta"></i>'+

@@ -190,8 +190,8 @@ del Rincón sobre el reto y notas clavadas con mala leche (del robot, de la reda
 
 1. **Inscripciones.** Cada uno apunta a mano su cuenta del reto en el «Bando de inscripción» del tablón: Riot ID,
    quién es del Rincón (la cuenta queda asociada a su nombre), mote, hasta dónde promete llegar y grito de guerra.
-   Se guarda en Supabase (tablas `soloq_inscritos`, `soloq_notas` y `soloq_control`: vuelve a ejecutar
-   `supabase/setup.sql`). También
+   Se guarda en Supabase (tablas `soloq_inscritos`, `soloq_notas`, `soloq_control`, `soloq_sugerencias` y
+   `soloq_permisos`: vuelve a ejecutar `supabase/setup.sql`). También
    puedes apuntar a alguien a mano en `config.json` → `soloq.a_mano`.
 2. **La salida la das tú** desde el tablón: botón «🔒 El pistoletazo» (arriba a la derecha), fecha y hora de salida,
    de final si quieres (si no, dura `soloq.duracion_dias`) y la contraseña. La contraseña la comprueba Supabase
@@ -206,7 +206,14 @@ del Rincón sobre el reto y notas clavadas con mala leche (del robot, de la reda
    nota del tablón) y, al final, el podio y el castigo. Durante las inscripciones solo avisa si se apuntó alguien.
 5. **El periódico**: cada edición guarda la tabla del reto al cierre para la redacción IA, que recibe `soloq_challenge` y ángulos del reto, escribe al menos una pieza al día y puede clavar notas
    en el tablón (`tablon` en su JSON). Las noticias del Rincón sobre el reto salen clavadas como recortes en el tablón.
-6. **Moderar**: borra la fila en Supabase (*Table Editor → soloq_inscritos* o *soloq_notas*) y desaparece.
+6. **Buzón de sugerencias**: en el tablón cualquiera pide tarjetas o datos que quiere ver. Cada mañana la rutina de
+   Claude (la misma que escribe el periódico) las revisa con todos los datos del reto: lo que se puede responder con
+   ellos sale al día siguiente como **tarjeta clavada** («Lo que pidió la gente») y se actualiza cada día; lo raro, lo
+   inseguro, lo muy pesado, lo que no pinta nada o lo que necesita programar algo nuevo **no se aplica**: queda
+   «esperando al jefe», te llega un aviso a Discord y lo apruebas o rechazas en el candado 🔒 del tablón con la
+   contraseña. Lo aprobado vuelve a la redacción al día siguiente; si necesita código nuevo, queda «por programar»
+   (pídeselo a Claude Code). Cada sugerencia lleva su sello en el tablón.
+7. **Moderar**: borra la fila en Supabase (*Table Editor → soloq_inscritos*, *soloq_notas* o *soloq_sugerencias*).
 
 Ajustes en `config.json` → `soloq`:
 
@@ -288,6 +295,7 @@ roast/site.py           generador de la web
 roast/notify.py         aviso a Discord
 roast/soloq.py          SoloQ Challenge: inscripciones, ligas, clasificación y humor
 roast/soloq_web.py      el tablón del SoloQ Challenge (docs/soloq/)
+roast/sugerencias.py    buzón de sugerencias del tablón y tarjetas que pide la gente
 roast/demo.py           datos falsos para la demo y las pruebas
 data/                   partidas y ediciones (lo rellena el robot)
 docs/                   la web publicada (la genera el robot)

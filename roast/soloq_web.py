@@ -174,6 +174,7 @@ h3.tit{font-size:22px}
 .dispersas{margin-top:40px}
 .dispersas:empty{display:none}
 .bajo{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:34px;margin-top:44px;align-items:start}
+.bajo>.col{gap:34px}
 .notas-lectores{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;margin-top:40px}
 .notas-lectores:empty{display:none}
 @media (max-width:1100px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1.8fr)}
@@ -340,7 +341,42 @@ h3.tit{font-size:22px}
 .msg.ok{color:var(--green)}.msg.err{color:var(--red)}
 .cerrado{padding:10px 12px;border:2px dashed var(--ink2);font:21px/1.15 var(--hand);margin-bottom:14px}
 .clava textarea{min-height:90px;resize:vertical}
-.jefe-dialog{border:0;padding:0;background:transparent;max-width:min(520px,94vw)}
+.jefe-dialog{border:0;padding:0;background:transparent;max-width:min(560px,94vw)}
+.jefe-dialog h4{margin:18px 0 8px;font:19px/1.1 var(--carve);border-top:1px dashed var(--ink3);padding-top:14px}
+.jefe-dialog .permiso{padding:8px 0;border-bottom:1px dashed rgba(60,40,20,.4);font-size:15px}
+.jefe-dialog .permiso p{margin:0 0 4px}
+.jefe-dialog .permiso .por{font:italic 13px var(--script);color:var(--ink3)}
+.jefe-dialog .permiso .boton{font-size:14px;padding:5px 10px;margin:4px 6px 0 0}
+
+/* ---------------------------------------------------------------- what the readers asked for */
+.tarjetas-zona{margin-top:44px}
+.tarjetas-zona>.cartelito{display:flex;justify-content:center;margin-bottom:26px}
+.tarjetas-zona>.cartelito .placa{width:auto}
+.tarjetas{display:flex;flex-wrap:wrap;gap:34px;justify-content:center;align-items:flex-start}
+.tarjetas>.cosa{flex:0 1 330px}
+.tarjeta h3{margin:0 0 4px;text-align:center;font:22px/1.1 var(--carve)}
+.tarjeta .st{margin:0 0 10px;text-align:center;font:italic 14px/1.3 var(--script);color:var(--ink2)}
+.tarjeta .gran{text-align:center;font:52px/1 var(--carve);margin:6px 0}
+.tarjeta .gran-l{text-align:center;font:19px/1.2 var(--hand)}
+.tarjeta ol{margin:0;padding-left:22px}
+.tarjeta li{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-bottom:1px dotted rgba(60,40,20,.35);font-size:15px}
+.tarjeta li b{font-weight:700}
+.tarjeta .bar{margin:6px 0}
+.tarjeta .bar span{display:flex;justify-content:space-between;font-size:14px}
+.tarjeta .bar i{display:block;height:9px;margin-top:2px;background:repeating-linear-gradient(90deg,var(--ink2) 0 5px,rgba(90,70,48,.6) 5px 7px)}
+.tarjeta table{width:100%;border-collapse:collapse;font-size:14px}
+.tarjeta th{font:12px var(--carve);text-transform:uppercase;letter-spacing:.04em;text-align:left;border-bottom:2px solid var(--ink2);padding:3px 4px}
+.tarjeta td{border-bottom:1px dotted rgba(60,40,20,.35);padding:3px 4px}
+.tarjeta .tx{margin:0;font-size:16px}
+.tarjeta .pie{margin:10px 0 0;font:italic 13px/1.3 var(--script);color:var(--ink3);text-align:center}
+.buzon form textarea{min-height:80px}
+.buzon .lista-s{list-style:none;margin:14px 0 0;padding:0}
+.buzon .lista-s li{padding:8px 0;border-bottom:1px dashed rgba(60,40,20,.4);font-size:15px}
+.buzon .lista-s li small{display:block;font:italic 13px var(--script);color:var(--ink3)}
+.sello-s{display:inline-block;margin-right:6px;padding:1px 6px;font:12px/1.4 var(--carve);letter-spacing:.04em;text-transform:uppercase;
+  border:2px solid currentColor;border-radius:3px;transform:rotate(-2deg)}
+.sello-s.hecha,.sello-s.aprobada{color:var(--green)}.sello-s.descartada,.sello-s.rechazada{color:var(--red)}
+.sello-s.permiso,.sello-s.programar{color:#8a5a00}.sello-s.pendiente{color:var(--blue)}
 .jefe-dialog::backdrop{background:rgba(10,6,3,.72)}
 .jefe-dialog .perg .hoja{padding:24px 24px 20px}
 .jefe-dialog label{display:block;margin:0 0 14px;font:15px/1.2 var(--carve);letter-spacing:.04em;color:var(--ink2);text-transform:uppercase}
@@ -485,6 +521,39 @@ if(jd&&jb){var jf=$("#jefe"),jm=$("#jefe-msg");
         if(a.getTime()>Date.now())clock(a.getTime(),"Empieza en")})
       .catch(function(e){jm.className="msg err";jm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta. Aquí no entra cualquiera.":
         /final/.test(e.message)?e.message:"No se ha podido guardar. Prueba otra vez en un rato."})})}
+
+// the suggestion box
+var bz=$("#buzon"),bzl=$("#buzon-lista");
+function loadBuzon(){if(!ok||!bzl)return;var seen={};(S.sugerencias||[]).forEach(function(i){seen[i]=1});
+  api("soloq_sugerencias?select=id,nombre,texto&order=id.desc&limit=10").then(function(r){return r.ok?r.json():[]}).then(function(rows){
+    var nuevas=rows.filter(function(x){return !seen[x.id]});
+    nuevas.reverse().forEach(function(x){bzl.insertAdjacentHTML("afterbegin",'<li><span class="sello-s pendiente">En el buzón</span>'+esc(x.texto)+
+      '<small>'+esc(x.nombre)+' · la redacción la revisa mañana</small></li>')})}).catch(function(){})}
+loadBuzon();
+if(bz){var bm=$("#buzon-msg");
+  if(!ok){$$("input,textarea,button",bz).forEach(function(el){el.disabled=true})}
+  if(me&&me.nombre&&bz.nombre)bz.nombre.value=me.nombre;
+  bz.addEventListener("submit",function(ev){ev.preventDefault();if(!ok)return;
+    var t=bz.texto.value.trim(),n=bz.nombre.value.trim();
+    if(t.length<10){bm.className="msg err";bm.textContent="Explica un poco más qué quieres ver. Diez letras, mínimo.";return}
+    if(!n){bm.className="msg err";bm.textContent="Firma la sugerencia, que luego hay que darte las gracias (o las culpas).";return}
+    api("soloq_sugerencias",{method:"POST",headers:{"Content-Type":"application/json",Prefer:"return=minimal"},
+      body:JSON.stringify({nombre:n.slice(0,40),texto:t.slice(0,400),lector:store("feeder-lector")||null})})
+      .then(function(r){if(!r.ok)throw new Error(r.status);bm.className="msg ok";
+        bm.textContent="Al buzón. Mañana la redacción la revisa: si se puede, sale como tarjeta en el tablón.";
+        bz.texto.value="";loadBuzon()})
+      .catch(function(){bm.className="msg err";bm.textContent="El buzón está atascado. Prueba en un rato."})})}
+
+// the boss answers the suggestions that wait for permission
+$$(".permiso [data-decision]").forEach(function(b){b.addEventListener("click",function(){
+  var jfm=$("#jefe"),pm=$("#permiso-msg"),clave=jfm?jfm.clave.value:"";
+  if(!clave){pm.className="msg err";pm.textContent="Pon la contraseña arriba.";return}
+  var row=b.closest(".permiso"),nota=row.querySelector("input")?row.querySelector("input").value.trim():"";
+  api("rpc/soloq_decidir",{method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({clave:clave,p_sugerencia:+row.getAttribute("data-id"),p_decision:b.getAttribute("data-decision"),p_nota:nota||null})})
+    .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error((e&&e.message)||"no")});
+      row.innerHTML='<p><b>'+(b.getAttribute("data-decision")==="aprobada"?"Aprobada":"Rechazada")+'.</b> La redacción se entera mañana.</p>'})
+    .catch(function(e){pm.className="msg err";pm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta.":"No se ha podido guardar."})})});
 
 // readers' notes nailed to the board
 var wall=$("#notas-lectores"),colors=["amarilla","rosa","verde",""];
@@ -864,11 +933,34 @@ def _recorte(n, seed, cls=""):
             f'<h4>{_e(n["headline"])}</h4><p>{_e(body)}</p><a class="leer" href="{_e(n["href"])}">Leer en El Rincón →</a></article>')
 
 
+def _tarjeta(c, buzon, fecha):
+    """A card the newsroom made from a reader's suggestion."""
+    d, t = c["datos"], c["tipo"]
+    if t == "cifra":
+        body = (f'<div class="gran">{_e(d["valor"])}</div><div class="gran-l">{_e(d["etiqueta"])}'
+                + (f' · <b>{_e(d["quien"])}</b>' if d.get("quien") else "") + '</div>')
+    elif t == "lista":
+        body = "<ol>" + "".join(f'<li><span>{_e(f["nombre"])}</span><b>{_e(f["valor"])}</b></li>' for f in d["filas"]) + "</ol>"
+    elif t == "barras":
+        top = max((abs(f["valor"]) for f in d["filas"]), default=1) or 1
+        body = "".join(f'<div class="bar"><span><b>{_e(f["nombre"])}</b><span>{_e(f.get("texto") or fmt_num(f["valor"], 0 if float(f["valor"]).is_integer() else 1))}</span></span>'
+                       f'<i style="width:{abs(f["valor"]) / top * 100:.0f}%"></i></div>' for f in d["filas"])
+    elif t == "tabla":
+        body = ("<table><thead><tr>" + "".join(f"<th>{_e(h)}</th>" for h in d["columnas"]) + "</tr></thead><tbody>"
+                + "".join("<tr>" + "".join(f"<td>{_e(x)}</td>" for x in row) + "</tr>" for row in d["filas"]) + "</tbody></table>")
+    else:
+        body = f'<p class="tx">{_e(d["texto"])}</p>'
+    who = next((b["nombre"] for b in buzon if b["id"] == c.get("sugerencia")), None)
+    pie = " · ".join(x for x in (c.get("pie"), f"Sugerida por {who}" if who else None, f"Datos del {fecha}" if fecha else None) if x)
+    sub = f'<p class="st">{_e(c["subtitulo"])}</p>' if c.get("subtitulo") else ""
+    return _perg(f'<div class="tarjeta"><h3>{_e(c["titulo"])}</h3>{sub}{body}<p class="pie">{_e(pie)}</p></div>', "t" + c["id"])
+
+
 def _date_es(ms, r):
     return long_date(datetime.fromtimestamp(ms / 1000, r["tz"]).date())
 
 
-def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=(), cast=()):
+def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=(), cast=(), buzon=None):
     """The whole page as HTML, plus the small JSON the open pages poll to notice changes."""
     r = soloq.reto_de(cfg, datos)
     ph = soloq.fase(r, now_ms)
@@ -889,6 +981,10 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
     pinned = ([(n["texto"], n["firma"], "ia") for n in (latest_ai or {}).get("tablon") or []]
               + [(n["texto"], n["firma"], "") for n in soloq.notas(rows, ph, day, cast)])
     notes = [_nota(t, f, f"{day}{i}", f"{cls} o9") for i, (t, f, cls) in enumerate(pinned)]
+    buzon = buzon or []
+    with_cards = next((e for e in sorted(editions or [], key=lambda e: e["date"], reverse=True) if e.get("tarjetas") is not None), None)
+    cards = (with_cards or {}).get("tarjetas") or []
+    fecha_cards = short_date(datetime.fromisoformat(with_cards["date"]).date()) if with_cards else None
 
     # ---- the carved sign
     estado = {"inscripcion": "Inscripciones abiertas", "finalizado": "Terminado",
@@ -1033,21 +1129,44 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
     reglas = _perg('<h3 class="tit">Las leyes del tablón</h3><ol>'
                    + "".join(f'<li><b>{_e(k)}.</b> {_e(v)}</li>' for k, v in rules) + '</ol>'
                    '<p class="sub" style="margin:10px 0 0">Datos de la API oficial de Riot, cada 30 minutos.</p>', "reglas", "reglas")
-    bajo = (f'<div class="bajo">{bando}<div class="col">{lado}{clava}</div>{reglas}</div>'
+    lis = "".join(f'<li><span class="sello-s {_e(b["estado"])}">{_e(b["sello"])}</span>{_e(b["texto"])}'
+                  f'<small>{_e(b["nombre"])}' + (f' · {_e(b["motivo"])}' if b.get("motivo") else "") + '</small></li>'
+                  for b in buzon[:12])
+    buzon_html = _perg(
+        '<h3 class="tit">Buzón de sugerencias</h3><p class="sub">¿Qué quieres ver en el tablón? Una tarjeta, un dato, un '
+        'ranking… Cada mañana la redacción las revisa: lo que se pueda hacer con los datos del reto, sale clavado; lo raro, '
+        'lo pesado o lo que no pinte nada aquí, se le consulta al jefe.</p>'
+        '<form id="buzon" class="clava" novalidate><textarea name="texto" maxlength="400" '
+        'placeholder="Ej.: quién muere más por partida, el campeón maldito del reto, quién juega más de madrugada…"></textarea>'
+        '<input type="text" name="nombre" maxlength="40" placeholder="Firma"><button class="boton" type="submit">Al buzón</button>'
+        f'<p class="msg" id="buzon-msg" role="status"></p></form><ul class="lista-s" id="buzon-lista">{lis}</ul>', "buzon", "buzon")
+    zona = ""
+    if cards:
+        zona = ('<div class="tarjetas-zona"><div class="cartelito">' + _placa(
+            '<div class="tallado" style="font-size:22px">Lo que pidió la gente</div>', "pidio") + '</div><div class="tarjetas">'
+            + "".join(_tarjeta(c, buzon, fecha_cards) for c in cards) + '</div></div>')
+    bajo = (f'{zona}<div class="bajo">{bando}<div class="col">{lado}{clava}</div><div class="col">{buzon_html}{reglas}</div></div>'
             '<div class="notas-lectores" id="notas-lectores" aria-live="polite"></div>')
 
+    waiting = [b for b in buzon if b["estado"] == "permiso"]
+    permisos = ('<h4>Sugerencias que esperan tu permiso</h4>' + "".join(
+        f'<div class="permiso" data-id="{b["id"]}"><p>«{_e(b["texto"])}»</p><p class="por">{_e(b["nombre"])} · la redacción '
+        f'pregunta: {_e(b.get("motivo") or "")}</p><input type="text" maxlength="200" placeholder="Nota para la redacción (opcional)">'
+        '<button class="boton" type="button" data-decision="aprobada">Aprobar</button>'
+        '<button class="boton sec" type="button" data-decision="rechazada">Rechazar</button></div>' for b in waiting)
+        + '<p class="msg" id="permiso-msg" role="status"></p>') if waiting else ""
     jefe = ('<dialog class="jefe-dialog" id="jefe-dialog">' + _perg(
         '<h3 class="tit">El pistoletazo</h3><p class="sub">Solo para el jefe. Fecha y hora de salida y, si quieres, de final '
         f'(si no, dura {r.get("duracion_dias") or "hasta nueva orden"}{" días" if r.get("duracion_dias") else ""}). '
         'Se puede volver a poner para retrasarlo o para acabarlo antes.</p>'
-        '<form id="jefe" novalidate><label>Salida<input type="datetime-local" name="inicio" required></label>'
+        '<form id="jefe" novalidate><label>Contraseña<input type="password" name="clave" autocomplete="off"></label>'
+        '<label>Salida<input type="datetime-local" name="inicio" required></label>'
         '<label>Final (opcional)<input type="datetime-local" name="fin"></label>'
-        '<label>Contraseña<input type="password" name="clave" autocomplete="off"></label>'
         '<div class="botones"><button class="boton" type="submit">Dar el pistoletazo</button>'
         '<button class="boton sec" type="button" id="jefe-cerrar">Cerrar</button></div>'
-        '<p class="msg" id="jefe-msg" role="status"></p></form>', "jefe") + '</dialog>')
+        '<p class="msg" id="jefe-msg" role="status"></p></form>' + permisos, "jefe") + '</dialog>')
     feeder = json.dumps({"url": cfg.get("supabase_url", "") if not closed else "", "key": cfg.get("supabase_anon_key", ""),
-                         "fase": ph, "control": datos.inscritos.get("control_id", 0),
+                         "fase": ph, "control": datos.inscritos.get("control_id", 0), "sugerencias": [b["id"] for b in buzon],
                          "conocidos": sorted({x["key"] for x in rows} | {k for k, _, _ in rejected}),
                          "actualizado": upd}, ensure_ascii=False)
     desc = f'{r["lema"]}. La clasificación clavada en el tablón, la gráfica de LP y las notas de la vergüenza.'
@@ -1092,10 +1211,10 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
     return html, public
 
 
-def build(cfg, datos, out_dir, now_ms, roster=(), ver=None, rel_paper="../", editions=(), cast=()):
+def build(cfg, datos, out_dir, now_ms, roster=(), ver=None, rel_paper="../", editions=(), cast=(), buzon=None):
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
-    html, public = render(cfg, datos, now_ms, roster, ver, rel_paper, editions, cast)
+    html, public = render(cfg, datos, now_ms, roster, ver, rel_paper, editions, cast, buzon)
     (out / "index.html").write_text(html, encoding="utf-8")
     (out / "soloq.css").write_text(CSS.strip() + "\n", encoding="utf-8")
     (out / "soloq.js").write_text(JS, encoding="utf-8")
