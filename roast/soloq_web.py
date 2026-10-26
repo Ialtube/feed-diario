@@ -86,15 +86,12 @@ body{margin:0;background:var(--wall);color:var(--ink);font:17px/1.45 var(--scrip
 a{color:inherit}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
-/* ---------------------------------------------------------------- tabs (shared with the newspaper) */
-.pestanas{display:flex;justify-content:center;gap:6px;padding:10px 12px 0;background:#120c09;border-bottom:3px solid #2e1d10}
-.pestanas a{position:relative;display:flex;align-items:center;gap:8px;padding:9px 22px 8px;text-decoration:none;
-  font:20px/1 var(--carve);color:#d8c49a;background:linear-gradient(180deg,#3a271a,#251810);border:2px solid #4d3420;
-  border-bottom:0;border-radius:10px 10px 0 0;top:3px}
-.pestanas a:hover{color:#fff1cf}
-.pestanas a.on{background:var(--parch);color:var(--ink);border-color:#b69a62;box-shadow:0 -4px 14px rgba(0,0,0,.35)}
-.pestanas small{font:600 12px/1 var(--script);opacity:.8}
-@media (max-width:520px){.pestanas a{padding:8px 12px 7px;font-size:16px}.pestanas small{display:none}}
+/* ---------------------------------------------------------------- back to the newspaper */
+.volver{display:flex;justify-content:space-between;align-items:center;gap:10px;max-width:1400px;margin:0 auto;padding:12px 14px 0}
+.volver a{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;text-decoration:none;font:19px/1 var(--carve);color:#f3e6c4;
+  background-image:var(--beam);background-color:#5c3e27;border:2px solid #2e1d10;border-radius:4px;box-shadow:0 3px 0 #1c110a}
+.volver a:hover{color:#fff;filter:brightness(1.12)}
+.volver .jefe{font-size:16px;padding:7px 12px;cursor:pointer;background-color:#3a271a}
 
 /* ---------------------------------------------------------------- frame + board */
 .marco{position:relative;display:block;max-width:1400px;margin:18px auto 0;padding:30px;background-image:var(--beam);background-color:#6a4529;
@@ -343,6 +340,16 @@ h3.tit{font-size:22px}
 .msg.ok{color:var(--green)}.msg.err{color:var(--red)}
 .cerrado{padding:10px 12px;border:2px dashed var(--ink2);font:21px/1.15 var(--hand);margin-bottom:14px}
 .clava textarea{min-height:90px;resize:vertical}
+.jefe-dialog{border:0;padding:0;background:transparent;max-width:min(520px,94vw)}
+.jefe-dialog::backdrop{background:rgba(10,6,3,.72)}
+.jefe-dialog .perg .hoja{padding:24px 24px 20px}
+.jefe-dialog label{display:block;margin:0 0 14px;font:15px/1.2 var(--carve);letter-spacing:.04em;color:var(--ink2);text-transform:uppercase}
+.jefe-dialog input{display:block;width:100%;margin-top:4px;padding:6px 2px;border:0;border-bottom:2px solid var(--ink2);background:transparent;
+  color:var(--ink);font:22px/1.1 var(--hand);border-radius:0}
+.jefe-dialog input:focus{outline:none;border-bottom-color:var(--red)}
+.jefe-dialog .hint{display:block;margin-top:4px;font:italic 14px/1.3 var(--script);text-transform:none;letter-spacing:0;color:var(--ink3)}
+.jefe-dialog .botones{display:flex;gap:10px;flex-wrap:wrap}
+.jefe-dialog .boton.sec{background:linear-gradient(180deg,#6b5a43,#3f3324);border-color:#2a2015}
 .clava .boton{font-size:18px;padding:8px 16px;margin-top:10px}
 .lado ul{list-style:none;margin:0;padding:0}
 .lado li{padding:5px 0;border-bottom:1px dashed rgba(60,40,20,.4);font-size:16px}
@@ -376,6 +383,16 @@ if(cd){var target=+cd.getAttribute("data-target");
     var v={d:Math.floor(s/86400),h:("0"+Math.floor(s%86400/3600)).slice(-2),m:("0"+Math.floor(s%3600/60)).slice(-2)};
     for(var k in v){var el=cd.querySelector('[data-u="'+k+'"]');if(el)el.textContent=v[k]}};
   tick();setInterval(tick,15000)}
+
+// the date the boss set on this page, before the robot has picked it up
+function fecha(ms){return new Date(ms).toLocaleString("es-ES",{weekday:"long",day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})}
+function clock(target,label){var box=$(".reloj");if(!box)return;
+  box.innerHTML='<div style="font-size:18px">'+esc(label)+'</div><div class="n" id="reloj" data-target="'+target+'">'+
+    '<div><b data-u="d">--</b><span>días</span></div><div><b data-u="h">--</b><span>horas</span></div><div><b data-u="m">--</b><span>min</span></div></div>'+
+    '<div class="peq">'+esc(fecha(target))+'</div>';
+  var el=$("#reloj"),tick=function(){var s=Math.max(0,Math.floor((target-Date.now())/1000));
+    var v={d:Math.floor(s/86400),h:("0"+Math.floor(s%86400/3600)).slice(-2),m:("0"+Math.floor(s%3600/60)).slice(-2)};
+    for(var k in v){var u=el.querySelector('[data-u="'+k+'"]');if(u)u.textContent=v[k]}};tick();setInterval(tick,15000)}
 
 // relative times
 function rel(ts){var m=Math.round((Date.now()-ts)/60000);if(m<1)return "ahora mismo";if(m<60)return "hace "+m+" min";
@@ -441,6 +458,33 @@ if(form){
       .catch(function(){msg.className="msg err";msg.textContent="No se ha podido apuntar. Prueba en un rato (o échale la culpa al jungla)."})
       .then(function(){btn.disabled=false})});
 }
+
+// the boss's schedule: shown at once, even before the robot picks it up
+if(ok&&S.fase==="inscripcion"){api("soloq_control?select=id,inicio,fin&order=id.desc&limit=1").then(function(r){return r.ok?r.json():[]})
+  .then(function(rows){var c=rows[0];if(c&&c.id>(S.control||0)){var t=Date.parse(c.inicio);if(t>Date.now())clock(t,"Empieza en")}}).catch(function(){})}
+
+// the boss sets the starting date (the password is checked by the database, never here)
+var jd=$("#jefe-dialog"),jb=$("#jefe-btn");
+if(jd&&jb){var jf=$("#jefe"),jm=$("#jefe-msg");
+  jb.addEventListener("click",function(ev){ev.preventDefault();if(jd.showModal)jd.showModal();else jd.setAttribute("open","")});
+  $("#jefe-cerrar").addEventListener("click",function(){jd.close()});
+  jf.addEventListener("submit",function(ev){ev.preventDefault();
+    if(!ok){jm.className="msg err";jm.textContent="El tablón aún no tiene base de datos.";return}
+    var ini=jf.inicio.value,fin=jf.fin.value,clave=jf.clave.value;
+    if(!ini){jm.className="msg err";jm.textContent="Pon fecha y hora de salida.";return}
+    if(!clave){jm.className="msg err";jm.textContent="Sin contraseña no hay pistoletazo.";return}
+    var a=new Date(ini),b=fin?new Date(fin):null;
+    if(b&&b<=a){jm.className="msg err";jm.textContent="El final tiene que ir después de la salida. Por lógica.";return}
+    jm.className="msg";jm.textContent="Comprobando la contraseña…";
+    api("rpc/soloq_programar",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({clave:clave,p_inicio:a.toISOString(),p_fin:b?b.toISOString():null})})
+      .then(function(r){if(r.status===401||r.status===403||r.status===400){return r.json().then(function(e){throw new Error((e&&e.message)||"no")})}
+        if(!r.ok)throw new Error("red");return r.json()})
+      .then(function(){jm.className="msg ok";jm.textContent="Hecho. Salida el "+fecha(a.getTime())+(b?" y final el "+fecha(b.getTime()):"")+
+        ". El tablón y Discord se enteran en la próxima pasada del robot (media hora como mucho).";jf.clave.value="";
+        if(a.getTime()>Date.now())clock(a.getTime(),"Empieza en")})
+      .catch(function(e){jm.className="msg err";jm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta. Aquí no entra cualquiera.":
+        /final/.test(e.message)?e.message:"No se ha podido guardar. Prueba otra vez en un rato."})})}
 
 // readers' notes nailed to the board
 var wall=$("#notas-lectores"),colors=["amarilla","rosa","verde",""];
@@ -820,14 +864,6 @@ def _recorte(n, seed, cls=""):
             f'<h4>{_e(n["headline"])}</h4><p>{_e(body)}</p><a class="leer" href="{_e(n["href"])}">Leer en El Rincón →</a></article>')
 
 
-def pestanas(rel_paper, rel_soloq, active):
-    """The two tabs at the very top of every page: the newspaper and the SoloQ Challenge."""
-    on = ' class="on" aria-current="page"'
-    return (f'<nav class="pestanas" aria-label="Secciones"><a href="{rel_paper}index.html"{on if active == "periodico" else ""}>'
-            '📰 El Rincón del Feeder <small>el periódico</small></a>'
-            f'<a href="{rel_soloq}index.html"{on if active == "soloq" else ""}>🪓 SoloQ Challenge <small>el tablón</small></a></nav>')
-
-
 def _date_es(ms, r):
     return long_date(datetime.fromtimestamp(ms / 1000, r["tz"]).date())
 
@@ -871,8 +907,12 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
     elif ph == "finalizado":
         reloj = (f'<div style="font-size:20px">Se acabó</div><div class="peq">{_e(_date_es(r["fin_ms"] - 1, r))}</div>'
                  '<div class="peq">Ya hay culpables</div>')
+    elif r["inicio_ms"]:
+        units = "".join(f'<div><b data-u="{k}">--</b><span>{n}</span></div>' for k, n in (("d", "días"), ("h", "horas"), ("m", "min")))
+        reloj = (f'<div style="font-size:18px">Empieza en</div><div class="n" id="reloj" data-target="{r["inicio_ms"]}">{units}</div>'
+                 f'<div class="peq">{_e(soloq.cuando(r["inicio_ms"], r["tz"]))}</div>')
     else:
-        reloj = ('<div style="font-size:20px">Inscripciones abiertas</div><div class="peq">El pistoletazo lo da el jefe.</div>'
+        reloj = ('<div style="font-size:20px">Inscripciones abiertas</div><div class="peq">La salida la da el jefe.</div>'
                  '<div class="peq">Hasta entonces, nadie juega.</div>')
     reloj = _placa(f'<div class="reloj tallado">{reloj}</div>', "reloj", "o3")
     lost = (sum(-m["delta"] for m in soloq.movimientos(datos, r, r["inicio_ms"], at) if m.get("delta") and m["delta"] < 0)
@@ -996,7 +1036,18 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
     bajo = (f'<div class="bajo">{bando}<div class="col">{lado}{clava}</div>{reglas}</div>'
             '<div class="notas-lectores" id="notas-lectores" aria-live="polite"></div>')
 
+    jefe = ('<dialog class="jefe-dialog" id="jefe-dialog">' + _perg(
+        '<h3 class="tit">El pistoletazo</h3><p class="sub">Solo para el jefe. Fecha y hora de salida y, si quieres, de final '
+        f'(si no, dura {r.get("duracion_dias") or "hasta nueva orden"}{" días" if r.get("duracion_dias") else ""}). '
+        'Se puede volver a poner para retrasarlo o para acabarlo antes.</p>'
+        '<form id="jefe" novalidate><label>Salida<input type="datetime-local" name="inicio" required></label>'
+        '<label>Final (opcional)<input type="datetime-local" name="fin"></label>'
+        '<label>Contraseña<input type="password" name="clave" autocomplete="off"></label>'
+        '<div class="botones"><button class="boton" type="submit">Dar el pistoletazo</button>'
+        '<button class="boton sec" type="button" id="jefe-cerrar">Cerrar</button></div>'
+        '<p class="msg" id="jefe-msg" role="status"></p></form>', "jefe") + '</dialog>')
     feeder = json.dumps({"url": cfg.get("supabase_url", "") if not closed else "", "key": cfg.get("supabase_anon_key", ""),
+                         "fase": ph, "control": datos.inscritos.get("control_id", 0),
                          "conocidos": sorted({x["key"] for x in rows} | {k for k, _, _ in rejected}),
                          "actualizado": upd}, ensure_ascii=False)
     desc = f'{r["lema"]}. La clasificación clavada en el tablón, la gráfica de LP y las notas de la vergüenza.'
@@ -1016,7 +1067,7 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
 </head>
 <body>
 {_gradients()}
-{pestanas(rel_paper, "", "soloq")}
+<nav class="volver"><a href="{rel_paper}index.html">← Volver a El Rincón del Feeder</a><a href="#" class="jefe" id="jefe-btn" role="button" title="Solo para el jefe">🔒 El pistoletazo</a></nav>
 <main class="marco">
 <i class="perno" style="left:8px;top:8px"></i><i class="perno" style="right:8px;top:8px"></i>
 <i class="perno" style="left:8px;bottom:8px"></i><i class="perno" style="right:8px;bottom:8px"></i>
@@ -1028,6 +1079,7 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
 </main>
 <footer><p>{_e(LEGAL.format(name=title, site=site_title))}</p>
 <p><a href="{rel_paper}index.html">Leer El Rincón del Feeder</a>, el periódico que cuenta cada mañana lo que pasa en este tablón.</p></footer>
+{jefe}
 <div class="aviso" id="aviso" role="status"><span>Alguien ha movido el tablón</span><button class="boton" type="button">Mirar</button></div>
 <script>window.SOLOQ={feeder};</script>
 <script src="soloq.js?v={ASSET_VERSION}" defer></script>

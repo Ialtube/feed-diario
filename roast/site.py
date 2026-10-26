@@ -12,7 +12,6 @@ from . import canon as canon_mod
 from . import coronas
 from .porra import seers
 from .roasts import DESKS
-from .soloq_web import pestanas
 from .util import (ROOT, champ_name, fmt_int, fmt_num, fmt_pct, get_tz, load_json, long_date, ms_to_local,
                    short_date, slugify)
 
@@ -331,15 +330,8 @@ article.f-parte-meteorologico{background:rgba(160,175,190,.08)}
 
 /* who are you */
 nav.menu a.yo{border:1px solid var(--ink);padding:0 8px}
-/* tabs at the very top: the newspaper and the SoloQ Challenge board */
-.pestanas{display:flex;justify-content:center;gap:6px;padding:10px 12px 0;background:#1a120c;border-bottom:3px solid #3a2a1c}
-.pestanas a{position:relative;top:3px;display:flex;align-items:center;gap:8px;padding:8px 20px 7px;text-decoration:none;
-  font:19px/1 "IM Fell English SC",serif;color:#e0cfa8;background:linear-gradient(180deg,#4a3422,#2e2015);border:2px solid #5a4029;
-  border-bottom:0;border-radius:10px 10px 0 0}
-.pestanas a:hover{color:#fff4d8}
-.pestanas a.on{background:var(--paper);color:var(--ink);border-color:var(--rule)}
-.pestanas small{font:italic 12px/1 "Libre Caslon Text",serif;opacity:.8}
-@media (max-width:520px){.pestanas a{padding:7px 12px 6px;font-size:16px}.pestanas small{display:none}}
+nav.menu a.soloq{background:#5c3e27;color:#f3e6c4;padding:0 8px;border:1px solid #2e1d10;border-radius:3px}
+nav.menu a.soloq:hover{background:#6e4a2e;color:#fff}
 .yo-dialog{border:3px double var(--ink);background:var(--paper);color:var(--ink);padding:18px 22px;max-width:min(560px,92vw)}
 .yo-dialog::backdrop{background:rgba(20,14,8,.6)}
 .yo-dialog h4{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:1.8rem}
@@ -1448,7 +1440,6 @@ def page(cfg, title, body, rel, edition=None, description="", pagina="", image=N
 <link rel="stylesheet" href="{rel}style.css?v={ASSET_VERSION}">
 </head>
 <body{marks}>
-{pestanas(rel, rel + "soloq/", "periodico")}
 {banner}
 <div class="wrap"><div class="paper">
 <header class="mast">
@@ -1456,7 +1447,7 @@ def page(cfg, title, body, rel, edition=None, description="", pagina="", image=N
 <a class="title" href="{rel}index.html">{_e(cfg['site_title'])}</a>
 <p class="tagline">{_e(cfg['site_tagline'])}</p>
 <div class="rules"></div>
-<nav class="menu"><a href="{rel}index.html">Portada</a><a href="{rel}archivo.html">Hemeroteca</a><a href="{rel}jugadores.html">Jugadores</a><a href="{rel}sagas.html">Sagas</a><a class="cta" href="{rel}proponer.html">Proponer noticia</a><a href="#" class="yo" id="yo-btn">¿Quién eres?</a></nav>
+<nav class="menu"><a href="{rel}index.html">Portada</a><a href="{rel}archivo.html">Hemeroteca</a><a href="{rel}jugadores.html">Jugadores</a><a href="{rel}sagas.html">Sagas</a><a class="cta" href="{rel}proponer.html">Proponer noticia</a><a href="#" class="yo" id="yo-btn">¿Quién eres?</a><a class="soloq" href="{rel}soloq/index.html" title="El tablón del SoloQ Challenge">🪓 SoloQ Challenge</a></nav>
 </header>
 {body}
 </div></div>
@@ -1766,7 +1757,7 @@ def _article(it, rel, image=False, cls="", attrs="", placard=False):
 # key, title, desk, item sections it collects
 BLOCKS = [
     ("sucesos", "Sucesos", "Comisaría de Piltover", {"SUCESOS"}),
-    ("deportes", "Deportes", "Arena de Noxus", {"DEPORTES", "DERBI", "SOLOQ CHALLENGE"}),
+    ("deportes", "Deportes", "Arena de Noxus", {"DEPORTES", "DERBI"}),
     ("economia", "Economía", "Lonja de Aguasturbias", {"ECONOMÍA", "AGRICULTURA"}),
     ("ciencia", "Ciencia y Daño", "Instituto Hextech de Piltover", {"DAÑO", "CIENCIA", "VAR"}),
     ("tiempo", "El Tiempo", "Islas de la Sombra", {"EL TIEMPO"}),
@@ -1875,9 +1866,8 @@ def _sections_v2(ed, rest, rel):
     opinion = [it for it in rest if it.get("section") in OPINION_SECTIONS]
     weather_items = [it for it in rest if it.get("section") == "EL TIEMPO"]
     ace_items = [it for it in rest if it.get("section") == "ACE LEAGUE"]
-    soloq_items = [it for it in rest if it.get("section") == "SOLOQ CHALLENGE"] if ed.get("soloq") else []
     well = [it for it in rest if it.get("section") not in OPINION_SECTIONS
-            and it.get("section") not in ("EL TIEMPO", "ACE LEAGUE") and it not in soloq_items]
+            and it.get("section") not in ("EL TIEMPO", "ACE LEAGUE")]
     pics = {"left": 8}
 
     def card(it, i):
@@ -1900,9 +1890,6 @@ def _sections_v2(ed, rest, rel):
                     + '</div></section>')
     html.append(_gaceta(ed))
     html.append(datos)
-    if ed.get("soloq"):
-        html.append(_soloq(ed, rel) + ('<div class="sec-grid pozo">' + "".join(card(it, i) for i, it in enumerate(soloq_items))
-                                        + '</div>' if soloq_items else "") + '</section>')
     if ace_items or _ace_matches():
         rows = "".join(f'<tr><td>{_e(m.get("fecha", ""))}</td><td>{_e(m.get("rival", ""))}</td>'
                        f'<td class="{"win" if m.get("resultado") == "victoria" else "loss" if m.get("resultado") == "derrota" else ""}">'
@@ -2093,54 +2080,6 @@ def _bolsa(ed):
             'contando 100 por división y 400 por liga: pasar de Oro IV con 20 LP a Plata I con 80 LP son ▼ 40. '
             '«nuevo»: es la primera vez que vemos esa cuenta en esa cola. «?»: el cambio no cuadra con las partidas '
             'jugadas y no se cuenta.</p></details></div>')
-
-
-def _soloq(ed, rel):
-    """The SoloQ Challenge as the edition closed: the table (or, before the starting gun, who signed
-    up) and a link to the board. Returns an open <section> so the day's stories about the race can
-    go inside it."""
-    sq = ed["soloq"]
-    rows = sq.get("clasificacion") or []
-
-    def name(x):
-        n = x.get("nombre") or x.get("apodo")
-        return f'<a href="{rel}jugadores/{_e(x["jugador"])}.html">{_e(n)}</a>' if x.get("jugador") else _e(n)
-
-    def move(x):
-        c = x.get("cambio_de_puesto")
-        if c is None:
-            return '<span class="small">nuevo</span>'
-        return '=' if not c else f'<span class="{"up" if c > 0 else "down"}">{"▲" if c > 0 else "▼"} {abs(c)}</span>'
-
-    def lp(n):
-        return "–" if n is None else ("=" if not n else f'<span class="{"up" if n > 0 else "down"}">{n:+d}</span>')
-
-    fase = sq.get("fase")
-    days = sq.get("dias_restantes")
-    when = ("Terminado" if fase == "finalizado" else "Inscripciones abiertas" if fase == "inscripcion" else
-            f'Día {sq.get("dia_del_reto")}' + (f' · quedan {days} {"día" if days == 1 else "días"}' if days is not None else ""))
-    head = (f'<section class="secblock sec-soloq" id="sec-soloq"><header class="sec-head"><h3 class="sec-name">'
-            f'{_e(sq.get("nombre") or "SoloQ Challenge")}</h3><span class="sec-desk">Enviado especial a la cola de Solo/Dúo · '
-            f'{_e(when)}</span></header>')
-    if not rows:
-        return head
-    if fase == "inscripcion":
-        body = "".join(f'<tr><td class="num">{i}</td><td>{name(x)}</td><td>{_e(x.get("mote") or "")}</td>'
-                       f'<td>{_e(x.get("objetivo_declarado") or "–")}</td></tr>' for i, x in enumerate(rows, 1))
-        table = ('<div class="board"><h4 class="kicker">Inscritos con su cuenta de cero</h4><div class="tablewrap"><table>'
-                 '<thead><tr><th class="num">#</th><th>Jugador</th><th>Mote</th><th>Promete</th></tr></thead>'
-                 f'<tbody>{body}</tbody></table></div>')
-    else:
-        body = "".join(
-            f'<tr><td class="num">{x["puesto"]}</td><td class="num">{move(x)}</td><td>{name(x)}</td><td>{_e(x["liga"])}</td>'
-            f'<td class="num">{lp(x.get("lp_en_el_dia"))}</td><td class="num">{x["victorias_dia"]}–{x["derrotas_dia"]}</td>'
-            f'<td class="num">{x["victorias_reto"]}–{x["derrotas_reto"]}</td></tr>' for x in rows[:12])
-        table = ('<div class="board"><h4 class="kicker">La clasificación al cierre de esta edición</h4><div class="tablewrap"><table>'
-                 '<thead><tr><th class="num">#</th><th class="num">±</th><th>Jugador</th><th>Liga</th><th class="num">LP del día</th>'
-                 '<th class="num">Día</th><th class="num">Reto</th></tr></thead>'
-                 f'<tbody>{body}</tbody></table></div>')
-    return head + table + (f'<p class="small">La gráfica, las notas clavadas y la inscripción, en '
-                           f'<a href="{rel}soloq/index.html">el tablón del SoloQ Challenge</a>.</p></div>')
 
 
 def _ace_matches(limit=6):

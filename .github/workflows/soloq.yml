@@ -3,21 +3,12 @@ name: SoloQ Challenge
 # Cada 30 minutos: lee las inscripciones de la web, mira en la API de Riot la liga y las partidas de
 # Solo/Dúo de cada inscrito, manda a Discord el parte del día (una vez, a partir de las 09:00) y
 # regenera el tablón en docs/soloq/. Solo guarda (y publica) si algo ha cambiado.
-# El pistoletazo lo da el administrador: Actions → SoloQ Challenge → Run workflow → «empezar».
+# La fecha y la hora de salida las pone el administrador en el propio tablón (botón del candado, con
+# contraseña); el robot las recoge en la siguiente pasada.
 on:
   schedule:
     - cron: "7,37 * * * *"
   workflow_dispatch:
-    inputs:
-      accion:
-        description: "Qué hacer"
-        type: choice
-        options: [actualizar, empezar, terminar]
-        default: actualizar
-      dias:
-        description: "Con «empezar»: cuántos días dura el reto (vacío = lo que diga config.json)"
-        required: false
-        default: ""
 
 permissions:
   contents: write
@@ -42,16 +33,7 @@ jobs:
           RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           SITE_URL: ${{ vars.SITE_URL }}
-          ACCION: ${{ inputs.accion || 'actualizar' }}
-          DIAS: ${{ inputs.dias || '' }}
-        run: |
-          if [ "$ACCION" = "empezar" ]; then
-            python -m roast soloq --empezar ${DIAS:+--dias "$DIAS"}
-          elif [ "$ACCION" = "terminar" ]; then
-            python -m roast soloq --terminar
-          else
-            python -m roast soloq
-          fi
+        run: python -m roast soloq
 
       - name: Guardar datos y web en el repositorio
         run: |

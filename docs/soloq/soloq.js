@@ -13,6 +13,16 @@ if(cd){var target=+cd.getAttribute("data-target");
     for(var k in v){var el=cd.querySelector('[data-u="'+k+'"]');if(el)el.textContent=v[k]}};
   tick();setInterval(tick,15000)}
 
+// the date the boss set on this page, before the robot has picked it up
+function fecha(ms){return new Date(ms).toLocaleString("es-ES",{weekday:"long",day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})}
+function clock(target,label){var box=$(".reloj");if(!box)return;
+  box.innerHTML='<div style="font-size:18px">'+esc(label)+'</div><div class="n" id="reloj" data-target="'+target+'">'+
+    '<div><b data-u="d">--</b><span>días</span></div><div><b data-u="h">--</b><span>horas</span></div><div><b data-u="m">--</b><span>min</span></div></div>'+
+    '<div class="peq">'+esc(fecha(target))+'</div>';
+  var el=$("#reloj"),tick=function(){var s=Math.max(0,Math.floor((target-Date.now())/1000));
+    var v={d:Math.floor(s/86400),h:("0"+Math.floor(s%86400/3600)).slice(-2),m:("0"+Math.floor(s%3600/60)).slice(-2)};
+    for(var k in v){var u=el.querySelector('[data-u="'+k+'"]');if(u)u.textContent=v[k]}};tick();setInterval(tick,15000)}
+
 // relative times
 function rel(ts){var m=Math.round((Date.now()-ts)/60000);if(m<1)return "ahora mismo";if(m<60)return "hace "+m+" min";
   var h=Math.round(m/60);if(h<24)return "hace "+h+" h";var d=Math.round(h/24);return "hace "+d+(d===1?" día":" días")}
@@ -77,6 +87,33 @@ if(form){
       .catch(function(){msg.className="msg err";msg.textContent="No se ha podido apuntar. Prueba en un rato (o échale la culpa al jungla)."})
       .then(function(){btn.disabled=false})});
 }
+
+// the boss's schedule: shown at once, even before the robot picks it up
+if(ok&&S.fase==="inscripcion"){api("soloq_control?select=id,inicio,fin&order=id.desc&limit=1").then(function(r){return r.ok?r.json():[]})
+  .then(function(rows){var c=rows[0];if(c&&c.id>(S.control||0)){var t=Date.parse(c.inicio);if(t>Date.now())clock(t,"Empieza en")}}).catch(function(){})}
+
+// the boss sets the starting date (the password is checked by the database, never here)
+var jd=$("#jefe-dialog"),jb=$("#jefe-btn");
+if(jd&&jb){var jf=$("#jefe"),jm=$("#jefe-msg");
+  jb.addEventListener("click",function(ev){ev.preventDefault();if(jd.showModal)jd.showModal();else jd.setAttribute("open","")});
+  $("#jefe-cerrar").addEventListener("click",function(){jd.close()});
+  jf.addEventListener("submit",function(ev){ev.preventDefault();
+    if(!ok){jm.className="msg err";jm.textContent="El tablón aún no tiene base de datos.";return}
+    var ini=jf.inicio.value,fin=jf.fin.value,clave=jf.clave.value;
+    if(!ini){jm.className="msg err";jm.textContent="Pon fecha y hora de salida.";return}
+    if(!clave){jm.className="msg err";jm.textContent="Sin contraseña no hay pistoletazo.";return}
+    var a=new Date(ini),b=fin?new Date(fin):null;
+    if(b&&b<=a){jm.className="msg err";jm.textContent="El final tiene que ir después de la salida. Por lógica.";return}
+    jm.className="msg";jm.textContent="Comprobando la contraseña…";
+    api("rpc/soloq_programar",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({clave:clave,p_inicio:a.toISOString(),p_fin:b?b.toISOString():null})})
+      .then(function(r){if(r.status===401||r.status===403||r.status===400){return r.json().then(function(e){throw new Error((e&&e.message)||"no")})}
+        if(!r.ok)throw new Error("red");return r.json()})
+      .then(function(){jm.className="msg ok";jm.textContent="Hecho. Salida el "+fecha(a.getTime())+(b?" y final el "+fecha(b.getTime()):"")+
+        ". El tablón y Discord se enteran en la próxima pasada del robot (media hora como mucho).";jf.clave.value="";
+        if(a.getTime()>Date.now())clock(a.getTime(),"Empieza en")})
+      .catch(function(e){jm.className="msg err";jm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta. Aquí no entra cualquiera.":
+        /final/.test(e.message)?e.message:"No se ha podido guardar. Prueba otra vez en un rato."})})}
 
 // readers' notes nailed to the board
 var wall=$("#notas-lectores"),colors=["amarilla","rosa","verde",""];

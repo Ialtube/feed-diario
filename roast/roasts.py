@@ -28,7 +28,6 @@ DESKS = {
     "DERBI": "Arena de Noxus",
     "AUSENTES": "Perdidos en el Vacío",
     "EL FARO DE LA ESPERANZA": "Centinelas de la Luz",
-    "SOLOQ CHALLENGE": "Enviado especial a la cola de Solo/Dúo",
 }
 
 # --------------------------------------------------------------------------- templates

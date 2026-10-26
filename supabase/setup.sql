@@ -261,5 +261,34 @@ drop policy if exists "clavar notas soloq" on public.soloq_notas;
 create policy "clavar notas soloq" on public.soloq_notas for insert to anon
   with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
 
+-- La fecha de salida (y de fin) del SoloQ Challenge. La pone el administrador desde el tablón con su
+-- contraseña; aquí solo se guarda su huella SHA-256. Todos pueden leerla (el tablón y el robot), pero solo
+-- se escribe a través de la función. Para cambiar la contraseña, cambia la huella y vuelve a ejecutar esto.
+create table if not exists public.soloq_control (
+  id bigint generated always as identity primary key,
+  inicio timestamptz not null,
+  fin timestamptz,
+  created_at timestamptz not null default now()
+);
+alter table public.soloq_control enable row level security;
+drop policy if exists "leer control soloq" on public.soloq_control;
+create policy "leer control soloq" on public.soloq_control for select to anon using (true);
+
+create or replace function public.soloq_programar(clave text, p_inicio timestamptz, p_fin timestamptz default null)
+returns bigint language plpgsql security definer set search_path = public, extensions as $$
+declare nuevo bigint;
+begin
+  if encode(extensions.digest(clave, 'sha256'), 'hex') <> 'da248eeaffa573da8c323c3eb56aaf32ec6ce244e401a24c55f30c907d0bbfb5' then
+    raise exception 'Contraseña incorrecta' using errcode = '42501';
+  end if;
+  if p_fin is not null and p_fin <= p_inicio then
+    raise exception 'El final tiene que ser después de la salida' using errcode = '22023';
+  end if;
+  insert into public.soloq_control (inicio, fin) values (p_inicio, p_fin) returning id into nuevo;
+  return nuevo;
+end $$;
+revoke all on function public.soloq_programar(text, timestamptz, timestamptz) from public;
+grant execute on function public.soloq_programar(text, timestamptz, timestamptz) to anon;
+
 -- Hace que la API vea las tablas nuevas al momento
 notify pgrst, 'reload schema';

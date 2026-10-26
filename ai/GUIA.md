@@ -257,8 +257,8 @@ Piltover abre expediente», «la Lonja de Aguasturbias congela sus fondos».
 - `bolsa_lp`: la bolsa de LP. Una fila por **cuenta** (`cuenta`, `principal`: false = smurf de ese jugador), comparada solo consigo misma con la última vez que se vio (`desde`). `delta` en LP (100 por división, 400 por liga) y `partidas` jugadas desde entonces; `delta` nulo = cuenta nueva o cambio que no cuadra (`dudoso`): de eso no se escribe. Lo que sube o baja un smurf es del smurf: dilo así, nunca como si fuera la cuenta principal.
 - `ace_league`: el Rincón del Viciado en la ACE League (plantilla, partidos, resultados).
 - `soloq_challenge`: el **SoloQ Challenge**, el reto de a ver quién llega más lejos en Solo/Dúo con una **cuenta
-  comprada de cero** (su tablón está en `soloq/`, en la pestaña de arriba de la web). `fase` dice en qué punto está:
-  - `inscripcion`: el jefe aún no ha dado el pistoletazo. Viene la lista de inscritos (`nombre` del Rincón, `mote`,
+  comprada de cero** (su tablón está en `soloq/`; el periódico lo enlaza con un botón del menú). `fase` dice en qué punto está:
+  - `inscripcion`: aún no ha llegado la salida (`empieza` dice cuándo, si el jefe ya la ha puesto). Viene la lista de inscritos (`nombre` del Rincón, `mote`,
     cuenta, `nivel`, `objetivo_declarado`, `grito_de_guerra`) e `inscritos_del_dia`. Cuenta quién se apunta y qué
     promete; si una cuenta «nueva» ya tiene liga, sospecha en voz alta.
   - `en_juego`: la clasificación tal como estaba al cerrar esta edición (`puesto`, `cambio_de_puesto` desde la
@@ -269,7 +269,7 @@ Piltover abre expediente», «la Lonja de Aguasturbias congela sus fondos».
   En el dossier sus ángulos llevan el tema `SOLOQ CHALLENGE` (`soloq_inscripcion`, `soloq_vestuario`, `soloq_lider`,
   `soloq_hundimiento`, `soloq_escalada`, `soloq_racha`, `soloq_promesa`, `soloq_desaparecido`, `soloq_farolillo`…).
   - Mientras el reto esté en juego, **cada edición lleva al menos una pieza del reto** con `seccion: "SOLOQ CHALLENGE"`
-    (sale en su sección, debajo de la tabla, y clavada como recorte en el tablón). Si ha cambiado el líder o alguien
+    (sale en el periódico como una pieza más y, además, clavada como recorte en el tablón). Si ha cambiado el líder o alguien
     ha ascendido o descendido, que sea mediana o grande; si el día fue tranquilo, basta una breve o un `ranking`.
     Durante las inscripciones, una breve cuando se apunte alguien.
   - Llama a cada uno por su `nombre` (el del Rincón); el `mote` es el que se puso en el reto y sirve para la burla.

@@ -252,14 +252,17 @@ def cmd_soloq(args):
         print(f"Demo del SoloQ Challenge en {out / 'index.html'}")
         return
     datos = soloq.Datos()
+    if not args.solo_web and soloq.aplicar_control(datos, soloq.leer_control(cfg)):
+        r = soloq.reto_de(cfg, datos)
+        datos.inscritos["actualizado"] = now_ms
+        print(f"  Nueva fecha del jefe: empieza el {soloq.cuando(r['inicio_ms'], r['tz'])}"
+              + (f" y acaba el {soloq.cuando(r['fin_ms'], r['tz'])}" if r["fin_ms"] else ""))
     r = soloq.reto_de(cfg, datos)
     avisos = []
     if args.empezar:
         if soloq.fase(r, now_ms) == "en_juego":
             sys.exit(f"El reto ya está en marcha desde el {r['inicio']}")
         r = soloq.empezar(datos, cfg, now_ms, args.dias)
-        datos.inscritos["avisos"] = {}
-        avisos.append("inicio")
         print(f"¡Pistoletazo! El reto empieza ahora" + (f" y acaba el {r['fin']}" if r["fin"] else " y dura hasta --terminar"))
     elif args.terminar:
         r = soloq.terminar(datos, cfg, now_ms)
@@ -287,14 +290,15 @@ def cmd_soloq(args):
               + (f", {len(nuevas)} inscripciones nuevas" if nuevas else ""))
         avisos += soloq.avisos_pendientes(datos, r, now_ms)
     # Discord: the starting gun, the daily notice (the newspaper's day, 07:00 to 07:00) and the end
+    st = datos.inscritos.setdefault("avisos", {})
+    today = datetime.now(get_tz(cfg["timezone"])).date().isoformat()
+    done = {"diario": today, "programado": r["inicio_ms"], "inicio": r["inicio_ms"], "final": now_ms}
     for tipo in dict.fromkeys(avisos):
         cut = soloq.ultimo_corte(r, min(now_ms, r["fin_ms"] or now_ms))
         sq = (soloq.resumen(cfg, cut - 24 * HOUR_MS, cut, datos) if tipo == "diario" else
-              soloq.resumen(cfg, cut, now_ms, datos))
-        st = datos.inscritos.setdefault("avisos", {})
-        today = datetime.now(get_tz(cfg["timezone"])).date().isoformat()
+              soloq.resumen(cfg, cut, now_ms, datos)) or (None if tipo == "diario" else soloq.cabecera(cfg, r, now_ms))
         if not sq or (tipo == "diario" and sq["fase"] == "inscripcion" and not sq["inscritos_del_dia"]):
-            st["diario"] = today if tipo == "diario" else st.get("diario")    # nothing to tell today
+            st["diario"] = today                                              # nothing to tell today
             continue
         rows = soloq.puesta_al_dia(datos, r, now_ms, soloq.ultimo_corte(r, now_ms))
         note = (soloq.notas(rows, soloq.fase(r, now_ms), today, cast, limit=1) or [None])[0]
@@ -304,7 +308,7 @@ def cmd_soloq(args):
             print(json.dumps(payload, ensure_ascii=False, indent=2))
         elif _post(payload):
             print(f"  Aviso del SoloQ Challenge a Discord ({tipo})")
-            st["diario" if tipo == "diario" else tipo] = today if tipo == "diario" else now_ms
+            st[tipo] = done[tipo]
     if not args.dry_run and (not args.solo_web or args.empezar or args.terminar):
         datos.save()
     soloq_web.build(cfg, datos, ROOT / "docs" / "soloq", now_ms, roster, datos.inscritos.get("ddragon"), "../",

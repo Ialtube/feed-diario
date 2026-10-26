@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from roast import soloq, soloq_web  # noqa: E402
 from roast.dossier import _soloq as soloq_angles  # noqa: E402
-from roast.site import _soloq as soloq_section  # noqa: E402
+from roast.site import page  # noqa: E402
 
 HOUR = 3600 * 1000
 CFG = {"timezone": "Europe/Madrid", "cutoff_hour": 7, "platform": "euw1", "site_title": "El Rincón del Feeder",
@@ -98,9 +98,20 @@ class SoloQTest(unittest.TestCase):
         angles = []
         soloq_angles(lambda tipo, slug, *a, **kw: angles.append((tipo, slug)), sq)
         self.assertIn(("soloq_inscripcion", "grangalax"), angles)
-        self.assertIn("Inscritos con su cuenta de cero", soloq_section({"soloq": sq}, ""))
         notes = soloq.notas(soloq.puesta_al_dia(self.datos, self.r(), T0), "inscripcion", "2026-11-01")
         self.assertTrue(any("pistoletazo" in n["texto"] for n in notes))
+
+        # the boss sets the date on the board (Supabase checks the password); the robot takes the newest one
+        fila = {"id": 7, "inicio": "2026-11-01T20:00:00+01:00", "fin": None}
+        self.assertTrue(soloq.aplicar_control(self.datos, fila))
+        self.assertFalse(soloq.aplicar_control(self.datos, fila))        # already applied
+        r = self.r()
+        self.assertEqual((soloq.fase(r, T0), r["fin_ms"] - r["inicio_ms"]), ("inscripcion", 30 * 24 * HOUR))
+        self.assertEqual(soloq.avisos_pendientes(self.datos, r, T0), ["programado"])
+        self.assertEqual(soloq.cuando(r["inicio_ms"], r["tz"]), "domingo, 1 de noviembre de 2026 a las 20:00")
+        self.assertIn("inicio", soloq.avisos_pendientes(self.datos, r, T0 + 14 * HOUR))
+        payload = soloq.aviso_payload(soloq.cabecera(CFG, r, T0), CFG, "programado")
+        self.assertIn("Empieza el domingo, 1 de noviembre de 2026 a las 20:00", payload["embeds"][0]["description"])
 
         r = soloq.empezar(self.datos, CFG, T0)
         self.assertEqual((soloq.fase(r, T0 + HOUR), r["fin_ms"]), ("en_juego", T0 + 30 * 24 * HOUR))
@@ -152,15 +163,12 @@ class SoloQTest(unittest.TestCase):
         soloq_angles(lambda tipo, slug, *a, **kw: angles.append((tipo, slug)), sq)
         self.assertIn(("soloq_hundimiento", "grangalax"), angles)
         self.assertIn(("soloq_ascenso", None), angles)       # Lobo is not in the group: no player page
-        html = soloq_section({"soloq": sq}, "")
-        self.assertIn("La clasificación al cierre de esta edición", html)
-        self.assertIn('href="jugadores/grangalax.html"', html)
 
         payload = soloq.aviso_payload(soloq.resumen(CFG, ref - 24 * HOUR, ref, datos=datos), CFG, "diario",
                                       "https://x.github.io/feed-diario", {"texto": "Nota", "firma": "Anónimo"})
         self.assertEqual(payload["embeds"][0]["url"], "https://x.github.io/feed-diario/soloq/")
         self.assertIn("grangalax", payload["embeds"][0]["description"])
-        datos.inscritos["avisos"] = {}
+        datos.inscritos["avisos"] = {"inicio": r["inicio_ms"]}     # the starting gun was already announced
         self.assertEqual(soloq.avisos_pendientes(datos, r, T0 + 26 * HOUR), ["diario"])     # 09:00, the day after
         self.assertEqual(soloq.avisos_pendientes(datos, r, T0 + 24 * HOUR), [])             # 07:00: too early
 
@@ -176,9 +184,14 @@ class SoloQTest(unittest.TestCase):
         page = (out / "index.html").read_text(encoding="utf-8")
         for text in ("Clasificación oficial", "La gráfica", "La Moneda", "Oro III", "NoExiste#EUW", "Bando de inscripción",
                      "Muro de la vergüenza", "La Moneda se hunde en Oro", "ediciones/2026-11-03.html#p-3",
-                     "La Moneda cae de cruz otra vez.", 'class="pestanas"'):
+                     "La Moneda cae de cruz otra vez.", "Volver a El Rincón del Feeder", "El pistoletazo"):
             self.assertIn(text, page)
         self.assertTrue((out / "datos.json").exists() and (out / "soloq.js").exists())
+
+    def test_newspaper_only_gets_a_button(self):
+        html = page({"site_title": "El Rincón del Feeder", "site_tagline": ""}, "x", "<p>cuerpo</p>", "../")
+        self.assertIn('<a class="soloq" href="../soloq/index.html"', html)
+        self.assertNotIn("pestanas", html)
 
     def test_empty_board_builds(self):
         out = Path(self.tmp.name) / "web"

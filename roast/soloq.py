@@ -77,6 +77,33 @@ def fase(r, now_ms):
     return "finalizado" if r["fin_ms"] and now_ms >= r["fin_ms"] else "en_juego"
 
 
+def leer_control(cfg):
+    """The admin's latest schedule from the board (table soloq_control, written only through the
+    password-checked function soloq_programar), or None."""
+    rows = supabase_get(cfg, "soloq_control", [("select", "id,inicio,fin,created_at"), ("order", "id.desc"), ("limit", "1")])
+    return rows[0] if rows else None
+
+
+def _ms(iso):
+    return int(datetime.fromisoformat(iso.replace("Z", "+00:00")).timestamp() * 1000) if iso else None
+
+
+def aplicar_control(datos, fila):
+    """Takes the admin's schedule if it is newer than the last one applied. Returns True if it changed."""
+    if not fila or fila.get("id", 0) <= datos.inscritos.get("control_id", 0):
+        return False
+    datos.inscritos["reto"] = {"inicio_ms": _ms(fila["inicio"]), "fin_ms": _ms(fila.get("fin"))}
+    datos.inscritos["control_id"] = fila["id"]
+    return True
+
+
+def cuando(ms, tz):
+    """'lunes, 2 de noviembre de 2026 a las 20:00'"""
+    from .util import long_date
+    d = datetime.fromtimestamp(ms / 1000, tz)
+    return f"{long_date(d.date())} a las {d:%H:%M}"
+
+
 def empezar(datos, cfg, now_ms, dias=None):
     """The starting gun: from now on every Solo/Duo game of the accounts counts."""
     r = dict(DEFAULTS, **(cfg.get("soloq") or {}))
@@ -794,6 +821,22 @@ def notas(rows, ph, day, cast=(), limit=11):
 
 
 # --------------------------------------------------------------------------- for the newspaper
+def cabecera(cfg, r, at_ms):
+    """What every summary of the race says about the race itself."""
+    started = bool(r["inicio_ms"] and r["inicio_ms"] <= at_ms)
+    day = 24 * 3600 * 1000
+    site = (cfg.get("site_url") or "").rstrip("/")
+    return {
+        "nombre": r["nombre"], "fase": fase(r, at_ms), "inicio": r["inicio"], "fin": r["fin"],
+        "empieza": cuando(r["inicio_ms"], r["tz"]) if r["inicio_ms"] else None,
+        "acaba": cuando(r["fin_ms"], r["tz"]) if r["fin_ms"] else None,
+        "dias_restantes": max(0, -(-(r["fin_ms"] - at_ms) // day)) if r["fin_ms"] and started else None,
+        "dia_del_reto": (at_ms - r["inicio_ms"]) // day + 1 if started else None,
+        "min_partidas": r["min_partidas"], "premio": r.get("premio"), "castigo": r.get("castigo"),
+        "url": f"{site}/soloq/" if site else "soloq/index.html", "clasificacion": [],
+    }
+
+
 def resumen(cfg, desde_ms, hasta_ms, datos=None):
     """The race as an edition sees it: the table when the edition closed (hasta_ms), what moved during
     its day (desde_ms → hasta_ms) and the wall of shame. While the race is taking sign-ups, who has
@@ -808,14 +851,8 @@ def resumen(cfg, desde_ms, hasta_ms, datos=None):
     before = [x for x in tabla(datos, r, desde_ms) if x["valor"] is not None] if started else []
     ranked = [x for x in rows if x["valor"] is not None] if started else []
     leader = ranked[0] if ranked else None
-    site = (cfg.get("site_url") or "").rstrip("/")
-    day = 24 * 3600 * 1000
     return {
-        "nombre": r["nombre"], "fase": ph, "inicio": r["inicio"], "fin": r["fin"],
-        "dias_restantes": max(0, -(-(r["fin_ms"] - hasta_ms) // day)) if r["fin_ms"] and started else None,
-        "dia_del_reto": (hasta_ms - r["inicio_ms"]) // day + 1 if started else None,
-        "min_partidas": r["min_partidas"], "premio": r.get("premio"), "castigo": r.get("castigo"),
-        "url": f"{site}/soloq/" if site else "soloq/index.html",
+        **cabecera(cfg, r, hasta_ms),
         "lider": leader and leader["nombre"],
         "lider_antes": before[0]["nombre"] if before else None,
         "cambia_el_lider": bool(leader and before and before[0]["key"] != leader["key"]),
@@ -851,11 +888,18 @@ def aviso_payload(sq, cfg, tipo="diario", site_url="", nota=None):
     rows = sq["clasificacion"] if sq else []
     ranked = [x for x in rows if x["liga"] != "Sin clasificar"]
     lines = []
-    if tipo == "inicio":
+    if tipo == "programado":
+        title, content = f"📅 Ya hay fecha para el {sq['nombre']}", "📅 El jefe ha hablado: ya hay fecha para el SoloQ Challenge."
+        lines.append(f"**Empieza el {sq['empieza']}.**" + (f" Acaba el {sq['acaba']}." if sq.get("acaba") else ""))
+        if rows:
+            lines.append(f"**Inscritos ({len(rows)}):** " + ", ".join(x["nombre"] for x in rows))
+        lines.append("¿Aún sin cuenta apuntada? Al tablón, que se acaba el plazo de hacer el ridículo gratis.")
+    elif tipo == "inicio":
         title, content = f"🔔 ¡Pistoletazo de salida del {sq['nombre']}!", "🔔 Empieza el SoloQ Challenge. Que cada palo aguante su vela."
-        lines.append(f"**{len(rows)} valientes** con cuenta de cero: " + ", ".join(x["nombre"] for x in rows))
-        if sq.get("fin"):
-            lines.append(f"Termina el **{sq['fin']}**. Mínimo {sq['min_partidas']} partidas para optar al trono.")
+        if rows:
+            lines.append(f"**{len(rows)} valientes** con cuenta de cero: " + ", ".join(x["nombre"] for x in rows))
+        if sq.get("acaba"):
+            lines.append(f"Termina el **{sq['acaba']}**. Mínimo {sq['min_partidas']} partidas para optar al trono.")
         if sq.get("premio"):
             lines.append(f"🏆 **Premio:** {sq['premio']}")
         if sq.get("castigo"):
@@ -904,16 +948,19 @@ def aviso_payload(sq, cfg, tipo="diario", site_url="", nota=None):
 
 
 def avisos_pendientes(datos, r, now_ms):
-    """Which Discord notices are due now: the daily one (once a day, after aviso_hora; while taking
-    sign-ups only if somebody new signed up) and the final one."""
+    """Which Discord notices are due now: the date the admin set, the starting gun, the daily one (once a
+    day, after aviso_hora; while taking sign-ups only if somebody new signed up) and the final one."""
     st = datos.inscritos.setdefault("avisos", {})
     ph = fase(r, now_ms)
-    due = []
     if ph == "finalizado":
         return [] if st.get("final") else ["final"]
+    due = []
+    if ph == "inscripcion" and r["inicio_ms"] and st.get("programado") != r["inicio_ms"]:
+        due.append("programado")
+    if ph == "en_juego" and st.get("inicio") != r["inicio_ms"]:
+        due.append("inicio")
     local = datetime.fromtimestamp(now_ms / 1000, r["tz"])
-    today = local.date().isoformat()
-    if local.hour >= r.get("aviso_hora", 9) and st.get("diario") != today:
+    if local.hour >= r.get("aviso_hora", 9) and st.get("diario") != local.date().isoformat():
         due.append("diario")
     return due
 
