@@ -225,5 +225,26 @@ drop policy if exists "apostar coronas" on public.apuestas;
 create policy "apostar coronas" on public.apuestas for insert to anon
   with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
 
+-- ---------------------------------------------------------------- SoloQ Challenge
+-- Inscripciones al reto (docs/soloq/). El robot lee esta tabla cada 30 minutos y sigue cada cuenta en la
+-- API de Riot. Para echar a alguien, borra su fila: en la siguiente pasada desaparece de la tabla.
+create table if not exists public.soloq_inscritos (
+  id bigint generated always as identity primary key,
+  riot_id text not null check (char_length(riot_id) between 6 and 23 and riot_id ~ '^[^#]{3,16}#[^#[:space:]]{2,5}$'),
+  apodo text not null check (char_length(apodo) between 1 and 24),
+  jugador text check (jugador is null or char_length(jugador) <= 40),
+  objetivo text check (objetivo is null or objetivo in ('IRON', 'BRONZE', 'SILVER', 'GOLD', 'PLATINUM', 'EMERALD',
+                                                        'DIAMOND', 'MASTER', 'GRANDMASTER', 'CHALLENGER')),
+  lema text check (lema is null or char_length(lema) <= 120),
+  lector text check (lector is null or char_length(lector) <= 60),
+  created_at timestamptz not null default now()
+);
+alter table public.soloq_inscritos enable row level security;
+drop policy if exists "leer inscritos soloq" on public.soloq_inscritos;
+create policy "leer inscritos soloq" on public.soloq_inscritos for select to anon using (true);
+drop policy if exists "inscribirse soloq" on public.soloq_inscritos;
+create policy "inscribirse soloq" on public.soloq_inscritos for insert to anon
+  with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
+
 -- Hace que la API vea las tablas nuevas al momento
 notify pgrst, 'reload schema';

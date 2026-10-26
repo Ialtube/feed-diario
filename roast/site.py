@@ -330,6 +330,8 @@ article.f-parte-meteorologico{background:rgba(160,175,190,.08)}
 
 /* who are you */
 nav.menu a.yo{border:1px solid var(--ink);padding:0 8px}
+nav.menu a.soloq{background:#0a1428;color:#c8aa6e;border:1px solid #c89b3c;padding:0 8px;letter-spacing:.04em}
+nav.menu a.soloq:hover{color:#f0e6d2}
 .yo-dialog{border:3px double var(--ink);background:var(--paper);color:var(--ink);padding:18px 22px;max-width:min(560px,92vw)}
 .yo-dialog::backdrop{background:rgba(20,14,8,.6)}
 .yo-dialog h4{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:1.8rem}
@@ -1445,7 +1447,7 @@ def page(cfg, title, body, rel, edition=None, description="", pagina="", image=N
 <a class="title" href="{rel}index.html">{_e(cfg['site_title'])}</a>
 <p class="tagline">{_e(cfg['site_tagline'])}</p>
 <div class="rules"></div>
-<nav class="menu"><a href="{rel}index.html">Portada</a><a href="{rel}archivo.html">Hemeroteca</a><a href="{rel}jugadores.html">Jugadores</a><a href="{rel}sagas.html">Sagas</a><a class="cta" href="{rel}proponer.html">Proponer noticia</a><a href="#" class="yo" id="yo-btn">¿Quién eres?</a></nav>
+<nav class="menu"><a href="{rel}index.html">Portada</a><a href="{rel}archivo.html">Hemeroteca</a><a href="{rel}jugadores.html">Jugadores</a><a href="{rel}sagas.html">Sagas</a><a class="soloq" href="{rel}soloq/index.html">SoloQ Challenge</a><a class="cta" href="{rel}proponer.html">Proponer noticia</a><a href="#" class="yo" id="yo-btn">¿Quién eres?</a></nav>
 </header>
 {body}
 </div></div>
@@ -1755,7 +1757,7 @@ def _article(it, rel, image=False, cls="", attrs="", placard=False):
 # key, title, desk, item sections it collects
 BLOCKS = [
     ("sucesos", "Sucesos", "Comisaría de Piltover", {"SUCESOS"}),
-    ("deportes", "Deportes", "Arena de Noxus", {"DEPORTES", "DERBI"}),
+    ("deportes", "Deportes", "Arena de Noxus", {"DEPORTES", "DERBI", "SOLOQ CHALLENGE"}),
     ("economia", "Economía", "Lonja de Aguasturbias", {"ECONOMÍA", "AGRICULTURA"}),
     ("ciencia", "Ciencia y Daño", "Instituto Hextech de Piltover", {"DAÑO", "CIENCIA", "VAR"}),
     ("tiempo", "El Tiempo", "Islas de la Sombra", {"EL TIEMPO"}),
@@ -1864,8 +1866,9 @@ def _sections_v2(ed, rest, rel):
     opinion = [it for it in rest if it.get("section") in OPINION_SECTIONS]
     weather_items = [it for it in rest if it.get("section") == "EL TIEMPO"]
     ace_items = [it for it in rest if it.get("section") == "ACE LEAGUE"]
+    soloq_items = [it for it in rest if it.get("section") == "SOLOQ CHALLENGE"] if ed.get("soloq") else []
     well = [it for it in rest if it.get("section") not in OPINION_SECTIONS
-            and it.get("section") not in ("EL TIEMPO", "ACE LEAGUE")]
+            and it.get("section") not in ("EL TIEMPO", "ACE LEAGUE") and it not in soloq_items]
     pics = {"left": 8}
 
     def card(it, i):
@@ -1888,6 +1891,9 @@ def _sections_v2(ed, rest, rel):
                     + '</div></section>')
     html.append(_gaceta(ed))
     html.append(datos)
+    if ed.get("soloq"):
+        html.append(_soloq(ed, rel) + ('<div class="sec-grid pozo">' + "".join(card(it, i) for i, it in enumerate(soloq_items))
+                                        + '</div>' if soloq_items else "") + '</section>')
     if ace_items or _ace_matches():
         rows = "".join(f'<tr><td>{_e(m.get("fecha", ""))}</td><td>{_e(m.get("rival", ""))}</td>'
                        f'<td class="{"win" if m.get("resultado") == "victoria" else "loss" if m.get("resultado") == "derrota" else ""}">'
@@ -2078,6 +2084,42 @@ def _bolsa(ed):
             'contando 100 por división y 400 por liga: pasar de Oro IV con 20 LP a Plata I con 80 LP son ▼ 40. '
             '«nuevo»: es la primera vez que vemos esa cuenta en esa cola. «?»: el cambio no cuadra con las partidas '
             'jugadas y no se cuenta.</p></details></div>')
+
+
+def _soloq(ed, rel):
+    """The SoloQ Challenge as the edition closed: the table, who moved and a link to the live website.
+    Returns an open <section> so the day's stories about the race can go inside it."""
+    sq = ed["soloq"]
+    rows = sq.get("clasificacion") or []
+
+    def move(x):
+        c = x.get("cambio_de_puesto")
+        if c is None:
+            return '<span class="small">nuevo</span>'
+        return '=' if not c else f'<span class="{"up" if c > 0 else "down"}">{"▲" if c > 0 else "▼"} {abs(c)}</span>'
+
+    def lp(n):
+        return "–" if n is None else ("=" if not n else f'<span class="{"up" if n > 0 else "down"}">{n:+d}</span>')
+
+    body = "".join(
+        f'<tr><td class="num">{x["puesto"]}</td><td class="num">{move(x)}</td><td>'
+        + (f'<a href="{rel}jugadores/{_e(x["jugador"])}.html">{_e(x["apodo"])}</a>' if x.get("jugador") else _e(x["apodo"]))
+        + f'</td><td>{_e(x["liga"])}</td><td class="num">{lp(x.get("lp_en_el_dia"))}</td>'
+        f'<td class="num">{x["victorias_dia"]}–{x["derrotas_dia"]}</td>'
+        f'<td class="num">{x["victorias_reto"]}–{x["derrotas_reto"]}</td></tr>' for x in rows[:12])
+    days = sq.get("dias_restantes")
+    when = ("Terminado" if sq.get("fase") == "finalizado" else f'Empieza el {short_date(_date(sq["inicio"]))}'
+            if sq.get("fase") == "previa" else f'Quedan {days} {"día" if days == 1 else "días"}')
+    head = (f'<section class="secblock sec-soloq" id="sec-soloq"><header class="sec-head"><h3 class="sec-name">'
+            f'{_e(sq.get("nombre") or "SoloQ Challenge")}</h3><span class="sec-desk">Enviado especial a la cola de Solo/Dúo · '
+            f'{_e(when)}</span></header>')
+    table = ('<div class="board"><h4 class="kicker">La clasificación al cierre de esta edición</h4><div class="tablewrap"><table>'
+             '<thead><tr><th class="num">#</th><th class="num">±</th><th>Jugador</th><th>Liga</th><th class="num">LP del día</th>'
+             '<th class="num">Día</th><th class="num">Reto</th></tr></thead>'
+             f'<tbody>{body}</tbody></table></div>'
+             f'<p class="small">Tabla en directo, inscripciones y muro de la vergüenza en '
+             f'<a href="{rel}soloq/index.html">la web del SoloQ Challenge</a>.</p></div>') if rows else ""
+    return head + table
 
 
 def _ace_matches(limit=6):

@@ -7,6 +7,7 @@
   python -m roast avisar   tell Discord that today's edition by Claude is out (once)
   python -m roast previa   the evening preview of the night's markets on Discord
   python -m roast informe  the editor's weekly report in informes/
+  python -m roast soloq    the SoloQ Challenge: sign-ups, ranks and games -> docs/soloq/ (every 30 minutes)
 """
 import json
 import argparse
@@ -23,6 +24,7 @@ from . import informe
 from .fetch import fetch_new_matches, fetch_ranks, fetch_timelines, resolve_players
 from . import porra as porra_mod
 from .rangos import market
+from .soloq import resumen as soloq_resumen
 from .llm import polish
 from .notify import discord_payload, post_discord, post_previa, previa_payload
 from .pipeline import make_edition
@@ -79,6 +81,7 @@ def cmd_run(args):
 
     edition = make_edition(cfg, store, players, start_ms, end_ms, date_str, number)
     edition["bolsa"] = market(store.ranks(), date_str, players)
+    edition["soloq"] = soloq_resumen(cfg, start_ms, end_ms)
     print(f"  {edition['totals']['games']} partidas del grupo en la ventana, {len(edition['items'])} noticias")
     same_games = existing and {g["match"] for g in existing.get("games", [])} == {g["match"] for g in edition["games"]}
     if existing and existing.get("ai") and same_games and existing["window"] == edition["window"]:
@@ -225,6 +228,52 @@ def cmd_informe(args):
     coronas.sync(cfg)
     path = informe.write(cfg, store.editions(), args.dias)
     print(f"Informe escrito en {path.relative_to(ROOT)}" if path else "No hay ediciones")
+
+
+def _roster(friends):
+    return list({f["slug"]: {"slug": f["slug"], "alias": f["alias"]} for f in reversed(friends)}.values())[::-1]
+
+
+def cmd_soloq(args):
+    """The SoloQ Challenge: reads the sign-ups, follows every account in Riot and rebuilds docs/soloq/."""
+    from . import soloq, soloq_web
+    cfg, friends = load_config(), load_friends()
+    now_ms = int(time.time() * 1000)
+    roster = _roster(friends)
+    if args.demo:
+        out = ROOT / "demo_site" / "soloq"
+        soloq_web.build(cfg, soloq.demo(cfg, now_ms), out, now_ms, roster)
+        print(f"Demo del SoloQ Challenge en {out / 'index.html'}")
+        return
+    datos = soloq.Datos()
+    r = soloq.reto(cfg)
+    if not args.solo_web:
+        filas = soloq.leer_supabase(cfg)
+        if filas is None and cfg.get("supabase_url"):
+            print("  ! No se pudieron leer las inscripciones de Supabase (se sigue con las que ya había)")
+        nuevas = soloq.sincronizar(datos, filas, r, friends, {p["slug"] for p in roster}, now_ms)
+        changed = bool(nuevas)
+        # a week before the start the table already shows where everyone begins; after the end it is frozen
+        if r["inicio_ms"] - 7 * 24 * HOUR_MS <= now_ms < r["fin_ms"] + 2 * HOUR_MS:
+            store = Store(ROOT / "data")
+            known = {rid.lower(): st["puuid"] for rid, st in store.state.get("players", {}).items() if st.get("puuid")}
+            try:
+                changed = soloq.actualizar(_client(cfg), datos, r, now_ms, store.matches(), known) or changed
+            except RiotError as e:
+                print(f"  ! Error con la API de Riot: {e}")
+        else:
+            print(f"  El reto va del {r['inicio']} al {r['fin']}: hoy no se consulta a Riot")
+        ver = soloq.ddragon_version()
+        if ver and ver != datos.inscritos.get("ddragon"):
+            datos.inscritos["ddragon"] = ver
+        if changed:
+            datos.inscritos["actualizado"] = now_ms
+        datos.save()
+        accs, rejected = soloq.activos(datos, r)
+        print(f"SoloQ Challenge: {len(accs)} cuentas en la tabla, {len(rejected)} fuera"
+              + (f", {len(nuevas)} inscripciones nuevas" if nuevas else "") + ("" if changed else ", sin cambios"))
+    soloq_web.build(cfg, datos, ROOT / "docs" / "soloq", now_ms, roster, datos.inscritos.get("ddragon"))
+    print("Web del SoloQ Challenge regenerada en docs/soloq/")
 
 
 def cmd_build(args):
@@ -393,6 +442,10 @@ def main(argv=None):
     inf = sub.add_parser("informe", help="informe semanal de la redacción en informes/")
     inf.add_argument("--dias", type=int, default=7)
     inf.set_defaults(fn=cmd_informe)
+    sq = sub.add_parser("soloq", help="SoloQ Challenge: inscripciones, rangos y partidas -> docs/soloq/")
+    sq.add_argument("--solo-web", action="store_true", help="solo regenerar la web con los datos guardados")
+    sq.add_argument("--demo", action="store_true", help="web de prueba con jugadores inventados en demo_site/soloq/")
+    sq.set_defaults(fn=cmd_soloq)
     d = sub.add_parser("demo", help="demo con datos falsos")
     d.add_argument("--days", type=int, default=7)
     d.add_argument("--seed", type=int, default=7)

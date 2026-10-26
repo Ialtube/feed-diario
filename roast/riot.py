@@ -1,4 +1,4 @@
-"""Minimal Riot Games API client (account-v1 + match-v5) with rate limiting.
+"""Minimal Riot Games API client (account-v1, match-v5, league-v4, summoner-v4) with rate limiting.
 
 Uses only the standard library so it runs anywhere (GitHub Actions, Windows, ...).
 Default limits match a Development / Personal key: 20 requests/1 s and 100 requests/2 min.
@@ -93,10 +93,14 @@ class RiotClient:
         return self._get(self._regional(
             f"/riot/account/v1/accounts/by-riot-id/{q(game_name, safe='')}/{q(tag_line, safe='')}"))
 
-    def match_ids(self, puuid, start_time_s=None, count=20):
+    def match_ids(self, puuid, start_time_s=None, count=20, queue=None, start=0):
         params = {"count": max(1, min(int(count), 100))}
         if start_time_s:
             params["startTime"] = int(start_time_s)
+        if queue:
+            params["queue"] = int(queue)
+        if start:
+            params["start"] = int(start)
         return self._get(self._regional(f"/lol/match/v5/matches/by-puuid/{puuid}/ids"), params) or []
 
     def match(self, match_id):
@@ -104,6 +108,10 @@ class RiotClient:
 
     def timeline(self, match_id):
         return self._get(self._regional(f"/lol/match/v5/matches/{match_id}/timeline"))
+
+    def summoner_by_puuid(self, puuid):
+        """Profile icon and summoner level."""
+        return self._get(f"https://{self.platform}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{puuid}")
 
     def league_entries(self, puuid):
         """Ranked entries (Solo/Duo and Flex) of a player: tier, division, LP, wins, losses."""

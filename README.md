@@ -178,6 +178,38 @@ los lectores.
 Si la rutina no se ejecuta, la web conserva la edición de plantilla, así que nunca se queda vacía.
 La rutina gasta del uso de tu plan de Claude, no de una clave de API.
 
+## SoloQ Challenge
+
+Una web aparte, con estética de cliente de LoL, para ver quién del grupo (y quien se apunte) llega más lejos en
+Solo/Dúo: **`https://TU_USUARIO.github.io/feed-diario/soloq/`**, enlazada desde el menú del periódico.
+
+- **Inscripción**: cada uno pone su Riot ID, un apodo, si sale en el periódico, hasta dónde dice que va a llegar y un
+  grito de guerra. Se guarda en Supabase (tabla `soloq_inscritos`: vuelve a ejecutar `supabase/setup.sql`). También
+  puedes apuntar a alguien a mano en `config.json` → `soloq.a_mano`.
+- **Clasificación**: liga, división y LP; puestos ganados o perdidos desde las 07:00, LP del día, victorias y derrotas
+  del reto, racha, últimas partidas, gráfica de LP, campeones, objetivo declarado, últimos movimientos y el muro de la
+  vergüenza. Cada fila lleva un veredicto con mala leche.
+- **El robot**: el workflow «SoloQ Challenge» (`.github/workflows/soloq.yml`) se ejecuta cada 30 minutos con la misma
+  `RIOT_API_KEY`: lee las inscripciones, mira la liga y las partidas de Solo/Dúo de cada uno y regenera `docs/soloq/`.
+  Solo guarda si algo ha cambiado. Fuera de las fechas del reto no consulta a Riot. Cuando acabe, puedes desactivarlo
+  en *Actions → SoloQ Challenge → Disable workflow*.
+- **El periódico**: cada edición guarda la tabla del reto al cierre y la publica en su sección «SoloQ Challenge»; la
+  redacción IA recibe `soloq_challenge` y ángulos del reto en el dossier, y escribe al menos una pieza al día.
+- **Moderar**: borra la fila en Supabase (*Table Editor → soloq_inscritos*) y desaparece en la siguiente pasada.
+
+Ajustes en `config.json` → `soloq`:
+
+| Campo | Para qué |
+|---|---|
+| `nombre`, `lema` | Nombre del reto y subtítulo |
+| `inicio`, `fin` | Fechas (AAAA-MM-DD), de medianoche a medianoche en tu zona horaria |
+| `min_partidas` | Partidas mínimas para optar al trono |
+| `max_inscritos` | Tope de cuentas (cuida el límite de la API de Riot) |
+| `premio`, `castigo` | Lo que se juegan |
+| `a_mano` | Inscripciones a mano: `[{"riot_id": "Nombre#TAG", "apodo": "…", "jugador": "slug", "objetivo": "DIAMOND"}]` |
+
+Para verla con datos inventados: `python -m roast soloq --demo` y abre `demo_site/soloq/index.html`.
+
 ## Comentarios y «Proponer noticia» (Supabase, gratis)
 
 La web tiene dos cosas que necesitan guardar lo que escribe la gente:
@@ -216,6 +248,8 @@ cambio de política.
 | `python -m roast avisar` | Avisa a Discord de la edición IA de hoy (una vez; lo hace solo el workflow «Aviso de la edición IA») |
 | `python -m roast previa` | Manda a Discord la previa de la noche con los mercados de la Lonja (workflow «Previa de la noche», 18:00) |
 | `python -m roast informe` | Escribe el informe semanal de la redacción en `informes/` |
+| `python -m roast soloq` | SoloQ Challenge: inscripciones, ligas y partidas → `docs/soloq/` (lo hace el workflow cada 30 min) |
+| `python -m roast soloq --solo-web` | Regenera la web del reto sin consultar a Riot |
 
 ## Límites y cosas a saber
 
@@ -238,6 +272,8 @@ roast/roasts.py         plantillas y detectores de noticias
 roast/llm.py            reescritura opcional con Claude
 roast/site.py           generador de la web
 roast/notify.py         aviso a Discord
+roast/soloq.py          SoloQ Challenge: inscripciones, ligas, clasificación y humor
+roast/soloq_web.py      la web del SoloQ Challenge (docs/soloq/)
 roast/demo.py           datos falsos para la demo y las pruebas
 data/                   partidas y ediciones (lo rellena el robot)
 docs/                   la web publicada (la genera el robot)

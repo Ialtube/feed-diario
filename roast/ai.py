@@ -15,6 +15,7 @@ from pathlib import Path
 from . import canon as canon_mod
 from . import coronas
 from . import correcciones
+from . import soloq
 from . import juegos
 from . import lectores
 from . import memes
@@ -57,7 +58,7 @@ FORMAT_SECTIONS = {
     "juicio": {"SUCESOS", "POLÍTICA"},
     "editorial": {"OPINIÓN", "EDITORIAL"},
     "carta al director": {"OPINIÓN", "CARTAS"},
-    "crónica deportiva": {"DEPORTES", "DERBI", "ACE LEAGUE"},
+    "crónica deportiva": {"DEPORTES", "DERBI", "ACE LEAGUE", "SOLOQ CHALLENGE"},
     "comunicado oficial": None,  # anyone can issue one
 }
 # stories are told, not tallied: at most this many figures per 100 words in big and medium stories
@@ -219,6 +220,8 @@ def build_context(store, date_str, history_days=7, fetch_proposals=True, cfg=Non
         "porra": today.get("porra"),
         "videntes": porra_mod.seers(editions),
         "bolsa_lp": today.get("bolsa"),
+        "soloq_challenge": today.get("soloq") or soloq.resumen(cfg, *today["window"],
+                                                               datos=soloq.Datos(Path(store.dir) / "soloq")),
         "ace_league": load_json(Path(store.dir) / "ace_league.json", None),
         "dossier": dossier,
         "partidas_detalle": detailed_games(cfg, store, friends, today),

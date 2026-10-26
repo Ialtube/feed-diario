@@ -256,6 +256,21 @@ Piltover abre expediente», «la Lonja de Aguasturbias congela sus fondos».
 - `replicas_pendientes`: los aludidos que ejercen su derecho de réplica.
 - `bolsa_lp`: la bolsa de LP. Una fila por **cuenta** (`cuenta`, `principal`: false = smurf de ese jugador), comparada solo consigo misma con la última vez que se vio (`desde`). `delta` en LP (100 por división, 400 por liga) y `partidas` jugadas desde entonces; `delta` nulo = cuenta nueva o cambio que no cuadra (`dudoso`): de eso no se escribe. Lo que sube o baja un smurf es del smurf: dilo así, nunca como si fuera la cuenta principal.
 - `ace_league`: el Rincón del Viciado en la ACE League (plantilla, partidos, resultados).
+- `soloq_challenge`: el **SoloQ Challenge**, el reto de a ver quién llega más lejos en Solo/Dúo (su web en directo está
+  en `soloq/`). Viene la clasificación tal como estaba al cerrar esta edición (`puesto`, `cambio_de_puesto` desde la
+  edición anterior, `liga`, `lp_en_el_dia`, el día y el reto en victorias–derrotas, `racha`, `objetivo_declarado`
+  y `lp_para_el_objetivo`, `grito_de_guerra`), `movimientos_del_dia` (ascensos, descensos, cambios de LP), el líder
+  y si ha cambiado, el farolillo rojo, el `muro_de_la_verguenza` (premios que nadie quiere) y el premio y el castigo
+  del reto. En el dossier sus ángulos llevan el tema `SOLOQ CHALLENGE` (`soloq_lider`, `soloq_hundimiento`,
+  `soloq_escalada`, `soloq_racha`, `soloq_promesa`, `soloq_farolillo`…).
+  - Mientras el reto esté en juego, **cada edición lleva al menos una pieza del reto** con `seccion: "SOLOQ CHALLENGE"`
+    (sale en su propia sección, debajo de la tabla). Si ha cambiado el líder o alguien ha ascendido o descendido,
+    que sea mediana o grande; si el día fue tranquilo, basta una breve o un `ranking`.
+  - El oro del reto son las **promesas**: el `objetivo_declarado` y el `grito_de_guerra` que cada uno escribió al
+    apuntarse. Úsalos contra él cuando la realidad no cuadre.
+  - Hay inscritos que no son del grupo (`jugador` nulo): no tienen ficha, así que no van en `player`. Se les nombra
+    por su apodo y se les trata igual de mal, siempre por cómo juegan.
+  - Las cifras del reto salen de la API de Riot como las demás: no te inventes LP ni puestos.
 - En `partidas_detalle`, `dentro_de_la_partida` cuenta quién dio o entregó la primera sangre, en qué
   minutos murió cada uno, cuántas veces en el mismo sitio, cuántas a manos de torres o súbditos y qué
   objetivos grandes se llevó.

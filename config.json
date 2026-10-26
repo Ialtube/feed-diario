@@ -22,5 +22,16 @@
   "supabase_anon_key": "sb_publishable_-PqXKXMMx8t29MG3tMksbQ_kLQIWdPj",
   "site_url": "https://ialtube.github.io/feed-diario/",
   "general_desde": "2026-10-21",
-  "cierre_apuestas": 20
+  "cierre_apuestas": 20,
+  "soloq": {
+    "nombre": "SoloQ Challenge",
+    "lema": "A ver quién llega más lejos antes de que se le acabe la dignidad",
+    "inicio": "2026-10-27",
+    "fin": "2026-12-20",
+    "min_partidas": 20,
+    "max_inscritos": 40,
+    "premio": "El campeón elige la foto de perfil de Discord del último durante un mes y sale en portada como Rey de la Grieta.",
+    "castigo": "El farolillo rojo paga la primera ronda en la próxima quedada y juega una partida entera de soporte con Teemo.",
+    "a_mano": []
+  }
 }

@@ -62,5 +62,10 @@ jobs:
             echo "Sin cambios"
           else
             git commit -m "Edición del $(date -u +%Y-%m-%d)"
-            git push
+            # el SoloQ Challenge sube su clasificación cada 30 minutos: se reintenta encima de lo suyo
+            for i in 1 2 3 4; do
+              git pull --rebase && git push && exit 0
+              sleep $((i * 5))
+            done
+            exit 1
           fi
