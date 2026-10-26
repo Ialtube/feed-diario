@@ -14,7 +14,7 @@ from pathlib import Path
 
 from . import soloq
 from .rangos import TIER_ES, TIERS
-from .util import fmt_int, fmt_num, long_date, short_date
+from .util import MONTHS, fmt_int, fmt_num, long_date, short_date
 
 PLATFORM_OPGG = {"euw1": "euw", "eun1": "eune", "na1": "na", "kr": "kr", "br1": "br", "la1": "lan", "la2": "las",
                  "oc1": "oce", "tr1": "tr", "ru": "ru", "jp1": "jp"}
@@ -175,7 +175,7 @@ h3.tit{font-size:22px}
 .dispersas:empty{display:none}
 .bajo{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:34px;margin-top:44px;align-items:start}
 .bajo>.col{gap:34px}
-.notas-lectores{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;margin-top:40px}
+.notas-lectores{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;margin:0 0 40px}
 .notas-lectores:empty{display:none}
 @media (max-width:1100px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1.8fr)}
   .col.der{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:flex-start}
@@ -319,6 +319,26 @@ h3.tit{font-size:22px}
 .muro .pc{font:italic 12px var(--script);color:var(--ink3)}
 .muro .pw{font:700 18px/1.2 var(--script)}
 .muro .px{font:19px/1.1 var(--hand);color:#5a2a14}
+.vitrina h4{margin:12px 0 2px;font:15px/1.2 var(--carve);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.vitrina .tr{display:flex;gap:8px;padding:8px 2px 9px;border-bottom:1px dashed rgba(60,40,20,.45)}
+.vitrina .tr>div{flex:1;min-width:0}
+.vitrina .tr:last-child{border-bottom:0}
+.vitrina .em{flex:0 0 30px;font-size:24px;line-height:1.1}
+.vitrina .pt{font:18px/1.1 var(--carve)}
+.vitrina .pt small{font:italic 13px var(--script);color:var(--red);margin-left:4px;white-space:nowrap}
+.vitrina .pc{font:italic 12px/1.3 var(--script);color:var(--ink3)}
+.vitrina .pw{font:700 17px/1.25 var(--script)}
+.vitrina .pw .st{display:inline-block;margin-right:6px;padding:0 6px;font:12px/1.6 var(--carve);letter-spacing:.05em;color:#f3e8cc;
+  background:var(--ink2);vertical-align:2px}
+.vitrina .ganado .pw .st{background:var(--red)}
+.vitrina .vacante .pw{font-weight:400;color:var(--ink3)}
+.vitrina .pd{font:19px/1.1 var(--hand)}
+.vitrina .px{font:italic 13px/1.3 var(--script);color:#5a2a14}
+.reglas h4{margin:14px 0 4px;font:17px/1.2 var(--carve);letter-spacing:.05em}
+.reglas h4:first-of-type{margin-top:4px}
+.reglas ul{margin:0;padding-left:20px}
+.reglas ul ul{list-style:circle;margin:2px 0 4px}
+.jefe-dialog .forzar{margin-top:6px}
 
 /* ---------------------------------------------------------------- forms */
 .bando form{margin:0}
@@ -390,8 +410,8 @@ h3.tit{font-size:22px}
 .lado ul{list-style:none;margin:0;padding:0}
 .lado li{padding:5px 0;border-bottom:1px dashed rgba(60,40,20,.4);font-size:16px}
 .lado li span{display:block;font:italic 13px var(--script);color:var(--ink3)}
-.reglas ol{margin:0;padding-left:22px}
-.reglas li{margin:0 0 10px;font-size:16px}
+.reglas li{margin:0 0 5px;font-size:16px;line-height:1.3}
+.reglas ul ul li{margin:2px 0;font-size:15px}
 .reglas li b{font:17px var(--carve);letter-spacing:.02em}
 
 /* ---------------------------------------------------------------- footer + toast */
@@ -521,6 +541,20 @@ if(jd&&jb){var jf=$("#jefe"),jm=$("#jefe-msg");
         if(a.getTime()>Date.now())clock(a.getTime(),"Empieza en")})
       .catch(function(e){jm.className="msg err";jm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta. Aquí no entra cualquiera.":
         /final/.test(e.message)?e.message:"No se ha podido guardar. Prueba otra vez en un rato."})})}
+
+// the boss forces a pass of the robot: a Supabase function checks the password and asks GitHub to run it
+var fz=$("#forzar");
+if(fz){fz.addEventListener("click",function(){var fm=$("#forzar-msg"),jfm=$("#jefe"),clave=jfm?jfm.clave.value:"";
+  if(!ok){fm.className="msg err";fm.textContent="El tablón aún no tiene base de datos.";return}
+  if(!clave){fm.className="msg err";fm.textContent="Pon la contraseña arriba.";return}
+  fz.disabled=true;fm.className="msg";fm.textContent="Despertando al robot…";
+  fetch(S.url.replace(/\/$/,"")+"/functions/v1/soloq-forzar",{method:"POST",
+    headers:{apikey:S.key,Authorization:"Bearer "+S.key,"Content-Type":"application/json"},body:JSON.stringify({clave:clave})})
+    .then(function(r){return r.json().catch(function(){return {}}).then(function(d){if(!r.ok)throw new Error(d.error||String(r.status));return d})})
+    .then(function(){fm.className="msg ok";fm.textContent="En marcha. En unos 3 minutos el tablón está al día: recarga la página."})
+    .catch(function(e){fm.className="msg err";fm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta.":
+      /pronto/.test(e.message)?e.message:"No se ha podido lanzar. ¿Está desplegada la función soloq-forzar?"})
+    .then(function(){fz.disabled=false})})}
 
 // the suggestion box
 var bz=$("#buzon"),bzl=$("#buzon-lista");
@@ -904,6 +938,95 @@ def _muro(awards):
                    f'<div class="pw">{_e(a["nombre"])}</div><div class="px">{_e(a["texto"])}</div></div>' for a in awards)
 
 
+def _vitrina(trofeos):
+    """The prizes of the race and who holds each one right now."""
+    label = {"ganado": "GANADO", "en_cabeza": "LO LLEVA", "vacante": "SIN DUEÑO"}
+
+    def one(t):
+        who = _e(t["nombre"]) if t["nombre"] else "Nadie todavía"
+        return (f'<div class="tr {t["estado"]}"><span class="em">{t["emoji"]}</span>'
+                f'<div><div class="pt">{_e(t["titulo"])}{f"<small>{_e(t['valor'])}</small>" if t["principal"] else ""}</div><div class="pc">{_e(t["criterio"])}</div>'
+                f'<div class="pw"><span class="st">{label[t["estado"]]}</span>{who}</div>'
+                + (f'<div class="pd">{_e(t["dato"])}</div>' if t["nombre"] and t["dato"] else "")
+                + (f'<div class="px">{_e(t["nota"])}</div>' if t["nota"] else "") + '</div></div>')
+
+    main = [t for t in trofeos if t["principal"]]
+    rest = [t for t in trofeos if not t["principal"]]
+    return ('<h4>Premios principales</h4>' + "".join(one(t) for t in main)
+            + '<h4>Premios secundarios · un chupito cada uno</h4>' + "".join(one(t) for t in rest))
+
+
+def _dia(ms, r):
+    d = datetime.fromtimestamp(ms / 1000, r["tz"])
+    return f"{d.day} de {MONTHS[d.month - 1]}"
+
+
+def normas(r):
+    """The rules of the race as (section, [item or (item, [sub-items])]). The dates follow the race."""
+    day = 86400000
+    ini = f'{_dia(r["inicio_ms"], r)}.' if r["inicio_ms"] else "la da el jefe desde el tablón."
+    fin = (f'{_dia(r["fin_ms"] - 1, r)} a las '
+           f'{datetime.fromtimestamp((r["fin_ms"] - 1) / 1000, r["tz"]):%H:%M}.' if r["fin_ms"] else "la decide el jefe.")
+    n, dias, mf = r["min_partidas"], r["dias_finales"], r["min_final"]
+    if r["fin_ms"]:
+        a = datetime.fromtimestamp((r["fin_ms"] - dias * day) / 1000, r["tz"])
+        b = datetime.fromtimestamp((r["fin_ms"] - 1) / 1000, r["tz"])
+        tramo = (f' (del {a.day}{"" if a.month == b.month else " de " + MONTHS[a.month - 1]} al {b.day} de '
+                 f'{MONTHS[b.month - 1]}, ambos incluidos)')
+    else:
+        tramo = ""
+    return [
+        ("Participación", [
+            "Las cuentas deben ser nivel 30, sin partidas clasificatorias jugadas y creadas específicamente para el torneo.",
+            "El torneo es individual. Está prohibido jugar en dúo, flex premade o cualquier modo que otorgue ventaja "
+            "competitiva externa.",
+            ("Cada participante deberá registrar al inicio:", ["Nombre de invocador.", "Captura del perfil.",
+                                                               "Historial de partidas visible."]),
+        ]),
+        ("Duración", [f"Inicio: {ini}", f"Finalización: {fin}"]),
+        ("Límite de partidas", [
+            "Máximo de 2 partidas clasificatorias al día.",
+            "Los días no utilizados son acumulables.",
+            f"Para optar a la clasificación final será obligatorio disputar un mínimo de {n} partidas clasificatorias "
+            "durante el torneo.",
+            f"Durante los últimos {dias} días del torneo{tramo}, cada jugador deberá disputar un mínimo de {mf} partidas.",
+            f"Si un jugador no alcanza las {n} partidas o no cumple el requisito de las {mf} partidas finales, quedará "
+            "fuera de la clasificación general y de los premios principales.",
+            ("Si un jugador supera el límite permitido:", [
+                "La última partida jugada fuera de límite no contará.",
+                "Además, recibirá una penalización de 1 día sin jugar por cada partida jugada de más."]),
+        ]),
+        ("Streaming y seguimiento", [
+            "Es obligatorio estar conectado en Discord mientras se juega.",
+            "Siempre que sea posible se deberá compartir pantalla durante las partidas.",
+            "Los jugadores con problemas de FPS, lag o conexión deberán comunicarlo antes de comenzar el torneo.",
+            "La organización podrá pedir capturas del historial o perfil en cualquier momento.",
+        ]),
+        ("Baneos", [
+            ("Baneo por detección de smurf:", [
+                "Se podrá reiniciar la participación desde cero.",
+                "Será obligatorio presentar captura del correo o mensaje oficial de Riot."]),
+            ("Baneo por comportamiento tóxico:", [
+                "Se podrá continuar con otra cuenta.",
+                "Las partidas ya jugadas seguirán contando.",
+                "Se aplicará una penalización adicional (por ejemplo, pérdida de 2 victorias o 50 LP) para desincentivar "
+                "la toxicidad."]),
+        ]),
+        ("Desconexiones y abandonos", [
+            "Las derrotas por AFK o desconexión cuentan como derrota igualmente.",
+            "Intentar manipular resultados o aprovechar errores del reglamento supondrá la expulsión.",
+        ]),
+    ]
+
+
+def _normas_html(r):
+    def item(x):
+        if isinstance(x, tuple):
+            return f'<li>{_e(x[0])}<ul>{"".join(f"<li>{_e(y)}</li>" for y in x[1])}</ul></li>'
+        return f"<li>{_e(x)}</li>"
+    return "".join(f'<h4>{_e(sec)}</h4><ul>{"".join(item(x) for x in items)}</ul>' for sec, items in normas(r))
+
+
 def noticias(editions, rows, rel_paper, since_ms=None, limit=12):
     """Stories of El Rincón del Feeder about the race, or about its people once it started, newest first."""
     slugs = {x["jugador"] for x in rows if x.get("jugador")}
@@ -972,6 +1095,9 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
     ranked = [x for x in rows if x["valor"] is not None] if started else []
     ids = {x["key"]: "j-" + soloq.slug_key(x["key"]) for x in rows}
     awards = soloq.premios(rows) if started else []
+    vitrina = _perg('<h3 class="tit">Premios</h3><p class="sub">Quién se lleva cada uno ahora mismo. Los principales '
+                    f'piden {r["min_partidas"]} partidas en el reto y {r["min_final"]} en los últimos {r["dias_finales"]} '
+                    'días.</p>' + _vitrina(soloq.trofeos(rows, r, ph)), "vitrina", "vitrina")
     moves = soloq.movimientos(datos, r, (r["inicio_ms"] or 0) - 7 * 86400000, at, limit=12)
     _, rejected = soloq.activos(datos, r)
     title = r["nombre"]
@@ -1063,7 +1189,7 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
               "ni la prensa os hace caso.", "El repartidor del periódico", "recortes", "o9")]
     left = [reloj, cifras] + notes[0:2] + ([muro] if muro else notes[2:4])
     rest = notes[2:] if muro else notes[4:]
-    right = [x for x in (rey, busca) if x] + recortes + [registro]
+    right = [vitrina] + [x for x in (rey, busca) if x] + recortes + [registro]
     grid = (f'<div class="grid"><div class="col izq">{"".join(left)}</div>'
             f'<div class="col centro">{clasif}{grafica}<div class="fila-notas">{"".join(rest[:3])}</div></div>'
             f'<div class="col der">{"".join(right)}</div></div><div class="dispersas">{"".join(rest[3:])}</div>')
@@ -1083,7 +1209,7 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
         f'Una por cabeza. Lo peor que puede pasar es que El Rincón del Feeder escriba sobre ti cada mañana.</p>{late}'
         f'<form id="alta" novalidate>{off}'
         '<div class="fila2"><label>Riot ID de la cuenta del reto<input type="text" name="riot_id" placeholder="Nombre#EUW" '
-        'maxlength="23" autocomplete="off"><span class="hint">La cuenta nueva, con el tag después de la #.</span></label>'
+        'maxlength="23" autocomplete="off"><span class="hint">La cuenta nueva: nivel 30 y sin clasificatorias. Con el tag después de la #.</span></label>'
         '<label>¿Quién eres?<select name="jugador"><option value="">Elige…</option>'
         f'{who}<option value="fuera">No salgo en el periódico</option></select>'
         '<span class="hint">La cuenta queda asociada a tu nombre del Rincón.</span></label></div>'
@@ -1112,22 +1238,7 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
         '<input type="text" name="nombre" maxlength="40" placeholder="Firma">'
         '<button class="boton" type="submit">Clavar</button><p class="msg" id="clava-msg" role="status"></p></form>',
         "clava", "clava")
-    rules = [
-        ("Cuentas de cero", "Cada uno juega con una cuenta nueva y sin clasificar, comprada para el reto. Una por cabeza, "
-                            "asociada a su nombre del Rincón."),
-        ("El pistoletazo", "Lo da el jefe. Lo que se juegue antes no cuenta, aunque se apunta para la burla."),
-        ("La cola", "Solo cuenta Solo/Dúo en EUW. Flex, normales y ARAM no existen para el reto. Las remakes tampoco."),
-        ("Cómo se gana", "Manda quien esté más arriba al acabar: liga, luego división, luego LP. A igualdad, quien "
-                         "haya necesitado menos partidas."),
-        ("Mínimo de partidas", f'Para optar al trono hay que jugar al menos {r["min_partidas"]} partidas del reto.'),
-        ("Juego limpio", "Nada de pagar a nadie para que te suba la cuenta. Además de prohibido, da una vergüenza ajena que flipas."),
-    ]
-    if r.get("premio"):
-        rules.append(("Premio", r["premio"]))
-    if r.get("castigo"):
-        rules.append(("Castigo", r["castigo"]))
-    reglas = _perg('<h3 class="tit">Las leyes del tablón</h3><ol>'
-                   + "".join(f'<li><b>{_e(k)}.</b> {_e(v)}</li>' for k, v in rules) + '</ol>'
+    reglas = _perg('<h3 class="tit">Normas</h3>' + _normas_html(r) +
                    '<p class="sub" style="margin:10px 0 0">Datos de la API oficial de Riot, cada 30 minutos.</p>', "reglas", "reglas")
     lis = "".join(f'<li><span class="sello-s {_e(b["estado"])}">{_e(b["sello"])}</span>{_e(b["texto"])}'
                   f'<small>{_e(b["nombre"])}' + (f' · {_e(b["motivo"])}' if b.get("motivo") else "") + '</small></li>'
@@ -1145,8 +1256,7 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
         zona = ('<div class="tarjetas-zona"><div class="cartelito">' + _placa(
             '<div class="tallado" style="font-size:22px">Lo que pidió la gente</div>', "pidio") + '</div><div class="tarjetas">'
             + "".join(_tarjeta(c, buzon, fecha_cards) for c in cards) + '</div></div>')
-    bajo = (f'{zona}<div class="bajo">{bando}<div class="col">{lado}{clava}</div><div class="col">{buzon_html}{reglas}</div></div>'
-            '<div class="notas-lectores" id="notas-lectores" aria-live="polite"></div>')
+    bajo = f'{zona}<div class="bajo">{bando}<div class="col">{lado}{clava}</div><div class="col">{buzon_html}{reglas}</div></div>'
 
     waiting = [b for b in buzon if b["estado"] == "permiso"]
     permisos = ('<h4>Sugerencias que esperan tu permiso</h4>' + "".join(
@@ -1164,7 +1274,11 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
         '<label>Final (opcional)<input type="datetime-local" name="fin"></label>'
         '<div class="botones"><button class="boton" type="submit">Dar el pistoletazo</button>'
         '<button class="boton sec" type="button" id="jefe-cerrar">Cerrar</button></div>'
-        '<p class="msg" id="jefe-msg" role="status"></p></form>' + permisos, "jefe") + '</dialog>')
+        '<p class="msg" id="jefe-msg" role="status"></p></form>'
+        '<h4>Pasada del robot</h4><p class="sub">El robot mira Riot cada 30 minutos. Con la contraseña de arriba lo '
+        'lanzas ahora; el tablón se actualiza en unos 3 minutos.</p>'
+        '<button class="boton sec forzar" type="button" id="forzar">Forzar la pasada</button>'
+        '<p class="msg" id="forzar-msg" role="status"></p>' + permisos, "jefe") + '</dialog>')
     feeder = json.dumps({"url": cfg.get("supabase_url", "") if not closed else "", "key": cfg.get("supabase_anon_key", ""),
                          "fase": ph, "control": datos.inscritos.get("control_id", 0), "sugerencias": [b["id"] for b in buzon],
                          "conocidos": sorted({x["key"] for x in rows} | {k for k, _, _ in rejected}),
@@ -1192,6 +1306,7 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
 <i class="perno" style="left:8px;bottom:8px"></i><i class="perno" style="right:8px;bottom:8px"></i>
 <div class="tablon">
 {cartel}
+<div class="notas-lectores" id="notas-lectores" aria-live="polite"></div>
 {grid}
 {bajo}
 </div>

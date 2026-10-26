@@ -36,7 +36,10 @@ DEFAULTS = {
     "fin": None,
     "duracion_dias": 30,     # how long the race lasts once started (None: until the admin ends it)
     "aviso_hora": 9,         # the daily Discord notice goes out after this hour (local time)
-    "min_partidas": 20,
+    "min_partidas": 50,      # to be in the final standings and win a main prize
+    "dias_finales": 5,       # ...and at least min_final games in the last days of the race
+    "min_final": 5,
+    "speedrun": "PLATINUM",  # the first one to reach this tier wins the Speedrun
     "max_inscritos": 40,
     "premio": "",
     "castigo": "",
@@ -394,12 +397,22 @@ def _streak(games):
     return n if last else -n
 
 
-def _worst_streak(games):
+def _worst_streak(games, win=False):
     best = cur = 0
     for g in games:
-        cur = 0 if g["win"] else cur + 1
+        cur = cur + 1 if g["win"] == win else 0
         best = max(best, cur)
     return best
+
+
+def _otp(games, champs, minimum):
+    """The champion with the best winrate among those played at least `minimum` times, or None."""
+    pool = [(ch, n, sum(g["win"] for g in games if g["champ"] == ch)) for ch, n in champs.items() if n >= minimum]
+    if not pool:
+        return None
+    ch, n, w = max(pool, key=lambda p: (p[2] / p[1], p[1]))
+    return {"champ": ch, "cid": next(g.get("cid") for g in games if g["champ"] == ch), "partidas": n, "victorias": w,
+            "winrate": w / n}
 
 
 def _row(key, c, h, games_all, r, at_ms, ref_ms):
@@ -423,6 +436,10 @@ def _row(key, c, h, games_all, r, at_ms, ref_ms):
     goal = c.get("objetivo")
     gv = target_value(goal)
     reached = bool(goal and rec[1] in TIERS and TIERS.index(rec[1]) >= TIERS.index(goal))
+    final_from = r["fin_ms"] - r["dias_finales"] * 86400000 if r["fin_ms"] and r.get("dias_finales") else None
+    speed = TIERS.index(r["speedrun"]) if r.get("speedrun") in TIERS else None
+    speedrun = next((x[0] for x in h if ini and ini <= x[0] <= end and speed is not None and x[1] in TIERS
+                     and TIERS.index(x[1]) >= speed), None)
     return {
         "key": key, "nombre": c.get("persona") or c["apodo"], "apodo": c["apodo"], "riot_id": c["riot_id"],
         "jugador": c.get("jugador"),
@@ -435,8 +452,12 @@ def _row(key, c, h, games_all, r, at_ms, ref_ms):
         "partidas": len(games), "victorias": wins, "derrotas": len(games) - wins,
         "winrate": wins / len(games) if games else None,
         "hoy": [sum(g["win"] for g in today), sum(not g["win"] for g in today)],
-        "racha": _streak(games), "peor_racha": _worst_streak(games),
+        "racha": _streak(games), "peor_racha": _worst_streak(games), "mejor_racha": _worst_streak(games, win=True),
         "kda": (k + a) / max(d, 1) if games else None, "muertes_partida": d / len(games) if games else None,
+        "partidas_final": sum(g["fin"] >= final_from for g in games) if final_from else None,
+        "en_la_recta_final": bool(final_from and at_ms >= final_from),
+        "versatil": sum(n >= MIN_VERSATIL for n in champs.values()), "otp": _otp(games, champs, MIN_OTP),
+        "speedrun_ms": speedrun,
         "horas": sum(g["dur"] for g in games) / 3600,
         "ultimas": [{"win": g["win"], "champ": g["champ"], "cid": g.get("cid"), "k": g["k"], "d": g["d"], "a": g["a"],
                      "fin": g["fin"]} for g in reversed(games[-10:])],
@@ -651,6 +672,85 @@ def premios(rows):
     if len(rows) > 2:
         x = min(rows, key=lambda x: (x["partidas"], x["inscrito"] or ""))
         give("turista", x, x["partidas"])
+    return out
+
+
+# --------------------------------------------------------------------------- the real prizes
+MIN_WINRATE, MIN_OTP, MIN_KDA, MIN_VERSATIL = 30, 30, 20, 2
+TROFEOS = [
+    # key, emoji, title, what it is worth, how it is won
+    ("campeon", "🏆", "Campeón del torneo", "25 € · cena pagada", "Primero de la clasificación final"),
+    ("segundo", "🥈", "Segundo clasificado", "10 € · dos copas", "Segundo de la clasificación final"),
+    ("tercero", "🥉", "Tercer clasificado", "10 € · una copa", "Tercero de la clasificación final"),
+    ("racha", "🔥", "Mayor racha", "Un chupito", "Más victorias seguidas"),
+    ("winrate", "🎯", "Mejor winrate", "Un chupito", f"Mínimo {MIN_WINRATE} partidas"),
+    ("versatil", "🌈", "Campeón más versátil", "Un chupito", f"Más campeones distintos con al menos {MIN_VERSATIL} partidas"),
+    ("otp", "🚀", "OTP", "Un chupito", f"Mejor winrate con un mismo campeón (mínimo {MIN_OTP} partidas con él)"),
+    ("carry", "💀", "Rey del carry", "Un chupito", f"Mayor KDA medio (mínimo {MIN_KDA} partidas)"),
+    ("speedrun", "⚡", "Speedrun", "Un chupito", "El primero en llegar a {tier}"),
+]
+PRINCIPALES = ("campeon", "segundo", "tercero")
+
+
+def cumple(x, r, ph):
+    """What a player still owes to be in the final standings (and win a main prize): None if nothing.
+    The games of the last days only count once those days have started (or the race is over)."""
+    falta = []
+    if x["partidas"] < r["min_partidas"]:
+        falta.append(f'{r["min_partidas"] - x["partidas"]} partidas para llegar a {r["min_partidas"]}')
+    final = x.get("partidas_final")
+    if final is not None and final < r["min_final"] and (ph == "finalizado" or x["en_la_recta_final"]):
+        falta.append(f'{r["min_final"] - final} de las {r["min_final"]} partidas de los últimos {r["dias_finales"]} días')
+    return " y ".join(falta) or None
+
+
+def trofeos(rows, r, ph):
+    """Every prize of the race with who holds it: «ganado» once it is decided (the Speedrun as soon as
+    someone gets there, the rest when the race ends), «en_cabeza» while it is still open, «vacante» if
+    nobody qualifies yet. While the race is on, the main prizes go to the top of the table even if they
+    still owe games, with a note saying what they owe; at the end only those who complied count."""
+    tier = TIER_ES.get(r.get("speedrun"), "Platino")
+    played = [x for x in rows if x["partidas"]] if ph != "inscripcion" else []
+    done = ph == "finalizado"
+    out = []
+
+    def add(key, x=None, dato=None, nota=None, estado=None):
+        _, emoji, title, prize, how = next(t for t in TROFEOS if t[0] == key)
+        out.append({"premio": key, "emoji": emoji, "titulo": title, "valor": prize, "criterio": how.format(tier=tier),
+                    "principal": key in PRINCIPALES, "estado": estado or ("vacante" if not x else "ganado" if done else "en_cabeza"),
+                    "nombre": x and x["nombre"], "jugador": x and x["jugador"], "key": x and x["key"], "dato": dato, "nota": nota})
+
+    ranked = [x for x in played if x["valor"] is not None]
+    podium = [x for x in ranked if not cumple(x, r, ph)] if done else ranked
+    for i, key in enumerate(PRINCIPALES):
+        x = podium[i] if i < len(podium) else None
+        owes = x and not done and cumple(x, r, ph)
+        add(key, x, x and x["liga"], f"Le faltan {owes}." if owes else None)
+
+    x = max(played, key=lambda x: x["mejor_racha"], default=None)
+    add("racha", x if x and x["mejor_racha"] >= 2 else None, x and f'{x["mejor_racha"]} victorias seguidas')
+    pool = [x for x in played if x["partidas"] >= MIN_WINRATE]
+    x = max(pool, key=lambda x: (x["winrate"], x["partidas"]), default=None)
+    add("winrate", x, x and f'{_pct(x["winrate"])} en {x["partidas"]} partidas',
+        None if x or not played else f'Nadie llega aún a {MIN_WINRATE} partidas.')
+    x = max(played, key=lambda x: x["versatil"], default=None)
+    add("versatil", x if x and x["versatil"] else None, x and f'{x["versatil"]} campeones')
+    pool = [x for x in played if x["otp"]]
+    x = max(pool, key=lambda x: (x["otp"]["winrate"], x["otp"]["partidas"]), default=None)
+    add("otp", x, x and f'{x["otp"]["champ"]}: {_pct(x["otp"]["winrate"])} en {x["otp"]["partidas"]} partidas',
+        None if x or not played else f'Nadie lleva aún {MIN_OTP} partidas con un mismo campeón.')
+    pool = [x for x in played if x["partidas"] >= MIN_KDA]
+    x = max(pool, key=lambda x: x["kda"], default=None)
+    add("carry", x, x and f'KDA {fmt_num(x["kda"], 2)}', None if x or not played else f'Nadie llega aún a {MIN_KDA} partidas.')
+
+    fast = min((x for x in played if x["speedrun_ms"]), key=lambda x: x["speedrun_ms"], default=None)
+    if fast:
+        add("speedrun", fast, f'{tier} el {cuando(fast["speedrun_ms"], r["tz"]).split(", ", 1)[1]}', estado="ganado")
+    else:
+        near = max(ranked, key=lambda x: x["valor"], default=None)
+        need = near and target_value(r.get("speedrun")) - near["valor"] if r.get("speedrun") in TIERS else None
+        near = None if done else near
+        add("speedrun", near, near and near["liga"], f"Le faltan {need} LP para {tier}." if near and need else None)
     return out
 
 
@@ -884,13 +984,15 @@ def resumen(cfg, desde_ms, hasta_ms, datos=None):
             "winrate_reto": round(x["winrate"], 3) if x["winrate"] is not None else None,
             "racha": x["racha"], "lp_en_el_reto": x["lp_reto"], "empezo_en": x["inicio"], "pico": x["pico"],
             "nivel": x["nivel"], "objetivo_declarado": x["objetivo_es"], "objetivo_cumplido": x["cumplido"],
-            "lp_para_el_objetivo": x["falta"], "grito_de_guerra": x["lema"], "cualifica": x["partidas"] >= r["min_partidas"],
+            "lp_para_el_objetivo": x["falta"], "grito_de_guerra": x["lema"], "cualifica": not cumple(x, r, ph),
             "campeones": [f'{c["champ"]} ({c["partidas"]})' for c in x["campeones"]], "veredicto_web": x["veredicto"],
         } for x in rows],
         "movimientos_del_dia": [{k: m.get(k) for k in ("nombre", "jugador", "tipo", "antes", "ahora", "delta", "partidas",
                                                         "victorias", "derrotas")} for m in movimientos(datos, r, desde_ms, hasta_ms)],
         "muro_de_la_verguenza": [{k: p[k] for k in ("titulo", "criterio", "nombre", "jugador", "texto")}
                                  for p in premios(rows)] if started else [],
+        "premios_del_reto": [{k: p[k] for k in ("titulo", "valor", "criterio", "estado", "nombre", "dato", "nota")}
+                             for p in trofeos(rows, r, ph)] if started else [],
     }
 
 

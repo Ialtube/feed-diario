@@ -156,8 +156,24 @@ class SoloQTest(unittest.TestCase):
         self.assertEqual(gran["falta"], 2400 - 1370)
         self.assertEqual({m["tipo"] for m in soloq.movimientos(datos, r, ref, t2)}, {"descenso", "ascenso"})
 
+        prizes = {t["premio"]: t for t in soloq.trofeos(rows, r, "en_juego")}
+        self.assertEqual([prizes[k]["nombre"] for k in soloq.PRINCIPALES], ["grangalax", "Lobo", "Pato"])
+        self.assertEqual({t["estado"] for k, t in prizes.items() if k in soloq.PRINCIPALES}, {"en_cabeza"})
+        self.assertEqual((prizes["racha"]["nombre"], prizes["racha"]["dato"]), ("Pato", "5 victorias seguidas"))
+        self.assertEqual(prizes["winrate"]["estado"], "vacante")          # nobody has 30 games yet
+        self.assertEqual((prizes["speedrun"]["estado"], prizes["speedrun"]["nota"]),
+                         ("en_cabeza", "Le faltan 230 LP para Platino."))
+        self.assertIsNone(soloq.cumple(gran, r, "en_juego"))               # the test race asks for 2 games
+        # Lobo reaches Platinum: the Speedrun is his for good
+        datos.historial["lobo#euw"].append([t2 + HOUR, "PLATINUM", "IV", 0, 6, 3])
+        later = soloq.puesta_al_dia(datos, r, t2 + 2 * HOUR)
+        fast = next(t for t in soloq.trofeos(later, r, "en_juego") if t["premio"] == "speedrun")
+        self.assertEqual((fast["nombre"], fast["estado"]), ("Lobo", "ganado"))
+        datos.historial["lobo#euw"].pop()
+
         sq = soloq.resumen(CFG, ref, t2, datos=datos)
         self.assertEqual((sq["lider"], sq["dia_del_reto"]), ("grangalax", 2))
+        self.assertEqual(sq["premios_del_reto"][0]["nombre"], "grangalax")
         self.assertEqual(sq["clasificacion"][0]["derrotas_dia"], 3)
         angles = []
         soloq_angles(lambda tipo, slug, *a, **kw: angles.append((tipo, slug)), sq)
@@ -184,8 +200,10 @@ class SoloQTest(unittest.TestCase):
         page = (out / "index.html").read_text(encoding="utf-8")
         for text in ("Clasificación oficial", "La gráfica", "La Moneda", "Oro III", "NoExiste#EUW", "Bando de inscripción",
                      "Muro de la vergüenza", "La Moneda se hunde en Oro", "ediciones/2026-11-03.html#p-3",
-                     "La Moneda cae de cruz otra vez.", "Volver a El Rincón del Feeder", "El pistoletazo"):
+                     "La Moneda cae de cruz otra vez.", "Volver a El Rincón del Feeder", "El pistoletazo",
+                     "Premios principales", "Cena pagada".lower(), "Límite de partidas", "Forzar la pasada"):
             self.assertIn(text, page)
+        self.assertLess(page.index('id="notas-lectores"'), page.index('class="grid"'))    # readers' notes on top
         self.assertTrue((out / "datos.json").exists() and (out / "soloq.js").exists())
 
     def test_newspaper_only_gets_a_button(self):

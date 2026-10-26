@@ -26,13 +26,13 @@
   "soloq": {
     "nombre": "SoloQ Challenge",
     "lema": "A ver quién llega más lejos antes de que se le acabe la dignidad",
-    "inicio": null,
-    "fin": null,
+    "inicio": "2026-11-01",
+    "fin": "2026-12-22",
     "duracion_dias": 30,
     "aviso_hora": 9,
-    "min_partidas": 20,
+    "min_partidas": 50,
     "max_inscritos": 40,
-    "premio": "El campeón elige la foto de perfil de Discord del último durante un mes y sale en portada como Rey de la Grieta.",
+    "premio": "Campeón: cena pagada (25 €). Segundo: dos copas (10 €). Tercero: una copa (10 €). Y un chupito por cada premio secundario.",
     "castigo": "El farolillo rojo paga la primera ronda en la próxima quedada y juega una partida entera de soporte con Teemo.",
     "a_mano": []
   }

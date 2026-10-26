@@ -332,5 +332,30 @@ end $$;
 revoke all on function public.soloq_decidir(text, bigint, text, text) from public;
 grant execute on function public.soloq_decidir(text, bigint, text, text) to anon;
 
+-- El botón «Forzar la pasada» del jefe. La función soloq-forzar (supabase/functions/) llama aquí para
+-- comprobar la contraseña; si es buena y no se ha forzado en los últimos 2 minutos, apunta la pasada
+-- y la función le pide a GitHub que lance el robot.
+create table if not exists public.soloq_forzados (
+  id bigint generated always as identity primary key,
+  created_at timestamptz not null default now()
+);
+alter table public.soloq_forzados enable row level security;
+
+create or replace function public.soloq_forzar(clave text)
+returns bigint language plpgsql security definer set search_path = public, extensions as $$
+declare nuevo bigint;
+begin
+  if encode(extensions.digest(clave, 'sha256'), 'hex') <> 'da248eeaffa573da8c323c3eb56aaf32ec6ce244e401a24c55f30c907d0bbfb5' then
+    raise exception 'Contraseña incorrecta' using errcode = '42501';
+  end if;
+  if exists (select 1 from public.soloq_forzados where created_at > now() - interval '2 minutes') then
+    raise exception 'El robot ya va de camino: espera un par de minutos, que es muy pronto' using errcode = '22023';
+  end if;
+  insert into public.soloq_forzados default values returning id into nuevo;
+  return nuevo;
+end $$;
+revoke all on function public.soloq_forzar(text) from public;
+grant execute on function public.soloq_forzar(text) to anon;
+
 -- Hace que la API vea las tablas nuevas al momento
 notify pgrst, 'reload schema';
