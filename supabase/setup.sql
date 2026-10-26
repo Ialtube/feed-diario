@@ -246,5 +246,20 @@ drop policy if exists "inscribirse soloq" on public.soloq_inscritos;
 create policy "inscribirse soloq" on public.soloq_inscritos for insert to anon
   with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
 
+-- Notas que los lectores clavan en el tablón del SoloQ Challenge. Para quitar una, borra su fila.
+create table if not exists public.soloq_notas (
+  id bigint generated always as identity primary key,
+  nombre text not null check (char_length(nombre) between 1 and 40),
+  texto text not null check (char_length(texto) between 4 and 180),
+  lector text check (lector is null or char_length(lector) <= 60),
+  created_at timestamptz not null default now()
+);
+alter table public.soloq_notas enable row level security;
+drop policy if exists "leer notas soloq" on public.soloq_notas;
+create policy "leer notas soloq" on public.soloq_notas for select to anon using (true);
+drop policy if exists "clavar notas soloq" on public.soloq_notas;
+create policy "clavar notas soloq" on public.soloq_notas for insert to anon
+  with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
+
 -- Hace que la API vea las tablas nuevas al momento
 notify pgrst, 'reload schema';

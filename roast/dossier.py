@@ -436,64 +436,80 @@ def build_dossier(cfg, store, friends, edition, editions):
 
 
 def _soloq(add, sq):
-    """The SoloQ Challenge: the leader, who climbed or sank during the day, streaks and broken promises.
-    Accounts of people outside the group have no player page: their angles carry only the nickname."""
-    if not sq or sq.get("fase") == "previa":
+    """The SoloQ Challenge: who signed up and what they promised, then the leader, who climbed or sank
+    during the day, streaks and broken promises. Accounts of people outside the group have no player
+    page: their angles carry only the name."""
+    if not sq:
         return
     rows = sq["clasificacion"]
-    ranked = [x for x in rows if x["liga"] != "Sin clasificar"]
     T = "SOLOQ CHALLENGE"
+    common = {"reto": sq["nombre"], "fase": sq["fase"], "dias_restantes": sq.get("dias_restantes"),
+              "dia_del_reto": sq.get("dia_del_reto")}
 
     def who(x):
-        return dict(alias=x["apodo"])
+        return dict(alias=x["nombre"])
 
-    common = {"reto": sq["nombre"], "dias_restantes": sq["dias_restantes"], "fase": sq["fase"]}
+    if sq["fase"] == "inscripcion":
+        for x in rows:
+            if x["nombre"] in (sq.get("inscritos_del_dia") or []):
+                add("soloq_inscripcion", x["jugador"], T, f"{x['nombre']} se apunta al {sq['nombre']} con una cuenta de cero",
+                    dict(common, mote=x["mote"], cuenta=x["riot_id"], nivel=x["nivel"], promete=x["objetivo_declarado"],
+                         grito_de_guerra=x["grito_de_guerra"], ya_tiene_liga=x["liga"] != "Sin clasificar",
+                         inscritos=len(rows)), 30, extra=x["riot_id"], **who(x))
+        if rows:
+            add("soloq_vestuario", None, T, f"El vestuario del {sq['nombre']}: {len(rows)} inscritos esperando el pistoletazo",
+                dict(common, inscritos=[{"nombre": x["nombre"], "mote": x["mote"], "promete": x["objetivo_declarado"],
+                                         "grito_de_guerra": x["grito_de_guerra"]} for x in rows]), 16)
+        return
+    ranked = [x for x in rows if x["liga"] != "Sin clasificar"]
     if ranked:
         x = ranked[0]
         datos = dict(common, liga=x["liga"], partidas=x["partidas_reto"], winrate=x["winrate_reto"],
-                     segundo=ranked[1]["apodo"] if len(ranked) > 1 else None,
+                     segundo=ranked[1]["nombre"] if len(ranked) > 1 else None,
                      segundo_liga=ranked[1]["liga"] if len(ranked) > 1 else None)
         if sq.get("cambia_el_lider"):
-            add("soloq_lider", x["jugador"], T, f"{x['apodo']} es el nuevo líder del {sq['nombre']}",
+            add("soloq_lider", x["jugador"], T, f"{x['nombre']} es el nuevo líder del {sq['nombre']}",
                 dict(datos, lider_anterior=sq.get("lider_antes")), 58, positivo=True, **who(x))
         else:
-            add("soloq_lider", x["jugador"], T, f"{x['apodo']} sigue mandando en el {sq['nombre']}", datos, 24,
+            add("soloq_lider", x["jugador"], T, f"{x['nombre']} sigue mandando en el {sq['nombre']}", datos, 24,
                 positivo=True, **who(x))
-    if sq.get("fase") == "finalizado":
+    if sq["fase"] == "finalizado":
         return
     for x in rows:
         base = dict(common, puesto=x["puesto"], cambio_de_puesto=x["cambio_de_puesto"], liga=x["liga"],
                     lp_del_dia=x["lp_en_el_dia"], dia=f'{x["victorias_dia"]}–{x["derrotas_dia"]}',
                     reto=f'{x["victorias_reto"]}–{x["derrotas_reto"]}', objetivo=x["objetivo_declarado"],
-                    grito_de_guerra=x["grito_de_guerra"])
+                    grito_de_guerra=x["grito_de_guerra"], mote=x["mote"])
         lp = x["lp_en_el_dia"] or 0
         if lp <= -60:
-            add("soloq_hundimiento", x["jugador"], T, f"{x['apodo']} pierde {-lp} LP en el {sq['nombre']}",
+            add("soloq_hundimiento", x["jugador"], T, f"{x['nombre']} pierde {-lp} LP en el {sq['nombre']}",
                 base, 34 + min(-lp, 200) / 5, extra=x["riot_id"], **who(x))
         elif lp >= 60:
-            add("soloq_escalada", x["jugador"], T, f"{x['apodo']} sube {lp} LP en el {sq['nombre']}",
+            add("soloq_escalada", x["jugador"], T, f"{x['nombre']} sube {lp} LP en el {sq['nombre']}",
                 base, 30 + min(lp, 200) / 6, positivo=True, extra=x["riot_id"], **who(x))
         if (x["cambio_de_puesto"] or 0) <= -2:
-            add("soloq_adelantado", x["jugador"], T, f"{x['apodo']} cae {-x['cambio_de_puesto']} puestos en la tabla",
+            add("soloq_adelantado", x["jugador"], T, f"{x['nombre']} cae {-x['cambio_de_puesto']} puestos en la tabla",
                 base, 30 + 4 * -x["cambio_de_puesto"], extra=x["riot_id"], **who(x))
         if x["racha"] <= -4:
-            add("soloq_racha", x["jugador"], T, f"{x['apodo']} encadena {-x['racha']} derrotas en Solo/Dúo",
+            add("soloq_racha", x["jugador"], T, f"{x['nombre']} encadena {-x['racha']} derrotas en Solo/Dúo",
                 base, 34 + 3 * -x["racha"], extra=x["riot_id"], **who(x))
         if x["objetivo_declarado"] and not x["objetivo_cumplido"] and (x["lp_para_el_objetivo"] or 0) >= 300:
-            add("soloq_promesa", x["jugador"], T, f"{x['apodo']} prometió {x['objetivo_declarado']} y va {x['liga']}",
+            add("soloq_promesa", x["jugador"], T, f"{x['nombre']} prometió {x['objetivo_declarado']} y va {x['liga']}",
                 dict(base, lp_para_el_objetivo=x["lp_para_el_objetivo"]), 22 + min(x["lp_para_el_objetivo"], 800) / 40,
                 extra=x["riot_id"], **who(x))
-    moves = sq.get("movimientos_del_dia") or []
-    for m in moves:
+        if not x["partidas_reto"] and (sq.get("dia_del_reto") or 0) >= 3:
+            add("soloq_desaparecido", x["jugador"], T, f"{x['nombre']} sigue sin estrenar su cuenta del {sq['nombre']}",
+                base, 26, extra=x["riot_id"], **who(x))
+    for m in sq.get("movimientos_del_dia") or []:
         if m["tipo"] in ("ascenso", "descenso", "liga"):
-            x = next((x for x in rows if x["apodo"] == m["apodo"]), {})
-            add(f"soloq_{m['tipo']}", m["jugador"], T, f"{m['apodo']}: {m['tipo']} a {m['ahora']} en el {sq['nombre']}",
+            x = next((x for x in rows if x["nombre"] == m["nombre"]), {})
+            add(f"soloq_{m['tipo']}", m["jugador"], T, f"{m['nombre']}: {m['tipo']} a {m['ahora']} en el {sq['nombre']}",
                 dict(common, antes=m["antes"], ahora=m["ahora"], puesto=x.get("puesto")),
-                38 if m["tipo"] != "liga" else 26, positivo=m["tipo"] != "descenso",
-                extra=(x.get("riot_id") or m["apodo"]) + m["ahora"], alias=m["apodo"])
+                38 if m["tipo"] != "liga" else 30, positivo=m["tipo"] != "descenso",
+                extra=(x.get("riot_id") or m["nombre"]) + m["ahora"], alias=m["nombre"])
     if len(ranked) > 2:
         x = ranked[-1]
-        add("soloq_farolillo", x["jugador"], T, f"{x['apodo']}, farolillo rojo del {sq['nombre']}",
+        add("soloq_farolillo", x["jugador"], T, f"{x['nombre']}, farolillo rojo del {sq['nombre']}",
             dict(common, liga=x["liga"], reto=f'{x["victorias_reto"]}–{x["derrotas_reto"]}',
                  castigo=sq.get("castigo")), 20, **who(x))
 

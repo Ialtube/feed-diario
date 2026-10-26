@@ -1,8 +1,11 @@
-"""SoloQ Challenge: who climbs highest in Solo/Duo before the deadline. Anyone signs up on the
-website (docs/soloq/) with a Riot ID; the robot follows the account every 30 minutes.
+"""SoloQ Challenge: who climbs highest in Solo/Duo with a brand-new account. Everyone signs up their
+challenge account by hand on the website (docs/soloq/); the admin fires the starting gun
+(python -m roast soloq --empezar, or the «SoloQ Challenge» workflow) and the robot follows every
+account every 30 minutes.
 
 data/soloq/
-  inscritos.json   the accounts that signed up (website through Supabase, or config.json "soloq.a_mano")
+  inscritos.json   the accounts that signed up (website through Supabase, or config.json "soloq.a_mano"),
+                   plus "reto": when the admin started (and ended) the race, and the Discord notices sent
   historial.json   each account's Solo/Duo position every time it changed: [ms, tier, division, LP, wins, losses]
   partidas.json    each account's Solo/Duo games since the challenge started (compact)
 
@@ -29,8 +32,10 @@ DDRAGON = "https://ddragon.leagueoflegends.com"
 DEFAULTS = {
     "nombre": "SoloQ Challenge",
     "lema": "A ver quién llega más lejos antes de que se le acabe la dignidad",
-    "inicio": None,
+    "inicio": None,          # normally empty: the admin starts the race by hand
     "fin": None,
+    "duracion_dias": 30,     # how long the race lasts once started (None: until the admin ends it)
+    "aviso_hora": 9,         # the daily Discord notice goes out after this hour (local time)
     "min_partidas": 20,
     "max_inscritos": 40,
     "premio": "",
@@ -40,26 +45,52 @@ DEFAULTS = {
 
 
 # --------------------------------------------------------------------------- the challenge
-def reto(cfg):
-    """The challenge settings (config.json «soloq») with its start and end as epoch ms (end exclusive)."""
+def reto(cfg, estado=None):
+    """The challenge settings (config.json «soloq») with its start and end as epoch ms (end exclusive).
+    `estado` is inscritos.json «reto»: the start (and end) the admin fired by hand, which wins over
+    the dates in config.json. Without a start the race is still taking sign-ups."""
     r = dict(DEFAULTS, **(cfg.get("soloq") or {}))
     tz = get_tz(cfg.get("timezone", "Europe/Madrid"))
-    today = datetime.now(tz).date()
-    ini = datetime.fromisoformat(r["inicio"]).date() if r.get("inicio") else today
-    fin = datetime.fromisoformat(r["fin"]).date() if r.get("fin") else ini + timedelta(days=56)
-    r["inicio"], r["fin"] = ini.isoformat(), fin.isoformat()
-    r["inicio_ms"] = int(datetime(ini.year, ini.month, ini.day, tzinfo=tz).timestamp() * 1000)
-    end = fin + timedelta(days=1)
-    r["fin_ms"] = int(datetime(end.year, end.month, end.day, tzinfo=tz).timestamp() * 1000)
+    est = estado or {}
+
+    def midnight(d):
+        return int(datetime(d.year, d.month, d.day, tzinfo=tz).timestamp() * 1000)
+
+    ini = est.get("inicio_ms") or (midnight(datetime.fromisoformat(r["inicio"]).date()) if r.get("inicio") else None)
+    fin = est.get("fin_ms")
+    if not fin and r.get("fin"):
+        fin = midnight(datetime.fromisoformat(r["fin"]).date() + timedelta(days=1))
+    if not fin and ini and r.get("duracion_dias"):
+        fin = ini + int(r["duracion_dias"]) * 24 * 3600 * 1000
+    r["inicio_ms"], r["fin_ms"] = ini, fin
+    r["inicio"] = datetime.fromtimestamp(ini / 1000, tz).date().isoformat() if ini else None
+    r["fin"] = datetime.fromtimestamp((fin - 1) / 1000, tz).date().isoformat() if fin else None
     r["tz"] = tz
     r["cutoff_hour"] = cfg.get("cutoff_hour", 7)
     return r
 
 
 def fase(r, now_ms):
-    if now_ms < r["inicio_ms"]:
-        return "previa"
-    return "finalizado" if now_ms >= r["fin_ms"] else "en_juego"
+    """«inscripcion» until the starting gun, «en_juego», then «finalizado»."""
+    if not r["inicio_ms"] or now_ms < r["inicio_ms"]:
+        return "inscripcion"
+    return "finalizado" if r["fin_ms"] and now_ms >= r["fin_ms"] else "en_juego"
+
+
+def empezar(datos, cfg, now_ms, dias=None):
+    """The starting gun: from now on every Solo/Duo game of the accounts counts."""
+    r = dict(DEFAULTS, **(cfg.get("soloq") or {}))
+    dias = dias if dias is not None else r.get("duracion_dias")
+    datos.inscritos["reto"] = {"inicio_ms": now_ms, "fin_ms": now_ms + int(dias) * 24 * 3600 * 1000 if dias else None}
+    datos.inscritos["actualizado"] = now_ms
+    return reto(cfg, datos.inscritos["reto"])
+
+
+def terminar(datos, cfg, now_ms):
+    est = datos.inscritos.setdefault("reto", {})
+    est["fin_ms"] = now_ms
+    datos.inscritos["actualizado"] = now_ms
+    return reto(cfg, est)
 
 
 def ultimo_corte(r, now_ms):
@@ -186,6 +217,9 @@ def sincronizar(datos, filas, r, friends, roster_slugs, now_ms=None):
             c["estado"] = "baja"
     for m in r.get("a_mano") or []:
         add(m, "manual")
+    alias = {f["slug"]: f["alias"] for f in friends}
+    for c in cuentas.values():      # the name the newspaper uses for that person
+        c["persona"] = alias.get(c.get("jugador"))
     return nuevas
 
 
@@ -276,7 +310,8 @@ def actualizar(client, datos, r, now_ms=None, known_matches=None, known_puuids=N
         log(f"  {'Nueva cuenta' if puuid else '! No existe en Riot'}: {c['riot_id']} ({c['apodo']})")
         changed = True
 
-    playing = fase(r, now_ms) == "en_juego"
+    # games count from the starting gun to the end (plus a last pass to catch the final games)
+    playing = bool(r["inicio_ms"]) and r["inicio_ms"] <= now_ms < (r["fin_ms"] or now_ms + 1) + 2 * 3600 * 1000
     for key, c in activos(datos, r)[0]:
         puuid = c["puuid"]
         if now_ms - c.get("icono_ms", 0) >= ICON_EVERY_MS and hasattr(client, "summoner_by_puuid"):
@@ -300,12 +335,14 @@ def actualizar(client, datos, r, now_ms=None, known_matches=None, known_puuids=N
         for mid in new:
             g = (game_from_summary(known_matches[mid], puuid) if mid in known_matches
                  else game_from_raw(client.match(mid), puuid))
-            if g and r["inicio_ms"] <= g["fin"] < r["fin_ms"]:
+            if g:
                 games.append(g)
                 changed = True
         games.sort(key=lambda g: g["fin"])
         if new:
             log(f"  {c['apodo']}: {liga(rec)}, {len(new)} partidas nuevas")
+    if changed:
+        datos.inscritos["actualizado"] = now_ms
     return changed
 
 
@@ -342,21 +379,26 @@ def _row(key, c, h, games_all, r, at_ms, ref_ms):
     rec = _at(h, at_ms)
     if rec is None:
         return None
-    base = _at(h, r["inicio_ms"]) or h[0]
+    ini = r["inicio_ms"]
+    base = (_at(h, ini) or h[0]) if ini and ini <= at_ms else h[0]
     before = _at(h, ref_ms) if ref_ms else None
-    games = [g for g in games_all if r["inicio_ms"] <= g["fin"] <= at_ms and not g.get("rem")]
+    end = min(at_ms, r["fin_ms"] or at_ms)
+    games = [g for g in games_all if ini and ini <= g["fin"] <= end and not g.get("rem")] if ini else []
     today = [g for g in games if ref_ms and g["fin"] > ref_ms]
     wins = sum(g["win"] for g in games)
     k, d, a = (sum(g[x] for g in games) for x in "kda")
     champs = Counter(g["champ"] for g in games)
-    v, v0, vb = value(rec), value(base), value(before)
+    # a brand-new account starts unranked: its LP in the race count from its first league
+    first = next((x for x in h if base[0] <= x[0] <= at_ms and value(x) is not None), None)
+    v, v0, vb = value(rec), value(base) if value(base) is not None else value(first), value(before)
     series = [(x[0], value(x)) for x in h if base[0] <= x[0] <= at_ms and value(x) is not None]
     peak = max((x for x in h if base[0] <= x[0] <= at_ms and value(x) is not None), key=value, default=None)
     goal = c.get("objetivo")
     gv = target_value(goal)
     reached = bool(goal and rec[1] in TIERS and TIERS.index(rec[1]) >= TIERS.index(goal))
     return {
-        "key": key, "apodo": c["apodo"], "riot_id": c["riot_id"], "jugador": c.get("jugador"),
+        "key": key, "nombre": c.get("persona") or c["apodo"], "apodo": c["apodo"], "riot_id": c["riot_id"],
+        "jugador": c.get("jugador"),
         "icono": c.get("icono"), "nivel": c.get("nivel"), "lema": c.get("lema"), "inscrito": c.get("inscrito"),
         "tier": rec[1], "division": rec[2], "lp": rec[3], "valor": v, "liga": liga(rec), "liga_corta": liga(rec, lp=False),
         "temporada": [rec[4], rec[5]],
@@ -544,7 +586,7 @@ def premios(rows):
 
     def give(key, row, n, **kw):
         title, how, line = next((t, h, ln) for k, t, h, ln in PREMIOS if k == key)
-        out.append({"premio": key, "titulo": title, "criterio": how, "apodo": row["apodo"], "jugador": row["jugador"],
+        out.append({"premio": key, "titulo": title, "criterio": how, "nombre": row["nombre"], "jugador": row["jugador"],
                     "key": row["key"], "texto": line.format(n=n, **kw)})
 
     if played:
@@ -607,7 +649,7 @@ def movimientos(datos, r, desde_ms, hasta_ms, limit=None):
     out = []
     for key, c in activos(datos, r)[0]:
         h = [x for x in datos.historial.get(key) or [] if x[0] <= hasta_ms]
-        base = dict(key=key, apodo=c["apodo"], jugador=c.get("jugador"))
+        base = dict(key=key, nombre=c.get("persona") or c["apodo"], apodo=c["apodo"], jugador=c.get("jugador"))
         if h and desde_ms < h[0][0]:
             out.append(dict(base, ts=h[0][0], tipo="inscripcion", ahora=liga(h[0]),
                             texto=_pick(MOVES["inscripcion"], key)))
@@ -637,60 +679,255 @@ def movimientos(datos, r, desde_ms, hasta_ms, limit=None):
     return out[:limit] if limit else out
 
 
+def reto_de(cfg, datos):
+    return reto(cfg, datos.inscritos.get("reto"))
+
+
+def puesta_al_dia(datos, r, at_ms, ref_ms=None):
+    """The table at at_ms with the web's humour line on every row."""
+    at = min(at_ms, r["fin_ms"] or at_ms)
+    rows = tabla(datos, r, at, ref_ms)
+    day = datetime.fromtimestamp(at / 1000, r["tz"]).date().isoformat()
+    for x in rows:
+        x["veredicto"] = veredicto(x, rows, day)
+    return rows
+
+
+# --------------------------------------------------------------------------- notes pinned to the board
+FIRMAS = ["Anónimo", "Alguien de la cola", "El de la limpieza", "Tu jungla", "La mesa del fondo", "Un smurf arrepentido",
+          "El tabernero", "Un soporte cansado", "La Guardia de Piltover", "Tu madre", "El que sube las persianas",
+          "Un Teemo resentido"]
+RELLENO = [
+    "Prohibido pedir dúo. Esto es SoloQ, no terapia de pareja.",
+    "Se vende teclado poco usado. La tecla del /ff, gastadísima.",
+    "Recordatorio: el /mute all es gratis y salva amistades.",
+    "Perdido: el MMR de alguien de este tablón. Si lo encontráis, quedáoslo.",
+    "Se busca jungla que no culpe al top. Razón: imposible.",
+    "Comprarse una cuenta nueva no te hace mejor jugador. Te hace el mismo manco con menos LP.",
+    "Aviso a los inscritos: «es que me tocan unos equipos…» no cuenta como estrategia.",
+    "Se alquila silla con la forma exacta de un culo en racha de derrotas. Razón: abajo.",
+]
+
+
+def notas(rows, ph, day, cast=(), limit=11):
+    """The notes nailed around the table: pieces of mockery about the race and its people, signed
+    by the newspaper's cast or by «somebody». Always about how they play."""
+    out, kinds = [], Counter()
+    firmas = list(FIRMAS) + list(cast)
+
+    def add(text, seed, kind=None, most=2):
+        """At most `most` notes of each kind, so the board does not repeat itself."""
+        if isinstance(text, list):
+            text = _pick(text, day + seed)
+        if kind and kinds[kind] >= most or text in (n["texto"] for n in out):
+            return
+        kinds[kind] += 1
+        out.append({"texto": text, "firma": _pick(firmas, day + seed)})
+
+    if ph == "inscripcion":
+        add("Nadie juega hasta que el jefe dé el pistoletazo. Lo que juguéis antes no cuenta, pero se nota.", "pist")
+        if not rows:
+            add("Se buscan valientes con cuenta recién comprada. Razón: aquí mismo. Abstenerse llorones.", "vacio")
+        for x in sorted(rows, key=lambda x: _pick(list(range(97)), day + x["key"])):
+            n, goal = x["nombre"], x.get("objetivo_es")
+            if x["valor"] is not None:
+                add(f"La cuenta «nueva» de {n} ya tiene liga ({x['liga_corta']}). Nueva, dice. Y yo soy Faker.",
+                    x["key"], "vieja", 3)
+            if goal:
+                add([f"{n} se apunta diciendo que llega a {goal}. Lo clavo aquí para cuando esté en Bronce.",
+                     f"Apuesto una cerveza a que {n} no huele {goal} ni de lejos.",
+                     f"{n} promete {goal}. También prometió dejar de jugar a Yasuo."], x["key"], "promesa")
+            if x.get("lema"):
+                add(f"«{x['lema']}», dice {n}. Guardad esta nota para el día que pierda cinco seguidas.", x["key"], "lema")
+            add([f"{n} ya tiene su cuenta de cero. Toda la ilusión del mundo. Que la disfrute, dura poco.",
+                 f"Cuenta nueva, {n}, mismas manos. Veremos.",
+                 f"{n} se ha comprado una cuenta limpia para ensuciarla él solito."], x["key"], "nuevo")
+    else:
+        ranked = [x for x in rows if x["valor"] is not None]
+        if ranked:
+            add(f"Que alguien le baje los humos a {ranked[0]['nombre']}: va primero y ya habla como si fuera Challenger.", "lider")
+        if len(ranked) > 2:
+            add(_pick([f"{ranked[-1]['nombre']}: el Hierro no es un destino, es un aviso. Y te está avisando.",
+                       f"Si encontráis el MMR de {ranked[-1]['nombre']}, no se lo devolváis. Le va mejor sin él."], day),
+                "ultimo")
+        if len(ranked) > 1 and ranked[0]["valor"] - ranked[1]["valor"] <= 40:
+            add(f"Entre {ranked[0]['nombre']} y {ranked[1]['nombre']} hay {ranked[0]['valor'] - ranked[1]['valor']} LP. "
+                "Esto se decide en una partida con un jungla manco.", "cerca")
+        for x in sorted(rows, key=lambda x: _pick(list(range(97)), day + x["key"])):   # a different few every day
+            n, lp = x["nombre"], x.get("lp_hoy") or 0
+            if lp <= -40:
+                add([f"{n} ha palmado {-lp} LP hoy. Si le veis, no le habléis de la SoloQ. Ni de nada.",
+                     f"−{-lp} LP hoy para {n}. Riot debería mandarle una tarjeta de condolencias."], x["key"] + "lp", "palma")
+            elif lp >= 40:
+                add([f"{n} ha ganado {lp} LP hoy. Ha sido sin querer, tranquilos.",
+                     f"+{lp} LP para {n} hoy. Alguien le ha cambiado los cables."], x["key"] + "lp", "gana")
+            if x["racha"] <= -3:
+                add(f"{n}: {-x['racha']} derrotas seguidas. Suelta el ratón, sal a la calle y toca hierba. De la de verdad.",
+                    x["key"] + "r", "racha_mala")
+            elif x["racha"] >= 3:
+                add(f"{n} lleva {x['racha']} seguidas ganadas. Que alguien mire quién le está jugando la cuenta.",
+                    x["key"] + "r", "racha_buena")
+            if not x["partidas"]:
+                add(f"{n} no ha jugado ni una. Se apuntó para salir en el tablón y ya ha salido. Enhorabuena, cobarde.",
+                    x["key"] + "0", "cero")
+            elif x["partidas"] >= 10 and x["winrate"] <= 0.45:
+                add(f"{n} gana el {_pct(x['winrate'])} de las partidas. Hay monedas al aire con más ambición.", x["key"] + "wr",
+                    "wr", 1)
+            if x.get("falta") and x["falta"] >= 300:
+                add([f"{n} prometió {x['objetivo_es']} y va {x['liga_corta']}. Esta nota se queda aquí hasta que lo cumpla "
+                     "o se muera de vergüenza.",
+                     f"{x['objetivo_es']}, dijo {n}. Va {x['liga_corta']}. Yo también dije que iba al gimnasio."],
+                    x["key"] + "o", "promesa")
+            if (x.get("cambio") or 0) >= 2:
+                add(f"{n} sube {x['cambio']} puestos de golpe. Que no se acostumbre.", x["key"] + "c", "sube", 1)
+        played = [x for x in rows if x["partidas"]]
+        if played:
+            x = max(played, key=lambda x: x["partidas"])
+            if x["partidas"] >= 15:
+                add(f"{x['nombre']} lleva {x['partidas']} partidas. Dejadle comida en la puerta y no le abráis si llama.",
+                    "adicto")
+    for i, text in enumerate(sorted(RELLENO, key=lambda t: _pick([0, 1, 2, 3, 4, 5, 6, 7], day + t))):
+        if len(out) >= limit:
+            break
+        add(text, f"r{i}")
+    return out[:limit]
+
+
 # --------------------------------------------------------------------------- for the newspaper
 def resumen(cfg, desde_ms, hasta_ms, datos=None):
     """The race as an edition sees it: the table when the edition closed (hasta_ms), what moved during
-    its day (desde_ms → hasta_ms) and the wall of shame. None if nobody is in the race yet."""
+    its day (desde_ms → hasta_ms) and the wall of shame. While the race is taking sign-ups, who has
+    signed up. None if there is nobody yet."""
     datos = datos or Datos()
-    r = reto(cfg)
-    if hasta_ms < r["inicio_ms"] - 7 * 24 * 3600 * 1000:
-        return None
-    rows = tabla(datos, r, hasta_ms, desde_ms)
+    r = reto_de(cfg, datos)
+    ph = fase(r, hasta_ms)
+    rows = puesta_al_dia(datos, r, hasta_ms, desde_ms if ph == "en_juego" else None)
     if not rows:
         return None
-    day = datetime.fromtimestamp(hasta_ms / 1000, r["tz"]).date().isoformat()
-    for x in rows:
-        x["veredicto"] = veredicto(x, rows, day)
-    before = [x for x in tabla(datos, r, desde_ms) if x["valor"] is not None]
-    ranked = [x for x in rows if x["valor"] is not None]
+    started = r["inicio_ms"] and r["inicio_ms"] <= hasta_ms
+    before = [x for x in tabla(datos, r, desde_ms) if x["valor"] is not None] if started else []
+    ranked = [x for x in rows if x["valor"] is not None] if started else []
     leader = ranked[0] if ranked else None
     site = (cfg.get("site_url") or "").rstrip("/")
+    day = 24 * 3600 * 1000
     return {
-        "nombre": r["nombre"], "fase": fase(r, hasta_ms), "inicio": r["inicio"], "fin": r["fin"],
-        "dias_restantes": max(0, -(-(r["fin_ms"] - hasta_ms) // (24 * 3600 * 1000))),
+        "nombre": r["nombre"], "fase": ph, "inicio": r["inicio"], "fin": r["fin"],
+        "dias_restantes": max(0, -(-(r["fin_ms"] - hasta_ms) // day)) if r["fin_ms"] and started else None,
+        "dia_del_reto": (hasta_ms - r["inicio_ms"]) // day + 1 if started else None,
         "min_partidas": r["min_partidas"], "premio": r.get("premio"), "castigo": r.get("castigo"),
         "url": f"{site}/soloq/" if site else "soloq/index.html",
-        "lider": leader and leader["apodo"],
-        "lider_antes": before[0]["apodo"] if before else None,
+        "lider": leader and leader["nombre"],
+        "lider_antes": before[0]["nombre"] if before else None,
         "cambia_el_lider": bool(leader and before and before[0]["key"] != leader["key"]),
-        "farolillo_rojo": ranked[-1]["apodo"] if len(ranked) > 2 else None,
+        "farolillo_rojo": ranked[-1]["nombre"] if len(ranked) > 2 else None,
+        "inscritos_del_dia": [x["nombre"] for x in rows if x["desde"] > desde_ms],
         "clasificacion": [{
-            "puesto": x["puesto"], "cambio_de_puesto": x.get("cambio"), "apodo": x["apodo"], "riot_id": x["riot_id"],
-            "jugador": x["jugador"], "liga": x["liga"], "lp_en_el_dia": x.get("lp_hoy"),
+            "puesto": x["puesto"], "cambio_de_puesto": x.get("cambio"), "nombre": x["nombre"], "mote": x["apodo"],
+            "riot_id": x["riot_id"], "jugador": x["jugador"], "liga": x["liga"], "lp_en_el_dia": x.get("lp_hoy"),
             "victorias_dia": x["hoy"][0], "derrotas_dia": x["hoy"][1],
             "partidas_reto": x["partidas"], "victorias_reto": x["victorias"], "derrotas_reto": x["derrotas"],
             "winrate_reto": round(x["winrate"], 3) if x["winrate"] is not None else None,
-            "racha": x["racha"], "lp_desde_que_se_apunto": x["lp_reto"], "empezo_en": x["inicio"], "pico": x["pico"],
-            "objetivo_declarado": x["objetivo_es"], "objetivo_cumplido": x["cumplido"], "lp_para_el_objetivo": x["falta"],
-            "grito_de_guerra": x["lema"], "cualifica": x["partidas"] >= r["min_partidas"],
+            "racha": x["racha"], "lp_en_el_reto": x["lp_reto"], "empezo_en": x["inicio"], "pico": x["pico"],
+            "nivel": x["nivel"], "objetivo_declarado": x["objetivo_es"], "objetivo_cumplido": x["cumplido"],
+            "lp_para_el_objetivo": x["falta"], "grito_de_guerra": x["lema"], "cualifica": x["partidas"] >= r["min_partidas"],
             "campeones": [f'{c["champ"]} ({c["partidas"]})' for c in x["campeones"]], "veredicto_web": x["veredicto"],
         } for x in rows],
-        "movimientos_del_dia": [{k: m.get(k) for k in ("apodo", "jugador", "tipo", "antes", "ahora", "delta", "partidas",
+        "movimientos_del_dia": [{k: m.get(k) for k in ("nombre", "jugador", "tipo", "antes", "ahora", "delta", "partidas",
                                                         "victorias", "derrotas")} for m in movimientos(datos, r, desde_ms, hasta_ms)],
-        "muro_de_la_verguenza": [{k: p[k] for k in ("titulo", "criterio", "apodo", "jugador", "texto")} for p in premios(rows)],
+        "muro_de_la_verguenza": [{k: p[k] for k in ("titulo", "criterio", "nombre", "jugador", "texto")}
+                                 for p in premios(rows)] if started else [],
     }
 
 
+# --------------------------------------------------------------------------- Discord
+def _fmt_lp(n):
+    return "" if not n else f" ({'+' if n > 0 else '−'}{abs(n)} LP)"
+
+
+def aviso_payload(sq, cfg, tipo="diario", site_url="", nota=None):
+    """The race on Discord: the daily notice (the newspaper's day, 07:00 to 07:00), the starting gun
+    and the final result."""
+    url = (site_url.rstrip("/") + "/soloq/") if site_url else None
+    rows = sq["clasificacion"] if sq else []
+    ranked = [x for x in rows if x["liga"] != "Sin clasificar"]
+    lines = []
+    if tipo == "inicio":
+        title, content = f"🔔 ¡Pistoletazo de salida del {sq['nombre']}!", "🔔 Empieza el SoloQ Challenge. Que cada palo aguante su vela."
+        lines.append(f"**{len(rows)} valientes** con cuenta de cero: " + ", ".join(x["nombre"] for x in rows))
+        if sq.get("fin"):
+            lines.append(f"Termina el **{sq['fin']}**. Mínimo {sq['min_partidas']} partidas para optar al trono.")
+        if sq.get("premio"):
+            lines.append(f"🏆 **Premio:** {sq['premio']}")
+        if sq.get("castigo"):
+            lines.append(f"🪓 **Castigo:** {sq['castigo']}")
+    elif tipo == "final":
+        title, content = f"🏆 Se acabó el {sq['nombre']}", "🏆 Fin del SoloQ Challenge. Ya hay culpables."
+        medals = ["🥇", "🥈", "🥉"]
+        lines.append("\n".join(f"{medals[i]} **{x['nombre']}** — {x['liga']} · {x['victorias_reto']}V {x['derrotas_reto']}D"
+                               for i, x in enumerate(ranked[:3])))
+        if sq.get("farolillo_rojo"):
+            lines.append(f"🏮 **Farolillo rojo:** {sq['farolillo_rojo']}" + (f". Castigo: {sq['castigo']}" if sq.get("castigo") else ""))
+    elif sq["fase"] == "inscripcion":
+        title, content = f"📜 {sq['nombre']}: el vestuario", "📜 Novedades en el tablón del SoloQ Challenge"
+        lines.append(f"**Inscritos ({len(rows)}):** " + ", ".join(x["nombre"] for x in rows))
+        if sq.get("inscritos_del_dia"):
+            lines.append("**Nuevos:** " + ", ".join(sq["inscritos_del_dia"]))
+        lines.append("Nadie juega hasta el pistoletazo. Id calentando el dedo del /ff.")
+    else:
+        title = f"📜 Tablón del {sq['nombre']} · día {sq['dia_del_reto']}"
+        content = "📜 El parte del SoloQ Challenge" + (f": quedan {sq['dias_restantes']} días" if sq.get("dias_restantes") else "")
+
+        def arrow(x):
+            c = x.get("cambio_de_puesto")
+            return "" if not c else f" {'▲' if c > 0 else '▼'}{abs(c)}"
+        lines.append("\n".join(f"**{x['puesto']}.** {x['nombre']} — {x['liga']}{arrow(x)}{_fmt_lp(x.get('lp_en_el_dia'))}"
+                               for x in rows[:8]))
+        moved = [x for x in rows if x.get("lp_en_el_dia")]
+        if moved:
+            up, down = max(moved, key=lambda x: x["lp_en_el_dia"]), min(moved, key=lambda x: x["lp_en_el_dia"])
+            if up["lp_en_el_dia"] > 0:
+                lines.append(f"📈 **El día de** {up['nombre']}: +{up['lp_en_el_dia']} LP ({up['victorias_dia']}V {up['derrotas_dia']}D)")
+            if down["lp_en_el_dia"] < 0:
+                lines.append(f"📉 **Se hunde** {down['nombre']}: −{-down['lp_en_el_dia']} LP ({down['victorias_dia']}V {down['derrotas_dia']}D)")
+        if sq.get("cambia_el_lider"):
+            lines.append(f"👑 **Nuevo líder:** {sq['lider']} (adiós, {sq['lider_antes']})")
+        quiet = [x["nombre"] for x in rows if not x["victorias_dia"] and not x["derrotas_dia"]]
+        if quiet and len(quiet) < len(rows):
+            lines.append("🫥 **Ni una partida:** " + ", ".join(quiet))
+    if nota and tipo == "diario":
+        lines.append(f"📌 *«{nota['texto']}»* — {nota['firma']}")
+    embed = {"title": title, "description": "\n\n".join(lines)[:4000], "color": 0x6B4A2B,
+             "footer": {"text": f"{cfg.get('site_title', 'El Rincón del Feeder')} · SoloQ Challenge"}}
+    if url:
+        embed["url"] = url
+    return {"username": f"{cfg.get('site_title', 'El Rincón del Feeder')} · SoloQ", "content": content, "embeds": [embed]}
+
+
+def avisos_pendientes(datos, r, now_ms):
+    """Which Discord notices are due now: the daily one (once a day, after aviso_hora; while taking
+    sign-ups only if somebody new signed up) and the final one."""
+    st = datos.inscritos.setdefault("avisos", {})
+    ph = fase(r, now_ms)
+    due = []
+    if ph == "finalizado":
+        return [] if st.get("final") else ["final"]
+    local = datetime.fromtimestamp(now_ms / 1000, r["tz"])
+    today = local.date().isoformat()
+    if local.hour >= r.get("aviso_hora", 9) and st.get("diario") != today:
+        due.append("diario")
+    return due
+
+
 # --------------------------------------------------------------------------- demo
-DEMO = [  # apodo, riot id, group slug, objective, war cry, starting value, skill, games per day
-    ("TheTrevur", "TheTrevur#URGOD", "thetrevur", "MASTER", "Urgot no se rinde, se reinicia", 2410, 0.58, 4),
-    ("Wôlf", "Wôlf172#1075", "wolf", "DIAMOND", "Este mes salgo de Esmeralda o desinstalo", 1622, 0.51, 6),
-    ("grangalax", "grangalax#OVD", "grangalax", "PLATINUM", "La moneda siempre cae de cara", 1218, 0.47, 5),
-    ("Fr4nux", "Fr4nux#EUW", "fr4nux", "EMERALD", None, 1340, 0.45, 3),
-    ("Saiko", "Kailordl#EUW", "saiko", "GOLD", "Vengo a mirar", 980, 0.52, 2),
-    ("El Primo de Zaun", "PrimoZaun#666", None, "CHALLENGER", "Diamante en una semana, apuntadlo", 1475, 0.40, 7),
-    ("Lady Tilt", "LadyTilt#EUW", None, None, None, 1105, 0.55, 3),
-    ("Turista", "SoloMiro#EUW", None, "DIAMOND", "Juego cuando tenga tiempo", 1530, 0.5, 0),
+DEMO = [  # name in the paper, nickname, riot id, group slug, objective, war cry, skill, games per day
+    ("TheTrevur", "Urgot.exe", "UrgotNuevo#URG", "thetrevur", "MASTER", "Urgot no se rinde, se reinicia", 0.58, 5),
+    ("Wôlf", "Lobo de Saldo", "LoboComprado#1075", "wolf", "DIAMOND", "Este mes salgo de Esmeralda o desinstalo", 0.53, 7),
+    ("grangalax", "La Moneda", "MonedaAlAire#OVD", "grangalax", "PLATINUM", "La moneda siempre cae de cara", 0.47, 6),
+    ("Fr4nux", "Carry Not Found", "CarryNotFound#EUW", "fr4nux", "EMERALD", None, 0.45, 4),
+    ("Saiko", "Saiko", "SaikoZero#EUW", "saiko", "GOLD", "Vengo a mirar", 0.52, 3),
+    ("iPredatoRz", "Depredador", "PredatorDeCero#ESP", "ipredatorz", "CHALLENGER", "Diamante en una semana, apuntadlo", 0.40, 8),
+    ("GSJoseador", "El Joseador", "JoseadorNuevo#2711", "gsjoseador", None, None, 0.55, 3),
+    ("Dierophant", "Dierophant", "DieroDeCero#EUW", "dierophant", "DIAMOND", "Juego cuando tenga tiempo", 0.5, 0),
 ]
 
 
@@ -702,49 +939,46 @@ def _rec_of(v, ts, wins, losses):
         lp = v - 2800
         tier = "CHALLENGER" if lp >= 900 else "GRANDMASTER" if lp >= 500 else "MASTER"
         return [ts, tier, "I", lp, wins, losses]
-    tier = TIERS[int(v // 400)]
-    return [ts, tier, ["IV", "III", "II", "I"][int(v % 400 // 100)], int(v % 100), wins, losses]
+    return [ts, TIERS[int(v // 400)], ["IV", "III", "II", "I"][int(v % 400 // 100)], int(v % 100), wins, losses]
 
 
-def demo(cfg, now_ms, days=9, seed=3):
-    """Fake participants with a few days of games, to preview the website without a key."""
+def demo(cfg, now_ms, days=9, seed=3, empezado=True):
+    """Fake brand-new accounts with a few days of games, to preview the website without a key."""
     import random
     rng = random.Random(seed)
-    r = reto(cfg)
-    start = min(r["inicio_ms"], now_ms - days * 86400000)
+    start = now_ms - days * 86400000
     d = Datos(base=Path("/nonexistent-soloq-demo"))
+    if empezado:
+        d.inscritos["reto"] = {"inicio_ms": start, "fin_ms": start + 30 * 86400000}
     champs = ["Urgot", "Ahri", "Jinx", "LeeSin", "Thresh", "Yasuo", "Kaisa", "Garen", "Viego", "Lux", "Ezreal", "MonkeyKing"]
-    for i, (apodo, rid, slug, goal, lema, v, skill, per_day) in enumerate(DEMO):
+    tz = get_tz(cfg.get("timezone", "Europe/Madrid"))
+    for i, (persona, apodo, rid, slug, goal, lema, skill, per_day) in enumerate(DEMO):
         key = rid.lower()
-        joined = start + i * 3 * 3600 * 1000
-        d.cuentas[key] = {"riot_id": rid, "apodo": apodo, "jugador": slug, "objetivo": goal, "lema": lema,
-                          "inscrito": datetime.fromtimestamp(joined / 1000, r["tz"]).isoformat(), "origen": "web",
-                          "id": i + 1, "estado": "ok", "puuid": f"demo-{i}", "icono": 4000 + i * 37, "nivel": 120 + i * 41}
-        wins, losses = rng.randint(40, 200), rng.randint(40, 200)
-        placed = i != 6        # one of them is still playing the placement games
-        h = [_rec_of(v if placed else None, joined, wins, losses)]
-        games, t, mains = [], joined, rng.sample(champs, 3)
-        if apodo == "TheTrevur":
-            mains = ["Urgot", "Urgot", "Urgot"]
-        while per_day:
+        joined = start - (len(DEMO) - i) * 5 * 3600 * 1000
+        d.cuentas[key] = {"riot_id": rid, "apodo": apodo, "jugador": slug, "persona": persona, "objetivo": goal, "lema": lema,
+                          "inscrito": datetime.fromtimestamp(joined / 1000, tz).isoformat(), "origen": "web",
+                          "id": i + 1, "estado": "ok", "puuid": f"demo-{i}", "icono": 4000 + i * 37, "nivel": 30 + i}
+        h, games, wins, losses, v = [_rec_of(None, joined, 0, 0)], [], 0, 0, None
+        mains = ["Urgot"] * 3 if persona == "TheTrevur" else rng.sample(champs, 3)
+        t = start
+        while empezado and per_day:
             t += rng.randint(2, 9) * 3600 * 1000 // max(per_day // 2, 1)
             if t >= now_ms:
                 break
             win = rng.random() < skill
-            dur = rng.randint(1150, 2300)
             cid = rng.choice(mains)
-            games.append({"id": f"EUW1_{9000000 + len(games) + i * 1000}", "fin": t, "dur": dur, "champ": champ_name(cid),
-                          "cid": cid, "win": win, "k": rng.randint(1, 14), "d": rng.randint(1, 12), "a": rng.randint(2, 18),
-                          "pos": "", "cs": rng.randint(80, 260)})
+            games.append({"id": f"EUW1_{9000000 + len(games) + i * 1000}", "fin": t, "dur": rng.randint(1150, 2300),
+                          "champ": champ_name(cid), "cid": cid, "win": win, "k": rng.randint(1, 14), "d": rng.randint(1, 12),
+                          "a": rng.randint(2, 18), "pos": "", "cs": rng.randint(80, 260)})
             wins, losses = wins + win, losses + (not win)
-            if not placed and len(games) >= 5:
-                placed, v = True, 1180
-            elif placed:
+            if v is None and len(games) >= 5:      # placements done
+                v = rng.choice([780, 900, 1010, 1150, 1240]) + 40 * (wins - losses)
+            elif v is not None:
                 v += rng.randint(18, 27) if win else -rng.randint(16, 25)
-            h.append(_rec_of(v if placed else None, t + 60000, wins, losses))
+            h.append(_rec_of(v, t + 60000, wins, losses))
         d.historial[key] = h
         d.partidas[key] = games
     d.cuentas["faker#kr2"] = {"riot_id": "Faker#KR2", "apodo": "Faker", "estado": "no_encontrado", "origen": "web",
-                              "inscrito": datetime.fromtimestamp(now_ms / 1000, r["tz"]).isoformat(), "id": 99}
+                              "inscrito": datetime.fromtimestamp(now_ms / 1000, tz).isoformat(), "id": 99}
     d.inscritos["actualizado"] = now_ms - 25 * 60000
     return d

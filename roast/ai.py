@@ -33,6 +33,7 @@ AI_DIR = ROOT / "ai"
 THEMES = ("rojo", "oro", "negro", "verde", "azul", "morado")
 MAX_EXTRA = 6        # newspaper extras
 MAX_VOZ = 6          # reader proposals published per edition
+MAX_TABLON = 6       # notes nailed to the SoloQ Challenge board per edition
 
 
 # ---- edition format 2: Claude is the editor (picks angles, weight and format of every story)
@@ -554,6 +555,15 @@ def _newsroom_v2(data, clean, edition, news, extra):
                        "cuerpo": _paras(g.get("cuerpo"), "gaceta.cuerpo", 150, 900),
                        "firma": _text(g.get("firma") or "Valeria Puñoférreo", "gaceta.firma", 3, 60)}
 
+    # notes for the SoloQ Challenge board (optional): mockery nailed next to the standings
+    tablon = data.get("tablon") or []
+    if not isinstance(tablon, list) or len(tablon) > MAX_TABLON:
+        raise AIError(f"«tablon» es una lista de hasta {MAX_TABLON} notas: "
+                      '[{"texto": …, "firma": …}]')
+    clean["tablon"] = [{"texto": _text(n.get("texto") if isinstance(n, dict) else None, f"tablon[{i}].texto", 15, 220),
+                        "firma": _text((n.get("firma") if isinstance(n, dict) else None) or "Anónimo", f"tablon[{i}].firma", 2, 60)}
+                       for i, n in enumerate(tablon)]
+
     j = data.get("jurado")
     if not isinstance(j, dict):
         raise AIError("Falta «jurado»: la pregunta del día para el jurado popular "
@@ -695,7 +705,7 @@ def apply_v2(edition, clean, canon_path=None):
     edition["frase"] = clean["frase"] or edition["template_frase"]
     edition["columna"] = clean["columna"]
     edition["especial"] = clean["especial"]
-    for k in ("gaceta", "jurado", "jurado_veredicto", "manana", "promesas"):
+    for k in ("gaceta", "jurado", "jurado_veredicto", "manana", "promesas", "tablon"):
         edition[k] = clean.get(k)
     prev = edition.get("ai") or {}
     edition["ai"] = {"version": prev.get("version", 0) + 1, "updated_at": int(time.time() * 1000),
@@ -923,7 +933,7 @@ def mark_stale_on_regenerate(old, new):
         new["items_plantilla"] = new["items"]
         new["items"] = old["items"]
         for k in ("horoscopo", "angulos_usados", "columna", "especial", "template_frase", "frase", "written_by",
-                  "gaceta", "jurado", "jurado_veredicto", "manana", "promesas", "jurado_ayer", "quien_fue_ayer"):
+                  "gaceta", "jurado", "jurado_veredicto", "manana", "promesas", "tablon", "jurado_ayer", "quien_fue_ayer"):
             if k in old:
                 new[k] = old[k]
         new["ai"] = dict(old["ai"], stale=True)

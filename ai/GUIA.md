@@ -256,21 +256,31 @@ Piltover abre expediente», «la Lonja de Aguasturbias congela sus fondos».
 - `replicas_pendientes`: los aludidos que ejercen su derecho de réplica.
 - `bolsa_lp`: la bolsa de LP. Una fila por **cuenta** (`cuenta`, `principal`: false = smurf de ese jugador), comparada solo consigo misma con la última vez que se vio (`desde`). `delta` en LP (100 por división, 400 por liga) y `partidas` jugadas desde entonces; `delta` nulo = cuenta nueva o cambio que no cuadra (`dudoso`): de eso no se escribe. Lo que sube o baja un smurf es del smurf: dilo así, nunca como si fuera la cuenta principal.
 - `ace_league`: el Rincón del Viciado en la ACE League (plantilla, partidos, resultados).
-- `soloq_challenge`: el **SoloQ Challenge**, el reto de a ver quién llega más lejos en Solo/Dúo (su web en directo está
-  en `soloq/`). Viene la clasificación tal como estaba al cerrar esta edición (`puesto`, `cambio_de_puesto` desde la
-  edición anterior, `liga`, `lp_en_el_dia`, el día y el reto en victorias–derrotas, `racha`, `objetivo_declarado`
-  y `lp_para_el_objetivo`, `grito_de_guerra`), `movimientos_del_dia` (ascensos, descensos, cambios de LP), el líder
-  y si ha cambiado, el farolillo rojo, el `muro_de_la_verguenza` (premios que nadie quiere) y el premio y el castigo
-  del reto. En el dossier sus ángulos llevan el tema `SOLOQ CHALLENGE` (`soloq_lider`, `soloq_hundimiento`,
-  `soloq_escalada`, `soloq_racha`, `soloq_promesa`, `soloq_farolillo`…).
+- `soloq_challenge`: el **SoloQ Challenge**, el reto de a ver quién llega más lejos en Solo/Dúo con una **cuenta
+  comprada de cero** (su tablón está en `soloq/`, en la pestaña de arriba de la web). `fase` dice en qué punto está:
+  - `inscripcion`: el jefe aún no ha dado el pistoletazo. Viene la lista de inscritos (`nombre` del Rincón, `mote`,
+    cuenta, `nivel`, `objetivo_declarado`, `grito_de_guerra`) e `inscritos_del_dia`. Cuenta quién se apunta y qué
+    promete; si una cuenta «nueva» ya tiene liga, sospecha en voz alta.
+  - `en_juego`: la clasificación tal como estaba al cerrar esta edición (`puesto`, `cambio_de_puesto` desde la
+    edición anterior, `liga`, `lp_en_el_dia`, el día y el reto en victorias–derrotas, `racha`, `objetivo_declarado`
+    y `lp_para_el_objetivo`), `dia_del_reto`, `dias_restantes`, `movimientos_del_dia`, el líder y si ha cambiado, el
+    farolillo rojo, el `muro_de_la_verguenza` y el premio y el castigo.
+  - `finalizado`: la clasificación final.
+  En el dossier sus ángulos llevan el tema `SOLOQ CHALLENGE` (`soloq_inscripcion`, `soloq_vestuario`, `soloq_lider`,
+  `soloq_hundimiento`, `soloq_escalada`, `soloq_racha`, `soloq_promesa`, `soloq_desaparecido`, `soloq_farolillo`…).
   - Mientras el reto esté en juego, **cada edición lleva al menos una pieza del reto** con `seccion: "SOLOQ CHALLENGE"`
-    (sale en su propia sección, debajo de la tabla). Si ha cambiado el líder o alguien ha ascendido o descendido,
-    que sea mediana o grande; si el día fue tranquilo, basta una breve o un `ranking`.
-  - El oro del reto son las **promesas**: el `objetivo_declarado` y el `grito_de_guerra` que cada uno escribió al
-    apuntarse. Úsalos contra él cuando la realidad no cuadre.
-  - Hay inscritos que no son del grupo (`jugador` nulo): no tienen ficha, así que no van en `player`. Se les nombra
-    por su apodo y se les trata igual de mal, siempre por cómo juegan.
+    (sale en su sección, debajo de la tabla, y clavada como recorte en el tablón). Si ha cambiado el líder o alguien
+    ha ascendido o descendido, que sea mediana o grande; si el día fue tranquilo, basta una breve o un `ranking`.
+    Durante las inscripciones, una breve cuando se apunte alguien.
+  - Llama a cada uno por su `nombre` (el del Rincón); el `mote` es el que se puso en el reto y sirve para la burla.
+  - El oro del reto son las **promesas**: el `objetivo_declarado` y el `grito_de_guerra`. Úsalos contra él cuando
+    la realidad no cuadre.
+  - Hay inscritos que no son del grupo (`jugador` nulo): no tienen ficha, así que no van en `player`.
   - Las cifras del reto salen de la API de Riot como las demás: no te inventes LP ni puestos.
+  - **El tablón** (opcional, recomendado): en `tablon` escribe hasta 6 notas de 15–220 caracteres que se clavan en el
+    tablón del reto junto a la clasificación, como si las dejara alguien: `[{"texto": "…", "firma": "…"}]`. Burla,
+    vacile y mala leche sobre los participantes y sus cifras, en la línea del periódico; firma con el elenco, con
+    personajes de Runeterra o con «Anónimo». Siempre sobre cómo juegan.
 - En `partidas_detalle`, `dentro_de_la_partida` cuenta quién dio o entregó la primera sangre, en qué
   minutos murió cada uno, cuántas veces en el mismo sitio, cuántas a manos de torres o súbditos y qué
   objetivos grandes se llevó.
@@ -488,6 +498,7 @@ las muertes de los tres que más murieron ese día. Mira `sorteo`:
     "sindicato": [{"campeon": "Diana", "jugador": "grangalax", "motivo": "Estrenada y enterrada en la misma noche"}]
   },
   "gaceta": {"titular": "…", "cuerpo": "Párrafo 1…\n\nPárrafo 2…", "firma": "Valeria Puñoférreo"},
+  "tablon": [{"texto": "Nota para clavar en el tablón del SoloQ Challenge…", "firma": "Comisario Ambrosio Cobretuerca"}],
   "jurado": {"pregunta": "¿…?", "opciones": ["…", "…"], "juicio": false},
   "jurado_veredicto": "Solo si en jurado_ayer votó alguien…",
   "manana": [{"texto": "¿…?"}],

@@ -305,8 +305,15 @@ article.f-parte-meteorologico{background:rgba(160,175,190,.08)}
 
 /* who are you */
 nav.menu a.yo{border:1px solid var(--ink);padding:0 8px}
-nav.menu a.soloq{background:#0a1428;color:#c8aa6e;border:1px solid #c89b3c;padding:0 8px;letter-spacing:.04em}
-nav.menu a.soloq:hover{color:#f0e6d2}
+/* tabs at the very top: the newspaper and the SoloQ Challenge board */
+.pestanas{display:flex;justify-content:center;gap:6px;padding:10px 12px 0;background:#1a120c;border-bottom:3px solid #3a2a1c}
+.pestanas a{position:relative;top:3px;display:flex;align-items:center;gap:8px;padding:8px 20px 7px;text-decoration:none;
+  font:19px/1 "IM Fell English SC",serif;color:#e0cfa8;background:linear-gradient(180deg,#4a3422,#2e2015);border:2px solid #5a4029;
+  border-bottom:0;border-radius:10px 10px 0 0}
+.pestanas a:hover{color:#fff4d8}
+.pestanas a.on{background:var(--paper);color:var(--ink);border-color:var(--rule)}
+.pestanas small{font:italic 12px/1 "Libre Caslon Text",serif;opacity:.8}
+@media (max-width:520px){.pestanas a{padding:7px 12px 6px;font-size:16px}.pestanas small{display:none}}
 .yo-dialog{border:3px double var(--ink);background:var(--paper);color:var(--ink);padding:18px 22px;max-width:min(560px,92vw)}
 .yo-dialog::backdrop{background:rgba(20,14,8,.6)}
 .yo-dialog h4{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:1.8rem}

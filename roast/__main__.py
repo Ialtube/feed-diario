@@ -235,45 +235,81 @@ def _roster(friends):
 
 
 def cmd_soloq(args):
-    """The SoloQ Challenge: reads the sign-ups, follows every account in Riot and rebuilds docs/soloq/."""
+    """The SoloQ Challenge: reads the sign-ups, follows every account in Riot, sends the Discord
+    notices that are due and rebuilds docs/soloq/. --empezar / --terminar fire the starting gun and
+    end the race (the admin does it by hand, from the «SoloQ Challenge» workflow)."""
+    from . import canon as canon_mod
     from . import soloq, soloq_web
+    from .notify import _post, _site_url
     cfg, friends = load_config(), load_friends()
     now_ms = int(time.time() * 1000)
     roster = _roster(friends)
+    store = Store(ROOT / "data")
+    cast = [c["nombre"] for c in (canon_mod.load().get("elenco") or []) if c.get("nombre")][:12]
     if args.demo:
         out = ROOT / "demo_site" / "soloq"
-        soloq_web.build(cfg, soloq.demo(cfg, now_ms), out, now_ms, roster)
+        soloq_web.build(cfg, soloq.demo(cfg, now_ms), out, now_ms, roster, None, "../", store.editions(), cast)
         print(f"Demo del SoloQ Challenge en {out / 'index.html'}")
         return
     datos = soloq.Datos()
-    r = soloq.reto(cfg)
+    r = soloq.reto_de(cfg, datos)
+    avisos = []
+    if args.empezar:
+        if soloq.fase(r, now_ms) == "en_juego":
+            sys.exit(f"El reto ya está en marcha desde el {r['inicio']}")
+        r = soloq.empezar(datos, cfg, now_ms, args.dias)
+        datos.inscritos["avisos"] = {}
+        avisos.append("inicio")
+        print(f"¡Pistoletazo! El reto empieza ahora" + (f" y acaba el {r['fin']}" if r["fin"] else " y dura hasta --terminar"))
+    elif args.terminar:
+        r = soloq.terminar(datos, cfg, now_ms)
+        print("Reto terminado: la clasificación queda congelada")
     if not args.solo_web:
         filas = soloq.leer_supabase(cfg)
         if filas is None and cfg.get("supabase_url"):
             print("  ! No se pudieron leer las inscripciones de Supabase (se sigue con las que ya había)")
         nuevas = soloq.sincronizar(datos, filas, r, friends, {p["slug"] for p in roster}, now_ms)
-        changed = bool(nuevas)
-        # a week before the start the table already shows where everyone begins; after the end it is frozen
-        if r["inicio_ms"] - 7 * 24 * HOUR_MS <= now_ms < r["fin_ms"] + 2 * HOUR_MS:
-            store = Store(ROOT / "data")
+        if nuevas:
+            datos.inscritos["actualizado"] = now_ms
+        # Riot is asked while taking sign-ups (to check the accounts) and during the race, plus a last
+        # pass after the end to catch the final games; afterwards the table stays frozen
+        if not r["fin_ms"] or now_ms < r["fin_ms"] + 2 * HOUR_MS:
             known = {rid.lower(): st["puuid"] for rid, st in store.state.get("players", {}).items() if st.get("puuid")}
             try:
-                changed = soloq.actualizar(_client(cfg), datos, r, now_ms, store.matches(), known) or changed
+                soloq.actualizar(_client(cfg), datos, r, now_ms, store.matches(), known)
             except RiotError as e:
                 print(f"  ! Error con la API de Riot: {e}")
-        else:
-            print(f"  El reto va del {r['inicio']} al {r['fin']}: hoy no se consulta a Riot")
         ver = soloq.ddragon_version()
         if ver and ver != datos.inscritos.get("ddragon"):
             datos.inscritos["ddragon"] = ver
-        if changed:
-            datos.inscritos["actualizado"] = now_ms
-        datos.save()
         accs, rejected = soloq.activos(datos, r)
-        print(f"SoloQ Challenge: {len(accs)} cuentas en la tabla, {len(rejected)} fuera"
-              + (f", {len(nuevas)} inscripciones nuevas" if nuevas else "") + ("" if changed else ", sin cambios"))
-    soloq_web.build(cfg, datos, ROOT / "docs" / "soloq", now_ms, roster, datos.inscritos.get("ddragon"))
-    print("Web del SoloQ Challenge regenerada en docs/soloq/")
+        print(f"SoloQ Challenge ({soloq.fase(r, now_ms)}): {len(accs)} cuentas en el tablón, {len(rejected)} fuera"
+              + (f", {len(nuevas)} inscripciones nuevas" if nuevas else ""))
+        avisos += soloq.avisos_pendientes(datos, r, now_ms)
+    # Discord: the starting gun, the daily notice (the newspaper's day, 07:00 to 07:00) and the end
+    for tipo in dict.fromkeys(avisos):
+        cut = soloq.ultimo_corte(r, min(now_ms, r["fin_ms"] or now_ms))
+        sq = (soloq.resumen(cfg, cut - 24 * HOUR_MS, cut, datos) if tipo == "diario" else
+              soloq.resumen(cfg, cut, now_ms, datos))
+        st = datos.inscritos.setdefault("avisos", {})
+        today = datetime.now(get_tz(cfg["timezone"])).date().isoformat()
+        if not sq or (tipo == "diario" and sq["fase"] == "inscripcion" and not sq["inscritos_del_dia"]):
+            st["diario"] = today if tipo == "diario" else st.get("diario")    # nothing to tell today
+            continue
+        rows = soloq.puesta_al_dia(datos, r, now_ms, soloq.ultimo_corte(r, now_ms))
+        note = (soloq.notas(rows, soloq.fase(r, now_ms), today, cast, limit=1) or [None])[0]
+        payload = soloq.aviso_payload(sq, cfg, tipo, _site_url(cfg), note)
+        if args.dry_run:
+            sys.stdout.reconfigure(encoding="utf-8")
+            print(json.dumps(payload, ensure_ascii=False, indent=2))
+        elif _post(payload):
+            print(f"  Aviso del SoloQ Challenge a Discord ({tipo})")
+            st["diario" if tipo == "diario" else tipo] = today if tipo == "diario" else now_ms
+    if not args.dry_run and (not args.solo_web or args.empezar or args.terminar):
+        datos.save()
+    soloq_web.build(cfg, datos, ROOT / "docs" / "soloq", now_ms, roster, datos.inscritos.get("ddragon"), "../",
+                    store.editions(), cast)
+    print("Tablón del SoloQ Challenge regenerado en docs/soloq/")
 
 
 def cmd_build(args):
@@ -445,6 +481,10 @@ def main(argv=None):
     sq = sub.add_parser("soloq", help="SoloQ Challenge: inscripciones, rangos y partidas -> docs/soloq/")
     sq.add_argument("--solo-web", action="store_true", help="solo regenerar la web con los datos guardados")
     sq.add_argument("--demo", action="store_true", help="web de prueba con jugadores inventados en demo_site/soloq/")
+    sq.add_argument("--empezar", action="store_true", help="pistoletazo de salida: el reto empieza ahora")
+    sq.add_argument("--dias", type=int, help="con --empezar: cuántos días dura (por defecto, soloq.duracion_dias)")
+    sq.add_argument("--terminar", action="store_true", help="acaba el reto ahora y congela la clasificación")
+    sq.add_argument("--dry-run", action="store_true", help="enseña los avisos de Discord sin mandarlos ni guardar nada")
     sq.set_defaults(fn=cmd_soloq)
     d = sub.add_parser("demo", help="demo con datos falsos")
     d.add_argument("--days", type=int, default=7)

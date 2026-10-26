@@ -26,8 +26,10 @@
   "soloq": {
     "nombre": "SoloQ Challenge",
     "lema": "A ver quién llega más lejos antes de que se le acabe la dignidad",
-    "inicio": "2026-10-27",
-    "fin": "2026-12-20",
+    "inicio": null,
+    "fin": null,
+    "duracion_dias": 30,
+    "aviso_hora": 9,
     "min_partidas": 20,
     "max_inscritos": 40,
     "premio": "El campeón elige la foto de perfil de Discord del último durante un mes y sale en portada como Rey de la Grieta.",

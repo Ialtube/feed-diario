@@ -5,14 +5,13 @@ function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAl
 function store(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
 function esc(t){return String(t==null?"":t).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 
-// countdown
-var cd=$("#countdown");
+// countdown carved on the plaque
+var cd=$("#reloj");
 if(cd){var target=+cd.getAttribute("data-target");
   var tick=function(){var s=Math.max(0,Math.floor((target-Date.now())/1000));
-    var v={d:Math.floor(s/86400),h:Math.floor(s%86400/3600),m:Math.floor(s%3600/60),s:s%60};
-    for(var k in v){var el=cd.querySelector('[data-u="'+k+'"]');if(el)el.textContent=(k==="d"?v[k]:("0"+v[k]).slice(-2))}
-    if(s===0&&cd.getAttribute("data-reload")!=="no"){cd.setAttribute("data-reload","no")}};
-  tick();setInterval(tick,1000)}
+    var v={d:Math.floor(s/86400),h:("0"+Math.floor(s%86400/3600)).slice(-2),m:("0"+Math.floor(s%3600/60)).slice(-2)};
+    for(var k in v){var el=cd.querySelector('[data-u="'+k+'"]');if(el)el.textContent=v[k]}};
+  tick();setInterval(tick,15000)}
 
 // relative times
 function rel(ts){var m=Math.round((Date.now()-ts)/60000);if(m<1)return "ahora mismo";if(m<60)return "hace "+m+" min";
@@ -23,8 +22,19 @@ times();setInterval(times,60000);
 // «tú»: the account this browser signed up
 var yo=store("soloq-yo");
 if(yo){$$('.fila[data-key]').forEach(function(f){if(f.getAttribute("data-key")===yo){f.classList.add("yo");
-  var nm=f.querySelector(".inv .nm");if(nm&&!nm.querySelector(".tu"))nm.insertAdjacentHTML("beforeend",'<span class="tu">TÚ</span>')}})}
+  var nm=f.querySelector(".quien .nm");if(nm&&!nm.querySelector(".tu"))nm.insertAdjacentHTML("beforeend",'<span class="tu">TÚ</span>')}})}
 if(location.hash&&location.hash.indexOf("#j-")===0){var f=$(location.hash);if(f&&f.tagName==="DETAILS")f.open=true}
+
+// the big chart: point at a name to follow its line, click it to open the player's row
+var big=$("svg.big");
+$$(".leyenda li").forEach(function(li){var k=li.getAttribute("data-k");
+  function on(){if(!big)return;big.classList.add("foco");$$(".linea",big).forEach(function(g){g.classList.toggle("on",g.getAttribute("data-k")===k)})}
+  function off(){if(big)big.classList.remove("foco")}
+  li.addEventListener("mouseenter",on);li.addEventListener("mouseleave",off);li.addEventListener("focus",on);li.addEventListener("blur",off);
+  li.addEventListener("click",function(){var f=document.getElementById(li.getAttribute("data-fila"));if(f){f.open=true;f.scrollIntoView({behavior:"smooth",block:"center"})}})});
+
+// who is reading (shared with the newspaper)
+var me=null;try{me=JSON.parse(localStorage.getItem("feeder-yo")||"null")}catch(e){}
 
 // Supabase
 var ok=S.url&&S.key;
@@ -32,14 +42,14 @@ function api(path,opts){opts=opts||{};opts.headers=Object.assign({apikey:S.key,A
   return fetch(S.url.replace(/\/$/,"")+"/rest/v1/"+path,opts)}
 var known={};(S.conocidos||[]).forEach(function(k){known[k]=1});
 
-// the locker room: signed up on the web, waiting for the next update
+// the locker room: signed up on the web, waiting for the robot
 var vest=$("#vestuario");
 function loadVestuario(){if(!ok||!vest)return;
   api("soloq_inscritos?select=riot_id,apodo,created_at&order=id.desc&limit=60").then(function(r){return r.ok?r.json():[]}).then(function(rows){
     var seen={},items=[];rows.forEach(function(x){var k=String(x.riot_id||"").trim().toLowerCase();if(!k||known[k]||seen[k])return;seen[k]=1;items.push(x)});
-    if(!items.length){vest.innerHTML='<p>Nadie esperando. Todos los inscritos ya están en la tabla.</p>';return}
-    vest.innerHTML='<ul>'+items.slice(0,12).map(function(x){return '<li><b>'+esc(x.apodo)+'</b><span>'+esc(x.riot_id)+'</span></li>'}).join("")+'</ul>'+
-      '<p style="margin-top:10px">Entran en la tabla en la próxima actualización.</p>'}).catch(function(){})}
+    if(!items.length){vest.innerHTML='<p style="margin:0">Nadie esperando: todos los apuntados ya están en el tablón.</p>';return}
+    vest.innerHTML='<ul>'+items.slice(0,10).map(function(x){return '<li><b>'+esc(x.apodo)+'</b><span>'+esc(x.riot_id)+'</span></li>'}).join("")+'</ul>'+
+      '<p style="margin:6px 0 0">Entran en la próxima pasada del robot (cada 30 minutos).</p>'}).catch(function(){})}
 loadVestuario();
 
 // sign-up form
@@ -47,27 +57,52 @@ var form=$("#alta");
 if(form){
   var msg=$("#alta-msg"),btn=form.querySelector("button");
   if(!ok){$$("input,select,button",form).forEach(function(el){el.disabled=true})}
+  if(me&&me.cuentas&&me.cuentas.length&&form.jugador){form.jugador.value=me.cuentas[0]}
   form.addEventListener("submit",function(ev){ev.preventDefault();if(!ok)return;
     var rid=form.riot_id.value.trim().replace(/\s*#\s*/,"#"),apodo=form.apodo.value.trim();
     msg.className="msg";
-    if(!/^[^#]{3,16}#[^#\s]{2,5}$/.test(rid)){msg.className="msg err";msg.textContent="Eso no es un Riot ID. Formato: Nombre#TAG (el tag es lo que va después de la almohadilla).";return}
-    if(!apodo){msg.className="msg err";msg.textContent="Ponte un apodo. Uno que no te dé vergüenza ver en último lugar.";return}
+    if(!/^[^#]{3,16}#[^#\s]{2,5}$/.test(rid)){msg.className="msg err";msg.textContent="Eso no es un Riot ID. Formato: Nombre#TAG (lo de después de la almohadilla).";return}
+    if(!form.jugador.value){msg.className="msg err";msg.textContent="Di quién eres. Las cuentas compradas no se apuntan solas.";return}
+    if(!apodo){msg.className="msg err";msg.textContent="Ponte un mote. Uno que no te dé vergüenza ver en último lugar.";return}
     if(!form.acepto.checked){msg.className="msg err";msg.textContent="Sin aceptar el escarnio público no hay reto. Son las normas.";return}
-    if(known[rid.toLowerCase()]){msg.className="msg err";msg.textContent="Esa cuenta ya está en la tabla. Ni apuntándote dos veces subes.";return}
-    btn.disabled=true;msg.textContent="Entrando en la cola…";
-    var body={riot_id:rid,apodo:apodo.slice(0,24),jugador:form.jugador.value||null,objetivo:form.objetivo.value||null,
+    if(known[rid.toLowerCase()]){msg.className="msg err";msg.textContent="Esa cuenta ya está clavada en el tablón. Ni apuntándote dos veces subes.";return}
+    btn.disabled=true;msg.textContent="Clavando tu nombre…";
+    var j=form.jugador.value==="fuera"?null:form.jugador.value;
+    var body={riot_id:rid,apodo:apodo.slice(0,24),jugador:j,objetivo:form.objetivo.value||null,
       lema:form.lema.value.trim().slice(0,120)||null,lector:store("feeder-lector")||null};
     api("soloq_inscritos",{method:"POST",headers:{"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify(body)})
       .then(function(r){if(!r.ok)throw new Error(r.status);store("soloq-yo",rid.toLowerCase());
-        msg.className="msg ok";msg.textContent="Dentro. Apareces en la tabla en la próxima actualización (cada 30 minutos). Ve calentando el dedo del /ff.";
+        msg.className="msg ok";msg.textContent="Apuntado. En media hora como mucho estás clavado en el tablón. Ve calentando el dedo del /ff.";
         form.reset();loadVestuario()})
-      .catch(function(){msg.className="msg err";msg.textContent="No se ha podido apuntar. Prueba otra vez en un rato (o échale la culpa al jungla)."})
+      .catch(function(){msg.className="msg err";msg.textContent="No se ha podido apuntar. Prueba en un rato (o échale la culpa al jungla)."})
       .then(function(){btn.disabled=false})});
 }
 
-// the table changed while the page was open
-var toast=$("#toast");
-if(toast&&S.actualizado!==undefined){setInterval(function(){
+// readers' notes nailed to the board
+var wall=$("#notas-lectores"),colors=["amarilla","rosa","verde",""];
+function pin(n,i){var r=((i*37)%9-4)*0.8;return '<div class="cosa nota lector hoja '+colors[i%4]+'" style="--r:'+r+'deg"><i class="chincheta"></i>'+
+  esc(n.texto)+'<span class="firma">— '+esc(n.nombre)+'</span></div>'}
+function loadNotas(){if(!ok||!wall)return;
+  api("soloq_notas?select=nombre,texto,created_at&order=id.desc&limit=12").then(function(r){return r.ok?r.json():[]}).then(function(rows){
+    wall.innerHTML=rows.map(pin).join("")}).catch(function(){})}
+loadNotas();
+var clava=$("#clava");
+if(clava){var cm=$("#clava-msg");
+  if(!ok){$$("input,textarea,button",clava).forEach(function(el){el.disabled=true})}
+  if(me&&me.nombre&&clava.nombre)clava.nombre.value=me.nombre;
+  clava.addEventListener("submit",function(ev){ev.preventDefault();if(!ok)return;
+    var t=clava.texto.value.trim(),n=clava.nombre.value.trim();
+    if(t.length<4){cm.className="msg err";cm.textContent="Escribe algo. Aunque sea un insulto bien puesto.";return}
+    if(!n){cm.className="msg err";cm.textContent="Firma la nota. Aquí se insulta con nombre y apellidos.";return}
+    api("soloq_notas",{method:"POST",headers:{"Content-Type":"application/json",Prefer:"return=minimal"},
+      body:JSON.stringify({nombre:n.slice(0,40),texto:t.slice(0,180),lector:store("feeder-lector")||null})})
+      .then(function(r){if(!r.ok)throw new Error(r.status);cm.className="msg ok";cm.textContent="Clavada. Ya la puede leer todo el mundo.";
+        clava.texto.value="";loadNotas()})
+      .catch(function(){cm.className="msg err";cm.textContent="El martillo ha fallado. Prueba otra vez."})})}
+
+// the board changed while the page was open
+var toast=$("#aviso");
+if(toast&&S.actualizado){setInterval(function(){
   fetch("datos.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(d){
     if(d&&d.actualizado&&d.actualizado!==S.actualizado)toast.classList.add("on")}).catch(function(){})},180000);
   toast.querySelector("button").addEventListener("click",function(){location.reload()})}

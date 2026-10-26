@@ -1,4 +1,5 @@
-"""SoloQ Challenge: sign-ups, the robot's pass over Riot, standings, the website and the newspaper."""
+"""SoloQ Challenge: sign-ups, the starting gun, the robot's pass over Riot, standings, the board,
+Discord and the newspaper."""
 import sys
 import tempfile
 import unittest
@@ -12,15 +13,16 @@ from roast.site import _soloq as soloq_section  # noqa: E402
 
 HOUR = 3600 * 1000
 CFG = {"timezone": "Europe/Madrid", "cutoff_hour": 7, "platform": "euw1", "site_title": "El Rincón del Feeder",
-       "soloq": {"inicio": "2026-10-27", "fin": "2026-11-30", "min_partidas": 2}}
+       "soloq": {"min_partidas": 2, "duracion_dias": 30, "castigo": "Paga la cena"}}
 FRIENDS = [{"riot_id": "grangalax#OVD", "alias": "grangalax", "slug": "grangalax"}]
+T0 = 1793512800000      # 2026-11-01 07:00 in Madrid
 
 
 class FakeRiot:
     """Serves accounts, Solo/Duo entries and matches; `ladder` is edited between passes."""
 
     def __init__(self):
-        self.accounts = {"grangalax#ovd": "p-gran", "lobo#euw": "p-lobo", "pato#euw": "p-pato"}
+        self.accounts = {"monedanueva#ovd": "p-gran", "lobo#euw": "p-lobo", "pato#euw": "p-pato"}
         self.ladder = {}
         self.games = {}
 
@@ -29,7 +31,7 @@ class FakeRiot:
         return {"puuid": puuid, "gameName": name, "tagLine": tag} if puuid else None
 
     def summoner_by_puuid(self, puuid):
-        return {"profileIconId": 29, "summonerLevel": 300}
+        return {"profileIconId": 29, "summonerLevel": 30}
 
     def league_entries(self, puuid):
         e = self.ladder.get(puuid)
@@ -47,99 +49,144 @@ class FakeRiot:
                                                        "gameDuration": 1800, "participants": [part]}}
 
 
+SIGN_UPS = [
+    {"id": 1, "riot_id": "MonedaNueva # OVD", "apodo": "La Moneda", "jugador": "grangalax", "objetivo": "DIAMOND",
+     "lema": "Este mes sí", "created_at": "2026-10-30T10:00:00+01:00"},
+    {"id": 2, "riot_id": "Lobo#EUW", "apodo": "Lobo", "jugador": "nadie", "created_at": "2026-10-30T10:05:00+01:00"},
+    {"id": 3, "riot_id": "Pato#EUW", "apodo": "Pato", "created_at": "2026-10-30T10:06:00+01:00"},
+    {"id": 4, "riot_id": "NoExiste#EUW", "apodo": "Fantasma", "created_at": "2026-10-30T10:07:00+01:00"},
+    {"id": 5, "riot_id": "sin almohadilla", "apodo": "Mal", "created_at": "2026-10-30T10:08:00+01:00"},
+    {"id": 6, "riot_id": "LOBO#euw", "apodo": "Lobo bis", "created_at": "2026-10-30T10:09:00+01:00"},
+]
+
+
 class SoloQTest(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.datos = soloq.Datos(Path(self.tmp.name))
-        self.r = soloq.reto(CFG)
-        self.t0 = self.r["inicio_ms"] + 10 * HOUR
         self.riot = FakeRiot()
 
     def tearDown(self):
         self.tmp.cleanup()
 
-    def sign_up(self):
-        rows = [
-            {"id": 1, "riot_id": "grangalax # OVD", "apodo": "La Moneda", "objetivo": "DIAMOND", "lema": "Este mes sí",
-             "created_at": "2026-10-27T10:00:00+01:00"},
-            {"id": 2, "riot_id": "Lobo#EUW", "apodo": "Lobo", "jugador": "nadie", "created_at": "2026-10-27T10:05:00+01:00"},
-            {"id": 3, "riot_id": "Pato#EUW", "apodo": "Pato", "created_at": "2026-10-27T10:06:00+01:00"},
-            {"id": 4, "riot_id": "NoExiste#EUW", "apodo": "Fantasma", "created_at": "2026-10-27T10:07:00+01:00"},
-            {"id": 5, "riot_id": "sin almohadilla", "apodo": "Mal", "created_at": "2026-10-27T10:08:00+01:00"},
-            {"id": 6, "riot_id": "LOBO#euw", "apodo": "Lobo bis", "created_at": "2026-10-27T10:09:00+01:00"},
-        ]
-        return soloq.sincronizar(self.datos, rows, self.r, FRIENDS, {"grangalax"}, self.t0)
+    def r(self):
+        return soloq.reto_de(CFG, self.datos)
 
     def test_sign_ups_are_cleaned_and_deduplicated(self):
-        new = self.sign_up()
-        self.assertEqual(sorted(new), ["grangalax#ovd", "lobo#euw", "noexiste#euw", "pato#euw"])
-        c = self.datos.cuentas["grangalax#ovd"]
-        self.assertEqual((c["riot_id"], c["jugador"], c["objetivo"]), ("grangalax#OVD", "grangalax", "DIAMOND"))
+        new = soloq.sincronizar(self.datos, SIGN_UPS, self.r(), FRIENDS, {"grangalax"}, T0)
+        self.assertEqual(sorted(new), ["lobo#euw", "monedanueva#ovd", "noexiste#euw", "pato#euw"])
+        c = self.datos.cuentas["monedanueva#ovd"]
+        self.assertEqual((c["riot_id"], c["jugador"], c["persona"], c["objetivo"]),
+                         ("MonedaNueva#OVD", "grangalax", "grangalax", "DIAMOND"))
         self.assertIsNone(self.datos.cuentas["lobo#euw"]["jugador"])     # an unknown slug is not trusted
-        # a row deleted in Supabase drops the account; an unreadable Supabase changes nothing
-        soloq.sincronizar(self.datos, None, self.r, FRIENDS, set(), self.t0)
+        # an unreadable Supabase changes nothing; a row deleted in Supabase drops the account
+        soloq.sincronizar(self.datos, None, self.r(), FRIENDS, set(), T0)
         self.assertEqual(self.datos.cuentas["pato#euw"]["estado"], "pendiente")
-        soloq.sincronizar(self.datos, [{"id": 1, "riot_id": "grangalax#OVD", "apodo": "x"}], self.r, FRIENDS, set(), self.t0)
+        soloq.sincronizar(self.datos, SIGN_UPS[:1], self.r(), FRIENDS, set(), T0)
         self.assertEqual(self.datos.cuentas["pato#euw"]["estado"], "baja")
 
-    def test_robot_pass_standings_and_newspaper(self):
-        self.sign_up()
+    def test_sign_up_phase_then_starting_gun(self):
         R = self.riot
-        R.ladder = {"p-gran": ("GOLD", "II", 50, 10, 10), "p-lobo": ("SILVER", "I", 80, 5, 5)}
-        self.assertTrue(soloq.actualizar(R, self.datos, self.r, self.t0, log=lambda *_: None))
+        soloq.sincronizar(self.datos, SIGN_UPS, self.r(), FRIENDS, {"grangalax"}, T0 - 48 * HOUR)
+        self.assertEqual(soloq.fase(self.r(), T0), "inscripcion")      # nobody plays until the admin says so
+        soloq.actualizar(R, self.datos, self.r(), T0 - 47 * HOUR, log=lambda *_: None)
         self.assertEqual(self.datos.cuentas["noexiste#euw"]["estado"], "no_encontrado")
-        self.assertEqual(self.datos.cuentas["grangalax#ovd"]["icono"], 29)
-        # nothing moved: a second pass stores nothing new
-        self.assertFalse(soloq.actualizar(R, self.datos, self.r, self.t0 + HOUR, log=lambda *_: None))
+        self.assertEqual(self.datos.partidas, {})                       # no games are fetched before the start
+        sq = soloq.resumen(CFG, T0 - 48 * HOUR, T0 - 24 * HOUR, datos=self.datos)
+        self.assertEqual(sq["fase"], "inscripcion")
+        self.assertEqual(sorted(sq["inscritos_del_dia"]), ["Lobo", "Pato", "grangalax"])
+        angles = []
+        soloq_angles(lambda tipo, slug, *a, **kw: angles.append((tipo, slug)), sq)
+        self.assertIn(("soloq_inscripcion", "grangalax"), angles)
+        self.assertIn("Inscritos con su cuenta de cero", soloq_section({"soloq": sq}, ""))
+        notes = soloq.notas(soloq.puesta_al_dia(self.datos, self.r(), T0), "inscripcion", "2026-11-01")
+        self.assertTrue(any("pistoletazo" in n["texto"] for n in notes))
 
-        # next evening: grangalax loses three and drops a division, Lobo wins two and goes up, Pato places
-        t1 = self.t0 + 30 * HOUR
-        for i, (p, win) in enumerate([("p-gran", False), ("p-gran", False), ("p-gran", False), ("p-lobo", True),
-                                      ("p-lobo", True), ("p-pato", True)]):
-            R.games[f"EUW1_{i}"] = (p, t1 - (6 - i) * 40 * 60000, win)
-        R.ladder = {"p-gran": ("GOLD", "III", 70, 10, 13), "p-lobo": ("GOLD", "IV", 20, 7, 5),
-                    "p-pato": ("BRONZE", "I", 10, 5, 0)}
-        self.assertTrue(soloq.actualizar(R, self.datos, self.r, t1, log=lambda *_: None))
+        r = soloq.empezar(self.datos, CFG, T0)
+        self.assertEqual((soloq.fase(r, T0 + HOUR), r["fin_ms"]), ("en_juego", T0 + 30 * 24 * HOUR))
+        self.assertEqual(soloq.fase(soloq.terminar(self.datos, CFG, T0 + 5 * HOUR), T0 + 6 * HOUR), "finalizado")
+
+    def test_race_standings_board_discord_and_newspaper(self):
+        R = self.riot
+        soloq.sincronizar(self.datos, SIGN_UPS, self.r(), FRIENDS, {"grangalax"}, T0 - 2 * HOUR)
+        soloq.actualizar(R, self.datos, self.r(), T0 - HOUR, log=lambda *_: None)    # brand-new accounts: unranked
+        soloq.empezar(self.datos, CFG, T0)
+
+        # first evening: everybody plays the placements
+        t1 = T0 + 14 * HOUR
+        n = 0
+        for p, results in (("p-gran", [1, 1, 0, 1, 1]), ("p-lobo", [1, 0, 0, 0, 1]), ("p-pato", [1, 1, 1, 1, 1])):
+            for win in results:
+                R.games[f"EUW1_{n}"] = (p, t1 - (20 - n) * 40 * 60000, bool(win))
+                n += 1
+        R.ladder = {"p-gran": ("GOLD", "II", 50, 4, 1), "p-lobo": ("SILVER", "I", 80, 2, 3), "p-pato": ("GOLD", "IV", 0, 5, 0)}
+        self.assertTrue(soloq.actualizar(R, self.datos, self.r(), t1, log=lambda *_: None))
+        # next evening: the coin loses three and drops a division, Lobo wins two and goes up
+        t2 = t1 + 24 * HOUR
+        for p, win in (("p-gran", False), ("p-gran", False), ("p-gran", False), ("p-lobo", True), ("p-lobo", True)):
+            R.games[f"EUW1_{n}"] = (p, t2 - (6 - n % 6) * 40 * 60000, win)
+            n += 1
+        R.ladder.update({"p-gran": ("GOLD", "III", 70, 4, 4), "p-lobo": ("GOLD", "IV", 20, 4, 3)})
+        self.assertTrue(soloq.actualizar(R, self.datos, self.r(), t2, log=lambda *_: None))
+        self.assertFalse(soloq.actualizar(R, self.datos, self.r(), t2 + HOUR, log=lambda *_: None))   # nothing new
         self.datos.save()
         datos = soloq.Datos(Path(self.tmp.name))          # what was saved reads back the same
+        r = soloq.reto_de(CFG, datos)
 
-        ref = soloq.ultimo_corte(self.r, t1)
-        rows = soloq.tabla(datos, self.r, t1, ref)
-        self.assertEqual([x["apodo"] for x in rows], ["La Moneda", "Lobo", "Pato"])
-        gran, lobo = rows[0], rows[1]
-        self.assertEqual((gran["partidas"], gran["victorias"], gran["racha"], gran["lp_hoy"]), (3, 0, -3, -80))
-        self.assertEqual((lobo["liga"], lobo["lp_hoy"], lobo["cambio"]), ("Oro IV · 20 LP", 40, 0))
+        ref = soloq.ultimo_corte(r, t2)
+        rows = soloq.puesta_al_dia(datos, r, t2, ref)
+        self.assertEqual([x["nombre"] for x in rows], ["grangalax", "Lobo", "Pato"])   # the paper's name for the group
+        gran, lobo, pato = rows
+        self.assertEqual((gran["apodo"], gran["partidas"], gran["victorias"], gran["racha"], gran["lp_hoy"]),
+                         ("La Moneda", 8, 4, -3, -80))
+        self.assertEqual(gran["lp_reto"], -80)              # counted from its first league, after the placements
+        self.assertEqual((lobo["liga"], lobo["lp_hoy"], lobo["cambio"]), ("Oro IV · 20 LP", 40, 1))   # overtakes Pato
+        self.assertEqual((pato["cambio"], pato["lp_hoy"]), (-1, 0))
         self.assertEqual(gran["falta"], 2400 - 1370)
-        self.assertEqual((rows[2]["liga"], rows[2]["cambio"]), ("Bronce I · 10 LP", 0))   # was there unranked at 07:00
+        self.assertEqual({m["tipo"] for m in soloq.movimientos(datos, r, ref, t2)}, {"descenso", "ascenso"})
 
-        moves = soloq.movimientos(datos, self.r, ref, t1)
-        self.assertEqual({m["tipo"] for m in moves}, {"descenso", "ascenso", "liga"})
-
-        sq = soloq.resumen(CFG, ref, t1, datos=datos)
-        self.assertEqual(sq["lider"], "La Moneda")
+        sq = soloq.resumen(CFG, ref, t2, datos=datos)
+        self.assertEqual((sq["lider"], sq["dia_del_reto"]), ("grangalax", 2))
         self.assertEqual(sq["clasificacion"][0]["derrotas_dia"], 3)
         angles = []
-        soloq_angles(lambda tipo, slug, tema, titulo, datos_, score, **kw: angles.append((tipo, slug)), sq)
+        soloq_angles(lambda tipo, slug, *a, **kw: angles.append((tipo, slug)), sq)
         self.assertIn(("soloq_hundimiento", "grangalax"), angles)
         self.assertIn(("soloq_ascenso", None), angles)       # Lobo is not in the group: no player page
-        self.assertIn(("soloq_promesa", "grangalax"), angles)
-
         html = soloq_section({"soloq": sq}, "")
         self.assertIn("La clasificación al cierre de esta edición", html)
         self.assertIn('href="jugadores/grangalax.html"', html)
 
+        payload = soloq.aviso_payload(soloq.resumen(CFG, ref - 24 * HOUR, ref, datos=datos), CFG, "diario",
+                                      "https://x.github.io/feed-diario", {"texto": "Nota", "firma": "Anónimo"})
+        self.assertEqual(payload["embeds"][0]["url"], "https://x.github.io/feed-diario/soloq/")
+        self.assertIn("grangalax", payload["embeds"][0]["description"])
+        datos.inscritos["avisos"] = {}
+        self.assertEqual(soloq.avisos_pendientes(datos, r, T0 + 26 * HOUR), ["diario"])     # 09:00, the day after
+        self.assertEqual(soloq.avisos_pendientes(datos, r, T0 + 24 * HOUR), [])             # 07:00: too early
+
+        notes = soloq.notas(rows, "en_juego", "2026-11-03", ["Comisario Cobretuerca"])
+        self.assertTrue(notes and all(n["texto"] and n["firma"] for n in notes))
+
+        editions = [{"date": "2026-11-03", "window": [ref - 24 * HOUR, ref], "ai": {"version": 1},
+                     "tablon": [{"texto": "La Moneda cae de cruz otra vez.", "firma": "Doña Tilt"}],
+                     "items": [{"id": 3, "headline": "La Moneda se hunde en Oro", "body": "Tres seguidas.",
+                                "section": "SOLOQ CHALLENGE", "player": "grangalax"}]}]
         out = Path(self.tmp.name) / "web"
-        soloq_web.build(CFG, datos, out, t1, roster=[{"slug": "grangalax", "alias": "grangalax"}])
+        soloq_web.build(CFG, datos, out, t2, roster=[{"slug": "grangalax", "alias": "grangalax"}], editions=editions)
         page = (out / "index.html").read_text(encoding="utf-8")
-        for text in ("La Moneda", "Oro III", "NoExiste#EUW", "Inscripción", "Muro de la vergüenza", "El Rincón del Feeder"):
+        for text in ("Clasificación oficial", "La gráfica", "La Moneda", "Oro III", "NoExiste#EUW", "Bando de inscripción",
+                     "Muro de la vergüenza", "La Moneda se hunde en Oro", "ediciones/2026-11-03.html#p-3",
+                     "La Moneda cae de cruz otra vez.", 'class="pestanas"'):
             self.assertIn(text, page)
         self.assertTrue((out / "datos.json").exists() and (out / "soloq.js").exists())
 
-    def test_empty_site_builds(self):
+    def test_empty_board_builds(self):
         out = Path(self.tmp.name) / "web"
-        soloq_web.build(CFG, self.datos, out, self.t0)
-        self.assertIn("Aún no hay valientes", (out / "index.html").read_text(encoding="utf-8"))
-        self.assertIsNone(soloq.resumen(CFG, self.t0 - HOUR, self.t0, datos=self.datos))
+        soloq_web.build(CFG, self.datos, out, T0)
+        page = (out / "index.html").read_text(encoding="utf-8")
+        self.assertIn("Nadie se ha apuntado todavía", page)
+        self.assertIn("Inscripciones abiertas", page)
+        self.assertIsNone(soloq.resumen(CFG, T0 - HOUR, T0, datos=self.datos))
 
 
 if __name__ == "__main__":
