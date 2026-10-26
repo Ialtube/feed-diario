@@ -219,6 +219,21 @@ class SoloQTest(unittest.TestCase):
         self.assertIn("Inscripciones abiertas", page)
         self.assertIsNone(soloq.resumen(CFG, T0 - HOUR, T0, datos=self.datos))
 
+    def test_example_board_until_the_starting_gun(self):
+        cfg = dict(CFG, soloq=dict(CFG["soloq"], ejemplo=True, inicio="2026-11-01"))
+        soloq.sincronizar(self.datos, SIGN_UPS[:1], soloq.reto_de(cfg, self.datos), FRIENDS, {"grangalax"}, T0 - 48 * HOUR)
+        soloq.actualizar(self.riot, self.datos, soloq.reto_de(cfg, self.datos), T0 - 47 * HOUR, log=lambda *_: None)
+        html, public = soloq_web.render(cfg, self.datos, T0 - 30 * HOUR)
+        self.assertIn("Así se verá el tablón", html)
+        self.assertIn("Clasificación oficial", html)                   # the made-up race
+        self.assertIn("Lista de inscritos", html)                      # and the real sign-ups below it
+        self.assertEqual(html.count('id="reloj"'), 1)
+        self.assertEqual(public["clasificacion"][0]["riot_id"], "MonedaNueva#OVD")
+        again, _ = soloq_web.render(cfg, self.datos, T0 - 29 * HOUR)
+        self.assertEqual(html, again)                                   # the robot does not commit it every pass
+        started, _ = soloq_web.render(cfg, self.datos, T0 + HOUR)
+        self.assertNotIn("Así se verá el tablón", started)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -102,7 +102,7 @@ h3.tit{font-size:22px}
 .dispersas:empty{display:none}
 .bajo{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:34px;margin-top:44px;align-items:start}
 .bajo>.col{gap:34px}
-.notas-lectores{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;margin-top:40px}
+.notas-lectores{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;margin:0 0 40px}
 .notas-lectores:empty{display:none}
 @media (max-width:1100px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1.8fr)}
   .col.der{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:flex-start}
@@ -221,6 +221,18 @@ h3.tit{font-size:22px}
 .grafica svg.big.foco .linea.on{opacity:1}
 .grafica svg.big.foco .linea.on .tinta{stroke-width:4}
 
+/* ---------------------------------------------------------------- the example before the start */
+.cartelito-ejemplo{display:flex;justify-content:center;margin:0 0 34px}
+.cartelito-ejemplo .placa{max-width:640px;width:100%}
+.aviso-ejemplo .in{padding:14px 18px;text-align:center}
+.aviso-ejemplo .frase{margin:6px 0 0;font:20px/1.15 var(--hand);color:#3b2b14}
+.ejemplo .clasif .hoja,.ejemplo .grafica .hoja{position:relative}
+.ejemplo .clasif .hoja::after,.ejemplo .grafica .hoja::after{content:"EJEMPLO";position:absolute;top:16px;right:18px;padding:2px 12px;
+  border:3px solid var(--red);color:var(--red);font:24px/1.1 var(--carve);letter-spacing:.1em;transform:rotate(9deg);opacity:.75;pointer-events:none}
+.inscritos-zona{display:flex;flex-wrap:wrap;gap:34px;justify-content:center;align-items:flex-start;margin:44px 0 0}
+.inscritos-zona>.clasif{flex:0 1 760px}
+.inscritos-zona>.nota{flex:0 0 auto;max-width:300px}
+
 /* ---------------------------------------------------------------- side pieces */
 .rey .in{padding:14px 12px}
 .rey svg.crest{width:96px;height:96px;display:block;margin:6px auto}
@@ -246,6 +258,26 @@ h3.tit{font-size:22px}
 .muro .pc{font:italic 12px var(--script);color:var(--ink3)}
 .muro .pw{font:700 18px/1.2 var(--script)}
 .muro .px{font:19px/1.1 var(--hand);color:#5a2a14}
+.vitrina h4{margin:12px 0 2px;font:15px/1.2 var(--carve);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.vitrina .tr{display:flex;gap:8px;padding:8px 2px 9px;border-bottom:1px dashed rgba(60,40,20,.45)}
+.vitrina .tr>div{flex:1;min-width:0}
+.vitrina .tr:last-child{border-bottom:0}
+.vitrina .em{flex:0 0 30px;font-size:24px;line-height:1.1}
+.vitrina .pt{font:18px/1.1 var(--carve)}
+.vitrina .pt small{font:italic 13px var(--script);color:var(--red);margin-left:4px;white-space:nowrap}
+.vitrina .pc{font:italic 12px/1.3 var(--script);color:var(--ink3)}
+.vitrina .pw{font:700 17px/1.25 var(--script)}
+.vitrina .pw .st{display:inline-block;margin-right:6px;padding:0 6px;font:12px/1.6 var(--carve);letter-spacing:.05em;color:#f3e8cc;
+  background:var(--ink2);vertical-align:2px}
+.vitrina .ganado .pw .st{background:var(--red)}
+.vitrina .vacante .pw{font-weight:400;color:var(--ink3)}
+.vitrina .pd{font:19px/1.1 var(--hand)}
+.vitrina .px{font:italic 13px/1.3 var(--script);color:#5a2a14}
+.reglas h4{margin:14px 0 4px;font:17px/1.2 var(--carve);letter-spacing:.05em}
+.reglas h4:first-of-type{margin-top:4px}
+.reglas ul{margin:0;padding-left:20px}
+.reglas ul ul{list-style:circle;margin:2px 0 4px}
+.jefe-dialog .forzar{margin-top:6px}
 
 /* ---------------------------------------------------------------- forms */
 .bando form{margin:0}
@@ -317,8 +349,8 @@ h3.tit{font-size:22px}
 .lado ul{list-style:none;margin:0;padding:0}
 .lado li{padding:5px 0;border-bottom:1px dashed rgba(60,40,20,.4);font-size:16px}
 .lado li span{display:block;font:italic 13px var(--script);color:var(--ink3)}
-.reglas ol{margin:0;padding-left:22px}
-.reglas li{margin:0 0 10px;font-size:16px}
+.reglas li{margin:0 0 5px;font-size:16px;line-height:1.3}
+.reglas ul ul li{margin:2px 0;font-size:15px}
 .reglas li b{font:17px var(--carve);letter-spacing:.02em}
 
 /* ---------------------------------------------------------------- footer + toast */

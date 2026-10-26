@@ -294,6 +294,18 @@ h3.tit{font-size:22px}
 .grafica svg.big.foco .linea.on{opacity:1}
 .grafica svg.big.foco .linea.on .tinta{stroke-width:4}
 
+/* ---------------------------------------------------------------- the example before the start */
+.cartelito-ejemplo{display:flex;justify-content:center;margin:0 0 34px}
+.cartelito-ejemplo .placa{max-width:640px;width:100%}
+.aviso-ejemplo .in{padding:14px 18px;text-align:center}
+.aviso-ejemplo .frase{margin:6px 0 0;font:20px/1.15 var(--hand);color:#3b2b14}
+.ejemplo .clasif .hoja,.ejemplo .grafica .hoja{position:relative}
+.ejemplo .clasif .hoja::after,.ejemplo .grafica .hoja::after{content:"EJEMPLO";position:absolute;top:16px;right:18px;padding:2px 12px;
+  border:3px solid var(--red);color:var(--red);font:24px/1.1 var(--carve);letter-spacing:.1em;transform:rotate(9deg);opacity:.75;pointer-events:none}
+.inscritos-zona{display:flex;flex-wrap:wrap;gap:34px;justify-content:center;align-items:flex-start;margin:44px 0 0}
+.inscritos-zona>.clasif{flex:0 1 760px}
+.inscritos-zona>.nota{flex:0 0 auto;max-width:300px}
+
 /* ---------------------------------------------------------------- side pieces */
 .rey .in{padding:14px 12px}
 .rey svg.crest{width:96px;height:96px;display:block;margin:6px auto}
@@ -1083,8 +1095,21 @@ def _date_es(ms, r):
     return long_date(datetime.fromtimestamp(ms / 1000, r["tz"]).date())
 
 
-def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=(), cast=(), buzon=None):
-    """The whole page as HTML, plus the small JSON the open pages poll to notice changes."""
+def _ejemplo_datos(cfg, r, now_ms):
+    """The made-up race shown before the starting gun, on the real race's dates, nine days in. It is
+    pinned to the start (not to now) so that the page does not change on every pass of the robot."""
+    day = 86400000
+    ex_now = r["inicio_ms"] + 9 * day if r["inicio_ms"] else now_ms - now_ms % day
+    d = soloq.demo(cfg, ex_now)
+    if r["inicio_ms"]:
+        d.inscritos["reto"] = {"inicio_ms": r["inicio_ms"], "fin_ms": r["fin_ms"] or r["inicio_ms"] + 30 * day}
+    return d, ex_now
+
+
+def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=(), cast=(), buzon=None, _ejemplo=None):
+    """The whole page as HTML, plus the small JSON the open pages poll to notice changes. Before the
+    starting gun (with soloq.ejemplo on) the board shows a made-up race, and the real sign-ups below it.
+    `_ejemplo` is for that inner call: it brings the real clock and only the board comes back."""
     r = soloq.reto_de(cfg, datos)
     ph = soloq.fase(r, now_ms)
     at = min(now_ms, r["fin_ms"] or now_ms)
@@ -1136,7 +1161,7 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
     else:
         reloj = ('<div style="font-size:20px">Inscripciones abiertas</div><div class="peq">La salida la da el jefe.</div>'
                  '<div class="peq">Hasta entonces, nadie juega.</div>')
-    reloj = _placa(f'<div class="reloj tallado">{reloj}</div>', "reloj", "o3")
+    reloj = _ejemplo["reloj"] if _ejemplo else _placa(f'<div class="reloj tallado">{reloj}</div>', "reloj", "o3")
     lost = (sum(-m["delta"] for m in soloq.movimientos(datos, r, r["inicio_ms"], at) if m.get("delta") and m["delta"] < 0)
             if started else 0)
     cifras = _placa(
@@ -1193,6 +1218,18 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
     grid = (f'<div class="grid"><div class="col izq">{"".join(left)}</div>'
             f'<div class="col centro">{clasif}{grafica}<div class="fila-notas">{"".join(rest[:3])}</div></div>'
             f'<div class="col der">{"".join(right)}</div></div><div class="dispersas">{"".join(rest[3:])}</div>')
+    if _ejemplo:
+        return grid
+    if ph == "inscripcion" and r.get("ejemplo"):
+        ex_datos, ex_now = _ejemplo_datos(cfg, r, now_ms)
+        ex_grid = render(cfg, ex_datos, ex_now, roster, ver, rel_paper, (), cast, _ejemplo={"reloj": reloj})
+        salida = f'el {_dia(r["inicio_ms"], r)}' if r["inicio_ms"] else "en cuanto el jefe dé la salida"
+        aviso = _placa('<div class="tallado" style="font-size:26px">Ejemplo</div><p class="frase">Así se verá el tablón con '
+                       'el reto en marcha. Los números y las partidas de aquí abajo son inventados: desde el pistoletazo, '
+                       f'{_e(salida)}, se cambian solos por los de verdad. Los apuntados de verdad están más abajo.</p>',
+                       "ejemplo", "aviso-ejemplo")
+        grid = (f'<div class="cartelito-ejemplo">{aviso}</div><div class="ejemplo">{ex_grid}</div>'
+                f'<div class="inscritos-zona">{clasif}{"".join(notes[:3])}</div>')
 
     # ---- sign-up sheet, readers' notes and the laws
     configured = bool(cfg.get("supabase_url") and cfg.get("supabase_anon_key"))

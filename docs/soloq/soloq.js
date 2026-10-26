@@ -115,6 +115,20 @@ if(jd&&jb){var jf=$("#jefe"),jm=$("#jefe-msg");
       .catch(function(e){jm.className="msg err";jm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta. Aquí no entra cualquiera.":
         /final/.test(e.message)?e.message:"No se ha podido guardar. Prueba otra vez en un rato."})})}
 
+// the boss forces a pass of the robot: a Supabase function checks the password and asks GitHub to run it
+var fz=$("#forzar");
+if(fz){fz.addEventListener("click",function(){var fm=$("#forzar-msg"),jfm=$("#jefe"),clave=jfm?jfm.clave.value:"";
+  if(!ok){fm.className="msg err";fm.textContent="El tablón aún no tiene base de datos.";return}
+  if(!clave){fm.className="msg err";fm.textContent="Pon la contraseña arriba.";return}
+  fz.disabled=true;fm.className="msg";fm.textContent="Despertando al robot…";
+  fetch(S.url.replace(/\/$/,"")+"/functions/v1/soloq-forzar",{method:"POST",
+    headers:{apikey:S.key,Authorization:"Bearer "+S.key,"Content-Type":"application/json"},body:JSON.stringify({clave:clave})})
+    .then(function(r){return r.json().catch(function(){return {}}).then(function(d){if(!r.ok)throw new Error(d.error||String(r.status));return d})})
+    .then(function(){fm.className="msg ok";fm.textContent="En marcha. En unos 3 minutos el tablón está al día: recarga la página."})
+    .catch(function(e){fm.className="msg err";fm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta.":
+      /pronto/.test(e.message)?e.message:"No se ha podido lanzar. ¿Está desplegada la función soloq-forzar?"})
+    .then(function(){fz.disabled=false})})}
+
 // the suggestion box
 var bz=$("#buzon"),bzl=$("#buzon-lista");
 function loadBuzon(){if(!ok||!bzl)return;var seen={};(S.sugerencias||[]).forEach(function(i){seen[i]=1});

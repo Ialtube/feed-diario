@@ -41,6 +41,7 @@ DEFAULTS = {
     "min_final": 5,
     "speedrun": "PLATINUM",  # the first one to reach this tier wins the Speedrun
     "max_inscritos": 40,
+    "ejemplo": False,        # before the starting gun, show a made-up race so people see what is coming
     "premio": "",
     "castigo": "",
     "a_mano": [],
