@@ -2295,19 +2295,19 @@
       "slug": "rdv-canyon",
       "alias": "RDV Canyon",
       "principal": true,
-      "solo": {
-        "tier": "DIAMOND",
-        "rank": "IV",
-        "lp": 73,
-        "wins": 80,
-        "losses": 71
-      },
       "flex": {
         "tier": "DIAMOND",
         "rank": "III",
         "lp": 75,
         "wins": 69,
         "losses": 65
+      },
+      "solo": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 73,
+        "wins": 80,
+        "losses": 71
       }
     },
     "giroroo#rdv": {
@@ -2335,19 +2335,19 @@
       "slug": "giroroo",
       "alias": "Giroroo",
       "principal": false,
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "II",
-        "lp": 16,
-        "wins": 217,
-        "losses": 188
-      },
       "flex": {
         "tier": "EMERALD",
         "rank": "IV",
         "lp": 29,
         "wins": 29,
         "losses": 17
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "II",
+        "lp": 16,
+        "wins": 217,
+        "losses": 188
       }
     },
     "killuasatoru#6257": {
@@ -2355,19 +2355,19 @@
       "slug": "gsjoseador",
       "alias": "GSJoseador",
       "principal": false,
-      "flex": {
-        "tier": "SILVER",
-        "rank": "I",
-        "lp": 63,
-        "wins": 6,
-        "losses": 5
-      },
       "solo": {
         "tier": "PLATINUM",
         "rank": "I",
         "lp": 50,
         "wins": 159,
         "losses": 164
+      },
+      "flex": {
+        "tier": "SILVER",
+        "rank": "I",
+        "lp": 63,
+        "wins": 6,
+        "losses": 5
       }
     },
     "crak172#euw": {
