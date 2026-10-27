@@ -1,14 +1,26 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "inscripcion",
- "actualizado": 1793038484767,
+ "actualizado": 1793141723179,
  "clasificacion": [
   {
    "puesto": 1,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
-   "riot_id": "TheTrevur#URGOD",
-   "liga": "Diamante IV · 0 LP",
+   "riot_id": "Grred#6577",
+   "liga": "Sin clasificar",
+   "lp_hoy": null,
+   "partidas": 0,
+   "victorias": 0,
+   "derrotas": 0,
+   "racha": 0
+  },
+  {
+   "puesto": 2,
+   "nombre": "Giroroo",
+   "apodo": "La Guadaña de la Mon",
+   "riot_id": "Xillie#8107",
+   "liga": "Sin clasificar",
    "lp_hoy": null,
    "partidas": 0,
    "victorias": 0,
