@@ -89,6 +89,13 @@ class SoloQTest(unittest.TestCase):
         soloq.sincronizar(self.datos, SIGN_UPS[:1], self.r(), FRIENDS, set(), T0)
         self.assertEqual(self.datos.cuentas["pato#euw"]["estado"], "baja")
 
+    def test_pasted_riot_id_loses_invisible_direction_marks(self):
+        # copied from Discord or WhatsApp, an ID comes wrapped in invisible bidi isolates (U+2066 / U+2069)
+        self.assertEqual(soloq.clean_riot_id("⁦smilesdeath⁩#⁦6859⁩"), "smilesdeath#6859")
+        self.assertEqual(soloq.clean_riot_id("​Lobo ﻿# EUW"), "Lobo#EUW")
+        # and the page's form strips them before checking the format, so a pasted ID is not refused
+        self.assertIn(r'form.riot_id.value.replace(/\p{Cf}/gu,"")', soloq_web.JS)
+
     def test_sign_up_phase_then_starting_gun(self):
         R = self.riot
         soloq.sincronizar(self.datos, SIGN_UPS, self.r(), FRIENDS, {"grangalax"}, T0 - 48 * HOUR)

@@ -14,6 +14,7 @@ as it was when an edition closed, and for what moved during its day."""
 import hashlib
 import re
 import time
+import unicodedata
 from collections import Counter
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -194,7 +195,8 @@ def slug_key(key):
 
 
 def clean_riot_id(text):
-    rid = _clean(text, 40)
+    # pasted from a chat app an ID may carry invisible format characters (bidi isolates, zero-width spaces)
+    rid = _clean("".join(c for c in str(text or "") if unicodedata.category(c) != "Cf"), 40)
     if "#" in rid:
         name, tag = rid.rsplit("#", 1)
         rid = f"{name.strip()}#{tag.strip()}"

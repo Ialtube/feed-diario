@@ -69,7 +69,7 @@ if(form){
   if(!ok){$$("input,select,button",form).forEach(function(el){el.disabled=true})}
   if(me&&me.cuentas&&me.cuentas.length&&form.jugador){form.jugador.value=me.cuentas[0]}
   form.addEventListener("submit",function(ev){ev.preventDefault();if(!ok)return;
-    var rid=form.riot_id.value.trim().replace(/\s*#\s*/,"#"),apodo=form.apodo.value.trim();
+    var rid=form.riot_id.value.replace(/\p{Cf}/gu,"").trim().replace(/\s*#\s*/,"#"),apodo=form.apodo.value.trim();
     msg.className="msg";
     if(!/^[^#]{3,16}#[^#\s]{2,5}$/.test(rid)){msg.className="msg err";msg.textContent="Eso no es un Riot ID. Formato: Nombre#TAG (lo de después de la almohadilla).";return}
     if(!form.jugador.value){msg.className="msg err";msg.textContent="Di quién eres. Las cuentas compradas no se apuntan solas.";return}
