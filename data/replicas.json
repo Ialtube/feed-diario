@@ -1,5 +1,16 @@
 {
-  "usadas": [],
+  "usadas": [
+    2
+  ],
   "descartadas": [],
-  "pendientes": {}
+  "pendientes": {},
+  "publicadas": {
+    "2": {
+      "id": 2,
+      "nombre": "Giroroo",
+      "edicion": "2026-10-26",
+      "pieza": 4,
+      "titular": "Cuatro dragones, dos barones y una derrota"
+    }
+  }
 }

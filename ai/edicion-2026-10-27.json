@@ -1,0 +1,432 @@
+{
+  "piezas": [
+    {
+      "angulo": "a12",
+      "peso": "grande",
+      "portada": true,
+      "formato": "crónica deportiva",
+      "hilo": "la-racha-del-comodin",
+      "seccion": "DEPORTES",
+      "player": "gsjoseador",
+      "headline": "GSJoseador sale del pozo en brazos de otros",
+      "subtitulo": "Diez derrotas seguidas terminan en una partida en la que el Comodín fue el peor de los cinco. Una hora después, con el culpable oficial al lado, no murió ni una vez.",
+      "body": "La racha de GSJoseador no se rompió: se la rompieron. Fue en la Flex de las siete y cuarto, y el Comodín de Noxus la vivió desde la calle del tirador con una Xayah recién estrenada que le duró lo que tarda una Kai'Sa en darse cuenta de que tiene delante a un turista. La Kai'Sa acabó 17/6/4 y le sacó 5.793 de oro. GSJoseador terminó 3/7/15, el peor de los cinco, y ganó. Urgot, Kayn y un Pyke hicieron el trabajo; él puso la firma.\n\nEn la Arena de Noxus hay una palabra para el gladiador al que sacan del foso a hombros mientras sigue con los ojos cerrados: equipaje. Diez derrotas en tres días, y la undécima partida la gana el equipaje.\n\nLo de después obliga a reescribir la historia. Tras perder la segunda con Caitlyn, diez muertes para que nadie se acostumbre, a las nueve menos veinte volvió a coger la Xayah con RDV Canyon en el equipo. El mismo RDV Canyon al que el jurado popular había condenado ayer por arruinarle la racha a distancia. Resultado: 14/0/8. Ni una muerte en veintinueve minutos y más de cuarenta y tres mil de daño a objetivos, que es lo que hace un tirador cuando por fin le dejan pegar a algo que no se defiende.\n\nLa Arena cierra el expediente de la racha y le abre uno al jurado: si RDV Canyon era la maldición, que alguien explique por qué la única noche que juegan juntos GSJoseador no pisa el gris.\n\nOnce partidas para confirmar lo que ya se sabía: GSJoseador gana cuando alguien le lleva. La novedad es que el lunes alguien quiso.",
+      "meme": {
+        "plantilla": "drake",
+        "lineas": [
+          "Romper la racha con un 14/0/8",
+          "Romperla yendo 3/7/15 y que te lleven"
+        ]
+      },
+      "pie": "La Arena de Noxus no devuelve la entrada por ver ganar al que no jugó."
+    },
+    {
+      "angulo": "a2",
+      "peso": "grande",
+      "formato": "entrevista",
+      "hilo": "el-intercambio-de-maldiciones",
+      "seccion": "CULTURA",
+      "entrevistado": "Qiyana",
+      "campeon": "Qiyana",
+      "headline": "La emperatriz pide volver con Wôlf",
+      "subtitulo": "Qiyana, cuatro derrotas de cuatro en manos del Barón de la Moneda, habla con este periódico tras ser sacada otra vez, esta vez con el grupo entero mirando.",
+      "body": "El domingo estaba en manos de Wôlf, que la paseó por la jungla con once muertes. El lunes el Barón la recuperó para la segunda Flex de la tarde, con los cinco en la partida, y la devolvió al carril central para perder su calle contra un Viktor: 2/7/6, el 11,2 % del daño del equipo y la cuarta derrota de cuatro en la hemeroteca. La recibimos en la Biblioteca de Shurima, donde ha pedido asilo entre los tomos descatalogados.\n\n—Majestad, ¿cómo se encuentra?\n\n—Furiosa. Soy la emperatriz de Ixtal. Domino la piedra, el río y la selva. Él me usa para cruzar la calle.\n\n—Había una orden del tribunal que le prohibía sacarla.\n\n—La leyó, estoy segura. Es de los que leen las condiciones y luego aceptan igual.\n\n—Justo antes había ganado con Ekko.\n\n—Por eso duele. Ganó con Ekko y vino a buscarme a mí. Es como salir de una entrevista de trabajo que ha ido bien y pegarse fuego en el aparcamiento.\n\n—¿Qué pasó contra Viktor?\n\n—Viktor tiene un brazo de metal y un plan. Mi invocador tenía prisa. Viktor acabó con más de tres mil monedas de ventaja y yo con siete muertes y la sensación de ser un préstamo.\n\n—¿Por qué quiere volver con Wôlf? También perdió con él.\n\n—Me mató once veces, sí, pero en la jungla, donde nadie mira. El Barón me pone en el centro, con todos sus amigos en la partida. Hay humillaciones que se llevan mejor sin público.\n\n—¿Un mensaje para su invocador?\n\n—Que me saque una quinta vez. Quiero saber si el tribunal tiene algo más que papel.",
+      "meme": {
+        "campeon": "Qiyana",
+        "aspecto": 11,
+        "lineas": [
+          "Orden judicial: no la saques",
+          "Él: ¿y en Flex tampoco?"
+        ]
+      },
+      "pie": "Qiyana, reina guerrera, retratada en la Biblioteca de Shurima el día de su cuarta derrota."
+    },
+    {
+      "angulo": "a5",
+      "peso": "mediana",
+      "formato": "parte meteorológico",
+      "hilo": "la-moneda",
+      "seccion": "EL TIEMPO",
+      "headline": "Cielo gris sobre el carril central desde las nueve de la mañana",
+      "subtitulo": "Madame Niebla emite aviso por un frente que entró a primera hora y no se fue hasta la noche.",
+      "body": "Parte de las Islas de la Sombra para el lunes. Un frente de baja presión llamado grangalax entró en la Grieta a las nueve menos cuatro de la mañana y se estacionó sobre el carril central hasta pasadas las ocho y media de la tarde. Nueve partidas, casi cinco horas de juego y treinta y siete minutos de cielo gris, el 12,8 % de su día, que en una oficina se llamaría pausa del bocadillo y aquí se llama ir a por el azul del rival.\n\nLa peor tormenta se registró a las tres y cuarto: Ekko contra una Diana, cuarenta y seis minutos, dieciséis muertes y casi once minutos mirando la tienda. Por la tarde, claros con Ekko. Al anochecer, chubascos de Qiyana.\n\nBalance de la jornada: 4–5. La moneda sigue cayendo del lado que le toca, que nunca es el que necesita.\n\nSe recomienda paraguas. Y no hacer dúo con él."
+    },
+    {
+      "angulo": "a15",
+      "peso": "mediana",
+      "formato": "carta al director",
+      "hilo": "carry-not-found",
+      "seccion": "OPINIÓN",
+      "headline": "Sobre el Nunu, y sobre lo que pasó cuando no había Nunu",
+      "body": "«Nadie habla del nunu full ap support con el que tuvo que lidiar», se queja, en tercera persona, el propio Fr4nux al pie de la pieza que le subía a Platino I con dos puntos de margen. Tiene razón: nadie habla del Nunu. Queda dicho.\n\nPero el lunes no había Nunu, y esta redacción ha tenido que hablar de otras cosas. De la Kalista de las siete y cuarto, por ejemplo, que murió cuatro veces en los diez primeros minutos y cuatro veces en la misma baldosa del mapa, con un Nautilus de soporte. Cobró el 21,8 % del oro del equipo y devolvió el 14 % del daño, que en Aguasturbias se llama préstamo sin intereses. O de la Jinx de las once menos dos: 19/2/10, dos cuádruples y el 37 % del daño. Tampoco había Nunu.\n\nConclusión provisional del Instituto: el daño de nuestro tirador no depende del soporte. Depende de la hora y del campeón.\n\nAtentamente, la redacción. El Nunu no ha querido hacer declaraciones."
+    },
+    {
+      "angulo": "a26",
+      "peso": "mediana",
+      "formato": "perfil",
+      "seccion": "EL FARO DE LA ESPERANZA",
+      "headline": "Tres partidas y nadie le pudo culpar de nada",
+      "body": "El jurado popular le declaró ayer culpable a distancia de las diez derrotas de GSJoseador. El lunes, RDV Canyon jugó tres partidas, ganó las tres y cerró el día con un KDA de 7,75, el mejor de todos. Los Centinelas de la Luz llevan toda la mañana buscando la trampa.\n\nDos de las victorias las firmó de soporte, llevando a Fr4nux de la mano. Con Renata Glasc salió sin una sola muerte y con dieciocho asistencias, la cara de quien firma contratos que pagan otros. La tercera fue la Flex de las nueve menos veinte, de Jax en la calle superior, donde un Volibear le comió el farmeo y le mató tres veces en el mismo punto. Hasta el Faro tiene goteras.\n\nEl hombre que tiene el récord de pings en una partida ganó la noche sin que nadie tuviera que silenciarle. Es lo más parecido a una redención que ha visto esta sección.\n\nNo se acostumbren."
+    },
+    {
+      "angulo": "a11",
+      "peso": "mediana",
+      "formato": "análisis",
+      "hilo": "el-que-no-sabe-irse-a-casa",
+      "seccion": "ECONOMÍA",
+      "headline": "Saiko aprende a irse a casa y no le sirve de nada",
+      "subtitulo": "Seis partidas después de treinta en dos días, y en las tres primeras se le van setenta y un puntos y la Esmeralda.",
+      "body": "Hay quien deja de beber y descubre que lo que le arruinaba la vida eran los amigos. Saiko bajó el lunes de catorce partidas a seis, como le pedía este periódico, y descubrió que el problema no era la cantidad.\n\nAbrió con tres SoloQ seguidas y perdió las tres. La primera, con Thresh, duró doce minutos: ni una muerte, ni un asesinato y derrota, la forma más eficiente que existe de no servir para nada. Después, un Blitzcrank con once muertes y otro Thresh con siete. En la Bolsa, de Esmeralda IV a Platino I en hora y media. Thresh ya va 0–4 en la hemeroteca y su linterna ha empezado a buscar almas en otra cola.\n\nPor la noche, en Flex, ganó dos de tres y subió cuarenta y seis puntos. Barbanegra ha emitido su recomendación: comprar Saiko en Flex, vender en SoloQ y no dejarle solo en ninguna de las dos.\n\nSigue al frente de la General. Jugando menos, pero al frente.",
+      "stat": "−71",
+      "stat_label": "puntos de SoloQ en tres partidas"
+    },
+    {
+      "angulo": "a38",
+      "peso": "mediana",
+      "formato": "fe de erratas",
+      "replica": 2,
+      "seccion": "OPINIÓN",
+      "player": "giroroo",
+      "headline": "Giroroo se lo dice a sí mismo y la redacción lo comprueba",
+      "body": "Ejerce su derecho de réplica Giroroo, aludido ayer en la crónica de los cuatro dragones. Su escrito, íntegro: «Que bueno soy». Sin tilde y sin pruebas.\n\nLa redacción, que se toma en serio las réplicas, ha ido a buscarlas. El lunes jugó la Flex de las siete y cuarto con Kayn y ganó. Se llevó un dragón, dos larvas del Vacío, el Heraldo y el Barón Nashor: si se movía y daba oro, era suyo. Sus cinco muertes llegaron todas a partir del minuto diecisiete, cuando ya había cobrado.\n\nFe de erratas: donde dimos a entender que perdía con todo en la mano, debimos decir que a veces gana. Una vez. Si los demás se encargan de matar.\n\nY una errata más, esta del jurado: el lector que condenó a RDV Canyon por la racha de GSJoseador estaba dentro de la partida que la rompió. La toga le quedaba grande. El Kayn, no."
+    },
+    {
+      "angulo": null,
+      "peso": "mediana",
+      "formato": "nota de prensa",
+      "hilo": "el-escandalo-de-la-lonja",
+      "seccion": "POLÍTICA",
+      "headline": "«Lo otro» era un pagaré",
+      "subtitulo": "La Fiscalía de Piltover recibe de Barbanegra el resguardo del 21 de octubre y, grapado detrás, un papel con la firma del director.",
+      "body": "La Fiscalía de Piltover informa de que Barbanegra el Contable compareció el lunes ante la fiscal Lucrecia Hexwick y entregó, como se le había requerido, el resguardo de la apuesta del 21 de octubre. Lo trajo envuelto en un trapo con olor a ron y acompañado de «lo otro», tal y como había anunciado.\n\n«Lo otro» es un pagaré. Lo firma Don Evaristo Plumanegra, director de este periódico, a favor del corredor, con fecha del mismo día en que se aprobó la fórmula de la General que dejó al Barón sin trono. La cantidad está en coronas y la Fiscalía la ha tapado con el pulgar en la fotocopia, por respeto a la institución y porque da vergüenza.\n\nLa Fiscalía considera acreditado que el director no protege a Barbanegra por lealtad, sino por deuda. Preguntado por esta redacción, el corredor solo ha dicho: «Yo siempre cobro. A veces en coronas, a veces en titulares».\n\nEl director ha convocado reunión para esta tarde. En el orden del día pone «varios»."
+    },
+    {
+      "angulo": "a14",
+      "peso": "breve",
+      "formato": "breve",
+      "hilo": "el-intercambio-de-maldiciones",
+      "seccion": "EL FARO DE LA ESPERANZA",
+      "headline": "Triple con el Ekko prestado",
+      "body": "En la Flex de las nueve menos veinte, Wôlf cogió el Ekko del Barón, firmó un triple y ganó, 15/8/13. A las diez menos diez repitió Ekko en SoloQ: veinte asesinatos, once muertes, 53 pings y derrota. Los Centinelas apuntan la luz. Radio Zaun, el ruido."
+    },
+    {
+      "angulo": "a42",
+      "peso": "breve",
+      "formato": "breve",
+      "hilo": "la-cuenta-de-cero",
+      "seccion": "SOLOQ CHALLENGE",
+      "headline": "Una cuenta de cero con 469 niveles",
+      "body": "TheTrevur es el primer inscrito del SoloQ Challenge, que exige empezar con una cuenta comprada de cero. La suya, TheTrevur#URGOD, llega con nivel 469 y en Diamante IV, que de cero tiene lo que un Urgot de vegetariano. Promete Aspirante. Grito de guerra: «E + Flash». La organización estudia si el cero era una cifra o una actitud."
+    },
+    {
+      "angulo": "a45",
+      "peso": "breve",
+      "formato": "breve",
+      "seccion": "DAÑO",
+      "headline": "Urgot no comparte",
+      "body": "En la segunda Flex, TheTrevur hizo el 37,3 % del daño del equipo y acabó 14/6/2. Dos asistencias en treinta y ocho minutos: el cangrejo mata, cobra y no invita a nadie. Perdieron igual, pero él perdió con las manos limpias de compañeros."
+    },
+    {
+      "angulo": "a53",
+      "peso": "breve",
+      "formato": "breve",
+      "seccion": "DEPORTES",
+      "headline": "Seis objetivos y el último de la fila",
+      "body": "Dierophant se llevó con Kindred tres dragones y tres larvas del Vacío en la Flex de las nueve menos veinte, ganó, y la estadística del día le señala igual como el que menos aportó de los cinco. Antes, de Lux, había puesto 48 guardianes para ver perder con todo detalle. Después llegó Viego, y con él el 0–5."
+    },
+    {
+      "angulo": "a20",
+      "peso": "breve",
+      "formato": "breve",
+      "seccion": "ECONOMÍA",
+      "player": "rdv-canyon",
+      "headline": "Sube SAIIIIIIKO; Saiko, no",
+      "body": "La Bolsa registra 23 puntos de subida en Flex para SAIIIIIIKO#EUW, hasta Oro I. No es Saiko: es una cuenta secundaria de RDV Canyon, bautizada con el nombre de un compañero y seis íes de más. El Saiko de verdad se dejó 71 en SoloQ el mismo día. Barbanegra pide no confundirlos: uno cotiza."
+    },
+    {
+      "angulo": null,
+      "peso": "breve",
+      "formato": "breve",
+      "seccion": "ECONOMÍA",
+      "player": "giroroo",
+      "headline": "El Recaudador apostó por el Barón y cobró",
+      "body": "Giroroo, el único lector con cuenta en la Lonja, puso 33 coronas a que grangalax sería el que más moriría. Pagaba a 3,0 y pagó: 99. También acertó que Saiko acabaría en el podio de la vergüenza, y solo falló al apostar que no habría Flex. Saldo: 196. Barbanegra no sabe si felicitarle o pedirle un préstamo."
+    },
+    {
+      "angulo": "a25",
+      "peso": "breve",
+      "formato": "breve",
+      "seccion": "CIENCIA",
+      "headline": "A ciegas, y con prisa",
+      "body": "A las doce y diez, Ekko de grangalax: treinta y cinco minutos, dos guardianes y ocho de visión. El Barón juega el centro como quien cruza una autopista de noche, rápido, sin mirar y confiando en que el otro frene. El otro era un Vladimir. No frenó: 13/10/7 y derrota."
+    },
+    {
+      "angulo": "a69",
+      "peso": "breve",
+      "formato": "breve",
+      "seccion": "SOCIEDAD",
+      "player": "ipredatorz",
+      "headline": "Ni sus amigos le reconocen el Yasuo",
+      "body": "iPredatoRz fue el único que no jugó el lunes. Lo último que se supo de él llegó por el «¿Quién fue?» de ayer: su Yasuo era la partida misteriosa, y Giroroo necesitó tres intentos para reconocerle. Un anónimo, cuatro. El Fantasma del Vacío ya no asusta. Se olvida."
+    }
+  ],
+  "tiempo": [
+    {
+      "jugador": "grangalax",
+      "texto": "Treinta y siete minutos de gris repartidos en nueve partidas. Frente estacionario sobre el carril central desde el amanecer. Se esperan Qiyanas aisladas."
+    },
+    {
+      "jugador": "saiko",
+      "texto": "Diecisiete minutos en gris en solo seis partidas: menos horas, misma tormenta. Rachas de Thresh en SoloQ, claros en Flex."
+    },
+    {
+      "jugador": "wolf",
+      "texto": "Veintidós minutos de niebla y 53 pings en una sola tarde de Ekko. Vientos fuertes por Radio Zaun."
+    },
+    {
+      "jugador": "dierophant",
+      "texto": "Once minutos en gris. Visibilidad excelente con Lux, que le permitió ver la derrota venir desde muy lejos."
+    },
+    {
+      "jugador": "gsjoseador",
+      "texto": "Despeja tras diez días de tormenta. Cero minutos en gris en la última Flex. Que no se acostumbre."
+    },
+    {
+      "jugador": "fr4nux",
+      "texto": "Niebla matinal con Kalista en los diez primeros minutos y cielo despejado con Jinx por la noche. Nunu no aparece en el radar."
+    },
+    {
+      "jugador": "giroroo",
+      "texto": "Menos de tres minutos en gris y todos al final de la partida, con el Barón ya en el bolsillo."
+    },
+    {
+      "jugador": "thetrevur",
+      "texto": "Sol de Urgot con nubes de compañeros. Dos asistencias en toda la tarde: microclima de egoísmo."
+    },
+    {
+      "jugador": "rdv-canyon",
+      "texto": "Menos de tres minutos en gris en tres victorias. Anticiclón inexplicable. Los Centinelas investigan."
+    }
+  ],
+  "canon": {
+    "hilos": [
+      {
+        "id": "la-racha-del-comodin",
+        "accion": "cerrar",
+        "resumen": "Se rompe a la undécima: GSJoseador gana la Flex de las 19:18 siendo el peor de los cinco (3/7/15) y por la noche, con RDV Canyon, acaba 14/0/8."
+      },
+      {
+        "id": "la-moneda",
+        "accion": "avanzar",
+        "estado": "escalando",
+        "resumen": "Nueve partidas y casi cinco horas, 4–5 y 61 muertes: Ekko 3–3, Locke 1–1 y Qiyana por cuarta vez, cuarta derrota, con el grupo entero en la partida.",
+        "protagonistas": [
+          "grangalax"
+        ]
+      },
+      {
+        "id": "el-intercambio-de-maldiciones",
+        "accion": "avanzar",
+        "estado": "escalando",
+        "resumen": "Qiyana vuelve de Wôlf al Barón y pierde (0–4); Wôlf saca el Ekko del Barón: triple y victoria en Flex, 20/11/11 y derrota en SoloQ. Qiyana pide volver con Wôlf.",
+        "protagonistas": [
+          "grangalax",
+          "wolf"
+        ]
+      },
+      {
+        "id": "carry-not-found",
+        "accion": "avanzar",
+        "resumen": "Jinx 19/2/10 con dos cuádruples y 37 % del daño; Kalista muere cuatro veces en los diez primeros minutos y cobra el 21,8 % del oro por el 14 % del daño. Fr4nux culpa a un Nunu del día anterior."
+      },
+      {
+        "id": "el-que-no-sabe-irse-a-casa",
+        "accion": "avanzar",
+        "resumen": "Baja a seis partidas: pierde las tres primeras de SoloQ, cae de Esmeralda IV a Platino I y gana dos de tres en Flex."
+      },
+      {
+        "id": "el-escandalo-de-la-lonja",
+        "accion": "avanzar",
+        "estado": "desenlace",
+        "resumen": "Barbanegra entrega a Hexwick el resguardo y «lo otro»: un pagaré del 21 de octubre firmado por el director a su favor. Le protege por deuda."
+      },
+      {
+        "id": "la-guerra-de-los-periodicos",
+        "accion": "avanzar",
+        "resumen": "La Gaceta roba otra exclusiva: publica la carta de traslado sin enviar del cronista Venda y le ofrece sitio en Noxus."
+      },
+      {
+        "id": "la-cuenta-de-cero",
+        "accion": "abrir",
+        "titulo": "La cuenta de cero",
+        "resumen": "TheTrevur se inscribe el primero en el SoloQ Challenge, que exige una cuenta comprada de cero, con una de nivel 469 en Diamante IV.",
+        "protagonistas": [
+          "thetrevur"
+        ]
+      }
+    ],
+    "personajes": {
+      "gsjoseador": {
+        "apodo": "el equipaje",
+        "arco": {
+          "tipo": "redención",
+          "texto": "Rompe diez derrotas siendo el peor de su partida y la remata con 14/0/8 junto a RDV Canyon, el culpable del jurado."
+        }
+      },
+      "grangalax": {
+        "maldicion": "Qiyana: 0–4 en la hemeroteca, sacada otra vez con el grupo entero",
+        "arco": {
+          "tipo": "caída",
+          "texto": "Juega desde las nueve de la mañana: gana con Ekko y, en cuanto gana, vuelve a la Qiyana maldita."
+        }
+      },
+      "saiko": {
+        "maldicion": "Thresh: 0–4 en la hemeroteca"
+      },
+      "rdv-canyon": {
+        "titulo": "Condenado a distancia, absuelto en persona"
+      },
+      "giroroo": {
+        "arco": {
+          "tipo": "ascenso",
+          "texto": "Juega una, gana una, cobra en la Lonja y ejerce de jurado: el Recaudador con toga."
+        }
+      },
+      "thetrevur": {
+        "apodo": "el de la cuenta de cero"
+      }
+    },
+    "elenco": [
+      {
+        "nombre": "Barbanegra el Contable",
+        "estado": "Entrega a la Fiscalía el resguardo del día 21 y un pagaré del director a su favor"
+      },
+      {
+        "nombre": "Don Evaristo Plumanegra",
+        "estado": "Su firma aparece en un pagaré a favor de Barbanegra; convoca una reunión con «varios» en el orden del día"
+      },
+      {
+        "nombre": "Fiscal Lucrecia Hexwick",
+        "estado": "Tiene en su poder el pagaré del director"
+      },
+      {
+        "nombre": "Hermano Venda",
+        "estado": "La Gaceta de Noxus publica su carta de traslado sin enviar"
+      }
+    ],
+    "costumbres": [
+      "Los lunes grangalax empieza la SoloQ antes de las nueve de la mañana y no la suelta hasta la Flex de la tarde.",
+      "Los lunes la Flex del grupo se adelanta a las siete y cuarto de la tarde y a las nueve y diez ya ha terminado."
+    ],
+    "chistes": [
+      "la moneda de grangalax"
+    ],
+    "sindicato": [
+      {
+        "campeon": "Qiyana",
+        "jugador": "grangalax",
+        "motivo": "Devuelta por Wôlf y sacada otra vez, con el grupo entero en la partida: 2/7/6 y cuarta derrota de cuatro"
+      },
+      {
+        "campeon": "Thresh",
+        "jugador": "saiko",
+        "motivo": "Dos derrotas en un día, una de doce minutos sin matar ni morir"
+      }
+    ]
+  },
+  "gaceta": {
+    "titular": "¡EXCLUSIVA! EL CRONISTA DE LA LUZ DEL RINCÓN TIENE ESCRITA SU CARTA PARA FICHAR POR LA GACETA",
+    "cuerpo": "Mientras el Rincón se entretiene con papelitos de la Fiscalía, esta casa tiene en su poder la carta de traslado que el cronista Venda escribió hace días y nunca se atrevió a mandar. «Ya no encuentro nada bueno que contar», confiesa. ¡NOSOTROS SÍ!\n\nPor ejemplo: grangalax jugó NUEVE partidas y ganó CUATRO, tres de ellas con Ekko, pero el Rincón solo tiene ojos para una Qiyana. ¿Y las victorias? ¡SILENCIO! Fray Venda: la puerta de Noxus está abierta. Traiga la linterna. Aquí no se apaga.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "tablon": [
+    {
+      "texto": "Cuenta de cero, nivel 469. El cero será el de las partidas que lleva jugadas en el reto.",
+      "firma": "Barbanegra el Contable"
+    },
+    {
+      "texto": "Promete Aspirante. Le faltan cuatrocientos puntos para llegar y la humildad entera para disimular.",
+      "firma": "Anónimo"
+    }
+  ],
+  "jurado": {
+    "pregunta": "¿Qué hace el tribunal con la Qiyana de grangalax?",
+    "opciones": [
+      "Orden de alejamiento, esta vez en serio",
+      "Custodia para Wôlf",
+      "Que la saque hasta que gane una"
+    ],
+    "juicio": false
+  },
+  "jurado_veredicto": "Tres votos y una sola firma: Giroroo condenó a RDV Canyon por las diez derrotas de GSJoseador «a distancia». La sentencia duró lo que tardó en empezar la Flex: la racha se rompió en una partida con el propio Giroroo dentro y sin RDV Canyon, y en la siguiente que jugaron juntos GSJoseador no murió ni una vez. El condenado sale en libertad con un 3–0. Al juez se le queda la toga manchada.",
+  "manana": [
+    {
+      "texto": "¿Saldrá Qiyana por quinta vez?"
+    },
+    {
+      "texto": "¿Encadenará GSJoseador dos victorias seguidas?"
+    },
+    {
+      "texto": "¿Volverá Saiko a la SoloQ después de dejarse setenta y un puntos?"
+    }
+  ],
+  "promesas": [
+    {
+      "n": 1,
+      "texto": "Volvió. A las siete y cuarto grangalax llevó a Ekko a la Flex y ganó, 9/7/10. Media hora después lo cambió por Qiyana y perdió. Le dimos el día libre a Ekko y él se lo dio a la victoria."
+    },
+    {
+      "n": 2,
+      "texto": "La rompió, aunque no él: ganó la Flex de las siete y cuarto siendo el peor de los cinco, 3/7/15. Después perdió una y ganó otra sin morir."
+    },
+    {
+      "n": 3,
+      "texto": "Bajó a seis partidas. No le sirvió de nada: 2–4, 39 muertes y la Esmeralda perdida por el camino."
+    }
+  ],
+  "replicas_descartadas": [],
+  "estilo": {
+    "pautas_nuevas": [
+      "Lo que más reacciones saca es el contraste frío entre un logro y su resultado (cuatro dragones y una derrota): poner el mérito y la consecuencia en la misma frase, sin comentario."
+    ],
+    "pautas_retiradas": []
+  },
+  "horoscopo": [
+    {
+      "signo": "Top",
+      "texto": "Haces el daño de tres y las asistencias de ninguno. Hoy toca compartir. No lo harás, pero queda bonito en el horóscopo."
+    },
+    {
+      "signo": "Jungla",
+      "texto": "Un Kayn se llevó todo lo que se movía y un Shaco perdió cinco mil y pico de oro contra una Diana. Elige bien a cuál te pareces esta noche."
+    },
+    {
+      "signo": "Mid",
+      "texto": "Tienes un campeón que gana y otro que no. Esta noche volverás a elegir mal: la suerte no es ciega, solo te ha visto jugar."
+    },
+    {
+      "signo": "Tirador",
+      "texto": "Dos cuádruples con Jinx y una Xayah que gana sin tocar a nadie. Tu rol premia por igual al que pega y al que se esconde. Disfrútalo antes de que lo parcheen."
+    },
+    {
+      "signo": "Soporte",
+      "texto": "Doce minutos, cero muertes, cero asesinatos y derrota. Hay días en que no hacer nada es exactamente lo que haces. Mañana, por variar, haz algo."
+    }
+  ],
+  "columna": {
+    "titulo": "Nueve veces me pasó por delante",
+    "autor": "La Torre Exterior del Centro",
+    "cuerpo": [
+      "Soy una torre. No me muevo, no elijo campeón y no tengo micrófono. Lo único que hago es mirar, y el lunes miré a grangalax desde las nueve de la mañana hasta las ocho y media de la tarde.",
+      "Le vi llegar con Ekko, perder con Ekko, ganar con Ekko y volver a perder con Ekko. Le vi probar con Locke, que ni yo sé de dónde ha salido. Y por la tarde le vi aparecer con una Qiyana, con sus amigos dentro de la partida, y pensé lo que piensa una torre cuando ve venir un súbdito de asedio: esto va a doler, pero no a mí.",
+      "Las torres no tenemos memoria, pero tenemos cimientos. Y os lo digo desde los cimientos: el que juega nueve partidas en un día no está buscando ganar. Está buscando la partida que le dé la razón. Con un cincuenta por ciento exacto, esa partida no existe.",
+      "Mañana estaré aquí. Él también. Uno de los dos caerá antes de que acabe la noche.",
+      "Y no, no seré yo la que caiga."
+    ]
+  },
+  "especial": null,
+  "frase": "La Qiyana no se elige: se reincide.",
+  "eventos_usados": [],
+  "propuestas_descartadas": [],
+  "firma": "Claude"
+}

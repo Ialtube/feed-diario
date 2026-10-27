@@ -40,6 +40,10 @@
         {
           "fecha": "2026-10-25",
           "texto": "Qiyana: 0–3 en la hemeroteca"
+        },
+        {
+          "fecha": "2026-10-27",
+          "texto": "Qiyana: 0–4 en la hemeroteca, sacada otra vez con el grupo entero"
         }
       ],
       "rivales": [],
@@ -59,6 +63,11 @@
           "tipo": "caída",
           "texto": "Rompe la racha de siete y la reabre a la media hora con el mismo Ekko: 261–261 en SoloQ, no cae ni sube, oscila.",
           "fecha": "2026-10-26"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Juega desde las nueve de la mañana: gana con Ekko y, en cuanto gana, vuelve a la Qiyana maldita.",
+          "fecha": "2026-10-27"
         }
       ]
     },
@@ -71,6 +80,10 @@
         {
           "fecha": "2026-10-22",
           "texto": "el ladrón de su propio cangrejo"
+        },
+        {
+          "fecha": "2026-10-27",
+          "texto": "el de la cuenta de cero"
         }
       ],
       "rasgos": [
@@ -197,6 +210,10 @@
         {
           "fecha": "2026-10-26",
           "texto": "el factor común"
+        },
+        {
+          "fecha": "2026-10-27",
+          "texto": "el equipaje"
         }
       ],
       "rasgos": [
@@ -216,6 +233,11 @@
           "tipo": "caída",
           "texto": "Diez derrotas seguidas en tres días; separado de RDV Canyon, pierde con todos los demás.",
           "fecha": "2026-10-26"
+        },
+        {
+          "tipo": "redención",
+          "texto": "Rompe diez derrotas siendo el peor de su partida y la remata con 14/0/8 junto a RDV Canyon, el culpable del jurado.",
+          "fecha": "2026-10-27"
         }
       ]
     },
@@ -335,6 +357,10 @@
         {
           "fecha": "2026-10-26",
           "texto": "Absuelto por ausencia"
+        },
+        {
+          "fecha": "2026-10-27",
+          "texto": "Condenado a distancia, absuelto en persona"
         }
       ],
       "arcos": []
@@ -359,7 +385,13 @@
       "maldiciones": [],
       "rivales": [],
       "titulos": [],
-      "arcos": []
+      "arcos": [
+        {
+          "tipo": "ascenso",
+          "texto": "Juega una, gana una, cobra en la Lonja y ejerce de jurado: el Recaudador con toga.",
+          "fecha": "2026-10-27"
+        }
+      ]
     },
     "saiko": {
       "alias": "Saiko",
@@ -391,6 +423,10 @@
         {
           "fecha": "2026-10-26",
           "texto": "Malzahar: una victoria de siete en un día"
+        },
+        {
+          "fecha": "2026-10-27",
+          "texto": "Thresh: 0–4 en la hemeroteca"
         }
       ],
       "rivales": [],
@@ -461,6 +497,11 @@
           "fecha": "2026-10-26",
           "campo": "estado",
           "texto": "Gana su primer juicio, contra el acusado que no quería, y reclama el resguardo del día 21"
+        },
+        {
+          "fecha": "2026-10-27",
+          "campo": "estado",
+          "texto": "Tiene en su poder el pagaré del director"
         }
       ]
     },
@@ -501,6 +542,11 @@
           "fecha": "2026-10-26",
           "campo": "estado",
           "texto": "Guarda el resguardo de apuestas del 21 de octubre «con lo otro»"
+        },
+        {
+          "fecha": "2026-10-27",
+          "campo": "estado",
+          "texto": "Entrega a la Fiscalía el resguardo del día 21 y un pagaré del director a su favor"
         }
       ]
     },
@@ -546,6 +592,11 @@
           "fecha": "2026-10-25",
           "campo": "estado",
           "texto": "Encuentra la página arrancada y la entrega a la redacción"
+        },
+        {
+          "fecha": "2026-10-27",
+          "campo": "estado",
+          "texto": "La Gaceta de Noxus publica su carta de traslado sin enviar"
         }
       ]
     },
@@ -580,6 +631,11 @@
           "fecha": "2026-10-26",
           "campo": "estado",
           "texto": "Sigue en el cargo con dos votos del jurado y niega una apuesta del 21 de octubre que nadie le había preguntado"
+        },
+        {
+          "fecha": "2026-10-27",
+          "campo": "estado",
+          "texto": "Su firma aparece en un pagaré a favor de Barbanegra; convoca una reunión con «varios» en el orden del día"
         }
       ]
     },
@@ -666,6 +722,10 @@
         {
           "fecha": "2026-10-26",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-27",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -730,6 +790,13 @@
           "resumen": "Pierde la séptima con Lissandra (13/8/20), rompe la racha con Ekko en SoloQ y deja la cuenta en 261–261; media hora después pierde la Flex con el mismo Ekko (11/13/14) y queda 100–101.",
           "titulares": [
             "El Barón rompe la racha y la vuelve a empezar con el mismo Ekko"
+          ]
+        },
+        {
+          "fecha": "2026-10-27",
+          "resumen": "Nueve partidas y casi cinco horas, 4–5 y 61 muertes: Ekko 3–3, Locke 1–1 y Qiyana por cuarta vez, cuarta derrota, con el grupo entero en la partida.",
+          "titulares": [
+            "Cielo gris sobre el carril central desde las nueve de la mañana"
           ]
         }
       ]
@@ -874,6 +941,13 @@
           "resumen": "Kalista con el 35,9 % del daño y cuádruple con Kog'Maw, pero Jhin con el menor daño de su equipo. Sube a Platino I con dos puntos.",
           "titulares": [
             "El tirador asciende con dos puntos de margen"
+          ]
+        },
+        {
+          "fecha": "2026-10-27",
+          "resumen": "Jinx 19/2/10 con dos cuádruples y 37 % del daño; Kalista muere cuatro veces en los diez primeros minutos y cobra el 21,8 % del oro por el 14 % del daño. Fr4nux culpa a un Nunu del día anterior.",
+          "titulares": [
+            "Sobre el Nunu, y sobre lo que pasó cuando no había Nunu"
           ]
         }
       ]
@@ -1133,6 +1207,13 @@
           "titulares": [
             "La dirección niega una apuesta por la que nadie había preguntado"
           ]
+        },
+        {
+          "fecha": "2026-10-27",
+          "resumen": "Barbanegra entrega a Hexwick el resguardo y «lo otro»: un pagaré del 21 de octubre firmado por el director a su favor. Le protege por deuda.",
+          "titulares": [
+            "«Lo otro» era un pagaré"
+          ]
         }
       ],
       "estados": [
@@ -1154,6 +1235,10 @@
         },
         {
           "fecha": "2026-10-26",
+          "estado": "desenlace"
+        },
+        {
+          "fecha": "2026-10-27",
           "estado": "desenlace"
         }
       ]
@@ -1193,6 +1278,11 @@
         {
           "fecha": "2026-10-26",
           "resumen": "La Gaceta roba la cuarta exclusiva: publica antes que el Rincón el resguardo de la apuesta del director contra el Barón.",
+          "titulares": []
+        },
+        {
+          "fecha": "2026-10-27",
+          "resumen": "La Gaceta roba otra exclusiva: publica la carta de traslado sin enviar del cronista Venda y le ofrece sitio en Noxus.",
           "titulares": []
         }
       ],
@@ -1351,6 +1441,10 @@
         {
           "fecha": "2026-10-26",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-27",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -1358,6 +1452,13 @@
           "fecha": "2026-10-26",
           "resumen": "GSJoseador suma diez derrotas seguidas en tres días, cambie de pareja o no; ni una Caitlyn 21/7/19 le saca del pozo.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-10-27",
+          "resumen": "Se rompe a la undécima: GSJoseador gana la Flex de las 19:18 siendo el peor de los cinco (3/7/15) y por la noche, con RDV Canyon, acaba 14/0/8.",
+          "titulares": [
+            "GSJoseador sale del pozo en brazos de otros"
+          ]
         }
       ]
     },
@@ -1383,6 +1484,13 @@
           "titulares": [
             "Parte médico del paciente que ingresó a las siete menos cuarto"
           ]
+        },
+        {
+          "fecha": "2026-10-27",
+          "resumen": "Baja a seis partidas: pierde las tres primeras de SoloQ, cae de Esmeralda IV a Platino I y gana dos de tres en Flex.",
+          "titulares": [
+            "Saiko aprende a irse a casa y no le sirve de nada"
+          ]
         }
       ]
     },
@@ -1400,6 +1508,10 @@
         {
           "fecha": "2026-10-26",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-27",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1408,6 +1520,39 @@
           "resumen": "grangalax juega la Lissandra maldita de Wôlf y Wôlf juega los Ekko y la Qiyana de grangalax. Pierden los dos.",
           "titulares": [
             "Cambio de armario en la Grieta"
+          ]
+        },
+        {
+          "fecha": "2026-10-27",
+          "resumen": "Qiyana vuelve de Wôlf al Barón y pierde (0–4); Wôlf saca el Ekko del Barón: triple y victoria en Flex, 20/11/11 y derrota en SoloQ. Qiyana pide volver con Wôlf.",
+          "titulares": [
+            "La emperatriz pide volver con Wôlf",
+            "Triple con el Ekko prestado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "la-cuenta-de-cero",
+      "titulo": "La cuenta de cero",
+      "abierto": "2026-10-27",
+      "protagonistas": [
+        "thetrevur"
+      ],
+      "reparto": [],
+      "resumen": "TheTrevur se inscribe el primero en el SoloQ Challenge, que exige una cuenta comprada de cero, con una de nivel 469 en Diamante IV.",
+      "estados": [
+        {
+          "fecha": "2026-10-27",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-27",
+          "resumen": "TheTrevur se inscribe el primero en el SoloQ Challenge, que exige una cuenta comprada de cero, con una de nivel 469 en Diamante IV.",
+          "titulares": [
+            "Una cuenta de cero con 469 niveles"
           ]
         }
       ]
@@ -1449,6 +1594,14 @@
     {
       "fecha": "2026-10-26",
       "texto": "Los domingos la única Flex del grupo empieza a las doce menos cuarto de la noche y dura hasta pasada la medianoche."
+    },
+    {
+      "fecha": "2026-10-27",
+      "texto": "Los lunes grangalax empieza la SoloQ antes de las nueve de la mañana y no la suelta hasta la Flex de la tarde."
+    },
+    {
+      "fecha": "2026-10-27",
+      "texto": "Los lunes la Flex del grupo se adelanta a las siete y cuarto de la tarde y a las nueve y diez ya ha terminado."
     }
   ],
   "chistes": [
@@ -1458,9 +1611,10 @@
         "2026-10-20",
         "2026-10-21",
         "2026-10-23",
-        "2026-10-26"
+        "2026-10-26",
+        "2026-10-27"
       ],
-      "usos": 4,
+      "usos": 5,
       "semilla": true
     },
     {
@@ -1576,6 +1730,18 @@
       "jugador": "dierophant",
       "motivo": "Cuatro derrotas de cuatro en la hemeroteca, con triple incluido",
       "fecha": "2026-10-26"
+    },
+    {
+      "campeon": "Qiyana",
+      "jugador": "grangalax",
+      "motivo": "Devuelta por Wôlf y sacada otra vez, con el grupo entero en la partida: 2/7/6 y cuarta derrota de cuatro",
+      "fecha": "2026-10-27"
+    },
+    {
+      "campeon": "Thresh",
+      "jugador": "saiko",
+      "motivo": "Dos derrotas en un día, una de doce minutos sin matar ni morir",
+      "fecha": "2026-10-27"
     }
   ]
 }
