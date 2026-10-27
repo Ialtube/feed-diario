@@ -44,9 +44,13 @@ class FakeRiot:
     def match(self, mid):
         puuid, end, win = self.games[mid]
         part = {"puuid": puuid, "championName": "Urgot", "teamPosition": "TOP", "teamId": 100, "win": win,
-                "kills": 3, "deaths": 7, "assists": 4}
+                "kills": 3, "deaths": 7, "assists": 4, "totalDamageDealtToChampions": 20000, "totalDamageTaken": 15000,
+                "goldEarned": 12000, "visionScore": 30, "totalMinionsKilled": 150, "firstBloodKill": True,
+                "doubleKills": 1, "tripleKills": 1, "totalTimeSpentDead": 180}
+        mate = {"puuid": "mate", "championName": "Lux", "teamPosition": "UTILITY", "teamId": 100, "win": win,
+                "kills": 5, "deaths": 2, "assists": 2, "totalDamageDealtToChampions": 10000}
         return {"metadata": {"matchId": mid}, "info": {"queueId": 420, "gameEndTimestamp": end, "gameStartTimestamp": end - 1800000,
-                                                       "gameDuration": 1800, "participants": [part]}}
+                                                       "gameDuration": 1800, "participants": [part, mate]}}
 
 
 SIGN_UPS = [
@@ -156,6 +160,23 @@ class SoloQTest(unittest.TestCase):
         self.assertEqual(gran["falta"], 2400 - 1370)
         self.assertEqual({m["tipo"] for m in soloq.movimientos(datos, r, ref, t2)}, {"descenso", "ascenso"})
 
+        # every game keeps what the sheets need: damage, gold, vision, shares of the team, multikills
+        g = datos.partidas["monedanueva#ovd"][0]
+        self.assertEqual((g["dmg"], g["gold"], g["vis"], g["cs"], g["fb"], g["mk"], g["kp"], g["dp"]),
+                         (20000, 12000, 30, 150, 1, 3, 0.875, 0.667))
+        ficha = gran["ficha"]
+        self.assertEqual((ficha["n"], ficha["dmg_media"], ficha["primeras_sangres"], ficha["dur_media"]), (8, 20000, 8, 1800))
+        self.assertEqual(ficha["multi"][:2], [("Dobles", 0), ("Triples", 8)])
+        self.assertEqual(ficha["lineas"][0]["nombre"], "Top")
+        self.assertEqual(sum(f["n"] for f in ficha["franjas"]), 8)
+        self.assertEqual(sum(d["n"] for d in ficha["dias"]), 8)
+        self.assertIsNone(ficha["lp_derrota"])      # the robot saw several games at once: no one-game step to learn from
+        # the history board: everybody's games, newest first, each with the LP the league history says it moved
+        games, total = soloq.historial_global(datos, rows, r, t2, limit=5)
+        self.assertEqual((total, len(games)), (20, 5))
+        self.assertEqual([x["fin"] for x in games], sorted((x["fin"] for x in games), reverse=True))
+        self.assertTrue(all(x["nombre"] and x["key"] for x in games))
+
         prizes = {t["premio"]: t for t in soloq.trofeos(rows, r, "en_juego")}
         self.assertEqual([prizes[k]["nombre"] for k in soloq.PRINCIPALES], ["grangalax", "Lobo", "Pato"])
         self.assertEqual({t["estado"] for k, t in prizes.items() if k in soloq.PRINCIPALES}, {"en_cabeza"})
@@ -200,10 +221,19 @@ class SoloQTest(unittest.TestCase):
         page = (out / "index.html").read_text(encoding="utf-8")
         for text in ("Clasificación oficial", "La gráfica", "La Moneda", "Oro III", "NoExiste#EUW", "Bando de inscripción",
                      "Muro de la vergüenza", "La Moneda se hunde en Oro", "ediciones/2026-11-03.html#p-3",
-                     "La Moneda cae de cruz otra vez.", "Volver a El Rincón del Feeder", "El pistoletazo",
-                     "Premios principales", "Cena pagada".lower(), "Límite de partidas", "Forzar la pasada"):
+                     "Volver a El Rincón del Feeder", "El pistoletazo", "Historial de partidas", "Fichas de los jugadores",
+                     'data-premio="racha"', "Premios principales", "Cena pagada".lower(), "Límite de partidas", "Forzar la pasada"):
             self.assertIn(text, page)
-        self.assertLess(page.index('id="notas-lectores"'), page.index('class="grid"'))    # readers' notes on top
+        # the newsroom's notes are gone and the readers' corner starts right under the chart
+        self.assertNotIn("La Moneda cae de cruz otra vez.", page)
+        self.assertNotIn("notas-lectores", page)
+        self.assertLess(page.index("La gráfica"), page.index('data-slot="0"'))
+        self.assertLess(page.index('data-slot="0"'), page.index("Historial de partidas"))
+        self.assertLess(page.index("Historial de partidas"), page.index("Fichas de los jugadores"))
+        ranking = soloq.ranking_trofeo("racha", rows, r, "en_juego")
+        self.assertEqual([e["nombre"] for e in ranking][0], "Pato")
+        self.assertEqual(len(ranking), 3)
+        self.assertEqual([e["key"] for e in soloq.ranking_trofeo("campeon", rows, r, "en_juego")], [x["key"] for x in rows])
         self.assertTrue((out / "datos.json").exists() and (out / "soloq.js").exists())
 
     def test_newspaper_only_gets_a_button(self):

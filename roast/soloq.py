@@ -18,6 +18,7 @@ from collections import Counter
 from datetime import datetime, timedelta
 from pathlib import Path
 
+from . import soloq_stats
 from .lectores import _get as supabase_get
 from .rangos import DIVS, TIER_ES, TIERS
 from .util import ROOT, champ_name, fmt_num, get_tz, load_json, save_json
@@ -278,10 +279,21 @@ def activos(datos, r=None):
 
 
 # --------------------------------------------------------------------------- Riot
-def _game_row(match_id, end, dur, p):
+def _game_row(match_id, end, dur, p, team=()):
+    """One game of one player, compact. `team` are the summaries of his team (him included): they give his
+    share of the kills and of the damage."""
+    k, a, dmg = p["k"], p["a"], p.get("dmg") or 0
+    mk = soloq_stats.best_multi(p.get("multi"))
+    team_k, team_dmg = sum(q["k"] for q in team), sum(q.get("dmg") or 0 for q in team)
     return {"id": match_id, "fin": end, "dur": dur, "champ": champ_name(p.get("champ") or "?"), "cid": p.get("champ") or "",
             "win": bool(p["win"]),
-            "k": p["k"], "d": p["d"], "a": p["a"], "pos": p.get("pos") or "", "cs": p.get("cs", 0),
+            "k": k, "d": p["d"], "a": a, "pos": p.get("pos") or "", "cs": p.get("cs", 0),
+            "dmg": dmg, "taken": p.get("taken", 0), "gold": p.get("gold", 0), "vis": p.get("vision", 0),
+            "obj": p.get("obj", 0), "dead": p.get("dead", 0), "solo": p.get("solo", 0),
+            **({"fb": 1} if p.get("fb") else {}),
+            **({"mk": mk} if mk else {}),
+            **({"kp": round((k + a) / team_k, 3)} if team_k else {}),
+            **({"dp": round(dmg / team_dmg, 3)} if team_dmg else {}),
             **({"rem": True} if dur < REMAKE_SECONDS else {})}
 
 
@@ -290,7 +302,7 @@ def game_from_summary(m, puuid):
     if m.get("queue") != SOLO_QUEUE:
         return None
     p = next((p for p in m["parts"] if p["puuid"] == puuid), None)
-    return _game_row(m["id"], m["end"], m["dur"], p) if p else None
+    return _game_row(m["id"], m["end"], m["dur"], p, [q for q in m["parts"] if q.get("team") == p.get("team")]) if p else None
 
 
 def game_from_raw(raw, puuid):
@@ -434,6 +446,7 @@ def _row(key, c, h, games_all, r, at_ms, ref_ms):
     v, v0, vb = value(rec), value(base) if value(base) is not None else value(first), value(before)
     series = [(x[0], value(x)) for x in h if base[0] <= x[0] <= at_ms and value(x) is not None]
     peak = max((x for x in h if base[0] <= x[0] <= at_ms and value(x) is not None), key=value, default=None)
+    valley = min((x for x in h if base[0] <= x[0] <= at_ms and value(x) is not None), key=value, default=None)
     goal = c.get("objetivo")
     gv = target_value(goal)
     reached = bool(goal and rec[1] in TIERS and TIERS.index(rec[1]) >= TIERS.index(goal))
@@ -450,6 +463,8 @@ def _row(key, c, h, games_all, r, at_ms, ref_ms):
         "inicio": liga(base), "lp_reto": (v - v0) if v is not None and v0 is not None else None,
         "lp_hoy": (v - vb) if v is not None and vb is not None else None,
         "pico": liga(peak) if peak else None, "pico_valor": value(peak) if peak else None,
+        "valle": liga(valley) if valley else None,
+        "ficha": soloq_stats.ficha(games, h, value, r["tz"], ini, end),
         "partidas": len(games), "victorias": wins, "derrotas": len(games) - wins,
         "winrate": wins / len(games) if games else None,
         "hoy": [sum(g["win"] for g in today), sum(not g["win"] for g in today)],
@@ -755,6 +770,58 @@ def trofeos(rows, r, ph):
     return out
 
 
+def ranking_trofeo(key, rows, r, ph):
+    """Everybody's place in one prize, best first: [{key, nombre, dato, ok, nota}]. `ok` is False for those who do
+    not reach the minimum yet (they go last, with what they lack). The main prizes follow the standings."""
+    tier = TIER_ES.get(r.get("speedrun"), "Platino")
+    played = [x for x in rows if x["partidas"]] if ph != "inscripcion" else []
+
+    def item(x, dato, ok=True, nota=None):
+        return {"key": x["key"], "nombre": x["nombre"], "jugador": x["jugador"], "dato": dato, "ok": ok, "nota": nota}
+
+    out = []
+    if key in PRINCIPALES:
+        ranked = [x for x in rows if x["valor"] is not None] if ph != "inscripcion" else []
+        for x in ranked:
+            owes = cumple(x, r, ph)
+            out.append(item(x, f'{x["liga"]} · {x["partidas"]} partidas', not owes, f"Le faltan {owes}." if owes else None))
+        return out
+    if key == "racha":
+        for x in sorted(played, key=lambda x: (-x["mejor_racha"], -x["partidas"])):
+            out.append(item(x, f'{x["mejor_racha"]} seguidas', x["mejor_racha"] >= 2, f'Ahora: {abs(x["racha"])}{"V" if x["racha"] > 0 else "D"}' if x["racha"] else None))
+    elif key == "winrate":
+        for x in sorted(played, key=lambda x: (x["partidas"] >= MIN_WINRATE, x["winrate"], x["partidas"]), reverse=True):
+            ok = x["partidas"] >= MIN_WINRATE
+            out.append(item(x, f'{_pct(x["winrate"])} en {x["partidas"]} partidas', ok,
+                            None if ok else f'Le faltan {MIN_WINRATE - x["partidas"]} partidas.'))
+    elif key == "versatil":
+        for x in sorted(played, key=lambda x: (-x["versatil"], -x["partidas"])):
+            out.append(item(x, f'{x["versatil"]} campeones', bool(x["versatil"])))
+    elif key == "otp":
+        for x in sorted(played, key=lambda x: (x["otp"] is not None, x["otp"]["winrate"] if x["otp"] else 0,
+                                               x["otp"]["partidas"] if x["otp"] else 0), reverse=True):
+            if x["otp"]:
+                out.append(item(x, f'{x["otp"]["champ"]}: {_pct(x["otp"]["winrate"])} en {x["otp"]["partidas"]} partidas'))
+            else:
+                best = x["campeones"][0] if x["campeones"] else None
+                out.append(item(x, f'{best["champ"]}: {best["partidas"]} partidas' if best else "–", False,
+                                f'Le faltan {MIN_OTP - best["partidas"]} partidas con {best["champ"]}.' if best else None))
+    elif key == "carry":
+        for x in sorted(played, key=lambda x: (x["partidas"] >= MIN_KDA, x["kda"]), reverse=True):
+            ok = x["partidas"] >= MIN_KDA
+            out.append(item(x, f'KDA {fmt_num(x["kda"], 2)} en {x["partidas"]} partidas', ok,
+                            None if ok else f'Le faltan {MIN_KDA - x["partidas"]} partidas.'))
+    elif key == "speedrun":
+        ranked = [x for x in played if x["valor"] is not None]
+        for x in sorted(ranked, key=lambda x: (not x["speedrun_ms"], x["speedrun_ms"] or 0, -x["valor"])):
+            if x["speedrun_ms"]:
+                out.append(item(x, f'{tier} el {cuando(x["speedrun_ms"], r["tz"]).split(", ", 1)[1]}'))
+            else:
+                need = target_value(r.get("speedrun")) - x["valor"] if r.get("speedrun") in TIERS else None
+                out.append(item(x, x["liga"], False, f"Le faltan {need} LP para {tier}." if need and need > 0 else None))
+    return out
+
+
 # --------------------------------------------------------------------------- movements
 MOVES = {
     "ascenso": ["Sube a {ahora}. Que alguien avise a su madre.", "Asciende a {ahora}. Ya puede cambiarse la foto de perfil.",
@@ -819,6 +886,26 @@ def puesta_al_dia(datos, r, at_ms, ref_ms=None):
     for x in rows:
         x["veredicto"] = veredicto(x, rows, day)
     return rows
+
+
+def historial_global(datos, rows, r, at_ms, limit=300):
+    """The games of everybody in the race, newest first, with the LP each one moved when the history says it:
+    ([{...game, key, nombre, jugador, lp}], total)."""
+    end = min(at_ms, r["fin_ms"] or at_ms)
+    out = []
+    for x in rows:
+        mine = [g for g in datos.partidas.get(x["key"]) or [] if r["inicio_ms"] and r["inicio_ms"] <= g["fin"] <= end
+                and not g.get("rem")]
+        h, lp, used = datos.historial.get(x["key"]) or [], {}, set()
+        for i, won, delta in soloq_stats.lp_por_partida(h, value):
+            near = [g for g in mine if h[i - 1][0] - 120000 < g["fin"] <= h[i][0] and g["win"] == won and g["id"] not in used]
+            if near:
+                g = max(near, key=lambda g: g["fin"])
+                lp[g["id"]] = delta
+                used.add(g["id"])
+        out += [dict(g, key=x["key"], nombre=x["nombre"], jugador=x["jugador"], lp=lp.get(g["id"])) for g in mine]
+    out.sort(key=lambda g: -g["fin"])
+    return out[:limit], len(out)
 
 
 def datos_completos(datos, r, at_ms, max_games=150):
@@ -1128,6 +1215,7 @@ def demo(cfg, now_ms, days=9, seed=3, empezado=True):
                           "id": i + 1, "estado": "ok", "puuid": f"demo-{i}", "icono": 4000 + i * 37, "nivel": 30 + i}
         h, games, wins, losses, v = [_rec_of(None, joined, 0, 0)], [], 0, 0, None
         mains = ["Urgot"] * 3 if persona == "TheTrevur" else rng.sample(champs, 3)
+        lanes = rng.sample(["TOP", "JUNGLE", "MIDDLE", "BOTTOM", "UTILITY"], 2)
         t = start
         while empezado and per_day:
             t += rng.randint(2, 9) * 3600 * 1000 // max(per_day // 2, 1)
@@ -1135,9 +1223,19 @@ def demo(cfg, now_ms, days=9, seed=3, empezado=True):
                 break
             win = rng.random() < skill
             cid = rng.choice(mains)
-            games.append({"id": f"EUW1_{9000000 + len(games) + i * 1000}", "fin": t, "dur": rng.randint(1150, 2300),
-                          "champ": champ_name(cid), "cid": cid, "win": win, "k": rng.randint(1, 14), "d": rng.randint(1, 12),
-                          "a": rng.randint(2, 18), "pos": "", "cs": rng.randint(80, 260)})
+            dur = rng.randint(1150, 2300)
+            k, dth, a = rng.randint(1, 14), rng.randint(1, 12), rng.randint(2, 18)
+            game = {"id": f"EUW1_{9000000 + len(games) + i * 1000}", "fin": t, "dur": dur,
+                    "champ": champ_name(cid), "cid": cid, "win": win, "k": k, "d": dth, "a": a,
+                    "pos": rng.choice(lanes), "cs": rng.randint(80, 260), "dmg": rng.randint(8000, 42000),
+                    "taken": rng.randint(9000, 38000), "gold": int(dur / 60 * rng.randint(330, 470)),
+                    "vis": rng.randint(6, 55), "obj": rng.randint(0, 14000), "dead": int(dur * rng.uniform(.04, .2)),
+                    "solo": rng.choice([0, 0, 0, 1, 2]), "kp": round(rng.uniform(.3, .8), 3), "dp": round(rng.uniform(.12, .32), 3)}
+            if rng.random() < .1:
+                game["fb"] = 1
+            if k >= 8 and rng.random() < .5:
+                game["mk"] = rng.choice([2, 2, 2, 3, 3, 4, 5])
+            games.append(game)
             wins, losses = wins + win, losses + (not win)
             if v is None and len(games) >= 5:      # placements done
                 v = rng.choice([780, 900, 1010, 1150, 1240]) + 40 * (wins - losses)

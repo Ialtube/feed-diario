@@ -163,12 +163,14 @@ $$(".permiso [data-decision]").forEach(function(b){b.addEventListener("click",fu
     .catch(function(e){pm.className="msg err";pm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta.":"No se ha podido guardar."})})});
 
 // readers' notes nailed to the board
-var wall=$("#notas-lectores"),colors=["amarilla","rosa","verde",""];
+// they start the board empty and spread over its corners: the first under the chart, then round the rest of the board
+var corners=$$(".slot-notas").sort(function(a,b){return a.getAttribute("data-slot")-b.getAttribute("data-slot")}),colors=["amarilla","rosa","verde",""];
 function pin(n,i){var r=((i*37)%9-4)*0.8;return '<div class="cosa nota lector hoja '+colors[i%4]+'" style="--r:'+r+'deg"><i class="chincheta"></i>'+
   esc(n.texto)+'<span class="firma">— '+esc(n.nombre)+'</span></div>'}
-function loadNotas(){if(!ok||!wall)return;
-  api("soloq_notas?select=nombre,texto,created_at&order=id.desc&limit=12").then(function(r){return r.ok?r.json():[]}).then(function(rows){
-    wall.innerHTML=rows.map(pin).join("")}).catch(function(){})}
+function loadNotas(){if(!ok||!corners.length)return;
+  api("soloq_notas?select=id,nombre,texto,created_at&order=id.desc&limit=60").then(function(r){return r.ok?r.json():[]}).then(function(rows){
+    corners.forEach(function(c){c.innerHTML=""});
+    rows.forEach(function(n,i){var id=+n.id||rows.length-i;corners[(id-1)%corners.length].insertAdjacentHTML("beforeend",pin(n,id))})}).catch(function(){})}
 loadNotas();
 var clava=$("#clava");
 if(clava){var cm=$("#clava-msg");
@@ -183,6 +185,37 @@ if(clava){var cm=$("#clava-msg");
       .then(function(r){if(!r.ok)throw new Error(r.status);cm.className="msg ok";cm.textContent="Clavada. Ya la puede leer todo el mundo.";
         clava.texto.value="";loadNotas()})
       .catch(function(){cm.className="msg err";cm.textContent="El martillo ha fallado. Prueba otra vez."})})}
+
+// prizes: pressing one opens everybody's place in it
+var rd=$("#rank-dialog"),rb=$("#rank-cuerpo");
+if(rd&&rb){
+  function abrirRanking(t){var sec=$('#rankings [data-premio="'+t.getAttribute("data-premio")+'"]');if(!sec)return;
+    rb.innerHTML=sec.innerHTML;if(rd.showModal)rd.showModal();else rd.setAttribute("open","")}
+  $$(".vitrina .tr[data-premio]").forEach(function(t){t.addEventListener("click",function(){abrirRanking(t)});
+    t.addEventListener("keydown",function(ev){if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();abrirRanking(t)}})});
+  $("#rank-cerrar").addEventListener("click",function(){rd.close()});
+  rd.addEventListener("click",function(ev){if(ev.target===rd)rd.close()})}
+
+// player sheets: tabs, and any name on the board opens its sheet
+function verFicha(slug,scroll){var fs=$$(".ficha"),hit=null;
+  fs.forEach(function(f){var on=f.id==="ficha-"+slug;f.hidden=!on;if(on)hit=f});
+  if(!hit)return;
+  $$(".pest").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-ficha")===slug)});
+  if(scroll){var bar=$(".pestanas");if(bar)bar.scrollIntoView({behavior:"smooth",block:"start"});
+    try{history.replaceState(null,"","#ficha-"+slug)}catch(e){}}}
+document.addEventListener("click",function(ev){var a=ev.target.closest?ev.target.closest("[data-ficha]"):null;if(!a)return;
+  ev.preventDefault();$$("dialog[open]").forEach(function(d){d.close()});verFicha(a.getAttribute("data-ficha"),true)});
+if(location.hash.indexOf("#ficha-")===0)verFicha(location.hash.slice(7),false);
+
+// history board: filter by player, 15 games at a time
+var hl=$("#h-lista");
+if(hl){var hq=$("#h-quien"),hm=$("#h-mas"),hc=$("#h-cuenta"),hv=$("#h-vacio"),hrows=$$(".hrow",hl),hshown=15;
+  function pintarHistorial(){var k=hq.value,n=0;
+    hrows.forEach(function(r){var ok=!k||r.getAttribute("data-k")===k;if(ok)n++;r.hidden=!ok||n>hshown});
+    hm.parentNode.hidden=n<=hshown;hv.hidden=n>0;hc.textContent=k?n+(n===1?" partida de este jugador":" partidas de este jugador"):""}
+  hq.addEventListener("change",function(){hshown=15;pintarHistorial()});
+  hm.addEventListener("click",function(){hshown+=15;pintarHistorial()});
+  pintarHistorial()}
 
 // the board changed while the page was open
 var toast=$("#aviso");

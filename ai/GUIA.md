@@ -295,10 +295,8 @@ Piltover abre expediente», «la Lonja de Aguasturbias congela sus fondos».
       no mandas `tarjetas`, se quedan las de ayer tal cual. Cada una: `{"id": "minusculas-y-guiones", "titulo": "…",
       "subtitulo": "opcional", "tipo": "cifra|lista|barras|tabla|texto", "datos": {…}, "sugerencia": 12, "pie": "opcional"}`;
       la forma de `datos` de cada tipo está en `tipos_de_tarjeta`. Un poco de mala leche en títulos y pies, la de siempre.
-  - **El tablón** (opcional, recomendado): en `tablon` escribe hasta 6 notas de 15–220 caracteres que se clavan en el
-    tablón del reto junto a la clasificación, como si las dejara alguien: `[{"texto": "…", "firma": "…"}]`. Burla,
-    vacile y mala leche sobre los participantes y sus cifras, en la línea del periódico; firma con el elenco, con
-    personajes de Runeterra o con «Anónimo». Siempre sobre cómo juegan.
+  - **El tablón**: ya no se clavan notas de la redacción en el tablón del reto (las notas son solo de los lectores,
+    que empiezan con el tablón vacío). No escribas `tablon`; si lo mandas, se guarda pero no se muestra.
 - En `partidas_detalle`, `dentro_de_la_partida` cuenta quién dio o entregó la primera sangre, en qué
   minutos murió cada uno, cuántas veces en el mismo sitio, cuántas a manos de torres o súbditos y qué
   objetivos grandes se llevó.
@@ -516,7 +514,6 @@ las muertes de los tres que más murieron ese día. Mira `sorteo`:
     "sindicato": [{"campeon": "Diana", "jugador": "grangalax", "motivo": "Estrenada y enterrada en la misma noche"}]
   },
   "gaceta": {"titular": "…", "cuerpo": "Párrafo 1…\n\nPárrafo 2…", "firma": "Valeria Puñoférreo"},
-  "tablon": [{"texto": "Nota para clavar en el tablón del SoloQ Challenge…", "firma": "Comisario Ambrosio Cobretuerca"}],
   "tarjetas": [{"id": "muertes-por-partida", "titulo": "Los kamikazes del reto", "tipo": "barras", "sugerencia": 12,
                 "datos": {"filas": [{"nombre": "…", "valor": 7.4, "texto": "7,4 por partida"}]}}],
   "sugerencias_tablon": [{"id": 12, "decision": "hecha", "motivo": "Sale de las partidas del reto", "tarjeta": "muertes-por-partida"}],

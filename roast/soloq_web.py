@@ -1,7 +1,8 @@
 """The SoloQ Challenge page (docs/soloq/), a tab of the newspaper's website: an old wooden notice
 board with the standings nailed in the middle on a sheet of parchment, the LP chart of every player
 on another sheet below, and around them carved plaques, a wanted poster, clippings of El Rincón del
-Feeder and notes nailed by «somebody» (the robot, the newspaper's AI newsroom and the readers).
+Feeder and the readers' notes (the board starts without any). Below, the history of every game of the race
+and a sheet with the stats of each player; the prizes open their own ranking.
 Static HTML built by the robot; the browser only signs people up, pins readers' notes, counts down
 and notices when the table changes."""
 import hashlib
@@ -12,7 +13,7 @@ from datetime import datetime
 from html import escape
 from pathlib import Path
 
-from . import soloq
+from . import soloq, soloq_stats
 from .rangos import TIER_ES, TIERS
 from .util import MONTHS, fmt_int, fmt_num, long_date, short_date
 
@@ -143,7 +144,6 @@ h3.tit{font-size:22px}
 .nota{max-width:300px;padding:22px 18px 14px;font:24px/1.12 var(--hand);color:#2a1d12}
 .nota .firma{display:block;margin-top:8px;text-align:right;font-size:19px;color:var(--ink2)}
 .nota.amarilla{background-color:#efd98a}.nota.rosa{background-color:#e9b8a6}.nota.verde{background-color:#c9d39a}
-.nota.ia .firma:after{content:" · redacción del Rincón";font-size:15px}
 .nota.lector{font-size:22px}
 
 /* newspaper clipping */
@@ -169,18 +169,16 @@ h3.tit{font-size:22px}
 .col>*{width:100%}
 .col>.nota,.col>.recorte,.o9>.recorte{width:auto;max-width:300px}
 .centro{gap:40px}
-.fila-notas,.dispersas{display:flex;flex-wrap:wrap;gap:26px 30px;justify-content:center;align-items:flex-start}
-.fila-notas>.nota,.dispersas>.nota{flex:0 1 270px}
-.dispersas{margin-top:40px}
-.dispersas:empty{display:none}
 .bajo{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:34px;margin-top:44px;align-items:start}
 .bajo>.col{gap:34px}
-.notas-lectores{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;margin:0 0 40px}
-.notas-lectores:empty{display:none}
+.slot-notas{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;align-items:flex-start}
+.slot-notas:empty{display:none}
+.slot-notas.ancho{margin:34px 0 0}
+.slot-notas>.nota{flex:0 1 270px}
 @media (max-width:1100px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1.8fr)}
   .col.der{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:flex-start}
   .col.der>*{width:auto;flex:0 1 300px}.bajo{grid-template-columns:1fr 1fr}.bajo>.bando{grid-column:1/-1}}
-@media (max-width:820px){.grid,.bajo{display:flex;flex-direction:column;align-items:center;gap:30px}.col,.col.der,.fila-notas{display:contents}
+@media (max-width:820px){.grid,.bajo{display:flex;flex-direction:column;align-items:center;gap:30px}.col,.col.der{display:contents}
   .grid>*,.col>*,.bajo>*,.col.der>*{width:100%;max-width:640px;flex:none}.col>.nota,.col>.recorte,.o9>.recorte{max-width:330px}
   .o1{order:1}.o2{order:2}.o3{order:3}.o4{order:4}.o5{order:5}.o6{order:6}.o7{order:7}.o8{order:8}.o9{order:9}}
 
@@ -299,12 +297,9 @@ h3.tit{font-size:22px}
 .cartelito-ejemplo .placa{max-width:640px;width:100%}
 .aviso-ejemplo .in{padding:14px 18px;text-align:center}
 .aviso-ejemplo .frase{margin:6px 0 0;font:20px/1.15 var(--hand);color:#3b2b14}
-.ejemplo .clasif .hoja,.ejemplo .grafica .hoja{position:relative}
-.ejemplo .clasif .hoja::after,.ejemplo .grafica .hoja::after{content:"EJEMPLO";position:absolute;top:16px;right:18px;padding:2px 12px;
+.ejemplo .clasif .hoja,.ejemplo .grafica .hoja,.ejemplo .historial .hoja,.ejemplo .fichas .hoja{position:relative}
+.ejemplo .clasif .hoja::after,.ejemplo .grafica .hoja::after,.ejemplo .historial .hoja::after,.ejemplo .fichas .hoja::after{content:"EJEMPLO";position:absolute;top:16px;right:18px;padding:2px 12px;
   border:3px solid var(--red);color:var(--red);font:24px/1.1 var(--carve);letter-spacing:.1em;transform:rotate(9deg);opacity:.75;pointer-events:none}
-.inscritos-zona{display:flex;flex-wrap:wrap;gap:34px;justify-content:center;align-items:flex-start;margin:44px 0 0}
-.inscritos-zona>.clasif{flex:0 1 760px}
-.inscritos-zona>.nota{flex:0 0 auto;max-width:300px}
 
 /* ---------------------------------------------------------------- side pieces */
 .rey .in{padding:14px 12px}
@@ -425,6 +420,104 @@ h3.tit{font-size:22px}
 .reglas li{margin:0 0 5px;font-size:16px;line-height:1.3}
 .reglas ul ul li{margin:2px 0;font-size:15px}
 .reglas li b{font:17px var(--carve);letter-spacing:.02em}
+
+/* ---------------------------------------------------------------- prizes that open their ranking */
+.vitrina .tr[role=button]{cursor:pointer;transition:background .15s}
+.vitrina .tr[role=button]:hover,.vitrina .tr[role=button]:focus-visible{background:rgba(120,80,20,.13);outline:none}
+.vitrina .rk{margin-top:1px;font:italic 13px var(--script);color:var(--red)}
+.boton.sec{background:linear-gradient(180deg,#6b5a43,#3f3324);border-color:#2a2015}
+.rank-dialog{border:0;padding:0 14px;background:transparent;width:min(460px,94vw);overflow-x:hidden}
+.rank-dialog::backdrop{background:rgba(10,6,3,.72)}
+.rank-dialog .perg .hoja{padding:24px 24px 20px}
+.rank-dialog .botones{display:flex;justify-content:center;margin-top:14px}
+.rank{list-style:none;margin:0;padding:0}
+.rank li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:baseline;padding:8px 4px;border-bottom:1px dashed rgba(60,40,20,.45)}
+.rank .n{font:26px/1 var(--carve);text-align:center}
+.rank a{font:700 19px/1.2 var(--script);text-decoration:none}
+.rank a:hover{color:var(--red);text-decoration:underline}
+.rank .d{display:block;font:20px/1.1 var(--hand);color:var(--ink2)}
+.rank small{display:block;font:italic 13px/1.3 var(--script);color:var(--red)}
+.rank li.lider{background:rgba(154,106,8,.12)}.rank li.lider .n{color:#9a6a08}
+.rank li.no{opacity:.65}
+
+/* ---------------------------------------------------------------- history board */
+.historial .hoja,.fichas .hoja{container-type:inline-size}
+.hfiltro{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 12px}
+.hfiltro label{font:15px/1.2 var(--carve);letter-spacing:.04em;color:var(--ink2);text-transform:uppercase}
+.hfiltro select{display:block;min-width:210px;margin-top:4px;padding:5px 26px 5px 3px;border:0;border-bottom:2px solid var(--ink2);
+  background-color:transparent;background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);
+  background-position:calc(100% - 14px) 14px,calc(100% - 8px) 14px;background-size:6px 6px;background-repeat:no-repeat;
+  color:var(--ink);font:22px/1.1 var(--hand);border-radius:0;appearance:none}
+.hcuenta{font:italic 14px var(--script);color:var(--ink3)}
+.hcab,.hrow{display:grid;grid-template-columns:28px 32px minmax(0,1.7fr) 78px 62px 76px 56px 56px 92px;gap:8px;align-items:center}
+.hcab{padding:0 6px 6px;border-bottom:2px solid var(--ink);font:12px/1 var(--carve);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.hrow{padding:7px 6px;border-bottom:1px dashed rgba(60,40,20,.4);font-size:14px;line-height:1.25}
+.hrow[hidden],.ficha[hidden]{display:none}
+.hrow.v{background:linear-gradient(90deg,rgba(47,93,31,.12),transparent 55%)}
+.hrow.d{background:linear-gradient(90deg,rgba(139,26,26,.10),transparent 55%)}
+.hrow .res{display:grid;place-items:center;width:24px;height:24px;font:15px/1 var(--carve);color:#f3e8cc;border-radius:3px}
+.hrow.v .res{background:var(--green)}.hrow.d .res{background:var(--red)}
+.hrow .q{min-width:0}
+.hrow .nm{display:block;font:700 17px/1.1 var(--script);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:none}
+.hrow a.nm:hover{color:var(--red);text-decoration:underline}
+.hrow small{display:block;font-size:12px;line-height:1.2;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hrow .ins{display:inline-block;margin-top:2px;padding:0 6px;font:12px/1.5 var(--carve);letter-spacing:.04em;color:#f3e8cc;background:#9a6a08}
+.hrow .lp{font-weight:700}
+.hrow .t{font-size:13px;color:var(--ink2);text-align:right}
+.hrow .ch{width:30px;height:30px}
+.hmas{text-align:center;margin-top:14px}
+@container (max-width:680px){.hcab,.hrow{grid-template-columns:28px 32px minmax(0,1.6fr) 74px 58px 54px 86px}
+  .c-dm,.c-du,.hrow .dm,.hrow .du{display:none}}
+@container (max-width:470px){.hcab,.hrow{grid-template-columns:28px 32px minmax(0,1fr) 70px 52px}
+  .c-cs,.c-t,.hrow .cs,.hrow .t{display:none}}
+
+/* ---------------------------------------------------------------- player sheets */
+.fichas{margin-top:44px}
+.pestanas{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 18px}
+.pest{display:inline-flex;align-items:center;gap:7px;cursor:pointer;padding:4px 13px 4px 5px;font:700 16px/1 var(--script);color:var(--ink);
+  background:rgba(255,248,225,.28);border:1px solid rgba(60,40,20,.55);border-radius:22px}
+.pest .ch{width:26px;height:26px;border-width:1px;border-radius:50%;font-size:10px}
+.pest:hover{background:rgba(120,80,20,.16)}
+.pest.on{background:var(--ink2);color:#f3e8cc;border-color:var(--ink)}
+.fh{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-bottom:12px;margin-bottom:16px;border-bottom:2px solid var(--ink)}
+.fh .sello{width:56px;height:56px;font-size:19px}
+.fq{flex:1;min-width:200px}
+.fq h3{margin:0;font:700 30px/1.05 var(--script)}
+.fq h3 i{font-weight:400;font-size:19px;color:var(--ink2)}
+.fq .rid{font-size:14px;color:var(--ink3)}
+.fq .enl{margin-top:4px}
+.fl{text-align:right}.fl b{display:block;font:24px/1.1 var(--carve)}.fl span{font-size:17px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px 16px}
+.tl{border-bottom:1px dotted var(--ink3);padding-bottom:5px}
+.tl span{display:block;font:12px/1.2 var(--carve);letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
+.tl b{display:block;font:700 21px/1.15 var(--script)}
+.tl small{display:block;font-size:12.5px;color:var(--ink2)}
+.mks{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.mk{display:inline-flex;align-items:baseline;gap:7px;padding:3px 13px;border:1px solid rgba(60,40,20,.4);font:15px/1.3 var(--script);color:var(--ink3)}
+.mk b{font:24px/1 var(--carve)}
+.mk.on{color:var(--ink);border-color:var(--ink2);background:rgba(154,106,8,.15)}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+@container (max-width:720px){.fgrid{grid-template-columns:1fr}}
+.recs{list-style:none;margin:0;padding:0}
+.recs li{display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:9px;align-items:center;padding:5px 0;border-bottom:1px dotted rgba(60,40,20,.4)}
+.recs b{display:block;font-size:13px;color:var(--ink2)}
+.recs li>div>span{display:block;font:700 17px/1.1 var(--script)}
+.recs li.v>div>span{color:var(--green)}.recs li.d>div>span{color:var(--red)}
+.recs small{font-size:12px;line-height:1.25;color:var(--ink3);text-align:right}
+.ft{width:100%;border-collapse:collapse;font-size:14px}
+.ft th{padding:2px 4px;border-bottom:2px solid var(--ink2);font:11.5px var(--carve);letter-spacing:.05em;text-transform:uppercase;text-align:right;color:var(--ink3)}
+.ft td{padding:4px;border-bottom:1px dotted rgba(60,40,20,.35);text-align:right}
+.ft th:first-child,.ft td:first-child{text-align:left}
+.ft td:first-child .ch{display:inline-grid;vertical-align:middle;width:24px;height:24px;margin-right:7px;border-width:1px;font-size:10px}
+.bar{display:grid;grid-template-columns:96px minmax(0,1fr) 78px;gap:8px;align-items:center;margin:5px 0;font-size:14px}
+.bn small{display:block;font-size:11.5px;line-height:1;color:var(--ink3)}
+.bb{height:10px;border:1px solid var(--ink2);background:rgba(255,255,255,.2)}
+.bb i{display:block;height:100%;background:repeating-linear-gradient(90deg,var(--ink2) 0 5px,rgba(90,70,48,.6) 5px 7px)}
+.bv{text-align:right;color:var(--ink2)}
+.tilt{margin:8px 0 0;font:19px/1.15 var(--hand)}
+.vacia-p{margin:0;font-size:14px;color:var(--ink3)}
+.ficha .hlista .hrow{grid-template-columns:28px 32px minmax(0,1.4fr) 74px 54px 54px 84px}
+.ficha .hlista .dm,.ficha .hlista .du{display:none}
 
 /* ---------------------------------------------------------------- footer + toast */
 footer{max-width:1100px;margin:0 auto;padding:26px 20px 40px;color:#a68e6c;font:14px/1.5 var(--script);text-align:center}
@@ -602,12 +695,14 @@ $$(".permiso [data-decision]").forEach(function(b){b.addEventListener("click",fu
     .catch(function(e){pm.className="msg err";pm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta.":"No se ha podido guardar."})})});
 
 // readers' notes nailed to the board
-var wall=$("#notas-lectores"),colors=["amarilla","rosa","verde",""];
+// they start the board empty and spread over its corners: the first under the chart, then round the rest of the board
+var corners=$$(".slot-notas").sort(function(a,b){return a.getAttribute("data-slot")-b.getAttribute("data-slot")}),colors=["amarilla","rosa","verde",""];
 function pin(n,i){var r=((i*37)%9-4)*0.8;return '<div class="cosa nota lector hoja '+colors[i%4]+'" style="--r:'+r+'deg"><i class="chincheta"></i>'+
   esc(n.texto)+'<span class="firma">— '+esc(n.nombre)+'</span></div>'}
-function loadNotas(){if(!ok||!wall)return;
-  api("soloq_notas?select=nombre,texto,created_at&order=id.desc&limit=12").then(function(r){return r.ok?r.json():[]}).then(function(rows){
-    wall.innerHTML=rows.map(pin).join("")}).catch(function(){})}
+function loadNotas(){if(!ok||!corners.length)return;
+  api("soloq_notas?select=id,nombre,texto,created_at&order=id.desc&limit=60").then(function(r){return r.ok?r.json():[]}).then(function(rows){
+    corners.forEach(function(c){c.innerHTML=""});
+    rows.forEach(function(n,i){var id=+n.id||rows.length-i;corners[(id-1)%corners.length].insertAdjacentHTML("beforeend",pin(n,id))})}).catch(function(){})}
 loadNotas();
 var clava=$("#clava");
 if(clava){var cm=$("#clava-msg");
@@ -622,6 +717,37 @@ if(clava){var cm=$("#clava-msg");
       .then(function(r){if(!r.ok)throw new Error(r.status);cm.className="msg ok";cm.textContent="Clavada. Ya la puede leer todo el mundo.";
         clava.texto.value="";loadNotas()})
       .catch(function(){cm.className="msg err";cm.textContent="El martillo ha fallado. Prueba otra vez."})})}
+
+// prizes: pressing one opens everybody's place in it
+var rd=$("#rank-dialog"),rb=$("#rank-cuerpo");
+if(rd&&rb){
+  function abrirRanking(t){var sec=$('#rankings [data-premio="'+t.getAttribute("data-premio")+'"]');if(!sec)return;
+    rb.innerHTML=sec.innerHTML;if(rd.showModal)rd.showModal();else rd.setAttribute("open","")}
+  $$(".vitrina .tr[data-premio]").forEach(function(t){t.addEventListener("click",function(){abrirRanking(t)});
+    t.addEventListener("keydown",function(ev){if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();abrirRanking(t)}})});
+  $("#rank-cerrar").addEventListener("click",function(){rd.close()});
+  rd.addEventListener("click",function(ev){if(ev.target===rd)rd.close()})}
+
+// player sheets: tabs, and any name on the board opens its sheet
+function verFicha(slug,scroll){var fs=$$(".ficha"),hit=null;
+  fs.forEach(function(f){var on=f.id==="ficha-"+slug;f.hidden=!on;if(on)hit=f});
+  if(!hit)return;
+  $$(".pest").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-ficha")===slug)});
+  if(scroll){var bar=$(".pestanas");if(bar)bar.scrollIntoView({behavior:"smooth",block:"start"});
+    try{history.replaceState(null,"","#ficha-"+slug)}catch(e){}}}
+document.addEventListener("click",function(ev){var a=ev.target.closest?ev.target.closest("[data-ficha]"):null;if(!a)return;
+  ev.preventDefault();$$("dialog[open]").forEach(function(d){d.close()});verFicha(a.getAttribute("data-ficha"),true)});
+if(location.hash.indexOf("#ficha-")===0)verFicha(location.hash.slice(7),false);
+
+// history board: filter by player, 15 games at a time
+var hl=$("#h-lista");
+if(hl){var hq=$("#h-quien"),hm=$("#h-mas"),hc=$("#h-cuenta"),hv=$("#h-vacio"),hrows=$$(".hrow",hl),hshown=15;
+  function pintarHistorial(){var k=hq.value,n=0;
+    hrows.forEach(function(r){var ok=!k||r.getAttribute("data-k")===k;if(ok)n++;r.hidden=!ok||n>hshown});
+    hm.parentNode.hidden=n<=hshown;hv.hidden=n>0;hc.textContent=k?n+(n===1?" partida de este jugador":" partidas de este jugador"):""}
+  hq.addEventListener("change",function(){hshown=15;pintarHistorial()});
+  hm.addEventListener("click",function(){hshown+=15;pintarHistorial()});
+  pintarHistorial()}
 
 // the board changed while the page was open
 var toast=$("#aviso");
@@ -674,12 +800,6 @@ def _perg(inner, seed, cls="", extra=""):
 def _placa(inner, seed, cls=""):
     nail = _nails(["left:3px;top:3px", "right:3px;top:3px", "left:3px;bottom:3px", "right:3px;bottom:3px"])
     return f'<div class="cosa placa {cls}" style="--r:{_rot(seed, 1.2)}"><div class="in">{inner}</div>{nail}</div>'
-
-
-def _nota(texto, firma, seed, cls=""):
-    color = ["amarilla", "", "rosa", "verde", ""][int(hashlib.sha1(seed.encode()).hexdigest(), 16) % 5]
-    return (f'<div class="cosa nota hoja {color} {cls}" style="--r:{_rot(seed, 4)};clip-path:{_torn(seed, 2.2, 8)}">'
-            f'<i class="clavo" style="left:calc(50% - 7px);top:5px"></i>{_e(texto)}<span class="firma">— {_e(firma)}</span></div>')
 
 
 # --------------------------------------------------------------------------- pictures
@@ -896,7 +1016,8 @@ def _fila(cfg, r, x, ver, rel_paper, row_id, noticias):
     games = "".join(f'<span class="partida {"v" if g["win"] else "d"}" title="{_e(g["champ"])}">'
                     f'{_champ_img(g.get("cid"), g["champ"], ver)}{g["k"]}/{g["d"]}/{g["a"]}</span>' for g in x["ultimas"])
     lema = f'<p class="lema-fila">«{_e(x["lema"])}»</p>' if x.get("lema") else ""
-    links = [f'<a href="{_e(_opgg(cfg, x["riot_id"]))}" target="_blank" rel="noopener">OP.GG ↗</a>']
+    links = [f'<a href="#ficha-{soloq.slug_key(x["key"])}" data-ficha="{soloq.slug_key(x["key"])}">Ficha completa ↓</a>',
+             f'<a href="{_e(_opgg(cfg, x["riot_id"]))}" target="_blank" rel="noopener">OP.GG ↗</a>']
     if x.get("jugador"):
         links.append(f'<a href="{rel_paper}jugadores/{_e(x["jugador"])}.html">Su ficha en El Rincón del Feeder</a>')
     news = [n for n in noticias if x.get("jugador") and n.get("player") == x["jugador"]][:3]
@@ -956,16 +1077,229 @@ def _vitrina(trofeos):
 
     def one(t):
         who = _e(t["nombre"]) if t["nombre"] else "Nadie todavía"
-        return (f'<div class="tr {t["estado"]}"><span class="em">{t["emoji"]}</span>'
+        return (f'<div class="tr {t["estado"]}" role="button" tabindex="0" data-premio="{_e(t["premio"])}" '
+                f'title="Ver cómo va la clasificación de este premio"><span class="em">{t["emoji"]}</span>'
                 f'<div><div class="pt">{_e(t["titulo"])}{f"<small>{_e(t['valor'])}</small>" if t["principal"] else ""}</div><div class="pc">{_e(t["criterio"])}</div>'
                 f'<div class="pw"><span class="st">{label[t["estado"]]}</span>{who}</div>'
                 + (f'<div class="pd">{_e(t["dato"])}</div>' if t["nombre"] and t["dato"] else "")
-                + (f'<div class="px">{_e(t["nota"])}</div>' if t["nota"] else "") + '</div></div>')
+                + (f'<div class="px">{_e(t["nota"])}</div>' if t["nota"] else "") + '<div class="rk">Ver la clasificación ›</div></div></div>')
 
     main = [t for t in trofeos if t["principal"]]
     rest = [t for t in trofeos if not t["principal"]]
     return ('<h4>Premios principales</h4>' + "".join(one(t) for t in main)
             + '<h4>Premios secundarios · un chupito cada uno</h4>' + "".join(one(t) for t in rest))
+
+
+SLOTS = 6
+
+
+def _slot(n, cls=""):
+    """An empty corner of the board where the readers' notes get pinned (the page's script fills it)."""
+    return f'<div class="slot-notas {cls}" data-slot="{n}"></div>'
+
+
+def _pct0(x):
+    return "–" if x is None else f"{round(x * 100)} %"
+
+
+def _min_s(sec):
+    sec = int(sec)
+    return f"{sec // 60}:{sec % 60:02d}"
+
+
+def _numero(x, dec=1, unit=""):
+    return None if x is None else fmt_num(x, dec) + unit
+
+
+def _entero(x, unit=""):
+    return None if x is None else fmt_int(x) + unit
+
+
+def _cuando(ms, tz):
+    d = datetime.fromtimestamp(ms / 1000, tz)
+    return f"{d.day} {MONTHS[d.month - 1][:3]} · {d:%H:%M}"
+
+
+def _hrow(g, ver, tz, hidden=False, propio=False):
+    """One game of the history board. `propio` = inside a player's own sheet (the champion leads, not the player)."""
+    kda = soloq_stats.kda_of(g)
+    mins = (g.get("dur") or 0) / 60
+    lane = soloq_stats.POS_ES.get(g.get("pos"), "")
+    slug = soloq.slug_key(g["key"])
+    if propio:
+        first = f'<span class="nm">{_e(g["champ"])}</span>'
+        second = _e(lane)
+    else:
+        first = f'<a class="nm" href="#ficha-{slug}" data-ficha="{slug}">{_e(g["nombre"])}</a>'
+        second = _e(g["champ"]) + (f" · {_e(lane)}" if lane else "")
+    cs = f'<b>{g["cs"]}</b><small>{g["cs"] / mins:.1f}/min</small>' if g.get("cs") is not None and mins else "<b>–</b>"
+    dmg = f'<b>{fmt_int(g["dmg"])}</b><small>daño</small>' if g.get("dmg") is not None else "<b>–</b>"
+    extra = []
+    if g.get("mk"):
+        extra.append(soloq_stats.MULTI[g["mk"]].rstrip("s"))
+    if g.get("fb"):
+        extra.append("1ª sangre")
+    badge = f'<span class="ins">{_e(" · ".join(extra))}</span>' if extra else ""
+    lp = _signed(g["lp"]) if g.get("lp") is not None else '<span class="eq">–</span>'
+    return (f'<div class="hrow {"v" if g["win"] else "d"}" data-k="{_e(g["key"])}"{" hidden" if hidden else ""}>'
+            f'<span class="res" title="{"Victoria" if g["win"] else "Derrota"}">{"V" if g["win"] else "D"}</span>'
+            f'{_champ_img(g.get("cid"), g["champ"], ver)}'
+            f'<div class="q">{first}<small>{second}</small>{badge}</div>'
+            f'<div class="kda"><b>{g["k"]}/{g["d"]}/{g["a"]}</b><small>KDA {kda:.1f}</small></div>'
+            f'<div class="cs">{cs}</div><div class="dm">{dmg}</div>'
+            f'<div class="du"><b>{_min_s(g["dur"]) if g.get("dur") else "–"}</b><small>min</small></div>'
+            f'<div class="lp">{lp}</div><div class="t">{_cuando(g["fin"], tz)}</div></div>')
+
+
+_HCAB = ('<div class="hcab"><span></span><span></span><span>Jugador</span><span>K/D/A</span><span class="c-cs">CS</span>'
+         '<span class="c-dm">Daño</span><span class="c-du">Duración</span><span>LP</span><span class="c-t">Cuándo</span></div>')
+
+
+def _historial(entries, total, rows, ver, tz):
+    """The history board: every game of everybody, newest first, 15 at a time and filterable by player."""
+    if not entries:
+        return _perg('<h2 class="tit">Historial de partidas</h2><p class="vacia">Aquí se irán clavando todas las partidas '
+                     'de todos, con quién ganó, quién la cagó y cuánto tardó en hacerlo.</p>', "historial", "historial o4")
+    opts = "".join(f'<option value="{_e(x["key"])}">{_e(x["nombre"])}</option>' for x in rows if x["partidas"])
+    shown = 15
+    lis = "".join(_hrow(g, ver, tz, hidden=i >= shown) for i, g in enumerate(entries))
+    cap = f" (las {len(entries)} más recientes)" if total > len(entries) else ""
+    return _perg(
+        f'<h2 class="tit">Historial de partidas</h2><p class="sub">{fmt_int(total)} partidas en el reto{cap}, de la más reciente a la '
+        'más antigua. Pulsa un nombre para abrir su ficha.</p>'
+        '<div class="hfiltro"><label>Jugador<select id="h-quien"><option value="">Todos</option>' + opts + '</select></label>'
+        '<span class="hcuenta" id="h-cuenta"></span></div>'
+        f'{_HCAB}<div class="hlista" id="h-lista" data-total="{len(entries)}">{lis}</div>'
+        '<p class="vacia hvacio" id="h-vacio" hidden>Este jugador todavía no ha jugado ni una.</p>'
+        '<div class="hmas"><button class="boton sec" id="h-mas" type="button">Ver más partidas</button></div>',
+        "historial", "historial o4")
+
+
+def _barras(items):
+    top = max((i["n"] for i in items), default=0) or 1
+    return "".join(
+        f'<div class="bar"><span class="bn">{_e(i["nombre"])}' + (f'<small>{_e(i["detalle"])}</small>' if i["detalle"] else "") + '</span>'
+        f'<span class="bb"><i style="width:{i["n"] / top * 100:.0f}%"></i></span>'
+        f'<span class="bv">{i["n"]}' + (f' · {round(i["v"] / i["n"] * 100)} %' if i["n"] else "") + '</span></div>' for i in items)
+
+
+def _tabla(rows):
+    return ('<table class="ft"><thead><tr><th></th><th>Partidas</th><th>Winrate</th><th>KDA</th></tr></thead>'
+            f'<tbody>{rows}</tbody></table>')
+
+
+def _avatar(x, ver):
+    """His summoner icon, or his initials until the picture loads."""
+    ini = _initials(x["nombre"])
+    if not (ver and x.get("icono")):
+        return f'<span class="ch" data-i="{_e(ini)}"></span>'
+    return (f'<span class="ch" data-i="{_e(ini)}"><img src="{soloq.DDRAGON}/cdn/{ver}/img/profileicon/{int(x["icono"])}.png" '
+            f'alt="" loading="lazy" onerror="this.remove()"></span>')
+
+
+def _tile(label, value, sub=""):
+    if value is None:
+        return ""
+    return f'<div class="tl"><span>{_e(label)}</span><b>{_e(value)}</b>' + (f'<small>{_e(sub)}</small>' if sub else "") + "</div>"
+
+
+def _ficha(cfg, r, x, ver, games, rel_paper, active):
+    """A player's sheet: every number that can be pulled out of his games in the race."""
+    f = x["ficha"]
+    slug = soloq.slug_key(x["key"])
+    mote = f' <i>«{_e(x["apodo"])}»</i>' if x["apodo"] != x["nombre"] else ""
+    links = [f'<a href="{_e(_opgg(cfg, x["riot_id"]))}" target="_blank" rel="noopener">OP.GG ↗</a>']
+    if x.get("jugador"):
+        links.append(f'<a href="{rel_paper}jugadores/{_e(x["jugador"])}.html">Su ficha en El Rincón del Feeder</a>')
+    head = (f'<div class="fh">{_sello(x)}<div class="fq"><h3>{_e(x["nombre"])}{mote}</h3>'
+            f'<div class="rid">{_e(x["riot_id"])}{" · nivel " + str(x["nivel"]) if x.get("nivel") else ""}</div>'
+            f'<div class="enl">{"".join(links)}</div></div>'
+            f'<div class="fl"><b>{_e(x["liga"])}</b><span>{_signed(x["lp_reto"])} en el reto</span></div></div>')
+    if not f["n"]:
+        body = '<p class="vacia">Todavía sin partidas en el reto. Cuando juegue, aquí se apuntará hasta lo que no quiere que se sepa.</p>'
+    else:
+        rk = x["racha"]
+        md = f["mejor_dia"]
+        dia = datetime.fromisoformat(md["fecha"]).date()
+        tiles = [
+            ("Partidas", fmt_int(f["n"]), f'{f["victorias"]}V {f["derrotas"]}D'), ("Winrate", _pct0(x["winrate"]), ""),
+            ("KDA", fmt_num(f["kda"], 2), f'{fmt_num(f["k_media"])} / {fmt_num(f["d_media"])} / {fmt_num(f["a_media"])}'),
+            ("Participación en kills", _pct0(f["kp"]), ""), ("CS por minuto", _numero(f["cs_min"]), ""),
+            ("Daño por minuto", _entero(f["dmg_min"]), ""), ("Daño por partida", _entero(f["dmg_media"]), ""),
+            ("Daño del equipo", _pct0(f["dmg_equipo"]) if f["dmg_equipo"] is not None else None, "su parte"),
+            ("Daño recibido", _entero(f["recibido_media"]), "por partida"), ("Oro por minuto", _entero(f["oro_min"]), ""),
+            ("Visión por minuto", _numero(f["vis_min"], 2), f'{fmt_num(f["vis_media"], 0)} por partida' if f["vis_media"] is not None else ""),
+            ("Daño a objetivos", _entero(f["objetivos_media"]), "por partida"),
+            ("Primeras sangres", str(f["primeras_sangres"]), ""), ("Solo kills", str(f["solo_kills"]), ""),
+            ("Tiempo muerto", _pct0(f["muerto"]) if f["muerto"] is not None else None, "de cada partida"),
+            ("Duración media", f'{_min_s(f["dur_media"])} min' if f["dur_media"] else None, ""),
+            ("Horas jugadas", fmt_num(f["horas"], 1), ""),
+            ("Partidas al día", fmt_num(f["media_dia"], 1), f'{f["dias_jugados"]} días jugados'),
+            ("Su mejor día", f'{md["n"]} partidas', f'{dia.day} de {MONTHS[dia.month - 1]}'),
+            ("Mejor racha", f'{x["mejor_racha"]} victorias', ""), ("Peor racha", f'{x["peor_racha"]} derrotas', ""),
+            ("Racha actual", f'{abs(rk)} {("victoria" if abs(rk) == 1 else "victorias") if rk > 0 else ("derrota" if abs(rk) == 1 else "derrotas")}' if rk else None, ""),
+            ("LP por victoria", f'+{f["lp_victoria"]:.0f}' if f["lp_victoria"] is not None else None, ""),
+            ("LP por derrota", f'−{abs(f["lp_derrota"]):.0f}' if f["lp_derrota"] is not None else None, ""),
+            ("Empezó en", x["inicio"], ""), ("Pico", x["pico"], ""), ("Peor momento", x["valle"], ""),
+        ]
+        multis = "".join(f'<span class="mk{" on" if n else ""}"><b>{n}</b>{_e(name)}</span>' for name, n in f["multi"])
+        recs = "".join(
+            f'<li class="{"v" if g["win"] else "d"}">{_champ_img(g.get("cid"), g["champ"], ver)}<div><b>{_e(g["titulo"])}</b>'
+            f'<span>{_e(g["valor"])}</span></div><small>{_e(g["champ"])} · {_e(g["kda"])}<br>{_cuando(g["fin"], r["tz"])}</small></li>'
+            for g in f["records"])
+        champs = "".join(
+            f'<tr><td>{_champ_img(c.get("cid"), c["champ"], ver)}<span>{_e(c["champ"])}</span></td><td>{c["n"]}</td>'
+            f'<td>{round(c["v"] / c["n"] * 100)} %</td><td>{fmt_num(c["kda"], 2)}</td></tr>' for c in f["campeones"][:8])
+        lanes = "".join(f'<tr><td><span>{_e(c["nombre"])}</span></td><td>{c["n"]}</td><td>{round(c["v"] / c["n"] * 100)} %</td>'
+                        f'<td>{fmt_num(c["kda"], 2)}</td></tr>' for c in f["lineas"])
+        tv, td = f["tras_victoria"], f["tras_derrota"]
+        tilt = (f'<p class="tilt">Tras ganar: <b>{round(tv[1] / tv[0] * 100)} %</b> de victorias ({tv[0]} partidas). '
+                f'Tras perder: <b>{round(td[1] / td[0] * 100)} %</b> ({td[0]} partidas).</p>' if tv[0] and td[0] else "")
+        recent = "".join(_hrow(g, ver, r["tz"], propio=True) for g in games[:10])
+        body = (f'<div class="tiles">{"".join(_tile(*t) for t in tiles)}</div><div class="mks">{multis}</div>'
+                f'<div class="fgrid"><div class="recuadro"><h4>Récords personales</h4><ul class="recs">{recs}</ul></div>'
+                f'<div class="recuadro"><h4>Sus LP, a tinta</h4>{_chart(x, r)}{tilt}</div>'
+                f'<div class="recuadro"><h4>Campeones</h4>{_tabla(champs)}</div>'
+                f'<div class="recuadro"><h4>Líneas</h4>' + (_tabla(lanes) if lanes else "<p class=\"vacia-p\">Riot no ha dicho en qué línea jugó.</p>") + '</div>'
+                f'<div class="recuadro"><h4>A qué hora juega</h4>{_barras(f["franjas"])}</div>'
+                f'<div class="recuadro"><h4>Qué día de la semana</h4>{_barras(f["dias"])}</div>'
+                f'<div class="recuadro"><h4>Cuánto duran sus partidas</h4>{_barras(f["duraciones"])}</div>'
+                f'<div class="recuadro"><h4>Sus últimas partidas</h4><div class="hlista">{recent}</div></div></div>')
+    return f'<div class="ficha" id="ficha-{slug}" data-k="{_e(x["key"])}"{"" if active else " hidden"}>{head}{body}</div>'
+
+
+def _fichas(cfg, r, rows, ver, entries, rel_paper):
+    """The sheets of all the players: tabs on top, one sheet open at a time."""
+    if not rows:
+        return ""
+    by_key = {}
+    for g in entries:
+        by_key.setdefault(g["key"], []).append(g)
+    tabs = "".join(
+        f'<button type="button" class="pest{" on" if i == 0 else ""}" data-ficha="{soloq.slug_key(x["key"])}">'
+        f'{_avatar(x, ver)}<span>{_e(x["nombre"])}</span></button>' for i, x in enumerate(rows))
+    sheets = "".join(_ficha(cfg, r, x, ver, by_key.get(x["key"], []), rel_paper, i == 0) for i, x in enumerate(rows))
+    return _perg('<h2 class="tit">Fichas de los jugadores</h2><p class="sub">Todo lo que se puede saber de cada uno con sus '
+                 'partidas del reto. Elige un nombre, o pulsa en uno cualquiera de la clasificación o del historial.</p>'
+                 f'<div class="pestanas">{tabs}</div>{sheets}', "fichas", "fichas")
+
+
+def _rankings(trofeos, ranks):
+    """What the prize dialog shows: for every prize, everybody's place. Hidden until a prize is clicked."""
+    secs = []
+    for t in trofeos:
+        lst = ranks.get(t["premio"]) or []
+        lead = next((i for i, e in enumerate(lst) if e["ok"]), None)
+        lis = "".join(
+            f'<li class="{"" if e["ok"] else "no"}{" lider" if i == lead else ""}"><span class="n">{i + 1}</span>'
+            f'<div><a href="#ficha-{soloq.slug_key(e["key"])}" data-ficha="{soloq.slug_key(e["key"])}">{_e(e["nombre"])}</a>'
+            f'<span class="d">{_e(e["dato"])}</span>' + (f'<small>{_e(e["nota"])}</small>' if e["nota"] else "") + "</div></li>"
+            for i, e in enumerate(lst))
+        body = f'<ol class="rank">{lis}</ol>' if lis else '<p class="vacia">Todavía no hay nada que ordenar. Nadie ha jugado lo bastante.</p>'
+        valor = f' · {_e(t["valor"])}' if t["principal"] else ""
+        secs.append(f'<section data-premio="{_e(t["premio"])}"><h3 class="tit">{t["emoji"]} {_e(t["titulo"])}</h3>'
+                    f'<p class="sub">{_e(t["criterio"])}{valor}</p>{body}</section>')
+    return f'<div id="rankings" hidden>{"".join(secs)}</div>'
 
 
 def _dia(ms, r):
@@ -1120,18 +1454,17 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
     ranked = [x for x in rows if x["valor"] is not None] if started else []
     ids = {x["key"]: "j-" + soloq.slug_key(x["key"]) for x in rows}
     awards = soloq.premios(rows) if started else []
-    vitrina = _perg('<h3 class="tit">Premios</h3><p class="sub">Quién se lleva cada uno ahora mismo. Los principales '
-                    f'piden {r["min_partidas"]} partidas en el reto y {r["min_final"]} en los últimos {r["dias_finales"]} '
-                    'días.</p>' + _vitrina(soloq.trofeos(rows, r, ph)), "vitrina", "vitrina")
+    premios = soloq.trofeos(rows, r, ph)
+    vitrina = _perg('<h3 class="tit">Premios</h3><p class="sub">Quién se lleva cada uno ahora mismo. Pulsa en uno para ver '
+                    f'cómo va su clasificación. Los principales piden {r["min_partidas"]} partidas en el reto y '
+                    f'{r["min_final"]} en los últimos {r["dias_finales"]} días.</p>' + _vitrina(premios), "vitrina", "vitrina")
+    ranks = {t["premio"]: soloq.ranking_trofeo(t["premio"], rows, r, ph) for t in premios}
+    entries, total = soloq.historial_global(datos, rows, r, at) if started else ([], 0)
     moves = soloq.movimientos(datos, r, (r["inicio_ms"] or 0) - 7 * 86400000, at, limit=12)
     _, rejected = soloq.activos(datos, r)
     title = r["nombre"]
     site_title = cfg.get("site_title", "El Rincón del Feeder")
     news = noticias(editions, rows, rel_paper, r["inicio_ms"])
-    latest_ai = next((e for e in sorted(editions or [], key=lambda e: e["date"], reverse=True) if e.get("tablon")), None)
-    pinned = ([(n["texto"], n["firma"], "ia") for n in (latest_ai or {}).get("tablon") or []]
-              + [(n["texto"], n["firma"], "") for n in soloq.notas(rows, ph, day, cast)])
-    notes = [_nota(t, f, f"{day}{i}", f"{cls} o9") for i, (t, f, cls) in enumerate(pinned)]
     buzon = buzon or []
     with_cards = next((e for e in sorted(editions or [], key=lambda e: e["date"], reverse=True) if e.get("tarjetas") is not None), None)
     cards = (with_cards or {}).get("tarjetas") or []
@@ -1209,27 +1542,33 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
                      + _registro(moves), "registro", "registro o7")
     muro = (_perg('<h3 class="tit">Muro de la vergüenza</h3><p class="sub">Premios que nadie quiere ganar.</p>' + _muro(awards),
                   "muro", "muro o8") if started else "")
-    recortes = [_recorte(n, n["href"], "o9") for n in news[:3]] or [
-        _nota("Aquí se clavan los recortes de El Rincón del Feeder sobre el reto. Todavía no ha escrito nada: "
-              "ni la prensa os hace caso.", "El repartidor del periódico", "recortes", "o9")]
-    left = [reloj, cifras] + notes[0:2] + ([muro] if muro else notes[2:4])
-    rest = notes[2:] if muro else notes[4:]
-    right = [vitrina] + [x for x in (rey, busca) if x] + recortes + [registro]
-    grid = (f'<div class="grid"><div class="col izq">{"".join(left)}</div>'
-            f'<div class="col centro">{clasif}{grafica}<div class="fila-notas">{"".join(rest[:3])}</div></div>'
-            f'<div class="col der">{"".join(right)}</div></div><div class="dispersas">{"".join(rest[3:])}</div>')
+    recortes = [_recorte(n, n["href"], "o9") for n in news[:3]]
+    historial = _historial(entries, total, rows, ver, r["tz"])
+    fichas = _fichas(cfg, r, rows, ver, entries, rel_paper)
+    # the readers' notes start the board empty: the page's script pins them in these corners as they arrive
+    left = [reloj, cifras] + [x for x in (rey, busca) if x] + recortes + ([muro] if muro else []) + [_slot(1, "o9")]
+    right = [vitrina, registro, _slot(2, "o9")]
+    centre = [clasif, grafica, _slot(0, "o2")] + ([_ejemplo["inscritos"]] if _ejemplo and _ejemplo.get("inscritos") else []) + [
+        historial, _slot(3, "o4")]
+    grid = (f'<div class="grid"><div class="col izq">{"".join(left)}</div><div class="col centro">{"".join(centre)}</div>'
+            f'<div class="col der">{"".join(right)}</div></div>{_slot(4, "ancho")}{fichas}{_slot(5, "ancho")}'
+            f'{_rankings(premios, ranks)}')
     if _ejemplo:
         return grid
     if ph == "inscripcion" and r.get("ejemplo"):
         ex_datos, ex_now = _ejemplo_datos(cfg, r, now_ms)
-        ex_grid = render(cfg, ex_datos, ex_now, roster, ver, rel_paper, (), cast, _ejemplo={"reloj": reloj})
+        ex_grid = render(cfg, ex_datos, ex_now, roster, ver, rel_paper, (), cast,
+                         _ejemplo={"reloj": reloj, "inscritos": _perg(
+                             f'<h2 class="tit">Lista de inscritos</h2><p class="sub">Estos sí son de verdad: cuentas de cero, una por '
+                             f'cabeza. La clasificación se clava arriba en cuanto suene el pistoletazo. {when}</p>{_lista(rows, rel_paper)}',
+                             "inscritos", "inscritos")})
         salida = f'el {_dia(r["inicio_ms"], r)}' if r["inicio_ms"] else "en cuanto el jefe dé la salida"
         aviso = _placa('<div class="tallado" style="font-size:26px">Ejemplo</div><p class="frase">Así se verá el tablón con '
-                       'el reto en marcha. Los números y las partidas de aquí abajo son inventados: desde el pistoletazo, '
-                       f'{_e(salida)}, se cambian solos por los de verdad. Los apuntados de verdad están más abajo.</p>',
+                       'el reto en marcha. Los números, las partidas y las fichas son inventados: desde el pistoletazo, '
+                       f'{_e(salida)}, se cambian solos por los de verdad. Los apuntados de verdad están en la «Lista de '
+                       'inscritos», la que no lleva sello.</p>',
                        "ejemplo", "aviso-ejemplo")
-        grid = (f'<div class="cartelito-ejemplo">{aviso}</div><div class="ejemplo">{ex_grid}</div>'
-                f'<div class="inscritos-zona">{clasif}{"".join(notes[:3])}</div>')
+        grid = f'<div class="cartelito-ejemplo">{aviso}</div><div class="ejemplo">{ex_grid}</div>'
 
     # ---- sign-up sheet, readers' notes and the laws
     configured = bool(cfg.get("supabase_url") and cfg.get("supabase_anon_key"))
@@ -1316,6 +1655,9 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
         'lanzas ahora; el tablón se actualiza en unos 3 minutos.</p>'
         '<button class="boton sec forzar" type="button" id="forzar">Forzar la pasada</button>'
         '<p class="msg" id="forzar-msg" role="status"></p>' + permisos, "jefe") + '</dialog>')
+    rank = ('<dialog class="rank-dialog jefe-dialog" id="rank-dialog">' + _perg(
+        '<div id="rank-cuerpo"></div><div class="botones"><button class="boton sec" type="button" id="rank-cerrar">Cerrar</button></div>',
+        "rank") + '</dialog>')
     feeder = json.dumps({"url": cfg.get("supabase_url", "") if not closed else "", "key": cfg.get("supabase_anon_key", ""),
                          "fase": ph, "control": datos.inscritos.get("control_id", 0), "sugerencias": [b["id"] for b in buzon],
                          "conocidos": sorted({x["key"] for x in rows} | {k for k, _, _ in rejected}),
@@ -1343,7 +1685,6 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
 <i class="perno" style="left:8px;bottom:8px"></i><i class="perno" style="right:8px;bottom:8px"></i>
 <div class="tablon">
 {cartel}
-<div class="notas-lectores" id="notas-lectores" aria-live="polite"></div>
 {grid}
 {bajo}
 </div>
@@ -1351,6 +1692,7 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
 <footer><p>{_e(LEGAL.format(name=title, site=site_title))}</p>
 <p><a href="{rel_paper}index.html">Leer El Rincón del Feeder</a>, el periódico que cuenta cada mañana lo que pasa en este tablón.</p></footer>
 {jefe}
+{rank}
 <div class="aviso" id="aviso" role="status"><span>Alguien ha movido el tablón</span><button class="boton" type="button">Mirar</button></div>
 <script>window.SOLOQ={feeder};</script>
 <script src="soloq.js?v={ASSET_VERSION}" defer></script>
