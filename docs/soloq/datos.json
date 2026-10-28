@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "inscripcion",
- "actualizado": 1793141723179,
+ "actualizado": 1793221018363,
  "clasificacion": [
   {
    "puesto": 1,
@@ -20,6 +20,42 @@
    "nombre": "Giroroo",
    "apodo": "La Guadaña de la Mon",
    "riot_id": "Xillie#8107",
+   "liga": "Sin clasificar",
+   "lp_hoy": null,
+   "partidas": 0,
+   "victorias": 0,
+   "derrotas": 0,
+   "racha": 0
+  },
+  {
+   "puesto": 3,
+   "nombre": "Wôlf",
+   "apodo": "Barro",
+   "riot_id": "Theossichi#9248",
+   "liga": "Sin clasificar",
+   "lp_hoy": null,
+   "partidas": 0,
+   "victorias": 0,
+   "derrotas": 0,
+   "racha": 0
+  },
+  {
+   "puesto": 4,
+   "nombre": "GSJoseador",
+   "apodo": "El Comodín de la Grieta",
+   "riot_id": "SantuJk#1510",
+   "liga": "Sin clasificar",
+   "lp_hoy": null,
+   "partidas": 0,
+   "victorias": 0,
+   "derrotas": 0,
+   "racha": 0
+  },
+  {
+   "puesto": 5,
+   "nombre": "RDV Canyon",
+   "apodo": "Minguez",
+   "riot_id": "FisityBard#3700",
    "liga": "Sin clasificar",
    "lp_hoy": null,
    "partidas": 0,
