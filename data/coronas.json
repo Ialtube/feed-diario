@@ -26,6 +26,15 @@
       "opcion": "si",
       "importe": 20,
       "created_at": "2026-10-26T16:17:02.082098+00:00"
+    },
+    {
+      "id": 4,
+      "nombre": "GSJoseador",
+      "lector": "09b8825c-98fb-4423-80cb-71868b8c5060",
+      "mercado": "2026-10-27-muertes",
+      "opcion": "grangalax",
+      "importe": 10,
+      "created_at": "2026-10-27T09:24:21.354305+00:00"
     }
   ]
 }
