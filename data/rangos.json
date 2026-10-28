@@ -2550,19 +2550,19 @@
       "slug": "fr4nux",
       "alias": "Fr4nux",
       "principal": true,
-      "flex": {
-        "tier": "GOLD",
-        "rank": "I",
-        "lp": 99,
-        "wins": 114,
-        "losses": 97
-      },
       "solo": {
         "tier": "PLATINUM",
         "rank": "I",
         "lp": 69,
         "wins": 263,
         "losses": 240
+      },
+      "flex": {
+        "tier": "GOLD",
+        "rank": "I",
+        "lp": 99,
+        "wins": 114,
+        "losses": 97
       }
     },
     "gsjoseador#2711": {
@@ -2610,19 +2610,19 @@
       "slug": "ipredatorz",
       "alias": "iPredatoRz",
       "principal": true,
-      "flex": {
-        "tier": "GOLD",
-        "rank": "II",
-        "lp": 68,
-        "wins": 92,
-        "losses": 102
-      },
       "solo": {
         "tier": "EMERALD",
         "rank": "II",
         "lp": 94,
         "wins": 168,
         "losses": 156
+      },
+      "flex": {
+        "tier": "GOLD",
+        "rank": "II",
+        "lp": 68,
+        "wins": 92,
+        "losses": 102
       }
     },
     "sunraku#998": {
@@ -2690,19 +2690,19 @@
       "slug": "giroroo",
       "alias": "Giroroo",
       "principal": false,
-      "flex": {
-        "tier": "EMERALD",
-        "rank": "IV",
-        "lp": 29,
-        "wins": 29,
-        "losses": 17
-      },
       "solo": {
         "tier": "EMERALD",
         "rank": "II",
         "lp": 16,
         "wins": 217,
         "losses": 188
+      },
+      "flex": {
+        "tier": "EMERALD",
+        "rank": "IV",
+        "lp": 29,
+        "wins": 29,
+        "losses": 17
       }
     },
     "killuasatoru#6257": {
