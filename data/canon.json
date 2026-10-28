@@ -68,6 +68,11 @@
           "tipo": "caída",
           "texto": "Juega desde las nueve de la mañana: gana con Ekko y, en cuanto gana, vuelve a la Qiyana maldita.",
           "fecha": "2026-10-27"
+        },
+        {
+          "tipo": "redención",
+          "texto": "Cumple la orden de alejamiento de Qiyana: una partida, Locke y victoria. Primera noche sin recaída.",
+          "fecha": "2026-10-28"
         }
       ]
     },
@@ -84,6 +89,10 @@
         {
           "fecha": "2026-10-27",
           "texto": "el de la cuenta de cero"
+        },
+        {
+          "fecha": "2026-10-28",
+          "texto": "el cangrejo de la cuenta nueva"
         }
       ],
       "rasgos": [
@@ -191,6 +200,11 @@
           "tipo": "redención",
           "texto": "Sube a Platino I con dos puntos tras una Kalista de 35,9 % del daño, mientras su Jhin es el que menos daño hace de su equipo.",
           "fecha": "2026-10-26"
+        },
+        {
+          "tipo": "redención",
+          "texto": "La Jinx le funciona como medicina; en cuanto la cambia por Kalista, una Jinx rival le devuelve a la camilla.",
+          "fecha": "2026-10-28"
         }
       ]
     },
@@ -345,6 +359,10 @@
         {
           "fecha": "2026-10-21",
           "texto": "el chivato del mismo sitio"
+        },
+        {
+          "fecha": "2026-10-28",
+          "texto": "el otro Saiko"
         }
       ],
       "rasgos": [
@@ -409,6 +427,10 @@
         {
           "fecha": "2026-10-25",
           "texto": "el que no sabe irse a casa"
+        },
+        {
+          "fecha": "2026-10-28",
+          "texto": "el botiquín de Esmeralda"
         }
       ],
       "rasgos": [
@@ -456,6 +478,11 @@
           "tipo": "caída",
           "texto": "Catorce partidas más tras las dieciséis del sábado y 98 muertes: líder de la General sin salir de la Grieta.",
           "fecha": "2026-10-26"
+        },
+        {
+          "tipo": "ascenso",
+          "texto": "Vuelve a Esmeralda IV con cero puntos de margen: cinco Sorakas, un asesinato y la ayuda de su propia copia.",
+          "fecha": "2026-10-28"
         }
       ]
     }
@@ -502,6 +529,11 @@
           "fecha": "2026-10-27",
           "campo": "estado",
           "texto": "Tiene en su poder el pagaré del director"
+        },
+        {
+          "fecha": "2026-10-28",
+          "campo": "estado",
+          "texto": "Pide la suspensión del director y guarda una copia del pagaré"
         }
       ]
     },
@@ -519,6 +551,11 @@
           "fecha": "2026-10-23",
           "campo": "estado",
           "texto": "Citado como testigo por la Comisaría: declara que «solo certifica»"
+        },
+        {
+          "fecha": "2026-10-28",
+          "campo": "estado",
+          "texto": "La Gaceta de Noxus le señala como origen del dinero del pagaré"
         }
       ]
     },
@@ -636,6 +673,11 @@
           "fecha": "2026-10-27",
           "campo": "estado",
           "texto": "Su firma aparece en un pagaré a favor de Barbanegra; convoca una reunión con «varios» en el orden del día"
+        },
+        {
+          "fecha": "2026-10-28",
+          "campo": "estado",
+          "texto": "Hexwick ha leído en voz alta el reverso de su pagaré: apostó con dinero prestado a que el Barón perdía el trono y firmó la fórmula que se lo quitó. Encerrado en su despacho."
         }
       ]
     },
@@ -877,6 +919,10 @@
         {
           "fecha": "2026-10-22",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-28",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -948,6 +994,13 @@
           "resumen": "Jinx 19/2/10 con dos cuádruples y 37 % del daño; Kalista muere cuatro veces en los diez primeros minutos y cobra el 21,8 % del oro por el 14 % del daño. Fr4nux culpa a un Nunu del día anterior.",
           "titulares": [
             "Sobre el Nunu, y sobre lo que pasó cuando no había Nunu"
+          ]
+        },
+        {
+          "fecha": "2026-10-28",
+          "resumen": "Jinx 2–0 con un 33,5 % del daño en la primera; se pasa a Kalista, pierde la calle contra una Jinx (11/3/8), cobra el 22,7 % del oro por el 10,4 % del daño, se lleva el Barón y pierde.",
+          "titulares": [
+            "Le mató su propia medicina"
           ]
         }
       ]
@@ -1214,6 +1267,13 @@
           "titulares": [
             "«Lo otro» era un pagaré"
           ]
+        },
+        {
+          "fecha": "2026-10-28",
+          "resumen": "Hexwick lee el reverso del pagaré en la reunión de la redacción: era el dinero de una apuesta a que el Barón perdía el trono, y el director firmó esa misma mañana la fórmula que se lo quitó. Pide su suspensión; él se encierra con el original, ella guarda una copia.",
+          "titulares": [
+            "El pagaré tenía letra pequeña"
+          ]
         }
       ],
       "estados": [
@@ -1239,6 +1299,10 @@
         },
         {
           "fecha": "2026-10-27",
+          "estado": "desenlace"
+        },
+        {
+          "fecha": "2026-10-28",
           "estado": "desenlace"
         }
       ]
@@ -1283,6 +1347,11 @@
         {
           "fecha": "2026-10-27",
           "resumen": "La Gaceta roba otra exclusiva: publica la carta de traslado sin enviar del cronista Venda y le ofrece sitio en Noxus.",
+          "titulares": []
+        },
+        {
+          "fecha": "2026-10-28",
+          "resumen": "La Gaceta se adelanta otra vez: publica que el dinero del pagaré salió de la caja del forense Humoverde, que cobra por muerte. Y defiende el ascenso de Saiko.",
           "titulares": []
         }
       ],
@@ -1475,6 +1544,10 @@
         {
           "fecha": "2026-10-26",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-28",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1490,6 +1563,13 @@
           "resumen": "Baja a seis partidas: pierde las tres primeras de SoloQ, cae de Esmeralda IV a Platino I y gana dos de tres en Flex.",
           "titulares": [
             "Saiko aprende a irse a casa y no le sirve de nada"
+          ]
+        },
+        {
+          "fecha": "2026-10-28",
+          "resumen": "Siete partidas y vuelve a Esmeralda IV con cero LP: recupera los mismos 71 puntos que perdió el martes, con cinco Sorakas (un asesinato) y tres victorias en dúo con la cuenta SAIIIIIIKO de RDV Canyon. Pierde con Blitzcrank y Taric.",
+          "titulares": [
+            "Saiko vuelve a Esmeralda sin mancharse las manos"
           ]
         }
       ]
@@ -1529,6 +1609,13 @@
             "La emperatriz pide volver con Wôlf",
             "Triple con el Ekko prestado"
           ]
+        },
+        {
+          "fecha": "2026-10-28",
+          "resumen": "grangalax cumple la orden de alejamiento: una sola partida, Locke 14/10/5 y victoria contra una Diana en el carril central. Qiyana, a salvo.",
+          "titulares": [
+            "Ninguna Qiyana en la escena"
+          ]
         }
       ]
     },
@@ -1545,6 +1632,10 @@
         {
           "fecha": "2026-10-27",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-28",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -1553,6 +1644,39 @@
           "resumen": "TheTrevur se inscribe el primero en el SoloQ Challenge, que exige una cuenta comprada de cero, con una de nivel 469 en Diamante IV.",
           "titulares": [
             "Una cuenta de cero con 469 niveles"
+          ]
+        },
+        {
+          "fecha": "2026-10-28",
+          "resumen": "TheTrevur cambia la cuenta de nivel 469 en Diamante IV por una de nivel 30 sin clasificar. Giroroo se inscribe también. Ninguno juega.",
+          "titulares": [
+            "El cangrejo muda de caparazón"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-otro-saiko",
+      "titulo": "El otro Saiko",
+      "abierto": "2026-10-28",
+      "protagonistas": [
+        "rdv-canyon",
+        "saiko"
+      ],
+      "reparto": [],
+      "resumen": "RDV Canyon juega en dúo con Saiko desde una smurf llamada SAIIIIIIKO: 3–0 juntos, y la copia (Esmeralda II) sube por encima del original (Esmeralda IV).",
+      "estados": [
+        {
+          "fecha": "2026-10-28",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-28",
+          "resumen": "RDV Canyon juega en dúo con Saiko desde una smurf llamada SAIIIIIIKO: 3–0 juntos, y la copia (Esmeralda II) sube por encima del original (Esmeralda IV).",
+          "titulares": [
+            "Seis minutos de Gragas y la Lonja descorcha"
           ]
         }
       ]
@@ -1602,6 +1726,10 @@
     {
       "fecha": "2026-10-27",
       "texto": "Los lunes la Flex del grupo se adelanta a las siete y cuarto de la tarde y a las nueve y diez ya ha terminado."
+    },
+    {
+      "fecha": "2026-10-28",
+      "texto": "Los martes no hay Flex del grupo: la noche se reparte en dúos de SoloQ."
     }
   ],
   "chistes": [
@@ -1640,10 +1768,25 @@
       "texto": "CARRY NOT FOUND",
       "fechas": [
         "2026-10-20",
-        "2026-10-22"
+        "2026-10-22",
+        "2026-10-28"
       ],
-      "usos": 2,
+      "usos": 3,
       "semilla": true
+    },
+    {
+      "texto": "la orden de alejamiento de Qiyana",
+      "fechas": [
+        "2026-10-28"
+      ],
+      "usos": 1
+    },
+    {
+      "texto": "el que no sabe irse a casa",
+      "fechas": [
+        "2026-10-28"
+      ],
+      "usos": 1
     }
   ],
   "sindicato": [
@@ -1742,6 +1885,18 @@
       "jugador": "saiko",
       "motivo": "Dos derrotas en un día, una de doce minutos sin matar ni morir",
       "fecha": "2026-10-27"
+    },
+    {
+      "campeon": "Taric",
+      "jugador": "saiko",
+      "motivo": "Sacado para cerrar la noche: ocho muertes, ningún asesinato y el 2 % del daño a las puertas de Esmeralda",
+      "fecha": "2026-10-28"
+    },
+    {
+      "campeon": "Kalista",
+      "jugador": "fr4nux",
+      "motivo": "Sacada después de dos victorias con Jinx para perder la calle contra una Jinx con el Barón en el bolsillo",
+      "fecha": "2026-10-28"
     }
   ]
 }
