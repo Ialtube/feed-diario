@@ -29,8 +29,8 @@
       "persona": "TheTrevur",
       "puuid": "JcsTDDa7xeDI8YPglsI8rc83ledN3EqfHdmQH1CPpThgajR2EXF4J8QZnOdIzH-T-VIyG_tkcUIfVA",
       "icono": 29,
-      "nivel": 30,
-      "icono_ms": 1793202904886
+      "nivel": 31,
+      "icono_ms": 1793257038052
     },
     "xillie#8107": {
       "riot_id": "Xillie#8107",
@@ -46,7 +46,7 @@
       "puuid": "l-Trzz0MYXJTHsyzqdOg7GZ-q1ZtRPUdVEVJSqkX1QCaT8WCkPVybQ97b1t90VX80QCwf2ub7XaRBw",
       "icono": 29,
       "nivel": 30,
-      "icono_ms": 1793202904886
+      "icono_ms": 1793257038052
     },
     "theossichi#9248": {
       "riot_id": "Theossichi#9248",
@@ -97,7 +97,7 @@
       "icono_ms": 1793221018363
     }
   },
-  "actualizado": 1793221018363,
+  "actualizado": 1793257038052,
   "ddragon": "16.21.1",
   "avisos": {
     "programado": 1793487600000,
