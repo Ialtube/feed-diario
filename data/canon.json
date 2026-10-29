@@ -205,6 +205,11 @@
           "tipo": "redención",
           "texto": "La Jinx le funciona como medicina; en cuanto la cambia por Kalista, una Jinx rival le devuelve a la camilla.",
           "fecha": "2026-10-28"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Deja en el cajón la Jinx que le curaba, prueba Kai'Sa, pone tres guardianes y se deja diecinueve puntos.",
+          "fecha": "2026-10-29"
         }
       ]
     },
@@ -363,6 +368,10 @@
         {
           "fecha": "2026-10-28",
           "texto": "el otro Saiko"
+        },
+        {
+          "fecha": "2026-10-29",
+          "texto": "la copia infiel"
         }
       ],
       "rasgos": [
@@ -381,7 +390,13 @@
           "texto": "Condenado a distancia, absuelto en persona"
         }
       ],
-      "arcos": []
+      "arcos": [
+        {
+          "tipo": "villano",
+          "texto": "Sube a Saiko con la cuenta SAIIIIIIKO y al día siguiente la usa para irse al dúo de Fr4nux. Pierden los dos.",
+          "fecha": "2026-10-29"
+        }
+      ]
     },
     "giroroo": {
       "alias": "Giroroo",
@@ -483,6 +498,11 @@
           "tipo": "ascenso",
           "texto": "Vuelve a Esmeralda IV con cero puntos de margen: cinco Sorakas, un asesinato y la ayuda de su propia copia.",
           "fecha": "2026-10-28"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Sin su copia, pierde Esmeralda IV en la primera partida del día siguiente; gana las dos últimas y se queda a nueve puntos.",
+          "fecha": "2026-10-29"
         }
       ]
     }
@@ -584,6 +604,11 @@
           "fecha": "2026-10-27",
           "campo": "estado",
           "texto": "Entrega a la Fiscalía el resguardo del día 21 y un pagaré del director a su favor"
+        },
+        {
+          "fecha": "2026-10-29",
+          "campo": "estado",
+          "texto": "Vendió el pagaré del director a la Gaceta de Noxus; es el único que puede recomprarlo"
         }
       ]
     },
@@ -634,6 +659,11 @@
           "fecha": "2026-10-27",
           "campo": "estado",
           "texto": "La Gaceta de Noxus publica su carta de traslado sin enviar"
+        },
+        {
+          "fecha": "2026-10-29",
+          "campo": "estado",
+          "texto": "Fue a Noxus a pedir trabajo y volvió con el endoso del pagaré; su traslado, en el aire"
         }
       ]
     },
@@ -678,6 +708,11 @@
           "fecha": "2026-10-28",
           "campo": "estado",
           "texto": "Hexwick ha leído en voz alta el reverso de su pagaré: apostó con dinero prestado a que el Barón perdía el trono y firmó la fórmula que se lo quitó. Encerrado en su despacho."
+        },
+        {
+          "fecha": "2026-10-29",
+          "campo": "estado",
+          "texto": "Encerrado con un pagaré original que ya no vale nada: su deuda es de Noxus"
         }
       ]
     },
@@ -714,6 +749,11 @@
           "fecha": "2026-10-26",
           "campo": "estado",
           "texto": "Presume de su cuarta exclusiva: el resguardo de la apuesta del director"
+        },
+        {
+          "fecha": "2026-10-29",
+          "campo": "estado",
+          "texto": "Es la dueña del pagaré del director, endosado a su nombre por Barbanegra"
         }
       ]
     }
@@ -923,6 +963,10 @@
         {
           "fecha": "2026-10-28",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-29",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1001,6 +1045,13 @@
           "resumen": "Jinx 2–0 con un 33,5 % del daño en la primera; se pasa a Kalista, pierde la calle contra una Jinx (11/3/8), cobra el 22,7 % del oro por el 10,4 % del daño, se lleva el Barón y pierde.",
           "titulares": [
             "Le mató su propia medicina"
+          ]
+        },
+        {
+          "fecha": "2026-10-29",
+          "resumen": "Ni Jinx ni Kalista: Kai'Sa 6/9/4 con el 20,2 % del daño, el 24,5 % del oro y tres guardianes en 29 minutos contra un Twitch 10/1/9. Baja de 69 a 50 LP en Platino I.",
+          "titulares": [
+            "«En el Vacío, por lo menos, se veía algo»"
           ]
         }
       ]
@@ -1274,6 +1325,13 @@
           "titulares": [
             "El pagaré tenía letra pequeña"
           ]
+        },
+        {
+          "fecha": "2026-10-29",
+          "resumen": "Venda, en Noxus para hablar de su traslado, ve el recibo del endoso: Barbanegra vendió el pagaré del director a Valeria Puñoférreo. El director no puede echar a Barbanegra porque es el único que puede recomprarlo; el original del despacho es papel mojado.",
+          "titulares": [
+            "Endosado a Noxus"
+          ]
         }
       ],
       "estados": [
@@ -1303,6 +1361,10 @@
         },
         {
           "fecha": "2026-10-28",
+          "estado": "desenlace"
+        },
+        {
+          "fecha": "2026-10-29",
           "estado": "desenlace"
         }
       ]
@@ -1353,6 +1415,11 @@
           "fecha": "2026-10-28",
           "resumen": "La Gaceta se adelanta otra vez: publica que el dinero del pagaré salió de la caja del forense Humoverde, que cobra por muerte. Y defiende el ascenso de Saiko.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-10-29",
+          "resumen": "La Gaceta presume de haber publicado el endoso en su edición vespertina antes que el Rincón: es la dueña de la deuda del director y cobra los intereses en exclusivas.",
+          "titulares": []
         }
       ],
       "estados": [
@@ -1362,6 +1429,10 @@
         },
         {
           "fecha": "2026-10-22",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-29",
           "estado": "escalando"
         }
       ]
@@ -1548,6 +1619,10 @@
         {
           "fecha": "2026-10-28",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-29",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1570,6 +1645,13 @@
           "resumen": "Siete partidas y vuelve a Esmeralda IV con cero LP: recupera los mismos 71 puntos que perdió el martes, con cinco Sorakas (un asesinato) y tres victorias en dúo con la cuenta SAIIIIIIKO de RDV Canyon. Pierde con Blitzcrank y Taric.",
           "titulares": [
             "Saiko vuelve a Esmeralda sin mancharse las manos"
+          ]
+        },
+        {
+          "fecha": "2026-10-29",
+          "resumen": "Cuatro Sorakas: pierde las dos primeras (y Esmeralda IV) y gana las dos últimas. 24 muertes y nueve puntos menos: Platino I 91.",
+          "titulares": [
+            "Esmeralda IV, a los cero puntos de edad"
           ]
         }
       ]
@@ -1616,6 +1698,13 @@
           "titulares": [
             "Ninguna Qiyana en la escena"
           ]
+        },
+        {
+          "fecha": "2026-10-29",
+          "resumen": "Segunda noche sin Qiyana: grangalax no juega.",
+          "titulares": [
+            "El Barón, rehabilitado por incomparecencia"
+          ]
         }
       ]
     },
@@ -1660,6 +1749,7 @@
       "titulo": "El otro Saiko",
       "abierto": "2026-10-28",
       "protagonistas": [
+        "fr4nux",
         "rdv-canyon",
         "saiko"
       ],
@@ -1669,6 +1759,10 @@
         {
           "fecha": "2026-10-28",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-10-29",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1677,6 +1771,13 @@
           "resumen": "RDV Canyon juega en dúo con Saiko desde una smurf llamada SAIIIIIIKO: 3–0 juntos, y la copia (Esmeralda II) sube por encima del original (Esmeralda IV).",
           "titulares": [
             "Seis minutos de Gragas y la Lonja descorcha"
+          ]
+        },
+        {
+          "fecha": "2026-10-29",
+          "resumen": "La copia SAIIIIIIKO se va al dúo de Fr4nux (Leona y Kai'Sa) y pierde 24 LP. Saiko, solo, pierde Esmeralda IV en su primera partida (cuatro muertes antes del minuto ocho) y acaba en Platino I con 91: ya no están en la misma liga.",
+          "titulares": [
+            "La copia se fue de dúo con otro"
           ]
         }
       ]
@@ -1730,6 +1831,10 @@
     {
       "fecha": "2026-10-28",
       "texto": "Los martes no hay Flex del grupo: la noche se reparte en dúos de SoloQ."
+    },
+    {
+      "fecha": "2026-10-29",
+      "texto": "Los miércoles sin Flex, Saiko abre la SoloQ antes de las seis de la tarde y el resto del grupo no aparece."
     }
   ],
   "chistes": [
@@ -1785,6 +1890,13 @@
       "texto": "el que no sabe irse a casa",
       "fechas": [
         "2026-10-28"
+      ],
+      "usos": 1
+    },
+    {
+      "texto": "el otro Saiko",
+      "fechas": [
+        "2026-10-29"
       ],
       "usos": 1
     }
@@ -1897,6 +2009,12 @@
       "jugador": "fr4nux",
       "motivo": "Sacada después de dos victorias con Jinx para perder la calle contra una Jinx con el Barón en el bolsillo",
       "fecha": "2026-10-28"
+    },
+    {
+      "campeon": "Kai'Sa",
+      "jugador": "fr4nux",
+      "motivo": "Sacada para no elegir entre Jinx y Kalista: nueve muertes y tres guardianes en veintinueve minutos ante un Twitch",
+      "fecha": "2026-10-29"
     }
   ]
 }

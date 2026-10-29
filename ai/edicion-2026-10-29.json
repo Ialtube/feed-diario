@@ -1,0 +1,130 @@
+{
+  "piezas": [
+    {"angulo": null, "player": "rdv-canyon", "peso": "grande", "portada": true, "formato": "reportaje", "hilo": "el-otro-saiko",
+     "seccion": "REPORTAJE",
+     "headline": "La copia se fue de dúo con otro",
+     "subtitulo": "SAIIIIIIKO, la cuenta que subió a Saiko a Esmeralda, pasa la tarde del miércoles en el dúo de Fr4nux. El original no aguanta ni una partida.",
+     "body": "El martes, a Saiko lo subió a Esmeralda otro Saiko: la cuenta SAIIIIIIKO, con la que RDV Canyon le llevó en dúo a tres victorias seguidas. El miércoles, a las 18:56, la copia estaba otra vez en cola. Con otro tirador. Con Fr4nux.\n\nEl original se enteró como se entera uno de estas cosas: jugando solo. Abrió la tarde con su Soraka y antes del minuto ocho ya había muerto cuatro veces. Enfrente, un Sylas que acabó 14/7/12 y con casi cinco mil de oro más que él. La Esmeralda IV que había conquistado la víspera con cero puntos duró exactamente una partida. La segunda la perdió muriendo tres veces en la misma baldosa, por si alguien dudaba de que era él.\n\nLa nueva pareja tampoco funcionó. Fr4nux sacó una Kai'Sa y murió nueve veces; la copia, de Leona, mandó sesenta y cuatro avisos y plantó veintiún guardianes para que se viera bien cómo le mataban al tirador. Derrota en veintinueve minutos y veinticuatro puntos menos para SAIIIIIIKO, que se queda, eso sí, en Esmeralda II.\n\nSaiko ganó después las dos siguientes, solo, con treinta asistencias en la última. No le llegó: cierra la noche en Platino I con noventa y un puntos, a nueve de la casa que le habían regalado.\n\nPor primera vez desde el martes, ya no duermen en la misma liga.",
+     "meme": {"plantilla": "db", "lineas": ["El dúo de Fr4nux", "SAIIIIIIKO", "Saiko, a cero puntos del abismo"]},
+     "pie": "Recreación de la Academia de Piltover. La copia no quiso posar."},
+
+    {"angulo": "a5", "peso": "grande", "formato": "entrevista", "hilo": "carry-not-found", "seccion": "CIENCIA",
+     "entrevistado": "Kai'Sa", "campeon": "Kai'Sa",
+     "headline": "«En el Vacío, por lo menos, se veía algo»",
+     "subtitulo": "La Hija del Vacío habla del tirador que la sacó para no tener que elegir entre Jinx y Kalista.",
+     "body": "Fr4nux llevaba dos días alternando la Jinx que le cura y la Kalista que le hunde. El miércoles eligió una tercera vía y se dejó diecinueve puntos en ella. La Academia de Piltover, que estudia su caso desde hace semanas, ha localizado a la víctima.\n\n—¿Cómo se enteró de que iba a jugar con él?\n—Cuando ya estaba en la calle. Nadie me avisó. En realidad nadie me avisó de nada en toda la partida.\n—Puso tres guardianes en veintinueve minutos.\n—Tres. Su soporte puso veintiuno. Yo veía el mapa como de niña en el Vacío, con una diferencia: allí sabía que en la oscuridad había algo esperándome.\n—¿Y en la Grieta no?\n—En la Grieta era un Twitch. Una rata con ballesta. Acabó diez a uno. Sobreviví años sola entre bichos que querían comerme y he muerto nueve veces en una tarde con una rata de Zaun delante.\n—Murió por primera vez antes del minuto tres.\n—Y la segunda, antes del cuatro. A esas alturas yo ya había entendido el plan. Él no.\n—Hizo el 20 % del daño de su equipo. Para lo que acostumbra, no está mal.\n—Cobró casi un cuarto del oro y entregó un quinto del daño. En Piltover eso tiene nombre, y no es «tirador».\n—¿Volvería a jugar con él?\n—Mi simbionte se niega, y es más listo que yo.\n—¿Algún consejo?\n—Que vuelva a la Jinx. Ella ya no tiene nada que perder.",
+     "pie": "Kai'Sa, en una de las pocas zonas del mapa iluminadas el miércoles."},
+
+    {"angulo": null, "peso": "mediana", "formato": "fe de erratas", "hilo": "el-escandalo-de-la-lonja", "seccion": "POLÍTICA",
+     "headline": "Endosado a Noxus",
+     "subtitulo": "El cronista Venda va a Noxus a pedir trabajo y vuelve con la verdadera razón por la que el director no puede tocar a Barbanegra.",
+     "body": "En la edición del martes este periódico afirmó que el director protege a Barbanegra porque le debe dinero. Es falso. Le debía dinero. Ahora se lo debe a otra persona.\n\nEl cronista Venda, que acudió a la redacción de la Gaceta a hablar de su traslado, salió con la entrevista de trabajo a medias y la explicación entera. Valeria Puñoférreo le enseñó, con la satisfacción de quien enseña un trofeo de caza, un recibo firmado por Barbanegra: «Páguese a la orden de V. P.». El Contable vendió el pagaré del director a la Gaceta. El original con el que Plumanegra se encerró en su despacho es papel mojado.\n\nPor eso no puede echarle: Barbanegra es el único que sabe a qué precio lo vendió y el único que puede intentar recomprarlo. Y por eso la Gaceta llega siempre antes: cobra los intereses en exclusivas.\n\nRectificamos con gusto. El director, no.",
+     "stat": "V. P.", "stat_label": "a cuya orden se paga la deuda del director"},
+
+    {"angulo": "a3", "peso": "mediana", "formato": "nota de prensa", "seccion": "EL FARO DE LA ESPERANZA",
+     "headline": "Saiko ilumina el mapa entero y no encuentra Esmeralda",
+     "body": "Los Centinelas de la Luz comunican que el mejor del grupo el miércoles fue Saiko, lo cual dice más del miércoles que de Saiko.\n\nTras perder las dos primeras, la Soraka encadenó dos victorias sin pedir nada a cambio: un 1/3/20 metida en tres de cada cuatro asesinatos de su equipo, y un cierre de cuarenta minutos con treinta asistencias, cien de visión y cuarenta y cuatro guardianes. Dos asesinatos en toda la tarde. La Luz no cuenta los cadáveres que uno hace, sino los que evita.\n\nEl cronista Venda, que lleva semanas buscando un día en que nadie pase de cinco muertes, tendrá que seguir buscando: el soporte del Faro murió nueve veces en la primera.\n\nDos victorias, dos derrotas y nueve puntos menos. Hasta cuando le sale bien, sale a deber."},
+
+    {"angulo": "a14", "peso": "mediana", "formato": "esquela", "hilo": "el-que-no-sabe-irse-a-casa", "seccion": "SUCESOS",
+     "headline": "Esmeralda IV, a los cero puntos de edad",
+     "body": "Rogad por la Esmeralda IV de Saiko, que nos dejó el miércoles por la tarde, en su primera partida, sin haber llegado a cumplir un solo punto.\n\nLlegó el martes a hombros ajenos y se fue a manos de un Sylas que le robó todo lo que encontró. Su dueño murió cuatro veces antes del minuto ocho, cerró la tarde con veinticuatro muertes en cuatro partidas y diez minutos en gris, y no volvió a verla.\n\nLe sobreviven noventa y un puntos de Platino I, una Soraka con dos victorias y una copia llamada SAIIIIIIKO que no vino al entierro: estaba en otra partida, con otro.\n\nLa familia no acepta flores. Acepta nueve puntos.",
+     "meme": {"plantilla": "grave", "lineas": ["Esmeralda IV", "Saiko", "Un Sylas 14/7/12"]},
+     "pie": "Sepelio en el camposanto de Platino. Aforo completo de rivales."},
+
+    {"angulo": "a13", "peso": "mediana", "formato": "ranking", "seccion": "SOLOQ CHALLENGE",
+     "headline": "El vestuario, ordenado por lo que se cree cada uno",
+     "body": "Quedan tres días para que el SoloQ Challenge abra la puerta, el domingo a medianoche, y el vestuario ya tiene cinco cuentas recién compradas y ninguna partida. Clasificación provisional, por distancia entre lo que prometen y lo que juegan:\n\n1. Wôlf, «Barro». Promete Aspirante. Su grito de guerra es «Hola». El hombre que no para de hacer pings se presenta al reto de su vida con una palabra.\n2. RDV Canyon, «Minguez». Promete Diamante y no deja grito. Quien tiene una cuenta con el nombre de otro jugador sabe que lo importante es no dejar rastro.\n3. GSJoseador, «El Comodín de la Grieta». Promete Esmeralda y «top damage del equipo». En la hemeroteca de este periódico va 12–21.\n4. TheTrevur, «Urgod». Promete Esmeralda con «E + Flash» desde una cuenta principal en Diamante IV. Es el único al que la promesa le queda pequeña, y lo sabe.\n5. Giroroo, «La Guadaña de la Mon». Promete Esmeralda y un grito que este periódico no reproduce antes del horario infantil.\n\nEl castigo del farolillo rojo, una partida entera de soporte con Teemo, ya tiene favorito. Se apuntó ayer y dijo «Hola»."},
+
+    {"angulo": "a20", "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD",
+     "headline": "Miércoles sin nadie",
+     "body": "Los miércoles la Flex del grupo arrancaba pasadas las ocho y encadenaba cinco partidas. Este miércoles no hubo Flex y siete del grupo no aparecieron. Jugaron tres, y dos de ellos eran, en algún sentido, Saiko."},
+
+    {"angulo": null, "player": "grangalax", "peso": "breve", "formato": "breve", "hilo": "el-intercambio-de-maldiciones", "seccion": "CULTURA",
+     "headline": "El Barón, rehabilitado por incomparecencia",
+     "body": "El Barón de la Moneda cumple su segunda noche sin Qiyana por el método más seguro que se conoce: no jugar. La emperatriz pasa el miércoles en el armario, intacta, y el Sindicato estudia si un jugador ausente cuenta como rehabilitado o solo como dormido."},
+
+    {"angulo": null, "peso": "breve", "formato": "breve", "seccion": "ECONOMÍA",
+     "headline": "Tres de tres y la ventanilla vacía",
+     "body": "Barbanegra cotizó ayer que Saiko sería el que más moriría, que acabaría en el podio de la vergüenza y que no habría Flex del grupo. Acertó las tres. No había apostado nadie. El único día que el Contable tiene razón, no cobra ni él. En el Sorteo, un boleto y el bote sigue en 1.100."},
+
+    {"angulo": null, "player": "gsjoseador", "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD",
+     "headline": "Era suyo",
+     "body": "El «¿Quién fue?» de ayer escondía un Xerath sin nombre. Lo intentaron dos veces, las dos desde la cuenta de GSJoseador, y las dos acertó a la primera. Era su propio Xerath. Es el primero del grupo que adivina su partida y lo celebra dos veces."},
+
+    {"angulo": null, "player": "rdv-canyon", "peso": "breve", "formato": "anuncio por palabras", "seccion": "COMUNICACIÓN",
+     "headline": "Se ofrece Leona",
+     "body": "SE OFRECE soporte de Leona. Veintiún guardianes por partida, sesenta y cuatro avisos de regalo. Experiencia demostrable subiendo a otros a Esmeralda. Busca tirador que ponga más de tres guardianes y muera menos de nueve veces. Abstenerse originales. Preguntar por SAIIIIIIKO."}
+  ],
+  "tiempo": [
+    {"jugador": "saiko", "texto": "Diez minutos y medio de niebla en cuatro partidas, con el frente más denso a primera hora de la tarde. Despeja al anochecer, pero ya sobre Platino."},
+    {"jugador": "fr4nux", "texto": "Casi cuatro minutos de gris y visibilidad nula todo el día: tres guardianes no levantan ni la niebla de una calle. Se esperan ratas."},
+    {"jugador": "rdv-canyon", "texto": "Un minuto de gris y el mapa iluminado por veintiún guardianes. A su tirador le mataban a plena luz, que es la forma más honrada de morir."}
+  ],
+  "canon": {
+    "hilos": [
+      {"id": "el-otro-saiko", "accion": "avanzar", "estado": "escalando", "resumen": "La copia SAIIIIIIKO se va al dúo de Fr4nux (Leona y Kai'Sa) y pierde 24 LP. Saiko, solo, pierde Esmeralda IV en su primera partida (cuatro muertes antes del minuto ocho) y acaba en Platino I con 91: ya no están en la misma liga.", "protagonistas": ["rdv-canyon", "saiko", "fr4nux"]},
+      {"id": "carry-not-found", "accion": "avanzar", "estado": "escalando", "resumen": "Ni Jinx ni Kalista: Kai'Sa 6/9/4 con el 20,2 % del daño, el 24,5 % del oro y tres guardianes en 29 minutos contra un Twitch 10/1/9. Baja de 69 a 50 LP en Platino I.", "protagonistas": ["fr4nux"]},
+      {"id": "el-que-no-sabe-irse-a-casa", "accion": "avanzar", "estado": "escalando", "resumen": "Cuatro Sorakas: pierde las dos primeras (y Esmeralda IV) y gana las dos últimas. 24 muertes y nueve puntos menos: Platino I 91.", "protagonistas": ["saiko"]},
+      {"id": "el-intercambio-de-maldiciones", "accion": "avanzar", "resumen": "Segunda noche sin Qiyana: grangalax no juega.", "protagonistas": ["grangalax"]},
+      {"id": "el-escandalo-de-la-lonja", "accion": "avanzar", "estado": "desenlace", "resumen": "Venda, en Noxus para hablar de su traslado, ve el recibo del endoso: Barbanegra vendió el pagaré del director a Valeria Puñoférreo. El director no puede echar a Barbanegra porque es el único que puede recomprarlo; el original del despacho es papel mojado."},
+      {"id": "la-guerra-de-los-periodicos", "accion": "avanzar", "estado": "escalando", "resumen": "La Gaceta presume de haber publicado el endoso en su edición vespertina antes que el Rincón: es la dueña de la deuda del director y cobra los intereses en exclusivas."}
+    ],
+    "personajes": {
+      "saiko": {"arco": {"tipo": "caída", "texto": "Sin su copia, pierde Esmeralda IV en la primera partida del día siguiente; gana las dos últimas y se queda a nueve puntos."}},
+      "rdv-canyon": {"apodo": "la copia infiel", "arco": {"tipo": "villano", "texto": "Sube a Saiko con la cuenta SAIIIIIIKO y al día siguiente la usa para irse al dúo de Fr4nux. Pierden los dos."}},
+      "fr4nux": {"arco": {"tipo": "caída", "texto": "Deja en el cajón la Jinx que le curaba, prueba Kai'Sa, pone tres guardianes y se deja diecinueve puntos."}}
+    },
+    "elenco": [
+      {"nombre": "Hermano Venda", "estado": "Fue a Noxus a pedir trabajo y volvió con el endoso del pagaré; su traslado, en el aire"},
+      {"nombre": "Valeria Puñoférreo", "estado": "Es la dueña del pagaré del director, endosado a su nombre por Barbanegra"},
+      {"nombre": "Barbanegra el Contable", "estado": "Vendió el pagaré del director a la Gaceta de Noxus; es el único que puede recomprarlo"},
+      {"nombre": "Don Evaristo Plumanegra", "estado": "Encerrado con un pagaré original que ya no vale nada: su deuda es de Noxus"}
+    ],
+    "costumbres": ["Los miércoles sin Flex, Saiko abre la SoloQ antes de las seis de la tarde y el resto del grupo no aparece."],
+    "chistes": ["el otro Saiko"],
+    "sindicato": [
+      {"campeon": "Kai'Sa", "jugador": "fr4nux", "motivo": "Sacada para no elegir entre Jinx y Kalista: nueve muertes y tres guardianes en veintinueve minutos ante un Twitch"}
+    ]
+  },
+  "gaceta": {
+    "titular": "¡LA DEUDA DEL DIRECTOR ES NUESTRA, Y LO PUBLICAMOS ANOCHE!",
+    "cuerpo": "Llega tarde el Rincón, como siempre. Nuestra edición vespertina publicó anoche, CON FOTO, el endoso que su cronista vino a «descubrir» a esta redacción mientras nos pedía trabajo. Fuentes de toda solvencia confirman que el señor Plumanegra debe cada letra de su pagaré a esta casa.\n\nY mientras rectifica, el Rincón le hace una esquela a la Esmeralda de Saiko, ¡al que le faltan NUEVE puntos para resucitarla! Dos victorias, treinta asistencias, cien de visión, ¿y le entierran? La Gaceta exige respeto para el único soporte de la ciudad que ilumina el mapa entero mientras su supuesto amigo se va de dúo con otro.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "jurado": {"pregunta": "¿Quién tiene la culpa de que Saiko perdiera Esmeralda?", "opciones": ["La copia, por irse con otro", "El Sylas", "Fr4nux, por llevársela", "Saiko, que solo no sabe"], "juicio": false},
+  "jurado_veredicto": "Un voto, el de GSJoseador, y fue para la copia: a Saiko lo subió SAIIIIIIKO. Veinticuatro horas después, la copia se fue de dúo con otro y el original perdió Esmeralda en su primera partida. El jurado tenía razón de la peor manera posible: la copia era lo único que le sostenía. GSJoseador suma otro acierto a su carrera de vidente.",
+  "manana": [
+    {"texto": "¿Vuelve la copia a casa o vuelve a ser el soporte de Fr4nux?"},
+    {"texto": "¿Recuperará Saiko los nueve puntos que le faltan para Esmeralda?"},
+    {"texto": "¿Habrá Flex el jueves, y aguantará más allá de la segunda?"}
+  ],
+  "promesas": [
+    {"n": 1, "texto": "Aguantó, por incomparecencia: grangalax no jugó el miércoles. La noche más limpia del Barón en semanas es la que pasó lejos del teclado."},
+    {"n": 2, "texto": "Ni una ni otra. Sacó una Kai'Sa, murió nueve veces, puso tres guardianes y se dejó diecinueve puntos. La medicina se quedó en el cajón."},
+    {"n": 3, "texto": "No. La perdió en la primera partida de la tarde, con cuatro muertes antes del minuto ocho. Ganó las dos últimas y cierra igual en Platino I con noventa y un puntos."}
+  ],
+  "replicas_descartadas": [],
+  "estilo": {"pautas_nuevas": [], "pautas_retiradas": []},
+  "horoscopo": [
+    {"signo": "Top", "texto": "Nadie del grupo pisó la calle superior el miércoles. Es el único carril que acaba el día sin un muerto en el parte. No lo estropees."},
+    {"signo": "Jungla", "texto": "Siete ausentes y ningún jungla del grupo en la Grieta: por una noche nadie pudo echarte la culpa. Hoy vuelven a poder."},
+    {"signo": "Mid", "texto": "Un Sylas se pasó la tarde robándole cosas a una Soraka. Si te toca uno, no lleves nada que valga la pena robar."},
+    {"signo": "Tirador", "texto": "Tres guardianes en veintinueve minutos no es un número de la suerte. Si juegas Kai'Sa, compra luz. Si juegas Jinx, no cambies de Jinx."},
+    {"signo": "Soporte", "texto": "Setenta asistencias de Soraka en una tarde y nueve puntos de menos. Hoy cura solo a quien te pague: los demás se van de dúo con otro."}
+  ],
+  "columna": {
+    "titulo": "Me compraron y me quedé en la mochila",
+    "autor": "El Cuarto Guardián",
+    "cuerpo": [
+      "Soy el cuarto guardián de la Kai'Sa de Fr4nux. Los tres primeros salieron al mapa el miércoles. Yo no. Veintinueve minutos en el bolsillo de un tirador, oyendo cómo le mataban nueve veces a dos pasos de una oscuridad que yo podía haber alumbrado.",
+      "Desde la mochila se aprende mucho. Se aprende, por ejemplo, que la Leona de al lado plantó veintiuno y que cada uno de ellos iluminó de maravilla el sitio exacto donde moría mi dueño. La visión no sirve de nada si el que la necesita prefiere no mirar.",
+      "Dicen que la Academia de Piltover le está estudiando. Que nos pregunten a nosotros. Los guardianes sabemos dónde estuvo cada minuto: a oscuras, y convencido de que era la Grieta la que no se veía.",
+      "Hoy vuelve a jugar. Yo vuelvo a la mochila. Es un trabajo estable."
+    ]
+  },
+  "especial": null,
+  "frase": "Quien escala a hombros de otro baja en cuanto el otro se aburre.",
+  "eventos_usados": [],
+  "propuestas_descartadas": [],
+  "firma": "Claude"
+}
