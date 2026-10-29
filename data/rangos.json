@@ -2848,9 +2848,9 @@
       "solo": {
         "tier": "GOLD",
         "rank": "IV",
-        "lp": 72,
+        "lp": 52,
         "wins": 266,
-        "losses": 265
+        "losses": 266
       },
       "flex": {
         "tier": "SILVER",
@@ -2945,19 +2945,19 @@
       "slug": "dierophant",
       "alias": "Dierophant",
       "principal": true,
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "II",
-        "lp": 37,
-        "wins": 102,
-        "losses": 109
-      },
       "flex": {
         "tier": "DIAMOND",
         "rank": "IV",
         "lp": 52,
         "wins": 103,
         "losses": 98
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "II",
+        "lp": 37,
+        "wins": 102,
+        "losses": 109
       }
     },
     "ipredatorz#euw": {
@@ -2965,19 +2965,19 @@
       "slug": "ipredatorz",
       "alias": "iPredatoRz",
       "principal": true,
-      "flex": {
-        "tier": "GOLD",
-        "rank": "II",
-        "lp": 68,
-        "wins": 92,
-        "losses": 102
-      },
       "solo": {
         "tier": "EMERALD",
         "rank": "II",
         "lp": 94,
         "wins": 168,
         "losses": 156
+      },
+      "flex": {
+        "tier": "GOLD",
+        "rank": "II",
+        "lp": 68,
+        "wins": 92,
+        "losses": 102
       }
     },
     "sunraku#998": {
