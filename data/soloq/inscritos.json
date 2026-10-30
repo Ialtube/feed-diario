@@ -62,7 +62,7 @@
       "puuid": "TmRZkGTZa5K6dQKAwAxVpDoFuaQZc9cEHAEe_BDCSq7oc8Y_cBoXl3-HoU_RsHswTocERPUt1qkpMg",
       "icono": 25,
       "nivel": 30,
-      "icono_ms": 1793282831496
+      "icono_ms": 1793338440986
     },
     "santujk#1510": {
       "riot_id": "SantuJk#1510",
@@ -77,8 +77,8 @@
       "persona": "GSJoseador",
       "puuid": "U6P5ekNmJVN2xa3SgE_Ukh-2udzgOQkybicxE6Y53rEKpKpUQu0u7_0As4SQsy-vUIgLARzfJ_OU0Q",
       "icono": 29,
-      "nivel": 30,
-      "icono_ms": 1793282831496
+      "nivel": 31,
+      "icono_ms": 1793338440986
     },
     "fisitybard#3700": {
       "riot_id": "FisityBard#3700",
@@ -94,10 +94,10 @@
       "puuid": "iAMonvUmIyE9qQ7gcGeB364rNLnzu50vyU_puSOs6u9AnxpGUAEX-j5g00HYgGE9SQd_OqOzMNa-BA",
       "icono": 7247,
       "nivel": 30,
-      "icono_ms": 1793282831496
+      "icono_ms": 1793338440986
     }
   },
-  "actualizado": 1793257038052,
+  "actualizado": 1793338440986,
   "ddragon": "16.21.1",
   "avisos": {
     "programado": 1793487600000,
