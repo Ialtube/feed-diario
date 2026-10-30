@@ -1,0 +1,158 @@
+{
+  "piezas": [
+    {
+      "angulo": "a1", "peso": "grande", "portada": true, "formato": "noticia", "hilo": "el-intercambio-de-maldiciones",
+      "seccion": "DEPORTES", "player": "grangalax",
+      "headline": "Dos noches limpio",
+      "subtitulo": "grangalax abre el jueves perdiendo con Ekko a las nueve de la mañana y lo cierra con cuatro Qiyanas seguidas: 0–5 y Oro IV con cero puntos.",
+      "body": "El martes, el Barón de la Moneda jugó con Locke y ganó. El miércoles no jugó, que es la otra forma que tiene de ganar. Dos noches sin Qiyana, y en la redacción ya se hablaba de rehabilitación y de dar charlas en los colegios.\n\nEl jueves a las nueve de la mañana perdió con Ekko, el campeón que siempre le sacaba de los pozos. A las ocho y tres de la tarde, con el día ya torcido, hizo lo que hace todo el que ha dejado algo: volver «solo a una». Fueron cuatro, una detrás de otra hasta las diez menos cuatro. Cuatro derrotas. Qiyana queda en la hemeroteca con ocho partidas en sus manos y ni una victoria.\n\nLos junglas rivales se turnaron para cobrar: un Kha'Zix, un Nocturne, un Talon que acabó 16/1/5 y, para cerrar, un Viego. El rey de la Ruina vino en persona a recoger lo que quedaba.\n\nEl día termina con cincuenta y una muertes y cincuenta y dos puntos menos. El Barón amanece en el último escalón del Oro: una derrota más y lo siguiente ya es Plata.\n\nQiyana ha presentado su tercera denuncia ante el Sindicato. Él no la ha leído. Estaba en cola.",
+      "campeon": "Qiyana",
+      "meme": {"plantilla": "exit", "lineas": ["Cualquier otro campeón", "Qiyana", "grangalax a las 20:03, 20:48, 21:27 y 21:56"]},
+      "pie": "Autopista de Shurima, jueves noche: el Barón toma la salida de siempre."
+    },
+    {
+      "angulo": "a4", "peso": "grande", "formato": "reportaje", "hilo": "el-escandalo-de-la-lonja",
+      "seccion": "ECONOMÍA", "player": "grangalax",
+      "headline": "Las iniciales del libro de la Lonja",
+      "subtitulo": "El libro robado al comisario aparece en el depósito del forense con tres letras junto a cada muerte del Barón.",
+      "body": "El libro de la Lonja que le robaron al comisario Cobretuerca de su propio despacho apareció ayer donde nadie lo buscaba: en un cajón del depósito del doctor Humoverde, debajo de las facturas de autopsia del jueves. Y el jueves hubo trabajo: el Barón de la Moneda cerró la noche con cincuenta y una muertes y cincuenta y dos puntos menos.\n\nEl comisario lo abrió por la última página escrita. Es la cotización del Barón, apunte por apunte. Al lado de cada muerte con Qiyana hay una raya, y al lado de cada raya, tres letras: D.E.P.\n\nCobretuerca lo leyó como lo que parece, una necrológica de contable. La fiscal Lucrecia Hexwick, que lleva una semana con la copia del pagaré en el bolso, le preguntó cómo firma el director sus memorandos. El comisario no contestó. Pasó las páginas hacia atrás: las Qiyanas de la semana pasada también tienen raya.\n\nBarbanegra, preguntado por el libro, dijo que el Barón es «el valor más estable de la Lonja». En la última Qiyana cobró el 20,2 % del oro de su equipo y devolvió el 12,2 % del daño. En Aguasturbias eso se llama dividendo.\n\nSi las iniciales son lo que cree Hexwick, el director no protege a Barbanegra solo porque le deba dinero. Le protege porque cobra a comisión. Y anoche el Barón trabajó para él cinco partidas seguidas."
+    },
+    {
+      "angulo": "a11", "peso": "mediana", "formato": "comunicado oficial", "hilo": "el-que-no-sabe-irse-a-casa",
+      "seccion": "EL FARO DE LA ESPERANZA",
+      "headline": "La Luz elige entre dos y se queda con Saiko",
+      "subtitulo": "Dos victorias en cinco partidas bastan para ser el mejor de un jueves en el que solo jugó otro.",
+      "body": "Los Centinelas de la Luz, reunidos de urgencia por falta de candidatos, comunican que el mejor jugador del jueves fue Saiko, con un 2–3. El Hermano Venda, redactor del comunicado, ha pedido que conste que solo había otro aspirante y que estaba ocupado con Qiyana.\n\nLas dos victorias merecen mención. La primera duró doce minutos y Saiko la terminó 0/0/0, sin participar en un solo asesinato: ganó con Malzahar sin hacer nada, que es lo mejor que ha hecho nunca con Malzahar. La segunda fue de verdad: Blitzcrank, 1/7/22, cuarenta y nueve guardianes y metido en siete de cada diez asesinatos de su equipo.\n\nNinguna le devolvió Esmeralda. Saiko amanece en Platino I con 41 puntos, cincuenta menos que ayer. Venda ha archivado el comunicado junto a su carta de traslado. Por si acaso."
+    },
+    {
+      "angulo": "a7", "peso": "mediana", "formato": "parte policial", "hilo": "el-que-no-sabe-irse-a-casa",
+      "seccion": "SUCESOS",
+      "headline": "Lulu lo vio venir todo",
+      "body": "Hechos. Jueves, 17:46, calle inferior. Saiko estrena a Lulu, campeona que no había sacado en ninguna de sus cincuenta y una partidas registradas. Al minuto 1:48 entrega la primera sangre, y antes del sexto ha vuelto a caer dos veces. Terminará con 0/10/19, el 4 % del daño de su equipo y derrota.\n\nAgentes. El comisario Cobretuerca acudió y encontró el mapa iluminado como un puerto en fiestas: 59 guardianes, todos de Saiko. Lo vio todo. No evitó nada.\n\nDeclaración de la víctima: «Puso una luz en cada arbusto de la Grieta, y en todos había alguien esperándome». Lulu ha pedido el ingreso en el Sindicato. Saiko, otra partida.",
+      "meme": {"campeon": "Lulu", "aspecto": 6, "lineas": ["Cincuenta y nueve guardianes", "Diez muertes a plena luz"]},
+      "pie": "Lulu, en la rueda de reconocimiento de Piltover, señala a todo el mapa."
+    },
+    {
+      "angulo": "a3", "peso": "mediana", "formato": "boletín médico", "hilo": "el-suelo-del-oro",
+      "seccion": "SALUD", "player": "grangalax",
+      "headline": "Doscientos treinta y uno",
+      "body": "Parte de las 21:27 del jueves. Paciente: el Barón de la Moneda, jungla, tercera Qiyana de la noche. Ingresa con un Talon rival que acabará 16/1/5 y con siete mil seiscientas monedas más que él.\n\nExploración: once muertes en veintiséis minutos. Daño a objetivos: 231. Un jungla que en veintiséis minutos le hace 231 de daño a dragones, heraldos y torres no ha jugado la jungla. La ha visitado.\n\nDiagnóstico: los Laboratorios de Zaun descartan el tilt, porque el tilt se pasa. Esto vuelve. A las 21:56 el paciente se dio el alta él solo y pidió la cuarta.",
+      "stat": "231", "stat_label": "de daño a objetivos de un jungla en 26 minutos"
+    },
+    {
+      "angulo": "a20", "peso": "mediana", "formato": "hace una semana", "hilo": "la-moneda",
+      "seccion": "CULTURA", "player": "grangalax",
+      "headline": "Hace una semana necesitaba ocho partidas",
+      "body": "El 23 de octubre este periódico abría con el Barón: «El señor del tiempo pasó veintinueve minutos muerto». Aquel día grangalax jugó ocho partidas, ganó cinco y murió cincuenta y siete veces. La redacción lo trató como un escándalo.\n\nSiete días después, el mismo hombre ha muerto cincuenta y una veces en cinco partidas, no ha ganado ninguna y ha pasado veinticinco minutos en gris. Antes necesitaba ocho partidas para morirse a gusto. Ahora le bastan cinco.\n\nEn la Lonja lo llaman productividad."
+    },
+    {
+      "angulo": "a24", "peso": "mediana", "formato": "previa",
+      "seccion": "SOLOQ CHALLENGE",
+      "headline": "El reto arranca el domingo con un «Hola»",
+      "body": "El domingo a medianoche arranca el SoloQ Challenge y el vestuario sigue como se dejó: cinco inscritos, cinco cuentas sin clasificar y ninguna partida. Tres prometen Esmeralda. RDV Canyon promete Diamante sin grito de guerra, que es como firmar un contrato sin leerlo. Wôlf promete Aspirante y su grito de guerra es «Hola»: la promesa más alta y el grito más bajo de la competición.\n\nHacen falta cincuenta partidas para cualificar. El farolillo rojo pagará la primera ronda y jugará una partida entera de soporte con Teemo.\n\nLos dos únicos del grupo que jugaron el jueves, grangalax y Saiko, no están inscritos. Entre los dos perdieron ciento dos puntos en una noche. El reto acaba de perder a sus dos mejores candidatos al Teemo."
+    },
+    {
+      "angulo": "a14", "peso": "breve", "formato": "breve", "seccion": "DEPORTES",
+      "headline": "Locke, en otras manos",
+      "body": "A las 22:23 el Malzahar de Saiko perdió la calle contra un Locke que acabó 13/1/8. Es el campeón con el que el Barón ganó el martes. A esa hora el Barón seguía en su cuarta Qiyana."
+    },
+    {
+      "angulo": "a23", "peso": "breve", "formato": "anuncio por palabras", "seccion": "SOCIEDAD",
+      "headline": "Se buscan amigos para el jueves",
+      "body": "SE BUSCAN ocho amigos para la noche del jueves. Dos ya estaban: entraron en SoloQ a las 21:26 y a las 21:27, cada uno por su lado, y a las 21:55 y 21:56 repitieron. No se llamaron. Interesados, preguntar a cualquiera de los dos. Abstenerse Qiyanas."
+    },
+    {
+      "angulo": null, "peso": "breve", "formato": "breve", "seccion": "ECONOMÍA",
+      "headline": "La Lonja acierta sin clientes",
+      "body": "El mercado de Barbanegra sobre quién moriría más veces se resolvió a favor del Barón con cincuenta y una muertes. No apostó nadie. Era la única apuesta segura de la semana y la Lonja se la quedó para ella."
+    },
+    {
+      "angulo": null, "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD", "player": "gsjoseador",
+      "headline": "GSJoseador sostiene la democracia",
+      "body": "GSJoseador fue el único votante del jurado popular, adivinó el «¿Quién fue?» (la Leona de RDV Canyon) a la tercera y es el único vidente con un acierto. El jueves no jugó. Lleva el periódico mejor que la Grieta."
+    }
+  ],
+  "tiempo": [
+    {"jugador": "grangalax", "texto": "Cielo gris durante veinticinco minutos repartidos en cinco partidas. Para el viernes, chubascos de Qiyana y riesgo muy alto de descenso a Plata."},
+    {"jugador": "saiko", "texto": "Catorce minutos de niebla en cinco partidas. Visibilidad máxima con Lulu y, aun así, tormenta de muertes desde el minuto dos."}
+  ],
+  "canon": {
+    "hilos": [
+      {"id": "el-intercambio-de-maldiciones", "accion": "avanzar", "estado": "escalando", "resumen": "Tras dos noches sin Qiyana, grangalax pierde con Ekko por la mañana y recae por la noche con cuatro Qiyanas seguidas: cuatro derrotas ante Kha'Zix, Nocturne, Talon y Viego. Qiyana, 0–8 en la hemeroteca.", "protagonistas": ["grangalax"]},
+      {"id": "la-moneda", "accion": "avanzar", "estado": "escalando", "resumen": "Día 0–5 con 51 muertes y 25 minutos en gris. Hace una semana necesitaba ocho partidas para 57 muertes; ahora le bastan cinco para 51.", "protagonistas": ["grangalax"]},
+      {"accion": "abrir", "id": "el-suelo-del-oro", "titulo": "El suelo del Oro", "resumen": "grangalax pierde 52 puntos en un día y amanece en Oro IV con cero: la próxima derrota le manda a Plata. En la tercera Qiyana hizo 231 de daño a objetivos en 26 minutos.", "protagonistas": ["grangalax"]},
+      {"id": "el-escandalo-de-la-lonja", "accion": "avanzar", "estado": "desenlace", "resumen": "El libro de la Lonja robado a Cobretuerca aparece en el depósito de Humoverde. Junto a cada muerte del Barón con Qiyana hay una raya y las iniciales D.E.P. Cobretuerca lee «descanse en paz»; Hexwick sospecha que son las del director, que cobraría comisión por cada muerte del Barón."},
+      {"id": "la-guerra-de-los-periodicos", "accion": "avanzar", "estado": "escalando", "resumen": "La Gaceta roba la exclusiva del libro de la Lonja: asegura haber fotografiado la página de las iniciales antes de que el Rincón la encontrara, y defiende al Barón por su «ritmo de trabajo»."},
+      {"id": "el-que-no-sabe-irse-a-casa", "accion": "avanzar", "estado": "escalando", "resumen": "Cinco partidas en solitario: estrena Lulu (0/10/19 con 59 guardianes y la primera sangre entregada), gana un Malzahar de doce minutos sin participar y un Blitzcrank 1/7/22. 2–3, mejor del día por falta de rivales y Platino I 41: cincuenta puntos menos.", "protagonistas": ["saiko"]}
+    ],
+    "personajes": {
+      "grangalax": {
+        "apodo": "el reincidente",
+        "maldicion": "Qiyana: 0–8 en la hemeroteca; cuatro derrotas seguidas en una noche tras dos de abstinencia",
+        "arco": {"tipo": "caída", "texto": "Dos noches limpio y recaída: 0–5, cuatro Qiyanas seguidas y Oro IV con cero puntos, al borde de Plata."}
+      },
+      "saiko": {
+        "maldicion": "Lulu: 0/10/19 en su estreno, con 59 guardianes",
+        "arco": {"tipo": "caída", "texto": "Sin copia y sin grupo, 2–3 en solitario y cincuenta puntos menos: Platino I con 41, a 59 de Esmeralda."}
+      }
+    },
+    "elenco": [
+      {"nombre": "Comisario Ambrosio Cobretuerca", "estado": "Ha recuperado el libro de la Lonja en un cajón del depósito de Humoverde"},
+      {"nombre": "Fiscal Lucrecia Hexwick", "estado": "Sospecha que las iniciales D.E.P. del libro de la Lonja son las del director"},
+      {"nombre": "Doctor Ezequiel Humoverde", "estado": "El libro robado a la Comisaría apareció debajo de sus facturas de autopsia"},
+      {"nombre": "Don Evaristo Plumanegra", "estado": "Sus iniciales podrían estar junto a cada muerte del Barón en el libro de la Lonja; no ha dicho nada"}
+    ],
+    "costumbres": ["Los jueves sin Flex, grangalax y Saiko entran en SoloQ con un minuto de diferencia, cada uno por su lado, y no se llaman."],
+    "chistes": ["la recaída con Qiyana"],
+    "sindicato": [
+      {"campeon": "Qiyana", "jugador": "grangalax", "motivo": "Sacada cuatro veces seguidas en una noche tras dos de abstinencia: cuatro derrotas y 0–8 en la hemeroteca"},
+      {"campeon": "Lulu", "jugador": "saiko", "motivo": "Estrenada con la primera sangre entregada en el minuto dos y 0/10/19 pese a 59 guardianes"}
+    ]
+  },
+  "gaceta": {
+    "titular": "¡EL LIBRO DE LA LONJA LO TUVIMOS NOSOTROS PRIMERO!",
+    "cuerpo": "Mientras el comisario del Rincón buscaba su libro debajo de su propia mesa, LA GACETA ya había fotografiado la página de las iniciales. Fuentes de toda solvencia confirman que las tres letras llevan ahí desde hace días y que en el Rincón NADIE se había molestado en leerlas.\n\nY ya puestos: ¡BASTA de linchar al Barón! Más de diez muertes por partida durante cinco partidas seguidas es un ritmo de trabajo que en Noxus se condecora. Qiyana no le ha denunciado: le ha reclamado. En cualquier imperio serio, eso se llama lealtad.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "jurado": {"pregunta": "¿Qué quieren decir las tres letras del libro de la Lonja?", "opciones": ["Descanse en paz", "Don Evaristo Plumanegra", "Las dos cosas"], "juicio": false},
+  "jurado_veredicto": "El jurado popular, con un solo voto, el de GSJoseador, declara culpable a la copia de que Saiko perdiera Esmeralda. La copia no compareció: RDV Canyon no jugó el jueves. Saiko, sin copia y sin nadie a quien culpar, perdió cincuenta puntos más. El tribunal estudia si la ausencia agrava la condena.",
+  "manana": [
+    {"texto": "¿Bajará el Barón a Plata en su primera derrota del viernes?"},
+    {"texto": "¿Habrá novena Qiyana?"},
+    {"texto": "¿Se cumplirá la costumbre de los viernes sin Flex?"}
+  ],
+  "promesas": [
+    {"n": 1, "texto": "La copia ni volvió a casa ni volvió con Fr4nux: ni RDV Canyon ni Fr4nux jugaron. Saiko se buscó la vida solo, cinco partidas."},
+    {"n": 2, "texto": "No. Le faltaban nueve puntos para Esmeralda y perdió cincuenta: Platino I con 41. Ahora le faltan cincuenta y nueve."},
+    {"n": 3, "texto": "No hubo Flex. El jueves jugaron dos, a la misma hora y sin juntarse."}
+  ],
+  "replicas_descartadas": [],
+  "estilo": {"pautas_nuevas": [], "pautas_retiradas": []},
+  "horoscopo": [
+    {"signo": "Top", "texto": "El jueves no jugó ningún top del grupo. Es la mejor racha que se le recuerda a la posición."},
+    {"signo": "Jungla", "texto": "Tus rivales vendrán en orden: el que caza, el que apaga las luces, el que asesina y el rey de la Ruina. Ya sabes a quién vas a elegir tú."},
+    {"signo": "Mid", "texto": "Malzahar te dará una victoria si no haces absolutamente nada. Hazle caso: es la única que da."},
+    {"signo": "Tirador", "texto": "Ningún tirador del grupo jugó el jueves. Por primera vez, nadie echó de menos el daño."},
+    {"signo": "Soporte", "texto": "Pondrás cincuenta y nueve guardianes y verás venir, una a una, tus diez muertes."}
+  ],
+  "columna": {
+    "titulo": "Os tuve a los dos en la sala de espera",
+    "autor": "La Cola de Emparejamiento",
+    "cuerpo": [
+      "Yo no juzgo. Yo emparejo. El jueves a las 21:26 me entró un Saiko, y a las 21:27 un grangalax. Un minuto de diferencia. Los tuve a los dos en la sala de espera, cada uno mirando su pantalla, cada uno convencido de que el problema era su equipo.",
+      "Les busqué compañía. Al Barón le tocó un Talon que acabó 16/1/5; a Saiko, un Akshan con diecisiete asesinatos. No fue personal. A esas horas no había nadie más esperando.",
+      "A las 21:55 volvió Saiko. A las 21:56, el Barón. Otra vez un minuto. Hay parejas que tardan años en coordinarse así, y estos dos lo hacen sin dirigirse la palabra.",
+      "Les dejé la cola de dúo a la vista, a un botón. Ninguno la pulsó. Lo entiendo: en dúo, uno de los dos habría tenido que admitir que el otro estaba peor."
+    ]
+  },
+  "especial": {
+    "antetitulo": "Edición especial · Jueves negro",
+    "titulo": "La recaída",
+    "subtitulo": "Dos noches sin Qiyana, cuatro Qiyanas en dos horas y el Barón en el último escalón del Oro",
+    "tema": "negro"
+  },
+  "frase": "Lo difícil de dejar a Qiyana no son las noches. Es el jueves.",
+  "eventos_usados": [],
+  "propuestas_descartadas": [],
+  "firma": "Claude"
+}

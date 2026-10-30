@@ -17,6 +17,10 @@
         {
           "fecha": "2026-10-26",
           "texto": "el empate con teclado"
+        },
+        {
+          "fecha": "2026-10-30",
+          "texto": "el reincidente"
         }
       ],
       "rasgos": [
@@ -44,6 +48,10 @@
         {
           "fecha": "2026-10-27",
           "texto": "Qiyana: 0–4 en la hemeroteca, sacada otra vez con el grupo entero"
+        },
+        {
+          "fecha": "2026-10-30",
+          "texto": "Qiyana: 0–8 en la hemeroteca; cuatro derrotas seguidas en una noche tras dos de abstinencia"
         }
       ],
       "rivales": [],
@@ -73,6 +81,11 @@
           "tipo": "redención",
           "texto": "Cumple la orden de alejamiento de Qiyana: una partida, Locke y victoria. Primera noche sin recaída.",
           "fecha": "2026-10-28"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Dos noches limpio y recaída: 0–5, cuatro Qiyanas seguidas y Oro IV con cero puntos, al borde de Plata.",
+          "fecha": "2026-10-30"
         }
       ]
     },
@@ -464,6 +477,10 @@
         {
           "fecha": "2026-10-27",
           "texto": "Thresh: 0–4 en la hemeroteca"
+        },
+        {
+          "fecha": "2026-10-30",
+          "texto": "Lulu: 0/10/19 en su estreno, con 59 guardianes"
         }
       ],
       "rivales": [],
@@ -503,6 +520,11 @@
           "tipo": "caída",
           "texto": "Sin su copia, pierde Esmeralda IV en la primera partida del día siguiente; gana las dos últimas y se queda a nueve puntos.",
           "fecha": "2026-10-29"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Sin copia y sin grupo, 2–3 en solitario y cincuenta puntos menos: Platino I con 41, a 59 de Esmeralda.",
+          "fecha": "2026-10-30"
         }
       ]
     }
@@ -527,6 +549,11 @@
           "fecha": "2026-10-24",
           "campo": "estado",
           "texto": "Le han robado el libro de la Lonja de su propio despacho"
+        },
+        {
+          "fecha": "2026-10-30",
+          "campo": "estado",
+          "texto": "Ha recuperado el libro de la Lonja en un cajón del depósito de Humoverde"
         }
       ]
     },
@@ -554,6 +581,11 @@
           "fecha": "2026-10-28",
           "campo": "estado",
           "texto": "Pide la suspensión del director y guarda una copia del pagaré"
+        },
+        {
+          "fecha": "2026-10-30",
+          "campo": "estado",
+          "texto": "Sospecha que las iniciales D.E.P. del libro de la Lonja son las del director"
         }
       ]
     },
@@ -576,6 +608,11 @@
           "fecha": "2026-10-28",
           "campo": "estado",
           "texto": "La Gaceta de Noxus le señala como origen del dinero del pagaré"
+        },
+        {
+          "fecha": "2026-10-30",
+          "campo": "estado",
+          "texto": "El libro robado a la Comisaría apareció debajo de sus facturas de autopsia"
         }
       ]
     },
@@ -713,6 +750,11 @@
           "fecha": "2026-10-29",
           "campo": "estado",
           "texto": "Encerrado con un pagaré original que ya no vale nada: su deuda es de Noxus"
+        },
+        {
+          "fecha": "2026-10-30",
+          "campo": "estado",
+          "texto": "Sus iniciales podrían estar junto a cada muerte del Barón en el libro de la Lonja; no ha dicho nada"
         }
       ]
     },
@@ -808,6 +850,10 @@
         {
           "fecha": "2026-10-27",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-30",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -879,6 +925,13 @@
           "resumen": "Nueve partidas y casi cinco horas, 4–5 y 61 muertes: Ekko 3–3, Locke 1–1 y Qiyana por cuarta vez, cuarta derrota, con el grupo entero en la partida.",
           "titulares": [
             "Cielo gris sobre el carril central desde las nueve de la mañana"
+          ]
+        },
+        {
+          "fecha": "2026-10-30",
+          "resumen": "Día 0–5 con 51 muertes y 25 minutos en gris. Hace una semana necesitaba ocho partidas para 57 muertes; ahora le bastan cinco para 51.",
+          "titulares": [
+            "Hace una semana necesitaba ocho partidas"
           ]
         }
       ]
@@ -1332,6 +1385,13 @@
           "titulares": [
             "Endosado a Noxus"
           ]
+        },
+        {
+          "fecha": "2026-10-30",
+          "resumen": "El libro de la Lonja robado a Cobretuerca aparece en el depósito de Humoverde. Junto a cada muerte del Barón con Qiyana hay una raya y las iniciales D.E.P. Cobretuerca lee «descanse en paz»; Hexwick sospecha que son las del director, que cobraría comisión por cada muerte del Barón.",
+          "titulares": [
+            "Las iniciales del libro de la Lonja"
+          ]
         }
       ],
       "estados": [
@@ -1365,6 +1425,10 @@
         },
         {
           "fecha": "2026-10-29",
+          "estado": "desenlace"
+        },
+        {
+          "fecha": "2026-10-30",
           "estado": "desenlace"
         }
       ]
@@ -1420,6 +1484,11 @@
           "fecha": "2026-10-29",
           "resumen": "La Gaceta presume de haber publicado el endoso en su edición vespertina antes que el Rincón: es la dueña de la deuda del director y cobra los intereses en exclusivas.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-10-30",
+          "resumen": "La Gaceta roba la exclusiva del libro de la Lonja: asegura haber fotografiado la página de las iniciales antes de que el Rincón la encontrara, y defiende al Barón por su «ritmo de trabajo».",
+          "titulares": []
         }
       ],
       "estados": [
@@ -1433,6 +1502,10 @@
         },
         {
           "fecha": "2026-10-29",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-30",
           "estado": "escalando"
         }
       ]
@@ -1623,6 +1696,10 @@
         {
           "fecha": "2026-10-29",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-30",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1653,6 +1730,14 @@
           "titulares": [
             "Esmeralda IV, a los cero puntos de edad"
           ]
+        },
+        {
+          "fecha": "2026-10-30",
+          "resumen": "Cinco partidas en solitario: estrena Lulu (0/10/19 con 59 guardianes y la primera sangre entregada), gana un Malzahar de doce minutos sin participar y un Blitzcrank 1/7/22. 2–3, mejor del día por falta de rivales y Platino I 41: cincuenta puntos menos.",
+          "titulares": [
+            "La Luz elige entre dos y se queda con Saiko",
+            "Lulu lo vio venir todo"
+          ]
         }
       ]
     },
@@ -1673,6 +1758,10 @@
         },
         {
           "fecha": "2026-10-27",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-10-30",
           "estado": "escalando"
         }
       ],
@@ -1704,6 +1793,13 @@
           "resumen": "Segunda noche sin Qiyana: grangalax no juega.",
           "titulares": [
             "El Barón, rehabilitado por incomparecencia"
+          ]
+        },
+        {
+          "fecha": "2026-10-30",
+          "resumen": "Tras dos noches sin Qiyana, grangalax pierde con Ekko por la mañana y recae por la noche con cuatro Qiyanas seguidas: cuatro derrotas ante Kha'Zix, Nocturne, Talon y Viego. Qiyana, 0–8 en la hemeroteca.",
+          "titulares": [
+            "Dos noches limpio"
           ]
         }
       ]
@@ -1781,6 +1877,31 @@
           ]
         }
       ]
+    },
+    {
+      "id": "el-suelo-del-oro",
+      "titulo": "El suelo del Oro",
+      "abierto": "2026-10-30",
+      "protagonistas": [
+        "grangalax"
+      ],
+      "reparto": [],
+      "resumen": "grangalax pierde 52 puntos en un día y amanece en Oro IV con cero: la próxima derrota le manda a Plata. En la tercera Qiyana hizo 231 de daño a objetivos en 26 minutos.",
+      "estados": [
+        {
+          "fecha": "2026-10-30",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-10-30",
+          "resumen": "grangalax pierde 52 puntos en un día y amanece en Oro IV con cero: la próxima derrota le manda a Plata. En la tercera Qiyana hizo 231 de daño a objetivos en 26 minutos.",
+          "titulares": [
+            "Doscientos treinta y uno"
+          ]
+        }
+      ]
     }
   ],
   "costumbres": [
@@ -1835,6 +1956,10 @@
     {
       "fecha": "2026-10-29",
       "texto": "Los miércoles sin Flex, Saiko abre la SoloQ antes de las seis de la tarde y el resto del grupo no aparece."
+    },
+    {
+      "fecha": "2026-10-30",
+      "texto": "Los jueves sin Flex, grangalax y Saiko entran en SoloQ con un minuto de diferencia, cada uno por su lado, y no se llaman."
     }
   ],
   "chistes": [
@@ -1897,6 +2022,13 @@
       "texto": "el otro Saiko",
       "fechas": [
         "2026-10-29"
+      ],
+      "usos": 1
+    },
+    {
+      "texto": "la recaída con Qiyana",
+      "fechas": [
+        "2026-10-30"
       ],
       "usos": 1
     }
@@ -2015,6 +2147,18 @@
       "jugador": "fr4nux",
       "motivo": "Sacada para no elegir entre Jinx y Kalista: nueve muertes y tres guardianes en veintinueve minutos ante un Twitch",
       "fecha": "2026-10-29"
+    },
+    {
+      "campeon": "Qiyana",
+      "jugador": "grangalax",
+      "motivo": "Sacada cuatro veces seguidas en una noche tras dos de abstinencia: cuatro derrotas y 0–8 en la hemeroteca",
+      "fecha": "2026-10-30"
+    },
+    {
+      "campeon": "Lulu",
+      "jugador": "saiko",
+      "motivo": "Estrenada con la primera sangre entregada en el minuto dos y 0/10/19 pese a 59 guardianes",
+      "fecha": "2026-10-30"
     }
   ]
 }
