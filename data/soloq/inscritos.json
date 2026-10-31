@@ -30,7 +30,7 @@
       "puuid": "JcsTDDa7xeDI8YPglsI8rc83ledN3EqfHdmQH1CPpThgajR2EXF4J8QZnOdIzH-T-VIyG_tkcUIfVA",
       "icono": 29,
       "nivel": 31,
-      "icono_ms": 1793410204252
+      "icono_ms": 1793454578943
     },
     "xillie#8107": {
       "riot_id": "Xillie#8107",
@@ -46,7 +46,7 @@
       "puuid": "l-Trzz0MYXJTHsyzqdOg7GZ-q1ZtRPUdVEVJSqkX1QCaT8WCkPVybQ97b1t90VX80QCwf2ub7XaRBw",
       "icono": 29,
       "nivel": 30,
-      "icono_ms": 1793410204252
+      "icono_ms": 1793454578943
     },
     "theossichi#9248": {
       "riot_id": "Theossichi#9248",
@@ -62,7 +62,7 @@
       "puuid": "TmRZkGTZa5K6dQKAwAxVpDoFuaQZc9cEHAEe_BDCSq7oc8Y_cBoXl3-HoU_RsHswTocERPUt1qkpMg",
       "icono": 25,
       "nivel": 30,
-      "icono_ms": 1793396461279
+      "icono_ms": 1793454578943
     },
     "santujk#1510": {
       "riot_id": "SantuJk#1510",
@@ -78,7 +78,7 @@
       "puuid": "U6P5ekNmJVN2xa3SgE_Ukh-2udzgOQkybicxE6Y53rEKpKpUQu0u7_0As4SQsy-vUIgLARzfJ_OU0Q",
       "icono": 29,
       "nivel": 31,
-      "icono_ms": 1793396461279
+      "icono_ms": 1793454578943
     },
     "fisitybard#3700": {
       "riot_id": "FisityBard#3700",
@@ -94,14 +94,14 @@
       "puuid": "iAMonvUmIyE9qQ7gcGeB364rNLnzu50vyU_puSOs6u9AnxpGUAEX-j5g00HYgGE9SQd_OqOzMNa-BA",
       "icono": 7247,
       "nivel": 30,
-      "icono_ms": 1793396461279
+      "icono_ms": 1793454578943
     }
   },
   "actualizado": 1793338440986,
   "ddragon": "16.21.1",
   "avisos": {
     "programado": 1793487600000,
-    "diario": "2026-10-30"
+    "diario": "2026-10-31"
   },
   "buzon": [],
   "permisos": []
