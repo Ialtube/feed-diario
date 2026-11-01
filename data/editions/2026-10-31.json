@@ -792,9 +792,9 @@
           "delta": 0,
           "cambio": null,
           "antes": "Diamante III · 65 LP",
-          "partidas": 0,
-          "victorias": 79,
-          "derrotas": 59
+          "partidas": 2,
+          "victorias": 80,
+          "derrotas": 60
         },
         "flex": {
           "posicion": "Diamante IV · 40 LP",
@@ -932,14 +932,14 @@
           "derrotas": 54
         },
         "flex": {
-          "posicion": "Platino IV · 96 LP",
-          "lp": 96,
-          "delta": 0,
-          "cambio": null,
+          "posicion": "Platino III · 1 LP",
+          "lp": 1,
+          "delta": 5,
+          "cambio": "ascenso",
           "antes": "Platino IV · 96 LP",
-          "partidas": 0,
-          "victorias": 25,
-          "derrotas": 24
+          "partidas": 2,
+          "victorias": 26,
+          "derrotas": 25
         }
       },
       {

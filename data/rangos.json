@@ -3639,8 +3639,8 @@
         "tier": "DIAMOND",
         "rank": "III",
         "lp": 65,
-        "wins": 79,
-        "losses": 59
+        "wins": 80,
+        "losses": 60
       },
       "flex": {
         "tier": "DIAMOND",
@@ -3655,19 +3655,19 @@
       "slug": "dierophant",
       "alias": "Dierophant",
       "principal": true,
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "II",
-        "lp": 37,
-        "wins": 102,
-        "losses": 109
-      },
       "flex": {
         "tier": "DIAMOND",
         "rank": "IV",
         "lp": 52,
         "wins": 103,
         "losses": 98
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "II",
+        "lp": 37,
+        "wins": 102,
+        "losses": 109
       }
     },
     "ipredatorz#euw": {
@@ -3755,19 +3755,19 @@
       "slug": "giroroo",
       "alias": "Giroroo",
       "principal": false,
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "II",
-        "lp": 16,
-        "wins": 217,
-        "losses": 188
-      },
       "flex": {
         "tier": "EMERALD",
         "rank": "IV",
         "lp": 29,
         "wins": 29,
         "losses": 17
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "II",
+        "lp": 16,
+        "wins": 217,
+        "losses": 188
       }
     },
     "killuasatoru#6257": {
@@ -3857,10 +3857,10 @@
       "principal": false,
       "flex": {
         "tier": "PLATINUM",
-        "rank": "IV",
-        "lp": 96,
-        "wins": 25,
-        "losses": 24
+        "rank": "III",
+        "lp": 1,
+        "wins": 26,
+        "losses": 25
       },
       "solo": {
         "tier": "EMERALD",

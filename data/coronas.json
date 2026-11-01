@@ -35,6 +35,24 @@
       "opcion": "grangalax",
       "importe": 10,
       "created_at": "2026-10-27T09:24:21.354305+00:00"
+    },
+    {
+      "id": 5,
+      "nombre": "GSJoseador",
+      "lector": "15b75a67-f6d2-4f4d-b64c-1d3f5fa34030",
+      "mercado": "2026-10-31-muertes",
+      "opcion": "saiko",
+      "importe": 10,
+      "created_at": "2026-10-31T17:53:09.264013+00:00"
+    },
+    {
+      "id": 6,
+      "nombre": "GSJoseador",
+      "lector": "15b75a67-f6d2-4f4d-b64c-1d3f5fa34030",
+      "mercado": "2026-10-31-flex",
+      "opcion": "sin_flex",
+      "importe": 80,
+      "created_at": "2026-10-31T17:53:22.366427+00:00"
     }
   ]
 }
