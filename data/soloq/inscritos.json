@@ -101,7 +101,8 @@
   "ddragon": "16.21.1",
   "avisos": {
     "programado": 1793487600000,
-    "diario": "2026-10-31"
+    "diario": "2026-10-31",
+    "inicio": 1793487600000
   },
   "buzon": [],
   "permisos": []
