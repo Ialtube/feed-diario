@@ -1,10 +1,34 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793517784356,
+ "actualizado": 1793543304048,
  "clasificacion": [
   {
    "puesto": 1,
+   "nombre": "Saiko",
+   "apodo": "KOI Huerfano",
+   "riot_id": "Mastersuftine#6535",
+   "liga": "Sin clasificar",
+   "lp_hoy": null,
+   "partidas": 2,
+   "victorias": 2,
+   "derrotas": 0,
+   "racha": 2
+  },
+  {
+   "puesto": 2,
+   "nombre": "Giroroo",
+   "apodo": "La Guadaña de la Mon",
+   "riot_id": "Xillie#8107",
+   "liga": "Sin clasificar",
+   "lp_hoy": null,
+   "partidas": 1,
+   "victorias": 1,
+   "derrotas": 0,
+   "racha": 1
+  },
+  {
+   "puesto": 3,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -16,19 +40,7 @@
    "racha": 0
   },
   {
-   "puesto": 2,
-   "nombre": "Giroroo",
-   "apodo": "La Guadaña de la Mon",
-   "riot_id": "Xillie#8107",
-   "liga": "Sin clasificar",
-   "lp_hoy": null,
-   "partidas": 0,
-   "victorias": 0,
-   "derrotas": 0,
-   "racha": 0
-  },
-  {
-   "puesto": 3,
+   "puesto": 4,
    "nombre": "Wôlf",
    "apodo": "Barro",
    "riot_id": "Theossichi#9248",
@@ -40,7 +52,7 @@
    "racha": 0
   },
   {
-   "puesto": 4,
+   "puesto": 5,
    "nombre": "GSJoseador",
    "apodo": "El Comodín de la Grieta",
    "riot_id": "SantuJk#1510",
@@ -52,7 +64,7 @@
    "racha": 0
   },
   {
-   "puesto": 5,
+   "puesto": 6,
    "nombre": "RDV Canyon",
    "apodo": "Minguez",
    "riot_id": "FisityBard#3700",

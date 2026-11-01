@@ -107,13 +107,29 @@
       "id": 7,
       "estado": "no_encontrado",
       "persona": "Saiko"
+    },
+    "mastersuftine#6535": {
+      "riot_id": "Mastersuftine#6535",
+      "apodo": "KOI Huerfano",
+      "jugador": "saiko",
+      "objetivo": "CHALLENGER",
+      "lema": "Minguez Maricon",
+      "inscrito": "2026-11-01T07:42:33.672178+00:00",
+      "origen": "web",
+      "id": 8,
+      "estado": "ok",
+      "persona": "Saiko",
+      "puuid": "3QNjiYli3sEUXhxykKbXAkkKBCAz497DGzXv8VlIRNdIdocVsZhmnDusUVWQCPV9Ur91BgjgL53OHA",
+      "icono": 29,
+      "nivel": 31,
+      "icono_ms": 1793543304048
     }
   },
-  "actualizado": 1793517784356,
+  "actualizado": 1793543304048,
   "ddragon": "16.21.1",
   "avisos": {
     "programado": 1793487600000,
-    "diario": "2026-10-31",
+    "diario": "2026-11-01",
     "inicio": 1793487600000
   },
   "buzon": [],
