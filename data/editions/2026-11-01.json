@@ -8,187 +8,413 @@
   ],
   "items": [
     {
-      "id": 0,
-      "kind": "portada",
-      "section": "PORTADA",
-      "desk": "",
+      "id": 1,
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "crónica",
+      "clave": "mismo_sitio:ipredatorz:EUW1_8031685076",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
       "player": "ipredatorz",
       "alias": "iPredatoRz",
-      "headline": "iPredatoRz lidera la clasificación de la vergüenza con un 1–1 que ya es historia",
-      "body": "Ni el peor día de cualquier otro se le acerca: 20 muertes, KDA 1,85 y el 22,5 % del daño de su equipo. Mañana, más.",
-      "stat": "1–1",
-      "stat_label": "victorias–derrotas",
-      "severity": 100,
-      "facts": {
-        "alias": "iPredatoRz",
-        "games": 2,
-        "wl": "1–1",
-        "d": 20,
-        "kda": "1,85",
-        "dmg_txt": "el 22,5 % del daño de su equipo",
-        "dmg_txt_cap": "El 22,5 % del daño de su equipo de media",
-        "champ": "Yasuo",
-        "champs": "Yasuo",
-        "hours": "1,1"
-      }
-    },
-    {
-      "id": 1,
-      "kind": "pleno",
-      "section": "DEPORTES",
-      "desk": "Arena de Noxus",
-      "player": "saiko",
-      "alias": "Saiko",
-      "headline": "Cero victorias para Saiko: 0–2 y a dormir",
-      "body": "Lo intentó con Blitzcrank. El resultado no cambió. Mañana el contador vuelve a cero, que es justo donde lo dejó.",
-      "stat": "0–2",
-      "stat_label": "victorias–derrotas",
-      "severity": 5.5,
-      "facts": {
-        "alias": "Saiko",
-        "games": 2,
-        "wl": "0–2",
-        "d": 16,
-        "kda": "2,44",
-        "dmg_txt": "muy poco daño",
-        "dmg_txt_cap": "Muy poco daño de media",
-        "champ": "Blitzcrank",
-        "champs": "Blitzcrank",
-        "hours": "1,1"
+      "headline": "Volvió el Fantasma, y volvió a morirse a su hora",
+      "subtitulo": "iPredatoRz se apunta solo a la Flex de Halloween, muere diez veces en cada partida y se lleva una victoria y la portada.",
+      "body": "La noche de Halloween, mientras el resto del grupo se escondía, el Fantasma del Vacío salió a la Grieta sin compañía. Nada de amigos: iPredatoRz se metió solo en la cola de Flex a las siete de la tarde, con Yasuo. Y al terminar, otra vez con Yasuo, como quien vuelve al lugar del crimen porque se ha dejado las llaves.\n\nLa primera fue la del espadachín que sabe pelear: tres duelos ganados en solitario, el 27,1 % del daño de su equipo y once asesinatos. También diez muertes, y derrota contra un Ekko que acabó con más asesinatos que él. En la Comisaría de Piltover a eso lo llaman trabajar a comisión.\n\nLa segunda fue peor jugada y mejor pagada. Otras diez muertes, repartidas con la puntualidad de un reloj de cuco, una cada tres minutos de principio a fin. Cuatro de ellas en el mismo rincón del mapa, que el comisario Cobretuerca ha precintado con cinta amarilla por si vuelve. Y victoria: su equipo cerró la partida mientras él hacía cola para resucitar.\n\nEl sábado se salda con un 1–1, veinte muertes y el primer puesto de la clasificación del día. El Fantasma no viene a ganar ni a perder. Viene a morirse, y luego se va.\n\nFeliz Todos los Santos. Él ya ha cumplido.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Yasuo",
+      "entrevistado": null,
+      "pie": "Yasuo, solo ante el peligro y ante su propio contador de muertes. Islas de la Sombra, víspera de difuntos.",
+      "meme_arriba": "Diez muertes: derrota",
+      "meme_abajo": "Diez muertes: victoria",
+      "lector": null,
+      "severity": 1000,
+      "facts": {},
+      "hilo": "el-regreso-del-fantasma",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-regreso-del-fantasma",
+        "titulo": "El regreso del Fantasma",
+        "capitulo": 2,
+        "estado": "escalando"
       }
     },
     {
       "id": 2,
-      "kind": "sucesos",
-      "section": "SUCESOS",
-      "desk": "Comisaría de Piltover",
-      "player": "saiko",
-      "alias": "Saiko",
-      "headline": "Detenido Saiko por alimentar al enemigo: 11 muertes con Blitzcrank",
-      "body": "Los hechos ocurrieron en una Ranked Solo/Dúo de 37 minutos. Resultado: 0/11/19. Derrota, claro. El rival ya le ha enviado una cesta de agradecimiento.",
-      "stat": "11",
-      "stat_label": "muertes en una partida",
-      "severity": 5.4,
-      "facts": {
-        "alias": "Saiko",
-        "games": 2,
-        "wl": "0–2",
-        "d": 11,
-        "kda": "2,44",
-        "dmg_txt": "muy poco daño",
-        "dmg_txt_cap": "Muy poco daño de media",
-        "champ": "Blitzcrank",
-        "champs": "Blitzcrank",
-        "hours": "1,1",
-        "kdas": "0/11/19",
-        "queue": "Ranked Solo/Dúo",
-        "mins": 37,
-        "every": "3:23",
-        "res": "derrota",
-        "res_cap": "Derrota, claro"
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "perfil",
+      "clave": "perfil:wolf",
+      "section": "REPORTAJE",
+      "desk": "",
+      "player": "wolf",
+      "alias": null,
+      "headline": "Wôlf, el hombre de los cien campeones que juega a uno",
+      "subtitulo": "Retrato dominical del Heraldo de los Pings, según lo que dice de él la hemeroteca y no lo que dice la leyenda.",
+      "body": "Hay una leyenda en el grupo: Wôlf tiene cien campeones y ninguno fijo. Este periódico la ha repetido sin comprobarla, como hacen los buenos periódicos. Hoy es domingo y toca comprobarla. La hemeroteca guarda 59 partidas suyas. En 24 de ellas juega Zed. El segundo de la lista es Ekko, con cinco, y Ekko ni siquiera es suyo: se lo quitó al Barón de la Moneda en el intercambio de maldiciones.\n\nO sea, que Wôlf no es un hombre de cien campeones. Es un main de Zed con complejo de culpa que de vez en cuando sale con otro para que no se note. Cuando sale, se nota. Gragas sigue en su ficha como maldito desde la primera semana. Lissandra murió ocho veces en quince minutos el día de su estreno. Y la Qiyana que le prestó grangalax volvió a su dueño con once muertes en la jungla y una orden de alejamiento.\n\nEl balance completo es 30–29. Una victoria por encima de la moneda de grangalax, que es como presumir de tener un euro más que el que pide en la puerta. En SoloQ sigue en Esmeralda IV con cero puntos, el mismo saldo de Saiko, su rival por el trono de los pings. Dos hombres al borde de la escalera y ninguno se atreve a bajar.\n\nSu último acto público fue inscribirse en el SoloQ Challenge. Se puso de mote «Barro», declaró como objetivo Aspirante y escribió como grito de guerra «Hola». El reto arrancó a medianoche. Al cierre de esta edición, Wôlf no ha jugado ni una partida. Ha saludado y se ha ido.\n\nMás perro que lobo, decían. La hemeroteca no dice eso. Dice que es un perro con un solo hueso, y que lo esconde.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Zed",
+      "entrevistado": null,
+      "pie": "Zed, el campeón que Wôlf juega cuando nadie mira. Es decir, casi siempre.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 599,
+      "facts": {},
+      "hilo": "el-intercambio-de-maldiciones",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-intercambio-de-maldiciones",
+        "titulo": "El intercambio de maldiciones",
+        "capitulo": 6,
+        "estado": "escalando"
       }
     },
     {
       "id": 3,
-      "kind": "sucesos",
-      "section": "SUCESOS",
-      "desk": "Comisaría de Piltover",
-      "player": "ipredatorz",
-      "alias": "iPredatoRz",
-      "headline": "iPredatoRz muere 10 veces en una sola partida y la policía de Piltover abre una investigación",
-      "body": "Yasuo, 11/10/10, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
-      "stat": "10",
-      "stat_label": "muertes en una partida",
-      "severity": 5.0,
-      "facts": {
-        "alias": "iPredatoRz",
-        "games": 2,
-        "wl": "1–1",
-        "d": 10,
-        "kda": "1,85",
-        "dmg_txt": "el 22,5 % del daño de su equipo",
-        "dmg_txt_cap": "El 22,5 % del daño de su equipo de media",
-        "champ": "Yasuo",
-        "champs": "Yasuo",
-        "hours": "1,1",
-        "kdas": "11/10/10",
-        "queue": "Ranked Flex",
-        "mins": 33,
-        "every": "3:22",
-        "res": "derrota",
-        "res_cap": "Derrota, claro"
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "editorial",
+      "clave": "records",
+      "section": "OPINIÓN",
+      "desk": "",
+      "player": "grangalax",
+      "alias": null,
+      "headline": "Los premios de octubre, y por qué el grande es para el Barón",
+      "subtitulo": "El director firma en persona el reparto del mes. La General de la vergüenza dice otra cosa, pero la General no firma editoriales.",
+      "body": "Octubre se cierra con 275 partidas en la hemeroteca y ninguna de la que presumir. Esta casa, fiel a la tradición, reparte sus premios del mes. El jurado lo forma una sola persona, la que firma estas líneas, por motivos de agilidad.\n\nPremio a la muerte con más recorrido: iPredatoRz, diecinueve con Akali en la partida más larga del mes, cuarenta y nueve minutos. No es un récord, es una jornada laboral. Premio al trabajo bien hecho: TheTrevur, veintitrés asesinatos con Urgot, que se lleva para que no haga falta volver a mirarle hasta noviembre. Premio de Radio Zaun: RDV Canyon, ochenta y dos pings en una sola partida. Premio a la constancia: Saiko, que un sábado jugó dieciséis partidas para perder nueve. Premio a la carrera sin daño: Fr4nux, en Platino I mientras el Instituto Hextech sigue buscando el suyo. Premio a la discreción: Dierophant, que juega tan poco que ni la vergüenza le encuentra.\n\nY el gran premio, Rey de la Vergüenza de octubre: el Barón de la Moneda. Siete portadas, 37 victorias, 52 derrotas y una Qiyana que cierra el mes con un 0–8 y cuatro denuncias en el Sindicato de Campeones. Habrá quien diga que la General de la vergüenza la encabeza hoy Saiko. La General es una fórmula, y las fórmulas, como sabe cualquiera que haya firmado una, se equivocan.\n\nAlgún malpensado de esta redacción ha preguntado por qué el director entrega el premio en persona y con tanto cariño. Respondo: porque el Barón es la columna vertebral de este periódico. Sin sus muertes no hay portadas, ni Lonja, ni libro de cuentas. Lleva dos noches sin jugar y ya se nota en la caja.\n\nEnhorabuena, Barón. Vuelva pronto. Le necesitamos.\n\nDon Evaristo Plumanegra, director.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 598,
+      "facts": {},
+      "hilo": "la-moneda",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "la-moneda",
+        "titulo": "La moneda de grangalax",
+        "capitulo": 12,
+        "estado": "escalando"
       }
     },
     {
       "id": 4,
-      "kind": "tiempo",
-      "section": "EL TIEMPO",
-      "desk": "Islas de la Sombra",
-      "player": "ipredatorz",
-      "alias": "iPredatoRz",
-      "headline": "iPredatoRz se pasa 10 minutos en la pantalla gris",
-      "body": "El 16,5 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
-      "stat": "10 min",
-      "stat_label": "en la pantalla gris",
-      "severity": 3.56,
-      "facts": {
-        "alias": "iPredatoRz",
-        "games": 2,
-        "wl": "1–1",
-        "d": 20,
-        "kda": "1,85",
-        "dmg_txt": "el 22,5 % del daño de su equipo",
-        "dmg_txt_cap": "El 22,5 % del daño de su equipo de media",
-        "champ": "Yasuo",
-        "champs": "Yasuo",
-        "hours": "1,1",
-        "dead_mins": 10,
-        "dead_pct": "16,5 %"
-      }
-    },
-    {
-      "id": 5,
-      "kind": "mencion",
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "noticia",
+      "clave": "faro:gsjoseador",
       "section": "EL FARO DE LA ESPERANZA",
       "desk": "Centinelas de la Luz",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "El Faro de la Esperanza ilumina hoy a GSJoseador: 1–1",
-      "body": "Mientras la Niebla Negra cubría al resto del grupo, GSJoseador aguantó con un KDA de 2,62. Los Centinelas de la Luz no van a reclutarle, pero hoy al menos no se ha perdido en la Ruina.",
-      "stat": "1–1",
-      "stat_label": "victorias–derrotas",
-      "severity": 0.5,
-      "facts": {
-        "alias": "GSJoseador",
-        "games": 2,
-        "wl": "1–1",
-        "d": 8,
-        "kda": "2,62",
-        "dmg_txt": "el 17,6 % del daño de su equipo",
-        "dmg_txt_cap": "El 17,6 % del daño de su equipo de media",
-        "champ": "Ornn",
-        "champs": "Ornn y Malphite",
-        "hours": "0,9"
+      "headline": "La Luz encuentra a GSJoseador entre piedras",
+      "subtitulo": "Una roca maldita, una sola muerte en media hora y un Ornn que mejor no mirar.",
+      "body": "Los Centinelas de la Luz se pasaron el sábado buscando algo que contar, y pasadas las ocho y media de la noche lo encontraron dentro de un Malphite. GSJoseador, que tenía a la roca apuntada en su expediente como campeón maldito, la sacó a la calle superior y firmó un 3/1/10: una sola muerte en media hora y victoria. El Hermano Venda lo apuntó dos veces por si se le borraba.\n\nLa media hora anterior no la apuntó nadie. Con Ornn, el mismo GSJoseador perdió la calle contra un Sett que le sacó casi dos mil de oro, y la partida detrás. Un 1–1 y mejor del día: en otro grupo sería un sábado normal; aquí es un milagro con letra pequeña.\n\nEl Faro lo celebra con prudencia. El Yone que tenía enfrente murió ocho veces y aun así le sacó ochenta y dos súbditos.\n\nHasta una roca gana a un hombre que se tira solo.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Malphite",
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 397,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 5,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "juicio",
+      "clave": "madrugada:saiko",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "Blitzcrank contra Saiko, segunda vista",
+      "subtitulo": "El Sindicato de Campeones vuelve a sentar al soporte en el banquillo por el mismo robot.",
+      "body": "El Sindicato de Campeones Maltratados ha sentado a Saiko en el banquillo por segunda vez, y por el mismo robot. La fiscal Hexwick expuso los hechos: el sábado, a las seis y media de la mañana, el acusado sacó a Blitzcrank, puso treinta y seis guardianes, mandó cuarenta pings y no mató a nadie en treinta y siete minutos. Once muertes, todas con la luz encendida. «Iluminó el mapa para que se viera mejor cómo le mataban», resumió la fiscal.\n\nEl abogado Leguleyo pidió la absolución: su cliente venía de un 5–0 el día anterior y, a las tres horas, volvió con el mismo robot para firmar un 6/5/14 y meter la mano en tres de cada cuatro asesinatos de su equipo. Derrota también. «Mi cliente no tiene un problema con Blitzcrank. Tiene un problema con el despertador.»\n\nEl tribunal aplaza la sentencia.\n\nSaiko, que no sabe irse a casa, tampoco sabe quedarse en la cama.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Blitzcrank",
+      "entrevistado": null,
+      "pie": "Blitzcrank oxidado, testigo de cargo. Talleres de Zaun, sala de vistas número dos.",
+      "meme_arriba": "Seis y media de la mañana",
+      "meme_abajo": "Once muertes antes del desayuno",
+      "lector": null,
+      "severity": 396,
+      "facts": {},
+      "hilo": "el-que-no-sabe-irse-a-casa",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-que-no-sabe-irse-a-casa",
+        "titulo": "El que no sabe irse a casa",
+        "capitulo": 6,
+        "estado": "escalando"
       }
     },
     {
       "id": 6,
-      "kind": "ausentes",
-      "section": "AUSENTES",
-      "desk": "Perdidos en el Vacío",
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "comunicado oficial",
+      "clave": null,
+      "section": "SOLOQ CHALLENGE",
+      "desk": "",
       "player": null,
       "alias": null,
-      "headline": "Desaparecidos del día: Fr4nux, Dierophant, TheTrevur, Giroroo, Wôlf, grangalax y RDV Canyon",
-      "body": "Ni una partida. La Grieta respira tranquila por un día.",
-      "stat": "7",
-      "stat_label": "no jugaron",
-      "severity": 0.2,
-      "facts": {
-        "names": "Fr4nux, Dierophant, TheTrevur, Giroroo, Wôlf, grangalax y RDV Canyon"
+      "headline": "Cinco inscritos, cero partidas y cinco invictos",
+      "subtitulo": "La organización del SoloQ Challenge hace balance de una primera jornada sin una sola derrota.",
+      "body": "La organización del SoloQ Challenge comunica el balance de su primera jornada. La salida se dio a las 00:00 del domingo. Al cierre de esta edición, ninguno de los cinco inscritos ha jugado una sola partida con su cuenta del reto. La clasificación refleja, por tanto, un empate técnico en la nada: todos sin clasificar, todos sin derrotas.\n\nLa organización recuerda los compromisos adquiridos. TheTrevur, Diamante en su cuenta de siempre, se ha marcado Esmeralda como objetivo y «E + Flash» como grito de guerra; de momento, ni E ni Flash. GSJoseador prometió ser el «top damage del equipo», promesa difícil de incumplir sin jugar. RDV Canyon apunta a Diamante sin grito de guerra, que es la forma más honrada de no prometer nada. Wôlf saludó. Giroroo dejó un grito de guerra que esta organización no va a reproducir en un periódico familiar.\n\nQuedan 52 días y 50 partidas mínimas por cabeza. El farolillo rojo paga la primera ronda y juega una partida entera de soporte con Teemo.\n\nEsta organización ya ha encargado el Teemo.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 395,
+      "facts": {},
+      "hilo": "el-reto-de-las-cuentas-nuevas",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-reto-de-las-cuentas-nuevas",
+        "titulo": "El reto de las cuentas nuevas",
+        "capitulo": 1,
+        "estado": "abierto"
       }
+    },
+    {
+      "id": 7,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "análisis",
+      "clave": null,
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": null,
+      "alias": null,
+      "headline": "La columna de la derecha, en blanco",
+      "subtitulo": "Madame Niebla copia el libro de la Lonja para hacer el horóscopo y descubre quién paga a quién.",
+      "body": "Madame Niebla no lee la Lonja: la copia. Desde que usa la página arrancada del libro de Barbanegra como borrador del horóscopo, la vidente mira cada mañana la columna de la derecha, la de las iniciales D.E.P., para saber qué tiempo va a hacer. Ayer la columna estaba en blanco. Anteayer, también.\n\nNo es casualidad: son las dos noches que el Barón de la Moneda lleva sin jugar. Junto a cada muerte suya con Qiyana había una raya y una cantidad. Sin muertes no hay rayas, y sin rayas no hay cantidad. Niebla hizo la cuenta, que es lo único que ha acertado en su vida: el director no protege a Barbanegra porque le deba dinero. Le protege porque Barbanegra es quien le paga.\n\nLa vidente se lo contó a la fiscal Hexwick en el pasillo, en voz baja.\n\nEl director, mientras tanto, firmaba en su despacho el editorial que da al Barón el premio del mes y le pide que vuelva pronto.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 394,
+      "facts": {},
+      "hilo": "el-escandalo-de-la-lonja",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-escandalo-de-la-lonja",
+        "titulo": "El escándalo de la Lonja",
+        "capitulo": 10,
+        "estado": "desenlace"
+      }
+    },
+    {
+      "id": 8,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "vision:ipredatorz",
+      "section": "CIENCIA",
+      "desk": "Academia de Piltover",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "Yasuo, a oscuras",
+      "subtitulo": "",
+      "body": "La Academia de Piltover ha estudiado la segunda Flex de iPredatoRz: cinco guardianes en treinta y un minutos de carril central. Cuatro de sus diez muertes fueron en el mismo sitio. Los científicos sostienen que, con un guardián más, habría visto venir la quinta.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 193,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 9,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "farmeo:gsjoseador",
+      "section": "AGRICULTURA",
+      "desk": "Cosechas de Demacia",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Ornn deja la cosecha en el campo",
+      "subtitulo": "",
+      "body": "Las Cosechas de Demacia reprochan a GSJoseador que, con Ornn, recogiera veinticuatro súbditos menos que el Sett de enfrente. Ornn es un dios herrero que forja armas para todo su equipo. El oro, por lo visto, lo forjó Sett.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 192,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 10,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "anuncio por palabras",
+      "clave": "ausentes",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "grangalax",
+      "alias": null,
+      "headline": "Se busca Barón, Oro IV, cero puntos",
+      "subtitulo": "",
+      "body": "SE BUSCA Barón de la Moneda. Visto por última vez en Oro IV con cero puntos, a una derrota de Plata. Dos noches sin jugar: el saldo se conserva intacto, como la fruta en la nevera. Con él faltan Fr4nux, Dierophant, TheTrevur, Giroroo, Wôlf y RDV Canyon. Razón: Lonja de Aguasturbias. Se gratificará.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 191,
+      "facts": {},
+      "hilo": "el-suelo-del-oro",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-suelo-del-oro",
+        "titulo": "El suelo del Oro",
+        "capitulo": 2,
+        "estado": "abierto"
+      }
+    },
+    {
+      "id": 11,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": null,
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Un periódico, un lector",
+      "subtitulo": "",
+      "body": "GSJoseador acertó el «¿Quién fue?» al primer intento, dos veces. Apostó ochenta coronas a que el grupo no jugaría Flex y cobró doscientas ocho. En la porra votó a Saiko como peor del día y falló. Es el lector más rico de la Lonja, y su fortuna depende de que sus amigos no se junten.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 190,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 12,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": null,
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": null,
+      "alias": null,
+      "headline": "El bote se queda en 1.400",
+      "subtitulo": "",
+      "body": "La combinación del sábado salió de las muertes de iPredatoRz, Saiko y GSJoseador: 20, 16 y 8. GSJoseador jugó dos boletos idénticos, 8, 16 y 0, y acertó dos números en cada uno. Apostó por sus propias muertes y por las de Saiko, y se olvidó del que más muere.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 189,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 13,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": null,
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "Saiko mira a TheTrevur",
+      "subtitulo": "",
+      "body": "El registro de visitas muestra que Saiko consultó la ficha de TheTrevur. Una vez. TheTrevur no ha jugado, así que la ficha no había cambiado. La redacción lo interpreta como la envidia de quien acaba de perder dos con Blitzcrank y necesitaba ver una ficha sin derrotas.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 188,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
     }
   ],
-  "frase": "La pantalla gris también es contenido.",
+  "frase": "El primer día de un reto es el único en el que todos van invictos.",
   "ranking": [
     {
       "slug": "ipredatorz",
@@ -1258,5 +1484,486 @@
       "Saiko": 1
     },
     "estado": "ok"
-  }
+  },
+  "items_plantilla": [
+    {
+      "id": 0,
+      "kind": "portada",
+      "section": "PORTADA",
+      "desk": "",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "iPredatoRz lidera la clasificación de la vergüenza con un 1–1 que ya es historia",
+      "body": "Ni el peor día de cualquier otro se le acerca: 20 muertes, KDA 1,85 y el 22,5 % del daño de su equipo. Mañana, más.",
+      "stat": "1–1",
+      "stat_label": "victorias–derrotas",
+      "severity": 100,
+      "facts": {
+        "alias": "iPredatoRz",
+        "games": 2,
+        "wl": "1–1",
+        "d": 20,
+        "kda": "1,85",
+        "dmg_txt": "el 22,5 % del daño de su equipo",
+        "dmg_txt_cap": "El 22,5 % del daño de su equipo de media",
+        "champ": "Yasuo",
+        "champs": "Yasuo",
+        "hours": "1,1"
+      }
+    },
+    {
+      "id": 1,
+      "kind": "pleno",
+      "section": "DEPORTES",
+      "desk": "Arena de Noxus",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "Cero victorias para Saiko: 0–2 y a dormir",
+      "body": "Lo intentó con Blitzcrank. El resultado no cambió. Mañana el contador vuelve a cero, que es justo donde lo dejó.",
+      "stat": "0–2",
+      "stat_label": "victorias–derrotas",
+      "severity": 5.5,
+      "facts": {
+        "alias": "Saiko",
+        "games": 2,
+        "wl": "0–2",
+        "d": 16,
+        "kda": "2,44",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Blitzcrank",
+        "champs": "Blitzcrank",
+        "hours": "1,1"
+      }
+    },
+    {
+      "id": 2,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "Detenido Saiko por alimentar al enemigo: 11 muertes con Blitzcrank",
+      "body": "Los hechos ocurrieron en una Ranked Solo/Dúo de 37 minutos. Resultado: 0/11/19. Derrota, claro. El rival ya le ha enviado una cesta de agradecimiento.",
+      "stat": "11",
+      "stat_label": "muertes en una partida",
+      "severity": 5.4,
+      "facts": {
+        "alias": "Saiko",
+        "games": 2,
+        "wl": "0–2",
+        "d": 11,
+        "kda": "2,44",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Blitzcrank",
+        "champs": "Blitzcrank",
+        "hours": "1,1",
+        "kdas": "0/11/19",
+        "queue": "Ranked Solo/Dúo",
+        "mins": 37,
+        "every": "3:23",
+        "res": "derrota",
+        "res_cap": "Derrota, claro"
+      }
+    },
+    {
+      "id": 3,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "iPredatoRz muere 10 veces en una sola partida y la policía de Piltover abre una investigación",
+      "body": "Yasuo, 11/10/10, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
+      "stat": "10",
+      "stat_label": "muertes en una partida",
+      "severity": 5.0,
+      "facts": {
+        "alias": "iPredatoRz",
+        "games": 2,
+        "wl": "1–1",
+        "d": 10,
+        "kda": "1,85",
+        "dmg_txt": "el 22,5 % del daño de su equipo",
+        "dmg_txt_cap": "El 22,5 % del daño de su equipo de media",
+        "champ": "Yasuo",
+        "champs": "Yasuo",
+        "hours": "1,1",
+        "kdas": "11/10/10",
+        "queue": "Ranked Flex",
+        "mins": 33,
+        "every": "3:22",
+        "res": "derrota",
+        "res_cap": "Derrota, claro"
+      }
+    },
+    {
+      "id": 4,
+      "kind": "tiempo",
+      "section": "EL TIEMPO",
+      "desk": "Islas de la Sombra",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "iPredatoRz se pasa 10 minutos en la pantalla gris",
+      "body": "El 16,5 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
+      "stat": "10 min",
+      "stat_label": "en la pantalla gris",
+      "severity": 3.56,
+      "facts": {
+        "alias": "iPredatoRz",
+        "games": 2,
+        "wl": "1–1",
+        "d": 20,
+        "kda": "1,85",
+        "dmg_txt": "el 22,5 % del daño de su equipo",
+        "dmg_txt_cap": "El 22,5 % del daño de su equipo de media",
+        "champ": "Yasuo",
+        "champs": "Yasuo",
+        "hours": "1,1",
+        "dead_mins": 10,
+        "dead_pct": "16,5 %"
+      }
+    },
+    {
+      "id": 5,
+      "kind": "mencion",
+      "section": "EL FARO DE LA ESPERANZA",
+      "desk": "Centinelas de la Luz",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "El Faro de la Esperanza ilumina hoy a GSJoseador: 1–1",
+      "body": "Mientras la Niebla Negra cubría al resto del grupo, GSJoseador aguantó con un KDA de 2,62. Los Centinelas de la Luz no van a reclutarle, pero hoy al menos no se ha perdido en la Ruina.",
+      "stat": "1–1",
+      "stat_label": "victorias–derrotas",
+      "severity": 0.5,
+      "facts": {
+        "alias": "GSJoseador",
+        "games": 2,
+        "wl": "1–1",
+        "d": 8,
+        "kda": "2,62",
+        "dmg_txt": "el 17,6 % del daño de su equipo",
+        "dmg_txt_cap": "El 17,6 % del daño de su equipo de media",
+        "champ": "Ornn",
+        "champs": "Ornn y Malphite",
+        "hours": "0,9"
+      }
+    },
+    {
+      "id": 6,
+      "kind": "ausentes",
+      "section": "AUSENTES",
+      "desk": "Perdidos en el Vacío",
+      "player": null,
+      "alias": null,
+      "headline": "Desaparecidos del día: Fr4nux, Dierophant, TheTrevur, Giroroo, Wôlf, grangalax y RDV Canyon",
+      "body": "Ni una partida. La Grieta respira tranquila por un día.",
+      "stat": "7",
+      "stat_label": "no jugaron",
+      "severity": 0.2,
+      "facts": {
+        "names": "Fr4nux, Dierophant, TheTrevur, Giroroo, Wôlf, grangalax y RDV Canyon"
+      }
+    }
+  ],
+  "canon_cambios": {
+    "hilos": [
+      {
+        "id": "el-regreso-del-fantasma",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "iPredatoRz vuelve en Halloween, solo en Flex y con Yasuo: 11/10/10 con tres duelos ganados y derrota; 5/10/11, cuatro muertes en el mismo sitio y victoria. 1–1, veinte muertes y primero de la clasificación del día.",
+        "protagonistas": [
+          "ipredatorz"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-que-no-sabe-irse-a-casa",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "Tras un 5–0, Saiko madruga: Blitzcrank a las seis y media de la mañana, 0/11/19 con 36 guardianes y 40 pings; tres horas después, otro Blitzcrank 6/5/14. 0–2 y segunda denuncia del robot ante el Sindicato.",
+        "protagonistas": [
+          "saiko"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-escandalo-de-la-lonja",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "desenlace",
+        "resumen": "Madame Niebla, que copia la página arrancada del libro para el horóscopo, ve la columna D.E.P. en blanco las dos noches sin Barón y deduce que Barbanegra paga al director por cada muerte del Barón: no le protege por deuda, sino porque cobra de él. Se lo cuenta a Hexwick.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-guerra-de-los-periodicos",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "La Gaceta asegura haber dado sus premios de octubre la noche de Halloween, antes que el Rincón, se los entrega a iPredatoRz y llama «contables» los motivos del director para premiar al Barón.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-moneda",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "Sin jugar, el director le concede en editorial el premio de Rey de la Vergüenza de octubre (siete portadas, 37–52, Qiyana 0–8) contra lo que dice la General, que encabeza Saiko, y le pide que vuelva.",
+        "protagonistas": [
+          "grangalax"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-suelo-del-oro",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "abierto",
+        "resumen": "Dos noches sin jugar: grangalax conserva Oro IV con cero puntos por incomparecencia. Se publica un anuncio de búsqueda pagado por la Lonja.",
+        "protagonistas": [
+          "grangalax"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-intercambio-de-maldiciones",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "Perfil dominical de Wôlf: de sus 59 partidas, 24 son con Zed y el segundo campeón es el Ekko del Barón. Gragas, Lissandra y la Qiyana prestada, en su expediente.",
+        "protagonistas": [
+          "wolf"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-reto-de-las-cuentas-nuevas",
+        "accion": "abrir",
+        "titulo": "El reto de las cuentas nuevas",
+        "estado": "abierto",
+        "resumen": "Arranca el SoloQ Challenge con cinco inscritos (TheTrevur, Giroroo, Wôlf, GSJoseador y RDV Canyon) y ninguno juega el primer día: todos invictos por incomparecencia.",
+        "protagonistas": [
+          "thetrevur",
+          "giroroo",
+          "wolf",
+          "gsjoseador",
+          "rdv-canyon"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-coach-de-la-soloq",
+        "accion": "cerrar",
+        "titulo": null,
+        "estado": "cerrado",
+        "resumen": "Prescribe: el coach del minuto veinte no ha vuelto a entrenar a nadie y el título se queda en su ficha como recuerdo.",
+        "protagonistas": [],
+        "reparto": []
+      }
+    ],
+    "personajes": {
+      "ipredatorz": {
+        "arco": {
+          "tipo": "villano",
+          "texto": "Vuelve en Halloween, juega solo, muere diez veces por partida, gana una y recupera el primer puesto del día: el Fantasma reina sin compañía."
+        }
+      },
+      "saiko": {
+        "maldicion": "Blitzcrank: segunda denuncia; 0/11/19 a las seis y media de la mañana con 36 guardianes",
+        "arco": {
+          "tipo": "caída",
+          "texto": "Del 5–0 al 0–2 en una mañana con el mismo robot: no sabe irse a casa ni quedarse en la cama."
+        }
+      },
+      "grangalax": {
+        "titulo": "Rey de la Vergüenza de octubre (por decisión del director)"
+      },
+      "wolf": {
+        "apodo": "Barro"
+      },
+      "gsjoseador": {
+        "apodo": "el lector más rico de la Lonja"
+      }
+    },
+    "elenco": [
+      {
+        "nombre": "Madame Niebla",
+        "actualizar": true,
+        "estado": "Ha descubierto en la página arrancada que Barbanegra paga al director por cada muerte del Barón; se lo ha contado a Hexwick"
+      },
+      {
+        "nombre": "Fiscal Lucrecia Hexwick",
+        "actualizar": true,
+        "estado": "Sabe por Madame Niebla que el director cobra de Barbanegra por cada muerte del Barón"
+      },
+      {
+        "nombre": "Don Evaristo Plumanegra",
+        "actualizar": true,
+        "estado": "Premia en persona al Barón como Rey de la Vergüenza de octubre y le pide que vuelva a jugar"
+      },
+      {
+        "nombre": "Valeria Puñoférreo",
+        "actualizar": true,
+        "estado": "Ha dado sus propios premios de octubre a iPredatoRz y acusa al director de premiar al Barón por motivos contables"
+      }
+    ],
+    "costumbres": [
+      "Los sábados sin Flex del grupo, iPredatoRz entra solo en Flex a las siete de la tarde y GSJoseador le releva en SoloQ a las ocho."
+    ],
+    "chistes": [
+      "más perro que lobo",
+      "el que no sabe irse a casa"
+    ],
+    "sindicato": [
+      {
+        "campeon": "Blitzcrank",
+        "jugador": "saiko",
+        "motivo": "Sacado a las seis y media de la mañana: 0/11/19 con treinta y seis guardianes, y otra derrota tres horas después"
+      },
+      {
+        "campeon": "Yasuo",
+        "jugador": "ipredatorz",
+        "motivo": "Veinte muertes en dos Flex seguidas en solitario, cuatro de ellas en el mismo sitio"
+      }
+    ]
+  },
+  "tiempo": [
+    {
+      "jugador": "ipredatorz",
+      "texto": "Diez minutos de cielo gris en dos partidas, el 16,5 % de la tarde. Para hoy, niebla persistente sobre el carril central y chubascos de Yasuo."
+    },
+    {
+      "jugador": "saiko",
+      "texto": "Casi ocho minutos de niebla antes del mediodía. Visibilidad excelente gracias a cincuenta y nueve guardianes y, aun así, muertes a plena luz."
+    },
+    {
+      "jugador": "gsjoseador",
+      "texto": "Apenas tres minutos y medio en gris, casi todos con Ornn. Con Malphite, cielo despejado: una sola muerte en media hora."
+    }
+  ],
+  "angulos_usados": [
+    "mismo_sitio:ipredatorz:EUW1_8031685076",
+    "perfil:wolf",
+    "records",
+    "faro:gsjoseador",
+    "madrugada:saiko",
+    "vision:ipredatorz",
+    "farmeo:gsjoseador",
+    "ausentes"
+  ],
+  "horoscopo": [
+    {
+      "signo": "Top",
+      "texto": "Malphite te quiere; Ornn, no tanto. Si el de enfrente es un Sett, recoge los súbditos antes de forjar nada."
+    },
+    {
+      "signo": "Jungla",
+      "texto": "Nadie de tu signo jugó ayer. Es la mejor noche de la jungla del grupo en todo octubre."
+    },
+    {
+      "signo": "Mid",
+      "texto": "Diez muertes en una partida no son un mal día, son tu ritmo. Busca otro rincón para morir: el de siempre ya tiene cinta policial."
+    },
+    {
+      "signo": "Tirador",
+      "texto": "Ni un tirador del grupo en la Grieta. El Instituto Hextech aprovecha para revisar el daño de octubre y sigue sin encontrarlo."
+    },
+    {
+      "signo": "Soporte",
+      "texto": "Las seis y media de la mañana no es hora de sacar a Blitzcrank. Ninguna hora lo es si vas a morir once veces."
+    }
+  ],
+  "template_frase": "La pantalla gris también es contenido.",
+  "columna": {
+    "titulo": "El mejor día de vuestras vidas",
+    "autor": "El Coach que Nadie Contrató",
+    "cuerpo": [
+      "Os escribo desde el banquillo del SoloQ Challenge, que es donde me ha tocado sentarme, porque aquí tampoco me ha contratado nadie. Primer día del reto. Cinco cuentas nuevas. Cero partidas.",
+      "Os digo una cosa como profesional: no volveréis a estar tan bien como hoy. Hoy nadie tiene derrotas. Hoy nadie ha entregado una primera sangre ni se ha muerto con el Flash en la mano. Hoy TheTrevur sigue siendo Diamante y el Aspirante de Wôlf no lo ha desmentido nadie.",
+      "Mañana alguien juega. Pasado, alguien pierde una promo. Y a final de mes uno de vosotros estará mirando su ficha a las tres de la madrugada, preguntándose cómo se baja tanto con una cuenta que empezó sin nada.",
+      "Así que mi consejo técnico, el único que os voy a dar gratis: no juguéis. Cincuenta partidas mínimas, dicen las bases.",
+      "Las bases no dicen cuándo."
+    ]
+  },
+  "especial": {
+    "antetitulo": "PREMIOS DE OCTUBRE",
+    "titulo": "Octubre, entregado: los premios del mes",
+    "subtitulo": "Diecinueve muertes con Akali, dieciséis partidas en un sábado y un Barón premiado en persona por el director. La General de la vergüenza no está de acuerdo.",
+    "tema": "oro"
+  },
+  "gaceta": {
+    "titular": "¡LOS PREMIOS DE OCTUBRE SALIERON ANOCHE EN NOXUS!",
+    "cuerpo": "Mientras el Rincón dormía, LA GACETA repartía los premios del mes en su edición de Halloween. Y NO se los dimos al Barón, que lleva dos noches sin jugar y al que el director del Rincón premia por motivos que este periódico sí se atreve a llamar CONTABLES.\n\nNuestro premio es para iPredatoRz. ¡Diez muertes y una VICTORIA! En Noxus eso se llama eficiencia: cae el soldado, gana el imperio. El Rincón lo pone en portada para humillarlo. Nosotros le ofrecemos una medalla y una columna.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "jurado": {
+    "pregunta": "¿Para quién era de verdad el premio a la vergüenza de octubre?",
+    "opciones": [
+      "grangalax, como dice el director",
+      "Saiko, como dice la General",
+      "iPredatoRz, como dice la Gaceta"
+    ],
+    "juicio": false
+  },
+  "jurado_veredicto": null,
+  "manana": [
+    {
+      "texto": "¿Jugará alguien una sola partida del SoloQ Challenge?"
+    },
+    {
+      "texto": "¿Volverá el Barón a arriesgar su Oro IV con cero puntos?"
+    },
+    {
+      "texto": "¿Pondrá Saiko otra vez el despertador para Blitzcrank?"
+    }
+  ],
+  "promesas": [],
+  "tablon": [],
+  "sugerencias_tablon": [],
+  "ai": {
+    "version": 1,
+    "updated_at": 1793558337114,
+    "firma": "Claude",
+    "stale": false,
+    "formato": 2
+  },
+  "written_by": "Claude",
+  "lectores_ayer": {
+    "edicion": "2026-10-31",
+    "mas_reaccionadas": [],
+    "comentarios": []
+  },
+  "jurado_ayer": null,
+  "quien_fue_ayer": {
+    "edicion": "2026-10-31",
+    "solucion": "Fr4nux",
+    "campeon": "Vayne",
+    "jugaron": 2,
+    "acertaron": [
+      {
+        "nombre": "GSJoseador",
+        "intentos": 1
+      },
+      {
+        "nombre": "GSJoseador",
+        "intentos": 1
+      }
+    ],
+    "fallaron": 0,
+    "estado": "ok"
+  },
+  "cotillas": [
+    {
+      "cotilla": "Saiko",
+      "ficha": "TheTrevur",
+      "veces": 1,
+      "se_mira_a_si_mismo": false
+    }
+  ]
 }

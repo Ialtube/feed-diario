@@ -59,6 +59,10 @@
         {
           "fecha": "2026-10-21",
           "texto": "Rey Emérito de la Vergüenza"
+        },
+        {
+          "fecha": "2026-11-01",
+          "texto": "Rey de la Vergüenza de octubre (por decisión del director)"
         }
       ],
       "arcos": [
@@ -135,6 +139,10 @@
         {
           "fecha": "2026-10-21",
           "texto": "el Zed de las tres calles"
+        },
+        {
+          "fecha": "2026-11-01",
+          "texto": "Barro"
         }
       ],
       "rasgos": [
@@ -246,6 +254,10 @@
         {
           "fecha": "2026-10-27",
           "texto": "el equipaje"
+        },
+        {
+          "fecha": "2026-11-01",
+          "texto": "el lector más rico de la Lonja"
         }
       ],
       "rasgos": [
@@ -341,6 +353,11 @@
           "tipo": "villano",
           "texto": "Vuelve del silencio con el récord de muertes en una partida y recupera la General: reina muriendo.",
           "fecha": "2026-10-24"
+        },
+        {
+          "tipo": "villano",
+          "texto": "Vuelve en Halloween, juega solo, muere diez veces por partida, gana una y recupera el primer puesto del día: el Fantasma reina sin compañía.",
+          "fecha": "2026-11-01"
         }
       ]
     },
@@ -481,6 +498,10 @@
         {
           "fecha": "2026-10-30",
           "texto": "Lulu: 0/10/19 en su estreno, con 59 guardianes"
+        },
+        {
+          "fecha": "2026-11-01",
+          "texto": "Blitzcrank: segunda denuncia; 0/11/19 a las seis y media de la mañana con 36 guardianes"
         }
       ],
       "rivales": [],
@@ -525,6 +546,11 @@
           "tipo": "caída",
           "texto": "Sin copia y sin grupo, 2–3 en solitario y cincuenta puntos menos: Platino I con 41, a 59 de Esmeralda.",
           "fecha": "2026-10-30"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Del 5–0 al 0–2 en una mañana con el mismo robot: no sabe irse a casa ni quedarse en la cama.",
+          "fecha": "2026-11-01"
         }
       ]
     }
@@ -586,6 +612,11 @@
           "fecha": "2026-10-30",
           "campo": "estado",
           "texto": "Sospecha que las iniciales D.E.P. del libro de la Lonja son las del director"
+        },
+        {
+          "fecha": "2026-11-01",
+          "campo": "estado",
+          "texto": "Sabe por Madame Niebla que el director cobra de Barbanegra por cada muerte del Barón"
         }
       ]
     },
@@ -664,6 +695,11 @@
           "fecha": "2026-10-25",
           "campo": "estado",
           "texto": "Usó la página arrancada como borrador del horóscopo y acierta su primera predicción"
+        },
+        {
+          "fecha": "2026-11-01",
+          "campo": "estado",
+          "texto": "Ha descubierto en la página arrancada que Barbanegra paga al director por cada muerte del Barón; se lo ha contado a Hexwick"
         }
       ]
     },
@@ -755,6 +791,11 @@
           "fecha": "2026-10-30",
           "campo": "estado",
           "texto": "Sus iniciales podrían estar junto a cada muerte del Barón en el libro de la Lonja; no ha dicho nada"
+        },
+        {
+          "fecha": "2026-11-01",
+          "campo": "estado",
+          "texto": "Premia en persona al Barón como Rey de la Vergüenza de octubre y le pide que vuelva a jugar"
         }
       ]
     },
@@ -796,6 +837,11 @@
           "fecha": "2026-10-29",
           "campo": "estado",
           "texto": "Es la dueña del pagaré del director, endosado a su nombre por Barbanegra"
+        },
+        {
+          "fecha": "2026-11-01",
+          "campo": "estado",
+          "texto": "Ha dado sus propios premios de octubre a iPredatoRz y acusa al director de premiar al Barón por motivos contables"
         }
       ]
     }
@@ -853,6 +899,10 @@
         },
         {
           "fecha": "2026-10-30",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-01",
           "estado": "escalando"
         }
       ],
@@ -932,6 +982,13 @@
           "resumen": "Día 0–5 con 51 muertes y 25 minutos en gris. Hace una semana necesitaba ocho partidas para 57 muertes; ahora le bastan cinco para 51.",
           "titulares": [
             "Hace una semana necesitaba ocho partidas"
+          ]
+        },
+        {
+          "fecha": "2026-11-01",
+          "resumen": "Sin jugar, el director le concede en editorial el premio de Rey de la Vergüenza de octubre (siete portadas, 37–52, Qiyana 0–8) contra lo que dice la General, que encabeza Saiko, y le pide que vuelva.",
+          "titulares": [
+            "Los premios de octubre, y por qué el grande es para el Barón"
           ]
         }
       ]
@@ -1392,6 +1449,13 @@
           "titulares": [
             "Las iniciales del libro de la Lonja"
           ]
+        },
+        {
+          "fecha": "2026-11-01",
+          "resumen": "Madame Niebla, que copia la página arrancada del libro para el horóscopo, ve la columna D.E.P. en blanco las dos noches sin Barón y deduce que Barbanegra paga al director por cada muerte del Barón: no le protege por deuda, sino porque cobra de él. Se lo cuenta a Hexwick.",
+          "titulares": [
+            "La columna de la derecha, en blanco"
+          ]
         }
       ],
       "estados": [
@@ -1429,6 +1493,10 @@
         },
         {
           "fecha": "2026-10-30",
+          "estado": "desenlace"
+        },
+        {
+          "fecha": "2026-11-01",
           "estado": "desenlace"
         }
       ]
@@ -1489,6 +1557,11 @@
           "fecha": "2026-10-30",
           "resumen": "La Gaceta roba la exclusiva del libro de la Lonja: asegura haber fotografiado la página de las iniciales antes de que el Rincón la encontrara, y defiende al Barón por su «ritmo de trabajo».",
           "titulares": []
+        },
+        {
+          "fecha": "2026-11-01",
+          "resumen": "La Gaceta asegura haber dado sus premios de octubre la noche de Halloween, antes que el Rincón, se los entrega a iPredatoRz y llama «contables» los motivos del director para premiar al Barón.",
+          "titulares": []
         }
       ],
       "estados": [
@@ -1506,6 +1579,10 @@
         },
         {
           "fecha": "2026-10-30",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-01",
           "estado": "escalando"
         }
       ]
@@ -1528,6 +1605,10 @@
         {
           "fecha": "2026-10-23",
           "estado": "desenlace"
+        },
+        {
+          "fecha": "2026-11-01",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -1541,6 +1622,11 @@
         {
           "fecha": "2026-10-23",
           "resumen": "El jurado concede el título de coach a grangalax con dos votos, uno firmado por él mismo.",
+          "titulares": []
+        },
+        {
+          "fecha": "2026-11-01",
+          "resumen": "Prescribe: el coach del minuto veinte no ha vuelto a entrenar a nadie y el título se queda en su ficha como recuerdo.",
           "titulares": []
         }
       ]
@@ -1592,6 +1678,10 @@
         {
           "fecha": "2026-10-24",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-11-01",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1600,6 +1690,13 @@
           "resumen": "iPredatoRz vuelve tras dos días, bate el récord de muertes en una partida (19 con Akali) ganando doce duelos en solitario y recupera la General.",
           "titulares": [
             "iPredatoRz gana doce duelos y aun así se lleva el récord de muertes"
+          ]
+        },
+        {
+          "fecha": "2026-11-01",
+          "resumen": "iPredatoRz vuelve en Halloween, solo en Flex y con Yasuo: 11/10/10 con tres duelos ganados y derrota; 5/10/11, cuatro muertes en el mismo sitio y victoria. 1–1, veinte muertes y primero de la clasificación del día.",
+          "titulares": [
+            "Volvió el Fantasma, y volvió a morirse a su hora"
           ]
         }
       ]
@@ -1700,6 +1797,10 @@
         {
           "fecha": "2026-10-30",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-01",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1738,6 +1839,13 @@
             "La Luz elige entre dos y se queda con Saiko",
             "Lulu lo vio venir todo"
           ]
+        },
+        {
+          "fecha": "2026-11-01",
+          "resumen": "Tras un 5–0, Saiko madruga: Blitzcrank a las seis y media de la mañana, 0/11/19 con 36 guardianes y 40 pings; tres horas después, otro Blitzcrank 6/5/14. 0–2 y segunda denuncia del robot ante el Sindicato.",
+          "titulares": [
+            "Blitzcrank contra Saiko, segunda vista"
+          ]
         }
       ]
     },
@@ -1762,6 +1870,10 @@
         },
         {
           "fecha": "2026-10-30",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-01",
           "estado": "escalando"
         }
       ],
@@ -1800,6 +1912,13 @@
           "resumen": "Tras dos noches sin Qiyana, grangalax pierde con Ekko por la mañana y recae por la noche con cuatro Qiyanas seguidas: cuatro derrotas ante Kha'Zix, Nocturne, Talon y Viego. Qiyana, 0–8 en la hemeroteca.",
           "titulares": [
             "Dos noches limpio"
+          ]
+        },
+        {
+          "fecha": "2026-11-01",
+          "resumen": "Perfil dominical de Wôlf: de sus 59 partidas, 24 son con Zed y el segundo campeón es el Ekko del Barón. Gragas, Lissandra y la Qiyana prestada, en su expediente.",
+          "titulares": [
+            "Wôlf, el hombre de los cien campeones que juega a uno"
           ]
         }
       ]
@@ -1891,6 +2010,10 @@
         {
           "fecha": "2026-10-30",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-11-01",
+          "estado": "abierto"
         }
       ],
       "capitulos": [
@@ -1899,6 +2022,42 @@
           "resumen": "grangalax pierde 52 puntos en un día y amanece en Oro IV con cero: la próxima derrota le manda a Plata. En la tercera Qiyana hizo 231 de daño a objetivos en 26 minutos.",
           "titulares": [
             "Doscientos treinta y uno"
+          ]
+        },
+        {
+          "fecha": "2026-11-01",
+          "resumen": "Dos noches sin jugar: grangalax conserva Oro IV con cero puntos por incomparecencia. Se publica un anuncio de búsqueda pagado por la Lonja.",
+          "titulares": [
+            "Se busca Barón, Oro IV, cero puntos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-reto-de-las-cuentas-nuevas",
+      "titulo": "El reto de las cuentas nuevas",
+      "abierto": "2026-11-01",
+      "protagonistas": [
+        "giroroo",
+        "gsjoseador",
+        "rdv-canyon",
+        "thetrevur",
+        "wolf"
+      ],
+      "reparto": [],
+      "resumen": "Arranca el SoloQ Challenge con cinco inscritos (TheTrevur, Giroroo, Wôlf, GSJoseador y RDV Canyon) y ninguno juega el primer día: todos invictos por incomparecencia.",
+      "estados": [
+        {
+          "fecha": "2026-11-01",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-11-01",
+          "resumen": "Arranca el SoloQ Challenge con cinco inscritos (TheTrevur, Giroroo, Wôlf, GSJoseador y RDV Canyon) y ninguno juega el primer día: todos invictos por incomparecencia.",
+          "titulares": [
+            "Cinco inscritos, cero partidas y cinco invictos"
           ]
         }
       ]
@@ -1960,6 +2119,10 @@
     {
       "fecha": "2026-10-30",
       "texto": "Los jueves sin Flex, grangalax y Saiko entran en SoloQ con un minuto de diferencia, cada uno por su lado, y no se llaman."
+    },
+    {
+      "fecha": "2026-11-01",
+      "texto": "Los sábados sin Flex del grupo, iPredatoRz entra solo en Flex a las siete de la tarde y GSJoseador le releva en SoloQ a las ocho."
     }
   ],
   "chistes": [
@@ -1989,9 +2152,10 @@
       "texto": "más perro que lobo",
       "fechas": [
         "2026-10-22",
-        "2026-10-24"
+        "2026-10-24",
+        "2026-11-01"
       ],
-      "usos": 2,
+      "usos": 3,
       "semilla": true
     },
     {
@@ -2014,9 +2178,10 @@
     {
       "texto": "el que no sabe irse a casa",
       "fechas": [
-        "2026-10-28"
+        "2026-10-28",
+        "2026-11-01"
       ],
-      "usos": 1
+      "usos": 2
     },
     {
       "texto": "el otro Saiko",
@@ -2159,6 +2324,18 @@
       "jugador": "saiko",
       "motivo": "Estrenada con la primera sangre entregada en el minuto dos y 0/10/19 pese a 59 guardianes",
       "fecha": "2026-10-30"
+    },
+    {
+      "campeon": "Blitzcrank",
+      "jugador": "saiko",
+      "motivo": "Sacado a las seis y media de la mañana: 0/11/19 con treinta y seis guardianes, y otra derrota tres horas después",
+      "fecha": "2026-11-01"
+    },
+    {
+      "campeon": "Yasuo",
+      "jugador": "ipredatorz",
+      "motivo": "Veinte muertes en dos Flex seguidas en solitario, cuatro de ellas en el mismo sitio",
+      "fecha": "2026-11-01"
     }
   ]
 }
