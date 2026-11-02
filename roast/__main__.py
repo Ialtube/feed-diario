@@ -7,7 +7,7 @@
   python -m roast avisar   tell Discord that today's edition by Claude is out (once)
   python -m roast previa   the evening preview of the night's markets on Discord
   python -m roast informe  the editor's weekly report in informes/
-  python -m roast soloq    the SoloQ Challenge: sign-ups, ranks and games -> docs/soloq/ (every 30 minutes)
+  python -m roast soloq    the SoloQ Challenge: sign-ups, ranks and games -> docs/soloq/ (every ~10 minutes)
 """
 import json
 import argparse

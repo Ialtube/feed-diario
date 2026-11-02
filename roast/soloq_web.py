@@ -426,6 +426,8 @@ h3.tit{font-size:22px}
 .vitrina .tr[role=button]:hover,.vitrina .tr[role=button]:focus-visible{background:rgba(120,80,20,.13);outline:none}
 .vitrina .rk{margin-top:1px;font:italic 13px var(--script);color:var(--red)}
 .boton.sec{background:linear-gradient(180deg,#6b5a43,#3f3324);border-color:#2a2015}
+.boton.refrescar{font-size:15px;padding:5px 12px;margin-left:6px;vertical-align:middle}
+#refrescar-msg{display:block;margin-top:6px;font-style:normal}
 .rank-dialog{border:0;padding:0 14px;background:transparent;width:min(460px,94vw);overflow-x:hidden}
 .rank-dialog::backdrop{background:rgba(10,6,3,.72)}
 .rank-dialog .perg .hoja{padding:24px 24px 20px}
@@ -591,7 +593,7 @@ function loadVestuario(){if(!ok||!vest)return;
     var seen={},items=[];rows.forEach(function(x){var k=String(x.riot_id||"").trim().toLowerCase();if(!k||known[k]||seen[k])return;seen[k]=1;items.push(x)});
     if(!items.length){vest.innerHTML='<p style="margin:0">Nadie esperando: todos los apuntados ya están en el tablón.</p>';return}
     vest.innerHTML='<ul>'+items.slice(0,10).map(function(x){return '<li><b>'+esc(x.apodo)+'</b><span>'+esc(x.riot_id)+'</span></li>'}).join("")+'</ul>'+
-      '<p style="margin:6px 0 0">Entran en la próxima pasada del robot (cada 30 minutos).</p>'}).catch(function(){})}
+      '<p style="margin:6px 0 0">Entran en la próxima pasada del robot (cada 10 minutos, más o menos).</p>'}).catch(function(){})}
 loadVestuario();
 
 // sign-up form
@@ -614,7 +616,7 @@ if(form){
       lema:form.lema.value.trim().slice(0,120)||null,lector:store("feeder-lector")||null};
     api("soloq_inscritos",{method:"POST",headers:{"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify(body)})
       .then(function(r){if(!r.ok)throw new Error(r.status);store("soloq-yo",rid.toLowerCase());
-        msg.className="msg ok";msg.textContent="Apuntado. En media hora como mucho estás clavado en el tablón. Ve calentando el dedo del /ff.";
+        msg.className="msg ok";msg.textContent="Apuntado. En diez minutos más o menos estás clavado en el tablón. Ve calentando el dedo del /ff.";
         form.reset();loadVestuario()})
       .catch(function(){msg.className="msg err";msg.textContent="No se ha podido apuntar. Prueba en un rato (o échale la culpa al jungla)."})
       .then(function(){btn.disabled=false})});
@@ -642,7 +644,7 @@ if(jd&&jb){var jf=$("#jefe"),jm=$("#jefe-msg");
       .then(function(r){if(r.status===401||r.status===403||r.status===400){return r.json().then(function(e){throw new Error((e&&e.message)||"no")})}
         if(!r.ok)throw new Error("red");return r.json()})
       .then(function(){jm.className="msg ok";jm.textContent="Hecho. Salida el "+fecha(a.getTime())+(b?" y final el "+fecha(b.getTime()):"")+
-        ". El tablón y Discord se enteran en la próxima pasada del robot (media hora como mucho).";jf.clave.value="";
+        ". El tablón y Discord se enteran en la próxima pasada del robot (diez minutos, más o menos).";jf.clave.value="";
         if(a.getTime()>Date.now())clock(a.getTime(),"Empieza en")})
       .catch(function(e){jm.className="msg err";jm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta. Aquí no entra cualquiera.":
         /final/.test(e.message)?e.message:"No se ha podido guardar. Prueba otra vez en un rato."})})}
@@ -749,12 +751,24 @@ if(hl){var hq=$("#h-quien"),hm=$("#h-mas"),hc=$("#h-cuenta"),hv=$("#h-vacio"),hr
   hm.addEventListener("click",function(){hshown+=15;pintarHistorial()});
   pintarHistorial()}
 
-// the board changed while the page was open
-var toast=$("#aviso");
-if(toast&&S.actualizado){setInterval(function(){
-  fetch("datos.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(d){
-    if(d&&d.actualizado&&d.actualizado!==S.actualizado)toast.classList.add("on")}).catch(function(){})},180000);
-  toast.querySelector("button").addEventListener("click",function(){location.reload()})}
+// the board changed while the page was open: look every minute (and when the tab comes back), and the button looks right now.
+// datos.json also lists the accounts the robot already knows, so the locker room empties without reloading.
+var toast=$("#aviso"),rbtn=$("#refrescar"),rmsg=$("#refrescar-msg");
+function mirar(){return fetch("datos.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(d){
+  if(!d)return null;
+  if(d.conocidos){known={};d.conocidos.forEach(function(k){known[k]=1});loadVestuario()}
+  var nuevo=(d.actualizado||0)!==(S.actualizado||0);
+  if(nuevo&&toast)toast.classList.add("on");
+  return nuevo}).catch(function(){return null})}
+setInterval(function(){if(!document.hidden)mirar()},60000);
+document.addEventListener("visibilitychange",function(){if(!document.hidden)mirar()});
+if(toast)toast.querySelector("button").addEventListener("click",function(){location.reload()});
+if(rbtn){rbtn.addEventListener("click",function(){rbtn.disabled=true;rmsg.className="msg";rmsg.textContent="Mirando…";loadNotas();
+  mirar().then(function(nuevo){
+    if(nuevo){location.reload();return}
+    rmsg.className=nuevo===null?"msg err":"msg ok";
+    rmsg.textContent=nuevo===null?"No se ha podido mirar. Prueba en un rato.":"Esto es lo último. El robot vuelve a mirar Riot en unos minutos.";
+    setTimeout(function(){rbtn.disabled=false},4000)})})}
 })();
 """
 
@@ -1505,7 +1519,9 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
 
     # ---- the standings, nailed in the middle
     upd = datos.inscritos.get("actualizado")
-    when = f'Última novedad <span data-ts="{upd}"></span>; se mira cada 30 minutos.' if upd else "Se mira cada 30 minutos."
+    when = (f'Última novedad <span data-ts="{upd}"></span>; se mira cada 10 minutos.' if upd else "Se mira cada 10 minutos.") + (
+        ' <button class="boton sec refrescar" type="button" id="refrescar">↻ Actualizar</button>'
+        '<span class="msg" id="refrescar-msg" role="status"></span>')
     if started:
         head = ('<div class="cab"><span>#</span><span title="Puestos desde las 07:00">±</span><span>Jugador</span><span>Liga</span>'
                 '<span style="text-align:right">Hoy</span><span>Reto</span><span style="text-align:center">Racha</span>'
@@ -1615,7 +1631,7 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
         '<button class="boton" type="submit">Clavar</button><p class="msg" id="clava-msg" role="status"></p></form>',
         "clava", "clava")
     reglas = _perg('<h3 class="tit">Normas</h3>' + _normas_html(r) +
-                   '<p class="sub" style="margin:10px 0 0">Datos de la API oficial de Riot, cada 30 minutos.</p>', "reglas", "reglas")
+                   '<p class="sub" style="margin:10px 0 0">Datos de la API oficial de Riot, cada 10 minutos más o menos.</p>', "reglas", "reglas")
     lis = "".join(f'<li><span class="sello-s {_e(b["estado"])}">{_e(b["sello"])}</span>{_e(b["texto"])}'
                   f'<small>{_e(b["nombre"])}' + (f' · {_e(b["motivo"])}' if b.get("motivo") else "") + '</small></li>'
                   for b in buzon[:12])
@@ -1651,7 +1667,7 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
         '<div class="botones"><button class="boton" type="submit">Dar el pistoletazo</button>'
         '<button class="boton sec" type="button" id="jefe-cerrar">Cerrar</button></div>'
         '<p class="msg" id="jefe-msg" role="status"></p></form>'
-        '<h4>Pasada del robot</h4><p class="sub">El robot mira Riot cada 30 minutos. Con la contraseña de arriba lo '
+        '<h4>Pasada del robot</h4><p class="sub">El robot mira Riot cada 10 minutos. Con la contraseña de arriba lo '
         'lanzas ahora; el tablón se actualiza en unos 3 minutos.</p>'
         '<button class="boton sec forzar" type="button" id="forzar">Forzar la pasada</button>'
         '<p class="msg" id="forzar-msg" role="status"></p>' + permisos, "jefe") + '</dialog>')
@@ -1699,7 +1715,8 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
 </body>
 </html>
 """
-    public = {"nombre": title, "fase": ph, "actualizado": upd, "clasificacion": [
+    public = {"nombre": title, "fase": ph, "actualizado": upd,
+              "conocidos": sorted({x["key"] for x in rows} | {k for k, _, _ in rejected}), "clasificacion": [
         {k: x[k] for k in ("puesto", "nombre", "apodo", "riot_id", "liga", "lp_hoy", "partidas", "victorias", "derrotas", "racha")}
         for x in rows]}
     return html, public

@@ -198,7 +198,7 @@ del Rincón sobre el reto y notas clavadas con mala leche (del robot, de la reda
    (función `soloq_programar`; en `setup.sql` solo está su huella) y el robot recoge la fecha en su siguiente pasada.
    Se puede volver a poner para retrasar la salida o acabar antes. Desde la salida cuentan las partidas de Solo/Dúo.
    En local también vale `python -m roast soloq --empezar --dias 30` / `--terminar`.
-3. **El robot** (workflow «SoloQ Challenge», cada 30 minutos, con la misma `RIOT_API_KEY`) lee las inscripciones,
+3. **El robot** (workflow «SoloQ Challenge», cada ~10 minutos, con la misma `RIOT_API_KEY`) lee las inscripciones,
    mira la liga y las partidas de cada cuenta y regenera el tablón. Solo guarda si algo ha cambiado. Cuando acabe el
    reto deja de consultar a Riot; puedes desactivarlo en *Actions → SoloQ Challenge → Disable workflow*.
 4. **Discord**: con el mismo `DISCORD_WEBHOOK_URL`, el robot avisa cuando pones la fecha y cuando empieza, manda **cada día a partir de las
@@ -268,7 +268,7 @@ cambio de política.
 | `python -m roast avisar` | Avisa a Discord de la edición IA de hoy (una vez; lo hace solo el workflow «Aviso de la edición IA») |
 | `python -m roast previa` | Manda a Discord la previa de la noche con los mercados de la Lonja (workflow «Previa de la noche», 18:00) |
 | `python -m roast informe` | Escribe el informe semanal de la redacción en `informes/` |
-| `python -m roast soloq` | SoloQ Challenge: inscripciones, ligas, partidas, aviso a Discord → `docs/soloq/` (el workflow, cada 30 min) |
+| `python -m roast soloq` | SoloQ Challenge: inscripciones, ligas, partidas, aviso a Discord → `docs/soloq/` (el workflow, cada ~10 min) |
 | `python -m roast soloq --empezar` / `--terminar` | Salida / fin del reto desde la terminal (lo normal es el botón del tablón) |
 | `python -m roast soloq --solo-web` | Regenera el tablón sin consultar a Riot |
 

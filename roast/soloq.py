@@ -1,7 +1,7 @@
 """SoloQ Challenge: who climbs highest in Solo/Duo with a brand-new account. Everyone signs up their
 challenge account by hand on the website (docs/soloq/); the admin fires the starting gun
 (python -m roast soloq --empezar, or the «SoloQ Challenge» workflow) and the robot follows every
-account every 30 minutes.
+account every ~10 minutes.
 
 data/soloq/
   inscritos.json   the accounts that signed up (website through Supabase, or config.json "soloq.a_mano"),

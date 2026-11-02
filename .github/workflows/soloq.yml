@@ -1,14 +1,25 @@
 name: SoloQ Challenge
 
-# Cada 30 minutos: lee las inscripciones de la web, mira en la API de Riot la liga y las partidas de
+# Cada ~10 minutos: lee las inscripciones de la web, mira en la API de Riot la liga y las partidas de
 # Solo/Dúo de cada inscrito, manda a Discord el parte del día (una vez, a partir de las 09:00) y
 # regenera el tablón en docs/soloq/. Solo guarda (y publica) si algo ha cambiado.
 # La fecha y la hora de salida las pone el administrador en el propio tablón (botón del candado, con
 # contraseña); el robot las recoge en la siguiente pasada.
+#
+# Por qué se encadena solo: el «cron» de GitHub es de mejor esfuerzo y en este repositorio llegaba a saltarse
+# entre 3 y 7 horas (los apuntados se quedaban en el vestuario). Un workflow_dispatch, en cambio, arranca al
+# momento. Así que cada pasada, al acabar, espera unos minutos y lanza la siguiente. El cron de cada hora
+# queda como red de seguridad: si la cadena se rompe, la vuelve a arrancar. Una pasada a mano
+# (workflow_dispatch sin «cadena») hace su pasada y no abre una cadena nueva.
 on:
   schedule:
-    - cron: "7,37 * * * *"
+    - cron: "7 * * * *"
   workflow_dispatch:
+    inputs:
+      cadena:
+        description: "Encadenar la siguiente pasada (lo usa el propio robot)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -51,3 +62,23 @@ jobs:
             sleep $((i * 5))
           done
           exit 1
+
+  siguiente:
+    # Va aparte de la pasada para no ocupar su turno mientras espera, y se lanza aunque la pasada falle.
+    needs: soloq
+    if: ${{ always() && (github.event_name == 'schedule' || inputs.cadena) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      actions: write
+    concurrency:
+      group: soloq-cadena
+      cancel-in-progress: false
+    steps:
+      - name: Esperar y lanzar la siguiente pasada
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          sleep 540
+          gh workflow run soloq.yml --ref "${{ github.ref_name }}" -f cadena=true
