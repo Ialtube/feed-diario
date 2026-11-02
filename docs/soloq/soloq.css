@@ -352,6 +352,8 @@ h3.tit{font-size:22px}
 .vitrina .tr[role=button]:hover,.vitrina .tr[role=button]:focus-visible{background:rgba(120,80,20,.13);outline:none}
 .vitrina .rk{margin-top:1px;font:italic 13px var(--script);color:var(--red)}
 .boton.sec{background:linear-gradient(180deg,#6b5a43,#3f3324);border-color:#2a2015}
+.boton.refrescar{font-size:15px;padding:5px 12px;margin-left:6px;vertical-align:middle}
+#refrescar-msg{display:block;margin-top:6px;font-style:normal}
 .rank-dialog{border:0;padding:0 14px;background:transparent;width:min(460px,94vw);overflow-x:hidden}
 .rank-dialog::backdrop{background:rgba(10,6,3,.72)}
 .rank-dialog .perg .hoja{padding:24px 24px 20px}

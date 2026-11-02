@@ -59,7 +59,7 @@ function loadVestuario(){if(!ok||!vest)return;
     var seen={},items=[];rows.forEach(function(x){var k=String(x.riot_id||"").trim().toLowerCase();if(!k||known[k]||seen[k])return;seen[k]=1;items.push(x)});
     if(!items.length){vest.innerHTML='<p style="margin:0">Nadie esperando: todos los apuntados ya están en el tablón.</p>';return}
     vest.innerHTML='<ul>'+items.slice(0,10).map(function(x){return '<li><b>'+esc(x.apodo)+'</b><span>'+esc(x.riot_id)+'</span></li>'}).join("")+'</ul>'+
-      '<p style="margin:6px 0 0">Entran en la próxima pasada del robot (cada 30 minutos).</p>'}).catch(function(){})}
+      '<p style="margin:6px 0 0">Entran en la próxima pasada del robot (cada 10 minutos, más o menos).</p>'}).catch(function(){})}
 loadVestuario();
 
 // sign-up form
@@ -82,7 +82,7 @@ if(form){
       lema:form.lema.value.trim().slice(0,120)||null,lector:store("feeder-lector")||null};
     api("soloq_inscritos",{method:"POST",headers:{"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify(body)})
       .then(function(r){if(!r.ok)throw new Error(r.status);store("soloq-yo",rid.toLowerCase());
-        msg.className="msg ok";msg.textContent="Apuntado. En media hora como mucho estás clavado en el tablón. Ve calentando el dedo del /ff.";
+        msg.className="msg ok";msg.textContent="Apuntado. En diez minutos más o menos estás clavado en el tablón. Ve calentando el dedo del /ff.";
         form.reset();loadVestuario()})
       .catch(function(){msg.className="msg err";msg.textContent="No se ha podido apuntar. Prueba en un rato (o échale la culpa al jungla)."})
       .then(function(){btn.disabled=false})});
@@ -110,7 +110,7 @@ if(jd&&jb){var jf=$("#jefe"),jm=$("#jefe-msg");
       .then(function(r){if(r.status===401||r.status===403||r.status===400){return r.json().then(function(e){throw new Error((e&&e.message)||"no")})}
         if(!r.ok)throw new Error("red");return r.json()})
       .then(function(){jm.className="msg ok";jm.textContent="Hecho. Salida el "+fecha(a.getTime())+(b?" y final el "+fecha(b.getTime()):"")+
-        ". El tablón y Discord se enteran en la próxima pasada del robot (media hora como mucho).";jf.clave.value="";
+        ". El tablón y Discord se enteran en la próxima pasada del robot (diez minutos, más o menos).";jf.clave.value="";
         if(a.getTime()>Date.now())clock(a.getTime(),"Empieza en")})
       .catch(function(e){jm.className="msg err";jm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta. Aquí no entra cualquiera.":
         /final/.test(e.message)?e.message:"No se ha podido guardar. Prueba otra vez en un rato."})})}
@@ -217,10 +217,22 @@ if(hl){var hq=$("#h-quien"),hm=$("#h-mas"),hc=$("#h-cuenta"),hv=$("#h-vacio"),hr
   hm.addEventListener("click",function(){hshown+=15;pintarHistorial()});
   pintarHistorial()}
 
-// the board changed while the page was open
-var toast=$("#aviso");
-if(toast&&S.actualizado){setInterval(function(){
-  fetch("datos.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(d){
-    if(d&&d.actualizado&&d.actualizado!==S.actualizado)toast.classList.add("on")}).catch(function(){})},180000);
-  toast.querySelector("button").addEventListener("click",function(){location.reload()})}
+// the board changed while the page was open: look every minute (and when the tab comes back), and the button looks right now.
+// datos.json also lists the accounts the robot already knows, so the locker room empties without reloading.
+var toast=$("#aviso"),rbtn=$("#refrescar"),rmsg=$("#refrescar-msg");
+function mirar(){return fetch("datos.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(d){
+  if(!d)return null;
+  if(d.conocidos){known={};d.conocidos.forEach(function(k){known[k]=1});loadVestuario()}
+  var nuevo=(d.actualizado||0)!==(S.actualizado||0);
+  if(nuevo&&toast)toast.classList.add("on");
+  return nuevo}).catch(function(){return null})}
+setInterval(function(){if(!document.hidden)mirar()},60000);
+document.addEventListener("visibilitychange",function(){if(!document.hidden)mirar()});
+if(toast)toast.querySelector("button").addEventListener("click",function(){location.reload()});
+if(rbtn){rbtn.addEventListener("click",function(){rbtn.disabled=true;rmsg.className="msg";rmsg.textContent="Mirando…";loadNotas();
+  mirar().then(function(nuevo){
+    if(nuevo){location.reload();return}
+    rmsg.className=nuevo===null?"msg err":"msg ok";
+    rmsg.textContent=nuevo===null?"No se ha podido mirar. Prueba en un rato.":"Esto es lo último. El robot vuelve a mirar Riot en unos minutos.";
+    setTimeout(function(){rbtn.disabled=false},4000)})})}
 })();
