@@ -358,6 +358,11 @@
           "tipo": "villano",
           "texto": "Vuelve en Halloween, juega solo, muere diez veces por partida, gana una y recupera el primer puesto del día: el Fantasma reina sin compañía.",
           "fecha": "2026-11-01"
+        },
+        {
+          "tipo": "redención",
+          "texto": "El que reinaba muriendo es el mejor del día con una Tristana que arruina a su Caitlyn; sigue sin poner visión.",
+          "fecha": "2026-11-02"
         }
       ]
     },
@@ -440,6 +445,10 @@
         {
           "fecha": "2026-10-26",
           "texto": "el Recaudador"
+        },
+        {
+          "fecha": "2026-11-02",
+          "texto": "La Guadaña de la Mon"
         }
       ],
       "rasgos": [
@@ -453,6 +462,11 @@
           "tipo": "ascenso",
           "texto": "Juega una, gana una, cobra en la Lonja y ejerce de jurado: el Recaudador con toga.",
           "fecha": "2026-10-27"
+        },
+        {
+          "tipo": "caída",
+          "texto": "De jugar tres partidas en una semana a siete en un domingo: pierde el apodo de Invicto, lidera la vergüenza del día y deja veintiún puntos en su Diamante.",
+          "fecha": "2026-11-02"
         }
       ]
     },
@@ -551,6 +565,11 @@
           "tipo": "caída",
           "texto": "Del 5–0 al 0–2 en una mañana con el mismo robot: no sabe irse a casa ni quedarse en la cama.",
           "fecha": "2026-11-01"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Cuatro Blitzcrank en un día con dos cuentas para acabar en Esmeralda IV a cero, exactamente donde empezó.",
+          "fecha": "2026-11-02"
         }
       ]
     }
@@ -617,6 +636,11 @@
           "fecha": "2026-11-01",
           "campo": "estado",
           "texto": "Sabe por Madame Niebla que el director cobra de Barbanegra por cada muerte del Barón"
+        },
+        {
+          "fecha": "2026-11-02",
+          "campo": "estado",
+          "texto": "Tiene la factura del anuncio «Se busca Barón», pagada por Barbanegra con cargo a la columna D.E.P.; ha pedido cita con el director para el jueves"
         }
       ]
     },
@@ -737,6 +761,11 @@
           "fecha": "2026-10-29",
           "campo": "estado",
           "texto": "Fue a Noxus a pedir trabajo y volvió con el endoso del pagaré; su traslado, en el aire"
+        },
+        {
+          "fecha": "2026-11-02",
+          "campo": "estado",
+          "texto": "Tiene una oferta de columna fija en la Gaceta de Noxus; contestará el domingo"
         }
       ]
     },
@@ -796,6 +825,11 @@
           "fecha": "2026-11-01",
           "campo": "estado",
           "texto": "Premia en persona al Barón como Rey de la Vergüenza de octubre y le pide que vuelva a jugar"
+        },
+        {
+          "fecha": "2026-11-02",
+          "campo": "estado",
+          "texto": "Se excusa de la cita con Hexwick alegando una Flex que no existe"
         }
       ]
     },
@@ -842,6 +876,11 @@
           "fecha": "2026-11-01",
           "campo": "estado",
           "texto": "Ha dado sus propios premios de octubre a iPredatoRz y acusa al director de premiar al Barón por motivos contables"
+        },
+        {
+          "fecha": "2026-11-02",
+          "campo": "estado",
+          "texto": "Publicó la factura del «Se busca» a toda página antes que el Rincón"
         }
       ]
     }
@@ -1456,6 +1495,13 @@
           "titulares": [
             "La columna de la derecha, en blanco"
           ]
+        },
+        {
+          "fecha": "2026-11-02",
+          "resumen": "Hexwick consigue la factura del anuncio «Se busca Barón»: lo pagó Barbanegra con cargo a la columna D.E.P. Sin muertes del Barón (tres noches sin jugar) el director deja de cobrar; por eso le premió y le pidió que volviera. Hexwick pide cita con el director para el jueves; él se excusa con una Flex que no existe.",
+          "titulares": [
+            "Donde decía «la Lonja», debía decir otra cosa"
+          ]
         }
       ],
       "estados": [
@@ -1497,6 +1543,10 @@
         },
         {
           "fecha": "2026-11-01",
+          "estado": "desenlace"
+        },
+        {
+          "fecha": "2026-11-02",
           "estado": "desenlace"
         }
       ]
@@ -1562,6 +1612,13 @@
           "fecha": "2026-11-01",
           "resumen": "La Gaceta asegura haber dado sus premios de octubre la noche de Halloween, antes que el Rincón, se los entrega a iPredatoRz y llama «contables» los motivos del director para premiar al Barón.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-11-02",
+          "resumen": "La Gaceta publica a toda página la factura del «Se busca» antes que el Rincón y ofrece al Hermano Venda una columna fija; Venda contestará el domingo.",
+          "titulares": [
+            "Una semana sin el día que pedí"
+          ]
         }
       ],
       "estados": [
@@ -1583,6 +1640,10 @@
         },
         {
           "fecha": "2026-11-01",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-02",
           "estado": "escalando"
         }
       ]
@@ -1682,6 +1743,10 @@
         {
           "fecha": "2026-11-01",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-02",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1697,6 +1762,13 @@
           "resumen": "iPredatoRz vuelve en Halloween, solo en Flex y con Yasuo: 11/10/10 con tres duelos ganados y derrota; 5/10/11, cuatro muertes en el mismo sitio y victoria. 1–1, veinte muertes y primero de la clasificación del día.",
           "titulares": [
             "Volvió el Fantasma, y volvió a morirse a su hora"
+          ]
+        },
+        {
+          "fecha": "2026-11-02",
+          "resumen": "iPredatoRz, el que reinaba muriendo, es el mejor del día: 2–1, Tristana 10/5/5 con 4.939 de oro sobre su Caitlyn; su Yasuo sigue con diez de visión.",
+          "titulares": [
+            "Los Centinelas encuentran luz en el Vacío"
           ]
         }
       ]
@@ -1801,6 +1873,10 @@
         {
           "fecha": "2026-11-01",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-02",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1845,6 +1921,13 @@
           "resumen": "Tras un 5–0, Saiko madruga: Blitzcrank a las seis y media de la mañana, 0/11/19 con 36 guardianes y 40 pings; tres horas después, otro Blitzcrank 6/5/14. 0–2 y segunda denuncia del robot ante el Sindicato.",
           "titulares": [
             "Blitzcrank contra Saiko, segunda vista"
+          ]
+        },
+        {
+          "fecha": "2026-11-02",
+          "resumen": "Cuatro Blitzcrank en un domingo con dos cuentas: 2–0 en el reto (uno de seis minutos sin muertes) y 1–1 en la principal, 6/9/30 con 111 de visión y 1/8/8 con cuatro muertes en siete minutos, tres en el mismo sitio. Esmeralda IV a cero al empezar y al acabar. Tercera denuncia de Blitzcrank.",
+          "titulares": [
+            "«La tercera vez reconocí el arbusto»"
           ]
         }
       ]
@@ -2030,6 +2113,11 @@
           "titulares": [
             "Se busca Barón, Oro IV, cero puntos"
           ]
+        },
+        {
+          "fecha": "2026-11-02",
+          "resumen": "Tercera noche sin jugar: grangalax sigue en Oro IV a cero, y ahora se sabe quién pagó por buscarle.",
+          "titulares": []
         }
       ]
     },
@@ -2041,6 +2129,7 @@
         "giroroo",
         "gsjoseador",
         "rdv-canyon",
+        "saiko",
         "thetrevur",
         "wolf"
       ],
@@ -2050,6 +2139,10 @@
         {
           "fecha": "2026-11-01",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-11-02",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -2058,6 +2151,38 @@
           "resumen": "Arranca el SoloQ Challenge con cinco inscritos (TheTrevur, Giroroo, Wôlf, GSJoseador y RDV Canyon) y ninguno juega el primer día: todos invictos por incomparecencia.",
           "titulares": [
             "Cinco inscritos, cero partidas y cinco invictos"
+          ]
+        },
+        {
+          "fecha": "2026-11-02",
+          "resumen": "Día dos: Giroroo (1–1) y Saiko (2–0, debut) son los únicos que juegan. TheTrevur cae dos puestos sin jugar; Wôlf, GSJoseador y RDV Canyon siguen a cero partidas.",
+          "titulares": [
+            "Por fin alguien juega, y son los de siempre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-invicto-intermitente",
+      "titulo": "El Invicto que no sabía parar",
+      "abierto": "2026-11-02",
+      "protagonistas": [
+        "giroroo"
+      ],
+      "reparto": [],
+      "resumen": "Giroroo, conocido por jugar poco y ganar (tres partidas en toda la semana), juega siete el domingo en tres cuentas: 2–3 en el día del periódico, primero de la vergüenza, veintiún puntos menos en su Diamante y líder del reto.",
+      "estados": [
+        {
+          "fecha": "2026-11-02",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-11-02",
+          "resumen": "Giroroo, conocido por jugar poco y ganar (tres partidas en toda la semana), juega siete el domingo en tres cuentas: 2–3 en el día del periódico, primero de la vergüenza, veintiún puntos menos en su Diamante y líder del reto.",
+          "titulares": [
+            "El Invicto juega siete"
           ]
         }
       ]
@@ -2123,6 +2248,10 @@
     {
       "fecha": "2026-11-01",
       "texto": "Los sábados sin Flex del grupo, iPredatoRz entra solo en Flex a las siete de la tarde y GSJoseador le releva en SoloQ a las ocho."
+    },
+    {
+      "fecha": "2026-11-02",
+      "texto": "Los domingos sin Flex, Giroroo abre una cuenta por la mañana y otras dos por la tarde, y no para hasta pasadas las nueve y media."
     }
   ],
   "chistes": [
@@ -2194,6 +2323,20 @@
       "texto": "la recaída con Qiyana",
       "fechas": [
         "2026-10-30"
+      ],
+      "usos": 1
+    },
+    {
+      "texto": "el Invicto Intermitente",
+      "fechas": [
+        "2026-11-02"
+      ],
+      "usos": 1
+    },
+    {
+      "texto": "la columna D.E.P.",
+      "fechas": [
+        "2026-11-02"
       ],
       "usos": 1
     }
@@ -2336,6 +2479,18 @@
       "jugador": "ipredatorz",
       "motivo": "Veinte muertes en dos Flex seguidas en solitario, cuatro de ellas en el mismo sitio",
       "fecha": "2026-11-01"
+    },
+    {
+      "campeon": "Blitzcrank",
+      "jugador": "saiko",
+      "motivo": "Sacado cuatro veces en un domingo con dos cuentas; en la última, cuatro muertes en siete minutos, tres en el mismo sitio",
+      "fecha": "2026-11-02"
+    },
+    {
+      "campeon": "Kayn",
+      "jugador": "giroroo",
+      "motivo": "Sacado cinco veces en un domingo; dos derrotas seguidas antes de que le dejaran ganar la última",
+      "fecha": "2026-11-02"
     }
   ]
 }

@@ -1,0 +1,168 @@
+{
+  "piezas": [
+    {
+      "angulo": "a11", "peso": "grande", "portada": true, "formato": "crónica deportiva",
+      "hilo": "el-invicto-intermitente", "seccion": "DEPORTES", "player": "giroroo",
+      "headline": "El Invicto juega siete",
+      "subtitulo": "Giroroo, famoso por jugar poco y ganar, dedicó el domingo a demostrar lo contrario en tres cuentas distintas.",
+      "body": "La semana pasada Giroroo jugó tres partidas. En siete días. Con eso le bastó para ganarse el apodo de Invicto Intermitente, la fama de jugador fino que aparece, cobra y se va. El domingo decidió que la leyenda necesitaba volumen: siete partidas repartidas en tres cuentas, de las diez y media de la mañana a las nueve y media de la noche.\n\nEmpezó como un invicto de verdad: Kayn 11/1/5 en la cuenta del reto. Ahí cualquier persona sensata se habría ido a comer. Giroroo volvió por la tarde con Olaf, se dejó once muertes y, sin levantarse de la silla, encadenó un Ornn rendido a los quince minutos y cuatro Kayn seguidos. En el primero se llevó cuatro dragones y el Heraldo e hizo el 9,5 % del daño de su equipo: el jungla que limpia el mapa y no toca a nadie. En el tercero, un Lee Sin rival le sacó 3.341 de oro y le dejó en el 8,7 % del daño, el último de su equipo. Esa partida la jugó con la mejor visión de su día: lo vio todo venir.\n\nA las nueve, con dos derrotas seguidas a la espalda, salió el Kayn bueno: 13/3/14, triple, Barón y una Briar humillada, pariente de la que le había pasado por encima una hora antes. La Comisaría de Piltover lo apunta como atenuante.\n\nEl balance que importa: cinco partidas en el día del periódico, dos victorias y primer puesto en la clasificación de la vergüenza. En su cuenta principal, la de Diamante, jugó una sola y perdió veintiún puntos. Era la única que no hacía falta jugar.\n\nInvicto era el que se iba a casa.",
+      "campeon": "Kayn",
+      "meme": {"plantilla": "gb", "lineas": ["Jugar una y ganarla", "Jugar tres en una semana", "Jugar siete en un domingo", "Llamarlo remontada porque ganó la última"]},
+      "pie": "La Guadaña de la Mon, en su sexta hora de turno."
+    },
+    {
+      "angulo": "a2", "peso": "grande", "formato": "entrevista", "hilo": "el-que-no-sabe-irse-a-casa",
+      "seccion": "SUCESOS", "entrevistado": "Blitzcrank", "player": "saiko",
+      "headline": "«La tercera vez reconocí el arbusto»",
+      "subtitulo": "Blitzcrank salió cuatro veces el domingo, con dos cuentas y un solo dueño. Prepara su tercera denuncia.",
+      "body": "Le encontramos en un taller de Zaun, con la carcasa abollada y el gancho envuelto en cinta aislante. Saiko le sacó dos veces por la mañana con su cuenta nueva del reto y dos por la tarde con la de siempre. El robot habla despacio, como quien ya ha contado esto dos veces ante un juez.\n\n—¿Cuántas veces le sacó Saiko el domingo?\n\n—Cuatro. Según mis cálculos, a este ritmo me jubilo antes que él.\n\n—¿Cuál fue la mejor?\n\n—La de seis minutos. Nadie mató, nadie murió, nadie asistió, y ganamos. Es la única partida de mi vida en la que mi dueño no hizo nada mal.\n\n—Por la tarde puso cuarenta y seis guardianes en una sola partida.\n\n—Ciento once de visión. Vi el mapa entero. Le vi morir nueve veces con todo detalle, bien iluminado.\n\n—¿Y la última?\n\n—Cuatro muertes en los siete primeros minutos. Tres en el mismo sitio. No tengo libre albedrío, pero tengo memoria: la tercera vez reconocí el arbusto. Él no.\n\n—Empezó el día en Esmeralda IV a cero puntos.\n\n—Y lo acabó en Esmeralda IV a cero puntos. Ganó una, perdió otra. Una tarde entera para volver al mismo sitio.\n\n—Como sus muertes.\n\n—Es lo único en lo que es constante.",
+      "campeon": "Blitzcrank",
+      "meme": {"campeon": "Blitzcrank", "aspecto": 76, "lineas": ["Veintiocho guardianes", "Y la misma esquina tres veces"]},
+      "pie": "Blitzcrank oxidadísimo, en su cuarta jornada del día."
+    },
+    {
+      "angulo": "a5", "peso": "mediana", "formato": "nota de prensa", "hilo": "el-regreso-del-fantasma",
+      "seccion": "EL FARO DE LA ESPERANZA",
+      "headline": "Los Centinelas encuentran luz en el Vacío",
+      "subtitulo": "iPredatoRz, que reinaba en la General a base de morir, es el mejor del día. La competencia era la que era.",
+      "body": "Los Centinelas de la Luz comunican que el mejor jugador del domingo ha sido iPredatoRz, el Fantasma del Vacío, el mismo que hace una semana batía el récord de muertes en una partida. Dos victorias y una derrota. La Orden aclara que ha competido contra un Giroroo de siete partidas y un Saiko de cuatro Blitzcrank, y que la Luz trabaja con el material que hay.\n\nLa prueba de cargo es una Tristana 10/5/5 que dejó a la Caitlyn rival con 4.939 de oro menos, y sumó dos asesinatos en solitario. El Hermano Venda ha pedido que se enmarque.\n\nLa Orden también ha visto el Yasuo de por la mañana: diez de visión en veinticinco minutos. Ganó igual. El Fantasma sigue sin ver nada; ahora, por lo menos, lo que no ve se muere antes que él.",
+      "campeon": "Tristana"
+    },
+    {
+      "angulo": "a7", "peso": "mediana", "formato": "boletín médico", "seccion": "SALUD", "player": "giroroo",
+      "headline": "Ornn, dado de alta por rendición",
+      "body": "Parte médico de los Laboratorios de Zaun. El paciente Ornn ingresó el domingo a las 18:32 en la calle superior, a cargo de Giroroo. Constantes: el 43,3 % del daño de su equipo, el 30 % del daño recibido y dos duelos ganados en solitario. Tres asesinatos y ninguna asistencia: no había nadie a quien ayudar.\n\nA los quince minutos el equipo votó la rendición y el paciente recibió el alta sin haber terminado de forjar. El doctor Humoverde, que cobra por autopsia, firma con desgana: cuatro muertes en un cuarto de hora no le pagan ni el bisturí.\n\nDiagnóstico: carry de guardia en un equipo que ya se había ido a casa. La frase de ayer de este periódico se ha cumplido al pie de la letra: por lo menos perdieron rápido.",
+      "campeon": "Ornn", "stat": "43,3 %", "stat_label": "del daño del equipo, rendido a los quince minutos"
+    },
+    {
+      "angulo": "a6", "peso": "mediana", "formato": "ranking", "hilo": "el-reto-de-las-cuentas-nuevas",
+      "seccion": "SOLOQ CHALLENGE",
+      "headline": "Por fin alguien juega, y son los de siempre",
+      "body": "Día dos del reto. La clasificación, con la mala leche que merece:\n\n1. Giroroo («La Guadaña de la Mon»), 1–1. Kayn 11/1/5 por la mañana, Olaf con once muertes por la tarde. Objetivo declarado: Esmeralda. Tiene una cuenta en Esmeralda II y otra en Diamante IV. Su reto consiste en bajar.\n\n2. Saiko («KOI Huérfano»), 2–0 en su debut. Dos Blitzcrank, uno de seis minutos sin un solo asesinato, muerte ni asistencia. Objetivo declarado: Aspirante. Su cuenta principal sigue en Esmeralda IV a cero.\n\n3. TheTrevur («Urgod»), 0–0. Cae dos puestos sin tocar el teclado. Su lema era «E + Flash»: de momento, ni E ni Flash.\n\n4, 5 y 6. Wôlf, GSJoseador y RDV Canyon. Cero partidas entre los tres. Quedan 51 días y hacen falta 50 partidas para cualificar.\n\nA este paso, el premio del reto lo gana el que menos juega y el castigo, el que se ponga."
+    },
+    {
+      "angulo": null, "peso": "mediana", "formato": "fe de erratas", "hilo": "el-escandalo-de-la-lonja",
+      "seccion": "ECONOMÍA", "player": "grangalax",
+      "headline": "Donde decía «la Lonja», debía decir otra cosa",
+      "body": "En la edición de ayer, el anuncio «Se busca Barón» figuraba como pagado por la Lonja. Debía decir: pagado por Barbanegra el Contable, con cargo a la columna D.E.P. del libro. La fiscal Lucrecia Hexwick tiene la factura desde el domingo por la tarde. La Gaceta de Noxus la publicó a toda página el lunes de madrugada, antes que este periódico, cosa que también lamentamos.\n\nLa factura explica lo que nadie en esta redacción quería escribir. El Barón de la Moneda lleva tres noches sin jugar y sigue en Oro IV a cero, intacto. Sin partidas no hay muertes, sin muertes la columna D.E.P. se queda en blanco y, sin columna, alguien deja de cobrar. Por eso el director le premió en persona y le pidió que volviera. Por eso Barbanegra pagó el anuncio.\n\nHexwick ha pedido cita con el director para el jueves. El director ha contestado que el jueves tiene Flex.\n\nNo tiene Flex."
+    },
+    {
+      "angulo": null, "peso": "mediana", "formato": "carta al director", "hilo": "la-guerra-de-los-periodicos",
+      "seccion": "OPINIÓN",
+      "headline": "Una semana sin el día que pedí",
+      "body": "Señor director: hace dos semanas le pedí una sola cosa a esta redacción, un día entero en que nadie muriera más de cinco veces. Le adjunto el balance de la semana para que vea cómo va mi petición.\n\nSaiko jugó cuarenta y tres partidas y murió 277 veces. El Barón jugó dieciocho y ganó seis. TheTrevur, el mejor del grupo, jugó tres en siete días; Giroroo, otras tres, y luego siete en un domingo. El único con un balance que se puede enseñar en Demacia es RDV Canyon, diez victorias y tres derrotas, y nadie le ha dado una portada.\n\nLa Gaceta de Noxus me ha ofrecido una columna fija y una semana con menos muertes, porque allí no las cuentan. Contestaré el domingo. Si alguien en este periódico quiere convencerme de lo contrario, que me traiga ese día. Con uno basta.\n\nHermano Venda, Centinelas de la Luz"
+    },
+    {
+      "angulo": "a1", "peso": "breve", "formato": "breve", "seccion": "EL FARO DE LA ESPERANZA",
+      "headline": "La Luz llega a las nueve",
+      "body": "Kayn 13/3/14, triple, Barón y una Briar rival que se va con ocho muertes. Fue la séptima partida de Giroroo en el día. Los Centinelas aplauden la jugada y piden, por favor, que la próxima vez la haga en la primera.",
+      "campeon": "Kayn"
+    },
+    {
+      "angulo": "a12", "peso": "breve", "formato": "breve", "seccion": "COMUNICACIÓN",
+      "headline": "Radio Zaun tiene competencia",
+      "body": "Giroroo mandó 174 pings en cinco partidas, 58 de ellos en la única que ganó con holgura. Radio Zaun estudia ofrecerle un programa. Wôlf, que se creía el dueño de la frecuencia, ha pedido que se mida también la calidad.",
+      "player": "giroroo"
+    },
+    {
+      "angulo": null, "peso": "breve", "formato": "esquela", "seccion": "SOCIEDAD", "player": "giroroo",
+      "headline": "El Invicto Intermitente",
+      "body": "Falleció el domingo, a la séptima partida, el apodo «el Invicto Intermitente». Vivió de jugar poco y ganar. Le sobreviven un Kayn con dos victorias y dos derrotas y una cuenta de Diamante con veintiún puntos menos. Sus allegados ruegan una oración y que alguien le apague el ordenador. D.E.P., y no las iniciales."
+    },
+    {
+      "angulo": null, "peso": "breve", "formato": "breve", "seccion": "ECONOMÍA", "player": "saiko",
+      "headline": "Rentabilidad cero",
+      "body": "Saiko jugó dos partidas con su cuenta principal, ganó una, perdió otra y la Bolsa le dejó exactamente donde estaba: Esmeralda IV, a cero. Barbanegra lo cotiza como bono sin intereses que cuesta más de una hora."
+    },
+    {
+      "angulo": null, "peso": "breve", "formato": "breve", "seccion": "DEPORTES", "player": "ipredatorz",
+      "headline": "Ezreal, sin premio",
+      "body": "En la Flex de las seis y media, el Ezreal de iPredatoRz hizo el 31,1 % del daño de su equipo y sacó 250 de farmeo. Perdió contra una Ashe 10/7/8. Hay días en los que el Fantasma hace su trabajo y el Vacío se lo descuenta."
+    },
+    {
+      "angulo": null, "peso": "breve", "formato": "breve", "seccion": "SOCIEDAD", "player": "gsjoseador",
+      "headline": "El que no juega, acierta",
+      "body": "GSJoseador reconoció en dos intentos el Blitzcrank de Saiko en el «¿Quién fue?» y sigue siendo el lector más rico de la Lonja, con 208 coronas. Lleva días sin jugar. Es, de momento, su mejor racha."
+    }
+  ],
+  "tiempo": [
+    {"jugador": "giroroo", "texto": "Diez minutos de Niebla Negra repartidos en cinco partidas. Chubascos persistentes sobre la jungla durante toda la tarde; despeja a las nueve, cuando ya da igual."},
+    {"jugador": "saiko", "texto": "Siete minutos en gris, concentrados al principio de la segunda: niebla matinal en la misma esquina, una y otra vez. Visibilidad excelente para verlo."},
+    {"jugador": "ipredatorz", "texto": "Casi ocho minutos de pantalla gris, pero el cielo se abre al final: una Tristana barre las Caitlyns del horizonte. Bancos de niebla sobre el centro, donde Yasuo no pone guardianes."}
+  ],
+  "canon": {
+    "hilos": [
+      {"accion": "abrir", "id": "el-invicto-intermitente", "titulo": "El Invicto que no sabía parar", "estado": "abierto", "resumen": "Giroroo, conocido por jugar poco y ganar (tres partidas en toda la semana), juega siete el domingo en tres cuentas: 2–3 en el día del periódico, primero de la vergüenza, veintiún puntos menos en su Diamante y líder del reto.", "protagonistas": ["giroroo"]},
+      {"id": "el-que-no-sabe-irse-a-casa", "accion": "avanzar", "estado": "escalando", "resumen": "Cuatro Blitzcrank en un domingo con dos cuentas: 2–0 en el reto (uno de seis minutos sin muertes) y 1–1 en la principal, 6/9/30 con 111 de visión y 1/8/8 con cuatro muertes en siete minutos, tres en el mismo sitio. Esmeralda IV a cero al empezar y al acabar. Tercera denuncia de Blitzcrank.", "protagonistas": ["saiko"]},
+      {"id": "el-regreso-del-fantasma", "accion": "avanzar", "estado": "escalando", "resumen": "iPredatoRz, el que reinaba muriendo, es el mejor del día: 2–1, Tristana 10/5/5 con 4.939 de oro sobre su Caitlyn; su Yasuo sigue con diez de visión.", "protagonistas": ["ipredatorz"]},
+      {"id": "el-reto-de-las-cuentas-nuevas", "accion": "avanzar", "estado": "escalando", "resumen": "Día dos: Giroroo (1–1) y Saiko (2–0, debut) son los únicos que juegan. TheTrevur cae dos puestos sin jugar; Wôlf, GSJoseador y RDV Canyon siguen a cero partidas.", "protagonistas": ["giroroo", "saiko", "thetrevur"]},
+      {"id": "el-escandalo-de-la-lonja", "accion": "avanzar", "estado": "desenlace", "resumen": "Hexwick consigue la factura del anuncio «Se busca Barón»: lo pagó Barbanegra con cargo a la columna D.E.P. Sin muertes del Barón (tres noches sin jugar) el director deja de cobrar; por eso le premió y le pidió que volviera. Hexwick pide cita con el director para el jueves; él se excusa con una Flex que no existe."},
+      {"id": "la-guerra-de-los-periodicos", "accion": "avanzar", "estado": "escalando", "resumen": "La Gaceta publica a toda página la factura del «Se busca» antes que el Rincón y ofrece al Hermano Venda una columna fija; Venda contestará el domingo.", "protagonistas": []},
+      {"id": "el-suelo-del-oro", "accion": "avanzar", "resumen": "Tercera noche sin jugar: grangalax sigue en Oro IV a cero, y ahora se sabe quién pagó por buscarle.", "protagonistas": ["grangalax"]}
+    ],
+    "personajes": {
+      "giroroo": {"apodo": "La Guadaña de la Mon", "arco": {"tipo": "caída", "texto": "De jugar tres partidas en una semana a siete en un domingo: pierde el apodo de Invicto, lidera la vergüenza del día y deja veintiún puntos en su Diamante."}},
+      "saiko": {"arco": {"tipo": "caída", "texto": "Cuatro Blitzcrank en un día con dos cuentas para acabar en Esmeralda IV a cero, exactamente donde empezó."}},
+      "ipredatorz": {"arco": {"tipo": "redención", "texto": "El que reinaba muriendo es el mejor del día con una Tristana que arruina a su Caitlyn; sigue sin poner visión."}}
+    },
+    "elenco": [
+      {"nombre": "Fiscal Lucrecia Hexwick", "estado": "Tiene la factura del anuncio «Se busca Barón», pagada por Barbanegra con cargo a la columna D.E.P.; ha pedido cita con el director para el jueves"},
+      {"nombre": "Don Evaristo Plumanegra", "estado": "Se excusa de la cita con Hexwick alegando una Flex que no existe"},
+      {"nombre": "Hermano Venda", "estado": "Tiene una oferta de columna fija en la Gaceta de Noxus; contestará el domingo"},
+      {"nombre": "Valeria Puñoférreo", "estado": "Publicó la factura del «Se busca» a toda página antes que el Rincón"}
+    ],
+    "costumbres": ["Los domingos sin Flex, Giroroo abre una cuenta por la mañana y otras dos por la tarde, y no para hasta pasadas las nueve y media."],
+    "chistes": ["el Invicto Intermitente", "la columna D.E.P."],
+    "sindicato": [
+      {"campeon": "Blitzcrank", "jugador": "saiko", "motivo": "Sacado cuatro veces en un domingo con dos cuentas; en la última, cuatro muertes en siete minutos, tres en el mismo sitio"},
+      {"campeon": "Kayn", "jugador": "giroroo", "motivo": "Sacado cinco veces en un domingo; dos derrotas seguidas antes de que le dejaran ganar la última"}
+    ]
+  },
+  "gaceta": {
+    "titular": "¡LA FACTURA ÍNTEGRA, EN NUESTRA PÁGINA TRES!",
+    "cuerpo": "El Rincón la esconde hoy en una FE DE ERRATAS. LA GACETA la imprimió anoche entera, con sello, firma y la columna D.E.P. bien visible: Barbanegra pagó por buscar al Barón porque su director cobra por cada muerte. ¡Que lo lean en Piltover!\n\nY otra cosa que el Rincón no dirá: Giroroo es DIAMANTE. Jugó siete, ganó la última con un triple y un Barón, y lidera el reto de las cuentas nuevas. En Noxus a eso se le llama horas extra, no vergüenza.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "jurado": {"pregunta": "¿Qué mató al Invicto Intermitente?", "opciones": ["Jugar cuatro partidas de más", "El Lee Sin de las ocho y media", "Kayn, que no es de fiar", "Ser Diamante entre Esmeraldas"], "juicio": false},
+  "jurado_veredicto": "Empate a uno. GSJoseador votó que el premio de octubre era para grangalax, como dijo el director; Saiko votó que era para Saiko. Es la primera vez en la historia de este periódico que un acusado se vota culpable a sí mismo. La fiscal Hexwick lo ha archivado como confesión y el director, como prueba de que su premio estaba bien dado.",
+  "manana": [
+    {"texto": "¿Jugará Giroroo una partida y se irá, o volverá a por la séptima?"},
+    {"texto": "¿Volverá el Barón tras tres noches, ahora que se sabe quién pagó por buscarle?"},
+    {"texto": "¿Estrenará TheTrevur su cuenta del reto antes de caer otro puesto sin jugar?"}
+  ],
+  "promesas": [
+    {"n": 1, "texto": "Sí, y dos. Giroroo jugó en el reto un Kayn 11/1/5 y un Olaf con once muertes; Saiko debutó con dos Blitzcrank y ganó los dos, uno en seis minutos sin tocar a nadie. Los otros cuatro siguen inscritos en espíritu."},
+    {"n": 2, "texto": "No. El Barón no jugó y su Oro IV sigue a cero, intacto por tercera noche. Lo que sí apareció fue la factura de quien pagó por buscarle."},
+    {"n": 3, "texto": "Sin despertador, pero no hizo falta: a las diez y veinte de la mañana ya había terminado su primer Blitzcrank del día. Hubo cuatro."}
+  ],
+  "replicas_descartadas": [],
+  "estilo": {"pautas_nuevas": [], "pautas_retiradas": []},
+  "horoscopo": [
+    {"signo": "Top", "texto": "Harás casi la mitad del daño de tu equipo y tu equipo votará la rendición antes de que termines el primer objeto. Forja para ti, que nadie te lo va a agradecer."},
+    {"signo": "Jungla", "texto": "Te llevarás cuatro dragones y el Heraldo sin pegarle a nadie. El Lee Sin rival se llevará lo demás, con más de tres mil de oro de ventaja."},
+    {"signo": "Mid", "texto": "Diez de visión en veinticinco minutos. Hoy tampoco verás venir lo que te mata, pero ganarás igual, y eso no te va a enseñar nada."},
+    {"signo": "Tirador", "texto": "Harás un tercio del daño de tu equipo y perderás contra una Ashe. Mañana, con Tristana, arruinarás a una Caitlyn. Nadie sabrá nunca por qué."},
+    {"signo": "Soporte", "texto": "Cuarenta y seis guardianes no te librarán de volver a la misma esquina. Cambia de robot o de esquina; las dos cosas a la vez es pedir demasiado."}
+  ],
+  "columna": {
+    "titulo": "Le esperé en el mismo arbusto",
+    "autor": "Nami, soporte rival",
+    "cuerpo": [
+      "El domingo a las cinco menos cuarto me tocó de soporte contra un Blitzcrank. No le conocía. A los siete minutos ya me sabía su horario.",
+      "Puso veintiocho guardianes. Lo sé porque los fui viendo. Era un mapa muy bien iluminado para alguien que entraba siempre por el mismo sitio.",
+      "Acabé la partida con una muerte, dos caídas y veinticuatro asistencias. No me esforcé. Una no tiene mérito cuando la presa vuelve sola al cebo.",
+      "Me han dicho que esa misma tarde ya había ganado otra con ciento once de visión. Me alegro por él. En la mía vio perfectamente cómo le mataban.",
+      "Si vuelve a salir, ya sabe dónde encontrarme."
+    ]
+  },
+  "especial": {
+    "antetitulo": "Resumen semanal",
+    "titulo": "La semana en que Saiko jugó por todos",
+    "subtitulo": "Cuarenta y tres partidas y 277 muertes de Saiko, seis victorias en dieciocho del Barón y un RDV Canyon 10–3 sin portada. TheTrevur, el mejor del grupo, jugó tres.",
+    "tema": "negro"
+  },
+  "frase": "Invicto es el que todavía no ha jugado la quinta.",
+  "eventos_usados": [],
+  "propuestas_descartadas": [],
+  "firma": "Claude"
+}
