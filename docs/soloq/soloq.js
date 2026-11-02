@@ -88,6 +88,59 @@ if(form){
       .then(function(){btn.disabled=false})});
 }
 
+// the pool: everyone sorts the board as they think it will end
+var PZ=S.porra,pf=$("#porra-form");
+if(PZ&&pf&&PZ.jugadores&&PZ.jugadores.length>1){
+  var pids=PZ.jugadores.map(function(j){return j.k}),pname={};PZ.jugadores.forEach(function(j){pname[j.k]=j.n});
+  var pord=pids.slice(),ptouched=false,pall=null,pdrag=-1,pol=$("#porra-orden"),pres=$("#porra-res"),pmsg=$("#porra-msg"),pbtn=pf.querySelector("button[type=submit]");
+  function pon(order){var kept=order.filter(function(k){return pname[k]!==undefined});return kept.concat(pids.filter(function(k){return kept.indexOf(k)<0}))}
+  function pdist(order){var d=0;pon(order).forEach(function(k,i){d+=Math.abs(i-pids.indexOf(k))});return d}
+  function pmine(){var a=pf.autor.value.trim().toLowerCase();if(!a||!pall)return null;return pall.filter(function(p){return p.autor.trim().toLowerCase()===a})[0]||null}
+  function pmove(from,to){if(to<0||to>=pord.length||from===to)return;var it=pord.splice(from,1)[0];pord.splice(to,0,it);ptouched=true;pmsg.textContent="";pintar()}
+  function pintar(){
+    pol.innerHTML=pord.map(function(k,i){return '<li draggable="'+(PZ.abierta?"true":"false")+'" data-i="'+i+'"><span class="pn">'+(i+1)+'</span><span class="pq">'+esc(pname[k])+'</span>'+
+      '<span class="mv"><button type="button" data-d="-1" aria-label="Subir a '+esc(pname[k])+'"'+(i===0||!PZ.abierta?" disabled":"")+'>↑</button>'+
+      '<button type="button" data-d="1" aria-label="Bajar a '+esc(pname[k])+'"'+(i===pord.length-1||!PZ.abierta?" disabled":"")+'>↓</button></span></li>'}).join("");
+    $$("li",pol).forEach(function(li){var i=+li.getAttribute("data-i");
+      li.addEventListener("dragstart",function(){pdrag=i;li.classList.add("arrastrando")});
+      li.addEventListener("dragend",function(){pdrag=-1;li.classList.remove("arrastrando")});
+      li.addEventListener("dragover",function(ev){ev.preventDefault()});
+      li.addEventListener("drop",function(ev){ev.preventDefault();if(pdrag>=0)pmove(pdrag,i)});
+      $$("button",li).forEach(function(b){b.addEventListener("click",function(){pmove(i,i+(+b.getAttribute("data-d")))})})});
+    pbtn.textContent=pmine()?"Cambiar mi porra":"Guardar mi porra"}
+  function presultados(){
+    if(!pall){pres.innerHTML='<p class="peq">Leyendo las porras…</p>';return}
+    var valid=pall.map(function(p){return {autor:p.autor,orden:pon(p.orden),at:p.at}});
+    if(!valid.length){pres.innerHTML='<p class="peq">Nadie ha apostado todavía. Sé el primero y deja en evidencia al resto.</p>';return}
+    var sum={};valid.forEach(function(p){p.orden.forEach(function(k,i){sum[k]=(sum[k]||0)+i+1})});
+    var media=pids.map(function(k,i){return {k:k,i:i,m:sum[k]/valid.length}}).sort(function(a,b){return a.m-b.m||a.i-b.i});
+    var h='<h3>Lo que opina la gente</h3><p class="peq">'+valid.length+(valid.length===1?" porra":" porras")+' · puesto medio que le dan</p><ol class="porra-lista">'+
+      media.map(function(x,i){return '<li><span class="pn">'+(i+1)+'</span><span class="pq">'+esc(pname[x.k])+'<small>media '+x.m.toFixed(1).replace(".",",")+'</small></span>'+
+        (PZ.viva?'<span class="pa">ahora '+(pids.indexOf(x.k)+1)+'º</span>':"")+'</li>'}).join("")+'</ol>';
+    if(PZ.viva){var n=pids.length,peor=Math.floor(n*n/2),yo=pf.autor.value.trim().toLowerCase();
+      var tab=valid.map(function(p){var d=pdist(p.orden);return {autor:p.autor,d:d,pct:Math.round(100*(1-d/peor)),at:p.at}}).sort(function(a,b){return a.d-b.d||b.at-a.at});
+      h+='<h3 class="aparte">'+(PZ.abierta?"Quién va acertando":"Quién ha acertado más")+'</h3><p class="peq">Con la clasificación '+(PZ.abierta?"de ahora mismo":"final")+': cuantos menos puestos de error, mejor.</p><ol class="porra-lista">'+
+        tab.map(function(t,i){return '<li'+(t.autor.trim().toLowerCase()===yo?' class="mia"':"")+'><span class="pn">'+(i+1)+'</span><span class="pq">'+esc(t.autor)+'<small>'+
+          (t.d===0?"la ha clavado":t.d+(t.d===1?" puesto":" puestos")+" de error")+'</small></span><span class="pp">'+t.pct+' %</span></li>'}).join("")+'</ol>'}
+    pres.innerHTML=h}
+  function pcargar(){if(!ok){pres.innerHTML='<p class="peq">La porra se abre en cuanto la web tenga su base de datos.</p>';return}
+    api("soloq_porra?select=autor,orden,created_at&order=id.desc&limit=300").then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(rows){
+      var seen={};pall=[];rows.forEach(function(x){var k=String(x.autor||"").trim().toLowerCase();if(!k||seen[k]||!Array.isArray(x.orden))return;seen[k]=1;pall.push({autor:x.autor,orden:x.orden,at:Date.parse(x.created_at)})});
+      var m=pmine();if(m&&!ptouched)pord=pon(m.orden);pintar();presultados()})
+    .catch(function(){pres.innerHTML='<p class="peq">La porra aún no está abierta: falta crear su tabla en Supabase (volver a ejecutar <b>supabase/setup.sql</b>).</p>'})}
+  pf.autor.value=store("soloq-porra-autor")||(me&&me.nombre)||"";
+  pf.autor.addEventListener("input",function(){ptouched=false;pmsg.textContent="";var m=pmine();if(m)pord=pon(m.orden);pintar();presultados()});
+  if(!PZ.abierta||!ok){pf.autor.disabled=true;pbtn.disabled=true}
+  pf.addEventListener("submit",function(ev){ev.preventDefault();if(!ok||!PZ.abierta)return;
+    var autor=pf.autor.value.trim().replace(/\s+/g," ").slice(0,30);
+    if(autor.length<2){pmsg.className="msg err";pmsg.textContent="Firma tu porra con un nombre (mínimo dos letras).";return}
+    pbtn.disabled=true;pmsg.className="msg";pmsg.textContent="Clavando tu porra…";
+    api("soloq_porra",{method:"POST",headers:{"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify({autor:autor,orden:pord,lector:store("feeder-lector")||null})})
+      .then(function(r){if(!r.ok)throw new Error(r.status);store("soloq-porra-autor",autor);ptouched=false;pmsg.className="msg ok";pmsg.textContent="Porra clavada. A esperar y a sufrir.";pcargar()})
+      .catch(function(){pmsg.className="msg err";pmsg.textContent="No se ha podido guardar la porra. Prueba en un rato."})
+      .then(function(){pbtn.disabled=false})});
+  pintar();presultados();pcargar()}
+
 // the boss's schedule: shown at once, even before the robot picks it up
 if(ok&&S.fase==="inscripcion"){api("soloq_control?select=id,inicio,fin&order=id.desc&limit=1").then(function(r){return r.ok?r.json():[]})
   .then(function(rows){var c=rows[0];if(c&&c.id>(S.control||0)){var t=Date.parse(c.inicio);if(t>Date.now())clock(t,"Empieza en")}}).catch(function(){})}
