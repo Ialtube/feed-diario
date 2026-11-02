@@ -4266,11 +4266,11 @@
       "alias": "grangalax",
       "principal": true,
       "solo": {
-        "tier": "GOLD",
-        "rank": "IV",
-        "lp": 0,
+        "tier": "SILVER",
+        "rank": "I",
+        "lp": 50,
         "wins": 266,
-        "losses": 270
+        "losses": 271
       },
       "flex": {
         "tier": "SILVER",
@@ -4325,19 +4325,19 @@
       "slug": "fr4nux",
       "alias": "Fr4nux",
       "principal": true,
-      "solo": {
-        "tier": "PLATINUM",
-        "rank": "I",
-        "lp": 51,
-        "wins": 266,
-        "losses": 244
-      },
       "flex": {
         "tier": "GOLD",
         "rank": "I",
         "lp": 99,
         "wins": 114,
         "losses": 97
+      },
+      "solo": {
+        "tier": "PLATINUM",
+        "rank": "I",
+        "lp": 93,
+        "wins": 270,
+        "losses": 246
       }
     },
     "gsjoseador#2711": {
@@ -4365,19 +4365,19 @@
       "slug": "dierophant",
       "alias": "Dierophant",
       "principal": true,
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "II",
-        "lp": 37,
-        "wins": 102,
-        "losses": 109
-      },
       "flex": {
         "tier": "DIAMOND",
         "rank": "IV",
         "lp": 52,
         "wins": 103,
         "losses": 98
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "II",
+        "lp": 37,
+        "wins": 102,
+        "losses": 109
       }
     },
     "ipredatorz#euw": {
@@ -4485,19 +4485,19 @@
       "slug": "gsjoseador",
       "alias": "GSJoseador",
       "principal": false,
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "IV",
+        "lp": 41,
+        "wins": 166,
+        "losses": 166
+      },
       "flex": {
         "tier": "SILVER",
         "rank": "I",
         "lp": 63,
         "wins": 6,
         "losses": 5
-      },
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "IV",
-        "lp": 24,
-        "wins": 164,
-        "losses": 165
       }
     },
     "crak172#euw": {
@@ -4545,19 +4545,19 @@
       "slug": "saiko",
       "alias": "Saiko",
       "principal": true,
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "IV",
+        "lp": 19,
+        "wins": 135,
+        "losses": 128
+      },
       "flex": {
         "tier": "GOLD",
         "rank": "III",
         "lp": 29,
         "wins": 10,
         "losses": 15
-      },
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "IV",
-        "lp": 0,
-        "wins": 132,
-        "losses": 126
       }
     },
     "iprz#esp": {
@@ -4565,19 +4565,19 @@
       "slug": "ipredatorz",
       "alias": "iPredatoRz",
       "principal": false,
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "IV",
-        "lp": 18,
-        "wins": 60,
-        "losses": 55
-      },
       "flex": {
         "tier": "PLATINUM",
         "rank": "III",
         "lp": 6,
         "wins": 27,
         "losses": 26
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "IV",
+        "lp": 36,
+        "wins": 61,
+        "losses": 55
       }
     },
     "vitasuchiha#euw": {
