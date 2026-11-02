@@ -191,8 +191,10 @@ del Rincón sobre el reto y notas clavadas con mala leche (del robot, de la reda
 1. **Inscripciones.** Cada uno apunta a mano su cuenta del reto en el «Bando de inscripción» del tablón: Riot ID,
    quién es del Rincón (la cuenta queda asociada a su nombre), mote, hasta dónde promete llegar y grito de guerra.
    Se guarda en Supabase (tablas `soloq_inscritos`, `soloq_notas`, `soloq_control`, `soloq_sugerencias` y
-   `soloq_permisos`: vuelve a ejecutar `supabase/setup.sql`). También
+   `soloq_permisos` y `soloq_porra`: vuelve a ejecutar `supabase/setup.sql`). También
    puedes apuntar a alguien a mano en `config.json` → `soloq.a_mano`.
+   **La porra** (en el tablón, bajo la gráfica): cada lector ordena a los apuntados como cree que quedarán; una porra por nombre
+   (vale la última), se cierra al acabar el reto y enseña el puesto medio de la gente y quién va acertando. Se guarda en `soloq_porra`.
 2. **La salida la das tú** desde el tablón: botón «🔒 El pistoletazo» (arriba a la derecha), fecha y hora de salida,
    de final si quieres (si no, dura `soloq.duracion_dias`) y la contraseña. La contraseña la comprueba Supabase
    (función `soloq_programar`; en `setup.sql` solo está su huella) y el robot recoge la fecha en su siguiente pasada.

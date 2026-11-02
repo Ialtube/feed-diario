@@ -1,5 +1,7 @@
 """SoloQ Challenge: sign-ups, the starting gun, the robot's pass over Riot, standings, the board,
 Discord and the newspaper."""
+import json
+import re
 import sys
 import tempfile
 import unittest
@@ -227,7 +229,7 @@ class SoloQTest(unittest.TestCase):
         soloq_web.build(CFG, datos, out, t2, roster=[{"slug": "grangalax", "alias": "grangalax"}], editions=editions)
         page = (out / "index.html").read_text(encoding="utf-8")
         for text in ("Clasificación oficial", "La gráfica", "La Moneda", "Oro III", "NoExiste#EUW", "Bando de inscripción",
-                     "Muro de la vergüenza", "La Moneda se hunde en Oro", "ediciones/2026-11-03.html#p-3",
+                     "Muro de la vergüenza", "La Moneda se hunde en Oro", "ediciones/2026-11-03.html#p-3", "La porra", 'id="porra-form"',
                      "Volver a El Rincón del Feeder", "El pistoletazo", "Historial de partidas", "Fichas de los jugadores",
                      'data-premio="racha"', "Premios principales", "Cena pagada".lower(), "Límite de partidas", "Forzar la pasada"):
             self.assertIn(text, page)
@@ -243,6 +245,25 @@ class SoloQTest(unittest.TestCase):
         self.assertEqual([e["key"] for e in soloq.ranking_trofeo("campeon", rows, r, "en_juego")], [x["key"] for x in rows])
         self.assertTrue((out / "datos.json").exists() and (out / "soloq.js").exists())
 
+    def test_the_pool_gets_the_board_players_and_closes_with_the_race(self):
+        r = soloq.reto_de(CFG, self.datos)
+        soloq.sincronizar(self.datos, SIGN_UPS, r, FRIENDS, {"grangalax"}, T0 - 2 * HOUR)
+        soloq.actualizar(self.riot, self.datos, r, T0 - HOUR, log=lambda *_: None)
+        html, _ = soloq_web.render(CFG, self.datos, T0 - HOUR)
+        feeder = json.loads(re.search(r"window\.SOLOQ=(\{.*?\});</script>", html, re.S).group(1))
+        pool = feeder["porra"]
+        self.assertGreaterEqual(len(pool["jugadores"]), 2)
+        self.assertTrue(all(j["k"] and j["n"] for j in pool["jugadores"]))
+        self.assertTrue(pool["abierta"])
+        self.assertFalse(pool["viva"])                                   # nobody has played yet: nothing to compare with
+        self.assertIn("Se cierra cuando acabe el reto", html)
+        self.assertIn('api("soloq_porra', soloq_web.JS)
+        soloq.empezar(self.datos, CFG, T0, 30)
+        late, _ = soloq_web.render(CFG, self.datos, T0 + 31 * 24 * HOUR)
+        late_pool = json.loads(re.search(r"window\.SOLOQ=(\{.*?\});</script>", late, re.S).group(1))["porra"]
+        self.assertFalse(late_pool["abierta"])
+        self.assertIn("la porra está cerrada", late)
+
     def test_newspaper_only_gets_a_button(self):
         html = page({"site_title": "El Rincón del Feeder", "site_tagline": ""}, "x", "<p>cuerpo</p>", "../")
         self.assertIn('<a class="soloq" href="../soloq/index.html"', html)
@@ -254,6 +275,8 @@ class SoloQTest(unittest.TestCase):
         page = (out / "index.html").read_text(encoding="utf-8")
         self.assertIn("Nadie se ha apuntado todavía", page)
         self.assertIn("Inscripciones abiertas", page)
+        self.assertIn("La porra se abre en cuanto haya al menos dos apuntados", page)   # nobody to bet on yet
+        self.assertNotIn('id="porra-form"', page)
         self.assertIsNone(soloq.resumen(CFG, T0 - HOUR, T0, datos=self.datos))
 
     def test_example_board_until_the_starting_gun(self):

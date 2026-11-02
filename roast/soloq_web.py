@@ -375,6 +375,34 @@ h3.tit{font-size:22px}
 .jefe-dialog .permiso .por{font:italic 13px var(--script);color:var(--ink3)}
 .jefe-dialog .permiso .boton{font-size:14px;padding:5px 10px;margin:4px 6px 0 0}
 
+/* ---------------------------------------------------------------- the pool */
+.porra-zona{margin-top:44px}
+.porra-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:34px;align-items:start}
+@media (max-width:820px){.porra-grid{grid-template-columns:1fr}}
+.porra-grid h3{margin:0 0 8px;font:23px/1.1 var(--carve)}
+.porra-grid h3.aparte{margin-top:22px}
+.porra form{margin:0}
+.porra .autor{display:block;margin:0 0 12px;font:15px/1.2 var(--carve);letter-spacing:.04em;color:var(--ink2);text-transform:uppercase}
+.porra .autor input{display:block;width:100%;margin-top:4px;padding:6px 2px;border:0;border-bottom:2px solid var(--ink2);background:transparent;
+  color:var(--ink);font:24px/1.1 var(--hand);border-radius:0;appearance:none}
+.porra .autor input:focus{outline:none;border-bottom-color:var(--red);background-color:rgba(255,255,255,.18)}
+.porra-orden,.porra-lista{list-style:none;margin:0 0 12px;padding:0}
+.porra-orden li,.porra-lista li{display:flex;align-items:center;gap:10px;padding:5px 2px;border-bottom:1px dashed rgba(60,40,20,.4);font:22px/1.1 var(--hand)}
+.porra-orden li{cursor:grab}
+.porra-orden li.arrastrando{opacity:.4}
+.porra-grid .pn{flex:0 0 30px;font:21px/1 var(--carve);color:var(--ink2)}
+.porra-grid .pq{flex:1;min-width:0;overflow-wrap:anywhere}
+.porra-grid .pq small{display:block;font:italic 14px/1.2 var(--script);color:var(--ink3)}
+.porra-grid .pa{font:italic 15px var(--script);color:var(--ink3);white-space:nowrap}
+.porra-grid .pp{font:21px var(--carve);color:var(--green)}
+.porra-lista li.mia{background:rgba(255,255,255,.22)}
+.porra-orden .mv{display:flex;gap:4px}
+.porra-orden .mv button{width:30px;height:30px;cursor:pointer;font:18px/1 var(--carve);color:var(--ink);background:transparent;border:2px solid var(--ink2);border-radius:3px}
+.porra-orden .mv button:hover:not([disabled]){border-color:var(--red);color:var(--red)}
+.porra-orden .mv button[disabled]{opacity:.3;cursor:default}
+.porra .boton{font-size:19px;padding:8px 18px;margin-top:6px}
+.porra-res .peq{margin:0 0 8px;font:italic 15px/1.3 var(--script);color:var(--ink3)}
+
 /* ---------------------------------------------------------------- what the readers asked for */
 .tarjetas-zona{margin-top:44px}
 .tarjetas-zona>.cartelito{display:flex;justify-content:center;margin-bottom:26px}
@@ -621,6 +649,59 @@ if(form){
       .catch(function(){msg.className="msg err";msg.textContent="No se ha podido apuntar. Prueba en un rato (o échale la culpa al jungla)."})
       .then(function(){btn.disabled=false})});
 }
+
+// the pool: everyone sorts the board as they think it will end
+var PZ=S.porra,pf=$("#porra-form");
+if(PZ&&pf&&PZ.jugadores&&PZ.jugadores.length>1){
+  var pids=PZ.jugadores.map(function(j){return j.k}),pname={};PZ.jugadores.forEach(function(j){pname[j.k]=j.n});
+  var pord=pids.slice(),ptouched=false,pall=null,pdrag=-1,pol=$("#porra-orden"),pres=$("#porra-res"),pmsg=$("#porra-msg"),pbtn=pf.querySelector("button[type=submit]");
+  function pon(order){var kept=order.filter(function(k){return pname[k]!==undefined});return kept.concat(pids.filter(function(k){return kept.indexOf(k)<0}))}
+  function pdist(order){var d=0;pon(order).forEach(function(k,i){d+=Math.abs(i-pids.indexOf(k))});return d}
+  function pmine(){var a=pf.autor.value.trim().toLowerCase();if(!a||!pall)return null;return pall.filter(function(p){return p.autor.trim().toLowerCase()===a})[0]||null}
+  function pmove(from,to){if(to<0||to>=pord.length||from===to)return;var it=pord.splice(from,1)[0];pord.splice(to,0,it);ptouched=true;pmsg.textContent="";pintar()}
+  function pintar(){
+    pol.innerHTML=pord.map(function(k,i){return '<li draggable="'+(PZ.abierta?"true":"false")+'" data-i="'+i+'"><span class="pn">'+(i+1)+'</span><span class="pq">'+esc(pname[k])+'</span>'+
+      '<span class="mv"><button type="button" data-d="-1" aria-label="Subir a '+esc(pname[k])+'"'+(i===0||!PZ.abierta?" disabled":"")+'>↑</button>'+
+      '<button type="button" data-d="1" aria-label="Bajar a '+esc(pname[k])+'"'+(i===pord.length-1||!PZ.abierta?" disabled":"")+'>↓</button></span></li>'}).join("");
+    $$("li",pol).forEach(function(li){var i=+li.getAttribute("data-i");
+      li.addEventListener("dragstart",function(){pdrag=i;li.classList.add("arrastrando")});
+      li.addEventListener("dragend",function(){pdrag=-1;li.classList.remove("arrastrando")});
+      li.addEventListener("dragover",function(ev){ev.preventDefault()});
+      li.addEventListener("drop",function(ev){ev.preventDefault();if(pdrag>=0)pmove(pdrag,i)});
+      $$("button",li).forEach(function(b){b.addEventListener("click",function(){pmove(i,i+(+b.getAttribute("data-d")))})})});
+    pbtn.textContent=pmine()?"Cambiar mi porra":"Guardar mi porra"}
+  function presultados(){
+    if(!pall){pres.innerHTML='<p class="peq">Leyendo las porras…</p>';return}
+    var valid=pall.map(function(p){return {autor:p.autor,orden:pon(p.orden),at:p.at}});
+    if(!valid.length){pres.innerHTML='<p class="peq">Nadie ha apostado todavía. Sé el primero y deja en evidencia al resto.</p>';return}
+    var sum={};valid.forEach(function(p){p.orden.forEach(function(k,i){sum[k]=(sum[k]||0)+i+1})});
+    var media=pids.map(function(k,i){return {k:k,i:i,m:sum[k]/valid.length}}).sort(function(a,b){return a.m-b.m||a.i-b.i});
+    var h='<h3>Lo que opina la gente</h3><p class="peq">'+valid.length+(valid.length===1?" porra":" porras")+' · puesto medio que le dan</p><ol class="porra-lista">'+
+      media.map(function(x,i){return '<li><span class="pn">'+(i+1)+'</span><span class="pq">'+esc(pname[x.k])+'<small>media '+x.m.toFixed(1).replace(".",",")+'</small></span>'+
+        (PZ.viva?'<span class="pa">ahora '+(pids.indexOf(x.k)+1)+'º</span>':"")+'</li>'}).join("")+'</ol>';
+    if(PZ.viva){var n=pids.length,peor=Math.floor(n*n/2),yo=pf.autor.value.trim().toLowerCase();
+      var tab=valid.map(function(p){var d=pdist(p.orden);return {autor:p.autor,d:d,pct:Math.round(100*(1-d/peor)),at:p.at}}).sort(function(a,b){return a.d-b.d||b.at-a.at});
+      h+='<h3 class="aparte">'+(PZ.abierta?"Quién va acertando":"Quién ha acertado más")+'</h3><p class="peq">Con la clasificación '+(PZ.abierta?"de ahora mismo":"final")+': cuantos menos puestos de error, mejor.</p><ol class="porra-lista">'+
+        tab.map(function(t,i){return '<li'+(t.autor.trim().toLowerCase()===yo?' class="mia"':"")+'><span class="pn">'+(i+1)+'</span><span class="pq">'+esc(t.autor)+'<small>'+
+          (t.d===0?"la ha clavado":t.d+(t.d===1?" puesto":" puestos")+" de error")+'</small></span><span class="pp">'+t.pct+' %</span></li>'}).join("")+'</ol>'}
+    pres.innerHTML=h}
+  function pcargar(){if(!ok){pres.innerHTML='<p class="peq">La porra se abre en cuanto la web tenga su base de datos.</p>';return}
+    api("soloq_porra?select=autor,orden,created_at&order=id.desc&limit=300").then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(rows){
+      var seen={};pall=[];rows.forEach(function(x){var k=String(x.autor||"").trim().toLowerCase();if(!k||seen[k]||!Array.isArray(x.orden))return;seen[k]=1;pall.push({autor:x.autor,orden:x.orden,at:Date.parse(x.created_at)})});
+      var m=pmine();if(m&&!ptouched)pord=pon(m.orden);pintar();presultados()})
+    .catch(function(){pres.innerHTML='<p class="peq">La porra aún no está abierta: falta crear su tabla en Supabase (volver a ejecutar <b>supabase/setup.sql</b>).</p>'})}
+  pf.autor.value=store("soloq-porra-autor")||(me&&me.nombre)||"";
+  pf.autor.addEventListener("input",function(){ptouched=false;pmsg.textContent="";var m=pmine();if(m)pord=pon(m.orden);pintar();presultados()});
+  if(!PZ.abierta||!ok){pf.autor.disabled=true;pbtn.disabled=true}
+  pf.addEventListener("submit",function(ev){ev.preventDefault();if(!ok||!PZ.abierta)return;
+    var autor=pf.autor.value.trim().replace(/\s+/g," ").slice(0,30);
+    if(autor.length<2){pmsg.className="msg err";pmsg.textContent="Firma tu porra con un nombre (mínimo dos letras).";return}
+    pbtn.disabled=true;pmsg.className="msg";pmsg.textContent="Clavando tu porra…";
+    api("soloq_porra",{method:"POST",headers:{"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify({autor:autor,orden:pord,lector:store("feeder-lector")||null})})
+      .then(function(r){if(!r.ok)throw new Error(r.status);store("soloq-porra-autor",autor);ptouched=false;pmsg.className="msg ok";pmsg.textContent="Porra clavada. A esperar y a sufrir.";pcargar()})
+      .catch(function(){pmsg.className="msg err";pmsg.textContent="No se ha podido guardar la porra. Prueba en un rato."})
+      .then(function(){pbtn.disabled=false})});
+  pintar();presultados();pcargar()}
 
 // the boss's schedule: shown at once, even before the robot picks it up
 if(ok&&S.fase==="inscripcion"){api("soloq_control?select=id,inicio,fin&order=id.desc&limit=1").then(function(r){return r.ok?r.json():[]})
@@ -1648,7 +1729,16 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
         zona = ('<div class="tarjetas-zona"><div class="cartelito">' + _placa(
             '<div class="tallado" style="font-size:22px">Lo que pidió la gente</div>', "pidio") + '</div><div class="tarjetas">'
             + "".join(_tarjeta(c, buzon, fecha_cards) for c in cards) + '</div></div>')
-    bajo = f'{zona}<div class="bajo">{bando}<div class="col">{lado}{clava}</div><div class="col">{buzon_html}{reglas}</div></div>'
+    porra = _perg(
+        '<h2 class="tit">La porra</h2><p class="sub">¿Cómo va a quedar esto? Ordena a los apuntados como crees que acabarán, del primero al '
+        'último, y deja tu nombre. Una porra por nombre: si vuelves a apostar con el mismo, vale la última. '
+        + ('El reto ha terminado: la porra está cerrada.' if closed else 'Se cierra cuando acabe el reto.') + '</p>'
+        + ('<div class="porra-grid"><form id="porra-form" class="porra" novalidate><h3>Tu porra</h3>'
+           '<label class="autor">Tu nombre<input type="text" name="autor" maxlength="30" placeholder="Quién apuesta" autocomplete="off"></label>'
+           '<ol class="porra-orden" id="porra-orden"></ol><button class="boton" type="submit">Guardar mi porra</button>'
+           '<p class="msg" id="porra-msg" role="status"></p></form><div class="porra-res" id="porra-res"></div></div>'
+           if len(rows) > 1 else '<p class="vacia">La porra se abre en cuanto haya al menos dos apuntados.</p>'), "porra", "porra")
+    bajo = f'<div class="porra-zona">{porra}</div>{zona}<div class="bajo">{bando}<div class="col">{lado}{clava}</div><div class="col">{buzon_html}{reglas}</div></div>'
 
     waiting = [b for b in buzon if b["estado"] == "permiso"]
     permisos = ('<h4>Sugerencias que esperan tu permiso</h4>' + "".join(
@@ -1677,6 +1767,8 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
     feeder = json.dumps({"url": cfg.get("supabase_url", "") if not closed else "", "key": cfg.get("supabase_anon_key", ""),
                          "fase": ph, "control": datos.inscritos.get("control_id", 0), "sugerencias": [b["id"] for b in buzon],
                          "conocidos": sorted({x["key"] for x in rows} | {k for k, _, _ in rejected}),
+                         "porra": {"jugadores": [{"k": x["key"], "n": x["nombre"]} for x in rows], "abierta": not closed,
+                                   "viva": started},
                          "actualizado": upd}, ensure_ascii=False)
     desc = f'{r["lema"]}. La clasificación clavada en el tablón, la gráfica de LP y las notas de la vergüenza.'
     html = f"""<!doctype html>

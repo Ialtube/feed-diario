@@ -261,6 +261,22 @@ drop policy if exists "clavar notas soloq" on public.soloq_notas;
 create policy "clavar notas soloq" on public.soloq_notas for insert to anon
   with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
 
+-- La porra del SoloQ Challenge: cada lector ordena a los apuntados como cree que quedarán al final. Cada fila es una
+-- porra; si alguien apuesta otra vez con el mismo nombre, vale la más reciente. Para quitar una, borra su fila.
+create table if not exists public.soloq_porra (
+  id bigint generated always as identity primary key,
+  autor text not null check (char_length(autor) between 2 and 30),
+  orden jsonb not null check (jsonb_typeof(orden) = 'array' and jsonb_array_length(orden) between 2 and 60),
+  lector text check (lector is null or char_length(lector) <= 60),
+  created_at timestamptz not null default now()
+);
+alter table public.soloq_porra enable row level security;
+drop policy if exists "leer porra soloq" on public.soloq_porra;
+create policy "leer porra soloq" on public.soloq_porra for select to anon using (true);
+drop policy if exists "apostar porra soloq" on public.soloq_porra;
+create policy "apostar porra soloq" on public.soloq_porra for insert to anon
+  with check (created_at between now() - interval '2 minutes' and now() + interval '2 minutes');
+
 -- La fecha de salida (y de fin) del SoloQ Challenge. La pone el administrador desde el tablón con su
 -- contraseña; aquí solo se guarda su huella SHA-256. Todos pueden leerla (el tablón y el robot), pero solo
 -- se escribe a través de la función. Para cambiar la contraseña, cambia la huella y vuelve a ejecutar esto.
