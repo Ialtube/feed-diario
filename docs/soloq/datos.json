@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793623574274,
+ "actualizado": 1793645111789,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -80,10 +80,10 @@
    "riot_id": "Theossichi#9248",
    "liga": "Sin clasificar",
    "lp_hoy": null,
-   "partidas": 0,
-   "victorias": 0,
+   "partidas": 1,
+   "victorias": 1,
    "derrotas": 0,
-   "racha": 0
+   "racha": 1
   },
   {
    "puesto": 7,
