@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793727483008,
+ "actualizado": 1793728677839,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -65,6 +65,18 @@
   },
   {
    "puesto": 5,
+   "nombre": "Wôlf",
+   "apodo": "Barro",
+   "riot_id": "Theossichi#9248",
+   "liga": "Oro IV · 10 LP",
+   "lp_hoy": null,
+   "partidas": 5,
+   "victorias": 2,
+   "derrotas": 3,
+   "racha": -1
+  },
+  {
+   "puesto": 6,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -76,7 +88,7 @@
    "racha": -1
   },
   {
-   "puesto": 6,
+   "puesto": 7,
    "nombre": "Giroroo",
    "apodo": "La Guadaña de la Mon",
    "riot_id": "Xillie#8107",
@@ -86,18 +98,6 @@
    "victorias": 3,
    "derrotas": 1,
    "racha": 2
-  },
-  {
-   "puesto": 7,
-   "nombre": "Wôlf",
-   "apodo": "Barro",
-   "riot_id": "Theossichi#9248",
-   "liga": "Sin clasificar",
-   "lp_hoy": null,
-   "partidas": 4,
-   "victorias": 2,
-   "derrotas": 2,
-   "racha": 1
   },
   {
    "puesto": 8,
