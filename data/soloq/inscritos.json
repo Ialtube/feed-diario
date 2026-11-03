@@ -153,8 +153,8 @@
       "persona": "Dierophant",
       "puuid": "RvoNt3EVAKCNbRTiE1omP4243LBoBHcUEWYjuKjXJIe6OCSXWCq_yYaLxD14WVO5bXn0TOptJ9lwjQ",
       "icono": 1159,
-      "nivel": 31,
-      "icono_ms": 1793696263631
+      "nivel": 32,
+      "icono_ms": 1793740025351
     },
     "nandaris#6071": {
       "riot_id": "nandaris#6071",
@@ -173,7 +173,7 @@
       "icono_ms": 1793725198802
     }
   },
-  "actualizado": 1793738277761,
+  "actualizado": 1793740025351,
   "ddragon": "16.21.1",
   "avisos": {
     "programado": 1793487600000,
