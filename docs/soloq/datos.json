@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793731095666,
+ "actualizado": 1793731707105,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -53,6 +53,18 @@
   },
   {
    "puesto": 4,
+   "nombre": "Wôlf",
+   "apodo": "Barro",
+   "riot_id": "Theossichi#9248",
+   "liga": "Oro IV · 40 LP",
+   "lp_hoy": null,
+   "partidas": 6,
+   "victorias": 3,
+   "derrotas": 3,
+   "racha": 1
+  },
+  {
+   "puesto": 5,
    "nombre": "grangalax",
    "apodo": "Showmanco",
    "riot_id": "nandaris#6071",
@@ -62,18 +74,6 @@
    "victorias": 3,
    "derrotas": 4,
    "racha": -2
-  },
-  {
-   "puesto": 5,
-   "nombre": "Wôlf",
-   "apodo": "Barro",
-   "riot_id": "Theossichi#9248",
-   "liga": "Oro IV · 10 LP",
-   "lp_hoy": null,
-   "partidas": 5,
-   "victorias": 2,
-   "derrotas": 3,
-   "racha": -1
   },
   {
    "puesto": 6,
