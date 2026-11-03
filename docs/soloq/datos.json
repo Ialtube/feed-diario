@@ -1,10 +1,11 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793742918077,
+ "actualizado": 1793744064997,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
+  "jungledetter#1065",
   "mastersuftine#6535",
   "mastersuftine#euw",
   "nandaris#6071",
@@ -101,6 +102,18 @@
   },
   {
    "puesto": 8,
+   "nombre": "iPredatoRz",
+   "apodo": "el depredador depredado",
+   "riot_id": "Jungledetter#1065",
+   "liga": "Oro IV · 40 LP",
+   "lp_hoy": null,
+   "partidas": 6,
+   "victorias": 3,
+   "derrotas": 3,
+   "racha": 1
+  },
+  {
+   "puesto": 9,
    "nombre": "Dierophant",
    "apodo": "Intilteable",
    "riot_id": "smilesdeath#6859",
@@ -112,7 +125,7 @@
    "racha": 4
   },
   {
-   "puesto": 9,
+   "puesto": 10,
    "nombre": "RDV Canyon",
    "apodo": "Minguez",
    "riot_id": "FisityBard#3700",

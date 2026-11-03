@@ -171,9 +171,25 @@
       "icono": 1114,
       "nivel": 32,
       "icono_ms": 1793725198802
+    },
+    "jungledetter#1065": {
+      "riot_id": "Jungledetter#1065",
+      "apodo": "el depredador depredado",
+      "jugador": "ipredatorz",
+      "objetivo": "DIAMOND",
+      "lema": "me gustas cuando callas por que estas callado",
+      "inscrito": "2026-11-03T22:04:54.10357+00:00",
+      "origen": "web",
+      "id": 12,
+      "estado": "ok",
+      "persona": "iPredatoRz",
+      "puuid": "kxcnmAlisS1chq8BUTbWSzsQS6KJf7rwv4BmobMrWTOKd0F0zuJA23bTmy8Z22LNKO7Pqp7JeTqrBQ",
+      "icono": 750,
+      "nivel": 32,
+      "icono_ms": 1793744064997
     }
   },
-  "actualizado": 1793742918077,
+  "actualizado": 1793744064997,
   "ddragon": "16.21.1",
   "avisos": {
     "programado": 1793487600000,
