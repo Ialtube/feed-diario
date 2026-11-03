@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793706419056,
+ "actualizado": 1793710918240,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -64,9 +64,9 @@
   },
   {
    "puesto": 5,
-   "nombre": "Fr4nux",
-   "apodo": "Fr4nux",
-   "riot_id": "ReavendeMan#2719",
+   "nombre": "GSJoseador",
+   "apodo": "El Comodín de la Grieta",
+   "riot_id": "SantuJk#1510",
    "liga": "Sin clasificar",
    "lp_hoy": null,
    "partidas": 4,
@@ -76,15 +76,15 @@
   },
   {
    "puesto": 6,
-   "nombre": "GSJoseador",
-   "apodo": "El Comodín de la Grieta",
-   "riot_id": "SantuJk#1510",
+   "nombre": "Fr4nux",
+   "apodo": "Fr4nux",
+   "riot_id": "ReavendeMan#2719",
    "liga": "Sin clasificar",
    "lp_hoy": null,
-   "partidas": 3,
+   "partidas": 4,
    "victorias": 3,
-   "derrotas": 0,
-   "racha": 3
+   "derrotas": 1,
+   "racha": -1
   },
   {
    "puesto": 7,
