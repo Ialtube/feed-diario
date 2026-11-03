@@ -155,9 +155,25 @@
       "icono": 1159,
       "nivel": 31,
       "icono_ms": 1793696263631
+    },
+    "nandaris#6071": {
+      "riot_id": "nandaris#6071",
+      "apodo": "Showmanco",
+      "jugador": "grangalax",
+      "objetivo": "MASTER",
+      "lema": "ALTUBE TU PUTA MADRE",
+      "inscrito": "2026-11-03T16:55:13.150955+00:00",
+      "origen": "web",
+      "id": 11,
+      "estado": "ok",
+      "persona": "grangalax",
+      "puuid": "JUe9e7mzCZyo4oLAGJIhEFsx3yztIekDaFZOgz6sc00ygRWzN6AGEXQ9OLu3pJmglYXgQFVbinC3Eg",
+      "icono": 1114,
+      "nivel": 32,
+      "icono_ms": 1793725198802
     }
   },
-  "actualizado": 1793724627132,
+  "actualizado": 1793725198802,
   "ddragon": "16.21.1",
   "avisos": {
     "programado": 1793487600000,

@@ -1,12 +1,13 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793724627132,
+ "actualizado": 1793725198802,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
   "mastersuftine#6535",
   "mastersuftine#euw",
+  "nandaris#6071",
   "reavendeman#2719",
   "santujk#1510",
   "smilesdeath#6859",
@@ -52,6 +53,18 @@
   },
   {
    "puesto": 4,
+   "nombre": "grangalax",
+   "apodo": "Showmanco",
+   "riot_id": "nandaris#6071",
+   "liga": "Oro IV · 55 LP",
+   "lp_hoy": null,
+   "partidas": 5,
+   "victorias": 3,
+   "derrotas": 2,
+   "racha": 1
+  },
+  {
+   "puesto": 5,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -63,7 +76,7 @@
    "racha": -1
   },
   {
-   "puesto": 5,
+   "puesto": 6,
    "nombre": "Giroroo",
    "apodo": "La Guadaña de la Mon",
    "riot_id": "Xillie#8107",
@@ -75,7 +88,7 @@
    "racha": 2
   },
   {
-   "puesto": 6,
+   "puesto": 7,
    "nombre": "Wôlf",
    "apodo": "Barro",
    "riot_id": "Theossichi#9248",
@@ -87,7 +100,7 @@
    "racha": 1
   },
   {
-   "puesto": 7,
+   "puesto": 8,
    "nombre": "RDV Canyon",
    "apodo": "Minguez",
    "riot_id": "FisityBard#3700",
@@ -99,7 +112,7 @@
    "racha": 0
   },
   {
-   "puesto": 8,
+   "puesto": 9,
    "nombre": "Dierophant",
    "apodo": "Intilteable",
    "riot_id": "smilesdeath#6859",
