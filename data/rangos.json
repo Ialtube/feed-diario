@@ -4740,19 +4740,19 @@
       "slug": "ipredatorz",
       "alias": "iPredatoRz",
       "principal": true,
-      "flex": {
-        "tier": "GOLD",
-        "rank": "II",
-        "lp": 68,
-        "wins": 92,
-        "losses": 102
-      },
       "solo": {
         "tier": "EMERALD",
         "rank": "II",
         "lp": 94,
         "wins": 168,
         "losses": 156
+      },
+      "flex": {
+        "tier": "GOLD",
+        "rank": "II",
+        "lp": 68,
+        "wins": 92,
+        "losses": 102
       }
     },
     "sunraku#998": {
@@ -4780,19 +4780,19 @@
       "slug": "rdv-canyon",
       "alias": "RDV Canyon",
       "principal": true,
-      "solo": {
-        "tier": "DIAMOND",
-        "rank": "IV",
-        "lp": 73,
-        "wins": 80,
-        "losses": 71
-      },
       "flex": {
         "tier": "DIAMOND",
         "rank": "III",
         "lp": 75,
         "wins": 69,
         "losses": 65
+      },
+      "solo": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 73,
+        "wins": 80,
+        "losses": 71
       }
     },
     "giroroo#rdv": {
@@ -4840,19 +4840,19 @@
       "slug": "gsjoseador",
       "alias": "GSJoseador",
       "principal": false,
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "IV",
-        "lp": 59,
-        "wins": 168,
-        "losses": 167
-      },
       "flex": {
         "tier": "SILVER",
         "rank": "I",
         "lp": 63,
         "wins": 6,
         "losses": 5
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "IV",
+        "lp": 38,
+        "wins": 168,
+        "losses": 168
       }
     },
     "crak172#euw": {
@@ -4943,9 +4943,9 @@
       "solo": {
         "tier": "SILVER",
         "rank": "II",
-        "lp": 55,
+        "lp": 35,
         "wins": 4,
-        "losses": 5
+        "losses": 7
       }
     },
     "saiiiiiiko#euw": {
