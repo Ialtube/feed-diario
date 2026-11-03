@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793745772783,
+ "actualizado": 1793747471682,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -30,18 +30,6 @@
   },
   {
    "puesto": 2,
-   "nombre": "Dierophant",
-   "apodo": "Intilteable",
-   "riot_id": "smilesdeath#6859",
-   "liga": "Oro III · 37 LP",
-   "lp_hoy": null,
-   "partidas": 5,
-   "victorias": 5,
-   "derrotas": 0,
-   "racha": 5
-  },
-  {
-   "puesto": 3,
    "nombre": "Giroroo",
    "apodo": "La Guadaña de la Mon",
    "riot_id": "Xillie#8107",
@@ -53,7 +41,7 @@
    "racha": -1
   },
   {
-   "puesto": 4,
+   "puesto": 3,
    "nombre": "Fr4nux",
    "apodo": "Fr4nux",
    "riot_id": "ReavendeMan#2719",
@@ -62,6 +50,18 @@
    "partidas": 6,
    "victorias": 4,
    "derrotas": 2,
+   "racha": -1
+  },
+  {
+   "puesto": 4,
+   "nombre": "Dierophant",
+   "apodo": "Intilteable",
+   "riot_id": "smilesdeath#6859",
+   "liga": "Oro III · 27 LP",
+   "lp_hoy": null,
+   "partidas": 6,
+   "victorias": 5,
+   "derrotas": 1,
    "racha": -1
   },
   {
@@ -90,6 +90,18 @@
   },
   {
    "puesto": 7,
+   "nombre": "Wôlf",
+   "apodo": "Barro",
+   "riot_id": "Theossichi#9248",
+   "liga": "Oro IV · 70 LP",
+   "lp_hoy": null,
+   "partidas": 7,
+   "victorias": 4,
+   "derrotas": 3,
+   "racha": 2
+  },
+  {
+   "puesto": 8,
    "nombre": "grangalax",
    "apodo": "Showmanco",
    "riot_id": "nandaris#6071",
@@ -98,18 +110,6 @@
    "partidas": 8,
    "victorias": 4,
    "derrotas": 4,
-   "racha": 1
-  },
-  {
-   "puesto": 8,
-   "nombre": "Wôlf",
-   "apodo": "Barro",
-   "riot_id": "Theossichi#9248",
-   "liga": "Oro IV · 40 LP",
-   "lp_hoy": null,
-   "partidas": 6,
-   "victorias": 3,
-   "derrotas": 3,
    "racha": 1
   },
   {
