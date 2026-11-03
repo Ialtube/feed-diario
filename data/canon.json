@@ -21,6 +21,10 @@
         {
           "fecha": "2026-10-30",
           "texto": "el reincidente"
+        },
+        {
+          "fecha": "2026-11-03",
+          "texto": "el Barón de incógnito"
         }
       ],
       "rasgos": [
@@ -90,6 +94,11 @@
           "tipo": "caída",
           "texto": "Dos noches limpio y recaída: 0–5, cuatro Qiyanas seguidas y Oro IV con cero puntos, al borde de Plata.",
           "fecha": "2026-10-30"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Vuelve tras tres noches con una cuenta secundaria, gana la calle a Diana y pierde: sexta derrota seguida.",
+          "fecha": "2026-11-03"
         }
       ]
     },
@@ -128,7 +137,13 @@
       ],
       "rivales": [],
       "titulos": [],
-      "arcos": []
+      "arcos": [
+        {
+          "tipo": "ascenso",
+          "texto": "Estrena la cuenta del reto con cuatro Urgot y 3–1: segundo del reto tras caer dos puestos sin jugar.",
+          "fecha": "2026-11-03"
+        }
+      ]
     },
     "wolf": {
       "alias": "Wôlf",
@@ -188,7 +203,12 @@
         "Tirador de profesión que nunca hace daño",
         "Firmó un pentakill en la primera semana"
       ],
-      "maldiciones": [],
+      "maldiciones": [
+        {
+          "fecha": "2026-11-03",
+          "texto": "Vayne en el top: 0/7/1 y tres muertes en el mismo rincón"
+        }
+      ],
       "rivales": [
         {
           "fecha": "2026-10-21",
@@ -199,6 +219,10 @@
         {
           "fecha": "2026-10-20",
           "texto": "El Tirador en Remisión"
+        },
+        {
+          "fecha": "2026-11-03",
+          "texto": "Esmeraldino sin Curar"
         }
       ],
       "arcos": [
@@ -231,6 +255,11 @@
           "tipo": "caída",
           "texto": "Deja en el cajón la Jinx que le curaba, prueba Kai'Sa, pone tres guardianes y se deja diecinueve puntos.",
           "fecha": "2026-10-29"
+        },
+        {
+          "tipo": "ascenso",
+          "texto": "Sube a Esmeralda IV en un día de once partidas perdiendo la calle por casi nueve mil de oro: asciende sin diagnóstico.",
+          "fecha": "2026-11-03"
         }
       ]
     },
@@ -326,7 +355,12 @@
       "rasgos": [
         "Apenas aparece por la Grieta"
       ],
-      "maldiciones": [],
+      "maldiciones": [
+        {
+          "fecha": "2026-11-03",
+          "texto": "Kalista: 0–2 en su estreno, 17/15/9 contra el Yasuo que le había denunciado"
+        }
+      ],
       "rivales": [],
       "titulos": [
         {
@@ -454,7 +488,12 @@
       "rasgos": [
         "Juega poco, pero cuando juega gana"
       ],
-      "maldiciones": [],
+      "maldiciones": [
+        {
+          "fecha": "2026-11-03",
+          "texto": "Kayn: dos primeras sangres entregadas antes del minuto tres en una tarde, y dos derrotas"
+        }
+      ],
       "rivales": [],
       "titulos": [],
       "arcos": [
@@ -570,6 +609,11 @@
           "tipo": "caída",
           "texto": "Cuatro Blitzcrank en un día con dos cuentas para acabar en Esmeralda IV a cero, exactamente donde empezó.",
           "fecha": "2026-11-02"
+        },
+        {
+          "tipo": "ascenso",
+          "texto": "5–0 en el reto y Oro III con Blitzcrank, el campeón que le denunció tres veces; prometió Aspirante.",
+          "fecha": "2026-11-03"
         }
       ]
     }
@@ -641,6 +685,11 @@
           "fecha": "2026-11-02",
           "campo": "estado",
           "texto": "Tiene la factura del anuncio «Se busca Barón», pagada por Barbanegra con cargo a la columna D.E.P.; ha pedido cita con el director para el jueves"
+        },
+        {
+          "fecha": "2026-11-03",
+          "campo": "estado",
+          "texto": "Ha grapado el comunicado del director al expediente del jueves, con sello incluido"
         }
       ]
     },
@@ -668,6 +717,11 @@
           "fecha": "2026-10-30",
           "campo": "estado",
           "texto": "El libro robado a la Comisaría apareció debajo de sus facturas de autopsia"
+        },
+        {
+          "fecha": "2026-11-03",
+          "campo": "estado",
+          "texto": "Se niega a certificar muertes a nombre de cuentas secundarias"
         }
       ]
     },
@@ -830,6 +884,11 @@
           "fecha": "2026-11-02",
           "campo": "estado",
           "texto": "Se excusa de la cita con Hexwick alegando una Flex que no existe"
+        },
+        {
+          "fecha": "2026-11-03",
+          "campo": "estado",
+          "texto": "Ha publicado un comunicado que admite la columna de cuentas secundarias; según la Gaceta, cancela la cita del jueves con un viaje a Aguasturbias"
         }
       ]
     },
@@ -943,6 +1002,10 @@
         {
           "fecha": "2026-11-01",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-03",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1028,6 +1091,13 @@
           "resumen": "Sin jugar, el director le concede en editorial el premio de Rey de la Vergüenza de octubre (siete portadas, 37–52, Qiyana 0–8) contra lo que dice la General, que encabeza Saiko, y le pide que vuelva.",
           "titulares": [
             "Los premios de octubre, y por qué el grande es para el Barón"
+          ]
+        },
+        {
+          "fecha": "2026-11-03",
+          "resumen": "Tras tres noches desaparecido, grangalax vuelve con la cuenta secundaria VitasUchiha: Syndra 9/7/9, gana la calle a Diana por 2.144 de oro y 80 súbditos, y pierde. Sexta derrota seguida en dos días de juego.",
+          "titulares": [
+            "El Barón vuelve con nombre falso"
           ]
         }
       ]
@@ -1116,6 +1186,10 @@
         {
           "fecha": "2026-10-29",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-03",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1201,6 +1275,13 @@
           "resumen": "Ni Jinx ni Kalista: Kai'Sa 6/9/4 con el 20,2 % del daño, el 24,5 % del oro y tres guardianes en 29 minutos contra un Twitch 10/1/9. Baja de 69 a 50 LP en Platino I.",
           "titulares": [
             "«En el Vacío, por lo menos, se veía algo»"
+          ]
+        },
+        {
+          "fecha": "2026-11-03",
+          "resumen": "Once partidas, 7–4 y ascenso a Esmeralda IV con 20 LP pese a perder la calle con Varus por 8.839 de oro ante una Tristana 18/5/7 y un 0/7/1 con Vayne en el top. Kai'Sa 16/4/14 con el 30 % del daño.",
+          "titulares": [
+            "Esmeralda, a pesar de Tristana"
           ]
         }
       ]
@@ -1502,6 +1583,13 @@
           "titulares": [
             "Donde decía «la Lonja», debía decir otra cosa"
           ]
+        },
+        {
+          "fecha": "2026-11-03",
+          "resumen": "La dirección publica un comunicado: las muertes del Barón con la cuenta VitasUchiha no figuran en el libro y ordena a Barbanegra abrir una columna para cuentas secundarias. Hexwick lo grapa al expediente del jueves; Humoverde se niega a certificar muertes a nombre ajeno.",
+          "titulares": [
+            "La dirección aclara que las muertes con otro nombre no cuentan"
+          ]
         }
       ],
       "estados": [
@@ -1547,6 +1635,10 @@
         },
         {
           "fecha": "2026-11-02",
+          "estado": "desenlace"
+        },
+        {
+          "fecha": "2026-11-03",
           "estado": "desenlace"
         }
       ]
@@ -1619,6 +1711,11 @@
           "titulares": [
             "Una semana sin el día que pedí"
           ]
+        },
+        {
+          "fecha": "2026-11-03",
+          "resumen": "La Gaceta defiende el ascenso de Fr4nux y adelanta en exclusiva, por boca de Barbanegra, que el director ha cancelado la cita del jueves con Hexwick alegando un viaje urgente a Aguasturbias.",
+          "titulares": []
         }
       ],
       "estados": [
@@ -1644,6 +1741,10 @@
         },
         {
           "fecha": "2026-11-02",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-03",
           "estado": "escalando"
         }
       ]
@@ -1769,6 +1870,13 @@
           "resumen": "iPredatoRz, el que reinaba muriendo, es el mejor del día: 2–1, Tristana 10/5/5 con 4.939 de oro sobre su Caitlyn; su Yasuo sigue con diez de visión.",
           "titulares": [
             "Los Centinelas encuentran luz en el Vacío"
+          ]
+        },
+        {
+          "fecha": "2026-11-03",
+          "resumen": "Zeri 11/1/4 con cuádruple en dieciocho minutos y después tres derrotas seguidas, dos con la Kalista que estrena. 4–3 en el día.",
+          "titulares": [
+            "Dieciocho minutos de Zeri"
           ]
         }
       ]
@@ -2003,6 +2111,13 @@
           "titulares": [
             "Wôlf, el hombre de los cien campeones que juega a uno"
           ]
+        },
+        {
+          "fecha": "2026-11-03",
+          "resumen": "Wôlf juega el Ekko del Barón en la cuenta del reto: 9/9/1 con derrota y 13/8/9 con victoria. Gana una, pierde otra.",
+          "titulares": [
+            "El Ekko del Barón trabaja en otra casa"
+          ]
         }
       ]
     },
@@ -2126,6 +2241,8 @@
       "titulo": "El reto de las cuentas nuevas",
       "abierto": "2026-11-01",
       "protagonistas": [
+        "dierophant",
+        "fr4nux",
         "giroroo",
         "gsjoseador",
         "rdv-canyon",
@@ -2159,6 +2276,13 @@
           "titulares": [
             "Por fin alguien juega, y son los de siempre"
           ]
+        },
+        {
+          "fecha": "2026-11-03",
+          "resumen": "Saiko se clasifica en Oro III con 37 LP tras un 5–0 (prometió Aspirante: le faltan 1.463). TheTrevur estrena la cuenta con cuatro Urgot y 3–1; Wôlf 2–2 con dos Ekko. Se inscriben Fr4nux (3–1) y Dierophant (sin jugar); RDV Canyon sigue a cero.",
+          "titulares": [
+            "Oro III, rumbo a Aspirante"
+          ]
         }
       ]
     },
@@ -2183,6 +2307,39 @@
           "resumen": "Giroroo, conocido por jugar poco y ganar (tres partidas en toda la semana), juega siete el domingo en tres cuentas: 2–3 en el día del periódico, primero de la vergüenza, veintiún puntos menos en su Diamante y líder del reto.",
           "titulares": [
             "El Invicto juega siete"
+          ]
+        },
+        {
+          "fecha": "2026-11-03",
+          "resumen": "Condenado por su propio voto (jugar cuatro de más), juega cuatro: 2–0 en el reto por la mañana y 0–2 con Kayn en su secundaria por la tarde, con la primera sangre entregada en las dos; la secundaria baja de Esmeralda II a III.",
+          "titulares": [
+            "Ocho objetivos y ninguna victoria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-sindicato-cambia-de-bando",
+      "titulo": "El Sindicato cambia de bando",
+      "abierto": "2026-11-03",
+      "protagonistas": [
+        "grangalax",
+        "ipredatorz"
+      ],
+      "reparto": [],
+      "resumen": "Los campeones denunciados aparecen en el equipo rival y cobran: Yasuo, que denunció a iPredatoRz el sábado, le hace 24 asesinatos a su Kalista (17/15/9); Diana, primera maldición del Barón, pierde la calle pero gana la partida.",
+      "estados": [
+        {
+          "fecha": "2026-11-03",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-11-03",
+          "resumen": "Los campeones denunciados aparecen en el equipo rival y cobran: Yasuo, que denunció a iPredatoRz el sábado, le hace 24 asesinatos a su Kalista (17/15/9); Diana, primera maldición del Barón, pierde la calle pero gana la partida.",
+          "titulares": [
+            "Yasuo vuelve, esta vez en el otro equipo"
           ]
         }
       ]
@@ -2252,6 +2409,10 @@
     {
       "fecha": "2026-11-02",
       "texto": "Los domingos sin Flex, Giroroo abre una cuenta por la mañana y otras dos por la tarde, y no para hasta pasadas las nueve y media."
+    },
+    {
+      "fecha": "2026-11-03",
+      "texto": "Los lunes sin Flex, Fr4nux y GSJoseador abren el dúo a las doce y media y lo cierran pasadas las diez y media de la noche."
     }
   ],
   "chistes": [
@@ -2262,9 +2423,10 @@
         "2026-10-21",
         "2026-10-23",
         "2026-10-26",
-        "2026-10-27"
+        "2026-10-27",
+        "2026-11-03"
       ],
-      "usos": 5,
+      "usos": 6,
       "semilla": true
     },
     {
@@ -2272,9 +2434,10 @@
       "fechas": [
         "2026-10-20",
         "2026-10-21",
-        "2026-10-26"
+        "2026-10-26",
+        "2026-11-03"
       ],
-      "usos": 3,
+      "usos": 4,
       "semilla": true
     },
     {
@@ -2329,9 +2492,10 @@
     {
       "texto": "el Invicto Intermitente",
       "fechas": [
-        "2026-11-02"
+        "2026-11-02",
+        "2026-11-03"
       ],
-      "usos": 1
+      "usos": 2
     },
     {
       "texto": "la columna D.E.P.",
@@ -2491,6 +2655,24 @@
       "jugador": "giroroo",
       "motivo": "Sacado cinco veces en un domingo; dos derrotas seguidas antes de que le dejaran ganar la última",
       "fecha": "2026-11-02"
+    },
+    {
+      "campeon": "Vayne",
+      "jugador": "fr4nux",
+      "motivo": "Sacada de día y mandada al top: 0/7/1 y tres muertes en el mismo rincón ante un Mordekaiser que no murió",
+      "fecha": "2026-11-03"
+    },
+    {
+      "campeon": "Kayn",
+      "jugador": "giroroo",
+      "motivo": "Sacado dos veces más tras la denuncia del domingo: dos primeras sangres entregadas y dos derrotas, una con ocho objetivos",
+      "fecha": "2026-11-03"
+    },
+    {
+      "campeon": "Kalista",
+      "jugador": "ipredatorz",
+      "motivo": "Estrenada y perdida dos veces seguidas; quince muertes en la segunda",
+      "fecha": "2026-11-03"
     }
   ]
 }
