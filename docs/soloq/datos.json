@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793734043634,
+ "actualizado": 1793736452751,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -29,6 +29,18 @@
   },
   {
    "puesto": 2,
+   "nombre": "Giroroo",
+   "apodo": "La Guadaña de la Mon",
+   "riot_id": "Xillie#8107",
+   "liga": "Oro III · 39 LP",
+   "lp_hoy": null,
+   "partidas": 5,
+   "victorias": 4,
+   "derrotas": 1,
+   "racha": 3
+  },
+  {
+   "puesto": 3,
    "nombre": "Fr4nux",
    "apodo": "Fr4nux",
    "riot_id": "ReavendeMan#2719",
@@ -40,7 +52,7 @@
    "racha": -1
   },
   {
-   "puesto": 3,
+   "puesto": 4,
    "nombre": "GSJoseador",
    "apodo": "El Comodín de la Grieta",
    "riot_id": "SantuJk#1510",
@@ -52,7 +64,7 @@
    "racha": 1
   },
   {
-   "puesto": 4,
+   "puesto": 5,
    "nombre": "grangalax",
    "apodo": "Showmanco",
    "riot_id": "nandaris#6071",
@@ -64,7 +76,7 @@
    "racha": 1
   },
   {
-   "puesto": 5,
+   "puesto": 6,
    "nombre": "Wôlf",
    "apodo": "Barro",
    "riot_id": "Theossichi#9248",
@@ -76,7 +88,7 @@
    "racha": 1
   },
   {
-   "puesto": 6,
+   "puesto": 7,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -88,34 +100,22 @@
    "racha": -1
   },
   {
-   "puesto": 7,
-   "nombre": "Giroroo",
-   "apodo": "La Guadaña de la Mon",
-   "riot_id": "Xillie#8107",
-   "liga": "Sin clasificar",
-   "lp_hoy": null,
-   "partidas": 4,
-   "victorias": 3,
-   "derrotas": 1,
-   "racha": 2
-  },
-  {
    "puesto": 8,
-   "nombre": "RDV Canyon",
-   "apodo": "Minguez",
-   "riot_id": "FisityBard#3700",
-   "liga": "Sin clasificar",
-   "lp_hoy": null,
-   "partidas": 0,
-   "victorias": 0,
-   "derrotas": 0,
-   "racha": 0
-  },
-  {
-   "puesto": 9,
    "nombre": "Dierophant",
    "apodo": "Intilteable",
    "riot_id": "smilesdeath#6859",
+   "liga": "Sin clasificar",
+   "lp_hoy": null,
+   "partidas": 1,
+   "victorias": 1,
+   "derrotas": 0,
+   "racha": 1
+  },
+  {
+   "puesto": 9,
+   "nombre": "RDV Canyon",
+   "apodo": "Minguez",
+   "riot_id": "FisityBard#3700",
    "liga": "Sin clasificar",
    "lp_hoy": null,
    "partidas": 0,
