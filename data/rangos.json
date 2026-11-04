@@ -5035,19 +5035,19 @@
       "slug": "fr4nux",
       "alias": "Fr4nux",
       "principal": true,
-      "flex": {
-        "tier": "GOLD",
-        "rank": "I",
-        "lp": 99,
-        "wins": 114,
-        "losses": 97
-      },
       "solo": {
         "tier": "EMERALD",
         "rank": "IV",
         "lp": 0,
         "wins": 273,
         "losses": 249
+      },
+      "flex": {
+        "tier": "GOLD",
+        "rank": "I",
+        "lp": 99,
+        "wins": 114,
+        "losses": 97
       }
     },
     "gsjoseador#2711": {
@@ -5075,19 +5075,19 @@
       "slug": "dierophant",
       "alias": "Dierophant",
       "principal": true,
-      "flex": {
-        "tier": "DIAMOND",
-        "rank": "IV",
-        "lp": 52,
-        "wins": 103,
-        "losses": 98
-      },
       "solo": {
         "tier": "EMERALD",
         "rank": "II",
         "lp": 37,
         "wins": 102,
         "losses": 109
+      },
+      "flex": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 52,
+        "wins": 103,
+        "losses": 98
       }
     },
     "ipredatorz#euw": {
@@ -5095,19 +5095,19 @@
       "slug": "ipredatorz",
       "alias": "iPredatoRz",
       "principal": true,
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "II",
-        "lp": 94,
-        "wins": 168,
-        "losses": 156
-      },
       "flex": {
         "tier": "GOLD",
         "rank": "II",
         "lp": 68,
         "wins": 92,
         "losses": 102
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "II",
+        "lp": 94,
+        "wins": 168,
+        "losses": 156
       }
     },
     "sunraku#998": {
@@ -5135,19 +5135,19 @@
       "slug": "rdv-canyon",
       "alias": "RDV Canyon",
       "principal": true,
-      "flex": {
-        "tier": "DIAMOND",
-        "rank": "III",
-        "lp": 75,
-        "wins": 69,
-        "losses": 65
-      },
       "solo": {
         "tier": "DIAMOND",
         "rank": "IV",
         "lp": 73,
         "wins": 80,
         "losses": 71
+      },
+      "flex": {
+        "tier": "DIAMOND",
+        "rank": "III",
+        "lp": 75,
+        "wins": 69,
+        "losses": 65
       }
     },
     "giroroo#rdv": {
