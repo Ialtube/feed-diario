@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793815560894,
+ "actualizado": 1793816133485,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -54,18 +54,6 @@
   },
   {
    "puesto": 4,
-   "nombre": "Fr4nux",
-   "apodo": "Fr4nux",
-   "riot_id": "ReavendeMan#2719",
-   "liga": "Oro III · 29 LP",
-   "lp_hoy": 0,
-   "partidas": 6,
-   "victorias": 4,
-   "derrotas": 2,
-   "racha": -1
-  },
-  {
-   "puesto": 5,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -75,6 +63,18 @@
    "victorias": 5,
    "derrotas": 1,
    "racha": 2
+  },
+  {
+   "puesto": 5,
+   "nombre": "Fr4nux",
+   "apodo": "Fr4nux",
+   "riot_id": "ReavendeMan#2719",
+   "liga": "Oro III · 19 LP",
+   "lp_hoy": -10,
+   "partidas": 7,
+   "victorias": 4,
+   "derrotas": 3,
+   "racha": -2
   },
   {
    "puesto": 6,
