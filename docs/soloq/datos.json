@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793811024546,
+ "actualizado": 1793813294299,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -30,6 +30,18 @@
   },
   {
    "puesto": 2,
+   "nombre": "Giroroo",
+   "apodo": "La Guadaña de la Mon",
+   "riot_id": "Xillie#8107",
+   "liga": "Oro III · 49 LP",
+   "lp_hoy": 20,
+   "partidas": 8,
+   "victorias": 5,
+   "derrotas": 3,
+   "racha": 1
+  },
+  {
+   "puesto": 3,
    "nombre": "Fr4nux",
    "apodo": "Fr4nux",
    "riot_id": "ReavendeMan#2719",
@@ -41,7 +53,7 @@
    "racha": -1
   },
   {
-   "puesto": 3,
+   "puesto": 4,
    "nombre": "Dierophant",
    "apodo": "Intilteable",
    "riot_id": "smilesdeath#6859",
@@ -53,7 +65,7 @@
    "racha": -1
   },
   {
-   "puesto": 4,
+   "puesto": 5,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -65,19 +77,19 @@
    "racha": 2
   },
   {
-   "puesto": 5,
-   "nombre": "Giroroo",
-   "apodo": "La Guadaña de la Mon",
-   "riot_id": "Xillie#8107",
-   "liga": "Oro III · 19 LP",
-   "lp_hoy": -10,
-   "partidas": 7,
-   "victorias": 4,
+   "puesto": 6,
+   "nombre": "Wôlf",
+   "apodo": "Barro",
+   "riot_id": "Theossichi#9248",
+   "liga": "Oro III · 1 LP",
+   "lp_hoy": 31,
+   "partidas": 8,
+   "victorias": 5,
    "derrotas": 3,
-   "racha": -2
+   "racha": 3
   },
   {
-   "puesto": 6,
+   "puesto": 7,
    "nombre": "GSJoseador",
    "apodo": "El Comodín de la Grieta",
    "riot_id": "SantuJk#1510",
@@ -87,18 +99,6 @@
    "victorias": 4,
    "derrotas": 2,
    "racha": 1
-  },
-  {
-   "puesto": 7,
-   "nombre": "Wôlf",
-   "apodo": "Barro",
-   "riot_id": "Theossichi#9248",
-   "liga": "Oro IV · 70 LP",
-   "lp_hoy": 0,
-   "partidas": 7,
-   "victorias": 4,
-   "derrotas": 3,
-   "racha": 2
   },
   {
    "puesto": 8,
@@ -131,10 +131,10 @@
    "riot_id": "FisityBard#3700",
    "liga": "Sin clasificar",
    "lp_hoy": null,
-   "partidas": 0,
-   "victorias": 0,
+   "partidas": 1,
+   "victorias": 1,
    "derrotas": 0,
-   "racha": 0
+   "racha": 1
   }
  ]
 }
