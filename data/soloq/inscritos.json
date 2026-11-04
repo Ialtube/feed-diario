@@ -30,7 +30,7 @@
       "puuid": "JcsTDDa7xeDI8YPglsI8rc83ledN3EqfHdmQH1CPpThgajR2EXF4J8QZnOdIzH-T-VIyG_tkcUIfVA",
       "icono": 29,
       "nivel": 32,
-      "icono_ms": 1793710351640
+      "icono_ms": 1793753697600
     },
     "xillie#8107": {
       "riot_id": "Xillie#8107",
@@ -46,7 +46,7 @@
       "puuid": "l-Trzz0MYXJTHsyzqdOg7GZ-q1ZtRPUdVEVJSqkX1QCaT8WCkPVybQ97b1t90VX80QCwf2ub7XaRBw",
       "icono": 29,
       "nivel": 32,
-      "icono_ms": 1793710351640
+      "icono_ms": 1793753697600
     },
     "theossichi#9248": {
       "riot_id": "Theossichi#9248",
@@ -61,8 +61,8 @@
       "persona": "Wôlf",
       "puuid": "TmRZkGTZa5K6dQKAwAxVpDoFuaQZc9cEHAEe_BDCSq7oc8Y_cBoXl3-HoU_RsHswTocERPUt1qkpMg",
       "icono": 25,
-      "nivel": 31,
-      "icono_ms": 1793710351640
+      "nivel": 32,
+      "icono_ms": 1793753697600
     },
     "santujk#1510": {
       "riot_id": "SantuJk#1510",
@@ -77,8 +77,8 @@
       "persona": "GSJoseador",
       "puuid": "U6P5ekNmJVN2xa3SgE_Ukh-2udzgOQkybicxE6Y53rEKpKpUQu0u7_0As4SQsy-vUIgLARzfJ_OU0Q",
       "icono": 29,
-      "nivel": 31,
-      "icono_ms": 1793710351640
+      "nivel": 32,
+      "icono_ms": 1793753697600
     },
     "fisitybard#3700": {
       "riot_id": "FisityBard#3700",
@@ -93,8 +93,8 @@
       "persona": "RDV Canyon",
       "puuid": "iAMonvUmIyE9qQ7gcGeB364rNLnzu50vyU_puSOs6u9AnxpGUAEX-j5g00HYgGE9SQd_OqOzMNa-BA",
       "icono": 7247,
-      "nivel": 30,
-      "icono_ms": 1793710351640
+      "nivel": 31,
+      "icono_ms": 1793753697600
     },
     "mastersuftine#euw": {
       "riot_id": "MASTERSUFTINE#EUW",
@@ -137,8 +137,8 @@
       "persona": "Fr4nux",
       "puuid": "_Nm9rintSiYgFnyI7ViQ-uN7zWlcOFuUAFT_fXAzFtQZ3pxy-oE2e7Q_idchqP9hyWUlUGuL9f2CiQ",
       "icono": 5465,
-      "nivel": 31,
-      "icono_ms": 1793710351640
+      "nivel": 32,
+      "icono_ms": 1793753697600
     },
     "smilesdeath#6859": {
       "riot_id": "smilesdeath#6859",
@@ -189,7 +189,7 @@
       "icono_ms": 1793744064997
     }
   },
-  "actualizado": 1793747471682,
+  "actualizado": 1793753697600,
   "ddragon": "16.22.1",
   "avisos": {
     "programado": 1793487600000,
