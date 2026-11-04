@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793814992539,
+ "actualizado": 1793815560894,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -30,6 +30,18 @@
   },
   {
    "puesto": 2,
+   "nombre": "Dierophant",
+   "apodo": "Intilteable",
+   "riot_id": "smilesdeath#6859",
+   "liga": "Oro III · 57 LP",
+   "lp_hoy": 30,
+   "partidas": 7,
+   "victorias": 6,
+   "derrotas": 1,
+   "racha": 1
+  },
+  {
+   "puesto": 3,
    "nombre": "Giroroo",
    "apodo": "La Guadaña de la Mon",
    "riot_id": "Xillie#8107",
@@ -41,7 +53,7 @@
    "racha": 1
   },
   {
-   "puesto": 3,
+   "puesto": 4,
    "nombre": "Fr4nux",
    "apodo": "Fr4nux",
    "riot_id": "ReavendeMan#2719",
@@ -50,18 +62,6 @@
    "partidas": 6,
    "victorias": 4,
    "derrotas": 2,
-   "racha": -1
-  },
-  {
-   "puesto": 4,
-   "nombre": "Dierophant",
-   "apodo": "Intilteable",
-   "riot_id": "smilesdeath#6859",
-   "liga": "Oro III · 27 LP",
-   "lp_hoy": 0,
-   "partidas": 6,
-   "victorias": 5,
-   "derrotas": 1,
    "racha": -1
   },
   {
@@ -131,10 +131,10 @@
    "riot_id": "FisityBard#3700",
    "liga": "Sin clasificar",
    "lp_hoy": null,
-   "partidas": 1,
-   "victorias": 1,
+   "partidas": 2,
+   "victorias": 2,
    "derrotas": 0,
-   "racha": 1
+   "racha": 2
   }
  ]
 }
