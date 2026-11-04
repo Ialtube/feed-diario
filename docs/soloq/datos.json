@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793821234919,
+ "actualizado": 1793821803379,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -42,18 +42,6 @@
   },
   {
    "puesto": 3,
-   "nombre": "TheTrevur",
-   "apodo": "Urgod",
-   "riot_id": "Grred#6577",
-   "liga": "Oro III · 55 LP",
-   "lp_hoy": 30,
-   "partidas": 7,
-   "victorias": 6,
-   "derrotas": 1,
-   "racha": 3
-  },
-  {
-   "puesto": 4,
    "nombre": "Giroroo",
    "apodo": "La Guadaña de la Mon",
    "riot_id": "Xillie#8107",
@@ -65,19 +53,19 @@
    "racha": 1
   },
   {
-   "puesto": 5,
-   "nombre": "Fr4nux",
-   "apodo": "Fr4nux",
-   "riot_id": "ReavendeMan#2719",
-   "liga": "Oro III · 49 LP",
+   "puesto": 4,
+   "nombre": "TheTrevur",
+   "apodo": "Urgod",
+   "riot_id": "Grred#6577",
+   "liga": "Oro III · 45 LP",
    "lp_hoy": 20,
    "partidas": 8,
-   "victorias": 5,
-   "derrotas": 3,
-   "racha": 1
+   "victorias": 6,
+   "derrotas": 2,
+   "racha": -1
   },
   {
-   "puesto": 6,
+   "puesto": 5,
    "nombre": "GSJoseador",
    "apodo": "El Comodín de la Grieta",
    "riot_id": "SantuJk#1510",
@@ -89,7 +77,31 @@
    "racha": 3
   },
   {
+   "puesto": 6,
+   "nombre": "Fr4nux",
+   "apodo": "Fr4nux",
+   "riot_id": "ReavendeMan#2719",
+   "liga": "Oro III · 39 LP",
+   "lp_hoy": 10,
+   "partidas": 9,
+   "victorias": 5,
+   "derrotas": 4,
+   "racha": -1
+  },
+  {
    "puesto": 7,
+   "nombre": "grangalax",
+   "apodo": "Showmanco",
+   "riot_id": "nandaris#6071",
+   "liga": "Oro III · 25 LP",
+   "lp_hoy": 60,
+   "partidas": 10,
+   "victorias": 6,
+   "derrotas": 4,
+   "racha": 3
+  },
+  {
+   "puesto": 8,
    "nombre": "Wôlf",
    "apodo": "Barro",
    "riot_id": "Theossichi#9248",
@@ -99,18 +111,6 @@
    "victorias": 5,
    "derrotas": 3,
    "racha": 3
-  },
-  {
-   "puesto": 8,
-   "nombre": "grangalax",
-   "apodo": "Showmanco",
-   "riot_id": "nandaris#6071",
-   "liga": "Oro IV · 95 LP",
-   "lp_hoy": 30,
-   "partidas": 9,
-   "victorias": 5,
-   "derrotas": 4,
-   "racha": 2
   },
   {
    "puesto": 9,
