@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793817264478,
+ "actualizado": 1793817832121,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -54,6 +54,18 @@
   },
   {
    "puesto": 4,
+   "nombre": "GSJoseador",
+   "apodo": "El Comodín de la Grieta",
+   "riot_id": "SantuJk#1510",
+   "liga": "Oro III · 45 LP",
+   "lp_hoy": 60,
+   "partidas": 8,
+   "victorias": 6,
+   "derrotas": 2,
+   "racha": 3
+  },
+  {
+   "puesto": 5,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -65,7 +77,7 @@
    "racha": 2
   },
   {
-   "puesto": 5,
+   "puesto": 6,
    "nombre": "Fr4nux",
    "apodo": "Fr4nux",
    "riot_id": "ReavendeMan#2719",
@@ -75,18 +87,6 @@
    "victorias": 4,
    "derrotas": 3,
    "racha": -2
-  },
-  {
-   "puesto": 6,
-   "nombre": "GSJoseador",
-   "apodo": "El Comodín de la Grieta",
-   "riot_id": "SantuJk#1510",
-   "liga": "Oro III · 15 LP",
-   "lp_hoy": 30,
-   "partidas": 7,
-   "victorias": 5,
-   "derrotas": 2,
-   "racha": 2
   },
   {
    "puesto": 7,
