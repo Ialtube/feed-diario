@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793817832121,
+ "actualizado": 1793818399497,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -18,6 +18,18 @@
  "clasificacion": [
   {
    "puesto": 1,
+   "nombre": "Saiko",
+   "apodo": "KOI Huerfano",
+   "riot_id": "Mastersuftine#6535",
+   "liga": "Oro III · 97 LP",
+   "lp_hoy": 30,
+   "partidas": 7,
+   "victorias": 7,
+   "derrotas": 0,
+   "racha": 7
+  },
+  {
+   "puesto": 2,
    "nombre": "Dierophant",
    "apodo": "Intilteable",
    "riot_id": "smilesdeath#6859",
@@ -29,19 +41,19 @@
    "racha": 2
   },
   {
-   "puesto": 2,
-   "nombre": "Saiko",
-   "apodo": "KOI Huerfano",
-   "riot_id": "Mastersuftine#6535",
-   "liga": "Oro III · 67 LP",
-   "lp_hoy": 0,
-   "partidas": 6,
+   "puesto": 3,
+   "nombre": "TheTrevur",
+   "apodo": "Urgod",
+   "riot_id": "Grred#6577",
+   "liga": "Oro III · 55 LP",
+   "lp_hoy": 30,
+   "partidas": 7,
    "victorias": 6,
-   "derrotas": 0,
-   "racha": 6
+   "derrotas": 1,
+   "racha": 3
   },
   {
-   "puesto": 3,
+   "puesto": 4,
    "nombre": "Giroroo",
    "apodo": "La Guadaña de la Mon",
    "riot_id": "Xillie#8107",
@@ -53,7 +65,7 @@
    "racha": 1
   },
   {
-   "puesto": 4,
+   "puesto": 5,
    "nombre": "GSJoseador",
    "apodo": "El Comodín de la Grieta",
    "riot_id": "SantuJk#1510",
@@ -63,18 +75,6 @@
    "victorias": 6,
    "derrotas": 2,
    "racha": 3
-  },
-  {
-   "puesto": 5,
-   "nombre": "TheTrevur",
-   "apodo": "Urgod",
-   "riot_id": "Grred#6577",
-   "liga": "Oro III · 25 LP",
-   "lp_hoy": 0,
-   "partidas": 6,
-   "victorias": 5,
-   "derrotas": 1,
-   "racha": 2
   },
   {
    "puesto": 6,
