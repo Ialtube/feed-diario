@@ -27,6 +27,7 @@ from .util import ROOT, champ_name, fmt_num, get_tz, load_json, save_json
 DIR = ROOT / "data" / "soloq"
 SOLO_QUEUE = 420
 REMAKE_SECONDS = 300
+EARLY_SURRENDER_SECONDS = 210   # 3:30: the soonest a team can end a game by surrendering, so anything shorter is a remake
 RIOT_ID = re.compile(r"^[^#]{3,16}#[^#\s]{2,5}$")
 ICON_EVERY_MS = 12 * 3600 * 1000      # profile icon and level are refreshed twice a day
 DDRAGON = "https://ddragon.leagueoflegends.com"
@@ -300,10 +301,12 @@ def _game_row(match_id, end, dur, p, team=()):
 
 
 def revisar_remakes(games, hist):
-    """A short game is a remake only if the league did not count it. Riot's remakes move neither LP nor
-    wins/losses, while a game ended early (surrender once a teammate is gone) is a normal game: the account's
-    wins+losses grow by one. So every short game starts as a remake and is cleared when the history shows a
-    step, covering the moment it ended, with more games counted than the long games played in that step.
+    """Which short games are remakes. Under 3:30 (EARLY_SURRENDER_SECONDS) it is always one: no team can have
+    surrendered yet, and Riot may still charge a few LP for a game that crashed. Between 3:30 and 5:00 it is a
+    remake unless the league counted it: a team that surrenders early (a teammate is gone) plays a normal game and
+    the account's wins+losses grow by one, while a real remake leaves them alone. So these start as remakes and are
+    cleared when the history shows a step, covering the moment the game ended, with more games counted than the
+    long games played in that step.
     Run on every pass: a league entry that lags behind the match fixes itself on the next one."""
     steps = {}
     for g in games:
@@ -316,8 +319,11 @@ def revisar_remakes(games, hist):
             counted = (hist[i][4] + hist[i][5]) - (hist[i - 1][4] + hist[i - 1][5])
             counted -= sum(1 for g in group if g["dur"] >= REMAKE_SECONDS)
         for g in sorted((g for g in group if g["dur"] < REMAKE_SECONDS), key=lambda g: g["fin"]):
-            rem = counted <= 0
-            counted -= 1
+            if g["dur"] < EARLY_SURRENDER_SECONDS:
+                rem = True
+            else:
+                rem = counted <= 0
+                counted -= 1
             if rem != bool(g.get("rem")):
                 changed = True
                 if rem:

@@ -33,6 +33,13 @@ class RemakesTest(unittest.TestCase):
         self.assertTrue(soloq.revisar_remakes(games, h))
         self.assertNotIn("rem", games[0])
 
+    def test_game_under_early_surrender_time_is_always_a_remake(self):
+        # a crashed game remade by the team: Riot charged a few LP and counted it, but it is still a remake
+        h = [[0, "GOLD", "IV", 95, 3, 2], [20 * 60000, "GOLD", "IV", 85, 3, 3]]
+        games = [self.game("crash", 15 * 60000, 65)]
+        self.assertTrue(soloq.revisar_remakes(games, h))
+        self.assertTrue(games[0]["rem"])
+
     def test_short_game_without_league_step_is_a_remake(self):
         h = [[0, "GOLD", "III", 75, 7, 3], [20 * 60000, "GOLD", "III", 90, 8, 3]]
         games = [self.game("long", 10 * 60000, 1500), self.game("short", 12 * 60000, 65)]
@@ -259,7 +266,8 @@ class SoloQTest(unittest.TestCase):
         for text in ("Clasificación oficial", "La gráfica", "La Moneda", "Oro III", "NoExiste#EUW", "Bando de inscripción",
                      "Muro de la vergüenza", "La Moneda se hunde en Oro", "ediciones/2026-11-03.html#p-3", "La porra", 'id="porra-form"',
                      "Volver a El Rincón del Feeder", "El pistoletazo", "Historial de partidas", "Fichas de los jugadores",
-                     'data-premio="racha"', "Premios principales", "Cena pagada".lower(), "Límite de partidas", "Forzar la pasada"):
+                     'data-premio="racha"', "Premios principales", "Cena pagada".lower(), "Límite de partidas", "Forzar la pasada",
+                     'id="pasada"'):
             self.assertIn(text, page)
         # the newsroom's notes are gone and the readers' corner starts right under the chart
         self.assertNotIn("La Moneda cae de cruz otra vez.", page)
