@@ -456,6 +456,9 @@ h3.tit{font-size:22px}
 .boton.sec{background:linear-gradient(180deg,#6b5a43,#3f3324);border-color:#2a2015}
 .boton.refrescar{font-size:15px;padding:5px 12px;margin-left:6px;vertical-align:middle}
 #refrescar-msg{display:block;margin-top:6px;font-style:normal}
+.pasada{height:12px;margin-top:6px;max-width:340px;border:1px solid var(--ink2);background:repeating-linear-gradient(45deg,rgba(139,26,26,.25) 0 3px,transparent 3px 6px)}
+.pasada[hidden]{display:none}
+.pasada i{display:block;height:100%;width:0;background:rgba(47,93,31,.75);transition:width .5s linear}
 .rank-dialog{border:0;padding:0 14px;background:transparent;width:min(460px,94vw);overflow-x:hidden}
 .rank-dialog::backdrop{background:rgba(10,6,3,.72)}
 .rank-dialog .perg .hoja{padding:24px 24px 20px}
@@ -844,12 +847,39 @@ function mirar(){return fetch("datos.json?t="+Date.now(),{cache:"no-store"}).the
 setInterval(function(){if(!document.hidden)mirar()},60000);
 document.addEventListener("visibilitychange",function(){if(!document.hidden)mirar()});
 if(toast)toast.querySelector("button").addEventListener("click",function(){location.reload()});
-if(rbtn){rbtn.addEventListener("click",function(){rbtn.disabled=true;rmsg.className="msg";rmsg.textContent="Mirando…";loadNotas();
-  mirar().then(function(nuevo){
+// «Actualizar» wakes the robot (the soloq-forzar function). Only one pass at a time for everybody: while one is going
+// the button stays off for all and the bar fills for 3 minutes (stops at 99% until the real pass ends).
+var rbar=$("#pasada"),rfill=$("#pasada-barra"),rtimer=null,rpoll=null,PASADA_MS=180000;
+function robot(accion){return fetch(S.url.replace(/\/$/,"")+"/functions/v1/soloq-forzar",{method:"POST",
+  headers:{apikey:S.key,Authorization:"Bearer "+S.key,"Content-Type":"application/json"},body:JSON.stringify({accion:accion})})
+  .then(function(r){return r.json().catch(function(){return {}}).then(function(d){if(!r.ok)throw new Error(d.error||String(r.status));return d})})}
+function soloMirar(){mirar().then(function(nuevo){
+  if(nuevo){location.reload();return}
+  rmsg.className=nuevo===null?"msg err":"msg ok";
+  rmsg.textContent=nuevo===null?"No se ha podido mirar. Prueba en un rato.":"Esto es lo último. El robot vuelve a mirar Riot en unos minutos.";
+  setTimeout(function(){rbtn.disabled=false},4000)})}
+function liberar(texto,clase){clearInterval(rtimer);clearTimeout(rpoll);rbar.hidden=true;rfill.style.width="0";
+  rmsg.className="msg "+(clase||"ok");rmsg.textContent=texto;rbtn.disabled=false}
+function esperarWeb(desde){ // the pass is over; GitHub Pages takes a minute to publish what it saved
+  rmsg.className="msg";rmsg.textContent="Pasada hecha. Esperando a que se publique…";rfill.style.width="100%";
+  (function paso(n){mirar().then(function(nuevo){
     if(nuevo){location.reload();return}
-    rmsg.className=nuevo===null?"msg err":"msg ok";
-    rmsg.textContent=nuevo===null?"No se ha podido mirar. Prueba en un rato.":"Esto es lo último. El robot vuelve a mirar Riot en unos minutos.";
-    setTimeout(function(){rbtn.disabled=false},4000)})})}
+    if(n>=18){liberar("Esto es lo último. El robot vuelve a mirar Riot en unos minutos.");return}
+    rpoll=setTimeout(function(){paso(n+1)},5000)})})(0)}
+function vigilar(fallos){clearTimeout(rpoll);rpoll=setTimeout(function(){robot("estado").then(function(d){
+  if(d.enCurso)vigilar(0);else{clearInterval(rtimer);esperarWeb()}
+}).catch(function(){if(fallos>=3)liberar("No se ha podido seguir al robot. Recarga la página en un rato.","err");else vigilar(fallos+1)})},5000)}
+function barra(transcurrido){var t0=Date.now()-(transcurrido||0)*1000;rbtn.disabled=true;rbar.hidden=false;clearInterval(rtimer);
+  function pinta(){var p=Math.min(99,(Date.now()-t0)/PASADA_MS*100);rfill.style.width=p+"%";
+    rmsg.className="msg";rmsg.textContent="El robot está mirando Riot… "+Math.floor(p)+"%"}
+  pinta();rtimer=setInterval(pinta,500);vigilar(0)}
+if(rbtn){
+  rbtn.addEventListener("click",function(){rbtn.disabled=true;rmsg.className="msg";loadNotas();
+    if(!ok){rmsg.textContent="Mirando…";soloMirar();return}
+    rmsg.textContent="Despertando al robot…";
+    robot("actualizar").then(function(d){if(d.enCurso)barra(d.transcurrido);else{rmsg.textContent="Mirando…";soloMirar()}})
+      .catch(function(){rmsg.textContent="Mirando…";soloMirar()})});
+  if(ok)robot("estado").then(function(d){if(d.enCurso)barra(d.transcurrido)}).catch(function(){})}
 })();
 """
 
@@ -1602,7 +1632,8 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
     upd = datos.inscritos.get("actualizado")
     when = (f'Última novedad <span data-ts="{upd}"></span>; se mira cada 10 minutos.' if upd else "Se mira cada 10 minutos.") + (
         ' <button class="boton sec refrescar" type="button" id="refrescar">↻ Actualizar</button>'
-        '<span class="msg" id="refrescar-msg" role="status"></span>')
+        '<span class="msg" id="refrescar-msg" role="status"></span>'
+        '<div class="pasada" id="pasada" hidden><i id="pasada-barra"></i></div>')
     if started:
         head = ('<div class="cab"><span>#</span><span title="Puestos desde las 07:00">±</span><span>Jugador</span><span>Liga</span>'
                 '<span style="text-align:right">Hoy</span><span>Reto</span><span style="text-align:center">Racha</span>'

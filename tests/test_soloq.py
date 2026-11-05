@@ -20,6 +20,12 @@ FRIENDS = [{"riot_id": "grangalax#OVD", "alias": "grangalax", "slug": "grangalax
 T0 = 1793512800000      # 2026-11-01 07:00 in Madrid
 
 
+class ActualizarTest(unittest.TestCase):
+    def test_the_refresh_button_wakes_the_robot_with_a_shared_progress_bar(self):
+        for piece in ('robot("actualizar")', 'robot("estado")', '$("#pasada-barra")', "Math.min(99,", "PASADA_MS=180000"):
+            self.assertIn(piece, soloq_web.JS)
+
+
 class RemakesTest(unittest.TestCase):
     """A short game is a remake only when the league did not count it."""
 
