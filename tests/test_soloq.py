@@ -20,6 +20,34 @@ FRIENDS = [{"riot_id": "grangalax#OVD", "alias": "grangalax", "slug": "grangalax
 T0 = 1793512800000      # 2026-11-01 07:00 in Madrid
 
 
+class RemakesTest(unittest.TestCase):
+    """A short game is a remake only when the league did not count it."""
+
+    def game(self, gid, fin, dur):
+        return {"id": gid, "fin": fin, "dur": dur, "win": True}
+
+    def test_early_surrender_that_moved_the_league_is_a_game(self):
+        h = [[0, "GOLD", "III", 75, 7, 3], [20 * 60000, "GOLD", "II", 5, 8, 3]]
+        games = [self.game("a", 15 * 60000, 253)]
+        games[0]["rem"] = True
+        self.assertTrue(soloq.revisar_remakes(games, h))
+        self.assertNotIn("rem", games[0])
+
+    def test_short_game_without_league_step_is_a_remake(self):
+        h = [[0, "GOLD", "III", 75, 7, 3], [20 * 60000, "GOLD", "III", 90, 8, 3]]
+        games = [self.game("long", 10 * 60000, 1500), self.game("short", 12 * 60000, 65)]
+        soloq.revisar_remakes(games, h)
+        self.assertNotIn("rem", games[0])
+        self.assertTrue(games[1]["rem"])
+
+    def test_not_counted_yet_stays_a_remake_and_recovers_later(self):
+        games = [self.game("short", 15 * 60000, 253)]
+        soloq.revisar_remakes(games, [[0, "GOLD", "III", 75, 7, 3]])
+        self.assertTrue(games[0]["rem"])
+        soloq.revisar_remakes(games, [[0, "GOLD", "III", 75, 7, 3], [20 * 60000, "GOLD", "II", 5, 8, 3]])
+        self.assertNotIn("rem", games[0])
+
+
 class FakeRiot:
     """Serves accounts, Solo/Duo entries and matches; `ladder` is edited between passes."""
 

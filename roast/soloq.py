@@ -299,6 +299,34 @@ def _game_row(match_id, end, dur, p, team=()):
             **({"rem": True} if dur < REMAKE_SECONDS else {})}
 
 
+def revisar_remakes(games, hist):
+    """A short game is a remake only if the league did not count it. Riot's remakes move neither LP nor
+    wins/losses, while a game ended early (surrender once a teammate is gone) is a normal game: the account's
+    wins+losses grow by one. So every short game starts as a remake and is cleared when the history shows a
+    step, covering the moment it ended, with more games counted than the long games played in that step.
+    Run on every pass: a league entry that lags behind the match fixes itself on the next one."""
+    steps = {}
+    for g in games:
+        i = next((i for i in range(1, len(hist)) if hist[i - 1][0] - 120000 < g["fin"] <= hist[i][0]), None)
+        steps.setdefault(i, []).append(g)
+    changed = False
+    for i, group in steps.items():
+        counted = 0
+        if i is not None:
+            counted = (hist[i][4] + hist[i][5]) - (hist[i - 1][4] + hist[i - 1][5])
+            counted -= sum(1 for g in group if g["dur"] >= REMAKE_SECONDS)
+        for g in sorted((g for g in group if g["dur"] < REMAKE_SECONDS), key=lambda g: g["fin"]):
+            rem = counted <= 0
+            counted -= 1
+            if rem != bool(g.get("rem")):
+                changed = True
+                if rem:
+                    g["rem"] = True
+                else:
+                    g.pop("rem", None)
+    return changed
+
+
 def game_from_summary(m, puuid):
     """A game from a match already stored by the newspaper (roast.fetch.summarize_match)."""
     if m.get("queue") != SOLO_QUEUE:
@@ -384,6 +412,8 @@ def actualizar(client, datos, r, now_ms=None, known_matches=None, known_puuids=N
                 games.append(g)
                 changed = True
         games.sort(key=lambda g: g["fin"])
+        if revisar_remakes(games, h):
+            changed = True
         if new:
             log(f"  {c['apodo']}: {liga(rec)}, {len(new)} partidas nuevas")
     if changed:
