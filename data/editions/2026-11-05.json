@@ -8,175 +8,467 @@
   ],
   "items": [
     {
-      "id": 0,
-      "kind": "portada",
-      "section": "PORTADA",
-      "desk": "",
-      "player": "grangalax",
-      "alias": "grangalax",
-      "headline": "Escándalo en la Grieta: grangalax firma un 2–3 y nadie le pide explicaciones porque ya no hacen falta",
-      "body": "5 partidas, 33 muertes y un KDA de 1,55. La redacción ha revisado los datos tres veces buscando un error. No lo hay.",
-      "stat": "2–3",
-      "stat_label": "victorias–derrotas",
-      "severity": 100,
-      "facts": {
-        "alias": "grangalax",
-        "games": 5,
-        "wl": "2–3",
-        "d": 33,
-        "kda": "1,55",
-        "dmg_txt": "el 11,7 % del daño de su equipo",
-        "dmg_txt_cap": "El 11,7 % del daño de su equipo de media",
-        "champ": "Qiyana",
-        "champs": "Syndra, Qiyana y Kayn",
-        "hours": "2,5"
-      }
-    },
-    {
       "id": 1,
-      "kind": "economia",
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "crónica",
+      "clave": "oro_dano:grangalax",
       "section": "ECONOMÍA",
       "desk": "Lonja de Aguasturbias",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "La Lonja de Aguasturbias congela los fondos de grangalax: 21,6 % del oro, 0,0 % del daño",
-      "body": "Con Qiyana cobró 21,6 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
-      "stat": "−21,6",
-      "stat_label": "puntos entre oro y daño",
-      "severity": 11.64,
-      "facts": {
-        "alias": "grangalax",
-        "games": 5,
-        "wl": "2–3",
-        "d": 33,
-        "kda": "1,55",
-        "dmg_txt": "el 11,7 % del daño de su equipo",
-        "dmg_txt_cap": "El 11,7 % del daño de su equipo de media",
-        "champ": "Qiyana",
-        "champs": "Syndra, Qiyana y Kayn",
-        "hours": "2,5",
-        "gold": "21,6 %",
-        "share": "0,0 %",
-        "gap": "21,6"
+      "headline": "Qiyana gana por fin, y nadie la vio",
+      "subtitulo": "La primera victoria del Barón con su maldición duró cinco minutos, no tuvo muertos y no tuvo daño. Doce minutos después volvió a cogerla.",
+      "body": "A las 23:17 del miércoles, después de diez derrotas en la hemeroteca, la Qiyana del Barón de la Moneda ganó una partida. Duró cinco minutos. Nadie mató a nadie, nadie murió, y Qiyana terminó con cero de daño a campeones y el 21,6 % del oro de su equipo, que es lo más parecido a cobrar la nómina sin pasar por la oficina.\n\nLa Lonja de Aguasturbias la ha registrado como la mejor inversión de la temporada: rentabilidad infinita, porque no hubo inversión. Barbanegra ha pedido que se enmarque. Humoverde subió al laboratorio a por el cadáver de rigor y bajó con las manos vacías por primera vez en un mes.\n\nEl problema es lo que hizo el Barón con la victoria. Doce minutos después volvió a coger a Qiyana. En los primeros diez minutos ya había muerto tres veces. Acabó con once muertes ante un Viego que le sacó 6.670 de oro y se paseó por la jungla como por el pasillo de su casa. La hemeroteca apunta ahora un 1–11 que la propia Qiyana ha preferido no comentar.\n\nEl Barón cerró el miércoles con 33 muertes en cinco partidas y la cuenta principal intacta en Plata I. De sus dos victorias, una fue con Syndra y el Barón Nashor en el bolsillo. La otra, la que no jugó.\n\nCon Qiyana, por fin, ha encontrado la manera de ganar: no tocarla.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": "memes/2026-11-05-1.jpg",
+      "campeon": "Qiyana",
+      "entrevistado": null,
+      "pie": "Qiyana, emperatriz de Ixtal, posando con su única victoria. Archivo de la Biblioteca de Shurima.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 1000,
+      "facts": {},
+      "hilo": "la-moneda",
+      "replica": null,
+      "meme": {
+        "campeon": "Qiyana",
+        "aspecto": 40,
+        "lineas": [
+          "Diez derrotas conmigo",
+          "Y me ganáis la que no juego"
+        ]
+      },
+      "saga": {
+        "id": "la-moneda",
+        "titulo": "La moneda de grangalax",
+        "capitulo": 15,
+        "estado": "escalando"
       }
     },
     {
       "id": 2,
-      "kind": "sucesos",
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "comunicado oficial",
+      "clave": "mismo_sitio:gsjoseador:EUW1_8036067268",
       "section": "SUCESOS",
       "desk": "Comisaría de Piltover",
-      "player": "grangalax",
-      "alias": "grangalax",
-      "headline": "grangalax muere 11 veces en una sola partida y la policía de Piltover abre una investigación",
-      "body": "Qiyana, 2/11/5, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
-      "stat": "11",
-      "stat_label": "muertes en una partida",
-      "severity": 5.4,
-      "facts": {
-        "alias": "grangalax",
-        "games": 5,
-        "wl": "2–3",
-        "d": 11,
-        "kda": "1,55",
-        "dmg_txt": "el 11,7 % del daño de su equipo",
-        "dmg_txt_cap": "El 11,7 % del daño de su equipo de media",
-        "champ": "Qiyana",
-        "champs": "Syndra, Qiyana y Kayn",
-        "hours": "2,5",
-        "kdas": "2/11/5",
-        "queue": "Ranked Solo/Dúo",
-        "mins": 31,
-        "every": "2:49",
-        "res": "derrota",
-        "res_cap": "Derrota, claro"
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "«Ocho veces me dejó tirado. A las once me tocó a mí»",
+      "subtitulo": "Akshan, Centinela renegado, firma ante el Sindicato su versión de la noche que pasó con GSJoseador, y la que pasó contra él.",
+      "body": "El Sindicato difunde íntegro el comunicado que Akshan entregó esta madrugada en la Comisaría de Piltover, con la capa todavía sucia de la calle central.\n\nPrimero. A las 21:15 el señor GSJoseador me eligió para el carril central contra una Ahri. En veinte minutos morí ocho veces, tres de ellas en el mismo rincón, sin un asesinato y sin una sola asistencia. Hice el 22,4 % del daño de mi equipo y no sirvió para matar a nadie, que es como disparar al aire en un funeral.\n\nSegundo. Hora y media después volví a la Grieta. Esta vez en el otro equipo, y en su calle. Él llevaba Xerath. Yo terminé con once asesinatos.\n\nTercero. El Sindicato aclara que no fue venganza. Fue formación continua.\n\nCuarto. Consta que el señor GSJoseador hizo en esa partida el 32,4 % del daño de su equipo y puso treinta y cuatro pings. Perdió igual. El daño es suyo. La partida, mía.\n\nAkshan no solicita indemnización. Ya la cobró en el minuto veinticinco.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": "memes/2026-11-05-2.jpg",
+      "campeon": "Akshan",
+      "entrevistado": null,
+      "pie": "Akshan, a la salida de la Comisaría, sin rencor y con el recibo.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 599,
+      "facts": {},
+      "hilo": "el-sindicato-cambia-de-bando",
+      "replica": null,
+      "meme": {
+        "campeon": "Akshan",
+        "aspecto": 21,
+        "lineas": [
+          "21:15: me abandonas",
+          "22:52: te encuentro"
+        ]
+      },
+      "saga": {
+        "id": "el-sindicato-cambia-de-bando",
+        "titulo": "El Sindicato cambia de bando",
+        "capitulo": 3,
+        "estado": "escalando"
       }
     },
     {
       "id": 3,
-      "kind": "rendicion",
-      "section": "POLÍTICA",
-      "desk": "Corte de Demacia",
-      "player": null,
-      "alias": null,
-      "headline": "Demacia no se rinde, pero grangalax sí: una vez",
-      "body": "Garen ha pedido que no se mencione su tierra en esta noticia. Votar sí antes de tiempo también es una forma de jugar; no la más honorable.",
-      "stat": "1",
-      "stat_label": "partida rendida",
-      "severity": 3,
-      "facts": {
-        "names": "grangalax",
-        "verb": "se rindió",
-        "n_txt": "una vez"
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "parte policial",
+      "clave": "mismo_sitio:grangalax:EUW1_8036317307",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "Robo con Barón y sin botín",
+      "subtitulo": "",
+      "body": "Hora: 00:10 del jueves. Lugar: jungla de la Grieta del Invocador. Implicado: el Barón de la Moneda, que estrenaba Kayn. Hechos: en cuarenta minutos el implicado se llevó las tres larvas del Vacío, un dragón y el Barón Nashor, y murió diez veces, tres de ellas en el mismo punto, que los agentes han acordonado con cinta. Puso 49 de visión. Las vio venir todas.\n\nEl jungla rival, un Amumu, terminó con veintiséis asistencias y la partida en el bolsillo. La Comisaría de Piltover tipifica los hechos como robo con fuerza: se lo llevó todo y no le sirvió de nada.\n\nCobretuerca ha cerrado el atestado con una línea: «Buen ojo para el botín. Ninguno para salir de la casa con él».",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Kayn",
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 398,
+      "facts": {},
+      "hilo": "la-moneda",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "la-moneda",
+        "titulo": "La moneda de grangalax",
+        "capitulo": 15,
+        "estado": "escalando"
       }
     },
     {
       "id": 4,
-      "kind": "gris",
-      "section": "SOCIEDAD",
-      "desk": "Ecos de Jonia",
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "análisis",
+      "clave": "estreno:gsjoseador:Syndra",
+      "section": "CULTURA",
+      "desk": "Biblioteca de Shurima",
       "player": "gsjoseador",
       "alias": "GSJoseador",
-      "headline": "Día anodino para GSJoseador (1–2), lo cual para él ya es un éxito",
-      "body": "Sin escándalos, sin hazañas. La redacción se ha quedado sin material, que es lo más cerca que estará de un elogio.",
-      "stat": "1–2",
-      "stat_label": "victorias–derrotas",
-      "severity": 1,
-      "facts": {
-        "alias": "GSJoseador",
-        "games": 3,
-        "wl": "1–2",
-        "d": 18,
-        "kda": "1,72",
-        "dmg_txt": "el 27,4 % del daño de su equipo",
-        "dmg_txt_cap": "El 27,4 % del daño de su equipo de media",
-        "champ": "Akshan",
-        "champs": "Syndra, Akshan y Xerath",
-        "hours": "1,3"
+      "headline": "Diecisiete minutos con la misma Syndra",
+      "subtitulo": "GSJoseador estrena la segunda maldición del Barón y gana con ella antes que su dueño.",
+      "body": "A las 17:17, GSJoseador estrenó Syndra, la segunda maldición del Barón, y ganó haciendo el 27,6 % del daño de su equipo. Ayer heredó la Diana; hoy, la Syndra. El Comodín se está quedando con el armario del Barón prenda a prenda, y le sientan mejor que al dueño.\n\nA las 17:34, diecisiete minutos después, el Barón cogió su Syndra y perdió la calle contra una Lux por 3.577 de oro y sesenta súbditos. La Biblioteca de Shurima, que lleva el inventario, lo explica sin rodeos: el campeón no está maldito. La maldición viaja con el dueño.\n\nA las 18:37 el Barón volvió a ella, ganó cuatro duelos en solitario y se llevó el Barón Nashor.\n\nGanó, sí. Con una hora de retraso respecto a su sustituto.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Syndra",
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 397,
+      "facts": {},
+      "hilo": "el-intercambio-de-maldiciones",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-intercambio-de-maldiciones",
+        "titulo": "El intercambio de maldiciones",
+        "capitulo": 9,
+        "estado": "escalando"
       }
     },
     {
       "id": 5,
-      "kind": "mencion",
-      "section": "EL FARO DE LA ESPERANZA",
-      "desk": "Centinelas de la Luz",
-      "player": "saiko",
-      "alias": "Saiko",
-      "headline": "El Faro de la Esperanza ilumina hoy a Saiko: 1–0",
-      "body": "Mientras la Niebla Negra cubría al resto del grupo, Saiko aguantó con un KDA de 30,00. Los Centinelas de la Luz no van a reclutarle, pero hoy al menos no se ha perdido en la Ruina.",
-      "stat": "1–0",
-      "stat_label": "victorias–derrotas",
-      "severity": 0.5,
-      "facts": {
-        "alias": "Saiko",
-        "games": 1,
-        "wl": "1–0",
-        "d": 1,
-        "kda": "30,00",
-        "dmg_txt": "muy poco daño",
-        "dmg_txt_cap": "Muy poco daño de media",
-        "champ": "Blitzcrank",
-        "champs": "Blitzcrank",
-        "hours": "0,4"
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "noticia",
+      "clave": "soloq_lider:dierophant",
+      "section": "SOLOQ CHALLENGE",
+      "desk": "",
+      "player": "dierophant",
+      "alias": null,
+      "headline": "Un líder que reza a grangalax",
+      "subtitulo": "",
+      "body": "Dierophant, el Primer Condenado, la primera portada de la vergüenza de la historia de este periódico, manda en el reto. Tres victorias y una derrota en el día, ochenta puntos más, Oro II y ocho victorias de diez. Saiko, que llevaba el invicto colgado como una medalla, perdió esa misma noche el invicto y el primer puesto.\n\nAl inscribirse, Dierophant escribió: «Que la luz de grangalax me guíe». La luz le ha llevado al primer puesto. Al dueño de la luz, al séptimo, en Oro III con cinco puntos y una promesa de Maestro a la que le faltan 1.495.\n\nLo ha hecho con Rell en seis de sus diez partidas: un tanque que se tira encima de la gente y vuelve vivo. El Barón también se tira encima de la gente.\n\nA Dierophant le faltan cuarenta partidas para que el liderato cuente. A grangalax, ninguna excusa.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 396,
+      "facts": {},
+      "hilo": "la-luz-de-grangalax",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "la-luz-de-grangalax",
+        "titulo": "La luz de grangalax",
+        "capitulo": 1,
+        "estado": "abierto"
       }
     },
     {
       "id": 6,
-      "kind": "ausentes",
-      "section": "AUSENTES",
-      "desk": "Perdidos en el Vacío",
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "noticia",
+      "clave": "faro:saiko",
+      "section": "EL FARO DE LA ESPERANZA",
+      "desk": "Centinelas de la Luz",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "Doce segundos en gris",
+      "subtitulo": "",
+      "body": "Los Centinelas de la Luz han encontrado al mejor del día donde siempre: atado a un robot. Saiko sacó a Blitzcrank a las 20:49 y en veinticuatro minutos participó en el 65,2 % de los asesinatos de su equipo, puso diecinueve guardianes y murió una sola vez, en el cuarto minuto. Pasó doce segundos en la pantalla gris en toda la noche. El Braum de enfrente acabó con diez muertes; varias se las sirvió el gancho a domicilio.\n\nVenda lo ha apuntado en su libro de días buenos, que tiene más páginas en blanco que escritas, con una nota al margen: es el mismo Blitzcrank que denunció a Saiko tres veces. Ahora ganan juntos. El robot no ha retirado la denuncia; la ha aparcado.\n\nEsa misma noche, en el reto, Saiko perdió el invicto y el primer puesto.\n\nGanó la partida con un muerto. El trono lo perdió en otra.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 395,
+      "facts": {},
+      "hilo": "el-robot-del-reto",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-robot-del-reto",
+        "titulo": "El robot del reto",
+        "capitulo": 2,
+        "estado": "desenlace"
+      }
+    },
+    {
+      "id": 7,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "carta al director",
+      "clave": null,
+      "section": "OPINIÓN",
+      "desk": "",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "La moneda ya no la tira él",
+      "subtitulo": "",
+      "body": "Señor director, o lo que quede de usted en el muelle: el lector Giroroo nos manda una tesis. Según él, el Barón juega en cuentas por encima de su nivel y ya no depende de sí mismo: «tira una moneda para ver si tiene mejor o peor equipo», reza para no molestar y, si no le llevan, «no hay luz al final del túnel».\n\nResponde la redacción. Señor Giroroo: la noche del miércoles le ha dado la razón con una precisión que asusta. La única partida en la que el equipo del Barón le llevó de verdad fue la de las 23:17. Duró cinco minutos, él no hizo nada y ganaron. En cuanto empezó a hacer cosas, el túnel se volvió a apagar.\n\nConsta además que un tal Giroro se pasó ayer por su ficha. Esta casa no pregunta.\n\nSolo le corregimos un detalle: la luz al final del túnel existe. Es la de la pantalla gris, y el Barón la miró diecinueve minutos.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 394,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 8,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "noticia",
+      "clave": null,
+      "section": "POLÍTICA",
+      "desk": "Corte de Demacia",
       "player": null,
       "alias": null,
-      "headline": "Ausentes hoy: Fr4nux, Dierophant, TheTrevur, Giroroo, Wôlf, iPredatoRz y RDV Canyon",
-      "body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre.",
-      "stat": "7",
-      "stat_label": "no jugaron",
-      "severity": 0.2,
-      "facts": {
-        "names": "Fr4nux, Dierophant, TheTrevur, Giroroo, Wôlf, iPredatoRz y RDV Canyon"
+      "headline": "La silla vacía del jueves",
+      "subtitulo": "La fiscal acude a la cita con el director, no encuentra al director y encuentra otra cosa.",
+      "body": "La cita era hoy, jueves, a las nueve, en el despacho de Don Evaristo Plumanegra. Lucrecia Hexwick llegó a las nueve menos cinco con el expediente grapado. A las nueve y media seguía sola, frente a una silla vacía y un perchero sin abrigo.\n\nLo que sí encontró fue el cajón de abajo entreabierto. Dentro, una hoja amarillenta: la fórmula original de la General de la vergüenza, la equivocada, con la firma del director al pie. Y en el margen, con la letra apretada de Barbanegra, una sola frase: «Esto queda entre nosotros».\n\nHexwick ha entendido por fin el resto. El director no protege al corredor porque le deba dinero, ni solo porque le adelante las muertes del Barón. Le protege porque Barbanegra es el único que sabe quién firmó la fórmula que lleva semanas coronando al que no es.\n\nEsta mañana la fiscal ha pedido una orden. El juez le ha preguntado contra quién.\n\nTodavía no lo ha decidido.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 393,
+      "facts": {},
+      "hilo": "el-escandalo-de-la-lonja",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-escandalo-de-la-lonja",
+        "titulo": "El escándalo de la Lonja",
+        "capitulo": 14,
+        "estado": "desenlace"
       }
+    },
+    {
+      "id": 9,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "soloq_racha:fr4nux:ReavendeMan#2719",
+      "section": "SOLOQ CHALLENGE",
+      "desk": "",
+      "player": "fr4nux",
+      "alias": null,
+      "headline": "Barro, de pie",
+      "subtitulo": "",
+      "body": "Fr4nux se apuntó al reto con un lema dedicado a Wôlf: «Barro tullido». El miércoles perdió cinco de seis, las cuatro últimas seguidas, y cayó del tercer puesto al octavo. Wôlf, alias Barro, ganó las dos que jugó y encadena cuatro victorias. El tullido ha cambiado de pierna.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 192,
+      "facts": {},
+      "hilo": "el-reto-de-las-cuentas-nuevas",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-reto-de-las-cuentas-nuevas",
+        "titulo": "El reto de las cuentas nuevas",
+        "capitulo": 5,
+        "estado": "escalando"
+      }
+    },
+    {
+      "id": 10,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "anuncio por palabras",
+      "clave": null,
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": null,
+      "alias": null,
+      "headline": "Ocasión, sin estrenar",
+      "subtitulo": "",
+      "body": "SE VENDE billete de ida a Aguasturbias. Sin estrenar. Pagado por adelantado con muertes ajenas; anoche, con treinta y tres más, se terminó de pagar solo. Razón: Lonja, preguntar por el corredor. Abstenerse fiscales.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 191,
+      "facts": {},
+      "hilo": "el-escandalo-de-la-lonja",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-escandalo-de-la-lonja",
+        "titulo": "El escándalo de la Lonja",
+        "capitulo": 14,
+        "estado": "desenlace"
+      }
+    },
+    {
+      "id": 11,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "ascenso:grangalax:soloVitasUchiha#EUW",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "Treinta y siete puntos de sí mismo",
+      "subtitulo": "",
+      "body": "VitasUchiha, la cuenta secundaria del Barón que TheTrevur votó cerrar, sube cuarenta y ocho puntos y se planta en Plata I con 13. La principal sigue en Plata I con 50, sin una partida desde que el dueño se fue de casa. Treinta y siete puntos separan ya al Barón del Barón.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 190,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 12,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "soloq_farolillo:ipredatorz",
+      "section": "SOLOQ CHALLENGE",
+      "desk": "",
+      "player": "ipredatorz",
+      "alias": null,
+      "headline": "Silencio en el farol",
+      "subtitulo": "",
+      "body": "iPredatoRz se inscribió pidiendo silencio («me gustas cuando callas por que estas callado») y lo tiene: con un 4–4 y Oro IV con 60 es el farolillo rojo, y nadie en la tabla le mira. Si nada cambia, pagará la primera ronda y jugará Teemo de soporte. Por fin algo le hará callar.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 189,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 13,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "soloq_escalada:gsjoseador:SantuJk#1510",
+      "section": "SOLOQ CHALLENGE",
+      "desk": "",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Prometió el daño, no la victoria",
+      "subtitulo": "",
+      "body": "GSJoseador se apuntó al reto prometiendo «top damage del equipo». En la cuenta nueva ganó las dos y sumó sesenta puntos. En la de siempre cumplió la promesa al pie de la letra: Xerath, el 32,4 % del daño de su equipo y derrota. La letra pequeña no decía nada de ganar.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 188,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 14,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": null,
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": null,
+      "alias": null,
+      "headline": "El 33 lo puso el Barón",
+      "subtitulo": "",
+      "body": "La combinación del Sorteo de la Grieta salió de las muertes de la noche: 33 del Barón, 18 de GSJoseador y 1 de Saiko. Nadie jugó boleto y el bote se queda en 1.800. De los tres números, el único que costó trabajo fue el 1.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 187,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
     }
   ],
-  "frase": "No es feed si lo haces con convicción.",
+  "frase": "Hay jugadores que solo ganan cuando la partida no llega a empezar.",
   "ranking": [
     {
       "slug": "grangalax",
@@ -1815,5 +2107,509 @@
     "acertantes": [],
     "votos": {},
     "estado": "ok"
-  }
+  },
+  "items_plantilla": [
+    {
+      "id": 0,
+      "kind": "portada",
+      "section": "PORTADA",
+      "desk": "",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "Escándalo en la Grieta: grangalax firma un 2–3 y nadie le pide explicaciones porque ya no hacen falta",
+      "body": "5 partidas, 33 muertes y un KDA de 1,55. La redacción ha revisado los datos tres veces buscando un error. No lo hay.",
+      "stat": "2–3",
+      "stat_label": "victorias–derrotas",
+      "severity": 100,
+      "facts": {
+        "alias": "grangalax",
+        "games": 5,
+        "wl": "2–3",
+        "d": 33,
+        "kda": "1,55",
+        "dmg_txt": "el 11,7 % del daño de su equipo",
+        "dmg_txt_cap": "El 11,7 % del daño de su equipo de media",
+        "champ": "Qiyana",
+        "champs": "Syndra, Qiyana y Kayn",
+        "hours": "2,5"
+      }
+    },
+    {
+      "id": 1,
+      "kind": "economia",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "La Lonja de Aguasturbias congela los fondos de grangalax: 21,6 % del oro, 0,0 % del daño",
+      "body": "Con Qiyana cobró 21,6 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
+      "stat": "−21,6",
+      "stat_label": "puntos entre oro y daño",
+      "severity": 11.64,
+      "facts": {
+        "alias": "grangalax",
+        "games": 5,
+        "wl": "2–3",
+        "d": 33,
+        "kda": "1,55",
+        "dmg_txt": "el 11,7 % del daño de su equipo",
+        "dmg_txt_cap": "El 11,7 % del daño de su equipo de media",
+        "champ": "Qiyana",
+        "champs": "Syndra, Qiyana y Kayn",
+        "hours": "2,5",
+        "gold": "21,6 %",
+        "share": "0,0 %",
+        "gap": "21,6"
+      }
+    },
+    {
+      "id": 2,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "grangalax muere 11 veces en una sola partida y la policía de Piltover abre una investigación",
+      "body": "Qiyana, 2/11/5, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
+      "stat": "11",
+      "stat_label": "muertes en una partida",
+      "severity": 5.4,
+      "facts": {
+        "alias": "grangalax",
+        "games": 5,
+        "wl": "2–3",
+        "d": 11,
+        "kda": "1,55",
+        "dmg_txt": "el 11,7 % del daño de su equipo",
+        "dmg_txt_cap": "El 11,7 % del daño de su equipo de media",
+        "champ": "Qiyana",
+        "champs": "Syndra, Qiyana y Kayn",
+        "hours": "2,5",
+        "kdas": "2/11/5",
+        "queue": "Ranked Solo/Dúo",
+        "mins": 31,
+        "every": "2:49",
+        "res": "derrota",
+        "res_cap": "Derrota, claro"
+      }
+    },
+    {
+      "id": 3,
+      "kind": "rendicion",
+      "section": "POLÍTICA",
+      "desk": "Corte de Demacia",
+      "player": null,
+      "alias": null,
+      "headline": "Demacia no se rinde, pero grangalax sí: una vez",
+      "body": "Garen ha pedido que no se mencione su tierra en esta noticia. Votar sí antes de tiempo también es una forma de jugar; no la más honorable.",
+      "stat": "1",
+      "stat_label": "partida rendida",
+      "severity": 3,
+      "facts": {
+        "names": "grangalax",
+        "verb": "se rindió",
+        "n_txt": "una vez"
+      }
+    },
+    {
+      "id": 4,
+      "kind": "gris",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Día anodino para GSJoseador (1–2), lo cual para él ya es un éxito",
+      "body": "Sin escándalos, sin hazañas. La redacción se ha quedado sin material, que es lo más cerca que estará de un elogio.",
+      "stat": "1–2",
+      "stat_label": "victorias–derrotas",
+      "severity": 1,
+      "facts": {
+        "alias": "GSJoseador",
+        "games": 3,
+        "wl": "1–2",
+        "d": 18,
+        "kda": "1,72",
+        "dmg_txt": "el 27,4 % del daño de su equipo",
+        "dmg_txt_cap": "El 27,4 % del daño de su equipo de media",
+        "champ": "Akshan",
+        "champs": "Syndra, Akshan y Xerath",
+        "hours": "1,3"
+      }
+    },
+    {
+      "id": 5,
+      "kind": "mencion",
+      "section": "EL FARO DE LA ESPERANZA",
+      "desk": "Centinelas de la Luz",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "El Faro de la Esperanza ilumina hoy a Saiko: 1–0",
+      "body": "Mientras la Niebla Negra cubría al resto del grupo, Saiko aguantó con un KDA de 30,00. Los Centinelas de la Luz no van a reclutarle, pero hoy al menos no se ha perdido en la Ruina.",
+      "stat": "1–0",
+      "stat_label": "victorias–derrotas",
+      "severity": 0.5,
+      "facts": {
+        "alias": "Saiko",
+        "games": 1,
+        "wl": "1–0",
+        "d": 1,
+        "kda": "30,00",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Blitzcrank",
+        "champs": "Blitzcrank",
+        "hours": "0,4"
+      }
+    },
+    {
+      "id": 6,
+      "kind": "ausentes",
+      "section": "AUSENTES",
+      "desk": "Perdidos en el Vacío",
+      "player": null,
+      "alias": null,
+      "headline": "Ausentes hoy: Fr4nux, Dierophant, TheTrevur, Giroroo, Wôlf, iPredatoRz y RDV Canyon",
+      "body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre.",
+      "stat": "7",
+      "stat_label": "no jugaron",
+      "severity": 0.2,
+      "facts": {
+        "names": "Fr4nux, Dierophant, TheTrevur, Giroroo, Wôlf, iPredatoRz y RDV Canyon"
+      }
+    }
+  ],
+  "canon_cambios": {
+    "hilos": [
+      {
+        "id": "la-moneda",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "Qiyana gana por fin con el Barón: una partida de cinco minutos a las 23:17, 0/0/0 y cero de daño. Doce minutos después la vuelve a coger y pierde con once muertes ante un Viego 18/4/5: 1–11 en la hemeroteca. Estrena Kayn pasada la medianoche y pierde llevándose el Barón Nashor. Día 2–3 con 33 muertes.",
+        "protagonistas": [
+          "grangalax"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-sindicato-cambia-de-bando",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "Akshan, sacado por GSJoseador a las 21:15 para un 0/8/0, aparece a las 22:52 en el equipo rival y en su calle: once asesinatos ante el Xerath de GSJoseador, que hace el 32,4 % del daño y pierde. Akshan firma un comunicado.",
+        "protagonistas": [
+          "gsjoseador"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-intercambio-de-maldiciones",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "GSJoseador estrena Syndra, segunda maldición del Barón, a las 17:17 y gana; a las 17:34 el Barón pierde con Syndra ante una Lux por 3.577 de oro. A las 18:37 gana con ella, una hora después que su sustituto.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "el-reto-de-las-cuentas-nuevas",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "Día cinco: Dierophant, nuevo líder (8–2, Oro II); Saiko pierde invicto y primer puesto; Fr4nux, 1–5 en el día y cuatro derrotas seguidas, cae del tercero al octavo; Wôlf, «Barro», encadena cuatro victorias.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "el-robot-del-reto",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "desenlace",
+        "resumen": "Saiko es el mejor del día con Blitzcrank (2/1/28, doce segundos en gris), pero esa misma noche pierde en el reto el invicto y el primer puesto: siete de ocho y segundo.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "el-escandalo-de-la-lonja",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "desenlace",
+        "resumen": "Hexwick acude a la cita del jueves y encuentra la silla vacía. En el cajón, la fórmula equivocada de la General con la firma del director y una nota de Barbanegra: «Esto queda entre nosotros». El director le protege porque Barbanegra sabe quién firmó la fórmula. Hexwick pide una orden sin decidir contra quién.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-guerra-de-los-periodicos",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "La Gaceta publica la foto del director en el muelle de Piltover a las seis de la mañana, preguntando por un camarote, antes de que el Rincón sepa que no acudió a la cita. Defiende el Xerath de GSJoseador.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-luz-de-grangalax",
+        "accion": "abrir",
+        "titulo": "La luz de grangalax",
+        "estado": "abierto",
+        "resumen": "Dierophant, que se inscribió en el reto pidiendo que le guiara la luz de grangalax, se pone líder con Rell y un 8–2 mientras grangalax, que prometió Maestro, va séptimo en Oro III.",
+        "protagonistas": [
+          "dierophant",
+          "grangalax"
+        ],
+        "reparto": []
+      }
+    ],
+    "personajes": {
+      "grangalax": {
+        "apodo": "el ganador de los cinco minutos",
+        "maldicion": "Qiyana: 1–11 en la hemeroteca; la única victoria, de cinco minutos y sin daño",
+        "arco": {
+          "tipo": "caída",
+          "texto": "Gana por fin con Qiyana una partida de cinco minutos sin tocar a nadie y la vuelve a coger a los doce minutos para perder: 1–11."
+        }
+      },
+      "gsjoseador": {
+        "maldicion": "Akshan: 0/8/0 a las 21:15 y, hora y media después, once asesinatos contra él",
+        "arco": {
+          "tipo": "caída",
+          "texto": "Hereda la Syndra del Barón y gana con ella, pero Akshan le abandona y le cobra desde el bando rival: 1–2 en el día."
+        }
+      },
+      "dierophant": {
+        "titulo": "Líder del reto",
+        "apodo": "Intilteable",
+        "arco": {
+          "tipo": "ascenso",
+          "texto": "El Primer Condenado lidera el reto con Rell y un 8–2, guiado por la luz de un séptimo."
+        }
+      },
+      "saiko": {
+        "arco": {
+          "tipo": "caída",
+          "texto": "Mejor del día con un solo muerto y, la misma noche, pierde en el reto el invicto y el liderato."
+        }
+      },
+      "fr4nux": {
+        "arco": {
+          "tipo": "caída",
+          "texto": "Cuatro derrotas seguidas en el reto y del tercer puesto al octavo, por debajo del «Barro» al que despreció."
+        }
+      }
+    },
+    "elenco": [
+      {
+        "nombre": "Fiscal Lucrecia Hexwick",
+        "actualizar": true,
+        "estado": "Ha encontrado en el cajón del director la fórmula equivocada de la General, con su firma y una nota de Barbanegra; pide una orden sin saber contra quién"
+      },
+      {
+        "nombre": "Don Evaristo Plumanegra",
+        "actualizar": true,
+        "estado": "No acude a la cita del jueves; la Gaceta le fotografía en el muelle a las seis preguntando por un camarote"
+      },
+      {
+        "nombre": "Barbanegra el Contable",
+        "actualizar": true,
+        "estado": "Su nota al margen de la fórmula de la General le delata como el único que sabe quién la firmó"
+      }
+    ],
+    "costumbres": [
+      "Los miércoles sin Flex, GSJoseador abre la SoloQ a las cinco y cuarto y el Barón entra diecisiete minutos después con el mismo campeón."
+    ],
+    "chistes": [
+      "la recaída con Qiyana",
+      "Barro"
+    ],
+    "sindicato": [
+      {
+        "campeon": "Akshan",
+        "jugador": "gsjoseador",
+        "motivo": "Sacado a las 21:15 para morir ocho veces sin un asesinato ni una asistencia; cobró desde el bando rival a las 22:52"
+      },
+      {
+        "campeon": "Kayn",
+        "jugador": "grangalax",
+        "motivo": "Estrenado pasada la medianoche: diez muertes, tres en el mismo punto, con el Barón Nashor y tres larvas en el bolsillo"
+      },
+      {
+        "campeon": "Qiyana",
+        "jugador": "grangalax",
+        "motivo": "Ganó por primera vez sin que la dejaran tocar a nadie, y doce minutos después la sacaron otra vez para perder"
+      }
+    ]
+  },
+  "tiempo": [
+    {
+      "jugador": "grangalax",
+      "texto": "Niebla Negra cerrada sobre la jungla: diecinueve minutos de pantalla gris. Solo un claro de cinco minutos a las once y cuarto, el único en que no hizo nada y el único en que ganó."
+    },
+    {
+      "jugador": "gsjoseador",
+      "texto": "Chubascos en el carril central a las nueve y cuarto: ocho bajas en veinte minutos, tres en el mismo charco. Despeja a media tarde con una Syndra prestada."
+    },
+    {
+      "jugador": "saiko",
+      "texto": "Cielo limpio: doce segundos de gris en toda la noche. Madame Niebla no se lo cree y prevé tormenta en el reto para compensar. Esta vez acertó."
+    }
+  ],
+  "angulos_usados": [
+    "oro_dano:grangalax",
+    "mismo_sitio:gsjoseador:EUW1_8036067268",
+    "mismo_sitio:grangalax:EUW1_8036317307",
+    "estreno:gsjoseador:Syndra",
+    "soloq_lider:dierophant",
+    "faro:saiko",
+    "soloq_racha:fr4nux:ReavendeMan#2719",
+    "ascenso:grangalax:soloVitasUchiha#EUW",
+    "soloq_farolillo:ipredatorz",
+    "soloq_escalada:gsjoseador:SantuJk#1510"
+  ],
+  "horoscopo": [
+    {
+      "signo": "Top",
+      "texto": "Nadie del grupo pisó la calle de arriba en toda la noche. Es lo más parecido al orden que ha visto en un mes. No lo estropees."
+    },
+    {
+      "signo": "Jungla",
+      "texto": "Te llevarás tres larvas, un dragón y el Barón Nashor. Disfrútalos: será lo único que te lleves."
+    },
+    {
+      "signo": "Mid",
+      "texto": "La misma Syndra gana a las cinco y cuarto y pierde diecisiete minutos después. El problema no es el campeón. Antes de elegir, mírate en el espejo."
+    },
+    {
+      "signo": "Tirador",
+      "texto": "Cuatro derrotas seguidas y cinco puestos menos para uno de los tuyos. Hoy tu soporte se llama Destino, y no cura."
+    },
+    {
+      "signo": "Soporte",
+      "texto": "Un muerto en toda la noche y diecinueve guardianes. Mañana te reclamarán el trono que perdiste en otra partida. No contestes."
+    }
+  ],
+  "template_frase": "No es feed si lo haces con convicción.",
+  "columna": {
+    "titulo": "Cinco minutos de paz en mi río",
+    "autor": "El Cangrejo del Río",
+    "cuerpo": [
+      "Soy el cangrejo del río de abajo. Llevo toda la temporada viendo pasar a la Qiyana del Barón y sé reconocerla: llega tarde, me pega dos veces y se va a morir a otro sitio.",
+      "El miércoles a las once y cuarto pasó algo que no había visto nunca. Salió de la base, dio un paseo y a los cinco minutos se apagó todo. Nadie murió. Nadie me pegó. Ganamos, me dijeron. Yo no sé quién ganó, porque allí no jugaba nadie.",
+      "Doce minutos después volvió. Me buscó, me encontró, y a partir de ahí todo fue como siempre: el Viego de enfrente cruzaba mi río cada tres minutos escasos con algo nuevo en la mano. Era del Barón.",
+      "Os lo digo como animal neutral: los mejores cinco minutos de la Qiyana de este hombre fueron los que pasó quieta. Si alguien le quiere bien, que le deje en la base."
+    ]
+  },
+  "especial": null,
+  "gaceta": {
+    "titular": "¡EL DIRECTOR DEL RINCÓN, EN EL MUELLE A LAS SEIS DE LA MAÑANA!",
+    "cuerpo": "Mientras la fiscal esperaba ante una silla vacía, LA GACETA ya tenía la foto: Don Evaristo Plumanegra, maleta en mano, en el muelle de Piltover a las seis de la mañana. Fuentes de toda solvencia del puerto aseguran que preguntó por un CAMAROTE. El Rincón lo contará mañana. Tarde, como siempre.\n\nY una pregunta que el Rincón no se atreve a hacer: ¿por qué entierra a GSJoseador, que hizo el 32,4 % del daño de su equipo con Xerath, y regala la portada a una partida de cinco minutos en la que no pasó NADA? Porque en esa casa se premia al que no juega.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "jurado": {
+    "pregunta": "¿Qué hacemos con la única victoria de Qiyana?",
+    "opciones": [
+      "Enmarcarla",
+      "Anularla: no jugó nadie",
+      "Contarla doble",
+      "Prohibirle volver a cogerla"
+    ],
+    "juicio": false
+  },
+  "jurado_veredicto": "Empate a un voto entre «la del reto», VitasUchiha (TheTrevur) y «la principal, que ya está en Plata» (GSJoseador). Con el jurado partido en tres, no se cierra ninguna. El Barón lo ha interpretado a su manera: la principal sigue sin tocar y VitasUchiha, la que TheTrevur quería cerrar, sube a Plata I. TheTrevur pidió su cabeza y la cuenta le ha contestado subiendo.",
+  "manana": [
+    {
+      "texto": "¿Volverá el Barón a Qiyana ahora que sabe lo que es ganar con ella?"
+    },
+    {
+      "texto": "¿Aguantará Dierophant su primera noche como líder del reto?"
+    },
+    {
+      "texto": "¿Aparecerá el director por la redacción, o habrá que buscarle en Aguasturbias?"
+    }
+  ],
+  "promesas": [
+    {
+      "pregunta": "¿Abrirá el Barón una cuarta cuenta?",
+      "texto": "No hubo cuarta cuenta. No hizo falta: la principal sigue en Plata I sin una partida y VitasUchiha sube cuarenta y ocho puntos. El Barón ya no abre cuentas; las reparte."
+    },
+    {
+      "pregunta": "¿Llegará Saiko al siete de siete en el reto?",
+      "texto": "Llegó a siete victorias, pero de ocho. Saiko perdió en el reto el invicto y el primer puesto la misma noche, y ahora es segundo por detrás de Dierophant."
+    },
+    {
+      "pregunta": "¿Cogerá el director el barco a Aguasturbias antes de la cita con Hexwick?",
+      "texto": "No se sabe. A las nueve su silla estaba vacía y la Gaceta asegura tenerle en el muelle a las seis, preguntando por un camarote. Hexwick, mientras, ha encontrado otra cosa en su cajón."
+    }
+  ],
+  "tablon": [],
+  "sugerencias_tablon": [],
+  "ai": {
+    "version": 1,
+    "updated_at": 1793875566570,
+    "firma": "Claude",
+    "stale": false,
+    "formato": 2
+  },
+  "written_by": "Claude",
+  "lectores_ayer": {
+    "edicion": "2026-11-04",
+    "mas_reaccionadas": [],
+    "comentarios": [
+      {
+        "pieza": null,
+        "titular": null,
+        "nombre": "Giroroo",
+        "texto": "Gran Galaxy en el solo Q se encuentra jugando en un elo que está por encima de su cuenta main. Cada vez que entra una partida rusa, ya no es que el varón de la moneda dependa de sí mismo. Es que tira una moneda para ver si tiene mejor o peor equipo y la partida terminará en consecuencia. Ahora mismo, el gameplay de Gran Galaxy se basa en entrar una partida, rezar para no molestar a su equipo. Si no le carrilean, no hay luz al final del túnel."
+      }
+    ]
+  },
+  "jurado_ayer": {
+    "edicion": "2026-11-04",
+    "pregunta": "¿Qué cuenta debería cerrar primero el Barón?",
+    "juicio": false,
+    "opciones": [
+      {
+        "texto": "La del reto",
+        "votos": 1,
+        "quien": []
+      },
+      {
+        "texto": "VitasUchiha",
+        "votos": 1,
+        "quien": [
+          "TheTrevur"
+        ]
+      },
+      {
+        "texto": "La principal, que ya está en Plata",
+        "votos": 1,
+        "quien": [
+          "GSJoseador"
+        ]
+      },
+      {
+        "texto": "Ninguna: que siga pagando el viaje",
+        "votos": 0,
+        "quien": []
+      }
+    ],
+    "total": 3,
+    "estado": "ok"
+  },
+  "quien_fue_ayer": {
+    "edicion": "2026-11-04",
+    "solucion": "grangalax",
+    "campeon": "Qiyana",
+    "jugaron": 0,
+    "acertaron": [],
+    "fallaron": 0,
+    "estado": "ok"
+  },
+  "cotillas": [
+    {
+      "cotilla": "Giroro",
+      "ficha": "Giroroo",
+      "veces": 1,
+      "se_mira_a_si_mismo": false
+    }
+  ]
 }

@@ -29,6 +29,10 @@
         {
           "fecha": "2026-11-04",
           "texto": "el Barón de las tres cuentas"
+        },
+        {
+          "fecha": "2026-11-05",
+          "texto": "el ganador de los cinco minutos"
         }
       ],
       "rasgos": [
@@ -64,6 +68,10 @@
         {
           "fecha": "2026-11-04",
           "texto": "Qiyana: 0–10 en la hemeroteca"
+        },
+        {
+          "fecha": "2026-11-05",
+          "texto": "Qiyana: 1–11 en la hemeroteca; la única victoria, de cinco minutos y sin daño"
         }
       ],
       "rivales": [],
@@ -112,6 +120,11 @@
           "tipo": "caída",
           "texto": "Vuelve con dos cuentas que no son la suya y juega catorce horas: 2–6 y setenta muertes. La principal se hunde en Plata I sin que la toque.",
           "fecha": "2026-11-04"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Gana por fin con Qiyana una partida de cinco minutos sin tocar a nadie y la vuelve a coger a los doce minutos para perder: 1–11.",
+          "fecha": "2026-11-05"
         }
       ]
     },
@@ -278,6 +291,11 @@
           "tipo": "caída",
           "texto": "Aguanta la noche en Esmeralda, pero sin un punto: cambia el rifle por un Wukong de jungla y una Qiyana rival le deja en el bordillo.",
           "fecha": "2026-11-04"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Cuatro derrotas seguidas en el reto y del tercer puesto al octavo, por debajo del «Barro» al que despreció.",
+          "fecha": "2026-11-05"
         }
       ]
     },
@@ -319,6 +337,10 @@
         {
           "fecha": "2026-11-04",
           "texto": "Diana: 4/10/8 en su estreno, ante una Akali"
+        },
+        {
+          "fecha": "2026-11-05",
+          "texto": "Akshan: 0/8/0 a las 21:15 y, hora y media después, once asesinatos contra él"
         }
       ],
       "rivales": [],
@@ -338,6 +360,11 @@
           "tipo": "redención",
           "texto": "Rompe la maldición de Malphite con dos victorias seguidas y cierra el día 3–2, mientras hereda la Diana del Barón.",
           "fecha": "2026-11-04"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Hereda la Syndra del Barón y gana con ella, pero Akshan le abandona y le cobra desde el bando rival: 1–2 en el día.",
+          "fecha": "2026-11-05"
         }
       ]
     },
@@ -345,7 +372,12 @@
       "alias": "Dierophant",
       "titulo_inicial": "El Primer Condenado",
       "faccion": "Centinelas de la Luz (en prácticas)",
-      "apodos": [],
+      "apodos": [
+        {
+          "fecha": "2026-11-05",
+          "texto": "Intilteable"
+        }
+      ],
       "rasgos": [
         "Fue la primera portada de la vergüenza de la historia del periódico (1–4 y 37 muertes)",
         "Desde entonces, el que más visión pone del grupo"
@@ -365,9 +397,19 @@
         {
           "fecha": "2026-10-20",
           "texto": "Farero de los Centinelas"
+        },
+        {
+          "fecha": "2026-11-05",
+          "texto": "Líder del reto"
         }
       ],
-      "arcos": []
+      "arcos": [
+        {
+          "tipo": "ascenso",
+          "texto": "El Primer Condenado lidera el reto con Rell y un 8–2, guiado por la luz de un séptimo.",
+          "fecha": "2026-11-05"
+        }
+      ]
     },
     "ipredatorz": {
       "alias": "iPredatoRz",
@@ -646,6 +688,11 @@
           "tipo": "ascenso",
           "texto": "Seis de seis en el reto con el robot que le denunció; lidera la tabla en Oro III y sigue prometiendo Aspirante.",
           "fecha": "2026-11-04"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Mejor del día con un solo muerto y, la misma noche, pierde en el reto el invicto y el liderato.",
+          "fecha": "2026-11-05"
         }
       ]
     }
@@ -727,6 +774,11 @@
           "fecha": "2026-11-04",
           "campo": "estado",
           "texto": "Ha encontrado la nota «Aguasturbias, ida» junto a la raya setenta del libro de la Lonja"
+        },
+        {
+          "fecha": "2026-11-05",
+          "campo": "estado",
+          "texto": "Ha encontrado en el cajón del director la fórmula equivocada de la General, con su firma y una nota de Barbanegra; pide una orden sin saber contra quién"
         }
       ]
     },
@@ -797,6 +849,11 @@
           "fecha": "2026-11-04",
           "campo": "estado",
           "texto": "Adelanta al director las muertes del Barón antes de que ocurran: le pagó un billete de ida a Aguasturbias con la columna de cuentas secundarias"
+        },
+        {
+          "fecha": "2026-11-05",
+          "campo": "estado",
+          "texto": "Su nota al margen de la fórmula de la General le delata como el único que sabe quién la firmó"
         }
       ]
     },
@@ -936,6 +993,11 @@
           "fecha": "2026-11-04",
           "campo": "estado",
           "texto": "Tiene un billete de ida a Aguasturbias pagado con las muertes del Barón; la cita del jueves con Hexwick, en el aire"
+        },
+        {
+          "fecha": "2026-11-05",
+          "campo": "estado",
+          "texto": "No acude a la cita del jueves; la Gaceta le fotografía en el muelle a las seis preguntando por un camarote"
         }
       ]
     },
@@ -1057,6 +1119,10 @@
         {
           "fecha": "2026-11-04",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-05",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -1156,6 +1222,14 @@
           "resumen": "El Barón juega de 08:44 a pasadas las diez de la noche con VitasUchiha y la cuenta del reto: 2–6, setenta muertes, treinta y cuatro minutos en gris y una Syndra 3/16/6 ante un Fizz 19/3/8 con seis muertes en la misma baldosa. La principal, en Plata I, ni se toca.",
           "titulares": [
             "Catorce horas, tres nombres y el mismo Barón"
+          ]
+        },
+        {
+          "fecha": "2026-11-05",
+          "resumen": "Qiyana gana por fin con el Barón: una partida de cinco minutos a las 23:17, 0/0/0 y cero de daño. Doce minutos después la vuelve a coger y pierde con once muertes ante un Viego 18/4/5: 1–11 en la hemeroteca. Estrena Kayn pasada la medianoche y pierde llevándose el Barón Nashor. Día 2–3 con 33 muertes.",
+          "titulares": [
+            "Qiyana gana por fin, y nadie la vio",
+            "Robo con Barón y sin botín"
           ]
         }
       ]
@@ -1666,6 +1740,14 @@
           "titulares": [
             "Setenta rayas dan para un billete de ida"
           ]
+        },
+        {
+          "fecha": "2026-11-05",
+          "resumen": "Hexwick acude a la cita del jueves y encuentra la silla vacía. En el cajón, la fórmula equivocada de la General con la firma del director y una nota de Barbanegra: «Esto queda entre nosotros». El director le protege porque Barbanegra sabe quién firmó la fórmula. Hexwick pide una orden sin decidir contra quién.",
+          "titulares": [
+            "La silla vacía del jueves",
+            "Ocasión, sin estrenar"
+          ]
         }
       ],
       "estados": [
@@ -1719,6 +1801,10 @@
         },
         {
           "fecha": "2026-11-04",
+          "estado": "desenlace"
+        },
+        {
+          "fecha": "2026-11-05",
           "estado": "desenlace"
         }
       ]
@@ -1801,6 +1887,11 @@
           "fecha": "2026-11-04",
           "resumen": "La Gaceta roba la exclusiva del billete: publica la foto de la página de la Lonja a las seis de la mañana, tres horas antes que el Rincón, y defiende al Barón por su 33,8 % del daño en una derrota.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-11-05",
+          "resumen": "La Gaceta publica la foto del director en el muelle de Piltover a las seis de la mañana, preguntando por un camarote, antes de que el Rincón sepa que no acudió a la cita. Defiende el Xerath de GSJoseador.",
+          "titulares": []
         }
       ],
       "estados": [
@@ -1834,6 +1925,10 @@
         },
         {
           "fecha": "2026-11-04",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-05",
           "estado": "escalando"
         }
       ]
@@ -2160,6 +2255,10 @@
         {
           "fecha": "2026-11-04",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-05",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -2218,6 +2317,13 @@
           "resumen": "GSJoseador rompe la maldición de Malphite (2–0) y estrena Diana, la primera maldición del Barón: 4/10/8 ante una Akali. El mismo día, el Barón gana con Diana.",
           "titulares": [
             "Malphite retira la denuncia y Diana presenta otra"
+          ]
+        },
+        {
+          "fecha": "2026-11-05",
+          "resumen": "GSJoseador estrena Syndra, segunda maldición del Barón, a las 17:17 y gana; a las 17:34 el Barón pierde con Syndra ante una Lux por 3.577 de oro. A las 18:37 gana con ella, una hora después que su sustituto.",
+          "titulares": [
+            "Diecisiete minutos con la misma Syndra"
           ]
         }
       ]
@@ -2376,6 +2482,10 @@
         {
           "fecha": "2026-11-04",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-05",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -2405,6 +2515,13 @@
           "resumen": "Día cuatro: se inscriben grangalax (Showmanco, ya en Oro IV 55 al entrar; promete Maestro) e iPredatoRz (Oro IV 40, farolillo rojo). Saiko sigue 6–0; Dierophant, que pidió la luz de grangalax, va cuarto; RDV Canyon sigue sin jugar y cierra la tabla.",
           "titulares": [
             "La cuenta nueva del Barón ya venía con Oro"
+          ]
+        },
+        {
+          "fecha": "2026-11-05",
+          "resumen": "Día cinco: Dierophant, nuevo líder (8–2, Oro II); Saiko pierde invicto y primer puesto; Fr4nux, 1–5 en el día y cuatro derrotas seguidas, cae del tercero al octavo; Wôlf, «Barro», encadena cuatro victorias.",
+          "titulares": [
+            "Barro, de pie"
           ]
         }
       ]
@@ -2448,6 +2565,7 @@
       "protagonistas": [
         "fr4nux",
         "grangalax",
+        "gsjoseador",
         "ipredatorz"
       ],
       "reparto": [],
@@ -2459,6 +2577,10 @@
         },
         {
           "fecha": "2026-11-04",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-05",
           "estado": "escalando"
         }
       ],
@@ -2476,6 +2598,13 @@
           "titulares": [
             "«Conmigo, diez derrotas. Contra vosotros, una paliza»"
           ]
+        },
+        {
+          "fecha": "2026-11-05",
+          "resumen": "Akshan, sacado por GSJoseador a las 21:15 para un 0/8/0, aparece a las 22:52 en el equipo rival y en su calle: once asesinatos ante el Xerath de GSJoseador, que hace el 32,4 % del daño y pierde. Akshan firma un comunicado.",
+          "titulares": [
+            "«Ocho veces me dejó tirado. A las once me tocó a mí»"
+          ]
         }
       ]
     },
@@ -2492,6 +2621,10 @@
         {
           "fecha": "2026-11-04",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-11-05",
+          "estado": "desenlace"
         }
       ],
       "capitulos": [
@@ -2500,6 +2633,39 @@
           "resumen": "Saiko lidera el reto con seis victorias de seis, cinco de ellas con Blitzcrank, el campeón que le denunció tres veces ante el Sindicato. Prometió Aspirante; le faltan 1.433 puntos.",
           "titulares": [
             "Seis de seis con el robot que le denunció"
+          ]
+        },
+        {
+          "fecha": "2026-11-05",
+          "resumen": "Saiko es el mejor del día con Blitzcrank (2/1/28, doce segundos en gris), pero esa misma noche pierde en el reto el invicto y el primer puesto: siete de ocho y segundo.",
+          "titulares": [
+            "Doce segundos en gris"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "la-luz-de-grangalax",
+      "titulo": "La luz de grangalax",
+      "abierto": "2026-11-05",
+      "protagonistas": [
+        "dierophant",
+        "grangalax"
+      ],
+      "reparto": [],
+      "resumen": "Dierophant, que se inscribió en el reto pidiendo que le guiara la luz de grangalax, se pone líder con Rell y un 8–2 mientras grangalax, que prometió Maestro, va séptimo en Oro III.",
+      "estados": [
+        {
+          "fecha": "2026-11-05",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-11-05",
+          "resumen": "Dierophant, que se inscribió en el reto pidiendo que le guiara la luz de grangalax, se pone líder con Rell y un 8–2 mientras grangalax, que prometió Maestro, va séptimo en Oro III.",
+          "titulares": [
+            "Un líder que reza a grangalax"
           ]
         }
       ]
@@ -2577,6 +2743,10 @@
     {
       "fecha": "2026-11-04",
       "texto": "Los martes sin Flex, grangalax abre la SoloQ antes de las nueve de la mañana y no la cierra hasta pasadas las diez de la noche, cada vez con una cuenta que no es la suya."
+    },
+    {
+      "fecha": "2026-11-05",
+      "texto": "Los miércoles sin Flex, GSJoseador abre la SoloQ a las cinco y cuarto y el Barón entra diecisiete minutos después con el mismo campeón."
     }
   ],
   "chistes": [
@@ -2649,9 +2819,10 @@
     {
       "texto": "la recaída con Qiyana",
       "fechas": [
-        "2026-10-30"
+        "2026-10-30",
+        "2026-11-05"
       ],
-      "usos": 1
+      "usos": 2
     },
     {
       "texto": "el Invicto Intermitente",
@@ -2679,6 +2850,13 @@
       "texto": "la columna de cuentas secundarias",
       "fechas": [
         "2026-11-04"
+      ],
+      "usos": 1
+    },
+    {
+      "texto": "Barro",
+      "fechas": [
+        "2026-11-05"
       ],
       "usos": 1
     }
@@ -2869,6 +3047,24 @@
       "jugador": "gsjoseador",
       "motivo": "Estrenada tras setenta partidas sin tocarla: diez muertes en el centro ante una Akali",
       "fecha": "2026-11-04"
+    },
+    {
+      "campeon": "Akshan",
+      "jugador": "gsjoseador",
+      "motivo": "Sacado a las 21:15 para morir ocho veces sin un asesinato ni una asistencia; cobró desde el bando rival a las 22:52",
+      "fecha": "2026-11-05"
+    },
+    {
+      "campeon": "Kayn",
+      "jugador": "grangalax",
+      "motivo": "Estrenado pasada la medianoche: diez muertes, tres en el mismo punto, con el Barón Nashor y tres larvas en el bolsillo",
+      "fecha": "2026-11-05"
+    },
+    {
+      "campeon": "Qiyana",
+      "jugador": "grangalax",
+      "motivo": "Ganó por primera vez sin que la dejaran tocar a nadie, y doce minutos después la sacaron otra vez para perder",
+      "fecha": "2026-11-05"
     }
   ]
 }
