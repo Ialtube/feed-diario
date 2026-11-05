@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793897790897,
+ "actualizado": 1793900061901,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -42,6 +42,18 @@
   },
   {
    "puesto": 3,
+   "nombre": "GSJoseador",
+   "apodo": "El Comodín de la Grieta",
+   "riot_id": "SantuJk#1510",
+   "liga": "Oro III · 75 LP",
+   "lp_hoy": 30,
+   "partidas": 9,
+   "victorias": 7,
+   "derrotas": 2,
+   "racha": 4
+  },
+  {
+   "puesto": 4,
    "nombre": "Giroroo",
    "apodo": "La Guadaña de la Mon",
    "riot_id": "Xillie#8107",
@@ -53,7 +65,7 @@
    "racha": 1
   },
   {
-   "puesto": 4,
+   "puesto": 5,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -65,19 +77,19 @@
    "racha": -1
   },
   {
-   "puesto": 5,
-   "nombre": "GSJoseador",
-   "apodo": "El Comodín de la Grieta",
-   "riot_id": "SantuJk#1510",
+   "puesto": 6,
+   "nombre": "grangalax",
+   "apodo": "Showmanco",
+   "riot_id": "nandaris#6071",
    "liga": "Oro III · 45 LP",
-   "lp_hoy": 0,
-   "partidas": 8,
-   "victorias": 6,
-   "derrotas": 2,
-   "racha": 3
+   "lp_hoy": 40,
+   "partidas": 16,
+   "victorias": 8,
+   "derrotas": 8,
+   "racha": 1
   },
   {
-   "puesto": 6,
+   "puesto": 7,
    "nombre": "Wôlf",
    "apodo": "Barro",
    "riot_id": "Theossichi#9248",
@@ -87,18 +99,6 @@
    "victorias": 6,
    "derrotas": 3,
    "racha": 4
-  },
-  {
-   "puesto": 7,
-   "nombre": "grangalax",
-   "apodo": "Showmanco",
-   "riot_id": "nandaris#6071",
-   "liga": "Oro III · 15 LP",
-   "lp_hoy": 10,
-   "partidas": 15,
-   "victorias": 7,
-   "derrotas": 8,
-   "racha": -1
   },
   {
    "puesto": 8,
@@ -114,6 +114,18 @@
   },
   {
    "puesto": 9,
+   "nombre": "RDV Canyon",
+   "apodo": "Minguez",
+   "riot_id": "FisityBard#3700",
+   "liga": "Oro IV · 97 LP",
+   "lp_hoy": null,
+   "partidas": 5,
+   "victorias": 4,
+   "derrotas": 1,
+   "racha": 2
+  },
+  {
+   "puesto": 10,
    "nombre": "iPredatoRz",
    "apodo": "el depredador depredado",
    "riot_id": "Jungledetter#1065",
@@ -122,18 +134,6 @@
    "partidas": 8,
    "victorias": 4,
    "derrotas": 4,
-   "racha": 1
-  },
-  {
-   "puesto": 10,
-   "nombre": "RDV Canyon",
-   "apodo": "Minguez",
-   "riot_id": "FisityBard#3700",
-   "liga": "Sin clasificar",
-   "lp_hoy": null,
-   "partidas": 4,
-   "victorias": 3,
-   "derrotas": 1,
    "racha": 1
   }
  ]
