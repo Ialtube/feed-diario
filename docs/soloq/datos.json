@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793916225134,
+ "actualizado": 1793920181479,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -21,12 +21,12 @@
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
-   "liga": "Oro II · 35 LP",
-   "lp_hoy": 90,
-   "partidas": 11,
+   "liga": "Oro II · 25 LP",
+   "lp_hoy": 80,
+   "partidas": 12,
    "victorias": 9,
-   "derrotas": 2,
-   "racha": 3
+   "derrotas": 3,
+   "racha": -1
   },
   {
    "puesto": 2,
