@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793992238789,
+ "actualizado": 1793993930543,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -102,6 +102,18 @@
   },
   {
    "puesto": 8,
+   "nombre": "RDV Canyon",
+   "apodo": "Minguez",
+   "riot_id": "FisityBard#3700",
+   "liga": "Oro III · 37 LP",
+   "lp_hoy": 40,
+   "partidas": 9,
+   "victorias": 6,
+   "derrotas": 3,
+   "racha": 1
+  },
+  {
+   "puesto": 9,
    "nombre": "Fr4nux",
    "apodo": "Fr4nux",
    "riot_id": "ReavendeMan#2719",
@@ -113,28 +125,16 @@
    "racha": 1
   },
   {
-   "puesto": 9,
+   "puesto": 10,
    "nombre": "iPredatoRz",
    "apodo": "el depredador depredado",
    "riot_id": "Jungledetter#1065",
-   "liga": "Oro III · 20 LP",
-   "lp_hoy": 30,
-   "partidas": 10,
+   "liga": "Oro III · 10 LP",
+   "lp_hoy": 20,
+   "partidas": 11,
    "victorias": 6,
-   "derrotas": 4,
-   "racha": 3
-  },
-  {
-   "puesto": 10,
-   "nombre": "RDV Canyon",
-   "apodo": "Minguez",
-   "riot_id": "FisityBard#3700",
-   "liga": "Oro III · 7 LP",
-   "lp_hoy": 10,
-   "partidas": 8,
-   "victorias": 5,
-   "derrotas": 3,
-   "racha": -2
+   "derrotas": 5,
+   "racha": -1
   }
  ]
 }
