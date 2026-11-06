@@ -5785,19 +5785,19 @@
       "slug": "dierophant",
       "alias": "Dierophant",
       "principal": true,
-      "flex": {
-        "tier": "DIAMOND",
-        "rank": "IV",
-        "lp": 52,
-        "wins": 103,
-        "losses": 98
-      },
       "solo": {
         "tier": "EMERALD",
         "rank": "II",
         "lp": 37,
         "wins": 102,
         "losses": 109
+      },
+      "flex": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 52,
+        "wins": 103,
+        "losses": 98
       }
     },
     "ipredatorz#euw": {
@@ -5845,19 +5845,19 @@
       "slug": "rdv-canyon",
       "alias": "RDV Canyon",
       "principal": true,
-      "solo": {
-        "tier": "DIAMOND",
-        "rank": "IV",
-        "lp": 73,
-        "wins": 80,
-        "losses": 71
-      },
       "flex": {
         "tier": "DIAMOND",
         "rank": "III",
         "lp": 75,
         "wins": 69,
         "losses": 65
+      },
+      "solo": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 73,
+        "wins": 80,
+        "losses": 71
       }
     },
     "giroroo#rdv": {
