@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793939379938,
+ "actualizado": 1793969388637,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -18,27 +18,27 @@
  "clasificacion": [
   {
    "puesto": 1,
-   "nombre": "TheTrevur",
-   "apodo": "Urgod",
-   "riot_id": "Grred#6577",
-   "liga": "Oro II · 25 LP",
-   "lp_hoy": 0,
-   "partidas": 12,
-   "victorias": 9,
-   "derrotas": 3,
-   "racha": -1
-  },
-  {
-   "puesto": 2,
    "nombre": "Wôlf",
    "apodo": "Barro",
    "riot_id": "Theossichi#9248",
-   "liga": "Oro II · 11 LP",
-   "lp_hoy": 0,
-   "partidas": 12,
-   "victorias": 8,
+   "liga": "Oro II · 41 LP",
+   "lp_hoy": 30,
+   "partidas": 13,
+   "victorias": 9,
    "derrotas": 4,
-   "racha": 2
+   "racha": 3
+  },
+  {
+   "puesto": 2,
+   "nombre": "TheTrevur",
+   "apodo": "Urgod",
+   "riot_id": "Grred#6577",
+   "liga": "Oro II · 15 LP",
+   "lp_hoy": -10,
+   "partidas": 13,
+   "victorias": 9,
+   "derrotas": 4,
+   "racha": -2
   },
   {
    "puesto": 3,
@@ -114,6 +114,18 @@
   },
   {
    "puesto": 9,
+   "nombre": "iPredatoRz",
+   "apodo": "el depredador depredado",
+   "riot_id": "Jungledetter#1065",
+   "liga": "Oro III · 20 LP",
+   "lp_hoy": 30,
+   "partidas": 10,
+   "victorias": 6,
+   "derrotas": 4,
+   "racha": 3
+  },
+  {
+   "puesto": 10,
    "nombre": "RDV Canyon",
    "apodo": "Minguez",
    "riot_id": "FisityBard#3700",
@@ -122,18 +134,6 @@
    "partidas": 5,
    "victorias": 4,
    "derrotas": 1,
-   "racha": 2
-  },
-  {
-   "puesto": 10,
-   "nombre": "iPredatoRz",
-   "apodo": "el depredador depredado",
-   "riot_id": "Jungledetter#1065",
-   "liga": "Oro IV · 90 LP",
-   "lp_hoy": 0,
-   "partidas": 9,
-   "victorias": 5,
-   "derrotas": 4,
    "racha": 2
   }
  ]
