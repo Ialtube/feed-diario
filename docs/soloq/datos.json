@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793984773292,
+ "actualizado": 1793987068166,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -30,6 +30,18 @@
   },
   {
    "puesto": 2,
+   "nombre": "Saiko",
+   "apodo": "KOI Huerfano",
+   "riot_id": "Mastersuftine#6535",
+   "liga": "Oro II · 37 LP",
+   "lp_hoy": 30,
+   "partidas": 11,
+   "victorias": 9,
+   "derrotas": 2,
+   "racha": 1
+  },
+  {
+   "puesto": 3,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -39,18 +51,6 @@
    "victorias": 9,
    "derrotas": 4,
    "racha": -2
-  },
-  {
-   "puesto": 3,
-   "nombre": "Saiko",
-   "apodo": "KOI Huerfano",
-   "riot_id": "Mastersuftine#6535",
-   "liga": "Oro II · 7 LP",
-   "lp_hoy": 0,
-   "partidas": 10,
-   "victorias": 8,
-   "derrotas": 2,
-   "racha": -1
   },
   {
    "puesto": 4,
