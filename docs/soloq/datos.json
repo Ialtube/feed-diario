@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1793999085978,
+ "actualizado": 1794030692200,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -18,6 +18,18 @@
  "clasificacion": [
   {
    "puesto": 1,
+   "nombre": "Saiko",
+   "apodo": "KOI Huerfano",
+   "riot_id": "Mastersuftine#6535",
+   "liga": "Oro II · 57 LP",
+   "lp_hoy": 50,
+   "partidas": 13,
+   "victorias": 10,
+   "derrotas": 3,
+   "racha": 1
+  },
+  {
+   "puesto": 2,
    "nombre": "Wôlf",
    "apodo": "Barro",
    "riot_id": "Theossichi#9248",
@@ -27,18 +39,6 @@
    "victorias": 9,
    "derrotas": 4,
    "racha": 3
-  },
-  {
-   "puesto": 2,
-   "nombre": "Saiko",
-   "apodo": "KOI Huerfano",
-   "riot_id": "Mastersuftine#6535",
-   "liga": "Oro II · 27 LP",
-   "lp_hoy": 20,
-   "partidas": 12,
-   "victorias": 9,
-   "derrotas": 3,
-   "racha": -1
   },
   {
    "puesto": 3,
