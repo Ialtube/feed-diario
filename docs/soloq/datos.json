@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794073604875,
+ "actualizado": 1794074737652,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -78,27 +78,27 @@
   },
   {
    "puesto": 6,
-   "nombre": "Giroroo",
-   "apodo": "La Guadaña de la Mon",
-   "riot_id": "Xillie#8107",
-   "liga": "Oro III · 79 LP",
-   "lp_hoy": -20,
-   "partidas": 13,
-   "victorias": 7,
-   "derrotas": 6,
-   "racha": -2
-  },
-  {
-   "puesto": 7,
    "nombre": "RDV Canyon",
    "apodo": "Minguez",
    "riot_id": "FisityBard#3700",
-   "liga": "Oro III · 57 LP",
-   "lp_hoy": 20,
-   "partidas": 11,
-   "victorias": 7,
+   "liga": "Oro III · 87 LP",
+   "lp_hoy": 50,
+   "partidas": 12,
+   "victorias": 8,
    "derrotas": 4,
-   "racha": 1
+   "racha": 2
+  },
+  {
+   "puesto": 7,
+   "nombre": "Giroroo",
+   "apodo": "La Guadaña de la Mon",
+   "riot_id": "Xillie#8107",
+   "liga": "Oro III · 69 LP",
+   "lp_hoy": -30,
+   "partidas": 14,
+   "victorias": 7,
+   "derrotas": 7,
+   "racha": -3
   },
   {
    "puesto": 8,
