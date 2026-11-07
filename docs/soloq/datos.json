@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794070216624,
+ "actualizado": 1794071910782,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -42,6 +42,18 @@
   },
   {
    "puesto": 3,
+   "nombre": "Dierophant",
+   "apodo": "Intilteable",
+   "riot_id": "smilesdeath#6859",
+   "liga": "Oro II · 57 LP",
+   "lp_hoy": 50,
+   "partidas": 14,
+   "victorias": 10,
+   "derrotas": 4,
+   "racha": 1
+  },
+  {
+   "puesto": 4,
    "nombre": "Saiko",
    "apodo": "KOI Huerfano",
    "riot_id": "Mastersuftine#6535",
@@ -51,18 +63,6 @@
    "victorias": 10,
    "derrotas": 4,
    "racha": -1
-  },
-  {
-   "puesto": 4,
-   "nombre": "Dierophant",
-   "apodo": "Intilteable",
-   "riot_id": "smilesdeath#6859",
-   "liga": "Oro II · 27 LP",
-   "lp_hoy": 20,
-   "partidas": 13,
-   "victorias": 9,
-   "derrotas": 4,
-   "racha": -2
   },
   {
    "puesto": 5,
@@ -81,12 +81,12 @@
    "nombre": "Giroroo",
    "apodo": "La Guadaña de la Mon",
    "riot_id": "Xillie#8107",
-   "liga": "Oro III · 89 LP",
-   "lp_hoy": -10,
-   "partidas": 12,
+   "liga": "Oro III · 79 LP",
+   "lp_hoy": -20,
+   "partidas": 13,
    "victorias": 7,
-   "derrotas": 5,
-   "racha": -1
+   "derrotas": 6,
+   "racha": -2
   },
   {
    "puesto": 7,
