@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794062890379,
+ "actualizado": 1794066264999,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -42,6 +42,18 @@
   },
   {
    "puesto": 3,
+   "nombre": "Dierophant",
+   "apodo": "Intilteable",
+   "riot_id": "smilesdeath#6859",
+   "liga": "Oro II · 37 LP",
+   "lp_hoy": 30,
+   "partidas": 11,
+   "victorias": 9,
+   "derrotas": 2,
+   "racha": 1
+  },
+  {
+   "puesto": 4,
    "nombre": "Wôlf",
    "apodo": "Barro",
    "riot_id": "Theossichi#9248",
@@ -53,7 +65,7 @@
    "racha": -1
   },
   {
-   "puesto": 4,
+   "puesto": 5,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -63,18 +75,6 @@
    "victorias": 9,
    "derrotas": 4,
    "racha": -2
-  },
-  {
-   "puesto": 5,
-   "nombre": "Dierophant",
-   "apodo": "Intilteable",
-   "riot_id": "smilesdeath#6859",
-   "liga": "Oro II · 7 LP",
-   "lp_hoy": 0,
-   "partidas": 10,
-   "victorias": 8,
-   "derrotas": 2,
-   "racha": -1
   },
   {
    "puesto": 6,
