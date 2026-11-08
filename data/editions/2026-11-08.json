@@ -8,226 +8,405 @@
   ],
   "items": [
     {
-      "id": 0,
-      "kind": "portada",
-      "section": "PORTADA",
-      "desk": "",
-      "player": "saiko",
-      "alias": "Saiko",
-      "headline": "Última hora: Saiko confirma que sigue sin saber jugar (1–1)",
-      "body": "Tras 2 partidas, el veredicto es unánime: 17 muertes y un KDA de 2,35. Su campeón más sufrido hoy: Taric.",
-      "stat": "1–1",
-      "stat_label": "victorias–derrotas",
-      "severity": 100,
-      "facts": {
-        "alias": "Saiko",
-        "games": 2,
-        "wl": "1–1",
-        "d": 17,
-        "kda": "2,35",
-        "dmg_txt": "muy poco daño",
-        "dmg_txt_cap": "Muy poco daño de media",
-        "champ": "Taric",
-        "champs": "Taric y Blitzcrank",
-        "hours": "1,0"
-      }
-    },
-    {
       "id": 1,
-      "kind": "sucesos",
-      "section": "SUCESOS",
-      "desk": "Comisaría de Piltover",
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "boletín médico",
+      "clave": "muertes:saiko",
+      "section": "SALUD",
+      "desk": "Laboratorios de Zaun",
       "player": "saiko",
       "alias": "Saiko",
-      "headline": "Récord de Saiko: 12 muertes en 32 minutos",
-      "body": "Con Taric murió cada 2:43 de media. Derrota, claro. El contador de muertes pidió una pausa.",
-      "stat": "12",
-      "stat_label": "muertes en una partida",
-      "severity": 5.8,
-      "facts": {
-        "alias": "Saiko",
-        "games": 2,
-        "wl": "1–1",
-        "d": 12,
-        "kda": "2,35",
-        "dmg_txt": "muy poco daño",
-        "dmg_txt_cap": "Muy poco daño de media",
-        "champ": "Taric",
-        "champs": "Taric y Blitzcrank",
-        "hours": "1,0",
-        "kdas": "0/12/21",
-        "queue": "Ranked Solo/Dúo",
-        "mins": 32,
-        "every": "2:43",
-        "res": "derrota",
-        "res_cap": "Derrota, claro"
+      "headline": "El que venía a curar salió en camilla",
+      "subtitulo": "Saiko se pone el Taric un sábado a la una y media, muere doce veces y esa misma tarde se cae de la cabeza del reto al quinto puesto.",
+      "body": "Parte médico de los Laboratorios de Zaun. Sábado, 13:30. Ingresa en la calle inferior un Taric, el Escudo de Valoran, conducido por Saiko. Motivo de la consulta: proteger al tirador. Evolución: antes del minuto tres ya no protegía a nadie.\n\nEl doctor Humoverde, que cobra por pieza, ha dejado la secuencia por escrito con letra de buen humor: cinco muertes antes del minuto diez, una cada dos minutos escasos, como quien ficha en una fábrica. A partir de ahí el paciente se estabilizó en la desgracia y cerró la partida sin un solo asesinato, con doce muertes y veintiuna asistencias de consolación. Hizo el cinco por ciento del daño de su equipo. El resto del tiempo hizo de diana.\n\nLo más cruel del informe es la visión: veintiséis guardianes. Saiko iluminó el mapa entero para que todo el mundo pudiera verle morir en alta definición. El Rell rival, su pareja de baile, terminó con casi dos mil de oro más que él y veintiocho asistencias. Alguien tenía que poner la sangre.\n\nOnce horas antes, a las dos de la madrugada, el mismo paciente había ganado con Blitzcrank. Nadie en Zaun se explica por qué se levantó, cambió el robot por una piedra preciosa y volvió a la Grieta. Esa tarde el reto le apuntó una derrota y diez puntos menos, y con eso bastó: el líder de la tabla amaneció quinto.\n\nPronóstico reservado. Taric ha pedido el alta voluntaria.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": "memes/2026-11-08-1.jpg",
+      "campeon": "Taric",
+      "entrevistado": null,
+      "pie": "Taric, el Escudo de Valoran, a la salida de urgencias: resultó que el escudo era él.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 1000,
+      "facts": {},
+      "hilo": "el-robot-del-reto",
+      "replica": null,
+      "meme": {
+        "campeon": "Taric",
+        "aspecto": 1,
+        "lineas": [
+          "Botiquín de Esmeralda",
+          "Oro II y en camilla"
+        ]
+      },
+      "saga": {
+        "id": "el-robot-del-reto",
+        "titulo": "El robot del reto",
+        "capitulo": 3,
+        "estado": "cerrado"
       }
     },
     {
       "id": 2,
-      "kind": "pings",
-      "section": "COMUNICACIÓN",
-      "desk": "Radio Zaun",
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "perfil",
+      "clave": "perfil:wolf",
+      "section": "REPORTAJE",
+      "desk": "Corresponsal en Radio Zaun",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Wôlf hace 61 pings en una sola partida",
-      "body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él.",
-      "stat": "61",
-      "stat_label": "pings en una partida",
-      "severity": 3.52,
-      "facts": {
-        "alias": "Wôlf",
-        "games": 1,
-        "wl": "1–0",
-        "d": 3,
-        "kda": "7,00",
-        "dmg_txt": "el 30,4 % del daño de su equipo",
-        "dmg_txt_cap": "El 30,4 % del daño de su equipo de media",
-        "champ": "Zed",
-        "champs": "Zed",
-        "hours": "0,6",
-        "pings": 61
+      "headline": "El que dijo «Hola» y se quedó arriba",
+      "subtitulo": "Retrato dominical del nuevo líder del reto: cien campeones, un lema de cuatro letras y la costumbre de avisarlo todo menos lo que importa.",
+      "body": "Cuando se abrieron las inscripciones del reto, cada uno dejó una promesa a la altura de su ego. El Barón pidió Maestro. GSJoseador juró ser el que más pega de su equipo. Wôlf escribió «Hola». Ocho días después, el único que no prometió nada va primero.\n\nLa hemeroteca de este periódico le conoce bien: cincuenta y nueve partidas registradas, treinta ganadas y veintinueve perdidas, cuatrocientas veintidós muertes. Un balance de funcionario que ficha y se va. Su campeón es Zed, con veinticuatro salidas, y su casa es el centro, aunque el sábado se lo llevó a la jungla y ganó. En el reto, en cambio, gana con Ekko, Kayn y Qiyana, tres campeones que el Barón de la Moneda ha ido dejando tirados por el camino. Wôlf no cura maldiciones: las recoge del suelo y se las pone.\n\nEsto no es una hagiografía. El hombre al que esta casa llamó «más perro que lobo» lidera una tabla de Oro, es el que más partidas ha echado en el reto, dieciséis, y el reglamento pide cincuenta para que cuenten. Prometió Aspirante y le faltan más de mil trescientos puntos. A este ritmo llegará en primavera, con la silla soldada al culo.\n\nSus rivales hablan de suerte. Fr4nux se inscribió en el reto llamándole «Barro tullido». Hoy Fr4nux es el farolillo rojo y el tullido va primero.\n\nHola, efectivamente.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Zed",
+      "entrevistado": null,
+      "pie": "Wôlf en su despacho de Radio Zaun: la sombra hace los turnos de noche y él, los pings.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 599,
+      "facts": {},
+      "hilo": "barro-en-la-cima",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "barro-en-la-cima",
+        "titulo": "Barro en la cima",
+        "capitulo": 1,
+        "estado": "abierto"
       }
     },
     {
       "id": 3,
-      "kind": "tiempo",
-      "section": "EL TIEMPO",
-      "desk": "Islas de la Sombra",
-      "player": "ipredatorz",
-      "alias": "iPredatoRz",
-      "headline": "iPredatoRz se pasa 8 minutos en la pantalla gris",
-      "body": "El 14,4 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
-      "stat": "8 min",
-      "stat_label": "en la pantalla gris",
-      "severity": 3.33,
-      "facts": {
-        "alias": "iPredatoRz",
-        "games": 2,
-        "wl": "2–0",
-        "d": 14,
-        "kda": "2,57",
-        "dmg_txt": "el 27,7 % del daño de su equipo",
-        "dmg_txt_cap": "El 27,7 % del daño de su equipo de media",
-        "champ": "Yasuo",
-        "champs": "Yasuo",
-        "hours": "1,0",
-        "dead_mins": 8,
-        "dead_pct": "14,4 %"
-      }
-    },
-    {
-      "id": 4,
-      "kind": "rendicion",
-      "section": "POLÍTICA",
-      "desk": "Corte de Demacia",
-      "player": null,
-      "alias": null,
-      "headline": "Bandera blanca: GSJoseador se rindió una vez hoy",
-      "body": "Votar sí antes de tiempo también es una forma de jugar. No la mejor.",
-      "stat": "1",
-      "stat_label": "partida rendida",
-      "severity": 3,
-      "facts": {
-        "names": "GSJoseador",
-        "verb": "se rindió",
-        "n_txt": "una vez"
-      }
-    },
-    {
-      "id": 5,
-      "kind": "vision",
-      "section": "CIENCIA",
-      "desk": "Academia de Piltover",
-      "player": "ipredatorz",
-      "alias": "iPredatoRz",
-      "headline": "iPredatoRz juega a ciegas: 0,38 de visión por minuto",
-      "body": "Ni un ward a la vista. Los arbustos de la Grieta guardan secretos que iPredatoRz prefiere no conocer.",
-      "stat": "0,38",
-      "stat_label": "visión por minuto",
-      "severity": 1.5,
-      "facts": {
-        "alias": "iPredatoRz",
-        "games": 2,
-        "wl": "2–0",
-        "d": 14,
-        "kda": "2,57",
-        "dmg_txt": "el 27,7 % del daño de su equipo",
-        "dmg_txt_cap": "El 27,7 % del daño de su equipo de media",
-        "champ": "Yasuo",
-        "champs": "Yasuo",
-        "hours": "1,0",
-        "vspm": "0,38"
-      }
-    },
-    {
-      "id": 6,
-      "kind": "gris",
-      "section": "SOCIEDAD",
-      "desk": "Ecos de Jonia",
-      "player": "gsjoseador",
-      "alias": "GSJoseador",
-      "headline": "Sin noticias de GSJoseador: 2–1 y KDA 4,56",
-      "body": "Ni para bien ni para mal. El gris absoluto. Es casi peor.",
-      "stat": "2–1",
-      "stat_label": "victorias–derrotas",
-      "severity": 1,
-      "facts": {
-        "alias": "GSJoseador",
-        "games": 3,
-        "wl": "2–1",
-        "d": 9,
-        "kda": "4,56",
-        "dmg_txt": "el 22,0 % del daño de su equipo",
-        "dmg_txt_cap": "El 22,0 % del daño de su equipo de media",
-        "champ": "Ornn",
-        "champs": "Ornn y Xerath",
-        "hours": "1,4"
-      }
-    },
-    {
-      "id": 7,
-      "kind": "mencion",
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "nota de prensa",
+      "clave": "faro:wolf",
       "section": "EL FARO DE LA ESPERANZA",
       "desk": "Centinelas de la Luz",
       "player": "wolf",
       "alias": "Wôlf",
-      "headline": "Desde el Faro, una señal: Wôlf sobrevive al día (1–0)",
-      "body": "El mejor del grupo, que no es decir mucho. Los Centinelas de la Luz lo anotan en su diario con letra pequeña, por si acaso.",
-      "stat": "1–0",
-      "stat_label": "victorias–derrotas",
-      "severity": 0.5,
-      "facts": {
-        "alias": "Wôlf",
-        "games": 1,
-        "wl": "1–0",
-        "d": 3,
-        "kda": "7,00",
-        "dmg_txt": "el 30,4 % del daño de su equipo",
-        "dmg_txt_cap": "El 30,4 % del daño de su equipo de media",
-        "champ": "Zed",
-        "champs": "Zed",
-        "hours": "0,6"
+      "headline": "Nueve mil razones para no poner guardianes",
+      "subtitulo": "",
+      "body": "Los Centinelas de la Luz comunican que el sábado, a las 20:27, hubo luz en la Grieta. La trajo Wôlf con un Zed de jungla que terminó once, tres y diez, ganó cuatro duelos en solitario y le sacó más de nueve mil de oro al Wukong rival, que se pasó la partida preguntando dónde estaba su jungla. Estaba en la cuenta de Wôlf.\n\nEl Zed hizo el treinta por ciento del daño de su equipo y tiró objetivos como quien baja la basura. Puso dos guardianes en toda la partida. Los Centinelas no lo celebran, pero tampoco pueden reprochárselo: el que va ganando no necesita mirar.\n\nFirma esta nota Tobías Candil, becario. El titular de la sección no ha venido hoy. Ver Opinión.",
+      "stat": "+9.542",
+      "stat_label": "de oro sobre el Wukong rival",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 398,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 4,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "entrevista",
+      "clave": "calle:gsjoseador",
+      "section": "DEPORTES",
+      "desk": "Corte de Demacia",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "«Le gané la calle y él se quedó la partida»",
+      "subtitulo": "Galio, el Coloso de Demacia, explica cómo se puede humillar a un Xerath y volver a casa derrotado.",
+      "body": "El Coloso de Demacia despierta cuando hay magia cerca. El sábado a las 19:39 le pusieron delante el Xerath de GSJoseador, que es como dejar a un perro a dieta en la puerta de una carnicería. Nos atiende todavía caliente.\n\n—¿Cómo fue la calle?\n\n—Gloriosa. Setenta súbditos más que él y dos mil quinientos de oro de ventaja. Siete asesinatos. Me lo comí entero.\n\n—Y perdió la partida.\n\n—Eso es un trámite administrativo.\n\n—Él murió una vez. Usted, seis.\n\n—Porque yo iba a buscarle. Él no venía nunca. Se quedaba atrás tirando rayos desde dos pantallas de distancia, como un funcionario de Shurima con ventanilla.\n\n—Trece asistencias y ni un solo duelo ganado.\n\n—En Demacia eso se llama cobardía. En la Grieta, por lo visto, se llama ganar.\n\n—¿Un mensaje para él?\n\n—Que deje de prometer que es el que más pega. Ha ganado escondido. Yo soy de piedra y hasta yo lo he notado.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Xerath",
+      "entrevistado": "Galio",
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 397,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 5,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "comunicado oficial",
+      "clave": "solokills:ipredatorz",
+      "section": "CULTURA",
+      "desk": "Sede del Sindicato, Jonia",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "Yasuo perdona, pero pide un guardián",
+      "subtitulo": "",
+      "body": "Comunicado de Yasuo, el Imperdonable, ante el Sindicato.\n\nPrimero. El sábado a las 18:24 me tocó en el bando contrario de GSJoseador y le dejé el Ornn en cuatro, seis y uno, con casi mil novecientos de oro de diferencia en la calle. Nada personal: hago esto a todos los que no me eligen. A las 22:58 me eligió iPredatoRz, el mismo al que denuncié no hace tanto, solo en Flex y sin nadie del grupo. Ganamos. Volvió a elegirme a las 23:29. Ganamos otra vez. Ocho duelos en solitario entre las dos. Retiro la denuncia.\n\nSegundo. En la segunda partida jugamos con nueve de visión en treinta y dos minutos, morí cuatro veces en la misma esquina y una Katarina nos hizo veinte asesinatos. Ganamos porque el viento sopla a mi favor, no porque él mire. Tercero: el viento no pone guardianes.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": "memes/2026-11-08-5.jpg",
+      "campeon": "Yasuo",
+      "entrevistado": null,
+      "pie": "Yasuo, solo ante el peligro: el peligro tampoco le veía venir a él.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 396,
+      "facts": {},
+      "hilo": "el-sindicato-cambia-de-bando",
+      "replica": null,
+      "meme": {
+        "campeon": "Yasuo",
+        "aspecto": 1,
+        "lineas": [
+          "Solo en Flex",
+          "y sin ver nada"
+        ]
+      },
+      "saga": {
+        "id": "el-sindicato-cambia-de-bando",
+        "titulo": "El Sindicato cambia de bando",
+        "capitulo": 5,
+        "estado": "escalando"
+      }
+    },
+    {
+      "id": 6,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "ranking",
+      "clave": "soloq_promesa:grangalax:nandaris#6071",
+      "section": "SOLOQ CHALLENGE",
+      "desk": "",
+      "player": "grangalax",
+      "alias": null,
+      "headline": "La tabla de los que prometieron",
+      "subtitulo": "",
+      "body": "Día ocho del reto y la tabla ya parece un examen de conciencia.\n\n1. Wôlf, Oro II con 91. Se inscribió diciendo «Hola». Promesa cumplida. 2. GSJoseador, Oro II con 75. Prometió ser el que más pega; de momento es el que más cerca se queda. 3. Dierophant, Oro II con 57. Pidió que le guiara el Barón. Sube dos puestos el día que su guía baja dos. 4. RDV Canyon, Oro II con 47. Ciento diez puntos en un día. Ver Breves. 5. Saiko, Oro II con 47. Cuatro puestos abajo con una derrota. Ver portada. 6. TheTrevur, Oro II con 15. Cae dos sin jugar. El reino de Urgod dura lo que tarda en apagar el ordenador. 7. iPredatoRz, Oro II con 1. Asciende con un punto de margen: el depredador, colgado del bordillo. 8. Giroroo, Oro III con 89. Una victoria y cuatro derrotas en el día. La guadaña, clavada en su propio pie. 9. grangalax, Oro III con 45. Prometió Maestro y le faltan 1.455 puntos. Cae dos puestos sin tocar el ratón. 10. Fr4nux, Oro III con 24. Farolillo rojo. Va calentando a Teemo.\n\nEl Barón sigue siendo el que más alto apuntó y el que más abajo mira.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 395,
+      "facts": {},
+      "hilo": "el-reto-de-las-cuentas-nuevas",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-reto-de-las-cuentas-nuevas",
+        "titulo": "El reto de las cuentas nuevas",
+        "capitulo": 7,
+        "estado": "escalando"
+      }
+    },
+    {
+      "id": 7,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "carta al director",
+      "clave": null,
+      "section": "OPINIÓN",
+      "desk": "",
+      "player": null,
+      "alias": null,
+      "headline": "Querido director: le escribo desde la otra orilla",
+      "subtitulo": "",
+      "body": "Señor Plumanegra: le prometí contestar el domingo a la oferta de Noxus y le contesto el domingo, aunque usted, desde su camarote, no lo lea hasta el lunes. Llevo semanas pidiendo un solo día en que nadie del grupo muriera más de cinco veces. El sábado a mediodía lo tenía en la mano: dos partidas, medio grupo dormido, un Blitzcrank que ganó de madrugada y un Ornn que ganó con el desayuno. Escribí la carta de renuncia a la Gaceta y se la dejé en la mesa.\n\nA la una y media Saiko cogió a Taric. A las dos menos veinte llevaba cinco muertes. He roto esa carta y he enviado la otra.\n\nMe llevo la lámpara. El becario sabe dónde están las velas. Hermano Venda.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 394,
+      "facts": {},
+      "hilo": "la-guerra-de-los-periodicos",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "la-guerra-de-los-periodicos",
+        "titulo": "La guerra de los periódicos",
+        "capitulo": 16,
+        "estado": "escalando"
       }
     },
     {
       "id": 8,
-      "kind": "ausentes",
-      "section": "AUSENTES",
-      "desk": "Perdidos en el Vacío",
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "madrugada:saiko",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "Se acostó ganando",
+      "subtitulo": "",
+      "body": "A las 02:05 del sábado, Saiko ganó con Blitzcrank, el robot que le ha denunciado tres veces. Podía haberse ido a dormir con la cuenta en verde y lo hizo, durante once horas. Luego se levantó y cogió a Taric.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 193,
+      "facts": {},
+      "hilo": "el-que-no-sabe-irse-a-casa",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-que-no-sabe-irse-a-casa",
+        "titulo": "El que no sabe irse a casa",
+        "capitulo": 8,
+        "estado": "escalando"
+      }
+    },
+    {
+      "id": 9,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "pings:wolf",
+      "section": "COMUNICACIÓN",
+      "desk": "Radio Zaun",
+      "player": "wolf",
+      "alias": "Wôlf",
+      "headline": "Sesenta y un avisos, dos ojos",
+      "subtitulo": "",
+      "body": "Radio Zaun certifica que Wôlf mandó 61 pings en el Zed del sábado y puso dos guardianes. Avisó de todo lo que veía, que no era mucho. Ganó igual, que es lo que más escuece a los cuatro que tuvieron que oírlos.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 192,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 10,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "soloq_escalada:rdv-canyon:FisityBard#3700",
+      "section": "SOLOQ CHALLENGE",
+      "desk": "",
+      "player": "rdv-canyon",
+      "alias": null,
+      "headline": "La copia ya empata",
+      "subtitulo": "",
+      "body": "RDV Canyon, el que un día jugó con una cuenta llamada SAIIIIIIKO, sube ciento diez puntos con cuatro victorias y una derrota y alcanza al original: los dos van Oro II con 47 y diez y cuatro en el reto. La única diferencia es la dirección. Uno subía y el otro caía.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 191,
+      "facts": {},
+      "hilo": "el-otro-saiko",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-otro-saiko",
+        "titulo": "El otro Saiko",
+        "capitulo": 3,
+        "estado": "escalando"
+      }
+    },
+    {
+      "id": 11,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": null,
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
       "player": null,
       "alias": null,
-      "headline": "Ausentes hoy: Fr4nux, Dierophant, TheTrevur, Giroroo, grangalax y RDV Canyon",
-      "body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre.",
-      "stat": "6",
-      "stat_label": "no jugaron",
-      "severity": 0.2,
-      "facts": {
-        "names": "Fr4nux, Dierophant, TheTrevur, Giroroo, grangalax y RDV Canyon"
+      "headline": "Sin moneda no se ficha",
+      "subtitulo": "",
+      "body": "Hexwick ya tiene el registro de entradas de la Lonja. Barbanegra no ha pisado el parqué ni el viernes ni el sábado, los dos días en que el Barón no jugó. El corredor alega «jornada reducida por falta de género». La fiscal ha subrayado «género».",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 190,
+      "facts": {},
+      "hilo": "el-escandalo-de-la-lonja",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-escandalo-de-la-lonja",
+        "titulo": "El escándalo de la Lonja",
+        "capitulo": 16,
+        "estado": "desenlace"
       }
+    },
+    {
+      "id": 12,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "fe de erratas",
+      "clave": "ausentes",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": null,
+      "alias": null,
+      "headline": "Ausentes, pero no tanto",
+      "subtitulo": "",
+      "body": "Donde el robot dio por ausentes a seis del grupo, debe decir: Dierophant, RDV Canyon y Giroroo estaban jugando con la cuenta comprada del reto, a escondidas de este periódico. Lo que sí faltó fue la Flex del grupo: iPredatoRz la jugó solo, pasadas las diez y media.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 189,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
     }
   ],
-  "frase": "Cada partida es una oportunidad nueva de decepcionar a cuatro personas.",
+  "frase": "Liderar una tabla de Oro es como ser el más alto de la guardería: es verdad y no sirve para nada.",
   "ranking": [
     {
       "slug": "saiko",
@@ -1798,5 +1977,493 @@
     "acertantes": [],
     "votos": {},
     "estado": "ok"
-  }
+  },
+  "items_plantilla": [
+    {
+      "id": 0,
+      "kind": "portada",
+      "section": "PORTADA",
+      "desk": "",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "Última hora: Saiko confirma que sigue sin saber jugar (1–1)",
+      "body": "Tras 2 partidas, el veredicto es unánime: 17 muertes y un KDA de 2,35. Su campeón más sufrido hoy: Taric.",
+      "stat": "1–1",
+      "stat_label": "victorias–derrotas",
+      "severity": 100,
+      "facts": {
+        "alias": "Saiko",
+        "games": 2,
+        "wl": "1–1",
+        "d": 17,
+        "kda": "2,35",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Taric",
+        "champs": "Taric y Blitzcrank",
+        "hours": "1,0"
+      }
+    },
+    {
+      "id": 1,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "Récord de Saiko: 12 muertes en 32 minutos",
+      "body": "Con Taric murió cada 2:43 de media. Derrota, claro. El contador de muertes pidió una pausa.",
+      "stat": "12",
+      "stat_label": "muertes en una partida",
+      "severity": 5.8,
+      "facts": {
+        "alias": "Saiko",
+        "games": 2,
+        "wl": "1–1",
+        "d": 12,
+        "kda": "2,35",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Taric",
+        "champs": "Taric y Blitzcrank",
+        "hours": "1,0",
+        "kdas": "0/12/21",
+        "queue": "Ranked Solo/Dúo",
+        "mins": 32,
+        "every": "2:43",
+        "res": "derrota",
+        "res_cap": "Derrota, claro"
+      }
+    },
+    {
+      "id": 2,
+      "kind": "pings",
+      "section": "COMUNICACIÓN",
+      "desk": "Radio Zaun",
+      "player": "wolf",
+      "alias": "Wôlf",
+      "headline": "Wôlf hace 61 pings en una sola partida",
+      "body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él.",
+      "stat": "61",
+      "stat_label": "pings en una partida",
+      "severity": 3.52,
+      "facts": {
+        "alias": "Wôlf",
+        "games": 1,
+        "wl": "1–0",
+        "d": 3,
+        "kda": "7,00",
+        "dmg_txt": "el 30,4 % del daño de su equipo",
+        "dmg_txt_cap": "El 30,4 % del daño de su equipo de media",
+        "champ": "Zed",
+        "champs": "Zed",
+        "hours": "0,6",
+        "pings": 61
+      }
+    },
+    {
+      "id": 3,
+      "kind": "tiempo",
+      "section": "EL TIEMPO",
+      "desk": "Islas de la Sombra",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "iPredatoRz se pasa 8 minutos en la pantalla gris",
+      "body": "El 14,4 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
+      "stat": "8 min",
+      "stat_label": "en la pantalla gris",
+      "severity": 3.33,
+      "facts": {
+        "alias": "iPredatoRz",
+        "games": 2,
+        "wl": "2–0",
+        "d": 14,
+        "kda": "2,57",
+        "dmg_txt": "el 27,7 % del daño de su equipo",
+        "dmg_txt_cap": "El 27,7 % del daño de su equipo de media",
+        "champ": "Yasuo",
+        "champs": "Yasuo",
+        "hours": "1,0",
+        "dead_mins": 8,
+        "dead_pct": "14,4 %"
+      }
+    },
+    {
+      "id": 4,
+      "kind": "rendicion",
+      "section": "POLÍTICA",
+      "desk": "Corte de Demacia",
+      "player": null,
+      "alias": null,
+      "headline": "Bandera blanca: GSJoseador se rindió una vez hoy",
+      "body": "Votar sí antes de tiempo también es una forma de jugar. No la mejor.",
+      "stat": "1",
+      "stat_label": "partida rendida",
+      "severity": 3,
+      "facts": {
+        "names": "GSJoseador",
+        "verb": "se rindió",
+        "n_txt": "una vez"
+      }
+    },
+    {
+      "id": 5,
+      "kind": "vision",
+      "section": "CIENCIA",
+      "desk": "Academia de Piltover",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "iPredatoRz juega a ciegas: 0,38 de visión por minuto",
+      "body": "Ni un ward a la vista. Los arbustos de la Grieta guardan secretos que iPredatoRz prefiere no conocer.",
+      "stat": "0,38",
+      "stat_label": "visión por minuto",
+      "severity": 1.5,
+      "facts": {
+        "alias": "iPredatoRz",
+        "games": 2,
+        "wl": "2–0",
+        "d": 14,
+        "kda": "2,57",
+        "dmg_txt": "el 27,7 % del daño de su equipo",
+        "dmg_txt_cap": "El 27,7 % del daño de su equipo de media",
+        "champ": "Yasuo",
+        "champs": "Yasuo",
+        "hours": "1,0",
+        "vspm": "0,38"
+      }
+    },
+    {
+      "id": 6,
+      "kind": "gris",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Sin noticias de GSJoseador: 2–1 y KDA 4,56",
+      "body": "Ni para bien ni para mal. El gris absoluto. Es casi peor.",
+      "stat": "2–1",
+      "stat_label": "victorias–derrotas",
+      "severity": 1,
+      "facts": {
+        "alias": "GSJoseador",
+        "games": 3,
+        "wl": "2–1",
+        "d": 9,
+        "kda": "4,56",
+        "dmg_txt": "el 22,0 % del daño de su equipo",
+        "dmg_txt_cap": "El 22,0 % del daño de su equipo de media",
+        "champ": "Ornn",
+        "champs": "Ornn y Xerath",
+        "hours": "1,4"
+      }
+    },
+    {
+      "id": 7,
+      "kind": "mencion",
+      "section": "EL FARO DE LA ESPERANZA",
+      "desk": "Centinelas de la Luz",
+      "player": "wolf",
+      "alias": "Wôlf",
+      "headline": "Desde el Faro, una señal: Wôlf sobrevive al día (1–0)",
+      "body": "El mejor del grupo, que no es decir mucho. Los Centinelas de la Luz lo anotan en su diario con letra pequeña, por si acaso.",
+      "stat": "1–0",
+      "stat_label": "victorias–derrotas",
+      "severity": 0.5,
+      "facts": {
+        "alias": "Wôlf",
+        "games": 1,
+        "wl": "1–0",
+        "d": 3,
+        "kda": "7,00",
+        "dmg_txt": "el 30,4 % del daño de su equipo",
+        "dmg_txt_cap": "El 30,4 % del daño de su equipo de media",
+        "champ": "Zed",
+        "champs": "Zed",
+        "hours": "0,6"
+      }
+    },
+    {
+      "id": 8,
+      "kind": "ausentes",
+      "section": "AUSENTES",
+      "desk": "Perdidos en el Vacío",
+      "player": null,
+      "alias": null,
+      "headline": "Ausentes hoy: Fr4nux, Dierophant, TheTrevur, Giroroo, grangalax y RDV Canyon",
+      "body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre.",
+      "stat": "6",
+      "stat_label": "no jugaron",
+      "severity": 0.2,
+      "facts": {
+        "names": "Fr4nux, Dierophant, TheTrevur, Giroroo, grangalax y RDV Canyon"
+      }
+    }
+  ],
+  "canon_cambios": {
+    "hilos": [
+      {
+        "id": "el-robot-del-reto",
+        "accion": "cerrar",
+        "titulo": null,
+        "estado": "cerrado",
+        "resumen": "Saiko gana con Blitzcrank a las 02:05 y, once horas después, coge a Taric y muere doce veces (cinco antes del minuto diez). Esa tarde una derrota en el reto le baja de líder al quinto puesto: se acabó el reinado del robot.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "el-que-no-sabe-irse-a-casa",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Saiko gana de madrugada con Blitzcrank, duerme once horas y vuelve a la una y media con un Taric de 0/12/21.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "el-sindicato-cambia-de-bando",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Yasuo gana contra el Ornn de GSJoseador a las 18:24 y, por la noche, gana dos Flex con iPredatoRz, al que había denunciado. Retira la denuncia, pero exige guardianes: nueve de visión en treinta y dos minutos.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "el-otro-saiko",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "RDV Canyon sube 110 puntos en un día y empata con Saiko: los dos Oro II con 47 y 10–4 en el reto, uno subiendo y otro cayendo.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "el-reto-de-las-cuentas-nuevas",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Día ocho: Wôlf, nuevo líder (Oro II 91, 11–5); Saiko cae del primero al quinto; RDV Canyon sube cinco puestos; el Barón, noveno sin jugar, a 1.455 puntos de su Maestro.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "el-reinado-de-urgod",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "TheTrevur no juega y cae dos puestos, al sexto: el reino de un solo campeón dura lo que tarda en apagar el ordenador.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-luz-de-grangalax",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Dierophant sube al tercer puesto (Oro II 57) el mismo día que su guía, el Barón, baja al noveno sin tocar el ratón.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-guerra-de-los-periodicos",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "El Hermano Venda contesta el domingo: tenía escrita la renuncia a la oferta de Noxus, pero el Taric de Saiko le hizo romperla y enviar el traslado. Se lleva la lámpara del Faro; la Gaceta presume del fichaje.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "el-escandalo-de-la-lonja",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Hexwick consigue el registro de entradas: Barbanegra no pisa la Lonja los días que el Barón no juega. Sin moneda no hay jornada, ni pensión.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "barro-en-la-cima",
+        "accion": "abrir",
+        "titulo": "Barro en la cima",
+        "estado": "abierto",
+        "resumen": "Wôlf, inscrito en el reto con un «Hola» y llamado «Barro tullido» por Fr4nux, se pone líder del SoloQ Challenge ganando con los campeones malditos del Barón. Le faltan 34 partidas para que cuente.",
+        "protagonistas": [
+          "wolf"
+        ],
+        "reparto": []
+      }
+    ],
+    "personajes": {
+      "saiko": {
+        "maldicion": "Taric: 0/12/21, cinco muertes antes del minuto diez y la cabeza del reto perdida esa misma tarde",
+        "arco": {
+          "tipo": "caída",
+          "texto": "Pierde el liderato del reto un sábado: gana con Blitzcrank a las dos de la madrugada, coge a Taric a la una y media y muere doce veces. Del primero al quinto."
+        }
+      },
+      "wolf": {
+        "titulo": "Líder del SoloQ Challenge",
+        "apodo": "el que dijo Hola",
+        "arco": {
+          "tipo": "ascenso",
+          "texto": "Líder del reto con un lema de cuatro letras y los campeones malditos del Barón (Ekko, Kayn, Qiyana); le faltan 34 partidas para que cuente."
+        }
+      },
+      "ipredatorz": {
+        "arco": {
+          "tipo": "redención",
+          "texto": "Hace las paces con Yasuo, el campeón que le denunció: dos victorias solo en Flex, sin poner visión."
+        }
+      }
+    },
+    "elenco": [
+      {
+        "nombre": "Hermano Venda",
+        "actualizar": true,
+        "estado": "Ha roto la carta de renuncia a la oferta de Noxus por el Taric de Saiko y ha enviado el traslado a la Gaceta; se ha llevado la lámpara del Faro"
+      },
+      {
+        "nombre": "Tobías Candil",
+        "cargo": "Becario de los Centinelas de la Luz",
+        "deseo": "Que le den la sección en propiedad",
+        "secreto": "Fue él quien le llevó a la Gaceta la noticia del traslado de Venda antes que al director",
+        "relacion": "Heredero de la lámpara del Hermano Venda, que no se la ha dejado",
+        "rasgo": "Firma el Faro mientras no haya titular; escribe a la luz de las velas",
+        "institucion": "El Faro de la Esperanza"
+      },
+      {
+        "nombre": "Barbanegra el Contable",
+        "actualizar": true,
+        "estado": "No pisa la Lonja los días que el Barón no juega; Hexwick tiene el registro de entradas"
+      }
+    ],
+    "costumbres": [
+      "Los sábados sin Flex del grupo, iPredatoRz entra solo en Flex pasadas las diez y media de la noche y saca Yasuo dos veces seguidas."
+    ],
+    "chistes": [
+      "Barro",
+      "el otro Saiko",
+      "el que no sabe irse a casa",
+      "más perro que lobo"
+    ],
+    "sindicato": [
+      {
+        "campeon": "Taric",
+        "jugador": "saiko",
+        "motivo": "Sacado un sábado a la una y media para morir doce veces, cinco antes del minuto diez, con veintiséis guardianes puestos para que se viera bien"
+      }
+    ]
+  },
+  "tiempo": [
+    {
+      "jugador": "saiko",
+      "texto": "Siete minutos y medio de cielo gris en dos partidas, con chubascos de muertes antes del minuto diez en la calle inferior. Se desaconseja salir de la base después de comer."
+    },
+    {
+      "jugador": "ipredatorz",
+      "texto": "Ocho minutos largos de niebla en dos Flex sin compañía. Visibilidad casi nula, por decisión propia del afectado."
+    },
+    {
+      "jugador": "gsjoseador",
+      "texto": "Cinco minutos de gris en tres partidas. Despejado con Xerath; tormenta sobre el Ornn a las seis y veinticinco, con viento de Jonia del bando rival."
+    },
+    {
+      "jugador": "wolf",
+      "texto": "Apenas minuto y medio en gris. Cielo limpio sobre la jungla y fuerte actividad eléctrica: sesenta y un pings."
+    }
+  ],
+  "angulos_usados": [
+    "muertes:saiko",
+    "perfil:wolf",
+    "faro:wolf",
+    "calle:gsjoseador",
+    "solokills:ipredatorz",
+    "soloq_promesa:grangalax:nandaris#6071",
+    "madrugada:saiko",
+    "pings:wolf",
+    "soloq_escalada:rdv-canyon:FisityBard#3700",
+    "ausentes"
+  ],
+  "horoscopo": [
+    {
+      "signo": "Top",
+      "texto": "Forjarás objetos para todo el equipo y a las seis y media llegará un Yasuo a rompértelos. Hoy, no salgas de la fragua."
+    },
+    {
+      "signo": "Jungla",
+      "texto": "Marte en el campamento rival: le quitarás nueve mil de oro a tu homólogo y aun así alguien te reprochará los pings. Tendrá razón."
+    },
+    {
+      "signo": "Mid",
+      "texto": "Saturno exige visión. Pondrás cuatro guardianes, ganarás igual y eso será lo peor que te pueda pasar: aprenderás que no hace falta."
+    },
+    {
+      "signo": "Tirador",
+      "texto": "Tu soporte vendrá a protegerte doce veces y doce veces llegará desde la fuente. Lleva Curar y desconfianza."
+    },
+    {
+      "signo": "Soporte",
+      "texto": "Venus cambia el robot por una piedra preciosa. No la sigas: las joyas no esquivan ganchos."
+    }
+  ],
+  "template_frase": "Cada partida es una oportunidad nueva de decepcionar a cuatro personas.",
+  "columna": {
+    "titulo": "Me protegió desde la fuente",
+    "autor": "La Tiradora del sábado a la una y media",
+    "cuerpo": [
+      "Nadie me conoce. Soy la tiradora a la que el sábado a la una y media le tocó Saiko de soporte en una clasificatoria, y escribo porque alguien tiene que contar la versión de la que se quedó sola en la calle.",
+      "Él eligió Taric. Taric es un escudo: tiene un hechizo para curarte, otro para aturdir al que te persigue y otro para hacerte invulnerable. Durante treinta y tres minutos conocí los tres de oídas, como se conoce a un primo que vive en Australia.",
+      "Murió por primera vez antes del minuto tres. A la quinta, antes del diez, dejé de mover la cámara para buscarle. Ya sabía dónde estaba: en la fuente, mirando el contador, quieto como un mueble de recibidor.",
+      "En su defensa diré que puso veintiséis guardianes. Gracias a eso vi venir a los que me mataban con muchísima antelación.",
+      "Si nos volvemos a cruzar, que coja él la tiradora. Así, por lo menos, cada uno se muere lo suyo."
+    ]
+  },
+  "especial": null,
+  "gaceta": {
+    "titular": "¡EXCLUSIVA: EL FARO DEL RINCÓN SE MUDA A NOXUS!",
+    "cuerpo": "Lo que el Rincón esconde en su página de Opinión, la Gaceta lo lleva a portada: ¡EL HERMANO VENDA ES NUESTRO! Su primera columna llega el lunes, sin becarios y sin velas, y con luz de verdad.\n\nY una corrección a esos aprendices de Zaun: Saiko no «salió en camilla». ¡SAIKO DIO VEINTIUNA ASISTENCIAS Y PUSO VEINTISÉIS GUARDIANES! Fuentes de toda solvencia aseguran que en el Rincón no han visto un guardián desde que su director se embarcó. Que sigan contando muertos. Aquí contamos ojos.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "jurado": {
+    "pregunta": "¿Quién debe escribir El Faro de la Esperanza a partir de mañana?",
+    "opciones": [
+      "El becario Candil",
+      "Madame Niebla",
+      "Wôlf, a base de pings",
+      "Nadie: que se apague"
+    ],
+    "juicio": false
+  },
+  "jurado_veredicto": null,
+  "manana": [
+    {
+      "texto": "¿Volverá Saiko a coger a Taric, o el Escudo de Valoran ha pedido una orden de alejamiento?"
+    },
+    {
+      "texto": "¿Llegará Wôlf a la partida veinte del reto sin soltar la cabeza de la tabla?"
+    },
+    {
+      "texto": "¿Pondrá iPredatoRz más guardianes que asesinatos en su próxima Flex?"
+    }
+  ],
+  "promesas": [],
+  "tablon": [],
+  "sugerencias_tablon": [],
+  "ai": {
+    "version": 1,
+    "updated_at": 1794140180421,
+    "firma": "Claude",
+    "stale": false,
+    "formato": 2
+  },
+  "written_by": "Claude",
+  "lectores_ayer": {
+    "edicion": "2026-11-07",
+    "mas_reaccionadas": [],
+    "comentarios": []
+  },
+  "jurado_ayer": null,
+  "quien_fue_ayer": null,
+  "cotillas": []
 }

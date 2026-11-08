@@ -1,0 +1,353 @@
+{
+ "piezas": [
+  {
+   "angulo": "a3",
+   "peso": "grande",
+   "portada": true,
+   "formato": "boletín médico",
+   "hilo": "el-robot-del-reto",
+   "seccion": "SALUD",
+   "desk": "Laboratorios de Zaun",
+   "player": "saiko",
+   "headline": "El que venía a curar salió en camilla",
+   "subtitulo": "Saiko se pone el Taric un sábado a la una y media, muere doce veces y esa misma tarde se cae de la cabeza del reto al quinto puesto.",
+   "body": "Parte médico de los Laboratorios de Zaun. Sábado, 13:30. Ingresa en la calle inferior un Taric, el Escudo de Valoran, conducido por Saiko. Motivo de la consulta: proteger al tirador. Evolución: antes del minuto tres ya no protegía a nadie.\n\nEl doctor Humoverde, que cobra por pieza, ha dejado la secuencia por escrito con letra de buen humor: cinco muertes antes del minuto diez, una cada dos minutos escasos, como quien ficha en una fábrica. A partir de ahí el paciente se estabilizó en la desgracia y cerró la partida sin un solo asesinato, con doce muertes y veintiuna asistencias de consolación. Hizo el cinco por ciento del daño de su equipo. El resto del tiempo hizo de diana.\n\nLo más cruel del informe es la visión: veintiséis guardianes. Saiko iluminó el mapa entero para que todo el mundo pudiera verle morir en alta definición. El Rell rival, su pareja de baile, terminó con casi dos mil de oro más que él y veintiocho asistencias. Alguien tenía que poner la sangre.\n\nOnce horas antes, a las dos de la madrugada, el mismo paciente había ganado con Blitzcrank. Nadie en Zaun se explica por qué se levantó, cambió el robot por una piedra preciosa y volvió a la Grieta. Esa tarde el reto le apuntó una derrota y diez puntos menos, y con eso bastó: el líder de la tabla amaneció quinto.\n\nPronóstico reservado. Taric ha pedido el alta voluntaria.",
+   "meme": {
+    "campeon": "Taric",
+    "aspecto": 1,
+    "lineas": [
+     "Botiquín de Esmeralda",
+     "Oro II y en camilla"
+    ]
+   },
+   "pie": "Taric, el Escudo de Valoran, a la salida de urgencias: resultó que el escudo era él."
+  },
+  {
+   "angulo": "a38",
+   "peso": "grande",
+   "formato": "perfil",
+   "hilo": "barro-en-la-cima",
+   "seccion": "REPORTAJE",
+   "desk": "Corresponsal en Radio Zaun",
+   "player": "wolf",
+   "headline": "El que dijo «Hola» y se quedó arriba",
+   "subtitulo": "Retrato dominical del nuevo líder del reto: cien campeones, un lema de cuatro letras y la costumbre de avisarlo todo menos lo que importa.",
+   "body": "Cuando se abrieron las inscripciones del reto, cada uno dejó una promesa a la altura de su ego. El Barón pidió Maestro. GSJoseador juró ser el que más pega de su equipo. Wôlf escribió «Hola». Ocho días después, el único que no prometió nada va primero.\n\nLa hemeroteca de este periódico le conoce bien: cincuenta y nueve partidas registradas, treinta ganadas y veintinueve perdidas, cuatrocientas veintidós muertes. Un balance de funcionario que ficha y se va. Su campeón es Zed, con veinticuatro salidas, y su casa es el centro, aunque el sábado se lo llevó a la jungla y ganó. En el reto, en cambio, gana con Ekko, Kayn y Qiyana, tres campeones que el Barón de la Moneda ha ido dejando tirados por el camino. Wôlf no cura maldiciones: las recoge del suelo y se las pone.\n\nEsto no es una hagiografía. El hombre al que esta casa llamó «más perro que lobo» lidera una tabla de Oro, es el que más partidas ha echado en el reto, dieciséis, y el reglamento pide cincuenta para que cuenten. Prometió Aspirante y le faltan más de mil trescientos puntos. A este ritmo llegará en primavera, con la silla soldada al culo.\n\nSus rivales hablan de suerte. Fr4nux se inscribió en el reto llamándole «Barro tullido». Hoy Fr4nux es el farolillo rojo y el tullido va primero.\n\nHola, efectivamente.",
+   "campeon": "Zed",
+   "pie": "Wôlf en su despacho de Radio Zaun: la sombra hace los turnos de noche y él, los pings."
+  },
+  {
+   "angulo": "a15",
+   "peso": "mediana",
+   "formato": "nota de prensa",
+   "seccion": "EL FARO DE LA ESPERANZA",
+   "desk": "Centinelas de la Luz",
+   "player": "wolf",
+   "headline": "Nueve mil razones para no poner guardianes",
+   "body": "Los Centinelas de la Luz comunican que el sábado, a las 20:27, hubo luz en la Grieta. La trajo Wôlf con un Zed de jungla que terminó once, tres y diez, ganó cuatro duelos en solitario y le sacó más de nueve mil de oro al Wukong rival, que se pasó la partida preguntando dónde estaba su jungla. Estaba en la cuenta de Wôlf.\n\nEl Zed hizo el treinta por ciento del daño de su equipo y tiró objetivos como quien baja la basura. Puso dos guardianes en toda la partida. Los Centinelas no lo celebran, pero tampoco pueden reprochárselo: el que va ganando no necesita mirar.\n\nFirma esta nota Tobías Candil, becario. El titular de la sección no ha venido hoy. Ver Opinión.",
+   "stat": "+9.542",
+   "stat_label": "de oro sobre el Wukong rival"
+  },
+  {
+   "angulo": "a13",
+   "peso": "mediana",
+   "formato": "entrevista",
+   "seccion": "DEPORTES",
+   "desk": "Corte de Demacia",
+   "player": "gsjoseador",
+   "entrevistado": "Galio",
+   "headline": "«Le gané la calle y él se quedó la partida»",
+   "subtitulo": "Galio, el Coloso de Demacia, explica cómo se puede humillar a un Xerath y volver a casa derrotado.",
+   "body": "El Coloso de Demacia despierta cuando hay magia cerca. El sábado a las 19:39 le pusieron delante el Xerath de GSJoseador, que es como dejar a un perro a dieta en la puerta de una carnicería. Nos atiende todavía caliente.\n\n—¿Cómo fue la calle?\n\n—Gloriosa. Setenta súbditos más que él y dos mil quinientos de oro de ventaja. Siete asesinatos. Me lo comí entero.\n\n—Y perdió la partida.\n\n—Eso es un trámite administrativo.\n\n—Él murió una vez. Usted, seis.\n\n—Porque yo iba a buscarle. Él no venía nunca. Se quedaba atrás tirando rayos desde dos pantallas de distancia, como un funcionario de Shurima con ventanilla.\n\n—Trece asistencias y ni un solo duelo ganado.\n\n—En Demacia eso se llama cobardía. En la Grieta, por lo visto, se llama ganar.\n\n—¿Un mensaje para él?\n\n—Que deje de prometer que es el que más pega. Ha ganado escondido. Yo soy de piedra y hasta yo lo he notado."
+  },
+  {
+   "angulo": "a26",
+   "peso": "mediana",
+   "formato": "comunicado oficial",
+   "hilo": "el-sindicato-cambia-de-bando",
+   "seccion": "CULTURA",
+   "desk": "Sede del Sindicato, Jonia",
+   "player": "ipredatorz",
+   "headline": "Yasuo perdona, pero pide un guardián",
+   "body": "Comunicado de Yasuo, el Imperdonable, ante el Sindicato.\n\nPrimero. El sábado a las 18:24 me tocó en el bando contrario de GSJoseador y le dejé el Ornn en cuatro, seis y uno, con casi mil novecientos de oro de diferencia en la calle. Nada personal: hago esto a todos los que no me eligen. A las 22:58 me eligió iPredatoRz, el mismo al que denuncié no hace tanto, solo en Flex y sin nadie del grupo. Ganamos. Volvió a elegirme a las 23:29. Ganamos otra vez. Ocho duelos en solitario entre las dos. Retiro la denuncia.\n\nSegundo. En la segunda partida jugamos con nueve de visión en treinta y dos minutos, morí cuatro veces en la misma esquina y una Katarina nos hizo veinte asesinatos. Ganamos porque el viento sopla a mi favor, no porque él mire. Tercero: el viento no pone guardianes.",
+   "meme": {
+    "campeon": "Yasuo",
+    "aspecto": 1,
+    "lineas": [
+     "Solo en Flex",
+     "y sin ver nada"
+    ]
+   },
+   "pie": "Yasuo, solo ante el peligro: el peligro tampoco le veía venir a él."
+  },
+  {
+   "angulo": "a2",
+   "peso": "mediana",
+   "formato": "ranking",
+   "hilo": "el-reto-de-las-cuentas-nuevas",
+   "seccion": "SOLOQ CHALLENGE",
+   "player": "grangalax",
+   "headline": "La tabla de los que prometieron",
+   "body": "Día ocho del reto y la tabla ya parece un examen de conciencia.\n\n1. Wôlf, Oro II con 91. Se inscribió diciendo «Hola». Promesa cumplida.\n2. GSJoseador, Oro II con 75. Prometió ser el que más pega; de momento es el que más cerca se queda.\n3. Dierophant, Oro II con 57. Pidió que le guiara el Barón. Sube dos puestos el día que su guía baja dos.\n4. RDV Canyon, Oro II con 47. Ciento diez puntos en un día. Ver Breves.\n5. Saiko, Oro II con 47. Cuatro puestos abajo con una derrota. Ver portada.\n6. TheTrevur, Oro II con 15. Cae dos sin jugar. El reino de Urgod dura lo que tarda en apagar el ordenador.\n7. iPredatoRz, Oro II con 1. Asciende con un punto de margen: el depredador, colgado del bordillo.\n8. Giroroo, Oro III con 89. Una victoria y cuatro derrotas en el día. La guadaña, clavada en su propio pie.\n9. grangalax, Oro III con 45. Prometió Maestro y le faltan 1.455 puntos. Cae dos puestos sin tocar el ratón.\n10. Fr4nux, Oro III con 24. Farolillo rojo. Va calentando a Teemo.\n\nEl Barón sigue siendo el que más alto apuntó y el que más abajo mira."
+  },
+  {
+   "angulo": null,
+   "peso": "mediana",
+   "formato": "carta al director",
+   "hilo": "la-guerra-de-los-periodicos",
+   "seccion": "OPINIÓN",
+   "headline": "Querido director: le escribo desde la otra orilla",
+   "body": "Señor Plumanegra: le prometí contestar el domingo a la oferta de Noxus y le contesto el domingo, aunque usted, desde su camarote, no lo lea hasta el lunes. Llevo semanas pidiendo un solo día en que nadie del grupo muriera más de cinco veces. El sábado a mediodía lo tenía en la mano: dos partidas, medio grupo dormido, un Blitzcrank que ganó de madrugada y un Ornn que ganó con el desayuno. Escribí la carta de renuncia a la Gaceta y se la dejé en la mesa.\n\nA la una y media Saiko cogió a Taric. A las dos menos veinte llevaba cinco muertes. He roto esa carta y he enviado la otra.\n\nMe llevo la lámpara. El becario sabe dónde están las velas. Hermano Venda."
+  },
+  {
+   "angulo": "a32",
+   "peso": "breve",
+   "formato": "breve",
+   "hilo": "el-que-no-sabe-irse-a-casa",
+   "seccion": "SOCIEDAD",
+   "player": "saiko",
+   "headline": "Se acostó ganando",
+   "body": "A las 02:05 del sábado, Saiko ganó con Blitzcrank, el robot que le ha denunciado tres veces. Podía haberse ido a dormir con la cuenta en verde y lo hizo, durante once horas. Luego se levantó y cogió a Taric."
+  },
+  {
+   "angulo": "a33",
+   "peso": "breve",
+   "formato": "breve",
+   "seccion": "COMUNICACIÓN",
+   "player": "wolf",
+   "headline": "Sesenta y un avisos, dos ojos",
+   "body": "Radio Zaun certifica que Wôlf mandó 61 pings en el Zed del sábado y puso dos guardianes. Avisó de todo lo que veía, que no era mucho. Ganó igual, que es lo que más escuece a los cuatro que tuvieron que oírlos."
+  },
+  {
+   "angulo": "a5",
+   "peso": "breve",
+   "formato": "breve",
+   "hilo": "el-otro-saiko",
+   "seccion": "SOLOQ CHALLENGE",
+   "player": "rdv-canyon",
+   "headline": "La copia ya empata",
+   "body": "RDV Canyon, el que un día jugó con una cuenta llamada SAIIIIIIKO, sube ciento diez puntos con cuatro victorias y una derrota y alcanza al original: los dos van Oro II con 47 y diez y cuatro en el reto. La única diferencia es la dirección. Uno subía y el otro caía."
+  },
+  {
+   "angulo": null,
+   "peso": "breve",
+   "formato": "breve",
+   "hilo": "el-escandalo-de-la-lonja",
+   "seccion": "ECONOMÍA",
+   "desk": "Lonja de Aguasturbias",
+   "headline": "Sin moneda no se ficha",
+   "body": "Hexwick ya tiene el registro de entradas de la Lonja. Barbanegra no ha pisado el parqué ni el viernes ni el sábado, los dos días en que el Barón no jugó. El corredor alega «jornada reducida por falta de género». La fiscal ha subrayado «género»."
+  },
+  {
+   "angulo": "a41",
+   "peso": "breve",
+   "formato": "fe de erratas",
+   "seccion": "SOCIEDAD",
+   "headline": "Ausentes, pero no tanto",
+   "body": "Donde el robot dio por ausentes a seis del grupo, debe decir: Dierophant, RDV Canyon y Giroroo estaban jugando con la cuenta comprada del reto, a escondidas de este periódico. Lo que sí faltó fue la Flex del grupo: iPredatoRz la jugó solo, pasadas las diez y media."
+  }
+ ],
+ "tiempo": [
+  {
+   "jugador": "saiko",
+   "texto": "Siete minutos y medio de cielo gris en dos partidas, con chubascos de muertes antes del minuto diez en la calle inferior. Se desaconseja salir de la base después de comer."
+  },
+  {
+   "jugador": "ipredatorz",
+   "texto": "Ocho minutos largos de niebla en dos Flex sin compañía. Visibilidad casi nula, por decisión propia del afectado."
+  },
+  {
+   "jugador": "gsjoseador",
+   "texto": "Cinco minutos de gris en tres partidas. Despejado con Xerath; tormenta sobre el Ornn a las seis y veinticinco, con viento de Jonia del bando rival."
+  },
+  {
+   "jugador": "wolf",
+   "texto": "Apenas minuto y medio en gris. Cielo limpio sobre la jungla y fuerte actividad eléctrica: sesenta y un pings."
+  }
+ ],
+ "canon": {
+  "hilos": [
+   {
+    "id": "el-robot-del-reto",
+    "accion": "cerrar",
+    "resumen": "Saiko gana con Blitzcrank a las 02:05 y, once horas después, coge a Taric y muere doce veces (cinco antes del minuto diez). Esa tarde una derrota en el reto le baja de líder al quinto puesto: se acabó el reinado del robot."
+   },
+   {
+    "id": "el-que-no-sabe-irse-a-casa",
+    "accion": "avanzar",
+    "resumen": "Saiko gana de madrugada con Blitzcrank, duerme once horas y vuelve a la una y media con un Taric de 0/12/21."
+   },
+   {
+    "id": "el-sindicato-cambia-de-bando",
+    "accion": "avanzar",
+    "resumen": "Yasuo gana contra el Ornn de GSJoseador a las 18:24 y, por la noche, gana dos Flex con iPredatoRz, al que había denunciado. Retira la denuncia, pero exige guardianes: nueve de visión en treinta y dos minutos."
+   },
+   {
+    "id": "el-otro-saiko",
+    "accion": "avanzar",
+    "resumen": "RDV Canyon sube 110 puntos en un día y empata con Saiko: los dos Oro II con 47 y 10–4 en el reto, uno subiendo y otro cayendo."
+   },
+   {
+    "id": "el-reto-de-las-cuentas-nuevas",
+    "accion": "avanzar",
+    "resumen": "Día ocho: Wôlf, nuevo líder (Oro II 91, 11–5); Saiko cae del primero al quinto; RDV Canyon sube cinco puestos; el Barón, noveno sin jugar, a 1.455 puntos de su Maestro."
+   },
+   {
+    "id": "el-reinado-de-urgod",
+    "accion": "avanzar",
+    "resumen": "TheTrevur no juega y cae dos puestos, al sexto: el reino de un solo campeón dura lo que tarda en apagar el ordenador."
+   },
+   {
+    "id": "la-luz-de-grangalax",
+    "accion": "avanzar",
+    "resumen": "Dierophant sube al tercer puesto (Oro II 57) el mismo día que su guía, el Barón, baja al noveno sin tocar el ratón."
+   },
+   {
+    "id": "la-guerra-de-los-periodicos",
+    "accion": "avanzar",
+    "resumen": "El Hermano Venda contesta el domingo: tenía escrita la renuncia a la oferta de Noxus, pero el Taric de Saiko le hizo romperla y enviar el traslado. Se lleva la lámpara del Faro; la Gaceta presume del fichaje."
+   },
+   {
+    "id": "el-escandalo-de-la-lonja",
+    "accion": "avanzar",
+    "resumen": "Hexwick consigue el registro de entradas: Barbanegra no pisa la Lonja los días que el Barón no juega. Sin moneda no hay jornada, ni pensión."
+   },
+   {
+    "id": "barro-en-la-cima",
+    "accion": "abrir",
+    "titulo": "Barro en la cima",
+    "resumen": "Wôlf, inscrito en el reto con un «Hola» y llamado «Barro tullido» por Fr4nux, se pone líder del SoloQ Challenge ganando con los campeones malditos del Barón. Le faltan 34 partidas para que cuente.",
+    "protagonistas": [
+     "wolf"
+    ]
+   }
+  ],
+  "personajes": {
+   "saiko": {
+    "maldicion": "Taric: 0/12/21, cinco muertes antes del minuto diez y la cabeza del reto perdida esa misma tarde",
+    "arco": {
+     "tipo": "caída",
+     "texto": "Pierde el liderato del reto un sábado: gana con Blitzcrank a las dos de la madrugada, coge a Taric a la una y media y muere doce veces. Del primero al quinto."
+    }
+   },
+   "wolf": {
+    "titulo": "Líder del SoloQ Challenge",
+    "apodo": "el que dijo Hola",
+    "arco": {
+     "tipo": "ascenso",
+     "texto": "Líder del reto con un lema de cuatro letras y los campeones malditos del Barón (Ekko, Kayn, Qiyana); le faltan 34 partidas para que cuente."
+    }
+   },
+   "ipredatorz": {
+    "arco": {
+     "tipo": "redención",
+     "texto": "Hace las paces con Yasuo, el campeón que le denunció: dos victorias solo en Flex, sin poner visión."
+    }
+   }
+  },
+  "elenco": [
+   {
+    "nombre": "Hermano Venda",
+    "estado": "Ha roto la carta de renuncia a la oferta de Noxus por el Taric de Saiko y ha enviado el traslado a la Gaceta; se ha llevado la lámpara del Faro"
+   },
+   {
+    "nombre": "Tobías Candil",
+    "cargo": "Becario de los Centinelas de la Luz",
+    "institucion": "El Faro de la Esperanza",
+    "rasgo": "Firma el Faro mientras no haya titular; escribe a la luz de las velas",
+    "deseo": "Que le den la sección en propiedad",
+    "secreto": "Fue él quien le llevó a la Gaceta la noticia del traslado de Venda antes que al director",
+    "relacion": "Heredero de la lámpara del Hermano Venda, que no se la ha dejado"
+   },
+   {
+    "nombre": "Barbanegra el Contable",
+    "estado": "No pisa la Lonja los días que el Barón no juega; Hexwick tiene el registro de entradas"
+   }
+  ],
+  "costumbres": [
+   "Los sábados sin Flex del grupo, iPredatoRz entra solo en Flex pasadas las diez y media de la noche y saca Yasuo dos veces seguidas."
+  ],
+  "chistes": [
+   "Barro",
+   "el otro Saiko",
+   "el que no sabe irse a casa",
+   "más perro que lobo"
+  ],
+  "sindicato": [
+   {
+    "campeon": "Taric",
+    "jugador": "saiko",
+    "motivo": "Sacado un sábado a la una y media para morir doce veces, cinco antes del minuto diez, con veintiséis guardianes puestos para que se viera bien"
+   }
+  ]
+ },
+ "gaceta": {
+  "titular": "¡EXCLUSIVA: EL FARO DEL RINCÓN SE MUDA A NOXUS!",
+  "cuerpo": "Lo que el Rincón esconde en su página de Opinión, la Gaceta lo lleva a portada: ¡EL HERMANO VENDA ES NUESTRO! Su primera columna llega el lunes, sin becarios y sin velas, y con luz de verdad.\n\nY una corrección a esos aprendices de Zaun: Saiko no «salió en camilla». ¡SAIKO DIO VEINTIUNA ASISTENCIAS Y PUSO VEINTISÉIS GUARDIANES! Fuentes de toda solvencia aseguran que en el Rincón no han visto un guardián desde que su director se embarcó. Que sigan contando muertos. Aquí contamos ojos.",
+  "firma": "Valeria Puñoférreo"
+ },
+ "jurado": {
+  "pregunta": "¿Quién debe escribir El Faro de la Esperanza a partir de mañana?",
+  "opciones": [
+   "El becario Candil",
+   "Madame Niebla",
+   "Wôlf, a base de pings",
+   "Nadie: que se apague"
+  ],
+  "juicio": false
+ },
+ "manana": [
+  {
+   "texto": "¿Volverá Saiko a coger a Taric, o el Escudo de Valoran ha pedido una orden de alejamiento?"
+  },
+  {
+   "texto": "¿Llegará Wôlf a la partida veinte del reto sin soltar la cabeza de la tabla?"
+  },
+  {
+   "texto": "¿Pondrá iPredatoRz más guardianes que asesinatos en su próxima Flex?"
+  }
+ ],
+ "replicas_descartadas": [],
+ "estilo": {
+  "pautas_nuevas": [],
+  "pautas_retiradas": []
+ },
+ "horoscopo": [
+  {
+   "signo": "Top",
+   "texto": "Forjarás objetos para todo el equipo y a las seis y media llegará un Yasuo a rompértelos. Hoy, no salgas de la fragua."
+  },
+  {
+   "signo": "Jungla",
+   "texto": "Marte en el campamento rival: le quitarás nueve mil de oro a tu homólogo y aun así alguien te reprochará los pings. Tendrá razón."
+  },
+  {
+   "signo": "Mid",
+   "texto": "Saturno exige visión. Pondrás cuatro guardianes, ganarás igual y eso será lo peor que te pueda pasar: aprenderás que no hace falta."
+  },
+  {
+   "signo": "Tirador",
+   "texto": "Tu soporte vendrá a protegerte doce veces y doce veces llegará desde la fuente. Lleva Curar y desconfianza."
+  },
+  {
+   "signo": "Soporte",
+   "texto": "Venus cambia el robot por una piedra preciosa. No la sigas: las joyas no esquivan ganchos."
+  }
+ ],
+ "columna": {
+  "titulo": "Me protegió desde la fuente",
+  "autor": "La Tiradora del sábado a la una y media",
+  "cuerpo": [
+   "Nadie me conoce. Soy la tiradora a la que el sábado a la una y media le tocó Saiko de soporte en una clasificatoria, y escribo porque alguien tiene que contar la versión de la que se quedó sola en la calle.",
+   "Él eligió Taric. Taric es un escudo: tiene un hechizo para curarte, otro para aturdir al que te persigue y otro para hacerte invulnerable. Durante treinta y tres minutos conocí los tres de oídas, como se conoce a un primo que vive en Australia.",
+   "Murió por primera vez antes del minuto tres. A la quinta, antes del diez, dejé de mover la cámara para buscarle. Ya sabía dónde estaba: en la fuente, mirando el contador, quieto como un mueble de recibidor.",
+   "En su defensa diré que puso veintiséis guardianes. Gracias a eso vi venir a los que me mataban con muchísima antelación.",
+   "Si nos volvemos a cruzar, que coja él la tiradora. Así, por lo menos, cada uno se muere lo suyo."
+  ]
+ },
+ "especial": null,
+ "frase": "Liderar una tabla de Oro es como ser el más alto de la guardería: es verdad y no sirve para nada.",
+ "eventos_usados": [],
+ "propuestas_descartadas": [],
+ "firma": "Claude"
+}
