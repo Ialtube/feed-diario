@@ -6455,19 +6455,19 @@
       "slug": "fr4nux",
       "alias": "Fr4nux",
       "principal": true,
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "IV",
-        "lp": 0,
-        "wins": 273,
-        "losses": 249
-      },
       "flex": {
         "tier": "GOLD",
         "rank": "I",
         "lp": 99,
         "wins": 114,
         "losses": 97
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "IV",
+        "lp": 0,
+        "wins": 273,
+        "losses": 249
       }
     },
     "gsjoseador#2711": {
@@ -6555,19 +6555,19 @@
       "slug": "rdv-canyon",
       "alias": "RDV Canyon",
       "principal": true,
-      "solo": {
-        "tier": "DIAMOND",
-        "rank": "IV",
-        "lp": 73,
-        "wins": 80,
-        "losses": 71
-      },
       "flex": {
         "tier": "DIAMOND",
         "rank": "III",
         "lp": 75,
         "wins": 69,
         "losses": 65
+      },
+      "solo": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 73,
+        "wins": 80,
+        "losses": 71
       }
     },
     "giroroo#rdv": {
@@ -6695,19 +6695,19 @@
       "slug": "ipredatorz",
       "alias": "iPredatoRz",
       "principal": false,
-      "flex": {
-        "tier": "PLATINUM",
-        "rank": "III",
-        "lp": 51,
-        "wins": 29,
-        "losses": 26
-      },
       "solo": {
         "tier": "EMERALD",
         "rank": "IV",
         "lp": 29,
         "wins": 64,
         "losses": 58
+      },
+      "flex": {
+        "tier": "PLATINUM",
+        "rank": "III",
+        "lp": 74,
+        "wins": 30,
+        "losses": 26
       }
     },
     "vitasuchiha#euw": {
