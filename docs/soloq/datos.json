@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794138456506,
+ "actualizado": 1794139021119,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -47,10 +47,10 @@
    "riot_id": "smilesdeath#6859",
    "liga": "Oro II · 57 LP",
    "lp_hoy": 0,
-   "partidas": 14,
+   "partidas": 15,
    "victorias": 10,
-   "derrotas": 4,
-   "racha": 1
+   "derrotas": 5,
+   "racha": -1
   },
   {
    "puesto": 4,
