@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794145224653,
+ "actualizado": 1794146910087,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -54,6 +54,18 @@
   },
   {
    "puesto": 4,
+   "nombre": "Saiko",
+   "apodo": "KOI Huerfano",
+   "riot_id": "Mastersuftine#6535",
+   "liga": "Oro II · 77 LP",
+   "lp_hoy": 30,
+   "partidas": 15,
+   "victorias": 11,
+   "derrotas": 4,
+   "racha": 1
+  },
+  {
+   "puesto": 5,
    "nombre": "RDV Canyon",
    "apodo": "Minguez",
    "riot_id": "FisityBard#3700",
@@ -62,18 +74,6 @@
    "partidas": 16,
    "victorias": 11,
    "derrotas": 5,
-   "racha": -1
-  },
-  {
-   "puesto": 5,
-   "nombre": "Saiko",
-   "apodo": "KOI Huerfano",
-   "riot_id": "Mastersuftine#6535",
-   "liga": "Oro II · 47 LP",
-   "lp_hoy": 0,
-   "partidas": 14,
-   "victorias": 10,
-   "derrotas": 4,
    "racha": -1
   },
   {
