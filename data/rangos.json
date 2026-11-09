@@ -6810,19 +6810,19 @@
       "slug": "fr4nux",
       "alias": "Fr4nux",
       "principal": true,
-      "flex": {
-        "tier": "GOLD",
-        "rank": "I",
-        "lp": 99,
-        "wins": 114,
-        "losses": 97
-      },
       "solo": {
         "tier": "EMERALD",
         "rank": "IV",
         "lp": 0,
         "wins": 273,
         "losses": 249
+      },
+      "flex": {
+        "tier": "GOLD",
+        "rank": "I",
+        "lp": 99,
+        "wins": 114,
+        "losses": 97
       }
     },
     "gsjoseador#2711": {
@@ -6830,19 +6830,19 @@
       "slug": "gsjoseador",
       "alias": "GSJoseador",
       "principal": true,
-      "flex": {
-        "tier": "DIAMOND",
-        "rank": "IV",
-        "lp": 40,
-        "wins": 80,
-        "losses": 57
-      },
       "solo": {
         "tier": "DIAMOND",
         "rank": "II",
         "lp": 47,
         "wins": 85,
         "losses": 61
+      },
+      "flex": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 40,
+        "wins": 80,
+        "losses": 57
       }
     },
     "dierophant green#euw": {
@@ -6850,19 +6850,19 @@
       "slug": "dierophant",
       "alias": "Dierophant",
       "principal": true,
-      "flex": {
-        "tier": "DIAMOND",
-        "rank": "IV",
-        "lp": 52,
-        "wins": 103,
-        "losses": 98
-      },
       "solo": {
         "tier": "EMERALD",
         "rank": "II",
         "lp": 37,
         "wins": 102,
         "losses": 109
+      },
+      "flex": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 52,
+        "wins": 103,
+        "losses": 98
       }
     },
     "ipredatorz#euw": {
@@ -6910,19 +6910,19 @@
       "slug": "rdv-canyon",
       "alias": "RDV Canyon",
       "principal": true,
-      "solo": {
-        "tier": "DIAMOND",
-        "rank": "IV",
-        "lp": 73,
-        "wins": 80,
-        "losses": 71
-      },
       "flex": {
         "tier": "DIAMOND",
         "rank": "III",
         "lp": 75,
         "wins": 69,
         "losses": 65
+      },
+      "solo": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 73,
+        "wins": 80,
+        "losses": 71
       }
     },
     "giroroo#rdv": {
