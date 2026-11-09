@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794248952683,
+ "actualizado": 1794252236746,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -57,24 +57,24 @@
    "nombre": "Dierophant",
    "apodo": "Intilteable",
    "riot_id": "smilesdeath#6859",
-   "liga": "Oro II · 87 LP",
-   "lp_hoy": 0,
-   "partidas": 16,
-   "victorias": 11,
+   "liga": "Oro I · 17 LP",
+   "lp_hoy": 30,
+   "partidas": 17,
+   "victorias": 12,
    "derrotas": 5,
-   "racha": 1
+   "racha": 2
   },
   {
    "puesto": 5,
    "nombre": "RDV Canyon",
    "apodo": "Minguez",
    "riot_id": "FisityBard#3700",
-   "liga": "Oro II · 67 LP",
-   "lp_hoy": 0,
-   "partidas": 16,
+   "liga": "Oro II · 47 LP",
+   "lp_hoy": -20,
+   "partidas": 18,
    "victorias": 11,
-   "derrotas": 5,
-   "racha": -1
+   "derrotas": 7,
+   "racha": -3
   },
   {
    "puesto": 6,
