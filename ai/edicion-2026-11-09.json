@@ -1,0 +1,143 @@
+{
+  "piezas": [
+    {"angulo": "a1", "peso": "grande", "portada": true, "formato": "reportaje", "hilo": "el-regreso-del-fantasma",
+     "seccion": "DEPORTES", "player": "ipredatorz",
+     "headline": "Siete horas para bajar once puntos",
+     "subtitulo": "iPredatoRz se sienta a la una y media, muere ciento veintiuna veces y, cuando ya nadie miraba, firma la partida con más asesinatos de la historia del periódico.",
+     "body": "A las 13:33 del domingo, iPredatoRz cogió un Yasuo en Flex. A las 23:25 cogió una Kai'Sa en SoloQ. Entre una y otra cupieron catorce partidas, siete horas largas y ciento veintiuna muertes: sesenta y dos minutos mirando la pantalla gris. Pasó más rato muerto que Wôlf jugando.\n\nEl 6–8 del día no le hace justicia; su cuenta secundaria, sí. Abrió la tarde con Esmeralda IV y 29 puntos y la cerró con 18. Siete horas de tirador para perder once puntos. En el reto, de propina, perdió las dos que jugó y bajó a Oro III.\n\nY entonces, con ciento dieciséis muertes ya en el zurrón, la Kai'Sa: 24/5/6, triple asesinato, casi un tercio del daño de su equipo y victoria en veintiséis minutos. Nadie había matado tanto en una partida desde que existe este periódico. El récord de morir, diecinueve con Akali, también es suyo.\n\nEl Fantasma del Vacío tiene ya las dos plusmarcas de la casa, la de matar y la de morir, y la Biblioteca de Shurima no sabe en qué estantería ponerle.\n\nSi juegas catorce, alguna sale. Eso no es talento: es estadística.",
+     "meme": {"campeon": "Kai'Sa", "aspecto": 71, "lineas": ["116 muertes después", "récord de asesinatos"]},
+     "pie": "Kai'Sa leyenda inmortal, en la única partida del domingo en que lo fue."},
+
+    {"angulo": "a2", "peso": "grande", "formato": "parte policial", "hilo": "el-sindicato-cambia-de-bando",
+     "seccion": "SUCESOS", "player": "ipredatorz", "campeon": "Ezreal",
+     "headline": "Ezreal no olvida una cara",
+     "subtitulo": "Abandonado a las siete con quince muertes, el campeón reaparece en el bando rival antes de las nueve.",
+     "body": "ATESTADO. Domingo, 19:06. Un Ezreal es sacado a la calle inferior por iPredatoRz en partida clasificatoria. A los cuarenta y dos minutos se levanta acta de quince fallecimientos del mismo campeón, uno cada 2:48, cinco de ellos sobre la misma baldosa. La sargento Vi, primera en llegar, describe la escena como «un tirador haciendo cola».\n\nAgravantes: el finado hizo el 29,4 % del daño de su equipo y ganó su calle por veinticinco monedas. Se le dio todo menos la vida. Es su tercera derrota de tres con el mismo dueño, y Ezreal ha registrado denuncia en el Sindicato de Campeones Maltratados.\n\nHechos posteriores. A las 19:52 aparece un Ezreal en el bando rival: pierde la calle, pero gana la partida. A las 20:29 reaparece frente a la Caitlyn que iPredatoRz estrenaba esa noche, se va a 16/5/6 y la deja en 1/11/3, con 5.735 de oro de ventaja en la calle.\n\nPor un error administrativo, esa partida la ganó el equipo del agredido, que hasta se llevó el Barón Nashor. El comisario Cobretuerca la archiva como «victoria con lesiones».\n\nEzreal no pidió explicaciones. Solo pidió la calle de enfrente.",
+     "pie": "Ezreal, retratado antes de cambiarse de bando."},
+
+    {"angulo": "a29", "peso": "mediana", "formato": "noticia", "hilo": "el-reto-de-las-cuentas-nuevas",
+     "seccion": "EL FARO DE LA ESPERANZA", "campeon": "Xerath",
+     "headline": "Xerath dispara y el reto se lo descuenta",
+     "subtitulo": "GSJoseador cumple su grito de guerra en la partida que no contaba.",
+     "body": "Escribe Tobías Candil a la luz de una vela, porque la lámpara del Faro se la llevó el Hermano Venda a Noxus. Por una vez hay algo que alumbrar: GSJoseador cierra el domingo 3–0, con dos Xerath y un Ornn. El último Xerath, a las 23:39, acabó 18/1/5 con el 38,9 % del daño de su equipo, y el Veigar de enfrente terminó con 6.929 de oro menos.\n\nEn el reto se inscribió gritando «Top damage del equipo», y el domingo lo cumplió a rajatabla. Mientras tanto, en el propio reto, subió a Oro I y volvió a bajar a Oro II el mismo día, que es la forma más cara de quedarse casi donde estaba.\n\nEl Faro brilla. En la casa de al lado, pero brilla."},
+
+    {"angulo": "a17", "peso": "mediana", "formato": "análisis", "hilo": "el-reinado-de-urgod",
+     "seccion": "SOLOQ CHALLENGE", "campeon": "Urgot",
+     "headline": "Quince Urgot y ninguna idea nueva",
+     "subtitulo": "El rey de un solo campeón encadena cuatro derrotas y ya es sexto.",
+     "body": "El reino de Urgod tiene un solo súbdito y empieza a amotinarse. TheTrevur lleva quince partidas en el reto, las quince con Urgot, y las cuatro últimas perdidas. El domingo jugó dos, perdió dos y cayó a Oro III: 95 puntos. Hace tres días era el líder; hoy es sexto.\n\nEl análisis técnico cabe en su grito de guerra: «E + Flash». Lo malo de tener un solo plan es que la cola de Oro ya se lo ha aprendido. Le quedan 605 puntos para la Esmeralda que prometió y 44 días para descubrir otro botón.\n\nUn one-trick que pierde cuatro seguidas no tiene una mala racha. Tiene un manual publicado."},
+
+    {"angulo": null, "peso": "mediana", "formato": "juicio", "hilo": "el-escandalo-de-la-lonja",
+     "seccion": "POLÍTICA", "player": "grangalax",
+     "headline": "Barbanegra se declara culpable antes de que hable su abogado",
+     "subtitulo": "El escándalo de la Lonja se cierra sin juicio, con el Barón tres días sin jugar y su corredor sin fichar.",
+     "body": "El Tribunal de Piltover cerró el escándalo de la Lonja sin llegar a celebrar el juicio. La fiscal Hexwick se presentó con el registro de entradas bajo el brazo: Barbanegra el Contable no ha pisado la Lonja ninguno de los días que el Barón de la Moneda no ha jugado, y el Barón lleva tres sin tocar el ratón. Plata I con 50 puntos, congelado, y un corredor que no ficha.\n\nEl abogado de oficio Gaspar Leguleyo se levantó para su alegato. No llegó a la segunda frase: Barbanegra se declaró culpable de todo, incluido lo que nadie le había preguntado. La fiscal suma así otro juicio ganado sin juicio, una costumbre que en el tribunal ya nadie comenta en voz alta.\n\nDon Evaristo Plumanegra firmó la suspensión de empleo y sueldo desde su camarote, con pulso de jubilado: la moneda del Barón ya no la cotiza nadie.\n\nLeguleyo pidió que constara en acta que iba ganando."},
+
+    {"angulo": "a52", "peso": "mediana", "formato": "crónica", "hilo": "barro-en-la-cima",
+     "seccion": "COMUNICACIÓN", "campeon": "Zed",
+     "headline": "Radio Zaun ya tiene locutor",
+     "subtitulo": "El jurado le dio el Faro a Wôlf «a base de pings» y Wôlf hizo la prueba sin saberlo.",
+     "body": "Los lectores votaron que el Faro lo escribiera Wôlf «a base de pings», y Wôlf, sin enterarse de nada, se presentó a la prueba. Una sola partida, a media mañana: Zed en el centro, victoria y veintiséis pings en treinta minutos. Un guardián. Uno. Señaló todo lo que no había iluminado.\n\nEl farmeo tampoco pide premio: cinco súbditos menos que la Akali de enfrente, que perdió igual. Y aun así sigue arriba del reto, Oro I con 21 puntos, a 1.279 del Aspirante que prometió con un «Hola».\n\nRadio Zaun ya le ha ofrecido el turno de noche. No hace falta que vea nada; basta con que avise.",
+     "meme": {"plantilla": "drake", "lineas": ["Poner un guardián", "Avisar veintiséis veces de lo que no se ve"]}},
+
+    {"angulo": "a3", "peso": "breve", "formato": "parte meteorológico", "seccion": "EL TIEMPO",
+     "headline": "Niebla cerrada sobre la calle inferior",
+     "body": "Islas de la Sombra. Previsión cumplida: sesenta y dos minutos de gris sobre iPredatoRz, el 14,4 % de su domingo. Los únicos claros llegaron pasadas las once de la noche y coincidieron con una Kai'Sa. Madame Niebla prevé lo mismo para hoy, que es lo único que acierta."},
+
+    {"angulo": "a31", "peso": "breve", "formato": "anuncio por palabras", "seccion": "ECONOMÍA",
+     "headline": "Se vende Lucian",
+     "body": "SE VENDE Lucian de ocasión. Cobró el 21,8 % del oro de su equipo y devolvió el 13,3 % del daño. 3/12/10. Muchas horas de uso, casi todas muerto. Razón: iPredatoRz, a cualquier hora del domingo. Abstenerse corredores de la Lonja: están suspendidos."},
+
+    {"angulo": "a22", "peso": "breve", "formato": "breve", "hilo": "el-sindicato-cambia-de-bando",
+     "headline": "Kalista pide el divorcio por escrito",
+     "body": "Kalista, la Lanza de la Venganza, exige un juramento a quien la saca. iPredatoRz se lo ha roto tres veces: 0–3 en la hemeroteca, la última a las 18:33, con tres muertes sin llegar al minuto diez. Ha pedido al Sindicato que le busquen otro pacto."},
+
+    {"angulo": "a34", "peso": "breve", "formato": "breve", "seccion": "EL FARO DE LA ESPERANZA",
+     "headline": "Zeri hizo los deberes",
+     "body": "A las 16:41, la Zeri de iPredatoRz acabó 11/5/10, metida en el 60 % de los asesinatos de su equipo y con un dragón en el bolsillo. Perdió igual. El Faro la recoge porque es lo único del domingo que no se le puede imputar al conductor."},
+
+    {"angulo": "a30", "peso": "breve", "formato": "breve", "seccion": "SOLOQ CHALLENGE",
+     "headline": "El botiquín sube dos pisos",
+     "body": "Saiko gana las dos del reto, suma 60 puntos y salta del quinto al segundo puesto, Oro I con 7. Blitzcrank lleva quince de sus dieciséis partidas: el robot que le denunció tres veces ya cobra como titular. Taric ni asomó."},
+
+    {"angulo": "a54", "peso": "breve", "formato": "breve", "seccion": "SOLOQ CHALLENGE", "player": "fr4nux",
+     "headline": "Teemo ya está calentando",
+     "body": "Fr4nux no jugó y sigue de farolillo rojo: Oro III, 24 puntos, 6–8 y quince puntos menos que cuando se apuntó. El castigo es una partida entera de soporte con Teemo. Un tirador que no hace daño, de soporte con un campeón que tampoco: por fin, un rol a su medida."},
+
+    {"angulo": "a56", "peso": "breve", "formato": "hace una semana", "seccion": "CULTURA", "player": "giroroo",
+     "headline": "Siete, hace siete días",
+     "body": "Hace una semana, Giroroo, el que jugaba poco y ganaba, abrió este periódico con siete partidas en tres cuentas y un 2–3. Este domingo no jugó ninguna, y en el reto sigue 8–8. Es la cura más vieja que existe: no jugar."}
+  ],
+  "tiempo": [
+    {"jugador": "ipredatorz", "texto": "Sesenta y dos minutos de niebla con un único claro a las once y media de la noche. Para hoy, gris persistente en cuanto asome un Ezreal."},
+    {"jugador": "wolf", "texto": "Media hora de cielo despejado con tormenta eléctrica de avisos: veintiséis rayos y un solo faro encendido."},
+    {"jugador": "gsjoseador", "texto": "Despejado. Apenas tres minutos de sombra en todo el domingo y una brisa de soberbia soplando desde el centro."}
+  ],
+  "canon": {
+    "hilos": [
+      {"id": "el-regreso-del-fantasma", "accion": "avanzar", "estado": "escalando", "resumen": "Domingo de catorce partidas, de las 13:33 a las 23:25: 6–8, 121 muertes, 62 minutos en gris y su secundaria de Esmeralda IV 29 a 18. Cierra con una Kai'Sa 24/5/6, el récord de asesinatos del periódico: ya tiene las dos plusmarcas, la de matar y la de morir.", "protagonistas": ["ipredatorz"]},
+      {"id": "el-sindicato-cambia-de-bando", "accion": "avanzar", "estado": "escalando", "resumen": "Ezreal muere quince veces con iPredatoRz a las 19:06 (0–3 en la hemeroteca), denuncia y aparece dos veces en el bando rival: a las 20:29 se va a 16/5/6 contra la Caitlyn que estrenaba. Kalista también rompe el pacto: 0–3.", "protagonistas": ["ipredatorz"]},
+      {"id": "el-reinado-de-urgod", "accion": "avanzar", "estado": "escalando", "resumen": "Cuatro derrotas seguidas, 0–2 el domingo y sexto en Oro III con 95: quince partidas de quince con Urgot y la cola ya se sabe el combo.", "protagonistas": ["thetrevur"]},
+      {"id": "barro-en-la-cima", "accion": "avanzar", "estado": "escalando", "resumen": "Una sola partida, Zed con veintiséis pings y un guardián, y sigue líder del reto en Oro I con 21. El jurado le elige para escribir el Faro a base de pings.", "protagonistas": ["wolf"]},
+      {"id": "el-reto-de-las-cuentas-nuevas", "accion": "avanzar", "resumen": "Día nueve: Wôlf sigue líder; Saiko sube del quinto al segundo con dos victorias; GSJoseador toca Oro I y vuelve a Oro II; TheTrevur pierde cuatro seguidas; Fr4nux sigue farolillo rojo."},
+      {"id": "el-escandalo-de-la-lonja", "accion": "cerrar", "resumen": "Barbanegra se declara culpable antes de que Leguleyo acabe su alegato; Hexwick gana otro juicio sin juicio y el director firma la suspensión de empleo y sueldo del contable desde su camarote."},
+      {"id": "la-guerra-de-los-periodicos", "accion": "avanzar", "estado": "escalando", "resumen": "La Gaceta publica la suspensión de Barbanegra tres horas antes que el Rincón y saca a iPredatoRz como héroe del récord de asesinatos que el Rincón «escondió» detrás de sus muertes."}
+    ],
+    "personajes": {
+      "ipredatorz": {"titulo": "Doble Plusmarquista, de matar y de morir", "apodo": "el turno de catorce", "maldicion": "Ezreal: 0–3 en la hemeroteca; quince muertes en cuarenta y dos minutos y venganza desde el bando rival",
+                     "arco": {"tipo": "villano", "texto": "Catorce partidas y ciento veintiuna muertes en un domingo para perder once puntos; lo salva a última hora una Kai'Sa con el récord de asesinatos."}},
+      "thetrevur": {"arco": {"tipo": "caída", "texto": "Del trono al sexto puesto en tres días: cuatro derrotas seguidas con el único campeón que sabe usar."}},
+      "gsjoseador": {"arco": {"tipo": "redención", "texto": "3–0 en el domingo y un Xerath 18/1/5 que cumple su grito de guerra, mientras en el reto sube a Oro I y vuelve a bajar."}}
+    },
+    "elenco": [
+      {"nombre": "Barbanegra el Contable", "estado": "Suspendido de empleo y sueldo tras declararse culpable de todo"},
+      {"nombre": "Fiscal Lucrecia Hexwick", "estado": "Ha ganado otro juicio sin juicio: Barbanegra confesó antes del alegato"},
+      {"nombre": "Gaspar Leguleyo", "estado": "Exige que conste en acta que iba ganando"},
+      {"nombre": "Tobías Candil", "estado": "Escribe el Faro con una vela y, por mandato del jurado, transcribe los pings de Wôlf"}
+    ],
+    "costumbres": ["Los domingos sin Flex del grupo, iPredatoRz abre a la una y media con dos Flex y se queda en SoloQ hasta pasadas las once y media de la noche."],
+    "chistes": ["la moneda de grangalax"],
+    "sindicato": [
+      {"campeon": "Ezreal", "jugador": "ipredatorz", "motivo": "Quince muertes en cuarenta y dos minutos, cinco sobre la misma baldosa, después de hacer el 29,4 % del daño: tercera derrota de tres"},
+      {"campeon": "Kalista", "jugador": "ipredatorz", "motivo": "Tercera derrota de tres, con tres muertes sin llegar al minuto diez"}
+    ]
+  },
+  "gaceta": {"titular": "¡EXCLUSIVA: EL CONTABLE DEL RINCÓN, SUSPENDIDO, Y ELLOS SE ENTERAN POR NOSOTROS!",
+             "cuerpo": "Fuentes de toda solvencia pusieron en esta redacción, a las seis de la mañana, la orden de suspensión de Barbanegra, firmada por un director que firma más rápido para nosotros que para los suyos. ¡TRES HORAS antes que el Rincón!\n\nY mientras ellos cuentan muertos, aquí contamos lo que importa: iPredatoRz firmó VEINTICUATRO asesinatos con Kai'Sa, el récord de la historia de su propio periódico. ¿Y a qué dedica el Rincón su portada? ¡A las muertes! ¡Así trata esa casa a sus héroes!",
+             "firma": "Valeria Puñoférreo"},
+  "jurado": {"pregunta": "¿Con qué se queda la ficha del Fantasma?", "opciones": ["Los 24 asesinatos con Kai'Sa", "Las 121 muertes del domingo", "Los 11 puntos perdidos en siete horas"], "juicio": false},
+  "jurado_veredicto": "Dos votos para «Wôlf, a base de pings», uno de ellos firmado por GSJoseador. El jurado manda: Tobías Candil conserva la vela, pero ahora transcribe. Wôlf, que no sabe que ha sido elegido, entregó su primera columna el domingo a media mañana: veintiséis pings y un guardián. La redacción la está traduciendo.",
+  "manana": [
+    {"texto": "¿Volverá iPredatoRz a sentarse catorce veces, o la Kai'Sa del récord le ha dado permiso para irse a dormir?"},
+    {"texto": "¿Sacará TheTrevur un segundo campeón antes de la quinta derrota seguida?"},
+    {"texto": "¿Vuelve el Barón a la Grieta ahora que su contable no puede cotizarle?"}
+  ],
+  "promesas": [
+    {"n": 1, "texto": "Saiko no volvió a coger a Taric: ganó las dos del reto con Blitzcrank y subió al segundo puesto. El Escudo de Valoran agradece la orden de alejamiento."},
+    {"n": 2, "texto": "Wôlf sigue en cabeza del reto, pero no llegó a la partida veinte: jugó una y se quedó en diecisiete. El liderato aguanta porque nadie le obliga a demostrarlo."},
+    {"n": 3, "texto": "A medias. El Yasuo de las 13:33 puso cuatro guardianes para seis asesinatos. El Jhin de las 15:24 puso nueve para siete: lo cumplió en la Flex que perdió."}
+  ],
+  "replicas_descartadas": [],
+  "estilo": {"pautas_nuevas": [], "pautas_retiradas": []},
+  "horoscopo": [
+    {"signo": "Top", "texto": "Tu único campeón ya no sorprende a nadie. Prueba un segundo antes de que la cola se aprenda también tu nombre."},
+    {"signo": "Jungla", "texto": "Nadie del grupo pisó tu jungla el domingo. Aprovecha para poner un guardián: no te va a ver nadie hacerlo."},
+    {"signo": "Mid", "texto": "Xerath te sonríe si disparas desde lejos; Zed, si avisas mucho. Elige si quieres ganar o que se enteren."},
+    {"signo": "Tirador", "texto": "Catorce partidas no son una estrategia, son una condena con descansos. Si a la decimotercera no ha salido, la decimocuarta tampoco. Salvo que salga, y entonces es peor."},
+    {"signo": "Soporte", "texto": "Taric descansa y Blitzcrank cobra. Si un campeón te denunció, sácalo: a lo mejor gana por despecho."}
+  ],
+  "columna": {"titulo": "Ciento veintiuna, y ninguna conmigo", "autor": "La Torre Exterior de la Calle Inferior",
+              "cuerpo": [
+                "Llevo toda la vida plantada en la calle inferior y conozco a los tiradores del grupo por cómo pisan. Al del domingo le conozco especialmente: pasó por delante de mí catorce veces.",
+                "No le reprocho nada. Murió ciento veintiuna veces y ni una fue cosa mía. Ni torre ni súbdito: cero ejecuciones, según el forense. Todas se las regaló a campeones. Yo, que llevo años disparando a cualquiera que se acerca, me he quedado sin una sola.",
+                "A las once y media sacó una Kai'Sa y mató a veinticuatro. Tampoco ninguno cerca de mí.",
+                "Hay amores que no se consuman."
+              ]},
+  "especial": {"antetitulo": "RESUMEN SEMANAL · 2–8 NOV", "titulo": "Cuatro portadas para no moverse",
+               "subtitulo": "El Barón de la Moneda abrió cuatro de las siete ediciones de la semana, cerró el reto 8–8 y desde el jueves no ha vuelto; el domingo, el periódico tuvo que buscarse otro protagonista y lo encontró catorce veces.",
+               "tema": "oro"},
+  "frase": "La constancia es una virtud hasta que alguien la mide en muertes.",
+  "eventos_usados": [],
+  "propuestas_descartadas": [],
+  "firma": "Claude"
+}

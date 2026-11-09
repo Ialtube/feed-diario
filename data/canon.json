@@ -191,6 +191,11 @@
           "tipo": "ascenso",
           "texto": "Sube al primer puesto del reto con doce Urgot de doce, sin probar otra cosa.",
           "fecha": "2026-11-06"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Del trono al sexto puesto en tres días: cuatro derrotas seguidas con el único campeón que sabe usar.",
+          "fecha": "2026-11-09"
         }
       ]
     },
@@ -403,6 +408,11 @@
           "tipo": "caída",
           "texto": "Hereda la Syndra del Barón y gana con ella, pero Akshan le abandona y le cobra desde el bando rival: 1–2 en el día.",
           "fecha": "2026-11-05"
+        },
+        {
+          "tipo": "redención",
+          "texto": "3–0 en el domingo y un Xerath 18/1/5 que cumple su grito de guerra, mientras en el reto sube a Oro I y vuelve a bajar.",
+          "fecha": "2026-11-09"
         }
       ]
     },
@@ -462,6 +472,10 @@
         {
           "fecha": "2026-10-21",
           "texto": "el heredero accidental"
+        },
+        {
+          "fecha": "2026-11-09",
+          "texto": "el turno de catorce"
         }
       ],
       "rasgos": [
@@ -471,6 +485,10 @@
         {
           "fecha": "2026-11-03",
           "texto": "Kalista: 0–2 en su estreno, 17/15/9 contra el Yasuo que le había denunciado"
+        },
+        {
+          "fecha": "2026-11-09",
+          "texto": "Ezreal: 0–3 en la hemeroteca; quince muertes en cuarenta y dos minutos y venganza desde el bando rival"
         }
       ],
       "rivales": [],
@@ -482,6 +500,10 @@
         {
           "fecha": "2026-10-24",
           "texto": "Plusmarquista de la Necrópolis"
+        },
+        {
+          "fecha": "2026-11-09",
+          "texto": "Doble Plusmarquista, de matar y de morir"
         }
       ],
       "arcos": [
@@ -514,6 +536,11 @@
           "tipo": "redención",
           "texto": "Hace las paces con Yasuo, el campeón que le denunció: dos victorias solo en Flex, sin poner visión.",
           "fecha": "2026-11-08"
+        },
+        {
+          "tipo": "villano",
+          "texto": "Catorce partidas y ciento veintiuna muertes en un domingo para perder once puntos; lo salva a última hora una Kai'Sa con el récord de asesinatos.",
+          "fecha": "2026-11-09"
         }
       ]
     },
@@ -841,6 +868,11 @@
           "fecha": "2026-11-06",
           "campo": "estado",
           "texto": "Ha subrayado «pensión» en el editorial del director y pide el registro de entradas de la Lonja"
+        },
+        {
+          "fecha": "2026-11-09",
+          "campo": "estado",
+          "texto": "Ha ganado otro juicio sin juicio: Barbanegra confesó antes del alegato"
         }
       ]
     },
@@ -926,6 +958,11 @@
           "fecha": "2026-11-08",
           "campo": "estado",
           "texto": "No pisa la Lonja los días que el Barón no juega; Hexwick tiene el registro de entradas"
+        },
+        {
+          "fecha": "2026-11-09",
+          "campo": "estado",
+          "texto": "Suspendido de empleo y sueldo tras declararse culpable de todo"
         }
       ]
     },
@@ -1091,7 +1128,13 @@
       "secreto": "Cobra en LP prestados y todavía no ha cobrado a nadie",
       "relacion": "Defiende a cualquiera que la fiscal acuse, con razón o sin ella",
       "semilla": true,
-      "cambios": []
+      "cambios": [
+        {
+          "fecha": "2026-11-09",
+          "campo": "estado",
+          "texto": "Exige que conste en acta que iba ganando"
+        }
+      ]
     },
     {
       "nombre": "Valeria Puñoférreo",
@@ -1142,7 +1185,14 @@
       "relacion": "Heredero de la lámpara del Hermano Venda, que no se la ha dejado",
       "rasgo": "Firma el Faro mientras no haya titular; escribe a la luz de las velas",
       "institucion": "El Faro de la Esperanza",
-      "fecha": "2026-11-08"
+      "fecha": "2026-11-08",
+      "cambios": [
+        {
+          "fecha": "2026-11-09",
+          "campo": "estado",
+          "texto": "Escribe el Faro con una vela y, por mandato del jurado, transcribe los pings de Wôlf"
+        }
+      ]
     }
   ],
   "hilos": [
@@ -1865,6 +1915,13 @@
           "titulares": [
             "Sin moneda no se ficha"
           ]
+        },
+        {
+          "fecha": "2026-11-09",
+          "resumen": "Barbanegra se declara culpable antes de que Leguleyo acabe su alegato; Hexwick gana otro juicio sin juicio y el director firma la suspensión de empleo y sueldo del contable desde su camarote.",
+          "titulares": [
+            "Barbanegra se declara culpable antes de que hable su abogado"
+          ]
         }
       ],
       "estados": [
@@ -1927,6 +1984,10 @@
         {
           "fecha": "2026-11-06",
           "estado": "desenlace"
+        },
+        {
+          "fecha": "2026-11-09",
+          "estado": "cerrado"
         }
       ]
     },
@@ -2025,6 +2086,11 @@
           "titulares": [
             "Querido director: le escribo desde la otra orilla"
           ]
+        },
+        {
+          "fecha": "2026-11-09",
+          "resumen": "La Gaceta publica la suspensión de Barbanegra tres horas antes que el Rincón y saca a iPredatoRz como héroe del récord de asesinatos que el Rincón «escondió» detrás de sus muertes.",
+          "titulares": []
         }
       ],
       "estados": [
@@ -2066,6 +2132,10 @@
         },
         {
           "fecha": "2026-11-06",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-09",
           "estado": "escalando"
         }
       ]
@@ -2169,6 +2239,10 @@
         {
           "fecha": "2026-11-02",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-09",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -2198,6 +2272,13 @@
           "resumen": "Zeri 11/1/4 con cuádruple en dieciocho minutos y después tres derrotas seguidas, dos con la Kalista que estrena. 4–3 en el día.",
           "titulares": [
             "Dieciocho minutos de Zeri"
+          ]
+        },
+        {
+          "fecha": "2026-11-09",
+          "resumen": "Domingo de catorce partidas, de las 13:33 a las 23:25: 6–8, 121 muertes, 62 minutos en gris y su secundaria de Esmeralda IV 29 a 18. Cierra con una Kai'Sa 24/5/6, el récord de asesinatos del periódico: ya tiene las dos plusmarcas, la de matar y la de morir.",
+          "titulares": [
+            "Siete horas para bajar once puntos"
           ]
         }
       ]
@@ -2688,6 +2769,13 @@
           "titulares": [
             "La tabla de los que prometieron"
           ]
+        },
+        {
+          "fecha": "2026-11-09",
+          "resumen": "Día nueve: Wôlf sigue líder; Saiko sube del quinto al segundo con dos victorias; GSJoseador toca Oro I y vuelve a Oro II; TheTrevur pierde cuatro seguidas; Fr4nux sigue farolillo rojo.",
+          "titulares": [
+            "Xerath dispara y el reto se lo descuenta"
+          ]
         }
       ]
     },
@@ -2747,6 +2835,10 @@
         {
           "fecha": "2026-11-05",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-09",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -2783,6 +2875,14 @@
           "resumen": "Yasuo gana contra el Ornn de GSJoseador a las 18:24 y, por la noche, gana dos Flex con iPredatoRz, al que había denunciado. Retira la denuncia, pero exige guardianes: nueve de visión en treinta y dos minutos.",
           "titulares": [
             "Yasuo perdona, pero pide un guardián"
+          ]
+        },
+        {
+          "fecha": "2026-11-09",
+          "resumen": "Ezreal muere quince veces con iPredatoRz a las 19:06 (0–3 en la hemeroteca), denuncia y aparece dos veces en el bando rival: a las 20:29 se va a 16/5/6 contra la Caitlyn que estrenaba. Kalista también rompe el pacto: 0–3.",
+          "titulares": [
+            "Ezreal no olvida una cara",
+            "Kalista pide el divorcio por escrito"
           ]
         }
       ]
@@ -2883,6 +2983,10 @@
         {
           "fecha": "2026-11-06",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-11-09",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -2897,6 +3001,13 @@
           "fecha": "2026-11-08",
           "resumen": "TheTrevur no juega y cae dos puestos, al sexto: el reino de un solo campeón dura lo que tarda en apagar el ordenador.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-11-09",
+          "resumen": "Cuatro derrotas seguidas, 0–2 el domingo y sexto en Oro III con 95: quince partidas de quince con Urgot y la cola ya se sabe el combo.",
+          "titulares": [
+            "Quince Urgot y ninguna idea nueva"
+          ]
         }
       ]
     },
@@ -2913,6 +3024,10 @@
         {
           "fecha": "2026-11-08",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-11-09",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -2921,6 +3036,13 @@
           "resumen": "Wôlf, inscrito en el reto con un «Hola» y llamado «Barro tullido» por Fr4nux, se pone líder del SoloQ Challenge ganando con los campeones malditos del Barón. Le faltan 34 partidas para que cuente.",
           "titulares": [
             "El que dijo «Hola» y se quedó arriba"
+          ]
+        },
+        {
+          "fecha": "2026-11-09",
+          "resumen": "Una sola partida, Zed con veintiséis pings y un guardián, y sigue líder del reto en Oro I con 21. El jurado le elige para escribir el Faro a base de pings.",
+          "titulares": [
+            "Radio Zaun ya tiene locutor"
           ]
         }
       ]
@@ -3010,6 +3132,10 @@
     {
       "fecha": "2026-11-08",
       "texto": "Los sábados sin Flex del grupo, iPredatoRz entra solo en Flex pasadas las diez y media de la noche y saca Yasuo dos veces seguidas."
+    },
+    {
+      "fecha": "2026-11-09",
+      "texto": "Los domingos sin Flex del grupo, iPredatoRz abre a la una y media con dos Flex y se queda en SoloQ hasta pasadas las once y media de la noche."
     }
   ],
   "chistes": [
@@ -3022,9 +3148,10 @@
         "2026-10-26",
         "2026-10-27",
         "2026-11-03",
-        "2026-11-06"
+        "2026-11-06",
+        "2026-11-09"
       ],
-      "usos": 7,
+      "usos": 8,
       "semilla": true
     },
     {
@@ -3345,6 +3472,18 @@
       "jugador": "saiko",
       "motivo": "Sacado un sábado a la una y media para morir doce veces, cinco antes del minuto diez, con veintiséis guardianes puestos para que se viera bien",
       "fecha": "2026-11-08"
+    },
+    {
+      "campeon": "Ezreal",
+      "jugador": "ipredatorz",
+      "motivo": "Quince muertes en cuarenta y dos minutos, cinco sobre la misma baldosa, después de hacer el 29,4 % del daño: tercera derrota de tres",
+      "fecha": "2026-11-09"
+    },
+    {
+      "campeon": "Kalista",
+      "jugador": "ipredatorz",
+      "motivo": "Tercera derrota de tres, con tres muertes sin llegar al minuto diez",
+      "fecha": "2026-11-09"
     }
   ]
 }
