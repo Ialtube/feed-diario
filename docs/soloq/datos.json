@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794217381367,
+ "actualizado": 1794245125596,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -30,6 +30,18 @@
   },
   {
    "puesto": 2,
+   "nombre": "GSJoseador",
+   "apodo": "El Comodín de la Grieta",
+   "riot_id": "SantuJk#1510",
+   "liga": "Oro I · 25 LP",
+   "lp_hoy": 30,
+   "partidas": 17,
+   "victorias": 12,
+   "derrotas": 5,
+   "racha": 1
+  },
+  {
+   "puesto": 3,
    "nombre": "Wôlf",
    "apodo": "Barro",
    "riot_id": "Theossichi#9248",
@@ -39,18 +51,6 @@
    "victorias": 12,
    "derrotas": 5,
    "racha": 3
-  },
-  {
-   "puesto": 3,
-   "nombre": "GSJoseador",
-   "apodo": "El Comodín de la Grieta",
-   "riot_id": "SantuJk#1510",
-   "liga": "Oro II · 95 LP",
-   "lp_hoy": 0,
-   "partidas": 16,
-   "victorias": 11,
-   "derrotas": 5,
-   "racha": -1
   },
   {
    "puesto": 4,
