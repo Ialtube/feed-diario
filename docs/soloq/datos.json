@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794301664074,
+ "actualizado": 1794331360035,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -78,6 +78,18 @@
   },
   {
    "puesto": 6,
+   "nombre": "Giroroo",
+   "apodo": "La Guadaña de la Mon",
+   "riot_id": "Xillie#8107",
+   "liga": "Oro II · 19 LP",
+   "lp_hoy": 30,
+   "partidas": 17,
+   "victorias": 9,
+   "derrotas": 8,
+   "racha": 2
+  },
+  {
+   "puesto": 7,
    "nombre": "Fr4nux",
    "apodo": "Fr4nux",
    "riot_id": "ReavendeMan#2719",
@@ -89,7 +101,7 @@
    "racha": 4
   },
   {
-   "puesto": 7,
+   "puesto": 8,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -99,18 +111,6 @@
    "victorias": 9,
    "derrotas": 6,
    "racha": -4
-  },
-  {
-   "puesto": 8,
-   "nombre": "Giroroo",
-   "apodo": "La Guadaña de la Mon",
-   "riot_id": "Xillie#8107",
-   "liga": "Oro III · 89 LP",
-   "lp_hoy": 0,
-   "partidas": 16,
-   "victorias": 8,
-   "derrotas": 8,
-   "racha": 1
   },
   {
    "puesto": 9,
