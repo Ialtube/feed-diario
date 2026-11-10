@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794338235724,
+ "actualizado": 1794341057823,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -18,6 +18,18 @@
  "clasificacion": [
   {
    "puesto": 1,
+   "nombre": "Saiko",
+   "apodo": "KOI Huerfano",
+   "riot_id": "Mastersuftine#6535",
+   "liga": "Platino IV · 27 LP",
+   "lp_hoy": 60,
+   "partidas": 20,
+   "victorias": 16,
+   "derrotas": 4,
+   "racha": 6
+  },
+  {
+   "puesto": 2,
    "nombre": "GSJoseador",
    "apodo": "El Comodín de la Grieta",
    "riot_id": "SantuJk#1510",
@@ -27,18 +39,6 @@
    "victorias": 14,
    "derrotas": 5,
    "racha": 3
-  },
-  {
-   "puesto": 2,
-   "nombre": "Saiko",
-   "apodo": "KOI Huerfano",
-   "riot_id": "Mastersuftine#6535",
-   "liga": "Oro I · 97 LP",
-   "lp_hoy": 30,
-   "partidas": 19,
-   "victorias": 15,
-   "derrotas": 4,
-   "racha": 5
   },
   {
    "puesto": 3,
@@ -102,6 +102,18 @@
   },
   {
    "puesto": 8,
+   "nombre": "grangalax",
+   "apodo": "Showmanco",
+   "riot_id": "nandaris#6071",
+   "liga": "Oro II · 5 LP",
+   "lp_hoy": 60,
+   "partidas": 18,
+   "victorias": 10,
+   "derrotas": 8,
+   "racha": 3
+  },
+  {
+   "puesto": 9,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -113,7 +125,7 @@
    "racha": -4
   },
   {
-   "puesto": 9,
+   "puesto": 10,
    "nombre": "iPredatoRz",
    "apodo": "el depredador depredado",
    "riot_id": "Jungledetter#1065",
@@ -123,18 +135,6 @@
    "victorias": 9,
    "derrotas": 7,
    "racha": -2
-  },
-  {
-   "puesto": 10,
-   "nombre": "grangalax",
-   "apodo": "Showmanco",
-   "riot_id": "nandaris#6071",
-   "liga": "Oro III · 75 LP",
-   "lp_hoy": 30,
-   "partidas": 17,
-   "victorias": 9,
-   "derrotas": 8,
-   "racha": 2
   }
  ]
 }
