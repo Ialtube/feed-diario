@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794333132611,
+ "actualizado": 1794334257808,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -78,6 +78,18 @@
   },
   {
    "puesto": 6,
+   "nombre": "Fr4nux",
+   "apodo": "Fr4nux",
+   "riot_id": "ReavendeMan#2719",
+   "liga": "Oro II · 44 LP",
+   "lp_hoy": 30,
+   "partidas": 18,
+   "victorias": 10,
+   "derrotas": 8,
+   "racha": 5
+  },
+  {
+   "puesto": 7,
    "nombre": "Giroroo",
    "apodo": "La Guadaña de la Mon",
    "riot_id": "Xillie#8107",
@@ -87,18 +99,6 @@
    "victorias": 9,
    "derrotas": 8,
    "racha": 2
-  },
-  {
-   "puesto": 7,
-   "nombre": "Fr4nux",
-   "apodo": "Fr4nux",
-   "riot_id": "ReavendeMan#2719",
-   "liga": "Oro II · 14 LP",
-   "lp_hoy": 0,
-   "partidas": 17,
-   "victorias": 9,
-   "derrotas": 8,
-   "racha": 4
   },
   {
    "puesto": 8,
