@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794336529174,
+ "actualizado": 1794337099446,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -129,12 +129,12 @@
    "nombre": "grangalax",
    "apodo": "Showmanco",
    "riot_id": "nandaris#6071",
-   "liga": "Oro III · 45 LP",
-   "lp_hoy": 0,
-   "partidas": 16,
-   "victorias": 8,
+   "liga": "Oro III · 75 LP",
+   "lp_hoy": 30,
+   "partidas": 17,
+   "victorias": 9,
    "derrotas": 8,
-   "racha": 1
+   "racha": 2
   }
  ]
 }
