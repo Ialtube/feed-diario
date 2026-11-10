@@ -122,7 +122,7 @@
       "puuid": "3QNjiYli3sEUXhxykKbXAkkKBCAz497DGzXv8VlIRNdIdocVsZhmnDusUVWQCPV9Ur91BgjgL53OHA",
       "icono": 29,
       "nivel": 33,
-      "icono_ms": 1794280235089
+      "icono_ms": 1794327928284
     },
     "reavendeman#2719": {
       "riot_id": "ReavendeMan#2719",
@@ -154,7 +154,7 @@
       "puuid": "RvoNt3EVAKCNbRTiE1omP4243LBoBHcUEWYjuKjXJIe6OCSXWCq_yYaLxD14WVO5bXn0TOptJ9lwjQ",
       "icono": 1159,
       "nivel": 34,
-      "icono_ms": 1794280235089
+      "icono_ms": 1794327928284
     },
     "nandaris#6071": {
       "riot_id": "nandaris#6071",
@@ -196,6 +196,25 @@
     "diario": "2026-11-10",
     "inicio": 1793487600000
   },
-  "buzon": [],
+  "buzon": [
+    {
+      "id": 3,
+      "nombre": "RDV Canyon",
+      "texto": "Primer premio 30€, segundo 25€ y tercero 15€. Los premios pequeños 5€ cada uno y cuadra bien para poner 10€ cada jugador.",
+      "created_at": "2026-11-10T14:00:30.940238+00:00"
+    },
+    {
+      "id": 2,
+      "nombre": "RDV Canyon",
+      "texto": "El premio de jugar mas campeones que el mínimo para que cuente sea 1 win en lugar de 2 games",
+      "created_at": "2026-11-10T13:58:18.706405+00:00"
+    },
+    {
+      "id": 1,
+      "nombre": "RDV Canyon",
+      "texto": "Quitar lo de partidas restantes para llegar al minimo. Que te ponga las partidas acumuladas que tienes en funcion del dia en el que estamos (2 partidas maximas al dia). Si adelantas partidas que ponga cuantas en negativo.",
+      "created_at": "2026-11-10T13:57:27.649101+00:00"
+    }
+  ],
   "permisos": []
 }
