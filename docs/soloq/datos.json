@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794347838620,
+ "actualizado": 1794351794132,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -119,10 +119,10 @@
    "riot_id": "nandaris#6071",
    "liga": "Oro III · 95 LP",
    "lp_hoy": 50,
-   "partidas": 19,
+   "partidas": 20,
    "victorias": 10,
-   "derrotas": 9,
-   "racha": -1
+   "derrotas": 10,
+   "racha": -2
   },
   {
    "puesto": 10,
