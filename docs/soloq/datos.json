@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794337666502,
+ "actualizado": 1794338235724,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -54,6 +54,18 @@
   },
   {
    "puesto": 4,
+   "nombre": "RDV Canyon",
+   "apodo": "Minguez",
+   "riot_id": "FisityBard#3700",
+   "liga": "Oro I · 7 LP",
+   "lp_hoy": 60,
+   "partidas": 21,
+   "victorias": 13,
+   "derrotas": 8,
+   "racha": 1
+  },
+  {
+   "puesto": 5,
    "nombre": "Wôlf",
    "apodo": "Barro",
    "riot_id": "Theossichi#9248",
@@ -62,18 +74,6 @@
    "partidas": 18,
    "victorias": 12,
    "derrotas": 6,
-   "racha": -1
-  },
-  {
-   "puesto": 5,
-   "nombre": "RDV Canyon",
-   "apodo": "Minguez",
-   "riot_id": "FisityBard#3700",
-   "liga": "Oro II · 77 LP",
-   "lp_hoy": 30,
-   "partidas": 20,
-   "victorias": 12,
-   "derrotas": 8,
    "racha": -1
   },
   {
