@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794427015630,
+ "actualizado": 1794428159520,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -42,6 +42,18 @@
   },
   {
    "puesto": 3,
+   "nombre": "RDV Canyon",
+   "apodo": "Minguez",
+   "riot_id": "FisityBard#3700",
+   "liga": "Oro I · 97 LP",
+   "lp_hoy": 90,
+   "partidas": 24,
+   "victorias": 16,
+   "derrotas": 8,
+   "racha": 4
+  },
+  {
+   "puesto": 4,
    "nombre": "Dierophant",
    "apodo": "Intilteable",
    "riot_id": "smilesdeath#6859",
@@ -51,18 +63,6 @@
    "victorias": 15,
    "derrotas": 7,
    "racha": 2
-  },
-  {
-   "puesto": 4,
-   "nombre": "RDV Canyon",
-   "apodo": "Minguez",
-   "riot_id": "FisityBard#3700",
-   "liga": "Oro I · 67 LP",
-   "lp_hoy": 60,
-   "partidas": 23,
-   "victorias": 15,
-   "derrotas": 8,
-   "racha": 3
   },
   {
    "puesto": 5,
@@ -93,12 +93,12 @@
    "nombre": "grangalax",
    "apodo": "Showmanco",
    "riot_id": "nandaris#6071",
-   "liga": "Oro II · 55 LP",
-   "lp_hoy": 60,
-   "partidas": 22,
+   "liga": "Oro II · 45 LP",
+   "lp_hoy": 50,
+   "partidas": 23,
    "victorias": 12,
-   "derrotas": 10,
-   "racha": 2
+   "derrotas": 11,
+   "racha": -1
   },
   {
    "puesto": 8,
