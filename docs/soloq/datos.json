@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794420772102,
+ "actualizado": 1794422469291,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -33,32 +33,32 @@
    "nombre": "Saiko",
    "apodo": "KOI Huerfano",
    "riot_id": "Mastersuftine#6535",
-   "liga": "Platino IV · 27 LP",
-   "lp_hoy": 0,
-   "partidas": 20,
+   "liga": "Platino IV · 17 LP",
+   "lp_hoy": -10,
+   "partidas": 21,
    "victorias": 16,
-   "derrotas": 4,
-   "racha": 6
+   "derrotas": 5,
+   "racha": -1
   },
   {
    "puesto": 3,
    "nombre": "Dierophant",
    "apodo": "Intilteable",
    "riot_id": "smilesdeath#6859",
-   "liga": "Oro I · 57 LP",
-   "lp_hoy": 30,
-   "partidas": 21,
-   "victorias": 14,
+   "liga": "Oro I · 87 LP",
+   "lp_hoy": 60,
+   "partidas": 22,
+   "victorias": 15,
    "derrotas": 7,
-   "racha": 1
+   "racha": 2
   },
   {
    "puesto": 4,
    "nombre": "RDV Canyon",
    "apodo": "Minguez",
    "riot_id": "FisityBard#3700",
-   "liga": "Oro I · 7 LP",
-   "lp_hoy": 0,
+   "liga": "Oro I · 37 LP",
+   "lp_hoy": 30,
    "partidas": 21,
    "victorias": 13,
    "derrotas": 8,
@@ -93,12 +93,12 @@
    "nombre": "Fr4nux",
    "apodo": "Fr4nux",
    "riot_id": "ReavendeMan#2719",
-   "liga": "Oro II · 54 LP",
-   "lp_hoy": 20,
-   "partidas": 21,
+   "liga": "Oro II · 44 LP",
+   "lp_hoy": 10,
+   "partidas": 22,
    "victorias": 11,
-   "derrotas": 10,
-   "racha": 1
+   "derrotas": 11,
+   "racha": -1
   },
   {
    "puesto": 8,
