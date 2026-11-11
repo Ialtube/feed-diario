@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794417352966,
+ "actualizado": 1794419633124,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -90,6 +90,18 @@
   },
   {
    "puesto": 7,
+   "nombre": "Fr4nux",
+   "apodo": "Fr4nux",
+   "riot_id": "ReavendeMan#2719",
+   "liga": "Oro II · 54 LP",
+   "lp_hoy": 20,
+   "partidas": 21,
+   "victorias": 11,
+   "derrotas": 10,
+   "racha": 1
+  },
+  {
+   "puesto": 8,
    "nombre": "grangalax",
    "apodo": "Showmanco",
    "riot_id": "nandaris#6071",
@@ -99,18 +111,6 @@
    "victorias": 11,
    "derrotas": 10,
    "racha": 1
-  },
-  {
-   "puesto": 8,
-   "nombre": "Fr4nux",
-   "apodo": "Fr4nux",
-   "riot_id": "ReavendeMan#2719",
-   "liga": "Oro II · 24 LP",
-   "lp_hoy": -10,
-   "partidas": 20,
-   "victorias": 10,
-   "derrotas": 10,
-   "racha": -2
   },
   {
    "puesto": 9,
