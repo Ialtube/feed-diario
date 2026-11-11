@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794419633124,
+ "actualizado": 1794420772102,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -45,12 +45,12 @@
    "nombre": "Dierophant",
    "apodo": "Intilteable",
    "riot_id": "smilesdeath#6859",
-   "liga": "Oro I · 27 LP",
-   "lp_hoy": 0,
-   "partidas": 20,
-   "victorias": 13,
+   "liga": "Oro I · 57 LP",
+   "lp_hoy": 30,
+   "partidas": 21,
+   "victorias": 14,
    "derrotas": 7,
-   "racha": -1
+   "racha": 1
   },
   {
    "puesto": 4,
