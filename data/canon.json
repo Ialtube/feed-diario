@@ -41,6 +41,10 @@
         {
           "fecha": "2026-11-10",
           "texto": "el Barón de los dos sentidos"
+        },
+        {
+          "fecha": "2026-11-11",
+          "texto": "el Barón a dos teclados"
         }
       ],
       "rasgos": [
@@ -151,6 +155,11 @@
           "tipo": "caída",
           "texto": "Juega la misma Syndra al revés dos veces seguidas: 1–1. Primero de la General y último del reto la misma mañana.",
           "fecha": "2026-11-10"
+        },
+        {
+          "tipo": "ascenso",
+          "texto": "5–1 en un día con dos victorias junto a otra cuenta suya en el mismo equipo; solo pierde cuando juega solo, a medianoche y contra un Ekko.",
+          "fecha": "2026-11-11"
         }
       ]
     },
@@ -414,7 +423,12 @@
         }
       ],
       "rivales": [],
-      "titulos": [],
+      "titulos": [
+        {
+          "fecha": "2026-11-11",
+          "texto": "Líder del SoloQ Challenge"
+        }
+      ],
       "arcos": [
         {
           "tipo": "caída",
@@ -440,6 +454,11 @@
           "tipo": "redención",
           "texto": "3–0 en el domingo y un Xerath 18/1/5 que cumple su grito de guerra, mientras en el reto sube a Oro I y vuelve a bajar.",
           "fecha": "2026-11-09"
+        },
+        {
+          "tipo": "ascenso",
+          "texto": "Toma el liderato del reto en Platino IV con un Ornn que no muere y no pega: el 15,7 % del daño de un hombre que prometió ser el que más pega.",
+          "fecha": "2026-11-11"
         }
       ]
     },
@@ -813,6 +832,11 @@
           "tipo": "ascenso",
           "texto": "Seis Blitzcrank en un lunes, Esmeralda III y el liderato del reto con el robot que le denunció tres veces.",
           "fecha": "2026-11-10"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Gana sus dos Blitzcrank y sube a Platino IV, pero pierde el liderato del reto y el robot le nombra peor del día.",
+          "fecha": "2026-11-11"
         }
       ]
     }
@@ -847,6 +871,11 @@
           "fecha": "2026-11-10",
           "campo": "estado",
           "texto": "Abrió el libro de la Lonja y encontró la deuda del director; la página salió antes en la Gaceta"
+        },
+        {
+          "fecha": "2026-11-11",
+          "campo": "estado",
+          "texto": "Encontró dos huellas del Barón en la misma partida y resultaron ser del mismo dedo; ha pedido una muestra de cera a Tobías Candil"
         }
       ]
     },
@@ -1173,6 +1202,11 @@
           "fecha": "2026-11-10",
           "campo": "estado",
           "texto": "Descubierto: debe dinero a Barbanegra y amortiza la deuda con las caídas del Barón"
+        },
+        {
+          "fecha": "2026-11-11",
+          "campo": "estado",
+          "texto": "Publica un editorial exigiendo al Barón que vuelva a perder: con el 5–1 del martes la deuda apenas baja"
         }
       ]
     },
@@ -1230,6 +1264,11 @@
           "fecha": "2026-11-02",
           "campo": "estado",
           "texto": "Publicó la factura del «Se busca» a toda página antes que el Rincón"
+        },
+        {
+          "fecha": "2026-11-11",
+          "campo": "estado",
+          "texto": "Robó al Rincón la exclusiva del nuevo líder del reto"
         }
       ]
     },
@@ -1252,6 +1291,11 @@
           "fecha": "2026-11-10",
           "campo": "estado",
           "texto": "Bajo sospecha: la página filtrada a la Gaceta llevaba una mancha de cera"
+        },
+        {
+          "fecha": "2026-11-11",
+          "campo": "estado",
+          "texto": "Escribe el Faro con su última vela mientras la Comisaría analiza su cera"
         }
       ]
     }
@@ -1333,6 +1377,10 @@
         },
         {
           "fecha": "2026-11-10",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-11",
           "estado": "escalando"
         }
       ],
@@ -1455,6 +1503,13 @@
           "resumen": "El Barón juega dos Syndra seguidas en sentido contrario: a las 22:06 entrega la primera sangre a los 42 segundos, muere cuatro veces en la misma baldosa y gana en 17 minutos; a las 22:40 aguanta 19 minutos sin morir, gana cinco peleas a solas y pierde con seis muertes al final ante una Vex 10/5/13. 1–1. Primero de la General y farolillo rojo del reto.",
           "titulares": [
             "El Barón juega la misma partida al revés"
+          ]
+        },
+        {
+          "fecha": "2026-11-11",
+          "resumen": "El Barón gana cinco de seis: dos de ellas con otra cuenta suya en el mismo equipo (Kindred 11/0/7 y Locke 16/5/8, ambas con Syndra en el centro). Solo pierde la de medianoche, solo, con Syndra 1/7/3 ante un Ekko 11/1/6.",
+          "titulares": [
+            "El Barón solo pierde cuando juega solo"
           ]
         }
       ]
@@ -2181,6 +2236,11 @@
           "titulares": [
             "Una fuente con vela"
           ]
+        },
+        {
+          "fecha": "2026-11-11",
+          "resumen": "La Gaceta roba la exclusiva del cambio de líder del reto, defiende a Saiko («diez muertes con cuarenta y ocho guardianes es investigar») y exige al Rincón que explique por qué su director pierde dinero cuando el Barón gana.",
+          "titulares": []
         }
       ],
       "estados": [
@@ -2551,6 +2611,13 @@
           "titulares": [
             "Blitzcrank pide la jornada de ocho horas"
           ]
+        },
+        {
+          "fecha": "2026-11-11",
+          "resumen": "Saiko abre el martes a las 08:30 con Blitzcrank: 2/10/20 con 48 guardianes y victoria; por la tarde otro Blitzcrank y otra victoria. Pierde el liderato del reto y el robot le nombra peor del día.",
+          "titulares": [
+            "Cuarenta y ocho guardianes antes de comer"
+          ]
         }
       ]
     },
@@ -2892,6 +2959,13 @@
           "titulares": [
             "Cambio de inquilino en el ático"
           ]
+        },
+        {
+          "fecha": "2026-11-11",
+          "resumen": "Día once: GSJoseador nuevo líder (Platino IV 45, 15–5) por delante de Saiko, que gana sus dos y sube a Platino IV pero cobra menos. El Barón toca Oro II y vuelve a Oro III; iPredatoRz pasa a ser el último; Wôlf baja a Oro II con 0–2.",
+          "titulares": [
+            "Saiko gana todo lo que juega y le quitan la corona igual"
+          ]
         }
       ]
     },
@@ -3114,6 +3188,10 @@
         {
           "fecha": "2026-11-09",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-11",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -3135,6 +3213,11 @@
           "titulares": [
             "Quince Urgot y ninguna idea nueva"
           ]
+        },
+        {
+          "fecha": "2026-11-11",
+          "resumen": "TheTrevur no juega y cae al octavo puesto: el reino de un solo campeón termina sin una partida más, con cuatro derrotas seguidas.",
+          "titulares": []
         }
       ]
     },
@@ -3202,6 +3285,10 @@
         {
           "fecha": "2026-11-10",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-11-11",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -3210,6 +3297,13 @@
           "resumen": "Cobretuerca abre el libro de la Lonja: el director debe dinero a Barbanegra y la deuda se amortiza a una moneda por cada caída del Barón. Por eso le protege: es el único que lleva la cuenta. La página sale antes en la Gaceta.",
           "titulares": [
             "Cobretuerca abre el libro y encuentra al director"
+          ]
+        },
+        {
+          "fecha": "2026-11-11",
+          "resumen": "El 5–1 del Barón apenas amortiza la deuda del director, que publica un editorial exigiendo a grangalax que vuelva a perder. Barbanegra le manda una nota con una sola cifra. La Comisaría pide a Tobías Candil una muestra de cera.",
+          "titulares": [
+            "Este periódico no celebra victorias que le cuestan dinero"
           ]
         }
       ]
@@ -3307,6 +3401,10 @@
     {
       "fecha": "2026-11-10",
       "texto": "Los lunes Saiko encadena Blitzcrank desde las cinco de la tarde hasta pasadas las once."
+    },
+    {
+      "fecha": "2026-11-11",
+      "texto": "Los martes sin Flex, Saiko abre la SoloQ a las ocho y media de la mañana y el Barón la cierra a medianoche."
     }
   ],
   "chistes": [
@@ -3320,9 +3418,10 @@
         "2026-10-27",
         "2026-11-03",
         "2026-11-06",
-        "2026-11-09"
+        "2026-11-09",
+        "2026-11-11"
       ],
-      "usos": 8,
+      "usos": 9,
       "semilla": true
     },
     {
@@ -3407,9 +3506,10 @@
     {
       "texto": "el Barón de las tres cuentas",
       "fechas": [
-        "2026-11-04"
+        "2026-11-04",
+        "2026-11-11"
       ],
-      "usos": 1
+      "usos": 2
     },
     {
       "texto": "la columna de cuentas secundarias",
@@ -3674,6 +3774,12 @@
       "jugador": "gsjoseador",
       "motivo": "El señor de la muerte, muerto siete veces, seis en los últimos catorce minutos, ante una Kayle",
       "fecha": "2026-11-10"
+    },
+    {
+      "campeon": "Blitzcrank",
+      "jugador": "saiko",
+      "motivo": "Sacado a las ocho y media de la mañana para morir diez veces con cuarenta y ocho guardianes puestos, y vuelto a sacar por la tarde",
+      "fecha": "2026-11-11"
     }
   ]
 }
