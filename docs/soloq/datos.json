@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794380544199,
+ "actualizado": 1794396347852,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -102,6 +102,18 @@
   },
   {
    "puesto": 8,
+   "nombre": "grangalax",
+   "apodo": "Showmanco",
+   "riot_id": "nandaris#6071",
+   "liga": "Oro II · 25 LP",
+   "lp_hoy": 30,
+   "partidas": 21,
+   "victorias": 11,
+   "derrotas": 10,
+   "racha": 1
+  },
+  {
+   "puesto": 9,
    "nombre": "TheTrevur",
    "apodo": "Urgod",
    "riot_id": "Grred#6577",
@@ -111,18 +123,6 @@
    "victorias": 9,
    "derrotas": 6,
    "racha": -4
-  },
-  {
-   "puesto": 9,
-   "nombre": "grangalax",
-   "apodo": "Showmanco",
-   "riot_id": "nandaris#6071",
-   "liga": "Oro III · 95 LP",
-   "lp_hoy": 0,
-   "partidas": 20,
-   "victorias": 10,
-   "derrotas": 10,
-   "racha": -2
   },
   {
    "puesto": 10,
