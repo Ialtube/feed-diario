@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794508518537,
+ "actualizado": 1794510218291,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -33,12 +33,12 @@
    "nombre": "Saiko",
    "apodo": "KOI Huerfano",
    "riot_id": "Mastersuftine#6535",
-   "liga": "Platino IV · 37 LP",
-   "lp_hoy": 30,
-   "partidas": 23,
+   "liga": "Platino IV · 27 LP",
+   "lp_hoy": 20,
+   "partidas": 24,
    "victorias": 17,
-   "derrotas": 6,
-   "racha": 1
+   "derrotas": 7,
+   "racha": -1
   },
   {
    "puesto": 3,
