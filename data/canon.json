@@ -45,6 +45,10 @@
         {
           "fecha": "2026-11-11",
           "texto": "el Barón a dos teclados"
+        },
+        {
+          "fecha": "2026-11-12",
+          "texto": "el Barón de los cincuenta minutos"
         }
       ],
       "rasgos": [
@@ -103,6 +107,10 @@
         {
           "fecha": "2026-11-10",
           "texto": "Farolillo Rojo del Reto"
+        },
+        {
+          "fecha": "2026-11-12",
+          "texto": "Plusmarquista de asesinatos"
         }
       ],
       "arcos": [
@@ -160,6 +168,11 @@
           "tipo": "ascenso",
           "texto": "5–1 en un día con dos victorias junto a otra cuenta suya en el mismo equipo; solo pierde cuando juega solo, a medianoche y contra un Ekko.",
           "fecha": "2026-11-11"
+        },
+        {
+          "tipo": "ascenso",
+          "texto": "Juega solo las siete del miércoles, 5–2, y con un Jhin de cincuenta minutos y doce muertes le quita a iPredatoRz el récord de asesinatos.",
+          "fecha": "2026-11-12"
         }
       ]
     },
@@ -194,6 +207,10 @@
         {
           "fecha": "2026-10-21",
           "texto": "Gnar: cuatro muertes en el mismo rincón"
+        },
+        {
+          "fecha": "2026-11-12",
+          "texto": "Urgot: 0/8/2 ante un Jax y cincuenta y nueve súbditos por debajo"
         }
       ],
       "rivales": [],
@@ -201,6 +218,10 @@
         {
           "fecha": "2026-11-06",
           "texto": "Líder del SoloQ Challenge"
+        },
+        {
+          "fecha": "2026-11-12",
+          "texto": "Farolillo Rojo del Reto"
         }
       ],
       "arcos": [
@@ -218,6 +239,11 @@
           "tipo": "caída",
           "texto": "Del trono al sexto puesto en tres días: cuatro derrotas seguidas con el único campeón que sabe usar.",
           "fecha": "2026-11-09"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Del trono del reto al último puesto sin jugar en él; el castigo es una partida de soporte con Teemo.",
+          "fecha": "2026-11-12"
         }
       ]
     },
@@ -371,6 +397,11 @@
           "tipo": "redención",
           "texto": "Tres de tres en el reto y del farolillo rojo al sexto puesto, sin que el Instituto pueda medirle nada.",
           "fecha": "2026-11-10"
+        },
+        {
+          "tipo": "redención",
+          "texto": "Tres Ezreal, dos victorias y Esmeralda IV con veinte, ganando cuando menos daño hace.",
+          "fecha": "2026-11-12"
         }
       ]
     },
@@ -507,6 +538,11 @@
           "tipo": "caída",
           "texto": "Líder una noche; cae al cuarto puesto sin jugar mientras el Barón al que reza se queda en 8–8.",
           "fecha": "2026-11-06"
+        },
+        {
+          "tipo": "ascenso",
+          "texto": "Llega a Platino en el reto mientras su guía va en Oro II; un lector le acusa de haber jugado con la cuenta del Barón.",
+          "fecha": "2026-11-12"
         }
       ]
     },
@@ -550,6 +586,10 @@
         {
           "fecha": "2026-11-09",
           "texto": "Doble Plusmarquista, de matar y de morir"
+        },
+        {
+          "fecha": "2026-11-12",
+          "texto": "Plusmarquista de la Necrópolis, ya solo de morir"
         }
       ],
       "arcos": [
@@ -837,6 +877,11 @@
           "tipo": "caída",
           "texto": "Gana sus dos Blitzcrank y sube a Platino IV, pero pierde el liderato del reto y el robot le nombra peor del día.",
           "fecha": "2026-11-11"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Cuatro Blitzcrank en un día y 1–3; en el reto, dos derrotas y empatado en puntos con Dierophant.",
+          "fecha": "2026-11-12"
         }
       ]
     }
@@ -876,6 +921,11 @@
           "fecha": "2026-11-11",
           "campo": "estado",
           "texto": "Encontró dos huellas del Barón en la misma partida y resultaron ser del mismo dedo; ha pedido una muestra de cera a Tobías Candil"
+        },
+        {
+          "fecha": "2026-11-12",
+          "campo": "estado",
+          "texto": "Custodia el borrador de la fórmula de la General y se niega a decir de quién es la firma del margen; no se lo entrega al director"
         }
       ]
     },
@@ -1038,6 +1088,11 @@
           "fecha": "2026-11-10",
           "campo": "estado",
           "texto": "Suspendido, pero el único que lleva la cuenta de lo que le debe el director"
+        },
+        {
+          "fecha": "2026-11-12",
+          "campo": "estado",
+          "texto": "Suspendido; guardaba el borrador firmado de la fórmula de la General, y por eso el director le protege"
         }
       ]
     },
@@ -1207,6 +1262,11 @@
           "fecha": "2026-11-11",
           "campo": "estado",
           "texto": "Publica un editorial exigiendo al Barón que vuelva a perder: con el 5–1 del martes la deuda apenas baja"
+        },
+        {
+          "fecha": "2026-11-12",
+          "campo": "estado",
+          "texto": "Ha pedido que le traigan el borrador de la fórmula y se lo han negado; el 5–2 del Barón solo le amortiza dos monedas"
         }
       ]
     },
@@ -1296,8 +1356,23 @@
           "fecha": "2026-11-11",
           "campo": "estado",
           "texto": "Escribe el Faro con su última vela mientras la Comisaría analiza su cera"
+        },
+        {
+          "fecha": "2026-11-12",
+          "campo": "estado",
+          "texto": "Detenido: la cera era suya; confesó la filtración a la Gaceta y entregó el borrador de la fórmula de la General con una firma que no es de Barbanegra"
         }
       ]
+    },
+    {
+      "nombre": "Un Teemo de Guardia",
+      "cargo": "Columnista; castigo oficial del SoloQ Challenge",
+      "deseo": "Que alguien le juegue por gusto y no por castigo",
+      "secreto": "Tiene setas puestas en la quedada desde el primer día del reto",
+      "relacion": "Espera a TheTrevur como quien espera a un alumno nuevo",
+      "rasgo": "Es la mitad del castigo del farolillo del reto y lo lleva con orgullo",
+      "institucion": "Exploradores de Bandle",
+      "fecha": "2026-11-12"
     }
   ],
   "hilos": [
@@ -1381,6 +1456,10 @@
         },
         {
           "fecha": "2026-11-11",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-12",
           "estado": "escalando"
         }
       ],
@@ -1510,6 +1589,14 @@
           "resumen": "El Barón gana cinco de seis: dos de ellas con otra cuenta suya en el mismo equipo (Kindred 11/0/7 y Locke 16/5/8, ambas con Syndra en el centro). Solo pierde la de medianoche, solo, con Syndra 1/7/3 ante un Ekko 11/1/6.",
           "titulares": [
             "El Barón solo pierde cuando juega solo"
+          ]
+        },
+        {
+          "fecha": "2026-11-12",
+          "resumen": "El Barón juega solo las siete del miércoles: 5–2 y 48 muertes. Estrena Yone a las 22:20 y pierde ante un Ezreal 21/3/4; a las 23:04 se pone Jhin y, contra otro Ezreal, firma 25/12/16 en cincuenta minutos: récord de asesinatos y partida más larga de la hemeroteca.",
+          "titulares": [
+            "El récord de asesinatos se lo queda el que más muere",
+            "Si no puedes con él, póntelo"
           ]
         }
       ]
@@ -1716,6 +1803,13 @@
           "resumen": "Fr4nux gana tres de tres en el reto y sube a Oro II; el Instituto no puede medirle el daño porque las partidas del reto no pasan por su aparato.",
           "titulares": [
             "El paciente mejora y no hay forma de medirlo"
+          ]
+        },
+        {
+          "fecha": "2026-11-12",
+          "resumen": "Tres Ezreal seguidos: gana la primera con el menor daño de su equipo (14,0 %), la segunda en dúo con GSJoseador y pierde la tercera tras entregar la primera sangre ante un Twitch 19/3/6 que le saca 6.365 de oro. Sube a Esmeralda IV 20.",
+          "titulares": [
+            "Tres dosis de Ezreal y el daño sigue sin aparecer"
           ]
         }
       ]
@@ -2241,6 +2335,11 @@
           "fecha": "2026-11-11",
           "resumen": "La Gaceta roba la exclusiva del cambio de líder del reto, defiende a Saiko («diez muertes con cuarenta y ocho guardianes es investigar») y exige al Rincón que explique por qué su director pierde dinero cuando el Barón gana.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-11-12",
+          "resumen": "La Gaceta publica a las seis el resultado del análisis de la cera antes de que la Comisaría se lo comunique al Rincón, y defiende a TheTrevur, último del reto sin jugar.",
+          "titulares": []
         }
       ],
       "estados": [
@@ -2434,6 +2533,11 @@
           "titulares": [
             "Siete horas para bajar once puntos"
           ]
+        },
+        {
+          "fecha": "2026-11-12",
+          "resumen": "iPredatoRz, sin jugar, pierde el récord de asesinatos (24 con Kai'Sa) a manos del Jhin del Barón (25). Conserva el de muertes.",
+          "titulares": []
         }
       ]
     },
@@ -2617,6 +2721,13 @@
           "resumen": "Saiko abre el martes a las 08:30 con Blitzcrank: 2/10/20 con 48 guardianes y victoria; por la tarde otro Blitzcrank y otra victoria. Pierde el liderato del reto y el robot le nombra peor del día.",
           "titulares": [
             "Cuarenta y ocho guardianes antes de comer"
+          ]
+        },
+        {
+          "fecha": "2026-11-12",
+          "resumen": "Cuatro Blitzcrank de las 10:15 a las siete de la tarde: 1–3 y 29 muertes. Gana la del mediodía con 34 guardianes y once muertes; pierde la última con 40 pings y 22 asistencias. En el reto, 0–2 y veinte de veintidós partidas con el robot. Blitzcrank concede una entrevista.",
+          "titulares": [
+            "«Hasta las calderas de Zaun paran a comer»"
           ]
         }
       ]
@@ -2966,6 +3077,13 @@
           "titulares": [
             "Saiko gana todo lo que juega y le quitan la corona igual"
           ]
+        },
+        {
+          "fecha": "2026-11-12",
+          "resumen": "Día doce: GSJoseador aguanta líder (Platino IV 65); Saiko y Dierophant empatan en Platino IV 7, Dierophant recién ascendido; RDV Canyon, Oro I 97 con cuatro seguidas; grangalax sube al séptimo; TheTrevur cae al último sin jugar y le toca el castigo de Teemo.",
+          "titulares": [
+            "El alumno ya le saca una liga al santo"
+          ]
         }
       ]
     },
@@ -3168,6 +3286,13 @@
           "titulares": [
             "El guía, en la cola"
           ]
+        },
+        {
+          "fecha": "2026-11-12",
+          "resumen": "Un lector anónimo asegura que quien jugaba con la cuenta del Barón en la jungla era Dierophant. El mismo día Dierophant sube a Platino en el reto mientras su guía va en Oro II.",
+          "titulares": [
+            "Querido lector anónimo: mande las pruebas"
+          ]
         }
       ]
     },
@@ -3289,6 +3414,10 @@
         {
           "fecha": "2026-11-11",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-12",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -3304,6 +3433,38 @@
           "resumen": "El 5–1 del Barón apenas amortiza la deuda del director, que publica un editorial exigiendo a grangalax que vuelva a perder. Barbanegra le manda una nota con una sola cifra. La Comisaría pide a Tobías Candil una muestra de cera.",
           "titulares": [
             "Este periódico no celebra victorias que le cuestan dinero"
+          ]
+        },
+        {
+          "fecha": "2026-11-12",
+          "resumen": "La cera de la página es de Tobías Candil, que confiesa la filtración y entrega el borrador de la fórmula de la General del 21 de octubre con una firma en el margen que no es de Barbanegra. La Comisaría entiende por qué el director protege al contable: Barbanegra le guarda ese papel. El 5–2 del Barón solo le amortiza dos monedas.",
+          "titulares": [
+            "La cera era del becario; la firma, no"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "la-ronda-del-cangrejo",
+      "titulo": "La ronda del cangrejo",
+      "abierto": "2026-11-12",
+      "protagonistas": [
+        "thetrevur"
+      ],
+      "reparto": [],
+      "resumen": "TheTrevur juega una sola partida, Urgot 0/8/2 ante un Jax, y cae al último puesto del reto sin jugar en él: le tocan la primera ronda de la quedada y una partida entera de soporte con Teemo.",
+      "estados": [
+        {
+          "fecha": "2026-11-12",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-11-12",
+          "resumen": "TheTrevur juega una sola partida, Urgot 0/8/2 ante un Jax, y cae al último puesto del reto sin jugar en él: le tocan la primera ronda de la quedada y una partida entera de soporte con Teemo.",
+          "titulares": [
+            "Urgot.exe ha dejado de responder"
           ]
         }
       ]
@@ -3405,6 +3566,10 @@
     {
       "fecha": "2026-11-11",
       "texto": "Los martes sin Flex, Saiko abre la SoloQ a las ocho y media de la mañana y el Barón la cierra a medianoche."
+    },
+    {
+      "fecha": "2026-11-12",
+      "texto": "Los miércoles sin Flex, el Barón abre la SoloQ a las nueve y cuarto de la mañana y la cierra casi a medianoche con un tirador que no es el suyo."
     }
   ],
   "chistes": [
@@ -3419,9 +3584,10 @@
         "2026-11-03",
         "2026-11-06",
         "2026-11-09",
-        "2026-11-11"
+        "2026-11-11",
+        "2026-11-12"
       ],
-      "usos": 9,
+      "usos": 10,
       "semilla": true
     },
     {
@@ -3430,9 +3596,10 @@
         "2026-10-20",
         "2026-10-21",
         "2026-10-26",
-        "2026-11-03"
+        "2026-11-03",
+        "2026-11-12"
       ],
-      "usos": 4,
+      "usos": 5,
       "semilla": true
     },
     {
@@ -3780,6 +3947,24 @@
       "jugador": "saiko",
       "motivo": "Sacado a las ocho y media de la mañana para morir diez veces con cuarenta y ocho guardianes puestos, y vuelto a sacar por la tarde",
       "fecha": "2026-11-11"
+    },
+    {
+      "campeon": "Yone",
+      "jugador": "grangalax",
+      "motivo": "Estrenado a las 22:20, horas después de que el Barón le ganara la calle desde el otro equipo: 6/9/7 ante un Ezreal 21/3/4",
+      "fecha": "2026-11-12"
+    },
+    {
+      "campeon": "Blitzcrank",
+      "jugador": "saiko",
+      "motivo": "Cuatro turnos en un día, de las diez de la mañana a las siete de la tarde: una victoria y veintinueve muertes",
+      "fecha": "2026-11-12"
+    },
+    {
+      "campeon": "Urgot",
+      "jugador": "thetrevur",
+      "motivo": "Veintiséis minutos, ocho muertes y ni un asesinato ante un Jax, en manos del que presume de ser su único dueño",
+      "fecha": "2026-11-12"
     }
   ]
 }

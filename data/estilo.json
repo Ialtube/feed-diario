@@ -59,6 +59,10 @@
     {
       "texto": "Con pocos jugadores en el día, ir al detalle cruel de una partida (la hora, el rival, el sitio) y dejar que el remate sea una frase corta en su propio párrafo, en vez de repartir cifras por todo el día.",
       "desde": "2026-11-01"
+    },
+    {
+      "texto": "Cuando el dato es un récord, ponerle al lado lo que costó (las muertes, la hora, el rival) en la misma frase y sin adjetivos de celebración: el mérito se cuenta con su factura.",
+      "desde": "2026-11-12"
     }
   ],
   "ejemplos": [
