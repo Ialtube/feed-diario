@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794602407179,
+ "actualizado": 1794608659296,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -23,10 +23,10 @@
    "riot_id": "SantuJk#1510",
    "liga": "Platino IV · 75 LP",
    "lp_hoy": 30,
-   "partidas": 25,
+   "partidas": 26,
    "victorias": 17,
-   "derrotas": 8,
-   "racha": 1
+   "derrotas": 9,
+   "racha": -1
   },
   {
    "puesto": 2,
