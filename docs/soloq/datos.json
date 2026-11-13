@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794597859267,
+ "actualizado": 1794602407179,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -21,12 +21,12 @@
    "nombre": "GSJoseador",
    "apodo": "El Comodín de la Grieta",
    "riot_id": "SantuJk#1510",
-   "liga": "Platino IV · 45 LP",
-   "lp_hoy": 0,
-   "partidas": 24,
-   "victorias": 16,
+   "liga": "Platino IV · 75 LP",
+   "lp_hoy": 30,
+   "partidas": 25,
+   "victorias": 17,
    "derrotas": 8,
-   "racha": -3
+   "racha": 1
   },
   {
    "puesto": 2,
