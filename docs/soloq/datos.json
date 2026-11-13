@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794581379039,
+ "actualizado": 1794595585050,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -30,6 +30,18 @@
   },
   {
    "puesto": 2,
+   "nombre": "Dierophant",
+   "apodo": "Intilteable",
+   "riot_id": "smilesdeath#6859",
+   "liga": "Platino IV · 37 LP",
+   "lp_hoy": 30,
+   "partidas": 25,
+   "victorias": 17,
+   "derrotas": 8,
+   "racha": 1
+  },
+  {
+   "puesto": 3,
    "nombre": "Saiko",
    "apodo": "KOI Huerfano",
    "riot_id": "Mastersuftine#6535",
@@ -38,18 +50,6 @@
    "partidas": 24,
    "victorias": 17,
    "derrotas": 7,
-   "racha": -1
-  },
-  {
-   "puesto": 3,
-   "nombre": "Dierophant",
-   "apodo": "Intilteable",
-   "riot_id": "smilesdeath#6859",
-   "liga": "Platino IV · 7 LP",
-   "lp_hoy": 0,
-   "partidas": 24,
-   "victorias": 16,
-   "derrotas": 8,
    "racha": -1
   },
   {
