@@ -1,17 +1,20 @@
-"""The suggestion box of the SoloQ Challenge board: readers ask for cards or data they want to see,
-and the next day the newspaper's AI newsroom reviews them.
+"""The suggestion box of the SoloQ Challenge board: readers ask for cards, data or changes they want
+to see, and the next day the newspaper's AI newsroom does them, without asking the admin.
 
 - A suggestion that can be answered with the race's data becomes a card nailed to the board
-  (a figure, a list, bars, a table or a short text), refreshed every day by the newsroom.
-- One that looks risky (security, privacy), very heavy, unrelated to the website, or that needs new
-  code, is never applied: it waits for the admin's permission, who approves or rejects it on the
-  board with the password (Supabase function soloq_decidir). An approved one comes back to the
-  newsroom the next day; one that needs new code waits to be programmed.
-- The rest are discarded, with the reason.
+  (a figure, a list, bars, a table or a short text), refreshed every day by the newsroom: «hecha».
+- One that needs a change in the website or in the race's rules is programmed and applied right
+  away: «aplicada», with what changed in ``motivo``.
+- Only the ones that make no sense, already exist, attack someone outside the game or would expose
+  private data or the site's security are discarded, with the reason.
+Every «hecha» or «aplicada» suggestion is announced once on Discord (``roast soloq``).
 
 The newsroom's decisions and the cards live in each edition (``sugerencias_tablon`` and
-``tarjetas``), so they travel with the paper; data/soloq/sugerencias.json only caches what was
-pending when the context was written, for the validator."""
+``tarjetas``), so they travel with the paper. A change programmed by hand in a Claude Code session is
+written down in data/soloq/buzon_decisiones.json (``apuntar``), which has the last word.
+data/soloq/sugerencias.json only caches what was pending when the context was written, for the
+validator. The old «permiso» and «programar» (the admin's permission, until 2026-11-14) count as
+pending again unless the admin rejected them."""
 import re
 
 from .lectores import _get as supabase_get
@@ -24,11 +27,12 @@ TIPOS = {
     "tabla": 'una tabla: {"columnas": ["≤24", …] (2–6), "filas": [["≤30", …], …] (1–15, tantas celdas como columnas)}',
     "texto": 'un texto corto: {"texto": "≤600"}',
 }
-DECISIONES = ("hecha", "descartada", "permiso", "programar")
+DECISIONES = ("hecha", "aplicada", "descartada")
+ANTIGUAS = ("permiso", "programar")     # waited for the admin until 2026-11-14: back in the box
 MAX_TARJETAS = 10
 ESTADOS = {  # what the board stamps on each suggestion
-    "pendiente": "En el buzón", "hecha": "Hecha", "descartada": "Descartada", "permiso": "Esperando al jefe",
-    "aprobada": "Aprobada por el jefe", "rechazada": "Rechazada por el jefe", "programar": "Aprobada · por programar",
+    "pendiente": "En el buzón", "hecha": "Hecha", "aplicada": "Aplicada", "descartada": "Descartada",
+    "rechazada": "Rechazada por el jefe",
 }
 
 
@@ -45,13 +49,30 @@ def leer(cfg):
     return rows, perms
 
 
-def decisiones(editions):
-    """The newsroom's last word on every suggestion: {id: {estado, motivo, tarjeta, fecha}}."""
+def manuales(path):
+    """The decisions written down by hand (``apuntar``): [{id, decision, motivo, fecha}]."""
+    return load_json(path, None) or []
+
+
+def apuntar(path, sid, decision, motivo, fecha):
+    """Write down a decision taken outside the daily edition (a change programmed in a Claude Code session)."""
+    if decision not in DECISIONES:
+        raise SugerenciaError(f"decision debe ser una de {', '.join(DECISIONES)}")
+    rows = [m for m in manuales(path) if m.get("id") != sid]
+    rows.append({"id": sid, "decision": decision, "motivo": _txt(motivo, "motivo", 5, 300), "fecha": fecha})
+    save_json(path, sorted(rows, key=lambda m: m["id"]))
+
+
+def decisiones(editions, manual=()):
+    """The newsroom's last word on every suggestion: {id: {estado, motivo, tarjeta, fecha}}. The decisions
+    written down by hand win over the editions."""
     out = {}
     for ed in sorted(editions or [], key=lambda e: e["date"]):
         for d in ed.get("sugerencias_tablon") or []:
             out[d["id"]] = {"estado": d["decision"], "motivo": d.get("motivo"), "tarjeta": d.get("tarjeta"),
                             "fecha": ed["date"]}
+    for m in manual or ():
+        out[m["id"]] = {"estado": m["decision"], "motivo": m.get("motivo"), "tarjeta": None, "fecha": m.get("fecha")}
     return out
 
 
@@ -63,57 +84,56 @@ def _permiso(perms, sid):
     return last
 
 
-def estados(rows, perms, editions):
+def _estado(d, p):
+    """pendiente, hecha, aplicada, descartada or rechazada (an old «permiso» the admin turned down)."""
+    est = (d or {}).get("estado")
+    if est in ANTIGUAS:
+        return "rechazada" if p and p.get("decision") == "rechazada" else "pendiente"
+    return est or "pendiente"
+
+
+def estados(rows, perms, editions, manual=()):
     """Every suggestion with its status for the board, newest first."""
-    dec = decisiones(editions)
+    dec = decisiones(editions, manual)
     out = []
     for r in rows or []:
         d = dec.get(r["id"], {})
-        est = d.get("estado") or "pendiente"
         p = _permiso(perms, r["id"])
-        if est == "permiso" and p:
-            est = "aprobada" if p["decision"] == "aprobada" else "rechazada"
+        est = _estado(d, p)
+        motivo = (p or {}).get("nota") if est == "rechazada" else d.get("motivo") if est != "pendiente" else None
         out.append({"id": r["id"], "nombre": _clean(r.get("nombre"), 40) or "Anónimo", "texto": _clean(r.get("texto"), 400),
-                    "estado": est, "sello": ESTADOS[est], "motivo": d.get("motivo") or (p or {}).get("nota"),
+                    "estado": est, "sello": ESTADOS[est], "motivo": motivo,
                     "tarjeta": d.get("tarjeta"), "fecha": (r.get("created_at") or "")[:10]})
     return out
 
 
-def pendientes(rows, perms, editions):
-    """What the newsroom has to decide today: new suggestions, and the ones the admin approved since
-    the newsroom asked for permission."""
-    dec = decisiones(editions)
-    out = []
-    for r in sorted(rows or [], key=lambda r: r["id"]):
-        d = dec.get(r["id"])
-        p = _permiso(perms, r["id"])
-        if not d:
-            out.append({"id": r["id"], "nombre": _clean(r.get("nombre"), 40), "texto": _clean(r.get("texto"), 400)})
-        elif d["estado"] == "permiso" and p and p["decision"] == "aprobada":
-            out.append({"id": r["id"], "nombre": _clean(r.get("nombre"), 40), "texto": _clean(r.get("texto"), 400),
-                        "aprobada_por_el_jefe": True, "nota_del_jefe": p.get("nota"), "motivo_de_la_consulta": d.get("motivo")})
-    return out
+def pendientes(rows, perms, editions, manual=()):
+    """What the newsroom has to do today: the suggestions nobody has done or discarded yet."""
+    dec = decisiones(editions, manual)
+    return [{"id": r["id"], "nombre": _clean(r.get("nombre"), 40), "texto": _clean(r.get("texto"), 400)}
+            for r in sorted(rows or [], key=lambda r: r["id"])
+            if _estado(dec.get(r["id"]), _permiso(perms, r["id"])) == "pendiente"]
 
 
-def esperando_permiso(rows, perms, editions):
-    """The suggestions the newsroom left for the admin, not answered yet."""
-    return [s for s in estados(rows, perms, editions) if s["estado"] == "permiso"]
+def hechas(buzon):
+    """The suggestions that changed something (a card or the website), for the Discord notice."""
+    return [b for b in buzon if b["estado"] in ("hecha", "aplicada")]
 
 
 def _clean(text, n):
     return re.sub(r"\s+", " ", str(text or "")).strip()[:n]
 
 
-def para_contexto(cfg, editions, cache_path, fetch=True):
+def para_contexto(cfg, editions, cache_path, fetch=True, manual=()):
     """The suggestion box as the newsroom sees it, and a note of what is pending for the validator."""
     rows, perms = leer(cfg) if fetch else (None, None)
-    pend = pendientes(rows, perms, editions) if rows is not None else []
+    pend = pendientes(rows, perms, editions, manual) if rows is not None else []
     save_json(cache_path, {"pendientes": [p["id"] for p in pend]})
     latest = next((e for e in sorted(editions or [], key=lambda e: e["date"], reverse=True) if e.get("tarjetas") is not None), None)
     return {
         "pendientes": pend,
-        "esperando_permiso_del_jefe": [{k: s[k] for k in ("id", "texto", "motivo")}
-                                       for s in esperando_permiso(rows, perms, editions)] if rows is not None else [],
+        "ya_hechas": [{k: s[k] for k in ("id", "texto", "estado", "motivo")}
+                      for s in hechas(estados(rows, perms, editions, manual))][:30] if rows is not None else [],
         "tarjetas_actuales": (latest or {}).get("tarjetas") or [],
         "tipos_de_tarjeta": TIPOS,
     }
@@ -219,6 +239,6 @@ def validar(data, pendientes_ids, known_ids=()):
     missing = sorted(set(pendientes_ids) - {d["id"] for d in decided})
     if missing:
         raise SugerenciaError(f"Faltan por decidir las sugerencias del tablón {missing}: «hecha» (con su tarjeta), "
-                              "«descartada», «permiso» (si es rara, insegura, muy pesada o no tiene que ver: pregunta al jefe) "
-                              "o «programar» (aprobada por el jefe pero necesita código nuevo)")
+                              "«aplicada» (programaste el cambio en la web o en las normas: di en «motivo» qué cambió) "
+                              "o «descartada» (sin sentido, ya existe, ataca a alguien fuera del juego o expone datos privados)")
     return cards, decided

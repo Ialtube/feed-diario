@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "decision": "aplicada",
+    "motivo": "Ya no sale lo que falta para el mínimo: bajo la liga de cada uno pone cuántas partidas debe para ir al día (2 por día) y, si va adelantado, en negativo.",
+    "fecha": "2026-11-14"
+  },
+  {
+    "id": 2,
+    "decision": "aplicada",
+    "motivo": "El premio al campeón más versátil cuenta ahora los campeones con al menos una victoria, en vez de dos partidas.",
+    "fecha": "2026-11-14"
+  },
+  {
+    "id": 3,
+    "decision": "aplicada",
+    "motivo": "Premios nuevos: 30 €, 25 € y 15 € para el podio y 5 € cada premio secundario. Sale a 10 € por jugador.",
+    "fecha": "2026-11-14"
+  },
+  {
+    "id": 4,
+    "decision": "aplicada",
+    "motivo": "Bajo la liga de cada uno sale cuántas partidas le quedan para ir al día del reto, a 2 por día (en negativo si va adelantado).",
+    "fecha": "2026-11-14"
+  }
+]

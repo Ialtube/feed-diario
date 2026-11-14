@@ -316,19 +316,20 @@ def cmd_soloq(args):
     else:
         datos.inscritos["buzon"] = [{k: x.get(k) for k in ("id", "nombre", "texto", "created_at")} for x in rows[:60]]
         datos.inscritos["permisos"] = perms or []
-    buzon = sugerencias.estados(rows, perms, store.editions())
-    waiting = [b for b in buzon if b["estado"] == "permiso" and b["id"] not in st.get("permiso", [])]
-    if waiting and not args.solo_web:
-        payload = {"username": f"{cfg['site_title']} · SoloQ", "content": "📮 Sugerencias del tablón que esperan el permiso del jefe",
-                   "embeds": [{"title": "El jefe tiene deberes", "color": 0x6B4A2B,
+    buzon = sugerencias.estados(rows, perms, store.editions(),
+                                sugerencias.manuales(store.dir / "soloq" / "buzon_decisiones.json"))
+    # what changed thanks to the suggestions is announced once on Discord
+    nuevas = [b for b in sugerencias.hechas(buzon) if b["id"] not in st.get("hechas", [])]
+    if nuevas and not args.solo_web:
+        payload = {"username": f"{cfg['site_title']} · SoloQ", "content": "📮 Cambios en el tablón gracias a vuestras sugerencias",
+                   "embeds": [{"title": "Lo que pidió la gente, hecho", "color": 0x2F5D1F,
                                **({"url": _site_url(cfg).rstrip("/") + "/soloq/"} if _site_url(cfg) else {}),
-                               "description": "\n\n".join(f"**«{b['texto'][:200]}»** ({b['nombre']})\n_{b.get('motivo') or ''}_"
-                                                           for b in waiting[:8])[:4000]
-                               + "\n\nSe aprueban o se rechazan en el tablón, con el candado 🔒."}]}
+                               "description": "\n\n".join(f"✅ **«{b['texto'][:200]}»** ({b['nombre']})\n{b.get('motivo') or ''}"
+                                                           for b in nuevas[:8])[:4000]}]}
         if args.dry_run:
             print(json.dumps(payload, ensure_ascii=False, indent=2))
         elif _post(payload):
-            st["permiso"] = sorted(set(st.get("permiso", [])) | {b["id"] for b in waiting})
+            st["hechas"] = sorted(set(st.get("hechas", [])) | {b["id"] for b in nuevas[:8]})
     if not args.dry_run and (not args.solo_web or args.empezar or args.terminar):
         datos.save()
     soloq_web.build(cfg, datos, ROOT / "docs" / "soloq", now_ms, roster, datos.inscritos.get("ddragon"), "../",

@@ -220,7 +220,7 @@ h3.tit{font-size:22px}
   45% 100%,35% 92%,22% 96%,16% 85%,4% 80%,7% 67%,0 56%,6% 45%,1% 33%,10% 25%,10% 12%,23% 9%,31% 1%,42% 5%)}
 .lg b{display:block;font:700 17px/1.05 var(--script)}
 .lg span{font-size:14px;color:var(--ink2)}
-.lg .nq{display:block;font:17px/1 var(--hand);color:var(--red)}
+.lg .nq{display:block;font:17px/1 var(--hand);color:var(--red)}.lg .nq.ok{color:var(--green,#2f6b2f)}
 .hoy{text-align:right;font:700 17px/1.05 var(--script)}
 .hoy small{display:block;font:400 12px/1.3 var(--script);color:var(--ink3)}
 .wr .n{display:flex;justify-content:space-between;font-size:15px}
@@ -370,10 +370,6 @@ h3.tit{font-size:22px}
 .clava textarea{min-height:90px;resize:vertical}
 .jefe-dialog{border:0;padding:0;background:transparent;max-width:min(560px,94vw)}
 .jefe-dialog h4{margin:18px 0 8px;font:19px/1.1 var(--carve);border-top:1px dashed var(--ink3);padding-top:14px}
-.jefe-dialog .permiso{padding:8px 0;border-bottom:1px dashed rgba(60,40,20,.4);font-size:15px}
-.jefe-dialog .permiso p{margin:0 0 4px}
-.jefe-dialog .permiso .por{font:italic 13px var(--script);color:var(--ink3)}
-.jefe-dialog .permiso .boton{font-size:14px;padding:5px 10px;margin:4px 6px 0 0}
 
 /* ---------------------------------------------------------------- the pool */
 .porra-zona{margin-top:44px}
@@ -430,8 +426,8 @@ h3.tit{font-size:22px}
 .buzon .lista-s li small{display:block;font:italic 13px var(--script);color:var(--ink3)}
 .sello-s{display:inline-block;margin-right:6px;padding:1px 6px;font:12px/1.4 var(--carve);letter-spacing:.04em;text-transform:uppercase;
   border:2px solid currentColor;border-radius:3px;transform:rotate(-2deg)}
-.sello-s.hecha,.sello-s.aprobada{color:var(--green)}.sello-s.descartada,.sello-s.rechazada{color:var(--red)}
-.sello-s.permiso,.sello-s.programar{color:#8a5a00}.sello-s.pendiente{color:var(--blue)}
+.sello-s.hecha,.sello-s.aplicada{color:var(--green)}.sello-s.descartada,.sello-s.rechazada{color:var(--red)}
+.sello-s.pendiente{color:var(--blue)}
 .jefe-dialog::backdrop{background:rgba(10,6,3,.72)}
 .jefe-dialog .perg .hoja{padding:24px 24px 20px}
 .jefe-dialog label{display:block;margin:0 0 14px;font:15px/1.2 var(--carve);letter-spacing:.04em;color:var(--ink2);text-transform:uppercase}
@@ -769,17 +765,6 @@ if(bz){var bm=$("#buzon-msg");
         bz.texto.value="";loadBuzon()})
       .catch(function(){bm.className="msg err";bm.textContent="El buzón está atascado. Prueba en un rato."})})}
 
-// the boss answers the suggestions that wait for permission
-$$(".permiso [data-decision]").forEach(function(b){b.addEventListener("click",function(){
-  var jfm=$("#jefe"),pm=$("#permiso-msg"),clave=jfm?jfm.clave.value:"";
-  if(!clave){pm.className="msg err";pm.textContent="Pon la contraseña arriba.";return}
-  var row=b.closest(".permiso"),nota=row.querySelector("input")?row.querySelector("input").value.trim():"";
-  api("rpc/soloq_decidir",{method:"POST",headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({clave:clave,p_sugerencia:+row.getAttribute("data-id"),p_decision:b.getAttribute("data-decision"),p_nota:nota||null})})
-    .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error((e&&e.message)||"no")});
-      row.innerHTML='<p><b>'+(b.getAttribute("data-decision")==="aprobada"?"Aprobada":"Rechazada")+'.</b> La redacción se entera mañana.</p>'})
-    .catch(function(e){pm.className="msg err";pm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta.":"No se ha podido guardar."})})});
-
 // readers' notes nailed to the board
 // they start the board empty and spread over its corners: the first under the chart, then round the rest of the board
 var corners=$$(".slot-notas").sort(function(a,b){return a.getAttribute("data-slot")-b.getAttribute("data-slot")}),colors=["amarilla","rosa","verde",""];
@@ -1093,16 +1078,28 @@ def _opgg(cfg, riot_id):
     return f"https://www.op.gg/summoners/{region}/{urllib.parse.quote(name)}-{urllib.parse.quote(tag)}"
 
 
+def _al_dia(x):
+    """The daily pace under the league: what they owe to be up to date, or how many they played ahead (negative)."""
+    a = x.get("al_dia")
+    if not a:
+        return ""
+    title = f'Día {a["dia"]}: al día se llevan {a["esperadas"]} partidas; lleva {x["partidas"]}'
+    if a["debe"] > 0:
+        return f'<span class="nq" title="{_e(title)}">debe {a["debe"]} {"partida" if a["debe"] == 1 else "partidas"}</span>'
+    if a["debe"] == 0:
+        return f'<span class="nq ok" title="{_e(title)}">al día</span>'
+    return f'<span class="nq ok" title="{_e(title)}">{a["debe"]} · adelantado</span>'
+
+
 def _fila(cfg, r, x, ver, rel_paper, row_id, noticias):
     wr = x["winrate"]
     top = f' top{x["puesto"]}' if x["puesto"] <= 3 and x["valor"] is not None else ""
     if x["valor"] is not None:
         lg = (f'<div class="lg">{_sello(x)}<div><b>{_e(x["liga_corta"])}</b><span>{x["lp"]} LP</span>'
-              + ('' if x["partidas"] >= r["min_partidas"] else
-                 f'<span class="nq">le faltan {r["min_partidas"] - x["partidas"]} partidas</span>') + '</div></div>')
+              + _al_dia(x) + '</div></div>')
     else:
         lg = (f'<div class="lg">{_sello(x)}<div><b>Sin clasificar</b>'
-              f'<span>{"en las de clasificación" if x["partidas"] else "sin estrenar"}</span></div></div>')
+              f'<span>{"en las de clasificación" if x["partidas"] else "sin estrenar"}</span>{_al_dia(x)}</div></div>')
     hoy = x["hoy"]
     hoy_html = (f'<div class="hoy">{_signed(x.get("lp_hoy"))}'
                 + (f'<small>{hoy[0]}V {hoy[1]}D hoy</small>' if sum(hoy) else '<small>hoy, nada</small>') + '</div>')
@@ -1212,7 +1209,7 @@ def _vitrina(trofeos):
     main = [t for t in trofeos if t["principal"]]
     rest = [t for t in trofeos if not t["principal"]]
     return ('<h4>Premios principales</h4>' + "".join(one(t) for t in main)
-            + '<h4>Premios secundarios · un chupito cada uno</h4>' + "".join(one(t) for t in rest))
+            + '<h4>Premios secundarios · 5 € cada uno</h4>' + "".join(one(t) for t in rest))
 
 
 SLOTS = 6
@@ -1749,8 +1746,9 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
                   for b in buzon[:12])
     buzon_html = _perg(
         '<h3 class="tit">Buzón de sugerencias</h3><p class="sub">¿Qué quieres ver en el tablón? Una tarjeta, un dato, un '
-        'ranking… Cada mañana la redacción las revisa: lo que se pueda hacer con los datos del reto, sale clavado; lo raro, '
-        'lo pesado o lo que no pinte nada aquí, se le consulta al jefe.</p>'
+        'ranking, un cambio en la web o en las normas… Cada mañana la redacción las hace: lo que sale de los datos del reto, '
+        'clavado en una tarjeta; lo demás, programado en el tablón. Los cambios se avisan en Discord. Solo se descarta '
+        'lo que no tiene sentido o se mete con alguien fuera del juego.</p>'
         '<form id="buzon" class="clava" novalidate><textarea name="texto" maxlength="400" '
         'placeholder="Ej.: quién muere más por partida, el campeón maldito del reto, quién juega más de madrugada…"></textarea>'
         '<input type="text" name="nombre" maxlength="40" placeholder="Firma"><button class="boton" type="submit">Al buzón</button>'
@@ -1771,13 +1769,6 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
            if len(rows) > 1 else '<p class="vacia">La porra se abre en cuanto haya al menos dos apuntados.</p>'), "porra", "porra")
     bajo = f'<div class="porra-zona">{porra}</div>{zona}<div class="bajo">{bando}<div class="col">{lado}{clava}</div><div class="col">{buzon_html}{reglas}</div></div>'
 
-    waiting = [b for b in buzon if b["estado"] == "permiso"]
-    permisos = ('<h4>Sugerencias que esperan tu permiso</h4>' + "".join(
-        f'<div class="permiso" data-id="{b["id"]}"><p>«{_e(b["texto"])}»</p><p class="por">{_e(b["nombre"])} · la redacción '
-        f'pregunta: {_e(b.get("motivo") or "")}</p><input type="text" maxlength="200" placeholder="Nota para la redacción (opcional)">'
-        '<button class="boton" type="button" data-decision="aprobada">Aprobar</button>'
-        '<button class="boton sec" type="button" data-decision="rechazada">Rechazar</button></div>' for b in waiting)
-        + '<p class="msg" id="permiso-msg" role="status"></p>') if waiting else ""
     jefe = ('<dialog class="jefe-dialog" id="jefe-dialog">' + _perg(
         '<h3 class="tit">El pistoletazo</h3><p class="sub">Solo para el jefe. Fecha y hora de salida y, si quieres, de final '
         f'(si no, dura {r.get("duracion_dias") or "hasta nueva orden"}{" días" if r.get("duracion_dias") else ""}). '
@@ -1791,7 +1782,7 @@ def render(cfg, datos, now_ms, roster=(), ver=None, rel_paper="../", editions=()
         '<h4>Pasada del robot</h4><p class="sub">El robot mira Riot cada 10 minutos. Con la contraseña de arriba lo '
         'lanzas ahora; el tablón se actualiza en unos 3 minutos.</p>'
         '<button class="boton sec forzar" type="button" id="forzar">Forzar la pasada</button>'
-        '<p class="msg" id="forzar-msg" role="status"></p>' + permisos, "jefe") + '</dialog>')
+        '<p class="msg" id="forzar-msg" role="status"></p>', "jefe") + '</dialog>')
     rank = ('<dialog class="rank-dialog jefe-dialog" id="rank-dialog">' + _perg(
         '<div id="rank-cuerpo"></div><div class="botones"><button class="boton sec" type="button" id="rank-cerrar">Cerrar</button></div>',
         "rank") + '</dialog>')
