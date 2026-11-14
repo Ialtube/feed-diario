@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794678613332,
+ "actualizado": 1794679752984,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -54,6 +54,18 @@
   },
   {
    "puesto": 4,
+   "nombre": "Giroroo",
+   "apodo": "La Guadaña de la Mon",
+   "riot_id": "Xillie#8107",
+   "liga": "Platino IV · 19 LP",
+   "lp_hoy": 60,
+   "partidas": 29,
+   "victorias": 17,
+   "derrotas": 12,
+   "racha": 4
+  },
+  {
+   "puesto": 5,
    "nombre": "RDV Canyon",
    "apodo": "Minguez",
    "riot_id": "FisityBard#3700",
@@ -63,18 +75,6 @@
    "victorias": 17,
    "derrotas": 9,
    "racha": 1
-  },
-  {
-   "puesto": 5,
-   "nombre": "Giroroo",
-   "apodo": "La Guadaña de la Mon",
-   "riot_id": "Xillie#8107",
-   "liga": "Oro I · 89 LP",
-   "lp_hoy": 30,
-   "partidas": 28,
-   "victorias": 16,
-   "derrotas": 12,
-   "racha": 3
   },
   {
    "puesto": 6,
@@ -117,12 +117,12 @@
    "nombre": "iPredatoRz",
    "apodo": "el depredador depredado",
    "riot_id": "Jungledetter#1065",
-   "liga": "Oro II · 41 LP",
-   "lp_hoy": -10,
-   "partidas": 22,
+   "liga": "Oro II · 31 LP",
+   "lp_hoy": -20,
+   "partidas": 23,
    "victorias": 12,
-   "derrotas": 10,
-   "racha": -1
+   "derrotas": 11,
+   "racha": -2
   },
   {
    "puesto": 10,
