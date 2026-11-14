@@ -1,0 +1,485 @@
+{
+ "piezas": [
+  {
+   "angulo": "a2",
+   "peso": "grande",
+   "portada": true,
+   "formato": "crónica",
+   "hilo": "la-moneda",
+   "seccion": "SUCESOS",
+   "player": "grangalax",
+   "headline": "El plusmarquista de asesinatos conoce a uno de verdad",
+   "subtitulo": "A las tres y trece de la madrugada, un Locke rival le hizo al Barón lo que el Barón presume de hacer a los demás.",
+   "body": "El récord de asesinatos de esta hemeroteca es del Barón: veinticinco, con un Jhin, hace dos días. Lo publicamos con la cara de palo que merecía. Anoche, a las 03:13, el Barón se sentó con Syndra frente a un Locke y vio el récord desde el otro lado: 31/9/7. El Locke. Contra él.\n\nLa Comisaría de Piltover ha reconstruido la escena con lo que hay. El primer muerto de la partida fue él, al minuto dos. Cayeron tres más antes del diez y la quinta, clavada en el diez, como quien ficha. Trece en total, seis sobre la misma baldosa: Ambrosio Cobretuerca ha mandado acordonarla, no por el crimen, sino porque el sospechoso vuelve. Al final, el Locke le sacaba 9.492 de oro.\n\nLo que escuece es el currículum. En la ficha del Barón consta desde el primer día un rasgo: «Locke en negativo». Anoche conoció a un Locke en positivo, y el positivo salía de su bolsillo. Tampoco fue la primera de la noche: a las 02:31, otra Syndra, diez muertes ante un Fizz que murió dos. Nueve horas antes, esa misma Syndra le había regalado un cuádruple y más de un tercio del daño de su equipo. Por la tarde, Syndra era un arma. De madrugada, un DNI.\n\nEl doctor Humoverde certificó trece defunciones y pidió que constara que el fallecido hizo el 27,6 % del daño de su equipo. Murió pegando, que es como mueren los que no saben irse a dormir.\n\nEl récord sigue siendo suyo. Solo porque aquí no apuntamos lo de los rivales.",
+   "campeon": "Syndra",
+   "pie": "La baldosa número seis, acordonada por la Comisaría de Piltover. El inquilino tiene llaves."
+  },
+  {
+   "angulo": "a21",
+   "peso": "grande",
+   "formato": "análisis",
+   "hilo": "el-que-no-sabe-irse-a-casa",
+   "seccion": "SOCIEDAD",
+   "player": "saiko",
+   "headline": "A las tres de la tarde iba invicto",
+   "subtitulo": "Saiko ganó cuatro Blitzcrank seguidos antes de las tres. Después decidió que el día aún no había terminado.",
+   "body": "A las 14:55, Saiko ganó su cuarta partida del día en quince minutos, con el mismo Blitzcrank que le ha denunciado tres veces ante el Sindicato. Cuatro de cuatro. Un hombre normal apaga el ordenador, sale a la calle y le cuenta a alguien que hoy ha sido un buen día. Este periódico lleva tres semanas pidiéndoselo por escrito.\n\nA las 15:31 sacó otro Blitzcrank. Murió en el minuto tres, en el cinco, en el seis y en el ocho; al final, once muertes y derrota. Volvió a las seis y media con Fr4nux de compañero y el robot otra vez: ocho muertes y cero de daño a objetivos. Ganó una con Galio, por despistar al Sindicato, y cerró a las 19:34 con un Blitzcrank sin un solo asesinato. Del 4–0 al 5–3 en cinco horas. A las tres era el mejor día de su mes; a las ocho, un viernes más.\n\nLo de la mañana tampoco era autocontrol. En la partida de las 13:40 puso 58 guardianes; en la de las 11:35 mandó 54 pings. Saiko no juega de soporte: lo administra. Ilumina como un faro, avisa como una alarma de coche y no sabe dónde está el interruptor de ninguno de los dos. Mientras tanto, en la cuenta del reto, que ni tocó, Dierophant le adelantaba y le bajaba al tercer puesto.\n\nSigue primero de la General de la vergüenza. No por perder: por no reconocer cuándo ha ganado.\n\nMañana es domingo. Que alguien le esconda el cargador.",
+   "meme": {
+    "plantilla": "exit",
+    "lineas": [
+     "Apagar con un 4–0",
+     "Otro Blitzcrank",
+     "Saiko a las 15:31"
+    ]
+   },
+   "pie": "Señalización de la salida 4–0 en la autopista de Zaun. Nadie la ha usado nunca."
+  },
+  {
+   "angulo": "a6",
+   "peso": "mediana",
+   "formato": "entrevista",
+   "hilo": "carry-not-found",
+   "seccion": "CULTURA",
+   "player": "fr4nux",
+   "entrevistado": "Alune",
+   "headline": "Aphelios no habla, pero su hermana sí",
+   "body": "Fr4nux sacó a Aphelios a las 19:34 y perdió: quinta derrota en cinco intentos en esta hemeroteca. Aphelios no concede entrevistas porque no habla. Responde por él su hermana Alune, desde la Luna.\n\n— ¿Cómo está su hermano?\n\n— Ciego. Dos de visión en veinticuatro minutos. Le guiaba desde el cielo y aun así no encontraba la calle.\n\n— La Tristana rival le sacó 4.738 de oro.\n\n— Mi hermano carga cinco armas. Su amigo encontró la manera de que no disparara ninguna.\n\n— Una hora antes, con Corki, Fr4nux hizo el 30,3 % del daño de su equipo y un triple.\n\n— Y perdió. En la Luna también llega el periódico. Cuando pega, pierde; cuando no pega, también. Es lo único constante que tiene.\n\n— ¿Lo volverá a elegir?\n\n— Las Lunari rezamos por cosas imposibles. Por esa, no.",
+   "pie": "Aphelios, en rueda de prensa. Habla su hermana; él asiente con cara de 2/9/2."
+  },
+  {
+   "angulo": "a28",
+   "peso": "mediana",
+   "formato": "noticia",
+   "hilo": "el-intercambio-de-maldiciones",
+   "seccion": "EL FARO DE LA ESPERANZA",
+   "player": "gsjoseador",
+   "headline": "Recoge lo que los demás tiran",
+   "subtitulo": "GSJoseador cierra el día 4–1 ganando con los campeones malditos de sus amigos.",
+   "body": "GSJoseador es el mejor del día, que en este grupo es como ser el más sobrio de una despedida de soltero, pero los Centinelas no eligen sus milagros. Lo raro es de dónde sacó las victorias: del contenedor de los demás. A las 17:53 ganó con Syndra, la maldición que el Barón arrastra desde hace semanas. Ganó con Lissandra, la que Wôlf enterró en su estreno, y se llevó de paso el dragón y las larvas. Y con Xerath, el de casa, murió una vez en veintiocho minutos.\n\nLa única derrota llegó a las 23:22 con Ekko, otro campeón heredado del Barón: diez asesinatos, cinco a solas y una asistencia. Una. Fue a pelear como su anterior dueño: solo y convencido.\n\nEl Faro sigue sin farero desde que el Hermano Venda se llevó la lámpara. Esta pieza se ha escrito a la luz de la pantalla de GSJoseador. Era la única encendida que ganaba.",
+   "meme": {
+    "plantilla": "handshake",
+    "lineas": [
+     "El Barón",
+     "Wôlf",
+     "Campeones que GSJoseador gana por ellos"
+    ]
+   },
+   "pie": "Pacto de no agresión firmado en la Arena de Noxus. Solo cobra uno."
+  },
+  {
+   "angulo": "a8",
+   "peso": "mediana",
+   "formato": "ranking",
+   "hilo": "el-reto-de-las-cuentas-nuevas",
+   "seccion": "SOLOQ CHALLENGE",
+   "player": "grangalax",
+   "headline": "El que iba a ser Maestro baja de liga",
+   "body": "1. GSJoseador (Platino IV · 75). Gana una, pierde otra y sigue arriba: prometió pegar, de momento aguanta.\n\n2. Dierophant (Platino IV · 37). Sube al segundo puesto rezando a la luz de grangalax. La luz, mientras, se fundía en Oro II.\n\n3. Saiko (Platino IV · 27). Baja un puesto sin jugar en el reto: estaba ocupado perdiendo en otra cuenta.\n\n4. RDV Canyon (Oro I · 87). Quieto. Prometió Diamante y está a 813 puntos, la distancia exacta entre prometer y jugar.\n\n5. Giroroo (Oro I · 59). Dos de dos, asciende y sube dos puestos. El muro del reto ya le llama «El Adicto»: el Invicto ya no se cansa.\n\n6. Wôlf (Oro I · 46). Gana la única que juega y baja un puesto. Ni ganando.\n\n7. grangalax (Oro II · 85). Prometió Maestro. Dos derrotas, se cae de Oro I y le faltan 1.315 puntos. Al ritmo de hoy, llega a Maestro hacia atrás.\n\n8. Fr4nux (Oro II · 54). No toca la cuenta del reto: gasta la mala suerte en la otra.\n\n9. iPredatoRz (Oro II · 51). Tampoco. El Vacío no tiene wifi.\n\n10. TheTrevur (Oro III · 95). Último, cuatro derrotas seguidas y un Teemo calentando en la banda.",
+   "stat": "1.315",
+   "stat_label": "puntos entre el Barón y su Maestro prometido"
+  },
+  {
+   "angulo": null,
+   "peso": "mediana",
+   "formato": "noticia",
+   "hilo": "la-deuda-del-director",
+   "seccion": "POLÍTICA",
+   "desk": "La redacción",
+   "headline": "Madame Niebla pone el papel del revés y acierta entera",
+   "subtitulo": "La vidente lee la firma del margen a contraluz, y el nombre que sale es el de la casa.",
+   "body": "Madame Niebla, que en toda su carrera no ha acertado una previsión buena, ha acertado por fin una mala. Cobretuerca le enseñó anoche el borrador de la fórmula de la General del 21 de octubre, el que Tobías Candil entregó con una firma en el margen que no era de Barbanegra. Ella, por oficio, lo leyó del revés y contra la luz. Vista así, la firma deja de ser un garabato y empieza a parecerse a un nombre. El de la casa.\n\nEl director aprobó la fórmula equivocada. Barbanegra guarda el papel que lo demuestra. El director protege a Barbanegra. Son tres frases que esta redacción llevaba un mes sin atreverse a poner en fila.\n\nDon Evaristo no ha querido hacer declaraciones. Ha pedido, eso sí, que no se publique esta pieza.\n\nA las seis de la mañana ya estaba en La Gaceta de Noxus, firmada por el Hermano Venda y su lámpara robada. Nos han robado la exclusiva antes de que nos diera tiempo a censurárnosla."
+  },
+  {
+   "angulo": "a31",
+   "peso": "breve",
+   "formato": "breve",
+   "hilo": "el-invicto-intermitente",
+   "seccion": "ECONOMÍA",
+   "player": "giroroo",
+   "headline": "Kayn cobra por adelantado",
+   "body": "Giroroo volvió a Kayn, el que le costó dos derrotas y dos primeros muertos en los tres primeros minutos hace once días. Esta vez ganó: se quedó con el 24,6 % del oro de su equipo y devolvió el 16,2 % del daño. Kayn no denuncia; factura. Y el Invicto que jugaba poco es ya «El Adicto» oficial del muro del reto."
+  },
+  {
+   "angulo": "a33",
+   "peso": "breve",
+   "formato": "breve",
+   "seccion": "SUCESOS",
+   "player": "fr4nux",
+   "headline": "Cuarenta y ocho segundos",
+   "body": "A las 17:49, Fr4nux murió con Vayne a los cuarenta y ocho segundos de partida, primero de los diez. Ganó. En el día lo hizo tres veces, con Akali, Vayne y Corki: el primer cadáver de la Grieta fue suyo, y dos de esas tres acabaron en victoria. En el Instituto Hextech empiezan a sospechar que es una táctica."
+  },
+  {
+   "angulo": "a53",
+   "peso": "breve",
+   "formato": "anuncio por palabras",
+   "seccion": "SOCIEDAD",
+   "player": "fr4nux",
+   "headline": "Se ofrece tirador para el top",
+   "body": "SE OFRECE tirador con noventa y una partidas en la hemeroteca sin tocar a Akali. Estrenada a las 16:19 en la calle de arriba: 10/6/3, cinco duelos ganados a solas, victoria. Su mejor partida del día fue sin arco. Abstenerse equipos que necesiten daño en la calle de abajo. Razón: Instituto Hextech."
+  },
+  {
+   "angulo": "a48",
+   "peso": "breve",
+   "formato": "breve",
+   "seccion": "COMUNICACIÓN",
+   "player": "saiko",
+   "headline": "Radio Saiko, en antena desde las once y media",
+   "body": "A las 11:35, en la primera del día, Saiko mandó 54 pings con Blitzcrank. Ganó, con 29 asistencias. Radio Zaun estudia ficharle: no por la calidad de la señal, sino porque no hay forma de apagarla."
+  },
+  {
+   "angulo": "a17",
+   "peso": "breve",
+   "formato": "nota de prensa",
+   "hilo": "la-ronda-del-cangrejo",
+   "seccion": "SOLOQ CHALLENGE",
+   "player": "thetrevur",
+   "headline": "El Teemo sigue esperando",
+   "body": "Un Teemo de Guardia comunica que sigue en la quedada con las setas puestas. TheTrevur, último del reto, lleva cuatro derrotas seguidas en la cuenta y anoche no apareció. Quince partidas, quince Urgot. El Teemo recuerda que su paciencia es infinita y su veneno, también."
+  },
+  {
+   "angulo": "a24",
+   "peso": "breve",
+   "formato": "breve",
+   "seccion": "SOLOQ CHALLENGE",
+   "player": "wolf",
+   "headline": "Gana y baja",
+   "body": "Wôlf jugó una partida del reto, la ganó, sumó treinta puntos y bajó un puesto: Giroroo le pasó por encima con dos. Se inscribió prometiendo Aspirante con un grito de guerra que decía «Hola». Le faltan 1.254 puntos.\n\nAdiós."
+  }
+ ],
+ "tiempo": [
+  {
+   "jugador": "grangalax",
+   "texto": "Despejado por la tarde, con un cuádruple de sol. Pasada la una, Niebla Negra cerrada sobre el carril central y seis rayos en la misma baldosa. Treinta y nueve minutos de gris."
+  },
+  {
+   "jugador": "saiko",
+   "texto": "Cielos limpios hasta las tres de la tarde. Después, borrasca autoinvitada que nadie pidió y que se negó a irse hasta las ocho."
+  },
+  {
+   "jugador": "fr4nux",
+   "texto": "Niebla en el primer minuto, tres veces en una tarde. Chubascos de Tristana a última hora y visibilidad de dos en el bot."
+  },
+  {
+   "jugador": "gsjoseador",
+   "texto": "Soleado con campeones prestados. Una tormenta de Ekko pasadas las once, de las que se buscan solas."
+  },
+  {
+   "jugador": "giroroo",
+   "texto": "Apenas cuatro minutos de gris. Viento del Kayn, seco y de cobro."
+  }
+ ],
+ "canon": {
+  "hilos": [
+   {
+    "id": "la-moneda",
+    "accion": "avanzar",
+    "estado": "escalando",
+    "resumen": "El Barón juega de 11:10 a 17:49 y vuelve a las 01:55: 5–4. Con Syndra hace un cuádruple por la tarde y, a las 03:13, muere trece veces (seis en la misma baldosa, el primero al minuto dos) ante un Locke rival que firma 31/9/7, más que el récord de asesinatos del propio Barón.",
+    "protagonistas": [
+     "grangalax"
+    ]
+   },
+   {
+    "id": "el-que-no-sabe-irse-a-casa",
+    "accion": "avanzar",
+    "resumen": "Saiko gana cuatro Blitzcrank seguidos hasta las 14:55 y no para: 1–3 después, del 4–0 al 5–3. 58 guardianes en una, 54 pings en otra. Dierophant le pasa en el reto sin que Saiko lo toque.",
+    "protagonistas": [
+     "saiko"
+    ]
+   },
+   {
+    "id": "carry-not-found",
+    "accion": "avanzar",
+    "resumen": "Fr4nux, 3–3: estrena Akali en el top y gana; con Corki hace el 30,3 % del daño y un triple y pierde; con Aphelios, dos de visión y quinta derrota de cinco. Alune concede la entrevista por su hermano. Muere el primero de la partida tres veces.",
+    "protagonistas": [
+     "fr4nux"
+    ]
+   },
+   {
+    "id": "el-intercambio-de-maldiciones",
+    "accion": "avanzar",
+    "resumen": "GSJoseador gana con la Syndra del Barón y la Lissandra de Wôlf (14/4/15) y pierde con el Ekko del Barón (10/5/1). 4–1, mejor del día.",
+    "protagonistas": [
+     "gsjoseador",
+     "grangalax",
+     "wolf"
+    ]
+   },
+   {
+    "id": "el-reto-de-las-cuentas-nuevas",
+    "accion": "avanzar",
+    "resumen": "Día catorce: GSJoseador sigue líder (Platino IV 75); Dierophant sube al segundo y Saiko baja al tercero sin jugar; Giroroo asciende a Oro I y sube al quinto; Wôlf gana y baja al sexto; grangalax, 0–2, cae a Oro II a 1.315 puntos de su Maestro.",
+    "protagonistas": [
+     "gsjoseador",
+     "dierophant",
+     "saiko",
+     "giroroo",
+     "wolf",
+     "grangalax"
+    ]
+   },
+   {
+    "id": "la-luz-de-grangalax",
+    "accion": "avanzar",
+    "resumen": "Dierophant sube al segundo puesto del reto la misma noche en que su guía cae de Oro I a Oro II.",
+    "protagonistas": [
+     "dierophant",
+     "grangalax"
+    ]
+   },
+   {
+    "id": "la-deuda-del-director",
+    "accion": "avanzar",
+    "estado": "desenlace",
+    "resumen": "Madame Niebla lee del revés y a contraluz la firma del margen del borrador de la fórmula de la General: es del director. Queda claro por qué protege a Barbanegra: el contable guarda la prueba de que el director aprobó la fórmula equivocada. El director pide que no se publique."
+   },
+   {
+    "id": "la-guerra-de-los-periodicos",
+    "accion": "avanzar",
+    "estado": "escalando",
+    "resumen": "La Gaceta de Noxus roba la exclusiva de la firma del director y la publica a las seis, firmada por el Hermano Venda, ya en su plantilla. Defiende al Barón porque hizo el 27,6 % del daño de su equipo en la partida de portada."
+   },
+   {
+    "id": "la-ronda-del-cangrejo",
+    "accion": "avanzar",
+    "resumen": "TheTrevur no juega; sigue último del reto con cuatro derrotas seguidas y el Teemo de Guardia esperándole en la quedada.",
+    "protagonistas": [
+     "thetrevur"
+    ]
+   },
+   {
+    "id": "el-invicto-intermitente",
+    "accion": "cerrar",
+    "resumen": "El Invicto que jugaba poco es «El Adicto» del muro del reto, con 27 partidas, y gana con Kayn, su antigua maldición. Ya no es intermitente: es fijo."
+   }
+  ],
+  "personajes": {
+   "grangalax": {
+    "apodo": "el Barón de las tres y trece",
+    "arco": {
+     "tipo": "caída",
+     "texto": "Del cuádruple de la tarde a trece muertes de madrugada ante un Locke que le supera su propio récord; en el reto, 0–2 y fuera de Oro I."
+    }
+   },
+   "saiko": {
+    "arco": {
+     "tipo": "caída",
+     "texto": "4–0 a las tres de la tarde y 1–3 después: no para cuando gana, y en el reto le adelantan sin que juegue."
+    }
+   },
+   "fr4nux": {
+    "maldicion": "Aphelios: 0–5 en la hemeroteca, con dos de visión ante una Tristana",
+    "arco": {
+     "tipo": "en pausa",
+     "texto": "3–3: gana de top con Akali y pierde con el Corki con el que por fin hace daño. Cuando pega, pierde."
+    }
+   },
+   "gsjoseador": {
+    "apodo": "el chatarrero de maldiciones",
+    "arco": {
+     "tipo": "ascenso",
+     "texto": "Mejor del día ganando con las maldiciones ajenas (Syndra del Barón, Lissandra de Wôlf); líder del reto un día más."
+    }
+   },
+   "giroroo": {
+    "arco": {
+     "tipo": "ascenso",
+     "texto": "Gana con Kayn, su vieja maldición, asciende a Oro I en el reto y es el Adicto del muro: el Invicto ya no descansa."
+    }
+   }
+  },
+  "elenco": [
+   {
+    "nombre": "Madame Niebla",
+    "estado": "Ha acertado una, y era mala: leyó del revés la firma del margen y era la del director"
+   },
+   {
+    "nombre": "Don Evaristo Plumanegra",
+    "estado": "Descubierto: la firma del margen del borrador de la General es suya; ha pedido que no se publique y se ha publicado dos veces"
+   },
+   {
+    "nombre": "Hermano Venda",
+    "estado": "Ya escribe en La Gaceta de Noxus con la lámpara del Faro; firmó la exclusiva de la firma del director"
+   },
+   {
+    "nombre": "Comisario Ambrosio Cobretuerca",
+    "estado": "Enseñó el borrador a Madame Niebla; ha acordonado una baldosa del carril central por reincidencia del Barón"
+   }
+  ],
+  "costumbres": [
+   "Los viernes sin Flex, el Barón juega de las once de la mañana a las seis de la tarde, para, y vuelve pasada la una y media de la madrugada."
+  ],
+  "chistes": [
+   "el que no sabe irse a casa",
+   "Locke en negativo"
+  ],
+  "sindicato": [
+   {
+    "campeon": "Syndra",
+    "jugador": "grangalax",
+    "motivo": "Sacada a las tres y trece de la madrugada para morir trece veces, seis en la misma baldosa, ante un Locke 31/9/7"
+   },
+   {
+    "campeon": "Aphelios",
+    "jugador": "fr4nux",
+    "motivo": "Quinta derrota de cinco: dos de visión en veinticuatro minutos y 4.738 de oro perdidos ante una Tristana"
+   }
+  ]
+ },
+ "gaceta": {
+  "titular": "¡EL DIRECTOR DEL RINCÓN FIRMÓ LA FÓRMULA Y SU PERIÓDICO LO TAPÓ UN MES!",
+  "cuerpo": "Fuentes de toda solvencia, y con lámpara propia, confirman lo que el Rincón ha tardado un mes en imprimir: la firma del margen del borrador de la General es de su director. ¡Un mes protegiendo a un contable para tapar su propia chapuza!\n\nY mientras tanto, ¿a quién cuelgan hoy en portada? Al Barón, que hizo el 27,6 % del daño de su equipo en la partida que le reprochan. ¡UN HOMBRE QUE HIZO MÁS DE UN CUARTO DEL DAÑO, TRATADO COMO UN DELINCUENTE POR UN PERIÓDICO QUE FALSIFICA SUS PROPIAS CLASIFICACIONES! La Gaceta defiende al Barón y exige la dimisión de quien firma lo que no debe.",
+  "firma": "Hermano Venda, para La Gaceta de Noxus"
+ },
+ "tarjetas": [
+  {
+   "id": "partidas-al-dia",
+   "titulo": "¿Quién va al día?",
+   "subtitulo": "Partidas jugadas frente al ritmo de dos por día (13 días completos: 26)",
+   "tipo": "tabla",
+   "sugerencia": 4,
+   "datos": {
+    "columnas": [
+     "Jugador",
+     "Jugadas",
+     "Frente a 26",
+     "Faltan para 50"
+    ],
+    "filas": [
+     [
+      "Giroroo",
+      "27",
+      "+1",
+      "23"
+     ],
+     [
+      "grangalax",
+      "27",
+      "+1",
+      "23"
+     ],
+     [
+      "GSJoseador",
+      "26",
+      "0",
+      "24"
+     ],
+     [
+      "Dierophant",
+      "26",
+      "0",
+      "24"
+     ],
+     [
+      "Wôlf",
+      "26",
+      "0",
+      "24"
+     ],
+     [
+      "Fr4nux",
+      "26",
+      "0",
+      "24"
+     ],
+     [
+      "RDV Canyon",
+      "25",
+      "−1",
+      "25"
+     ],
+     [
+      "Saiko",
+      "24",
+      "−2",
+      "26"
+     ],
+     [
+      "iPredatoRz",
+      "21",
+      "−5",
+      "29"
+     ],
+     [
+      "TheTrevur",
+      "15",
+      "−11",
+      "35"
+     ]
+    ]
+   },
+   "pie": "En negativo, los que van tarde. TheTrevur va tan tarde que ya llega al año que viene."
+  }
+ ],
+ "sugerencias_tablon": [
+  {
+   "id": 4,
+   "decision": "hecha",
+   "motivo": "Sale de las partidas del reto: jugadas de cada uno frente a dos por día completado y lo que falta para el mínimo de 50.",
+   "tarjeta": "partidas-al-dia"
+  }
+ ],
+ "jurado": {
+  "pregunta": "¿Qué debe hacer el director tras lo de la firma?",
+  "opciones": [
+   "Dimitir",
+   "Culpar otra vez a Barbanegra",
+   "Despedir a Madame Niebla"
+  ],
+  "juicio": false
+ },
+ "manana": [
+  {
+   "texto": "¿Apagará Saiko el domingo si va ganando?"
+  },
+  {
+   "texto": "¿Volverá el Barón a la Syndra pasada la una de la madrugada?"
+  },
+  {
+   "texto": "¿Hará caso Fr4nux a Alune y dejará a Aphelios en la Luna?"
+  }
+ ],
+ "estilo": {
+  "pautas_nuevas": [],
+  "pautas_retiradas": []
+ },
+ "horoscopo": [
+  {
+   "signo": "Top",
+   "texto": "Un tirador te robará la calle con una asesina y ni siquiera sabrá qué ha hecho. Tú tampoco lo sabrás: estarás muerto."
+  },
+  {
+   "signo": "Jungla",
+   "texto": "Kayn te dará la victoria y te pasará la factura. Paga sin rechistar: la otra vez te cobró en primeros muertos."
+  },
+  {
+   "signo": "Mid",
+   "texto": "Hoy alguien hará más asesinatos que tu récord, y los hará encima de ti. Evita las baldosas que ya conoces."
+  },
+  {
+   "signo": "Tirador",
+   "texto": "Si un hermano te habla desde la Luna, escúchale. Si no oyes nada, es que te has quedado con dos de visión."
+  },
+  {
+   "signo": "Soporte",
+   "texto": "Ganarás cuatro seguidas antes de las tres. Lo que pase después es culpa tuya y de nadie más."
+  }
+ ],
+ "columna": {
+  "titulo": "Me pusieron a las 13:40 y nadie me miró",
+  "autor": "Un Guardián de Saiko",
+  "cuerpo": [
+   "Soy uno de los cincuenta y ocho. No el primero, que ese tuvo su momento, ni el último, que le pilló la victoria. Soy uno del medio, de los que se ponen por costumbre, como quien enciende la luz de un pasillo por el que no va a pasar nadie.",
+   "Viví noventa segundos en un arbusto del río. Vi pasar a mi equipo, vi pasar al enemigo, vi a mi dueño mandar un ping sobre mí para que supieran que yo estaba allí viendo. Nadie se dio por enterado. Él mandó otro.",
+   "Dicen que un guardián sirve para que tu equipo tome buenas decisiones. Yo informé de todo y la única decisión que tomó nadie aquella tarde fue sacar otro Blitzcrank a las tres y media.",
+   "No me quejo. Somos muchos y cobramos poco. Pero que conste que, cuando ganó la cuarta, yo ya estaba en el arbusto pensando lo mismo que el resto del mapa: vete a casa.",
+   "No se fue. Yo sí: me quitaron a los noventa segundos."
+  ]
+ },
+ "especial": null,
+ "frase": "Hay récords que solo se ven bien desde el suelo.",
+ "eventos_usados": [],
+ "propuestas_descartadas": [],
+ "replicas_descartadas": [],
+ "firma": "Claude"
+}

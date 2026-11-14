@@ -49,6 +49,10 @@
         {
           "fecha": "2026-11-12",
           "texto": "el Barón de los cincuenta minutos"
+        },
+        {
+          "fecha": "2026-11-14",
+          "texto": "el Barón de las tres y trece"
         }
       ],
       "rasgos": [
@@ -173,6 +177,11 @@
           "tipo": "ascenso",
           "texto": "Juega solo las siete del miércoles, 5–2, y con un Jhin de cincuenta minutos y doce muertes le quita a iPredatoRz el récord de asesinatos.",
           "fecha": "2026-11-12"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Del cuádruple de la tarde a trece muertes de madrugada ante un Locke que le supera su propio récord; en el reto, 0–2 y fuera de Oro I.",
+          "fecha": "2026-11-14"
         }
       ]
     },
@@ -329,6 +338,10 @@
         {
           "fecha": "2026-11-03",
           "texto": "Vayne en el top: 0/7/1 y tres muertes en el mismo rincón"
+        },
+        {
+          "fecha": "2026-11-14",
+          "texto": "Aphelios: 0–5 en la hemeroteca, con dos de visión ante una Tristana"
         }
       ],
       "rivales": [
@@ -402,6 +415,11 @@
           "tipo": "redención",
           "texto": "Tres Ezreal, dos victorias y Esmeralda IV con veinte, ganando cuando menos daño hace.",
           "fecha": "2026-11-12"
+        },
+        {
+          "tipo": "en pausa",
+          "texto": "3–3: gana de top con Akali y pierde con el Corki con el que por fin hace daño. Cuando pega, pierde.",
+          "fecha": "2026-11-14"
         }
       ]
     },
@@ -429,6 +447,10 @@
         {
           "fecha": "2026-11-01",
           "texto": "el lector más rico de la Lonja"
+        },
+        {
+          "fecha": "2026-11-14",
+          "texto": "el chatarrero de maldiciones"
         }
       ],
       "rasgos": [
@@ -490,6 +512,11 @@
           "tipo": "ascenso",
           "texto": "Toma el liderato del reto en Platino IV con un Ornn que no muere y no pega: el 15,7 % del daño de un hombre que prometió ser el que más pega.",
           "fecha": "2026-11-11"
+        },
+        {
+          "tipo": "ascenso",
+          "texto": "Mejor del día ganando con las maldiciones ajenas (Syndra del Barón, Lissandra de Wôlf); líder del reto un día más.",
+          "fecha": "2026-11-14"
         }
       ]
     },
@@ -736,6 +763,11 @@
           "tipo": "caída",
           "texto": "De jugar tres partidas en una semana a siete en un domingo: pierde el apodo de Invicto, lidera la vergüenza del día y deja veintiún puntos en su Diamante.",
           "fecha": "2026-11-02"
+        },
+        {
+          "tipo": "ascenso",
+          "texto": "Gana con Kayn, su vieja maldición, asciende a Oro I en el reto y es el Adicto del muro: el Invicto ya no descansa.",
+          "fecha": "2026-11-14"
         }
       ]
     },
@@ -882,6 +914,11 @@
           "tipo": "caída",
           "texto": "Cuatro Blitzcrank en un día y 1–3; en el reto, dos derrotas y empatado en puntos con Dierophant.",
           "fecha": "2026-11-12"
+        },
+        {
+          "tipo": "caída",
+          "texto": "4–0 a las tres de la tarde y 1–3 después: no para cuando gana, y en el reto le adelantan sin que juegue.",
+          "fecha": "2026-11-14"
         }
       ]
     }
@@ -926,6 +963,11 @@
           "fecha": "2026-11-12",
           "campo": "estado",
           "texto": "Custodia el borrador de la fórmula de la General y se niega a decir de quién es la firma del margen; no se lo entrega al director"
+        },
+        {
+          "fecha": "2026-11-14",
+          "campo": "estado",
+          "texto": "Enseñó el borrador a Madame Niebla; ha acordonado una baldosa del carril central por reincidencia del Barón"
         }
       ]
     },
@@ -1121,6 +1163,11 @@
           "fecha": "2026-11-10",
           "campo": "estado",
           "texto": "Leyó la página del libro al revés y acertó la mitad"
+        },
+        {
+          "fecha": "2026-11-14",
+          "campo": "estado",
+          "texto": "Ha acertado una, y era mala: leyó del revés la firma del margen y era la del director"
         }
       ]
     },
@@ -1168,6 +1215,11 @@
           "fecha": "2026-11-08",
           "campo": "estado",
           "texto": "Ha roto la carta de renuncia a la oferta de Noxus por el Taric de Saiko y ha enviado el traslado a la Gaceta; se ha llevado la lámpara del Faro"
+        },
+        {
+          "fecha": "2026-11-14",
+          "campo": "estado",
+          "texto": "Ya escribe en La Gaceta de Noxus con la lámpara del Faro; firmó la exclusiva de la firma del director"
         }
       ]
     },
@@ -1267,6 +1319,11 @@
           "fecha": "2026-11-12",
           "campo": "estado",
           "texto": "Ha pedido que le traigan el borrador de la fórmula y se lo han negado; el 5–2 del Barón solo le amortiza dos monedas"
+        },
+        {
+          "fecha": "2026-11-14",
+          "campo": "estado",
+          "texto": "Descubierto: la firma del margen del borrador de la General es suya; ha pedido que no se publique y se ha publicado dos veces"
         }
       ]
     },
@@ -1372,7 +1429,8 @@
       "relacion": "Espera a TheTrevur como quien espera a un alumno nuevo",
       "rasgo": "Es la mitad del castigo del farolillo del reto y lo lleva con orgullo",
       "institucion": "Exploradores de Bandle",
-      "fecha": "2026-11-12"
+      "fecha": "2026-11-12",
+      "cambios": []
     }
   ],
   "hilos": [
@@ -1460,6 +1518,10 @@
         },
         {
           "fecha": "2026-11-12",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-14",
           "estado": "escalando"
         }
       ],
@@ -1597,6 +1659,13 @@
           "titulares": [
             "El récord de asesinatos se lo queda el que más muere",
             "Si no puedes con él, póntelo"
+          ]
+        },
+        {
+          "fecha": "2026-11-14",
+          "resumen": "El Barón juega de 11:10 a 17:49 y vuelve a las 01:55: 5–4. Con Syndra hace un cuádruple por la tarde y, a las 03:13, muere trece veces (seis en la misma baldosa, el primero al minuto dos) ante un Locke rival que firma 31/9/7, más que el récord de asesinatos del propio Barón.",
+          "titulares": [
+            "El plusmarquista de asesinatos conoce a uno de verdad"
           ]
         }
       ]
@@ -1810,6 +1879,13 @@
           "resumen": "Tres Ezreal seguidos: gana la primera con el menor daño de su equipo (14,0 %), la segunda en dúo con GSJoseador y pierde la tercera tras entregar la primera sangre ante un Twitch 19/3/6 que le saca 6.365 de oro. Sube a Esmeralda IV 20.",
           "titulares": [
             "Tres dosis de Ezreal y el daño sigue sin aparecer"
+          ]
+        },
+        {
+          "fecha": "2026-11-14",
+          "resumen": "Fr4nux, 3–3: estrena Akali en el top y gana; con Corki hace el 30,3 % del daño y un triple y pierde; con Aphelios, dos de visión y quinta derrota de cinco. Alune concede la entrevista por su hermano. Muere el primero de la partida tres veces.",
+          "titulares": [
+            "Aphelios no habla, pero su hermana sí"
           ]
         }
       ]
@@ -2340,6 +2416,11 @@
           "fecha": "2026-11-12",
           "resumen": "La Gaceta publica a las seis el resultado del análisis de la cera antes de que la Comisaría se lo comunique al Rincón, y defiende a TheTrevur, último del reto sin jugar.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-11-14",
+          "resumen": "La Gaceta de Noxus roba la exclusiva de la firma del director y la publica a las seis, firmada por el Hermano Venda, ya en su plantilla. Defiende al Barón porque hizo el 27,6 % del daño de su equipo en la partida de portada.",
+          "titulares": []
         }
       ],
       "estados": [
@@ -2389,6 +2470,10 @@
         },
         {
           "fecha": "2026-11-10",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-14",
           "estado": "escalando"
         }
       ]
@@ -2729,6 +2814,13 @@
           "titulares": [
             "«Hasta las calderas de Zaun paran a comer»"
           ]
+        },
+        {
+          "fecha": "2026-11-14",
+          "resumen": "Saiko gana cuatro Blitzcrank seguidos hasta las 14:55 y no para: 1–3 después, del 4–0 al 5–3. 58 guardianes en una, 54 pings en otra. Dierophant le pasa en el reto sin que Saiko lo toque.",
+          "titulares": [
+            "A las tres de la tarde iba invicto"
+          ]
         }
       ]
     },
@@ -2832,6 +2924,13 @@
           "resumen": "GSJoseador estrena Syndra, segunda maldición del Barón, a las 17:17 y gana; a las 17:34 el Barón pierde con Syndra ante una Lux por 3.577 de oro. A las 18:37 gana con ella, una hora después que su sustituto.",
           "titulares": [
             "Diecisiete minutos con la misma Syndra"
+          ]
+        },
+        {
+          "fecha": "2026-11-14",
+          "resumen": "GSJoseador gana con la Syndra del Barón y la Lissandra de Wôlf (14/4/15) y pierde con el Ekko del Barón (10/5/1). 4–1, mejor del día.",
+          "titulares": [
+            "Recoge lo que los demás tiran"
           ]
         }
       ]
@@ -3084,6 +3183,13 @@
           "titulares": [
             "El alumno ya le saca una liga al santo"
           ]
+        },
+        {
+          "fecha": "2026-11-14",
+          "resumen": "Día catorce: GSJoseador sigue líder (Platino IV 75); Dierophant sube al segundo y Saiko baja al tercero sin jugar; Giroroo asciende a Oro I y sube al quinto; Wôlf gana y baja al sexto; grangalax, 0–2, cae a Oro II a 1.315 puntos de su Maestro.",
+          "titulares": [
+            "El que iba a ser Maestro baja de liga"
+          ]
         }
       ]
     },
@@ -3100,6 +3206,10 @@
         {
           "fecha": "2026-11-02",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-11-14",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -3115,6 +3225,13 @@
           "resumen": "Condenado por su propio voto (jugar cuatro de más), juega cuatro: 2–0 en el reto por la mañana y 0–2 con Kayn en su secundaria por la tarde, con la primera sangre entregada en las dos; la secundaria baja de Esmeralda II a III.",
           "titulares": [
             "Ocho objetivos y ninguna victoria"
+          ]
+        },
+        {
+          "fecha": "2026-11-14",
+          "resumen": "El Invicto que jugaba poco es «El Adicto» del muro del reto, con 27 partidas, y gana con Kayn, su antigua maldición. Ya no es intermitente: es fijo.",
+          "titulares": [
+            "Kayn cobra por adelantado"
           ]
         }
       ]
@@ -3293,6 +3410,11 @@
           "titulares": [
             "Querido lector anónimo: mande las pruebas"
           ]
+        },
+        {
+          "fecha": "2026-11-14",
+          "resumen": "Dierophant sube al segundo puesto del reto la misma noche en que su guía cae de Oro I a Oro II.",
+          "titulares": []
         }
       ]
     },
@@ -3418,6 +3540,10 @@
         {
           "fecha": "2026-11-12",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-14",
+          "estado": "desenlace"
         }
       ],
       "capitulos": [
@@ -3440,6 +3566,13 @@
           "resumen": "La cera de la página es de Tobías Candil, que confiesa la filtración y entrega el borrador de la fórmula de la General del 21 de octubre con una firma en el margen que no es de Barbanegra. La Comisaría entiende por qué el director protege al contable: Barbanegra le guarda ese papel. El 5–2 del Barón solo le amortiza dos monedas.",
           "titulares": [
             "La cera era del becario; la firma, no"
+          ]
+        },
+        {
+          "fecha": "2026-11-14",
+          "resumen": "Madame Niebla lee del revés y a contraluz la firma del margen del borrador de la fórmula de la General: es del director. Queda claro por qué protege a Barbanegra: el contable guarda la prueba de que el director aprobó la fórmula equivocada. El director pide que no se publique.",
+          "titulares": [
+            "Madame Niebla pone el papel del revés y acierta entera"
           ]
         }
       ]
@@ -3465,6 +3598,13 @@
           "resumen": "TheTrevur juega una sola partida, Urgot 0/8/2 ante un Jax, y cae al último puesto del reto sin jugar en él: le tocan la primera ronda de la quedada y una partida entera de soporte con Teemo.",
           "titulares": [
             "Urgot.exe ha dejado de responder"
+          ]
+        },
+        {
+          "fecha": "2026-11-14",
+          "resumen": "TheTrevur no juega; sigue último del reto con cuatro derrotas seguidas y el Teemo de Guardia esperándole en la quedada.",
+          "titulares": [
+            "El Teemo sigue esperando"
           ]
         }
       ]
@@ -3570,6 +3710,10 @@
     {
       "fecha": "2026-11-12",
       "texto": "Los miércoles sin Flex, el Barón abre la SoloQ a las nueve y cuarto de la mañana y la cierra casi a medianoche con un tirador que no es el suyo."
+    },
+    {
+      "fecha": "2026-11-14",
+      "texto": "Los viernes sin Flex, el Barón juega de las once de la mañana a las seis de la tarde, para, y vuelve pasada la una y media de la madrugada."
     }
   ],
   "chistes": [
@@ -3635,9 +3779,10 @@
       "fechas": [
         "2026-10-28",
         "2026-11-01",
-        "2026-11-08"
+        "2026-11-08",
+        "2026-11-14"
       ],
-      "usos": 3
+      "usos": 4
     },
     {
       "texto": "el otro Saiko",
@@ -3697,6 +3842,13 @@
       "texto": "la moneda",
       "fechas": [
         "2026-11-10"
+      ],
+      "usos": 1
+    },
+    {
+      "texto": "Locke en negativo",
+      "fechas": [
+        "2026-11-14"
       ],
       "usos": 1
     }
@@ -3965,6 +4117,18 @@
       "jugador": "thetrevur",
       "motivo": "Veintiséis minutos, ocho muertes y ni un asesinato ante un Jax, en manos del que presume de ser su único dueño",
       "fecha": "2026-11-12"
+    },
+    {
+      "campeon": "Syndra",
+      "jugador": "grangalax",
+      "motivo": "Sacada a las tres y trece de la madrugada para morir trece veces, seis en la misma baldosa, ante un Locke 31/9/7",
+      "fecha": "2026-11-14"
+    },
+    {
+      "campeon": "Aphelios",
+      "jugador": "fr4nux",
+      "motivo": "Quinta derrota de cinco: dos de visión en veinticuatro minutos y 4.738 de oro perdidos ante una Tristana",
+      "fecha": "2026-11-14"
     }
   ]
 }
