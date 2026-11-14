@@ -220,7 +220,7 @@ h3.tit{font-size:22px}
   45% 100%,35% 92%,22% 96%,16% 85%,4% 80%,7% 67%,0 56%,6% 45%,1% 33%,10% 25%,10% 12%,23% 9%,31% 1%,42% 5%)}
 .lg b{display:block;font:700 17px/1.05 var(--script)}
 .lg span{font-size:14px;color:var(--ink2)}
-.lg .nq{display:block;font:17px/1 var(--hand);color:var(--red)}.lg .nq.ok{color:var(--green,#2f6b2f)}
+.lg .nq{display:block;font:17px/1 var(--hand);color:var(--red)}.lg .nq.ok{color:var(--green)}.lg .nq.debe{color:#a87400}.lg .nq.adelanto{color:var(--red)}
 .hoy{text-align:right;font:700 17px/1.05 var(--script)}
 .hoy small{display:block;font:400 12px/1.3 var(--script);color:var(--ink3)}
 .wr .n{display:flex;justify-content:space-between;font-size:15px}
@@ -1079,16 +1079,17 @@ def _opgg(cfg, riot_id):
 
 
 def _al_dia(x):
-    """The daily pace under the league: what they owe to be up to date, or how many they played ahead (negative)."""
+    """The daily pace under the league: «−N partidas» (yellow) if they owe games to be up to date, «+N» (red)
+    if they played ahead, «al día» (green) if they are right on it."""
     a = x.get("al_dia")
     if not a:
         return ""
     title = f'Día {a["dia"]}: al día se llevan {a["esperadas"]} partidas; lleva {x["partidas"]}'
-    if a["debe"] > 0:
-        return f'<span class="nq" title="{_e(title)}">debe {a["debe"]} {"partida" if a["debe"] == 1 else "partidas"}</span>'
-    if a["debe"] == 0:
+    n = abs(a["debe"])
+    if not n:
         return f'<span class="nq ok" title="{_e(title)}">al día</span>'
-    return f'<span class="nq ok" title="{_e(title)}">−{-a["debe"]} · adelantado</span>'
+    sign, cls = ("−", "debe") if a["debe"] > 0 else ("+", "adelanto")
+    return f'<span class="nq {cls}" title="{_e(title)}">{sign}{n} {"partida" if n == 1 else "partidas"}</span>'
 
 
 def _fila(cfg, r, x, ver, rel_paper, row_id, noticias):

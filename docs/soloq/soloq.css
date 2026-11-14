@@ -146,7 +146,7 @@ h3.tit{font-size:22px}
   45% 100%,35% 92%,22% 96%,16% 85%,4% 80%,7% 67%,0 56%,6% 45%,1% 33%,10% 25%,10% 12%,23% 9%,31% 1%,42% 5%)}
 .lg b{display:block;font:700 17px/1.05 var(--script)}
 .lg span{font-size:14px;color:var(--ink2)}
-.lg .nq{display:block;font:17px/1 var(--hand);color:var(--red)}.lg .nq.ok{color:var(--green,#2f6b2f)}
+.lg .nq{display:block;font:17px/1 var(--hand);color:var(--red)}.lg .nq.ok{color:var(--green)}.lg .nq.debe{color:#a87400}.lg .nq.adelanto{color:var(--red)}
 .hoy{text-align:right;font:700 17px/1.05 var(--script)}
 .hoy small{display:block;font:400 12px/1.3 var(--script);color:var(--ink3)}
 .wr .n{display:flex;justify-content:space-between;font-size:15px}
