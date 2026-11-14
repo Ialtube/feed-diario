@@ -203,6 +203,12 @@
   },
   "buzon": [
     {
+      "id": 4,
+      "nombre": "anonimo",
+      "texto": "Pon cuantas partidas le queda a cada persona por jugar según el día que llevemos del soloq teniendo en cuenta que son dos partidas diarias",
+      "created_at": "2026-11-14T16:01:49.273732+00:00"
+    },
+    {
       "id": 3,
       "nombre": "RDV Canyon",
       "texto": "Primer premio 30€, segundo 25€ y tercero 15€. Los premios pequeños 5€ cada uno y cuadra bien para poner 10€ cada jugador.",
