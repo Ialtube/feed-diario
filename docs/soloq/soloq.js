@@ -204,17 +204,6 @@ if(bz){var bm=$("#buzon-msg");
         bz.texto.value="";loadBuzon()})
       .catch(function(){bm.className="msg err";bm.textContent="El buzón está atascado. Prueba en un rato."})})}
 
-// the boss answers the suggestions that wait for permission
-$$(".permiso [data-decision]").forEach(function(b){b.addEventListener("click",function(){
-  var jfm=$("#jefe"),pm=$("#permiso-msg"),clave=jfm?jfm.clave.value:"";
-  if(!clave){pm.className="msg err";pm.textContent="Pon la contraseña arriba.";return}
-  var row=b.closest(".permiso"),nota=row.querySelector("input")?row.querySelector("input").value.trim():"";
-  api("rpc/soloq_decidir",{method:"POST",headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({clave:clave,p_sugerencia:+row.getAttribute("data-id"),p_decision:b.getAttribute("data-decision"),p_nota:nota||null})})
-    .then(function(r){if(!r.ok)return r.json().then(function(e){throw new Error((e&&e.message)||"no")});
-      row.innerHTML='<p><b>'+(b.getAttribute("data-decision")==="aprobada"?"Aprobada":"Rechazada")+'.</b> La redacción se entera mañana.</p>'})
-    .catch(function(e){pm.className="msg err";pm.textContent=/Contrase/.test(e.message)?"Contraseña incorrecta.":"No se ha podido guardar."})})});
-
 // readers' notes nailed to the board
 // they start the board empty and spread over its corners: the first under the chart, then round the rest of the board
 var corners=$$(".slot-notas").sort(function(a,b){return a.getAttribute("data-slot")-b.getAttribute("data-slot")}),colors=["amarilla","rosa","verde",""];

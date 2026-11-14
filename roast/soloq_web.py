@@ -1088,7 +1088,7 @@ def _al_dia(x):
         return f'<span class="nq" title="{_e(title)}">debe {a["debe"]} {"partida" if a["debe"] == 1 else "partidas"}</span>'
     if a["debe"] == 0:
         return f'<span class="nq ok" title="{_e(title)}">al día</span>'
-    return f'<span class="nq ok" title="{_e(title)}">{a["debe"]} · adelantado</span>'
+    return f'<span class="nq ok" title="{_e(title)}">−{-a["debe"]} · adelantado</span>'
 
 
 def _fila(cfg, r, x, ver, rel_paper, row_id, noticias):
