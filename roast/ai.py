@@ -225,7 +225,8 @@ def build_context(store, date_str, history_days=7, fetch_proposals=True, cfg=Non
         "soloq_challenge": today.get("soloq") or soloq.resumen(cfg, *today["window"],
                                                                datos=soloq.Datos(Path(store.dir) / "soloq")),
         "soloq_sugerencias": dict(
-            sugerencias.para_contexto(cfg, editions, Path(store.dir) / "soloq" / "sugerencias.json", fetch_proposals),
+            sugerencias.para_contexto(cfg, editions, Path(store.dir) / "soloq" / "sugerencias.json", fetch_proposals,
+                                      sugerencias.manuales(Path(store.dir) / "soloq" / "buzon_decisiones.json")),
             datos_del_reto=_soloq_datos(cfg, store, today)),
         "ace_league": load_json(Path(store.dir) / "ace_league.json", None),
         "dossier": dossier,

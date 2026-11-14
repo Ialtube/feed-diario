@@ -42,6 +42,7 @@ DEFAULTS = {
     "min_partidas": 50,      # to be in the final standings and win a main prize
     "dias_finales": 5,       # ...and at least min_final games in the last days of the race
     "min_final": 5,
+    "ritmo_diario": 2,       # games a day the board expects from everyone, up to min_partidas (suggestions 1 and 4)
     "speedrun": "PLATINUM",  # the first one to reach this tier wins the Speedrun
     "max_inscritos": 40,
     "ejemplo": False,        # before the starting gun, show a made-up race so people see what is coming
@@ -510,7 +511,8 @@ def _row(key, c, h, games_all, r, at_ms, ref_ms):
         "kda": (k + a) / max(d, 1) if games else None, "muertes_partida": d / len(games) if games else None,
         "partidas_final": sum(g["fin"] >= final_from for g in games) if final_from else None,
         "en_la_recta_final": bool(final_from and at_ms >= final_from),
-        "versatil": sum(n >= MIN_VERSATIL for n in champs.values()), "otp": _otp(games, champs, MIN_OTP),
+        "versatil": len({g["champ"] for g in games if g["win"]}), "otp": _otp(games, champs, MIN_OTP),
+        "al_dia": al_dia(len(games), r, at_ms),
         "speedrun_ms": speedrun,
         "horas": sum(g["dur"] for g in games) / 3600,
         "ultimas": [{"win": g["win"], "champ": g["champ"], "cid": g.get("cid"), "k": g["k"], "d": g["d"], "a": g["a"],
@@ -522,6 +524,19 @@ def _row(key, c, h, games_all, r, at_ms, ref_ms):
         "serie": series + ([(at_ms, v)] if v is not None else []),
         "desde": base[0],
     }
+
+
+def al_dia(played, r, at_ms):
+    """How a player is doing against the daily pace (suggestions 1 and 4 of the board): on day N of the race
+    everyone should have played ritmo_diario × N games, never more than min_partidas. `debe` is what they owe
+    to be up to date (negative: games played ahead). None before the start or once the minimum is done."""
+    ini, ritmo = r.get("inicio_ms"), r.get("ritmo_diario") or 0
+    if ini is None or not ritmo or at_ms < ini or played >= r["min_partidas"]:
+        return None
+    end = min(at_ms, (r["fin_ms"] or at_ms + 1) - 1)
+    dia = (end - ini) // 86400000 + 1
+    esperadas = min(ritmo * dia, r["min_partidas"])
+    return {"dia": dia, "esperadas": esperadas, "debe": esperadas - played}
 
 
 def _order(row):
@@ -730,18 +745,19 @@ def premios(rows):
 
 
 # --------------------------------------------------------------------------- the real prizes
-MIN_WINRATE, MIN_OTP, MIN_KDA, MIN_VERSATIL = 30, 30, 20, 2
+MIN_WINRATE, MIN_OTP, MIN_KDA = 30, 30, 20
 TROFEOS = [
     # key, emoji, title, what it is worth, how it is won
-    ("campeon", "🏆", "Campeón del torneo", "25 € · cena pagada", "Primero de la clasificación final"),
-    ("segundo", "🥈", "Segundo clasificado", "10 € · dos copas", "Segundo de la clasificación final"),
-    ("tercero", "🥉", "Tercer clasificado", "10 € · una copa", "Tercero de la clasificación final"),
-    ("racha", "🔥", "Mayor racha", "Un chupito", "Más victorias seguidas"),
-    ("winrate", "🎯", "Mejor winrate", "Un chupito", f"Mínimo {MIN_WINRATE} partidas"),
-    ("versatil", "🌈", "Campeón más versátil", "Un chupito", f"Más campeones distintos con al menos {MIN_VERSATIL} partidas"),
-    ("otp", "🚀", "OTP", "Un chupito", f"Mejor winrate con un mismo campeón (mínimo {MIN_OTP} partidas con él)"),
-    ("carry", "💀", "Rey del carry", "Un chupito", f"Mayor KDA medio (mínimo {MIN_KDA} partidas)"),
-    ("speedrun", "⚡", "Speedrun", "Un chupito", "El primero en llegar a {tier}"),
+    # amounts and the Versatile rule changed on the board's suggestions 2 and 3 (10 € a player)
+    ("campeon", "🏆", "Campeón del torneo", "30 €", "Primero de la clasificación final"),
+    ("segundo", "🥈", "Segundo clasificado", "25 €", "Segundo de la clasificación final"),
+    ("tercero", "🥉", "Tercer clasificado", "15 €", "Tercero de la clasificación final"),
+    ("racha", "🔥", "Mayor racha", "5 €", "Más victorias seguidas"),
+    ("winrate", "🎯", "Mejor winrate", "5 €", f"Mínimo {MIN_WINRATE} partidas"),
+    ("versatil", "🌈", "Campeón más versátil", "5 €", "Más campeones distintos con al menos una victoria"),
+    ("otp", "🚀", "OTP", "5 €", f"Mejor winrate con un mismo campeón (mínimo {MIN_OTP} partidas con él)"),
+    ("carry", "💀", "Rey del carry", "5 €", f"Mayor KDA medio (mínimo {MIN_KDA} partidas)"),
+    ("speedrun", "⚡", "Speedrun", "5 €", "El primero en llegar a {tier}"),
 ]
 PRINCIPALES = ("campeon", "segundo", "tercero")
 

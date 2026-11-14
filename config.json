@@ -33,7 +33,7 @@
     "min_partidas": 50,
     "ejemplo": true,
     "max_inscritos": 40,
-    "premio": "Campeón: cena pagada (25 €). Segundo: dos copas (10 €). Tercero: una copa (10 €). Y un chupito por cada premio secundario.",
+    "premio": "Campeón: 30 €. Segundo: 25 €. Tercero: 15 €. Y 5 € por cada premio secundario. Bote: 10 € por jugador.",
     "castigo": "El farolillo rojo paga la primera ronda en la próxima quedada y juega una partida entera de soporte con Teemo.",
     "a_mano": []
   }

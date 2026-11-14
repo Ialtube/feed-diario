@@ -272,7 +272,7 @@ class SoloQTest(unittest.TestCase):
         for text in ("Clasificación oficial", "La gráfica", "La Moneda", "Oro III", "NoExiste#EUW", "Bando de inscripción",
                      "Muro de la vergüenza", "La Moneda se hunde en Oro", "ediciones/2026-11-03.html#p-3", "La porra", 'id="porra-form"',
                      "Volver a El Rincón del Feeder", "El pistoletazo", "Historial de partidas", "Fichas de los jugadores",
-                     'data-premio="racha"', "Premios principales", "Cena pagada".lower(), "Límite de partidas", "Forzar la pasada",
+                     'data-premio="racha"', "Premios principales", "Premios secundarios · 5 € cada uno", "Límite de partidas", "Forzar la pasada",
                      'id="pasada"'):
             self.assertIn(text, page)
         # the newsroom's notes are gone and the readers' corner starts right under the chart

@@ -208,13 +208,13 @@ del Rincón sobre el reto y notas clavadas con mala leche (del robot, de la reda
    nota del tablón) y, al final, el podio y el castigo. Durante las inscripciones solo avisa si se apuntó alguien.
 5. **El periódico**: cada edición guarda la tabla del reto al cierre para la redacción IA, que recibe `soloq_challenge` y ángulos del reto, escribe al menos una pieza al día y puede clavar notas
    en el tablón (`tablon` en su JSON). Las noticias del Rincón sobre el reto salen clavadas como recortes en el tablón.
-6. **Buzón de sugerencias**: en el tablón cualquiera pide tarjetas o datos que quiere ver. Cada mañana la rutina de
-   Claude (la misma que escribe el periódico) las revisa con todos los datos del reto: lo que se puede responder con
-   ellos sale al día siguiente como **tarjeta clavada** («Lo que pidió la gente») y se actualiza cada día; lo raro, lo
-   inseguro, lo muy pesado, lo que no pinta nada o lo que necesita programar algo nuevo **no se aplica**: queda
-   «esperando al jefe», te llega un aviso a Discord y lo apruebas o rechazas en el candado 🔒 del tablón con la
-   contraseña. Lo aprobado vuelve a la redacción al día siguiente; si necesita código nuevo, queda «por programar»
-   (pídeselo a Claude Code). Cada sugerencia lleva su sello en el tablón.
+6. **Buzón de sugerencias**: en el tablón cualquiera pide tarjetas, datos o cambios. Cada día la rutina de Claude
+   (la misma que escribe el periódico) las hace **sin pedir permiso**: lo que sale de los datos del reto, como
+   **tarjeta clavada** («Lo que pidió la gente», se actualiza cada día); lo que pide cambiar la web o las normas, lo
+   programa y lo aplica. Solo descarta lo que no tiene sentido, ataca a alguien fuera del juego o expone datos
+   privados. Cada cambio hecho gracias a una sugerencia lo anuncia el robot **una vez en Discord**. Si lo programas
+   tú a mano con Claude Code, apúntalo con `sugerencias.apuntar` en `data/soloq/buzon_decisiones.json` (manda sobre
+   las ediciones). Cada sugerencia lleva su sello en el tablón.
 7. **Moderar**: borra la fila en Supabase (*Table Editor → soloq_inscritos*, *soloq_notas* o *soloq_sugerencias*).
 
 Ajustes en `config.json` → `soloq`:
