@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794745301931,
+ "actualizado": 1794746430385,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -18,6 +18,18 @@
  "clasificacion": [
   {
    "puesto": 1,
+   "nombre": "Dierophant",
+   "apodo": "Intilteable",
+   "riot_id": "smilesdeath#6859",
+   "liga": "Platino III · 77 LP",
+   "lp_hoy": 60,
+   "partidas": 32,
+   "victorias": 22,
+   "derrotas": 10,
+   "racha": 4
+  },
+  {
+   "puesto": 2,
    "nombre": "GSJoseador",
    "apodo": "El Comodín de la Grieta",
    "riot_id": "SantuJk#1510",
@@ -26,18 +38,6 @@
    "partidas": 29,
    "victorias": 20,
    "derrotas": 9,
-   "racha": 3
-  },
-  {
-   "puesto": 2,
-   "nombre": "Dierophant",
-   "apodo": "Intilteable",
-   "riot_id": "smilesdeath#6859",
-   "liga": "Platino III · 47 LP",
-   "lp_hoy": 30,
-   "partidas": 31,
-   "victorias": 21,
-   "derrotas": 10,
    "racha": 3
   },
   {
@@ -93,12 +93,12 @@
    "nombre": "iPredatoRz",
    "apodo": "el depredador depredado",
    "riot_id": "Jungledetter#1065",
-   "liga": "Oro I · 31 LP",
-   "lp_hoy": 30,
-   "partidas": 29,
+   "liga": "Oro I · 21 LP",
+   "lp_hoy": 20,
+   "partidas": 30,
    "victorias": 16,
-   "derrotas": 13,
-   "racha": 3
+   "derrotas": 14,
+   "racha": -1
   },
   {
    "puesto": 8,
