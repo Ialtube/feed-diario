@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794691091193,
+ "actualizado": 1794744171587,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -18,6 +18,18 @@
  "clasificacion": [
   {
    "puesto": 1,
+   "nombre": "Dierophant",
+   "apodo": "Intilteable",
+   "riot_id": "smilesdeath#6859",
+   "liga": "Platino III · 47 LP",
+   "lp_hoy": 30,
+   "partidas": 31,
+   "victorias": 21,
+   "derrotas": 10,
+   "racha": 3
+  },
+  {
+   "puesto": 2,
    "nombre": "GSJoseador",
    "apodo": "El Comodín de la Grieta",
    "riot_id": "SantuJk#1510",
@@ -26,18 +38,6 @@
    "partidas": 28,
    "victorias": 19,
    "derrotas": 9,
-   "racha": 2
-  },
-  {
-   "puesto": 2,
-   "nombre": "Dierophant",
-   "apodo": "Intilteable",
-   "riot_id": "smilesdeath#6859",
-   "liga": "Platino III · 17 LP",
-   "lp_hoy": 0,
-   "partidas": 30,
-   "victorias": 20,
-   "derrotas": 10,
    "racha": 2
   },
   {
