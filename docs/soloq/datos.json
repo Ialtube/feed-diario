@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794773625059,
+ "actualizado": 1794775913479,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -81,12 +81,12 @@
    "nombre": "Wôlf",
    "apodo": "Barro",
    "riot_id": "Theossichi#9248",
-   "liga": "Platino IV · 6 LP",
-   "lp_hoy": 60,
-   "partidas": 28,
+   "liga": "Platino IV · 0 LP",
+   "lp_hoy": 54,
+   "partidas": 29,
    "victorias": 17,
-   "derrotas": 11,
-   "racha": 4
+   "derrotas": 12,
+   "racha": -1
   },
   {
    "puesto": 7,
