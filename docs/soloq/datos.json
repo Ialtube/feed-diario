@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794751524211,
+ "actualizado": 1794752086503,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -90,6 +90,18 @@
   },
   {
    "puesto": 7,
+   "nombre": "grangalax",
+   "apodo": "Showmanco",
+   "riot_id": "nandaris#6071",
+   "liga": "Oro I · 35 LP",
+   "lp_hoy": 60,
+   "partidas": 30,
+   "victorias": 16,
+   "derrotas": 14,
+   "racha": 2
+  },
+  {
+   "puesto": 8,
    "nombre": "iPredatoRz",
    "apodo": "el depredador depredado",
    "riot_id": "Jungledetter#1065",
@@ -99,18 +111,6 @@
    "victorias": 16,
    "derrotas": 14,
    "racha": -1
-  },
-  {
-   "puesto": 8,
-   "nombre": "grangalax",
-   "apodo": "Showmanco",
-   "riot_id": "nandaris#6071",
-   "liga": "Oro I · 5 LP",
-   "lp_hoy": 30,
-   "partidas": 29,
-   "victorias": 15,
-   "derrotas": 14,
-   "racha": 1
   },
   {
    "puesto": 9,
