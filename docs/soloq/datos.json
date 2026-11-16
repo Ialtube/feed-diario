@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794851666967,
+ "actualizado": 1794852814266,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -81,12 +81,12 @@
    "nombre": "RDV Canyon",
    "apodo": "Minguez",
    "riot_id": "FisityBard#3700",
-   "liga": "Platino IV · 7 LP",
-   "lp_hoy": 0,
-   "partidas": 27,
+   "liga": "Platino IV · 0 LP",
+   "lp_hoy": -7,
+   "partidas": 28,
    "victorias": 17,
-   "derrotas": 10,
-   "racha": -1
+   "derrotas": 11,
+   "racha": -2
   },
   {
    "puesto": 7,
@@ -117,12 +117,12 @@
    "nombre": "Fr4nux",
    "apodo": "Fr4nux",
    "riot_id": "ReavendeMan#2719",
-   "liga": "Oro II · 84 LP",
-   "lp_hoy": 0,
-   "partidas": 31,
-   "victorias": 14,
+   "liga": "Oro I · 14 LP",
+   "lp_hoy": 30,
+   "partidas": 32,
+   "victorias": 15,
    "derrotas": 17,
-   "racha": -2
+   "racha": 1
   },
   {
    "puesto": 10,
