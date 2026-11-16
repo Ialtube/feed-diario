@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794811624584,
+ "actualizado": 1794818962550,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -30,6 +30,18 @@
   },
   {
    "puesto": 2,
+   "nombre": "Saiko",
+   "apodo": "KOI Huerfano",
+   "riot_id": "Mastersuftine#6535",
+   "liga": "Platino III · 72 LP",
+   "lp_hoy": 30,
+   "partidas": 33,
+   "victorias": 23,
+   "derrotas": 10,
+   "racha": 3
+  },
+  {
+   "puesto": 3,
    "nombre": "GSJoseador",
    "apodo": "El Comodín de la Grieta",
    "riot_id": "SantuJk#1510",
@@ -39,18 +51,6 @@
    "victorias": 20,
    "derrotas": 10,
    "racha": -1
-  },
-  {
-   "puesto": 3,
-   "nombre": "Saiko",
-   "apodo": "KOI Huerfano",
-   "riot_id": "Mastersuftine#6535",
-   "liga": "Platino III · 42 LP",
-   "lp_hoy": 0,
-   "partidas": 32,
-   "victorias": 22,
-   "derrotas": 10,
-   "racha": 2
   },
   {
    "puesto": 4,
