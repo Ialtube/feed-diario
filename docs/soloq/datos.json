@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794862532926,
+ "actualizado": 1794871056311,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -119,10 +119,10 @@
    "riot_id": "ReavendeMan#2719",
    "liga": "Oro II · 94 LP",
    "lp_hoy": 10,
-   "partidas": 34,
+   "partidas": 35,
    "victorias": 15,
-   "derrotas": 19,
-   "racha": -2
+   "derrotas": 20,
+   "racha": -3
   },
   {
    "puesto": 10,
