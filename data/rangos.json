@@ -9710,19 +9710,19 @@
       "slug": "ipredatorz",
       "alias": "iPredatoRz",
       "principal": true,
-      "solo": {
-        "tier": "EMERALD",
-        "rank": "II",
-        "lp": 94,
-        "wins": 168,
-        "losses": 156
-      },
       "flex": {
         "tier": "GOLD",
         "rank": "II",
         "lp": 68,
         "wins": 92,
         "losses": 102
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "II",
+        "lp": 94,
+        "wins": 168,
+        "losses": 156
       }
     },
     "sunraku#998": {
@@ -9750,19 +9750,19 @@
       "slug": "rdv-canyon",
       "alias": "RDV Canyon",
       "principal": true,
-      "solo": {
-        "tier": "DIAMOND",
-        "rank": "IV",
-        "lp": 73,
-        "wins": 80,
-        "losses": 71
-      },
       "flex": {
         "tier": "DIAMOND",
         "rank": "III",
         "lp": 75,
         "wins": 69,
         "losses": 65
+      },
+      "solo": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 73,
+        "wins": 80,
+        "losses": 71
       }
     },
     "giroroo#rdv": {
