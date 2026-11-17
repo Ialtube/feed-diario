@@ -57,6 +57,10 @@
         {
           "fecha": "2026-11-16",
           "texto": "el testigo del récord"
+        },
+        {
+          "fecha": "2026-11-17",
+          "texto": "el pasajero de la Flex"
         }
       ],
       "rasgos": [
@@ -211,6 +215,10 @@
         {
           "fecha": "2026-10-28",
           "texto": "el cangrejo de la cuenta nueva"
+        },
+        {
+          "fecha": "2026-11-17",
+          "texto": "el cangrejo de alquiler"
         }
       ],
       "rasgos": [
@@ -355,6 +363,10 @@
         {
           "fecha": "2026-11-14",
           "texto": "Aphelios: 0–5 en la hemeroteca, con dos de visión ante una Tristana"
+        },
+        {
+          "fecha": "2026-11-17",
+          "texto": "Twitch: 7/11/6 en su estreno, ante un Ezreal, su propio campeón favorito del reto"
         }
       ],
       "rivales": [
@@ -770,6 +782,11 @@
           "tipo": "villano",
           "texto": "Sube a Saiko con la cuenta SAIIIIIIKO y al día siguiente la usa para irse al dúo de Fr4nux. Pierden los dos.",
           "fecha": "2026-10-29"
+        },
+        {
+          "tipo": "ascenso",
+          "texto": "Mejor del día con dos barones por partida en Flex; en el reto, Platino IV con cero puntos y un pie en Oro.",
+          "fecha": "2026-11-17"
         }
       ]
     },
@@ -1116,6 +1133,11 @@
           "fecha": "2026-11-03",
           "campo": "estado",
           "texto": "Se niega a certificar muertes a nombre de cuentas secundarias"
+        },
+        {
+          "fecha": "2026-11-17",
+          "campo": "estado",
+          "texto": "Ha abierto los libros de la Lonja y ha encontrado la cuenta «E. P.»; se lo ha escrito al director en una carta pública"
         }
       ]
     },
@@ -1194,6 +1216,11 @@
           "fecha": "2026-11-16",
           "campo": "estado",
           "texto": "Suspendido y sin el papel que le blindaba: la confesión del director lo ha dejado sin valor"
+        },
+        {
+          "fecha": "2026-11-17",
+          "campo": "estado",
+          "texto": "Suspendido; descubierto como corredor personal del director"
         }
       ]
     },
@@ -1388,6 +1415,11 @@
           "fecha": "2026-11-16",
           "campo": "estado",
           "texto": "Ha confesado en editorial que firmó la fórmula de la General; da la deuda por saldada y no dimite"
+        },
+        {
+          "fecha": "2026-11-17",
+          "campo": "estado",
+          "texto": "Señalado por Humoverde: apuesta en la Lonja, por medio de Barbanegra, a que la Gaceta venderá más que su propio periódico"
         }
       ]
     },
@@ -1450,6 +1482,11 @@
           "fecha": "2026-11-11",
           "campo": "estado",
           "texto": "Robó al Rincón la exclusiva del nuevo líder del reto"
+        },
+        {
+          "fecha": "2026-11-17",
+          "campo": "estado",
+          "texto": "Publicó a las seis el liderato de GSJoseador y defiende al Barón del juicio"
         }
       ]
     },
@@ -1586,6 +1623,10 @@
         },
         {
           "fecha": "2026-11-14",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-17",
           "estado": "escalando"
         }
       ],
@@ -1730,6 +1771,13 @@
           "resumen": "El Barón juega de 11:10 a 17:49 y vuelve a las 01:55: 5–4. Con Syndra hace un cuádruple por la tarde y, a las 03:13, muere trece veces (seis en la misma baldosa, el primero al minuto dos) ante un Locke rival que firma 31/9/7, más que el récord de asesinatos del propio Barón.",
           "titulares": [
             "El plusmarquista de asesinatos conoce a uno de verdad"
+          ]
+        },
+        {
+          "fecha": "2026-11-17",
+          "resumen": "El Barón gana las dos Flex del lunes con los cinco. En la segunda se cruza otra vez con un Locke (10/5/1) y pierde la calle por 2.541 de oro, pero gana; la fiscal Hexwick le juzga por quedarse una victoria ajena.",
+          "titulares": [
+            "Juzgan al Barón por quedarse una victoria que encontró en el suelo"
           ]
         }
       ]
@@ -1962,6 +2010,13 @@
           "resumen": "A las 12:18 Fr4nux firma 26/4/13 con Zeri (33,9 % del daño) y bate el récord de asesinatos del periódico, que era de grangalax, presente en su equipo. Por la noche pierde cinco de seis y su principal baja de Platino I a Platino II (−91).",
           "titulares": [
             "Alta a mediodía, reingreso después de cenar"
+          ]
+        },
+        {
+          "fecha": "2026-11-17",
+          "resumen": "Fr4nux estrena Twitch tras 113 partidas: 7/11/6 y 89 súbditos menos que un Ezreal. Gana con Jhin siendo el que menos daño hace de su equipo y pierde el Oro I del reto.",
+          "titulares": [
+            "«Ni que me pague en queso»"
           ]
         }
       ]
@@ -2504,6 +2559,11 @@
           "titulares": [
             "La Gaceta imprime nuestro editorial antes que nosotros"
           ]
+        },
+        {
+          "fecha": "2026-11-17",
+          "resumen": "La Gaceta publica a las seis el liderato de GSJoseador, otra exclusiva robada, y defiende al Barón del juicio.",
+          "titulares": []
         }
       ],
       "estados": [
@@ -2721,6 +2781,13 @@
           "titulares": [
             "Rogamos disculpen la repetición"
           ]
+        },
+        {
+          "fecha": "2026-11-17",
+          "resumen": "iPredatoRz existe entre semana: tres SoloQ el lunes, 2–1, estreno de Braum sin matar a nadie y una Yunara copiada a la Yunara que le había ganado.",
+          "titulares": [
+            "Si te gana, cómpratela"
+          ]
         }
       ]
     },
@@ -2926,6 +2993,13 @@
           "titulares": [
             "Esmeralda II, con cinco de propina"
           ]
+        },
+        {
+          "fecha": "2026-11-17",
+          "resumen": "Seis Blitzcrank el lunes, 4–2 y 52 muertes; su cuenta principal baja de Esmeralda II a Esmeralda III veinticuatro horas después del ascenso.",
+          "titulares": [
+            "La propina duró un día"
+          ]
         }
       ]
     },
@@ -3102,6 +3176,10 @@
         {
           "fecha": "2026-10-29",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-17",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -3124,6 +3202,13 @@
           "resumen": "RDV Canyon sube 110 puntos en un día y empata con Saiko: los dos Oro II con 47 y 10–4 en el reto, uno subiendo y otro cayendo.",
           "titulares": [
             "La copia ya empata"
+          ]
+        },
+        {
+          "fecha": "2026-11-17",
+          "resumen": "La copia se queda atrás: RDV Canyon, sexto del reto en Platino IV con 0; Saiko, segundo en Platino III. Dejan de ser la misma cosa.",
+          "titulares": [
+            "Dos barones por partida, servicio incluido"
           ]
         }
       ]
@@ -3308,6 +3393,13 @@
           "resumen": "Día dieciséis: Dierophant nuevo líder (Platino III 77) por delante de GSJoseador (65) y Saiko (42); Wôlf sube 84 puntos y asciende a Platino IV; grangalax suma 60 y sube al séptimo; Fr4nux baja a Oro II; TheTrevur sigue último sin jugar.",
           "titulares": [
             "Barro sube a Platino"
+          ]
+        },
+        {
+          "fecha": "2026-11-17",
+          "resumen": "Día diecisiete: GSJoseador nuevo líder (Platino III 85) tras perder dos Xerath con top damage y ganar con Nami; Dierophant cae al tercero (0–2); Saiko segundo; Wôlf asciende a Platino III; Fr4nux baja a Oro II; RDV Canyon en Platino IV con 0.",
+          "titulares": [
+            "El líder gritaba «top damage» y gana cuando deja de hacerlo"
           ]
         }
       ]
@@ -3552,6 +3644,11 @@
           "titulares": [
             "El discípulo manda y el guía va séptimo"
           ]
+        },
+        {
+          "fecha": "2026-11-17",
+          "resumen": "Dierophant pierde dos y el liderato mientras su guía gana dos Flex que le juzgan y se queda 1–1 y séptimo en el reto.",
+          "titulares": []
         }
       ]
     },
@@ -3738,6 +3835,10 @@
         {
           "fecha": "2026-11-12",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-11-17",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -3761,6 +3862,13 @@
           "titulares": [
             "Sin novedad en el cangrejo"
           ]
+        },
+        {
+          "fecha": "2026-11-17",
+          "resumen": "TheTrevur sigue sin tocar la cuenta del reto pero aparece en la Flex con su smurf Sunraku: Urgot 19/5/11, seis duelos ganados y ascenso a Platino III.",
+          "titulares": [
+            "El farolillo rojo aparece, pero en otra cuenta"
+          ]
         }
       ]
     },
@@ -3779,6 +3887,10 @@
         {
           "fecha": "2026-11-16",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-11-17",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -3786,6 +3898,13 @@
           "fecha": "2026-11-16",
           "resumen": "Con la confesión del director, el borrador firmado que blindaba a Barbanegra deja de valer. El contable se queda sin protección y con un papel que alguien ha hecho llegar a la Gaceta.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-11-17",
+          "resumen": "El forense Humoverde encuentra en los libros de la Lonja una cuenta «E. P.» que apuesta cada noche a que la Gaceta venderá más que el Rincón: Barbanegra es el corredor del director, y por eso le protege.",
+          "titulares": [
+            "Ya sé por qué lo protege usted"
+          ]
         }
       ]
     }
@@ -3898,6 +4017,10 @@
     {
       "fecha": "2026-11-16",
       "texto": "Los domingos sin Flex del grupo, iPredatoRz juega catorce partidas desde las dos y media de la tarde hasta casi medianoche y las cierra 6–8."
+    },
+    {
+      "fecha": "2026-11-17",
+      "texto": "Los lunes con Flex del grupo, los cinco entran a las ocho menos cinco, juegan dos y a las nueve ya las han ganado."
     }
   ],
   "chistes": [
@@ -3913,9 +4036,10 @@
         "2026-11-06",
         "2026-11-09",
         "2026-11-11",
-        "2026-11-12"
+        "2026-11-12",
+        "2026-11-17"
       ],
-      "usos": 10,
+      "usos": 11,
       "semilla": true
     },
     {
@@ -3965,9 +4089,10 @@
         "2026-10-28",
         "2026-11-01",
         "2026-11-08",
-        "2026-11-14"
+        "2026-11-14",
+        "2026-11-17"
       ],
-      "usos": 4
+      "usos": 5
     },
     {
       "texto": "el otro Saiko",
@@ -4033,9 +4158,10 @@
     {
       "texto": "Locke en negativo",
       "fechas": [
-        "2026-11-14"
+        "2026-11-14",
+        "2026-11-17"
       ],
-      "usos": 1
+      "usos": 2
     },
     {
       "texto": "el turno de catorce",
@@ -4339,6 +4465,18 @@
       "jugador": "ipredatorz",
       "motivo": "Cuarta derrota de cuatro: 2/8/4 a las 22:26",
       "fecha": "2026-11-16"
+    },
+    {
+      "campeon": "Twitch",
+      "jugador": "fr4nux",
+      "motivo": "Llamado por primera vez tras 113 partidas para morir once veces, tres en la misma esquina, y dejar 89 súbditos a un Ezreal",
+      "fecha": "2026-11-17"
+    },
+    {
+      "campeon": "Blitzcrank",
+      "jugador": "saiko",
+      "motivo": "Seis turnos el lunes, de la una de la tarde a las nueve de la noche: 52 muertes, catorce en una sola partida",
+      "fecha": "2026-11-17"
     }
   ]
 }
