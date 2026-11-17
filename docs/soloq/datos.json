@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794937325432,
+ "actualizado": 1794937897595,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -33,12 +33,12 @@
    "nombre": "GSJoseador",
    "apodo": "El Comodín de la Grieta",
    "riot_id": "SantuJk#1510",
-   "liga": "Platino II · 15 LP",
-   "lp_hoy": 30,
-   "partidas": 33,
-   "victorias": 22,
+   "liga": "Platino II · 45 LP",
+   "lp_hoy": 60,
+   "partidas": 34,
+   "victorias": 23,
    "derrotas": 11,
-   "racha": 2
+   "racha": 3
   },
   {
    "puesto": 3,
@@ -102,6 +102,18 @@
   },
   {
    "puesto": 8,
+   "nombre": "Fr4nux",
+   "apodo": "Fr4nux",
+   "riot_id": "ReavendeMan#2719",
+   "liga": "Oro I · 24 LP",
+   "lp_hoy": 30,
+   "partidas": 36,
+   "victorias": 16,
+   "derrotas": 20,
+   "racha": 1
+  },
+  {
+   "puesto": 9,
    "nombre": "iPredatoRz",
    "apodo": "el depredador depredado",
    "riot_id": "Jungledetter#1065",
@@ -111,18 +123,6 @@
    "victorias": 16,
    "derrotas": 14,
    "racha": -1
-  },
-  {
-   "puesto": 9,
-   "nombre": "Fr4nux",
-   "apodo": "Fr4nux",
-   "riot_id": "ReavendeMan#2719",
-   "liga": "Oro II · 94 LP",
-   "lp_hoy": 0,
-   "partidas": 35,
-   "victorias": 15,
-   "derrotas": 20,
-   "racha": -3
   },
   {
    "puesto": 10,
