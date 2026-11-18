@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1795027505117,
+ "actualizado": 1795028079135,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -81,12 +81,12 @@
    "nombre": "RDV Canyon",
    "apodo": "Minguez",
    "riot_id": "FisityBard#3700",
-   "liga": "Platino IV · 70 LP",
-   "lp_hoy": 60,
-   "partidas": 34,
+   "liga": "Platino IV · 60 LP",
+   "lp_hoy": 50,
+   "partidas": 35,
    "victorias": 20,
-   "derrotas": 14,
-   "racha": 2
+   "derrotas": 15,
+   "racha": -1
   },
   {
    "puesto": 7,
