@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1794953843837,
+ "actualizado": 1794985551734,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -42,6 +42,18 @@
   },
   {
    "puesto": 3,
+   "nombre": "Giroroo",
+   "apodo": "La Guadaña de la Mon",
+   "riot_id": "Xillie#8107",
+   "liga": "Platino III · 79 LP",
+   "lp_hoy": 30,
+   "partidas": 41,
+   "victorias": 24,
+   "derrotas": 17,
+   "racha": 3
+  },
+  {
+   "puesto": 4,
    "nombre": "Dierophant",
    "apodo": "Intilteable",
    "riot_id": "smilesdeath#6859",
@@ -51,18 +63,6 @@
    "victorias": 22,
    "derrotas": 12,
    "racha": -2
-  },
-  {
-   "puesto": 4,
-   "nombre": "Giroroo",
-   "apodo": "La Guadaña de la Mon",
-   "riot_id": "Xillie#8107",
-   "liga": "Platino III · 49 LP",
-   "lp_hoy": 0,
-   "partidas": 40,
-   "victorias": 23,
-   "derrotas": 17,
-   "racha": 2
   },
   {
    "puesto": 5,
