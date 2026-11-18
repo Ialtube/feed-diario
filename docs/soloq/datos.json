@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1795033217776,
+ "actualizado": 1795034351400,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -42,6 +42,18 @@
   },
   {
    "puesto": 3,
+   "nombre": "Wôlf",
+   "apodo": "Barro",
+   "riot_id": "Theossichi#9248",
+   "liga": "Platino III · 85 LP",
+   "lp_hoy": 60,
+   "partidas": 42,
+   "victorias": 25,
+   "derrotas": 17,
+   "racha": 2
+  },
+  {
+   "puesto": 4,
    "nombre": "Giroroo",
    "apodo": "La Guadaña de la Mon",
    "riot_id": "Xillie#8107",
@@ -53,7 +65,7 @@
    "racha": -1
   },
   {
-   "puesto": 4,
+   "puesto": 5,
    "nombre": "Dierophant",
    "apodo": "Intilteable",
    "riot_id": "smilesdeath#6859",
@@ -63,18 +75,6 @@
    "victorias": 23,
    "derrotas": 14,
    "racha": -2
-  },
-  {
-   "puesto": 5,
-   "nombre": "Wôlf",
-   "apodo": "Barro",
-   "riot_id": "Theossichi#9248",
-   "liga": "Platino III · 55 LP",
-   "lp_hoy": 30,
-   "partidas": 41,
-   "victorias": 24,
-   "derrotas": 17,
-   "racha": 1
   },
   {
    "puesto": 6,
