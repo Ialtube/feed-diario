@@ -8,362 +8,426 @@
   ],
   "items": [
     {
-      "id": 0,
-      "kind": "portada",
-      "section": "PORTADA",
+      "id": 1,
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "reportaje",
+      "clave": "soloq_escalada:saiko:Mastersuftine#6535",
+      "section": "SOLOQ CHALLENGE",
       "desk": "",
       "player": "saiko",
       "alias": "Saiko",
-      "headline": "Saiko, peor jugador del día: 1–1 y 23 muertes en 2 partidas",
-      "body": "Con un KDA de 2,22 y muy poco daño, Saiko se corona hoy como lastre oficial del grupo. Fuentes cercanas confirman que ya está en cola para la siguiente.",
-      "stat": "1–1",
-      "stat_label": "victorias–derrotas",
-      "severity": 100,
-      "facts": {
-        "alias": "Saiko",
-        "games": 2,
-        "wl": "1–1",
-        "d": 23,
-        "kda": "2,22",
-        "dmg_txt": "muy poco daño",
-        "dmg_txt_cap": "Muy poco daño de media",
-        "champ": "Blitzcrank",
-        "champs": "Blitzcrank",
-        "hours": "1,3"
-      }
-    },
-    {
-      "id": 1,
-      "kind": "sucesos",
-      "section": "SUCESOS",
-      "desk": "Comisaría de Piltover",
-      "player": "saiko",
-      "alias": "Saiko",
-      "headline": "Récord de Saiko: 13 muertes en 46 minutos",
-      "body": "Con Blitzcrank murió cada 3:33 de media. Aun así ganaron, de milagro. El contador de muertes pidió una pausa.",
-      "stat": "13",
-      "stat_label": "muertes en una partida",
-      "severity": 6.2,
-      "facts": {
-        "alias": "Saiko",
-        "games": 2,
-        "wl": "1–1",
-        "d": 13,
-        "kda": "2,22",
-        "dmg_txt": "muy poco daño",
-        "dmg_txt_cap": "Muy poco daño de media",
-        "champ": "Blitzcrank",
-        "champs": "Blitzcrank",
-        "hours": "1,3",
-        "kdas": "0/13/30",
-        "queue": "Ranked Solo/Dúo",
-        "mins": 46,
-        "every": "3:33",
-        "res": "victoria",
-        "res_cap": "Aun así ganaron, de milagro"
+      "headline": "Al trono con las manos limpias",
+      "subtitulo": "Saiko gana cinco de seis en la cuenta comprada para el reto y es el nuevo líder. En la suya, dos Blitzcrank sin un solo asesinato.",
+      "body": "A las 09:40, cuando la gente normal está fichando, Saiko ya estaba en la Grieta con su cuenta de siempre y su robot de siempre. Primera partida: cero asesinatos, diez muertes, derrota. Segunda, a las 10:19: cuarenta y seis minutos, cero asesinatos, trece muertes, primera sangre regalada al minuto tres y noventa y cuatro pings, récord del periódico. Ganó. La Seraphine rival, que acabó con catorce muertes, todavía no sabe cómo.\n\nLuego cambió de cuenta. En la que compró de cero para el desafío, Saiko ganó cinco de seis, sumó 135 puntos, subió a Platino I y le quitó el liderato a GSJoseador. Treinta y ocho de sus cuarenta partidas en el reto son con Blitzcrank. Aquello ya no es un campeón: es un contrato indefinido con cláusula de permanencia.\n\nEn Zaun presumen de que Blitzcrank fue el primer gólem que aprendió a pensar por sí mismo. En manos de Saiko ha llegado a una conclusión muy madura: matar es cosa de otros. El robot agarra, el equipo remata y Saiko lo celebra a pings. Prometió Aspirante al inscribirse. Le faltan 893 puntos, que conseguirá en cuanto alguien los mate por él.\n\nPrimero del reto. Último en daño de su equipo las dos veces.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Blitzcrank",
+      "entrevistado": null,
+      "pie": "Blitzcrank, en la Lonja de Zaun, firmando su renovación número treinta y ocho.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 1000,
+      "facts": {},
+      "hilo": "el-reto-de-las-cuentas-nuevas",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-reto-de-las-cuentas-nuevas",
+        "titulo": "El reto de las cuentas nuevas",
+        "capitulo": 15,
+        "estado": "escalando"
       }
     },
     {
       "id": 2,
-      "kind": "economia",
-      "section": "ECONOMÍA",
-      "desk": "Lonja de Aguasturbias",
-      "player": "giroroo",
-      "alias": "Giroroo",
-      "headline": "La Lonja de Aguasturbias congela los fondos de Giroroo: 20,7 % del oro, 13,8 % del daño",
-      "body": "Con Kayn cobró 6,9 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
-      "stat": "−6,9",
-      "stat_label": "puntos entre oro y daño",
-      "severity": 5.77,
-      "facts": {
-        "alias": "Giroroo",
-        "games": 1,
-        "wl": "1–0",
-        "d": 5,
-        "kda": "3,00",
-        "dmg_txt": "el 13,8 % del daño de su equipo",
-        "dmg_txt_cap": "El 13,8 % del daño de su equipo de media",
-        "champ": "Kayn",
-        "champs": "Kayn",
-        "hours": "0,5",
-        "gold": "20,7 %",
-        "share": "13,8 %",
-        "gap": "6,9"
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "análisis",
+      "clave": "dia_negro:gsjoseador",
+      "section": "DEPORTES",
+      "desk": "Arena de Noxus",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Diamante para perder, Platino para ganar",
+      "subtitulo": "GSJoseador se deja 27 puntos en su cuenta principal, gana las dos del reto y aun así pierde el liderato.",
+      "body": "El Comodín de la Grieta tiene dos vidas y las vive a la vez. En la cuenta de Diamante, la buena, la que enseña, GSJoseador jugó siete partidas entre las siete de la tarde y la medianoche y perdió cinco: Ornn, Xerath, Jinx, otra vez Xerath y Syndra. Cada campeón, una forma distinta de irse a la cama más pobre. La cuenta baja de Diamante II 89 a Diamante II 62.\n\nLa peor fue la Jinx de las 20:44. Enfrente, un Corki que acabó 13/2/14 y le sacó 5.765 de oro. GSJoseador, que se apuntó al reto prometiendo ser el «top damage del equipo», hizo el 13,3 % del daño del suyo con una tiradora que, si la dejan, derrite torres. No la dejaron.\n\nY luego está la otra vida. En la cuenta del desafío ganó las dos que jugó, sumó sesenta puntos y ascendió a Platino II. Una noche redonda, si no fuera porque esa misma mañana Saiko había ganado cinco con un robot y le quitó el trono sin despeinarse.\n\nEl Instituto Hextech trabaja con una hipótesis: GSJoseador juega mejor cuando la cuenta no es suya. La Syndra de las 23:31, heredada del Barón, la confirma: primera sangre entregada a los setenta y ocho segundos y derrota para cerrar la noche.\n\nSe le busca una tercera cuenta. Por si acaso.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": "memes/2026-11-18-2.jpg",
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "El Comodín, repartiendo cartas en dos mesas a la vez.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 599,
+      "facts": {},
+      "hilo": "la-cuenta-buena",
+      "replica": null,
+      "meme": {
+        "plantilla": "panik-kalm-panik",
+        "lineas": [
+          "Pierdes 27 puntos en Diamante",
+          "Ganas 60 en el reto",
+          "Pierdes el liderato igual"
+        ]
+      },
+      "saga": {
+        "id": "la-cuenta-buena",
+        "titulo": "La cuenta buena",
+        "capitulo": 1,
+        "estado": "abierto"
       }
     },
     {
       "id": 3,
-      "kind": "economia",
-      "section": "ECONOMÍA",
-      "desk": "Lonja de Aguasturbias",
-      "player": "gsjoseador",
-      "alias": "GSJoseador",
-      "headline": "Malversación de fondos: GSJoseador se quedó el 20,2 % del oro y devolvió el 13,3 % del daño",
-      "body": "Con Jinx recibió 6,9 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró.",
-      "stat": "−6,9",
-      "stat_label": "puntos entre oro y daño",
-      "severity": 5.75,
-      "facts": {
-        "alias": "GSJoseador",
-        "games": 7,
-        "wl": "2–5",
-        "d": 26,
-        "kda": "3,15",
-        "dmg_txt": "el 20,4 % del daño de su equipo",
-        "dmg_txt_cap": "El 20,4 % del daño de su equipo de media",
-        "champ": "Jinx",
-        "champs": "Ornn, Xerath y Jinx",
-        "hours": "3,4",
-        "gold": "20,2 %",
-        "share": "13,3 %",
-        "gap": "6,9"
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "parte policial",
+      "clave": "calle:ipredatorz",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "Ezreal vuelve a la escena del crimen",
+      "subtitulo": "",
+      "body": "Hechos: a las 22:47 del martes, en la calle de abajo, un Ezreal que terminaría 10/1/7 asaltó a la Zeri de iPredatoRz y le sustrajo 3.937 de oro. La víctima murió nueve veces, una cada tres minutos y diez segundos, y participó en el 15,4 % de los asesinatos de su equipo, que es lo que participa un testigo.\n\nAntecedentes: Ezreal ya denunció a iPredatoRz ante el Sindicato tras morir quince veces en sus manos, y desde entonces aparece en el bando rival cada vez que le dejan. La Comisaría no descarta que se trate del mismo individuo. Ezreal, tampoco.\n\nMedia hora antes, el ahora denunciante había ganado con Xayah, sacándole 6.171 de oro a un Aphelios con siete guardianes en veintisiete minutos. Ganó a ciegas y perdió viendo perfectamente quién le mataba.",
+      "stat": "9",
+      "stat_label": "muertes ante el Ezreal que ya le denunció",
+      "imagen": null,
+      "campeon": "Zeri",
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 398,
+      "facts": {},
+      "hilo": "el-sindicato-cambia-de-bando",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-sindicato-cambia-de-bando",
+        "titulo": "El Sindicato cambia de bando",
+        "capitulo": 8,
+        "estado": "escalando"
       }
     },
     {
       "id": 4,
-      "kind": "economia",
-      "section": "ECONOMÍA",
-      "desk": "Lonja de Aguasturbias",
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "entrevista",
+      "clave": "maldito:dierophant:Viego",
+      "section": "CULTURA",
+      "desk": "Biblioteca de Shurima",
       "player": "dierophant",
       "alias": "Dierophant",
-      "headline": "Dierophant, el fichaje más caro y el que menos rinde: 21,0 % del oro, 14,8 % del daño",
-      "body": "Partida con Viego: 6,2 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
-      "stat": "−6,2",
-      "stat_label": "puntos entre oro y daño",
-      "severity": 5.49,
-      "facts": {
-        "alias": "Dierophant",
-        "games": 1,
-        "wl": "0–1",
-        "d": 4,
-        "kda": "0,75",
-        "dmg_txt": "el 14,8 % del daño de su equipo",
-        "dmg_txt_cap": "El 14,8 % del daño de su equipo de media",
-        "champ": "Viego",
-        "champs": "Viego",
-        "hours": "0,3",
-        "gold": "21,0 %",
-        "share": "14,8 %",
-        "gap": "6,2"
-      }
+      "headline": "«Yo vine a buscar a mi reina, no a esto»",
+      "subtitulo": "",
+      "body": "Viego, el Rey Arruinado, suma seis derrotas de seis en manos de Dierophant. La última, el martes a las 20:05: diecinueve minutos, 3/4/0 y un Xin Zhao rival que acabó sin morir. Nos recibe en las Islas de la Sombra, de bastante mal humor.\n\n— Majestad, seis de seis. — Seis veces me ha sacado y seis veces he vuelto a la tumba. Llevo siglos buscando a Isolde. Ahora, además, busco a un jungla que ponga guardianes. — Puso tres en diecinueve minutos. — Y cero de daño a objetivos. Ni un dragón, ni un cangrejo. He poseído reyes, ejércitos y una Ruina entera, y con ese hombre a los mandos no he conseguido poseer ni un monstruo neutral. — ¿Qué le pediría? — Que vuelva con Rakan. Allí al menos le quieren.\n\nLa partida le costó a Dierophant 27 puntos en su cuenta principal. En el reto, donde no se atreve a sacar a Viego, sigue tercero sin jugar.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Viego",
+      "entrevistado": "Viego",
+      "pie": "Viego, en su trono de las Islas de la Sombra, revisando el historial de su jungla.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 397,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
     },
     {
       "id": 5,
-      "kind": "maldito",
-      "section": "CULTURA",
-      "desk": "Biblioteca de Shurima",
-      "player": "gsjoseador",
-      "alias": "GSJoseador",
-      "headline": "GSJoseador insiste con Xerath: 2 partidas, 2 derrotas",
-      "body": "La definición de locura es repetir lo mismo esperando otro resultado. GSJoseador lo repitió 2 veces.",
-      "stat": "0–2",
-      "stat_label": "con Xerath",
-      "severity": 4.5,
-      "facts": {
-        "alias": "GSJoseador",
-        "games": 7,
-        "wl": "2–5",
-        "d": 26,
-        "kda": "3,15",
-        "dmg_txt": "el 20,4 % del daño de su equipo",
-        "dmg_txt_cap": "El 20,4 % del daño de su equipo de media",
-        "champ": "Xerath",
-        "champs": "Ornn, Xerath y Jinx",
-        "hours": "3,4",
-        "n": 2
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "noticia",
+      "clave": "soloq_promesa:grangalax:nandaris#6071",
+      "section": "SOLOQ CHALLENGE",
+      "desk": "",
+      "player": "grangalax",
+      "alias": null,
+      "headline": "La única que jugó, la perdió",
+      "subtitulo": "El Barón no toca su cuenta de siempre, juega una en el reto y cae al octavo puesto.",
+      "body": "grangalax pasó el martes lejos de su cuenta de toda la vida, en la que no jugó ni una. Solo se dejó ver en la del desafío, una vez, y la perdió: diez puntos menos, Oro I con 45 y un puesto abajo, octavo de diez. Se inscribió prometiendo Maestro. Le quedan 1.255 puntos y 35 días, a casi 36 por día si no pierde ninguna, cosa que no ha conseguido nunca.\n\nMientras tanto Dierophant, que se apuntó al reto pidiendo que le guiara la luz de grangalax, sigue tercero en Platino III sin haber jugado. La luz del Barón sigue encendida. Alumbra a todo el mundo menos a él.",
+      "stat": "8.º",
+      "stat_label": "puesto del que prometió Maestro",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 396,
+      "facts": {},
+      "hilo": "la-luz-de-grangalax",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "la-luz-de-grangalax",
+        "titulo": "La luz de grangalax",
+        "capitulo": 9,
+        "estado": "escalando"
       }
     },
     {
       "id": 6,
-      "kind": "pings",
-      "section": "COMUNICACIÓN",
-      "desk": "Radio Zaun",
-      "player": "saiko",
-      "alias": "Saiko",
-      "headline": "Saiko hace 94 pings en una sola partida",
-      "body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él.",
-      "stat": "94",
-      "stat_label": "pings en una partida",
-      "severity": 4.35,
-      "facts": {
-        "alias": "Saiko",
-        "games": 2,
-        "wl": "1–1",
-        "d": 23,
-        "kda": "2,22",
-        "dmg_txt": "muy poco daño",
-        "dmg_txt_cap": "Muy poco daño de media",
-        "champ": "Blitzcrank",
-        "champs": "Blitzcrank",
-        "hours": "1,3",
-        "pings": 94
-      }
-    },
-    {
-      "id": 7,
-      "kind": "desaparecido",
-      "section": "SOCIEDAD",
-      "desk": "Ecos de Jonia",
-      "player": "ipredatorz",
-      "alias": "iPredatoRz",
-      "headline": "iPredatoRz, desaparecido en combate: 28,4 % de participación en kills",
-      "body": "De cada diez kills de su equipo, en más de seis no estaba. Fuentes cercanas apuntan a una larga relación con los súbditos de su línea.",
-      "stat": "28 %",
-      "stat_label": "participación en kills",
-      "severity": 4.32,
-      "facts": {
-        "alias": "iPredatoRz",
-        "games": 2,
-        "wl": "1–1",
-        "d": 14,
-        "kda": "1,50",
-        "dmg_txt": "el 21,6 % del daño de su equipo",
-        "dmg_txt_cap": "El 21,6 % del daño de su equipo de media",
-        "champ": "Zeri",
-        "champs": "Xayah y Zeri",
-        "hours": "0,9",
-        "kp": "28,4 %"
-      }
-    },
-    {
-      "id": 8,
-      "kind": "rendicion",
-      "section": "POLÍTICA",
-      "desk": "Corte de Demacia",
-      "player": null,
-      "alias": null,
-      "headline": "Ante la duda, rendición: Dierophant y Fr4nux se rindieron 2 veces",
-      "body": "Otros remontan; aquí se pulsa el botón de rendirse y se ahorra tiempo para la siguiente derrota.",
-      "stat": "2",
-      "stat_label": "partidas rendidas",
-      "severity": 4,
-      "facts": {
-        "names": "Dierophant y Fr4nux",
-        "verb": "se rindieron",
-        "n_txt": "2 veces"
-      }
-    },
-    {
-      "id": 9,
-      "kind": "pings",
-      "section": "COMUNICACIÓN",
-      "desk": "Radio Zaun",
-      "player": "giroroo",
-      "alias": "Giroroo",
-      "headline": "Giroroo hace 74 pings en una sola partida",
-      "body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él.",
-      "stat": "74",
-      "stat_label": "pings en una partida",
-      "severity": 3.85,
-      "facts": {
-        "alias": "Giroroo",
-        "games": 1,
-        "wl": "1–0",
-        "d": 5,
-        "kda": "3,00",
-        "dmg_txt": "el 13,8 % del daño de su equipo",
-        "dmg_txt_cap": "El 13,8 % del daño de su equipo de media",
-        "champ": "Kayn",
-        "champs": "Kayn",
-        "hours": "0,5",
-        "pings": 74
-      }
-    },
-    {
-      "id": 10,
-      "kind": "desaparecido",
-      "section": "SOCIEDAD",
-      "desk": "Ecos de Jonia",
-      "player": "dierophant",
-      "alias": "Dierophant",
-      "headline": "Se busca: Dierophant solo participó en el 33,3 % de las kills de su equipo",
-      "body": "Su equipo peleaba y Dierophant estaba en otra parte. Si alguien lo ve en la Grieta, que le avise de que hay una partida en curso.",
-      "stat": "33 %",
-      "stat_label": "participación en kills",
-      "severity": 3.33,
-      "facts": {
-        "alias": "Dierophant",
-        "games": 1,
-        "wl": "0–1",
-        "d": 4,
-        "kda": "0,75",
-        "dmg_txt": "el 14,8 % del daño de su equipo",
-        "dmg_txt_cap": "El 14,8 % del daño de su equipo de media",
-        "champ": "Viego",
-        "champs": "Viego",
-        "hours": "0,3",
-        "kp": "33,3 %"
-      }
-    },
-    {
-      "id": 11,
-      "kind": "vision",
-      "section": "CIENCIA",
-      "desk": "Academia de Piltover",
-      "player": "fr4nux",
-      "alias": "Fr4nux",
-      "headline": "Fr4nux juega a ciegas: 0,44 de visión por minuto",
-      "body": "Ni un ward a la vista. Los arbustos de la Grieta guardan secretos que Fr4nux prefiere no conocer.",
-      "stat": "0,44",
-      "stat_label": "visión por minuto",
-      "severity": 1.5,
-      "facts": {
-        "alias": "Fr4nux",
-        "games": 1,
-        "wl": "0–1",
-        "d": 9,
-        "kda": "1,89",
-        "dmg_txt": "el 21,4 % del daño de su equipo",
-        "dmg_txt_cap": "El 21,4 % del daño de su equipo de media",
-        "champ": "Yunara",
-        "champs": "Yunara",
-        "hours": "0,6",
-        "vspm": "0,44"
-      }
-    },
-    {
-      "id": 12,
-      "kind": "mencion",
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "crónica",
+      "clave": "faro:giroroo",
       "section": "EL FARO DE LA ESPERANZA",
       "desk": "Centinelas de la Luz",
       "player": "giroroo",
       "alias": "Giroroo",
-      "headline": "Desde el Faro, una señal: Giroroo sobrevive al día (1–0)",
-      "body": "El mejor del grupo, que no es decir mucho. Los Centinelas de la Luz lo anotan en su diario con letra pequeña, por si acaso.",
-      "stat": "1–0",
-      "stat_label": "victorias–derrotas",
-      "severity": 0.5,
-      "facts": {
-        "alias": "Giroroo",
-        "games": 1,
-        "wl": "1–0",
-        "d": 5,
-        "kda": "3,00",
-        "dmg_txt": "el 13,8 % del daño de su equipo",
-        "dmg_txt_cap": "El 13,8 % del daño de su equipo de media",
-        "champ": "Kayn",
-        "champs": "Kayn",
-        "hours": "0,5"
+      "headline": "Seis objetivos y un guardián",
+      "subtitulo": "",
+      "body": "Hay que reconocerlo aunque escueza: Giroroo jugó una sola partida y la ganó. Kayn en la jungla, treinta y dos minutos, y se llevó todo lo que se mueve sin estar vivo: las larvas, el Heraldo, tres dragones y el Barón Nashor. 52.201 de daño a objetivos. Los Centinelas de la Luz llevaban días sin nada así que encender.\n\nAhora, la factura. Cobró el 20,7 % del oro de su equipo y devolvió el 13,8 % del daño a campeones. Puso un guardián en toda la partida, uno, y mandó 74 pings, que es lo que hace el que no pone guardianes: avisar a gritos de lo que no ve.\n\nEn el reto, el mismo martes, tres ganadas y cuatro perdidas, un ascenso, un descenso y otro ascenso para acabar en Platino III con cincuenta puntos más. La Guadaña de la Mon siega de maravilla.\n\nMirar ya es otra asignatura.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Kayn",
+      "entrevistado": null,
+      "pie": "Kayn, con la guadaña y sin linterna.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 395,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 7,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "nota de prensa",
+      "clave": null,
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": null,
+      "alias": null,
+      "headline": "La cuenta «E. P.» pide que le paguen",
+      "subtitulo": "",
+      "body": "La Lonja de Aguasturbias comunica: la cuenta «E. P.», abierta a nombre de un particular al que este periódico no puede nombrar porque le firma las nóminas, reclama el cobro de su apuesta del lunes. Apostó a que la Gaceta vendería más que El Rincón. La Gaceta publicó el liderato de GSJoseador a las seis de la mañana, tres horas antes que nosotros. La Lonja da la apuesta por ganada.\n\nEl corredor que la tramitó, Barbanegra el Contable, sigue suspendido, pero ha hecho llegar una nota manuscrita: quiere su comisión. El director Plumanegra no ha querido hacer declaraciones. Se le vio a las siete y media en el quiosco de enfrente, comprando la Gaceta. Dos ejemplares.\n\nEl forense Humoverde, que destapó la cuenta, ha pedido que se congele el pago. La Lonja le ha contestado que no puede: las congelaciones las firma el director.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 394,
+      "facts": {},
+      "hilo": "el-papel-de-barbanegra",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-papel-de-barbanegra",
+        "titulo": "El papel que ya no vale nada",
+        "capitulo": 3,
+        "estado": "escalando"
       }
     },
     {
+      "id": 8,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "hace una semana",
+      "clave": "hemeroteca:2026-11-11",
+      "section": "CULTURA",
+      "desk": "Biblioteca de Shurima",
+      "player": "grangalax",
+      "alias": null,
+      "headline": "Lo dijimos hace una semana",
+      "subtitulo": "",
+      "body": "El miércoles pasado este periódico abría con «El Barón solo pierde cuando juega solo». Aquel día grangalax ganó cinco de seis acompañado. El martes jugó una, solo, en la cuenta del desafío. La perdió. La hemeroteca no se equivoca, y el Barón tampoco: falla siempre de la misma manera.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 193,
+      "facts": {},
+      "hilo": "la-moneda",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "la-moneda",
+        "titulo": "La moneda de grangalax",
+        "capitulo": 22,
+        "estado": "escalando"
+      }
+    },
+    {
+      "id": 9,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "anuncio por palabras",
+      "clave": "mismo_sitio:fr4nux:EUW1_8049385312",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "fr4nux",
+      "alias": "Fr4nux",
+      "headline": "Se traspasa esquina",
+      "subtitulo": "",
+      "body": "SE TRASPASA esquina en la Grieta, bien comunicada, con vistas al enemigo. La actual inquilina, la Yunara de Fr4nux, murió allí tres de sus nueve veces el martes. Cuatro guardianes en treinta y seis minutos: ideal para quien prefiera no saber quién viene. Precio: 21 puntos de la cuenta principal. Razón, Instituto Hextech.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 192,
+      "facts": {},
+      "hilo": "carry-not-found",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "carry-not-found",
+        "titulo": "En busca del daño perdido de Fr4nux",
+        "capitulo": 20,
+        "estado": "escalando"
+      }
+    },
+    {
+      "id": 10,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "pings:saiko",
+      "section": "COMUNICACIÓN",
+      "desk": "Radio Zaun",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "Noventa y cuatro",
+      "subtitulo": "",
+      "body": "Radio Zaun certifica el nuevo récord de pings del periódico: 94, de Saiko, con el Blitzcrank de las 10:19. Asesinatos en esos cuarenta y seis minutos: cero. Noventa y cuatro avisos y ni un disparo. Saiko ha descubierto que la guerra se puede ganar por teléfono.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 191,
+      "facts": {},
+      "hilo": "el-que-no-sabe-irse-a-casa",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-que-no-sabe-irse-a-casa",
+        "titulo": "El que no sabe irse a casa",
+        "capitulo": 15,
+        "estado": "escalando"
+      }
+    },
+    {
+      "id": 11,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "salvado:gsjoseador",
+      "section": "EL FARO DE LA ESPERANZA",
+      "desk": "Centinelas de la Luz",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Una derrota con buena letra",
+      "subtitulo": "",
+      "body": "Desde el Faro, una luz pequeña: el Xerath de GSJoseador de las 21:22 hizo el 29,9 % del daño de su equipo y participó en el 65,4 % de sus asesinatos. Perdió igual, ante un Locke 18/10/7. Los Centinelas lo apuntan como victoria moral, la moneda que más abunda en su cuenta de Diamante.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 190,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 12,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "soloq_promesa:wolf:Theossichi#9248",
+      "section": "SOLOQ CHALLENGE",
+      "desk": "",
+      "player": "wolf",
+      "alias": null,
+      "headline": "Hola, y poco más",
+      "subtitulo": "",
+      "body": "Wôlf se inscribió con un lema de una palabra, «Hola», y una promesa de dos: Aspirante. El martes no tocó su cuenta de siempre, pero jugó seis en la del desafío: dos ganadas, cuatro perdidas y quinto puesto, uno menos que ayer. Le faltan 1.075 puntos. Hola y adiós.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 189,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
       "id": 13,
-      "kind": "ausentes",
-      "section": "AUSENTES",
-      "desk": "Perdidos en el Vacío",
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": null,
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
       "player": null,
       "alias": null,
-      "headline": "Desaparecidos del día: TheTrevur, Wôlf, grangalax y RDV Canyon",
-      "body": "Ni una partida. La Grieta respira tranquila por un día.",
-      "stat": "4",
-      "stat_label": "no jugaron",
-      "severity": 0.2,
-      "facts": {
-        "names": "TheTrevur, Wôlf, grangalax y RDV Canyon"
-      }
+      "headline": "Nadie apostó por lo evidente",
+      "subtitulo": "",
+      "body": "La Lonja cerró sus tres mercados del lunes sin una sola apuesta. GSJoseador ganó el de quién moriría más, con 26 muertes, y nadie lo cobró. Ni siquiera él, el lector más rico de la Lonja con 218 coronas, que prefirió no invertir en sí mismo. Se conoce bien.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 188,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
     }
   ],
-  "frase": "Un ward a tiempo es una muerte menos. Nadie del grupo lo sabe.",
+  "frase": "Una cuenta nueva no te hace mejor jugador: solo tarda un poco más en enterarse.",
   "ranking": [
     {
       "slug": "saiko",
@@ -2174,5 +2238,744 @@
     "acertantes": [],
     "votos": {},
     "estado": "ok"
-  }
+  },
+  "items_plantilla": [
+    {
+      "id": 0,
+      "kind": "portada",
+      "section": "PORTADA",
+      "desk": "",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "Saiko, peor jugador del día: 1–1 y 23 muertes en 2 partidas",
+      "body": "Con un KDA de 2,22 y muy poco daño, Saiko se corona hoy como lastre oficial del grupo. Fuentes cercanas confirman que ya está en cola para la siguiente.",
+      "stat": "1–1",
+      "stat_label": "victorias–derrotas",
+      "severity": 100,
+      "facts": {
+        "alias": "Saiko",
+        "games": 2,
+        "wl": "1–1",
+        "d": 23,
+        "kda": "2,22",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Blitzcrank",
+        "champs": "Blitzcrank",
+        "hours": "1,3"
+      }
+    },
+    {
+      "id": 1,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "Récord de Saiko: 13 muertes en 46 minutos",
+      "body": "Con Blitzcrank murió cada 3:33 de media. Aun así ganaron, de milagro. El contador de muertes pidió una pausa.",
+      "stat": "13",
+      "stat_label": "muertes en una partida",
+      "severity": 6.2,
+      "facts": {
+        "alias": "Saiko",
+        "games": 2,
+        "wl": "1–1",
+        "d": 13,
+        "kda": "2,22",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Blitzcrank",
+        "champs": "Blitzcrank",
+        "hours": "1,3",
+        "kdas": "0/13/30",
+        "queue": "Ranked Solo/Dúo",
+        "mins": 46,
+        "every": "3:33",
+        "res": "victoria",
+        "res_cap": "Aun así ganaron, de milagro"
+      }
+    },
+    {
+      "id": 2,
+      "kind": "economia",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "La Lonja de Aguasturbias congela los fondos de Giroroo: 20,7 % del oro, 13,8 % del daño",
+      "body": "Con Kayn cobró 6,9 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
+      "stat": "−6,9",
+      "stat_label": "puntos entre oro y daño",
+      "severity": 5.77,
+      "facts": {
+        "alias": "Giroroo",
+        "games": 1,
+        "wl": "1–0",
+        "d": 5,
+        "kda": "3,00",
+        "dmg_txt": "el 13,8 % del daño de su equipo",
+        "dmg_txt_cap": "El 13,8 % del daño de su equipo de media",
+        "champ": "Kayn",
+        "champs": "Kayn",
+        "hours": "0,5",
+        "gold": "20,7 %",
+        "share": "13,8 %",
+        "gap": "6,9"
+      }
+    },
+    {
+      "id": 3,
+      "kind": "economia",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Malversación de fondos: GSJoseador se quedó el 20,2 % del oro y devolvió el 13,3 % del daño",
+      "body": "Con Jinx recibió 6,9 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró.",
+      "stat": "−6,9",
+      "stat_label": "puntos entre oro y daño",
+      "severity": 5.75,
+      "facts": {
+        "alias": "GSJoseador",
+        "games": 7,
+        "wl": "2–5",
+        "d": 26,
+        "kda": "3,15",
+        "dmg_txt": "el 20,4 % del daño de su equipo",
+        "dmg_txt_cap": "El 20,4 % del daño de su equipo de media",
+        "champ": "Jinx",
+        "champs": "Ornn, Xerath y Jinx",
+        "hours": "3,4",
+        "gold": "20,2 %",
+        "share": "13,3 %",
+        "gap": "6,9"
+      }
+    },
+    {
+      "id": 4,
+      "kind": "economia",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "dierophant",
+      "alias": "Dierophant",
+      "headline": "Dierophant, el fichaje más caro y el que menos rinde: 21,0 % del oro, 14,8 % del daño",
+      "body": "Partida con Viego: 6,2 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
+      "stat": "−6,2",
+      "stat_label": "puntos entre oro y daño",
+      "severity": 5.49,
+      "facts": {
+        "alias": "Dierophant",
+        "games": 1,
+        "wl": "0–1",
+        "d": 4,
+        "kda": "0,75",
+        "dmg_txt": "el 14,8 % del daño de su equipo",
+        "dmg_txt_cap": "El 14,8 % del daño de su equipo de media",
+        "champ": "Viego",
+        "champs": "Viego",
+        "hours": "0,3",
+        "gold": "21,0 %",
+        "share": "14,8 %",
+        "gap": "6,2"
+      }
+    },
+    {
+      "id": 5,
+      "kind": "maldito",
+      "section": "CULTURA",
+      "desk": "Biblioteca de Shurima",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "GSJoseador insiste con Xerath: 2 partidas, 2 derrotas",
+      "body": "La definición de locura es repetir lo mismo esperando otro resultado. GSJoseador lo repitió 2 veces.",
+      "stat": "0–2",
+      "stat_label": "con Xerath",
+      "severity": 4.5,
+      "facts": {
+        "alias": "GSJoseador",
+        "games": 7,
+        "wl": "2–5",
+        "d": 26,
+        "kda": "3,15",
+        "dmg_txt": "el 20,4 % del daño de su equipo",
+        "dmg_txt_cap": "El 20,4 % del daño de su equipo de media",
+        "champ": "Xerath",
+        "champs": "Ornn, Xerath y Jinx",
+        "hours": "3,4",
+        "n": 2
+      }
+    },
+    {
+      "id": 6,
+      "kind": "pings",
+      "section": "COMUNICACIÓN",
+      "desk": "Radio Zaun",
+      "player": "saiko",
+      "alias": "Saiko",
+      "headline": "Saiko hace 94 pings en una sola partida",
+      "body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él.",
+      "stat": "94",
+      "stat_label": "pings en una partida",
+      "severity": 4.35,
+      "facts": {
+        "alias": "Saiko",
+        "games": 2,
+        "wl": "1–1",
+        "d": 23,
+        "kda": "2,22",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Blitzcrank",
+        "champs": "Blitzcrank",
+        "hours": "1,3",
+        "pings": 94
+      }
+    },
+    {
+      "id": 7,
+      "kind": "desaparecido",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "iPredatoRz, desaparecido en combate: 28,4 % de participación en kills",
+      "body": "De cada diez kills de su equipo, en más de seis no estaba. Fuentes cercanas apuntan a una larga relación con los súbditos de su línea.",
+      "stat": "28 %",
+      "stat_label": "participación en kills",
+      "severity": 4.32,
+      "facts": {
+        "alias": "iPredatoRz",
+        "games": 2,
+        "wl": "1–1",
+        "d": 14,
+        "kda": "1,50",
+        "dmg_txt": "el 21,6 % del daño de su equipo",
+        "dmg_txt_cap": "El 21,6 % del daño de su equipo de media",
+        "champ": "Zeri",
+        "champs": "Xayah y Zeri",
+        "hours": "0,9",
+        "kp": "28,4 %"
+      }
+    },
+    {
+      "id": 8,
+      "kind": "rendicion",
+      "section": "POLÍTICA",
+      "desk": "Corte de Demacia",
+      "player": null,
+      "alias": null,
+      "headline": "Ante la duda, rendición: Dierophant y Fr4nux se rindieron 2 veces",
+      "body": "Otros remontan; aquí se pulsa el botón de rendirse y se ahorra tiempo para la siguiente derrota.",
+      "stat": "2",
+      "stat_label": "partidas rendidas",
+      "severity": 4,
+      "facts": {
+        "names": "Dierophant y Fr4nux",
+        "verb": "se rindieron",
+        "n_txt": "2 veces"
+      }
+    },
+    {
+      "id": 9,
+      "kind": "pings",
+      "section": "COMUNICACIÓN",
+      "desk": "Radio Zaun",
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "Giroroo hace 74 pings en una sola partida",
+      "body": "Sus aliados confirman que ninguno sirvió para nada. Riot estudia ponerle un límite diario solo a él.",
+      "stat": "74",
+      "stat_label": "pings en una partida",
+      "severity": 3.85,
+      "facts": {
+        "alias": "Giroroo",
+        "games": 1,
+        "wl": "1–0",
+        "d": 5,
+        "kda": "3,00",
+        "dmg_txt": "el 13,8 % del daño de su equipo",
+        "dmg_txt_cap": "El 13,8 % del daño de su equipo de media",
+        "champ": "Kayn",
+        "champs": "Kayn",
+        "hours": "0,5",
+        "pings": 74
+      }
+    },
+    {
+      "id": 10,
+      "kind": "desaparecido",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "dierophant",
+      "alias": "Dierophant",
+      "headline": "Se busca: Dierophant solo participó en el 33,3 % de las kills de su equipo",
+      "body": "Su equipo peleaba y Dierophant estaba en otra parte. Si alguien lo ve en la Grieta, que le avise de que hay una partida en curso.",
+      "stat": "33 %",
+      "stat_label": "participación en kills",
+      "severity": 3.33,
+      "facts": {
+        "alias": "Dierophant",
+        "games": 1,
+        "wl": "0–1",
+        "d": 4,
+        "kda": "0,75",
+        "dmg_txt": "el 14,8 % del daño de su equipo",
+        "dmg_txt_cap": "El 14,8 % del daño de su equipo de media",
+        "champ": "Viego",
+        "champs": "Viego",
+        "hours": "0,3",
+        "kp": "33,3 %"
+      }
+    },
+    {
+      "id": 11,
+      "kind": "vision",
+      "section": "CIENCIA",
+      "desk": "Academia de Piltover",
+      "player": "fr4nux",
+      "alias": "Fr4nux",
+      "headline": "Fr4nux juega a ciegas: 0,44 de visión por minuto",
+      "body": "Ni un ward a la vista. Los arbustos de la Grieta guardan secretos que Fr4nux prefiere no conocer.",
+      "stat": "0,44",
+      "stat_label": "visión por minuto",
+      "severity": 1.5,
+      "facts": {
+        "alias": "Fr4nux",
+        "games": 1,
+        "wl": "0–1",
+        "d": 9,
+        "kda": "1,89",
+        "dmg_txt": "el 21,4 % del daño de su equipo",
+        "dmg_txt_cap": "El 21,4 % del daño de su equipo de media",
+        "champ": "Yunara",
+        "champs": "Yunara",
+        "hours": "0,6",
+        "vspm": "0,44"
+      }
+    },
+    {
+      "id": 12,
+      "kind": "mencion",
+      "section": "EL FARO DE LA ESPERANZA",
+      "desk": "Centinelas de la Luz",
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "Desde el Faro, una señal: Giroroo sobrevive al día (1–0)",
+      "body": "El mejor del grupo, que no es decir mucho. Los Centinelas de la Luz lo anotan en su diario con letra pequeña, por si acaso.",
+      "stat": "1–0",
+      "stat_label": "victorias–derrotas",
+      "severity": 0.5,
+      "facts": {
+        "alias": "Giroroo",
+        "games": 1,
+        "wl": "1–0",
+        "d": 5,
+        "kda": "3,00",
+        "dmg_txt": "el 13,8 % del daño de su equipo",
+        "dmg_txt_cap": "El 13,8 % del daño de su equipo de media",
+        "champ": "Kayn",
+        "champs": "Kayn",
+        "hours": "0,5"
+      }
+    },
+    {
+      "id": 13,
+      "kind": "ausentes",
+      "section": "AUSENTES",
+      "desk": "Perdidos en el Vacío",
+      "player": null,
+      "alias": null,
+      "headline": "Desaparecidos del día: TheTrevur, Wôlf, grangalax y RDV Canyon",
+      "body": "Ni una partida. La Grieta respira tranquila por un día.",
+      "stat": "4",
+      "stat_label": "no jugaron",
+      "severity": 0.2,
+      "facts": {
+        "names": "TheTrevur, Wôlf, grangalax y RDV Canyon"
+      }
+    }
+  ],
+  "canon_cambios": {
+    "hilos": [
+      {
+        "id": "el-reto-de-las-cuentas-nuevas",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "Día dieciocho: Saiko nuevo líder (Platino I 7) con un 5–1 en el día y 38 de 40 partidas con Blitzcrank; GSJoseador segundo pese a ganar las dos; Fr4nux sube al séptimo; grangalax cae al octavo; Wôlf, 2–4, quinto.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-cuenta-buena",
+        "accion": "abrir",
+        "titulo": "La cuenta buena",
+        "estado": "abierto",
+        "resumen": "El martes ganan en la cuenta comprada para el reto y pierden en la suya: GSJoseador 2–0 en el reto y 2–5 en Diamante (−27); Fr4nux 2–0 en el reto y −21 en la principal; Saiko 5–1 en el reto y dos Blitzcrank sin asesinatos en la suya.",
+        "protagonistas": [
+          "gsjoseador",
+          "fr4nux",
+          "saiko"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-sindicato-cambia-de-bando",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Ezreal vuelve a aparecer contra iPredatoRz: 10/1/7 ante su Zeri a las 22:47, nueve muertes y 3.937 de oro de diferencia. Viego denuncia a Dierophant tras su sexta derrota de seis.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-moneda",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Una semana después de «El Barón solo pierde cuando juega solo», grangalax juega una sola partida, solo y en la cuenta del desafío, y la pierde.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-luz-de-grangalax",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "El Barón no toca su cuenta de siempre, pierde la única del reto y cae al octavo; Dierophant sigue tercero sin jugar.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "el-que-no-sabe-irse-a-casa",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Saiko abre a las 09:40: dos Blitzcrank sin un asesinato, 23 muertes y récord de pings del periódico (94). Después gana cinco de seis en el reto y se pone líder.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "carry-not-found",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Fr4nux pierde con Yunara (7/9/10, tres muertes en la misma esquina, cuatro guardianes) y 21 puntos en su principal, mientras gana las dos del reto y asciende a Oro I.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "el-papel-de-barbanegra",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "La cuenta «E. P.» reclama cobrar su apuesta a que la Gaceta vendería más; Barbanegra, suspendido, pide su comisión y Humoverde no consigue congelar el pago porque las congelaciones las firma el director.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-guerra-de-los-periodicos",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "La Gaceta publica a las seis el liderato de Saiko y agradece al director del Rincón que compre dos ejemplares cada mañana.",
+        "protagonistas": [],
+        "reparto": []
+      }
+    ],
+    "personajes": {
+      "saiko": {
+        "apodo": "el que gana por teléfono"
+      },
+      "gsjoseador": {
+        "apodo": "el de las dos vidas",
+        "arco": {
+          "tipo": "caída",
+          "texto": "Gana en la cuenta del reto y se desangra en la de Diamante: juega mejor cuando la cuenta no es suya, y aun así pierde el liderato."
+        }
+      },
+      "dierophant": {
+        "maldicion": "Viego: 0–6 en la hemeroteca; cero de daño a objetivos ante un Xin Zhao 10/0/2"
+      },
+      "giroroo": {
+        "apodo": "el segador a oscuras"
+      }
+    },
+    "elenco": [
+      {
+        "nombre": "Don Evaristo Plumanegra",
+        "actualizar": true,
+        "estado": "Visto comprando dos ejemplares de la Gaceta; su cuenta «E. P.» reclama cobrar la apuesta y nadie puede congelar el pago salvo él"
+      },
+      {
+        "nombre": "Barbanegra el Contable",
+        "actualizar": true,
+        "estado": "Suspendido; reclama por escrito su comisión de la cuenta «E. P.»"
+      },
+      {
+        "nombre": "Doctor Ezequiel Humoverde",
+        "actualizar": true,
+        "estado": "Pide congelar el pago de la cuenta «E. P.»; la Lonja le remite al director"
+      }
+    ],
+    "costumbres": [
+      "Los martes sin Flex, Saiko abre la SoloQ antes de las diez de la mañana y GSJoseador la cierra pasadas las once y media de la noche."
+    ],
+    "chistes": [
+      "el Comodín de la Grieta",
+      "Locke en negativo"
+    ],
+    "sindicato": [
+      {
+        "campeon": "Viego",
+        "jugador": "dierophant",
+        "motivo": "Sexta derrota de seis: 3/4/0 en diecinueve minutos y cero de daño a objetivos ante un Xin Zhao que no murió"
+      }
+    ]
+  },
+  "tiempo": [
+    {
+      "jugador": "saiko",
+      "texto": "Once minutos de gris repartidos en una mañana. Niebla temprana sobre la calle de abajo que levanta a pings, no a asesinatos."
+    },
+    {
+      "jugador": "dierophant",
+      "texto": "Apenas dos minutos de gris, pero en diecinueve de partida. La tormenta se llama Xin Zhao y no se movió de su jungla."
+    },
+    {
+      "jugador": "ipredatorz",
+      "texto": "Seis minutos de gris. Despejado a las diez y cuarto, chubascos de Ezreal a las once menos cuarto."
+    },
+    {
+      "jugador": "fr4nux",
+      "texto": "Seis minutos de gris, tres de ellos en la misma esquina. Microclima propio: allí siempre llueve sobre la Yunara."
+    },
+    {
+      "jugador": "gsjoseador",
+      "texto": "Doce minutos de gris en Diamante y cielo despejado en el reto. Dos climas en un solo hombre: llévese paraguas a la cuenta buena."
+    },
+    {
+      "jugador": "giroroo",
+      "texto": "Dos minutos de gris y visibilidad casi nula: un guardián en treinta y dos minutos. Se recomienda encender una vela."
+    }
+  ],
+  "angulos_usados": [
+    "soloq_escalada:saiko:Mastersuftine#6535",
+    "dia_negro:gsjoseador",
+    "calle:ipredatorz",
+    "maldito:dierophant:Viego",
+    "soloq_promesa:grangalax:nandaris#6071",
+    "faro:giroroo",
+    "hemeroteca:2026-11-11",
+    "mismo_sitio:fr4nux:EUW1_8049385312",
+    "pings:saiko",
+    "salvado:gsjoseador",
+    "soloq_promesa:wolf:Theossichi#9248"
+  ],
+  "horoscopo": [
+    {
+      "signo": "Top",
+      "texto": "Un Ornn sin muertes no compensa cinco derrotas. Tus astros recomiendan forjar otra cuenta y dejar que la vieja se oxide sola."
+    },
+    {
+      "signo": "Jungla",
+      "texto": "Seis objetivos grandes y un guardián. Hoy los astros te piden algo sencillo: mira el mapa, aunque sea por curiosidad."
+    },
+    {
+      "signo": "Mid",
+      "texto": "Primera sangre a los setenta y ocho segundos. Plutón entra en tu calle y no piensa irse antes que tú."
+    },
+    {
+      "signo": "Tirador",
+      "texto": "Hay una esquina que te espera con el nombre puesto. Evítala. Si no puedes, al menos ponle un guardián delante."
+    },
+    {
+      "signo": "Soporte",
+      "texto": "Los astros confirman que se puede liderar sin matar. No confirman cuánto aguantará el equipo sin decírtelo."
+    }
+  ],
+  "template_frase": "Un ward a tiempo es una muerte menos. Nadie del grupo lo sabe.",
+  "columna": {
+    "titulo": "Comprad otra cuenta, la vuestra está gafada",
+    "autor": "El Coach que Nadie Contrató",
+    "cuerpo": [
+      "Llevo dieciocho días mirando el reto y ya tengo la conclusión, gratis, que es lo que cobro: el problema no sois vosotros. Es vuestra cuenta.",
+      "Mirad el martes. GSJoseador ganó las dos de la cuenta nueva y perdió cinco de siete en la de Diamante. Fr4nux, dos de dos en la nueva y 21 puntos menos en la vieja. Saiko, cinco de seis en el desafío y, en la suya, dos Blitzcrank sin un asesinato. Dierophant ni tocó la nueva, y la vieja le quitó 27 por las molestias.",
+      "La explicación técnica es sencilla. En una cuenta nueva nadie os conoce. En la vieja, el sistema ya sabe quiénes sois y os empareja en consecuencia.",
+      "Mi recomendación profesional: borrad las principales. Y cuando las nuevas se den cuenta, comprad otras."
+    ]
+  },
+  "especial": null,
+  "gaceta": {
+    "titular": "¡SAIKO, LÍDER! ¡Y EL RINCÓN LE RIÑE POR NO MATAR!",
+    "cuerpo": "Fuentes de toda solvencia confirman lo que esta casa publicó a las seis de la mañana, tres horas antes que el Rincón: SAIKO ES EL NUEVO LÍDER DEL RETO. Cinco victorias de seis. ¡Y el Rincón le reprocha que no mate! Un soporte que mata es un soporte que roba asesinatos, y Saiko, con treinta asistencias en una sola partida, es el único del grupo que reparte.\n\nY una pregunta para Don Evaristo Plumanegra: ¿cuántas Gacetas compró ayer? Nos consta que dos. Esta casa agradece la confianza de su lector más fiel. Y su dinero.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "jurado": {
+    "pregunta": "¿Quién lidera de verdad el reto?",
+    "opciones": [
+      "Saiko, que gana",
+      "Blitzcrank, que trabaja",
+      "Los que matan por él"
+    ],
+    "juicio": false
+  },
+  "jurado_veredicto": "Un solo voto decidió quién ganó la segunda Flex del lunes, y fue el de grangalax: «Lee Sin, que no vio nada». El acusado de quedarse una victoria ajena declara en las urnas que la victoria era de otro. La fiscal Hexwick lo da por confesión y suma otro juicio ganado sin juicio. El abogado Leguleyo pide la nulidad alegando que su cliente no sabía lo que votaba. Nadie le ha llevado la contraria.",
+  "manana": [
+    {
+      "texto": "¿Vuelve el Barón a su cuenta de siempre, o sigue perdiendo de una en una en la del desafío?"
+    },
+    {
+      "texto": "¿Aguanta Saiko el liderato, y con qué campeón? Pista: con uno."
+    },
+    {
+      "texto": "¿Pondrá Giroroo un segundo guardián?"
+    }
+  ],
+  "promesas": [
+    {
+      "pregunta": "¿Juega TheTrevur una sola partida en la cuenta del reto, o solo en las de los demás?",
+      "texto": "Ni en la del reto ni en las de los demás: TheTrevur no jugó ninguna. Sigue último, con el Teemo de Guardia regando las setas de la quedada."
+    },
+    {
+      "pregunta": "¿Aguanta RDV Canyon en Platino IV con cero puntos?",
+      "texto": "Aguantó, dando vueltas: RDV Canyon ganó una y perdió dos, pasó de cero a treinta y de treinta a diez. Sigue en Platino IV, ahora con diez de colchón."
+    },
+    {
+      "pregunta": "¿Recupera Saiko la Esmeralda II, o saca a Blitzcrank una séptima vez?",
+      "texto": "Ni recupera la Esmeralda II ni suelta al robot: la cuenta principal de Saiko sigue en Esmeralda III y Blitzcrank salió dos veces más antes de las once de la mañana."
+    }
+  ],
+  "tablon": [],
+  "sugerencias_tablon": [],
+  "tarjetas": [
+    {
+      "id": "partidas-al-dia",
+      "tipo": "tabla",
+      "titulo": "¿Quién va al día?",
+      "datos": {
+        "columnas": [
+          "Jugador",
+          "Jugadas",
+          "Frente a 34",
+          "Faltan para 50"
+        ],
+        "filas": [
+          [
+            "Saiko",
+            "40",
+            "+6",
+            "10"
+          ],
+          [
+            "Wôlf",
+            "40",
+            "+6",
+            "10"
+          ],
+          [
+            "Giroroo",
+            "40",
+            "+6",
+            "10"
+          ],
+          [
+            "Fr4nux",
+            "37",
+            "+3",
+            "13"
+          ],
+          [
+            "Dierophant",
+            "34",
+            "0",
+            "16"
+          ],
+          [
+            "GSJoseador",
+            "34",
+            "0",
+            "16"
+          ],
+          [
+            "grangalax",
+            "33",
+            "−1",
+            "17"
+          ],
+          [
+            "RDV Canyon",
+            "32",
+            "−2",
+            "18"
+          ],
+          [
+            "iPredatoRz",
+            "30",
+            "−4",
+            "20"
+          ],
+          [
+            "TheTrevur",
+            "15",
+            "−19",
+            "35"
+          ]
+        ]
+      },
+      "subtitulo": "Partidas jugadas frente al ritmo de dos por día (17 días completos: 34)",
+      "pie": "Tres empatados arriba a cuarenta. TheTrevur va diecinueve por detrás y el Teemo le guarda el sitio.",
+      "sugerencia": 4
+    }
+  ],
+  "ai": {
+    "version": 1,
+    "updated_at": 1794998593111,
+    "firma": "Claude",
+    "stale": false,
+    "formato": 2
+  },
+  "written_by": "Claude",
+  "lectores_ayer": {
+    "edicion": "2026-11-17",
+    "mas_reaccionadas": [],
+    "comentarios": []
+  },
+  "jurado_ayer": {
+    "edicion": "2026-11-17",
+    "pregunta": "¿Quién ganó de verdad la segunda Flex del lunes?",
+    "juicio": false,
+    "opciones": [
+      {
+        "texto": "Lee Sin, que no vio nada",
+        "votos": 1,
+        "quien": [
+          "grangalax"
+        ]
+      },
+      {
+        "texto": "El Barón, que estaba allí",
+        "votos": 0,
+        "quien": []
+      },
+      {
+        "texto": "El Locke rival, a los puntos",
+        "votos": 0,
+        "quien": []
+      }
+    ],
+    "total": 1,
+    "estado": "ok"
+  },
+  "quien_fue_ayer": {
+    "edicion": "2026-11-17",
+    "solucion": "Saiko",
+    "campeon": "Blitzcrank",
+    "jugaron": 0,
+    "acertaron": [],
+    "fallaron": 0,
+    "estado": "ok"
+  },
+  "cotillas": []
 }

@@ -1,0 +1,145 @@
+{
+  "piezas": [
+    {"angulo": "a6", "peso": "grande", "portada": true, "formato": "reportaje", "hilo": "el-reto-de-las-cuentas-nuevas",
+     "seccion": "SOLOQ CHALLENGE", "player": "saiko",
+     "headline": "Al trono con las manos limpias",
+     "subtitulo": "Saiko gana cinco de seis en la cuenta comprada para el reto y es el nuevo líder. En la suya, dos Blitzcrank sin un solo asesinato.",
+     "body": "A las 09:40, cuando la gente normal está fichando, Saiko ya estaba en la Grieta con su cuenta de siempre y su robot de siempre. Primera partida: cero asesinatos, diez muertes, derrota. Segunda, a las 10:19: cuarenta y seis minutos, cero asesinatos, trece muertes, primera sangre regalada al minuto tres y noventa y cuatro pings, récord del periódico. Ganó. La Seraphine rival, que acabó con catorce muertes, todavía no sabe cómo.\n\nLuego cambió de cuenta. En la que compró de cero para el desafío, Saiko ganó cinco de seis, sumó 135 puntos, subió a Platino I y le quitó el liderato a GSJoseador. Treinta y ocho de sus cuarenta partidas en el reto son con Blitzcrank. Aquello ya no es un campeón: es un contrato indefinido con cláusula de permanencia.\n\nEn Zaun presumen de que Blitzcrank fue el primer gólem que aprendió a pensar por sí mismo. En manos de Saiko ha llegado a una conclusión muy madura: matar es cosa de otros. El robot agarra, el equipo remata y Saiko lo celebra a pings. Prometió Aspirante al inscribirse. Le faltan 893 puntos, que conseguirá en cuanto alguien los mate por él.\n\nPrimero del reto. Último en daño de su equipo las dos veces.",
+     "campeon": "Blitzcrank", "pie": "Blitzcrank, en la Lonja de Zaun, firmando su renovación número treinta y ocho."},
+
+    {"angulo": "a2", "peso": "grande", "formato": "análisis", "hilo": "la-cuenta-buena", "seccion": "DEPORTES", "player": "gsjoseador",
+     "headline": "Diamante para perder, Platino para ganar",
+     "subtitulo": "GSJoseador se deja 27 puntos en su cuenta principal, gana las dos del reto y aun así pierde el liderato.",
+     "body": "El Comodín de la Grieta tiene dos vidas y las vive a la vez. En la cuenta de Diamante, la buena, la que enseña, GSJoseador jugó siete partidas entre las siete de la tarde y la medianoche y perdió cinco: Ornn, Xerath, Jinx, otra vez Xerath y Syndra. Cada campeón, una forma distinta de irse a la cama más pobre. La cuenta baja de Diamante II 89 a Diamante II 62.\n\nLa peor fue la Jinx de las 20:44. Enfrente, un Corki que acabó 13/2/14 y le sacó 5.765 de oro. GSJoseador, que se apuntó al reto prometiendo ser el «top damage del equipo», hizo el 13,3 % del daño del suyo con una tiradora que, si la dejan, derrite torres. No la dejaron.\n\nY luego está la otra vida. En la cuenta del desafío ganó las dos que jugó, sumó sesenta puntos y ascendió a Platino II. Una noche redonda, si no fuera porque esa misma mañana Saiko había ganado cinco con un robot y le quitó el trono sin despeinarse.\n\nEl Instituto Hextech trabaja con una hipótesis: GSJoseador juega mejor cuando la cuenta no es suya. La Syndra de las 23:31, heredada del Barón, la confirma: primera sangre entregada a los setenta y ocho segundos y derrota para cerrar la noche.\n\nSe le busca una tercera cuenta. Por si acaso.",
+     "meme": {"plantilla": "panik-kalm-panik", "lineas": ["Pierdes 27 puntos en Diamante", "Ganas 60 en el reto", "Pierdes el liderato igual"]},
+     "pie": "El Comodín, repartiendo cartas en dos mesas a la vez."},
+
+    {"angulo": "a9", "peso": "mediana", "formato": "parte policial", "hilo": "el-sindicato-cambia-de-bando", "seccion": "SUCESOS", "player": "ipredatorz",
+     "headline": "Ezreal vuelve a la escena del crimen",
+     "body": "Hechos: a las 22:47 del martes, en la calle de abajo, un Ezreal que terminaría 10/1/7 asaltó a la Zeri de iPredatoRz y le sustrajo 3.937 de oro. La víctima murió nueve veces, una cada tres minutos y diez segundos, y participó en el 15,4 % de los asesinatos de su equipo, que es lo que participa un testigo.\n\nAntecedentes: Ezreal ya denunció a iPredatoRz ante el Sindicato tras morir quince veces en sus manos, y desde entonces aparece en el bando rival cada vez que le dejan. La Comisaría no descarta que se trate del mismo individuo. Ezreal, tampoco.\n\nMedia hora antes, el ahora denunciante había ganado con Xayah, sacándole 6.171 de oro a un Aphelios con siete guardianes en veintisiete minutos. Ganó a ciegas y perdió viendo perfectamente quién le mataba.",
+     "stat": "9", "stat_label": "muertes ante el Ezreal que ya le denunció"},
+
+    {"angulo": "a1", "peso": "mediana", "formato": "entrevista", "seccion": "CULTURA", "player": "dierophant", "entrevistado": "Viego",
+     "headline": "«Yo vine a buscar a mi reina, no a esto»",
+     "body": "Viego, el Rey Arruinado, suma seis derrotas de seis en manos de Dierophant. La última, el martes a las 20:05: diecinueve minutos, 3/4/0 y un Xin Zhao rival que acabó sin morir. Nos recibe en las Islas de la Sombra, de bastante mal humor.\n\n— Majestad, seis de seis.\n— Seis veces me ha sacado y seis veces he vuelto a la tumba. Llevo siglos buscando a Isolde. Ahora, además, busco a un jungla que ponga guardianes.\n— Puso tres en diecinueve minutos.\n— Y cero de daño a objetivos. Ni un dragón, ni un cangrejo. He poseído reyes, ejércitos y una Ruina entera, y con ese hombre a los mandos no he conseguido poseer ni un monstruo neutral.\n— ¿Qué le pediría?\n— Que vuelva con Rakan. Allí al menos le quieren.\n\nLa partida le costó a Dierophant 27 puntos en su cuenta principal. En el reto, donde no se atreve a sacar a Viego, sigue tercero sin jugar.",
+     "campeon": "Viego", "pie": "Viego, en su trono de las Islas de la Sombra, revisando el historial de su jungla."},
+
+    {"angulo": "a3", "peso": "mediana", "formato": "noticia", "hilo": "la-luz-de-grangalax", "seccion": "SOLOQ CHALLENGE", "player": "grangalax",
+     "headline": "La única que jugó, la perdió",
+     "subtitulo": "El Barón no toca su cuenta de siempre, juega una en el reto y cae al octavo puesto.",
+     "body": "grangalax pasó el martes lejos de su cuenta de toda la vida, en la que no jugó ni una. Solo se dejó ver en la del desafío, una vez, y la perdió: diez puntos menos, Oro I con 45 y un puesto abajo, octavo de diez. Se inscribió prometiendo Maestro. Le quedan 1.255 puntos y 35 días, a casi 36 por día si no pierde ninguna, cosa que no ha conseguido nunca.\n\nMientras tanto Dierophant, que se apuntó al reto pidiendo que le guiara la luz de grangalax, sigue tercero en Platino III sin haber jugado. La luz del Barón sigue encendida. Alumbra a todo el mundo menos a él.",
+     "stat": "8.º", "stat_label": "puesto del que prometió Maestro"},
+
+    {"angulo": "a18", "peso": "mediana", "formato": "crónica", "seccion": "EL FARO DE LA ESPERANZA", "player": "giroroo",
+     "headline": "Seis objetivos y un guardián",
+     "body": "Hay que reconocerlo aunque escueza: Giroroo jugó una sola partida y la ganó. Kayn en la jungla, treinta y dos minutos, y se llevó todo lo que se mueve sin estar vivo: las larvas, el Heraldo, tres dragones y el Barón Nashor. 52.201 de daño a objetivos. Los Centinelas de la Luz llevaban días sin nada así que encender.\n\nAhora, la factura. Cobró el 20,7 % del oro de su equipo y devolvió el 13,8 % del daño a campeones. Puso un guardián en toda la partida, uno, y mandó 74 pings, que es lo que hace el que no pone guardianes: avisar a gritos de lo que no ve.\n\nEn el reto, el mismo martes, tres ganadas y cuatro perdidas, un ascenso, un descenso y otro ascenso para acabar en Platino III con cincuenta puntos más. La Guadaña de la Mon siega de maravilla.\n\nMirar ya es otra asignatura.",
+     "campeon": "Kayn", "pie": "Kayn, con la guadaña y sin linterna."},
+
+    {"angulo": null, "peso": "mediana", "formato": "nota de prensa", "hilo": "el-papel-de-barbanegra", "seccion": "ECONOMÍA",
+     "headline": "La cuenta «E. P.» pide que le paguen",
+     "body": "La Lonja de Aguasturbias comunica: la cuenta «E. P.», abierta a nombre de un particular al que este periódico no puede nombrar porque le firma las nóminas, reclama el cobro de su apuesta del lunes. Apostó a que la Gaceta vendería más que El Rincón. La Gaceta publicó el liderato de GSJoseador a las seis de la mañana, tres horas antes que nosotros. La Lonja da la apuesta por ganada.\n\nEl corredor que la tramitó, Barbanegra el Contable, sigue suspendido, pero ha hecho llegar una nota manuscrita: quiere su comisión. El director Plumanegra no ha querido hacer declaraciones. Se le vio a las siete y media en el quiosco de enfrente, comprando la Gaceta. Dos ejemplares.\n\nEl forense Humoverde, que destapó la cuenta, ha pedido que se congele el pago. La Lonja le ha contestado que no puede: las congelaciones las firma el director."},
+
+    {"angulo": "a45", "peso": "breve", "formato": "hace una semana", "seccion": "CULTURA", "player": "grangalax", "hilo": "la-moneda",
+     "headline": "Lo dijimos hace una semana",
+     "body": "El miércoles pasado este periódico abría con «El Barón solo pierde cuando juega solo». Aquel día grangalax ganó cinco de seis acompañado. El martes jugó una, solo, en la cuenta del desafío. La perdió. La hemeroteca no se equivoca, y el Barón tampoco: falla siempre de la misma manera."},
+
+    {"angulo": "a8", "peso": "breve", "formato": "anuncio por palabras", "seccion": "SUCESOS", "player": "fr4nux", "hilo": "carry-not-found",
+     "headline": "Se traspasa esquina",
+     "body": "SE TRASPASA esquina en la Grieta, bien comunicada, con vistas al enemigo. La actual inquilina, la Yunara de Fr4nux, murió allí tres de sus nueve veces el martes. Cuatro guardianes en treinta y seis minutos: ideal para quien prefiera no saber quién viene. Precio: 21 puntos de la cuenta principal. Razón, Instituto Hextech."},
+
+    {"angulo": "a30", "peso": "breve", "formato": "breve", "seccion": "COMUNICACIÓN", "player": "saiko", "hilo": "el-que-no-sabe-irse-a-casa",
+     "headline": "Noventa y cuatro",
+     "body": "Radio Zaun certifica el nuevo récord de pings del periódico: 94, de Saiko, con el Blitzcrank de las 10:19. Asesinatos en esos cuarenta y seis minutos: cero. Noventa y cuatro avisos y ni un disparo. Saiko ha descubierto que la guerra se puede ganar por teléfono."},
+
+    {"angulo": "a16", "peso": "breve", "formato": "breve", "seccion": "EL FARO DE LA ESPERANZA", "player": "gsjoseador",
+     "headline": "Una derrota con buena letra",
+     "body": "Desde el Faro, una luz pequeña: el Xerath de GSJoseador de las 21:22 hizo el 29,9 % del daño de su equipo y participó en el 65,4 % de sus asesinatos. Perdió igual, ante un Locke 18/10/7. Los Centinelas lo apuntan como victoria moral, la moneda que más abunda en su cuenta de Diamante."},
+
+    {"angulo": "a13", "peso": "breve", "formato": "breve", "seccion": "SOLOQ CHALLENGE", "player": "wolf",
+     "headline": "Hola, y poco más",
+     "body": "Wôlf se inscribió con un lema de una palabra, «Hola», y una promesa de dos: Aspirante. El martes no tocó su cuenta de siempre, pero jugó seis en la del desafío: dos ganadas, cuatro perdidas y quinto puesto, uno menos que ayer. Le faltan 1.075 puntos. Hola y adiós."},
+
+    {"angulo": null, "peso": "breve", "formato": "breve", "seccion": "ECONOMÍA",
+     "headline": "Nadie apostó por lo evidente",
+     "body": "La Lonja cerró sus tres mercados del lunes sin una sola apuesta. GSJoseador ganó el de quién moriría más, con 26 muertes, y nadie lo cobró. Ni siquiera él, el lector más rico de la Lonja con 218 coronas, que prefirió no invertir en sí mismo. Se conoce bien."}
+  ],
+  "tiempo": [
+    {"jugador": "saiko", "texto": "Once minutos de gris repartidos en una mañana. Niebla temprana sobre la calle de abajo que levanta a pings, no a asesinatos."},
+    {"jugador": "gsjoseador", "texto": "Doce minutos de gris en Diamante y cielo despejado en el reto. Dos climas en un solo hombre: llévese paraguas a la cuenta buena."},
+    {"jugador": "dierophant", "texto": "Apenas dos minutos de gris, pero en diecinueve de partida. La tormenta se llama Xin Zhao y no se movió de su jungla."},
+    {"jugador": "ipredatorz", "texto": "Seis minutos de gris. Despejado a las diez y cuarto, chubascos de Ezreal a las once menos cuarto."},
+    {"jugador": "fr4nux", "texto": "Seis minutos de gris, tres de ellos en la misma esquina. Microclima propio: allí siempre llueve sobre la Yunara."},
+    {"jugador": "giroroo", "texto": "Dos minutos de gris y visibilidad casi nula: un guardián en treinta y dos minutos. Se recomienda encender una vela."}
+  ],
+  "canon": {
+    "hilos": [
+      {"id": "el-reto-de-las-cuentas-nuevas", "accion": "avanzar", "estado": "escalando", "resumen": "Día dieciocho: Saiko nuevo líder (Platino I 7) con un 5–1 en el día y 38 de 40 partidas con Blitzcrank; GSJoseador segundo pese a ganar las dos; Fr4nux sube al séptimo; grangalax cae al octavo; Wôlf, 2–4, quinto."},
+      {"id": "la-cuenta-buena", "accion": "abrir", "titulo": "La cuenta buena", "resumen": "El martes ganan en la cuenta comprada para el reto y pierden en la suya: GSJoseador 2–0 en el reto y 2–5 en Diamante (−27); Fr4nux 2–0 en el reto y −21 en la principal; Saiko 5–1 en el reto y dos Blitzcrank sin asesinatos en la suya.", "protagonistas": ["gsjoseador", "fr4nux", "saiko"]},
+      {"id": "el-sindicato-cambia-de-bando", "accion": "avanzar", "resumen": "Ezreal vuelve a aparecer contra iPredatoRz: 10/1/7 ante su Zeri a las 22:47, nueve muertes y 3.937 de oro de diferencia. Viego denuncia a Dierophant tras su sexta derrota de seis."},
+      {"id": "la-moneda", "accion": "avanzar", "resumen": "Una semana después de «El Barón solo pierde cuando juega solo», grangalax juega una sola partida, solo y en la cuenta del desafío, y la pierde."},
+      {"id": "la-luz-de-grangalax", "accion": "avanzar", "resumen": "El Barón no toca su cuenta de siempre, pierde la única del reto y cae al octavo; Dierophant sigue tercero sin jugar."},
+      {"id": "el-que-no-sabe-irse-a-casa", "accion": "avanzar", "resumen": "Saiko abre a las 09:40: dos Blitzcrank sin un asesinato, 23 muertes y récord de pings del periódico (94). Después gana cinco de seis en el reto y se pone líder."},
+      {"id": "carry-not-found", "accion": "avanzar", "resumen": "Fr4nux pierde con Yunara (7/9/10, tres muertes en la misma esquina, cuatro guardianes) y 21 puntos en su principal, mientras gana las dos del reto y asciende a Oro I."},
+      {"id": "el-papel-de-barbanegra", "accion": "avanzar", "resumen": "La cuenta «E. P.» reclama cobrar su apuesta a que la Gaceta vendería más; Barbanegra, suspendido, pide su comisión y Humoverde no consigue congelar el pago porque las congelaciones las firma el director."},
+      {"id": "la-guerra-de-los-periodicos", "accion": "avanzar", "resumen": "La Gaceta publica a las seis el liderato de Saiko y agradece al director del Rincón que compre dos ejemplares cada mañana."}
+    ],
+    "personajes": {
+      "saiko": {"apodo": "el que gana por teléfono"},
+      "gsjoseador": {"apodo": "el de las dos vidas", "arco": {"tipo": "caída", "texto": "Gana en la cuenta del reto y se desangra en la de Diamante: juega mejor cuando la cuenta no es suya, y aun así pierde el liderato."}},
+      "dierophant": {"maldicion": "Viego: 0–6 en la hemeroteca; cero de daño a objetivos ante un Xin Zhao 10/0/2"},
+      "giroroo": {"apodo": "el segador a oscuras"}
+    },
+    "elenco": [
+      {"nombre": "Don Evaristo Plumanegra", "estado": "Visto comprando dos ejemplares de la Gaceta; su cuenta «E. P.» reclama cobrar la apuesta y nadie puede congelar el pago salvo él"},
+      {"nombre": "Barbanegra el Contable", "estado": "Suspendido; reclama por escrito su comisión de la cuenta «E. P.»"},
+      {"nombre": "Doctor Ezequiel Humoverde", "estado": "Pide congelar el pago de la cuenta «E. P.»; la Lonja le remite al director"}
+    ],
+    "costumbres": ["Los martes sin Flex, Saiko abre la SoloQ antes de las diez de la mañana y GSJoseador la cierra pasadas las once y media de la noche."],
+    "chistes": ["el Comodín de la Grieta", "Locke en negativo"],
+    "sindicato": [
+      {"campeon": "Viego", "jugador": "dierophant", "motivo": "Sexta derrota de seis: 3/4/0 en diecinueve minutos y cero de daño a objetivos ante un Xin Zhao que no murió"}
+    ]
+  },
+  "gaceta": {"titular": "¡SAIKO, LÍDER! ¡Y EL RINCÓN LE RIÑE POR NO MATAR!", "cuerpo": "Fuentes de toda solvencia confirman lo que esta casa publicó a las seis de la mañana, tres horas antes que el Rincón: SAIKO ES EL NUEVO LÍDER DEL RETO. Cinco victorias de seis. ¡Y el Rincón le reprocha que no mate! Un soporte que mata es un soporte que roba asesinatos, y Saiko, con treinta asistencias en una sola partida, es el único del grupo que reparte.\n\nY una pregunta para Don Evaristo Plumanegra: ¿cuántas Gacetas compró ayer? Nos consta que dos. Esta casa agradece la confianza de su lector más fiel. Y su dinero.", "firma": "Valeria Puñoférreo"},
+  "tarjetas": [
+    {"id": "partidas-al-dia", "tipo": "tabla", "titulo": "¿Quién va al día?", "subtitulo": "Partidas jugadas frente al ritmo de dos por día (17 días completos: 34)", "sugerencia": 4,
+     "datos": {"columnas": ["Jugador", "Jugadas", "Frente a 34", "Faltan para 50"], "filas": [
+       ["Saiko", "40", "+6", "10"], ["Wôlf", "40", "+6", "10"], ["Giroroo", "40", "+6", "10"], ["Fr4nux", "37", "+3", "13"],
+       ["Dierophant", "34", "0", "16"], ["GSJoseador", "34", "0", "16"], ["grangalax", "33", "−1", "17"], ["RDV Canyon", "32", "−2", "18"],
+       ["iPredatoRz", "30", "−4", "20"], ["TheTrevur", "15", "−19", "35"]]},
+     "pie": "Tres empatados arriba a cuarenta. TheTrevur va diecinueve por detrás y el Teemo le guarda el sitio."}
+  ],
+  "sugerencias_tablon": [],
+  "jurado": {"pregunta": "¿Quién lidera de verdad el reto?", "opciones": ["Saiko, que gana", "Blitzcrank, que trabaja", "Los que matan por él"], "juicio": false},
+  "jurado_veredicto": "Un solo voto decidió quién ganó la segunda Flex del lunes, y fue el de grangalax: «Lee Sin, que no vio nada». El acusado de quedarse una victoria ajena declara en las urnas que la victoria era de otro. La fiscal Hexwick lo da por confesión y suma otro juicio ganado sin juicio. El abogado Leguleyo pide la nulidad alegando que su cliente no sabía lo que votaba. Nadie le ha llevado la contraria.",
+  "manana": [
+    {"texto": "¿Vuelve el Barón a su cuenta de siempre, o sigue perdiendo de una en una en la del desafío?"},
+    {"texto": "¿Aguanta Saiko el liderato, y con qué campeón? Pista: con uno."},
+    {"texto": "¿Pondrá Giroroo un segundo guardián?"}
+  ],
+  "promesas": [
+    {"n": 1, "texto": "Ni en la del reto ni en las de los demás: TheTrevur no jugó ninguna. Sigue último, con el Teemo de Guardia regando las setas de la quedada."},
+    {"n": 2, "texto": "Aguantó, dando vueltas: RDV Canyon ganó una y perdió dos, pasó de cero a treinta y de treinta a diez. Sigue en Platino IV, ahora con diez de colchón."},
+    {"n": 3, "texto": "Ni recupera la Esmeralda II ni suelta al robot: la cuenta principal de Saiko sigue en Esmeralda III y Blitzcrank salió dos veces más antes de las once de la mañana."}
+  ],
+  "replicas_descartadas": [],
+  "estilo": {"pautas_nuevas": [], "pautas_retiradas": []},
+  "horoscopo": [
+    {"signo": "Top", "texto": "Un Ornn sin muertes no compensa cinco derrotas. Tus astros recomiendan forjar otra cuenta y dejar que la vieja se oxide sola."},
+    {"signo": "Jungla", "texto": "Seis objetivos grandes y un guardián. Hoy los astros te piden algo sencillo: mira el mapa, aunque sea por curiosidad."},
+    {"signo": "Mid", "texto": "Primera sangre a los setenta y ocho segundos. Plutón entra en tu calle y no piensa irse antes que tú."},
+    {"signo": "Tirador", "texto": "Hay una esquina que te espera con el nombre puesto. Evítala. Si no puedes, al menos ponle un guardián delante."},
+    {"signo": "Soporte", "texto": "Los astros confirman que se puede liderar sin matar. No confirman cuánto aguantará el equipo sin decírtelo."}
+  ],
+  "columna": {"titulo": "Comprad otra cuenta, la vuestra está gafada", "autor": "El Coach que Nadie Contrató", "cuerpo": [
+    "Llevo dieciocho días mirando el reto y ya tengo la conclusión, gratis, que es lo que cobro: el problema no sois vosotros. Es vuestra cuenta.",
+    "Mirad el martes. GSJoseador ganó las dos de la cuenta nueva y perdió cinco de siete en la de Diamante. Fr4nux, dos de dos en la nueva y 21 puntos menos en la vieja. Saiko, cinco de seis en el desafío y, en la suya, dos Blitzcrank sin un asesinato. Dierophant ni tocó la nueva, y la vieja le quitó 27 por las molestias.",
+    "La explicación técnica es sencilla. En una cuenta nueva nadie os conoce. En la vieja, el sistema ya sabe quiénes sois y os empareja en consecuencia.",
+    "Mi recomendación profesional: borrad las principales. Y cuando las nuevas se den cuenta, comprad otras."
+  ]},
+  "especial": null,
+  "frase": "Una cuenta nueva no te hace mejor jugador: solo tarda un poco más en enterarse.",
+  "eventos_usados": [],
+  "propuestas_descartadas": [],
+  "firma": "Claude"
+}

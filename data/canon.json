@@ -485,6 +485,10 @@
         {
           "fecha": "2026-11-14",
           "texto": "el chatarrero de maldiciones"
+        },
+        {
+          "fecha": "2026-11-18",
+          "texto": "el de las dos vidas"
         }
       ],
       "rasgos": [
@@ -556,6 +560,11 @@
           "tipo": "caída",
           "texto": "Pierde el liderato del reto y la Syndra heredada le cobra: mejor del día con un 3–4.",
           "fecha": "2026-11-16"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Gana en la cuenta del reto y se desangra en la de Diamante: juega mejor cuando la cuenta no es suya, y aun así pierde el liderato.",
+          "fecha": "2026-11-18"
         }
       ]
     },
@@ -581,6 +590,10 @@
         {
           "fecha": "2026-10-26",
           "texto": "Viego: 0–4 en la hemeroteca"
+        },
+        {
+          "fecha": "2026-11-18",
+          "texto": "Viego: 0–6 en la hemeroteca; cero de daño a objetivos ante un Xin Zhao 10/0/2"
         }
       ],
       "rivales": [],
@@ -806,6 +819,10 @@
         {
           "fecha": "2026-11-02",
           "texto": "La Guadaña de la Mon"
+        },
+        {
+          "fecha": "2026-11-18",
+          "texto": "el segador a oscuras"
         }
       ],
       "rasgos": [
@@ -857,6 +874,10 @@
         {
           "fecha": "2026-10-28",
           "texto": "el botiquín de Esmeralda"
+        },
+        {
+          "fecha": "2026-11-18",
+          "texto": "el que gana por teléfono"
         }
       ],
       "rasgos": [
@@ -1138,6 +1159,11 @@
           "fecha": "2026-11-17",
           "campo": "estado",
           "texto": "Ha abierto los libros de la Lonja y ha encontrado la cuenta «E. P.»; se lo ha escrito al director en una carta pública"
+        },
+        {
+          "fecha": "2026-11-18",
+          "campo": "estado",
+          "texto": "Pide congelar el pago de la cuenta «E. P.»; la Lonja le remite al director"
         }
       ]
     },
@@ -1221,6 +1247,11 @@
           "fecha": "2026-11-17",
           "campo": "estado",
           "texto": "Suspendido; descubierto como corredor personal del director"
+        },
+        {
+          "fecha": "2026-11-18",
+          "campo": "estado",
+          "texto": "Suspendido; reclama por escrito su comisión de la cuenta «E. P.»"
         }
       ]
     },
@@ -1420,6 +1451,11 @@
           "fecha": "2026-11-17",
           "campo": "estado",
           "texto": "Señalado por Humoverde: apuesta en la Lonja, por medio de Barbanegra, a que la Gaceta venderá más que su propio periódico"
+        },
+        {
+          "fecha": "2026-11-18",
+          "campo": "estado",
+          "texto": "Visto comprando dos ejemplares de la Gaceta; su cuenta «E. P.» reclama cobrar la apuesta y nadie puede congelar el pago salvo él"
         }
       ]
     },
@@ -1779,6 +1815,13 @@
           "titulares": [
             "Juzgan al Barón por quedarse una victoria que encontró en el suelo"
           ]
+        },
+        {
+          "fecha": "2026-11-18",
+          "resumen": "Una semana después de «El Barón solo pierde cuando juega solo», grangalax juega una sola partida, solo y en la cuenta del desafío, y la pierde.",
+          "titulares": [
+            "Lo dijimos hace una semana"
+          ]
         }
       ]
     },
@@ -2017,6 +2060,13 @@
           "resumen": "Fr4nux estrena Twitch tras 113 partidas: 7/11/6 y 89 súbditos menos que un Ezreal. Gana con Jhin siendo el que menos daño hace de su equipo y pierde el Oro I del reto.",
           "titulares": [
             "«Ni que me pague en queso»"
+          ]
+        },
+        {
+          "fecha": "2026-11-18",
+          "resumen": "Fr4nux pierde con Yunara (7/9/10, tres muertes en la misma esquina, cuatro guardianes) y 21 puntos en su principal, mientras gana las dos del reto y asciende a Oro I.",
+          "titulares": [
+            "Se traspasa esquina"
           ]
         }
       ]
@@ -2564,6 +2614,11 @@
           "fecha": "2026-11-17",
           "resumen": "La Gaceta publica a las seis el liderato de GSJoseador, otra exclusiva robada, y defiende al Barón del juicio.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-11-18",
+          "resumen": "La Gaceta publica a las seis el liderato de Saiko y agradece al director del Rincón que compre dos ejemplares cada mañana.",
+          "titulares": []
         }
       ],
       "estados": [
@@ -3000,6 +3055,13 @@
           "titulares": [
             "La propina duró un día"
           ]
+        },
+        {
+          "fecha": "2026-11-18",
+          "resumen": "Saiko abre a las 09:40: dos Blitzcrank sin un asesinato, 23 muertes y récord de pings del periódico (94). Después gana cinco de seis en el reto y se pone líder.",
+          "titulares": [
+            "Noventa y cuatro"
+          ]
         }
       ]
     },
@@ -3301,6 +3363,10 @@
         {
           "fecha": "2026-11-10",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-18",
+          "estado": "escalando"
         }
       ],
       "capitulos": [
@@ -3400,6 +3466,13 @@
           "resumen": "Día diecisiete: GSJoseador nuevo líder (Platino III 85) tras perder dos Xerath con top damage y ganar con Nami; Dierophant cae al tercero (0–2); Saiko segundo; Wôlf asciende a Platino III; Fr4nux baja a Oro II; RDV Canyon en Platino IV con 0.",
           "titulares": [
             "El líder gritaba «top damage» y gana cuando deja de hacerlo"
+          ]
+        },
+        {
+          "fecha": "2026-11-18",
+          "resumen": "Día dieciocho: Saiko nuevo líder (Platino I 7) con un 5–1 en el día y 38 de 40 partidas con Blitzcrank; GSJoseador segundo pese a ganar las dos; Fr4nux sube al séptimo; grangalax cae al octavo; Wôlf, 2–4, quinto.",
+          "titulares": [
+            "Al trono con las manos limpias"
           ]
         }
       ]
@@ -3527,6 +3600,13 @@
           "titulares": [
             "Yone pide que no le vuelvan a juntar con su hermano"
           ]
+        },
+        {
+          "fecha": "2026-11-18",
+          "resumen": "Ezreal vuelve a aparecer contra iPredatoRz: 10/1/7 ante su Zeri a las 22:47, nueve muertes y 3.937 de oro de diferencia. Viego denuncia a Dierophant tras su sexta derrota de seis.",
+          "titulares": [
+            "Ezreal vuelve a la escena del crimen"
+          ]
         }
       ]
     },
@@ -3649,6 +3729,13 @@
           "fecha": "2026-11-17",
           "resumen": "Dierophant pierde dos y el liderato mientras su guía gana dos Flex que le juzgan y se queda 1–1 y séptimo en el reto.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-11-18",
+          "resumen": "El Barón no toca su cuenta de siempre, pierde la única del reto y cae al octavo; Dierophant sigue tercero sin jugar.",
+          "titulares": [
+            "La única que jugó, la perdió"
+          ]
         }
       ]
     },
@@ -3905,6 +3992,40 @@
           "titulares": [
             "Ya sé por qué lo protege usted"
           ]
+        },
+        {
+          "fecha": "2026-11-18",
+          "resumen": "La cuenta «E. P.» reclama cobrar su apuesta a que la Gaceta vendería más; Barbanegra, suspendido, pide su comisión y Humoverde no consigue congelar el pago porque las congelaciones las firma el director.",
+          "titulares": [
+            "La cuenta «E. P.» pide que le paguen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "la-cuenta-buena",
+      "titulo": "La cuenta buena",
+      "abierto": "2026-11-18",
+      "protagonistas": [
+        "fr4nux",
+        "gsjoseador",
+        "saiko"
+      ],
+      "reparto": [],
+      "resumen": "El martes ganan en la cuenta comprada para el reto y pierden en la suya: GSJoseador 2–0 en el reto y 2–5 en Diamante (−27); Fr4nux 2–0 en el reto y −21 en la principal; Saiko 5–1 en el reto y dos Blitzcrank sin asesinatos en la suya.",
+      "estados": [
+        {
+          "fecha": "2026-11-18",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-11-18",
+          "resumen": "El martes ganan en la cuenta comprada para el reto y pierden en la suya: GSJoseador 2–0 en el reto y 2–5 en Diamante (−27); Fr4nux 2–0 en el reto y −21 en la principal; Saiko 5–1 en el reto y dos Blitzcrank sin asesinatos en la suya.",
+          "titulares": [
+            "Diamante para perder, Platino para ganar"
+          ]
         }
       ]
     }
@@ -4021,6 +4142,10 @@
     {
       "fecha": "2026-11-17",
       "texto": "Los lunes con Flex del grupo, los cinco entran a las ocho menos cinco, juegan dos y a las nueve ya las han ganado."
+    },
+    {
+      "fecha": "2026-11-18",
+      "texto": "Los martes sin Flex, Saiko abre la SoloQ antes de las diez de la mañana y GSJoseador la cierra pasadas las once y media de la noche."
     }
   ],
   "chistes": [
@@ -4159,14 +4284,22 @@
       "texto": "Locke en negativo",
       "fechas": [
         "2026-11-14",
-        "2026-11-17"
+        "2026-11-17",
+        "2026-11-18"
       ],
-      "usos": 2
+      "usos": 3
     },
     {
       "texto": "el turno de catorce",
       "fechas": [
         "2026-11-16"
+      ],
+      "usos": 1
+    },
+    {
+      "texto": "el Comodín de la Grieta",
+      "fechas": [
+        "2026-11-18"
       ],
       "usos": 1
     }
@@ -4477,6 +4610,12 @@
       "jugador": "saiko",
       "motivo": "Seis turnos el lunes, de la una de la tarde a las nueve de la noche: 52 muertes, catorce en una sola partida",
       "fecha": "2026-11-17"
+    },
+    {
+      "campeon": "Viego",
+      "jugador": "dierophant",
+      "motivo": "Sexta derrota de seis: 3/4/0 en diecinueve minutos y cero de daño a objetivos ante un Xin Zhao que no murió",
+      "fecha": "2026-11-18"
     }
   ]
 }
