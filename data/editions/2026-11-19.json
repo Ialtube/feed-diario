@@ -8,381 +8,393 @@
   ],
   "items": [
     {
-      "id": 0,
-      "kind": "portada",
-      "section": "PORTADA",
-      "desk": "",
-      "player": "grangalax",
-      "alias": "grangalax",
-      "headline": "grangalax, peor jugador del día: 0–1 y 12 muertes en 1 partidas",
-      "body": "Con un KDA de 0,67 y el 21,9 % del daño de su equipo, grangalax se corona hoy como lastre oficial del grupo. Fuentes cercanas confirman que ya está en cola para la siguiente.",
-      "stat": "0–1",
-      "stat_label": "victorias–derrotas",
-      "severity": 100,
-      "facts": {
-        "alias": "grangalax",
-        "games": 1,
-        "wl": "0–1",
-        "d": 12,
-        "kda": "0,67",
-        "dmg_txt": "el 21,9 % del daño de su equipo",
-        "dmg_txt_cap": "El 21,9 % del daño de su equipo de media",
-        "champ": "Jhin",
-        "champs": "Jhin",
-        "hours": "0,4"
-      }
-    },
-    {
       "id": 1,
-      "kind": "desaparecido",
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "crónica",
+      "clave": "maraton:rdv-canyon",
       "section": "SOCIEDAD",
       "desk": "Ecos de Jonia",
-      "player": "fr4nux",
-      "alias": "Fr4nux",
-      "headline": "Se busca: Fr4nux solo participó en el 16,7 % de las kills de su equipo",
-      "body": "Su equipo peleaba y Fr4nux estaba en otra parte. Si alguien lo ve en la Grieta, que le avise de que hay una partida en curso.",
-      "stat": "17 %",
-      "stat_label": "participación en kills",
-      "severity": 6.67,
-      "facts": {
-        "alias": "Fr4nux",
-        "games": 1,
-        "wl": "0–1",
-        "d": 5,
-        "kda": "0,40",
-        "dmg_txt": "el 12,1 % del daño de su equipo",
-        "dmg_txt_cap": "El 12,1 % del daño de su equipo de media",
-        "champ": "Ezreal",
-        "champs": "Ezreal",
-        "hours": "0,4",
-        "kp": "16,7 %"
+      "player": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "headline": "Hay un Saiko que gana, y no es Saiko",
+      "subtitulo": "Mientras el líder del reto pierde cuatro seguidas con su robot, RDV Canyon se pasa la tarde de soporte sin perder ni una y la cuenta SAIIIIIIKO llega a Diamante.",
+      "body": "A las seis y tres minutos de la tarde del miércoles, RDV Canyon cogió a Blitzcrank y se sentó. Se levantó pasadas las once con ocho victorias de ocho: cinco con el robot, dos con Braum y una con Maokai. Entre todas sumó once asesinatos. No ganó matando: ganó poniendo guardianes y arrastrando a los demás de la mano, que es para lo que se inventó el soporte y lo que casi nadie de este grupo recuerda.\n\nLo incómodo es el nombre. En esta hemeroteca, RDV Canyon ya era «la copia infiel», el que subía la cuenta SAIIIIIIKO y al día siguiente la usaba para lo que le daba la gana. Esa cuenta sumó 178 puntos y está en Diamante IV. Con Blitzcrank, claro.\n\nA la misma hora, el Saiko original, líder del reto, sacaba a Blitzcrank en su cuenta comprada cuatro veces. Perdió las cuatro. Cuarenta y cinco puntos menos y adiós al Platino I. Cuarenta y dos de sus cuarenta y cuatro partidas del reto son con ese robot, así que el robot no tiene excusa: es el mismo. Cambia la mano que lo lleva.\n\nEl comisario Cobretuerca ha pedido el registro de entrada de las dos sillas. Sigue primero en el reto porque GSJoseador, el segundo, también perdió las dos que jugó. Nadie le quita el trono; se lo van dejando.\n\nHay un Saiko en Diamante. Lo juega otro.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": "memes/2026-11-19-1.jpg",
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "Blitzcrank, en el registro de la Comisaría. Declara que él solo obedece al que tira del gancho.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 1000,
+      "facts": {},
+      "hilo": "el-saiko-de-repuesto",
+      "replica": null,
+      "meme": {
+        "campeon": "Blitzcrank",
+        "aspecto": 5,
+        "lineas": [
+          "Saiko: cuatro Blitzcrank, cuatro derrotas",
+          "Este no es Saiko: ocho de ocho"
+        ]
+      },
+      "saga": {
+        "id": "el-saiko-de-repuesto",
+        "titulo": "El Saiko de repuesto",
+        "capitulo": 1,
+        "estado": "abierto"
       }
     },
     {
       "id": 2,
-      "kind": "sucesos",
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "parte policial",
+      "clave": "muertes:grangalax",
       "section": "SUCESOS",
       "desk": "Comisaría de Piltover",
       "player": "grangalax",
       "alias": "grangalax",
-      "headline": "Detenido grangalax por alimentar al enemigo: 12 muertes con Jhin",
-      "body": "Los hechos ocurrieron en una Ranked Solo/Dúo de 26 minutos. Resultado: 3/12/5. Derrota, claro. El rival ya le ha enviado una cesta de agradecimiento.",
-      "stat": "12",
-      "stat_label": "muertes en una partida",
-      "severity": 5.8,
-      "facts": {
-        "alias": "grangalax",
-        "games": 1,
-        "wl": "0–1",
-        "d": 12,
-        "kda": "0,67",
-        "dmg_txt": "el 21,9 % del daño de su equipo",
-        "dmg_txt_cap": "El 21,9 % del daño de su equipo de media",
-        "champ": "Jhin",
-        "champs": "Jhin",
-        "hours": "0,4",
-        "kdas": "3/12/5",
-        "queue": "Ranked Solo/Dúo",
-        "mins": 26,
-        "every": "2:10",
-        "res": "derrota",
-        "res_cap": "Derrota, claro"
+      "headline": "Ganaba la calle y murió doce veces",
+      "subtitulo": "El Barón tampoco vuelve a su cuenta: se pone Jhin en la secundaria, regala la sangre de apertura y la Comisaría encuentra cuatro cadáveres en la baldosa que ya tenía acordonada.",
+      "body": "Hora de los hechos: 18:50 del miércoles. Lugar: carril inferior, cuenta VitasUchiha, que no es la del Barón pero firma como si lo fuera. Arma: Jhin. Con menos de tres minutos de partida, la Samira rival recibe la sangre de apertura de manos del Barón de la Moneda, que la entrega como quien deja propina. Cuando el reloj marca diez minutos, ya lleva cuatro muertes.\n\nLo que desconcierta a la Comisaría de Piltover es el resto del atestado. Al acabar, grangalax tenía más oro que su Samira y doce súbditos más. Iba ganando la calle. Y murió doce veces, una cada dos minutos y diez segundos, cuatro de ellas en el mismo sitio: la baldosa que el comisario Cobretuerca acordonó la semana pasada por reincidencia. El cordón no sirvió de nada. El Barón pasó por debajo.\n\nAyer este periódico preguntaba si volvería a su cuenta de toda la vida. No volvió. Jugó en la del reto, donde ganó una y perdió otra, y en esta secundaria, donde se dejó diecinueve puntos y bajó de Oro II a Oro III. La principal sigue intacta en Plata I, como el salón bueno que no se pisa para que no lo vean las visitas. El Barón de las tres cuentas ya solo usa dos, y las dos son de alquiler.\n\nEl forense Humoverde ha firmado la autopsia sin levantar la vista: «Murió con ventaja. Es la forma más cara de morir».\n\nNinguna de las doce fue a manos de una torre. Todas las firmó un humano.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Jhin",
+      "entrevistado": null,
+      "pie": "Jhin, en la escena del crimen. Pide que conste que su cuarta bala no estaba cargada.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 599,
+      "facts": {},
+      "hilo": "la-moneda",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "la-moneda",
+        "titulo": "La moneda de grangalax",
+        "capitulo": 23,
+        "estado": "escalando"
       }
     },
     {
       "id": 3,
-      "kind": "economia",
-      "section": "ECONOMÍA",
-      "desk": "Lonja de Aguasturbias",
-      "player": "fr4nux",
-      "alias": "Fr4nux",
-      "headline": "Malversación de fondos: Fr4nux se quedó el 18,8 % del oro y devolvió el 12,1 % del daño",
-      "body": "Con Ezreal recibió 6,7 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró.",
-      "stat": "−6,7",
-      "stat_label": "puntos entre oro y daño",
-      "severity": 5.68,
-      "facts": {
-        "alias": "Fr4nux",
-        "games": 1,
-        "wl": "0–1",
-        "d": 5,
-        "kda": "0,40",
-        "dmg_txt": "el 12,1 % del daño de su equipo",
-        "dmg_txt_cap": "El 12,1 % del daño de su equipo de media",
-        "champ": "Ezreal",
-        "champs": "Ezreal",
-        "hours": "0,4",
-        "gold": "18,8 %",
-        "share": "12,1 %",
-        "gap": "6,7"
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "ranking",
+      "clave": "soloq_ascenso:wolf:Theossichi#9248Platino II · 15 LP",
+      "section": "SOLOQ CHALLENGE",
+      "desk": "",
+      "player": "wolf",
+      "alias": null,
+      "headline": "Pierden todos los de arriba menos el que dijo Hola",
+      "subtitulo": "Día diecinueve del reto: el líder encadena cuatro, el segundo dos, y Wôlf sube dos puestos sin decir nada.",
+      "body": "1. Saiko, Platino II · 62. Cuatro derrotas, cuatro Blitzcrank y sigue primero. El liderato ya no se gana: se aguanta.\n\n2. GSJoseador, Platino II · 25. Se apuntó gritando «top damage» y perdió las dos del reto. En su Diamante de siempre, en cambio, sube 39 puntos. La cuenta buena se ha cambiado de piso en una noche.\n\n3. Wôlf, Platino II · 15. Tres de tres, ascenso y dos puestos arriba. Su grito de guerra fue «Hola». Cuarenta y tres partidas después no ha añadido una palabra, y no le hace falta.\n\n5. Dierophant, Platino III · 57. Una de cuatro y dos puestos abajo. Pidió que le guiara el Barón, y el Barón estaba a esa hora muriendo en una baldosa.\n\n10. TheTrevur. No jugó en el reto. Ganó tres en otra cuenta. Ver El Faro.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 398,
+      "facts": {},
+      "hilo": "el-reto-de-las-cuentas-nuevas",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-reto-de-las-cuentas-nuevas",
+        "titulo": "El reto de las cuentas nuevas",
+        "capitulo": 16,
+        "estado": "escalando"
       }
     },
     {
       "id": 4,
-      "kind": "sucesos",
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "esquela",
+      "clave": "objetivos:giroroo:EUW1_8050336004",
       "section": "SUCESOS",
       "desk": "Comisaría de Piltover",
-      "player": "rdv-canyon",
-      "alias": "RDV Canyon",
-      "headline": "RDV Canyon muere 11 veces en una sola partida y la policía de Piltover abre una investigación",
-      "body": "Blitzcrank, 3/11/21, victoria. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
-      "stat": "11",
-      "stat_label": "muertes en una partida",
-      "severity": 5.4,
-      "facts": {
-        "alias": "RDV Canyon",
-        "games": 8,
-        "wl": "8–0",
-        "d": 11,
-        "kda": "3,39",
-        "dmg_txt": "muy poco daño",
-        "dmg_txt_cap": "Muy poco daño de media",
-        "champ": "Blitzcrank",
-        "champs": "Blitzcrank, Braum y Maokai",
-        "hours": "3,8",
-        "kdas": "3/11/21",
-        "queue": "Ranked Solo/Dúo",
-        "mins": 28,
-        "every": "2:37",
-        "res": "victoria",
-        "res_cap": "Aun así ganaron, de milagro"
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "El Barón Nashor, dos veces muerto para nada",
+      "subtitulo": "",
+      "body": "Con hondo pesar, los Monasterios de Jonia comunican el fallecimiento del Barón Nashor, ejecutado dos veces el miércoles por el Kayn de Giroroo en sendas partidas que Giroroo perdió después. En la de las 19:27 el difunto bajó acompañado de dos dragones, que tampoco sirvieron de nada.\n\nLe sobrevive una Kindred que terminó 19/7/10 con más de ocho mil de oro de ventaja sobre su verdugo, y un verdugo que esa misma tarde batió su récord personal: diez muertes, una más que la marca anterior. Cayó a oscuras y avisando: cincuenta y siete pings y ni un guardián.\n\nLa única que Giroroo ganó, con cinco objetivos de caza y cuatro duelos en solitario, no tuvo Barón. El Barón solo aparece en las que se pierden.\n\nNo se admiten flores. Se admiten centinelas.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": "memes/2026-11-19-4.jpg",
+      "campeon": "Kayn",
+      "entrevistado": null,
+      "pie": "El Barón Nashor, de cuerpo presente. Ha pedido que la próxima vez le maten en una victoria.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 397,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": {
+        "plantilla": "grave",
+        "lineas": [
+          "El Barón Nashor (dos veces)",
+          "Giroroo",
+          "Una Kindred que ganó igual"
+        ]
       }
     },
     {
       "id": 5,
-      "kind": "sucesos",
-      "section": "SUCESOS",
-      "desk": "Comisaría de Piltover",
-      "player": "giroroo",
-      "alias": "Giroroo",
-      "headline": "Récord de Giroroo: 10 muertes en 30 minutos",
-      "body": "Con Kayn murió cada 3:04 de media. Derrota, claro. El contador de muertes pidió una pausa.",
-      "stat": "10",
-      "stat_label": "muertes en una partida",
-      "severity": 5.0,
-      "facts": {
-        "alias": "Giroroo",
-        "games": 4,
-        "wl": "1–3",
-        "d": 10,
-        "kda": "1,79",
-        "dmg_txt": "el 21,1 % del daño de su equipo",
-        "dmg_txt_cap": "El 21,1 % del daño de su equipo de media",
-        "champ": "Kayn",
-        "champs": "Kayn y Kled",
-        "hours": "2,0",
-        "kdas": "7/10/6",
-        "queue": "Ranked Solo/Dúo",
-        "mins": 30,
-        "every": "3:04",
-        "res": "derrota",
-        "res_cap": "Derrota, claro"
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "comunicado oficial",
+      "clave": "oro_dano:fr4nux",
+      "section": "DAÑO",
+      "desk": "Instituto Hextech de Piltover",
+      "player": "fr4nux",
+      "alias": "Fr4nux",
+      "headline": "El Instituto Hextech confirma que Ezreal no disparó",
+      "subtitulo": "",
+      "body": "COMUNICADO DEL INSTITUTO HEXTECH DE PILTOVER. Tras examinar la partida de las 20:04, el Instituto informa de que el Ezreal de Fr4nux cobró el 18,8 % del oro de su equipo y devolvió el 12,1 % del daño. Terminó 0/5/2. La Tristana rival le sacó más de seis mil de oro y no se molestó en morir más de dos veces.\n\nEl Instituto descarta un fallo del arma: Ezreal es el campeón que Fr4nux más ha usado en la cuenta comprada, y allí funciona. En la suya no. La cuenta principal pierde veintiún puntos y cae de Platino II a Platino III. El expediente «En busca del daño perdido» queda reabierto con una novedad técnica: el daño no está perdido, está en otra cuenta.\n\nParticipó en una de cada seis muertes de su equipo. Las otras cinco las vio.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Ezreal",
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 396,
+      "facts": {},
+      "hilo": "carry-not-found",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "carry-not-found",
+        "titulo": "En busca del daño perdido de Fr4nux",
+        "capitulo": 21,
+        "estado": "escalando"
       }
     },
     {
       "id": 6,
-      "kind": "economia",
-      "section": "ECONOMÍA",
-      "desk": "Lonja de Aguasturbias",
-      "player": "giroroo",
-      "alias": "Giroroo",
-      "headline": "Giroroo, el fichaje más caro y el que menos rinde: 23,2 % del oro, 18,3 % del daño",
-      "body": "Partida con Kayn: 4,9 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
-      "stat": "−4,9",
-      "stat_label": "puntos entre oro y daño",
-      "severity": 4.95,
-      "facts": {
-        "alias": "Giroroo",
-        "games": 4,
-        "wl": "1–3",
-        "d": 29,
-        "kda": "1,79",
-        "dmg_txt": "el 21,1 % del daño de su equipo",
-        "dmg_txt_cap": "El 21,1 % del daño de su equipo de media",
-        "champ": "Kayn",
-        "champs": "Kayn y Kled",
-        "hours": "2,0",
-        "gold": "23,2 %",
-        "share": "18,3 %",
-        "gap": "4,9"
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "previa",
+      "clave": "solokills:thetrevur",
+      "section": "EL FARO DE LA ESPERANZA",
+      "desk": "Centinelas de la Luz",
+      "player": "thetrevur",
+      "alias": "TheTrevur",
+      "headline": "Urgot gana tres en la cuenta que no compite",
+      "subtitulo": "",
+      "body": "Previa de la partida que TheTrevur no va a jugar esta noche. Los Centinelas de la Luz tienen que reconocerlo: el miércoles el cangrejo funcionó. Tres Urgot, tres victorias, de dúo con RDV Canyon, y la cuenta principal sube a Diamante IV. En la segunda ganó cuatro duelos en solitario; en la tercera, contra un Darius, acabó 11/5/4. Ni una muerte que no mereciera el rival.\n\nAhora la previa. La cuenta comprada lleva quince partidas, es farolillo rojo y va veintiuna por detrás del ritmo de dos al día. Esta noche se enfrentan Urgot, en plena forma, y la pereza de abrir otra cuenta, que lleva días invicta. Pronóstico de los Centinelas: gana la pereza por incomparecencia.\n\nEl Teemo de Guardia ha comprado setas para dos personas. Por si acaso.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Urgot",
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 395,
+      "facts": {},
+      "hilo": "la-ronda-del-cangrejo",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "la-ronda-del-cangrejo",
+        "titulo": "La ronda del cangrejo",
+        "capitulo": 5,
+        "estado": "escalando"
       }
     },
     {
       "id": 7,
-      "kind": "economia",
-      "section": "ECONOMÍA",
-      "desk": "Lonja de Aguasturbias",
-      "player": "thetrevur",
-      "alias": "TheTrevur",
-      "headline": "La Lonja de Aguasturbias congela los fondos de TheTrevur: 20,4 % del oro, 15,7 % del daño",
-      "body": "Con Urgot cobró 4,7 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
-      "stat": "−4,7",
-      "stat_label": "puntos entre oro y daño",
-      "severity": 4.87,
-      "facts": {
-        "alias": "TheTrevur",
-        "games": 3,
-        "wl": "3–0",
-        "d": 10,
-        "kda": "3,80",
-        "dmg_txt": "el 17,6 % del daño de su equipo",
-        "dmg_txt_cap": "El 17,6 % del daño de su equipo de media",
-        "champ": "Urgot",
-        "champs": "Urgot",
-        "hours": "1,5",
-        "gold": "20,4 %",
-        "share": "15,7 %",
-        "gap": "4,7"
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "editorial",
+      "clave": null,
+      "section": "OPINIÓN",
+      "desk": "",
+      "player": null,
+      "alias": null,
+      "headline": "Nos han vuelto a ganar la mano",
+      "subtitulo": "",
+      "body": "Este periódico debe a sus lectores una explicación, y la da tarde, como todo. El doctor Humoverde, revisando los libros de la Lonja para congelar el pago de la cuenta «E. P.», descubrió el miércoles por qué nuestro director protege a Barbanegra: las comisiones de esas apuestas nunca se pagaron. Don Evaristo le debe al contable cada una de ellas. Despedir a Barbanegra sería, sencillamente, tener que pagarle.\n\nHumoverde subió el hallazgo a la redacción pasadas las once de la noche. A las seis de la mañana estaba en la portada de la Gaceta, con la lámpara del Hermano Venda en la firma. No sabemos quién dejó la puerta abierta. Sabemos que el becario Candil tiene llave.\n\nEl director no ha querido comentar nada. Se le ha visto en el quiosco comprando tres ejemplares de la Gaceta. Ayer eran dos.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 394,
+      "facts": {},
+      "hilo": "el-papel-de-barbanegra",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-papel-de-barbanegra",
+        "titulo": "El papel que ya no vale nada",
+        "capitulo": 4,
+        "estado": "desenlace"
       }
     },
     {
       "id": 8,
-      "kind": "tiempo",
-      "section": "EL TIEMPO",
-      "desk": "Islas de la Sombra",
-      "player": "rdv-canyon",
-      "alias": "RDV Canyon",
-      "headline": "Previsión para RDV Canyon: gris durante 20 minutos",
-      "body": "Hoy pasó 20 minutos muerto, el 9,0 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja.",
-      "stat": "20 min",
-      "stat_label": "en la pantalla gris",
-      "severity": 4.56,
-      "facts": {
-        "alias": "RDV Canyon",
-        "games": 8,
-        "wl": "8–0",
-        "d": 51,
-        "kda": "3,39",
-        "dmg_txt": "muy poco daño",
-        "dmg_txt_cap": "Muy poco daño de media",
-        "champ": "Blitzcrank",
-        "champs": "Blitzcrank, Braum y Maokai",
-        "hours": "3,8",
-        "dead_mins": 20,
-        "dead_pct": "9,0 %"
-      }
-    },
-    {
-      "id": 9,
-      "kind": "desaparecido",
-      "section": "SOCIEDAD",
-      "desk": "Ecos de Jonia",
-      "player": "thetrevur",
-      "alias": "TheTrevur",
-      "headline": "TheTrevur, desaparecido en combate: 30,0 % de participación en kills",
-      "body": "De cada diez kills de su equipo, en más de seis no estaba. Fuentes cercanas apuntan a una larga relación con los súbditos de su línea.",
-      "stat": "30 %",
-      "stat_label": "participación en kills",
-      "severity": 3.99,
-      "facts": {
-        "alias": "TheTrevur",
-        "games": 3,
-        "wl": "3–0",
-        "d": 10,
-        "kda": "3,80",
-        "dmg_txt": "el 17,6 % del daño de su equipo",
-        "dmg_txt_cap": "El 17,6 % del daño de su equipo de media",
-        "champ": "Urgot",
-        "champs": "Urgot",
-        "hours": "1,5",
-        "kp": "30,0 %"
-      }
-    },
-    {
-      "id": 10,
-      "kind": "tiempo",
-      "section": "EL TIEMPO",
-      "desk": "Islas de la Sombra",
-      "player": "gsjoseador",
-      "alias": "GSJoseador",
-      "headline": "Previsión para GSJoseador: Niebla Negra durante 11 minutos",
-      "body": "Las Islas de la Sombra reclamaron a GSJoseador durante 11 minutos, el 10,2 % de su tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza.",
-      "stat": "11 min",
-      "stat_label": "en la pantalla gris",
-      "severity": 3.62,
-      "facts": {
-        "alias": "GSJoseador",
-        "games": 4,
-        "wl": "3–1",
-        "d": 20,
-        "kda": "2,50",
-        "dmg_txt": "el 20,0 % del daño de su equipo",
-        "dmg_txt_cap": "El 20,0 % del daño de su equipo de media",
-        "champ": "Ornn",
-        "champs": "Ornn, Xerath y Yone",
-        "hours": "1,8",
-        "dead_mins": 11,
-        "dead_pct": "10,2 %"
-      }
-    },
-    {
-      "id": 11,
-      "kind": "gris",
-      "section": "SOCIEDAD",
-      "desk": "Ecos de Jonia",
-      "player": "ipredatorz",
-      "alias": "iPredatoRz",
-      "headline": "Sin noticias de iPredatoRz: 0–1 y KDA 1,29",
-      "body": "Ni para bien ni para mal. El gris absoluto. Es casi peor.",
-      "stat": "0–1",
-      "stat_label": "victorias–derrotas",
-      "severity": 1,
-      "facts": {
-        "alias": "iPredatoRz",
-        "games": 1,
-        "wl": "0–1",
-        "d": 7,
-        "kda": "1,29",
-        "dmg_txt": "el 24,5 % del daño de su equipo",
-        "dmg_txt_cap": "El 24,5 % del daño de su equipo de media",
-        "champ": "Miss Fortune",
-        "champs": "Miss Fortune",
-        "hours": "0,4"
-      }
-    },
-    {
-      "id": 12,
-      "kind": "mencion",
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "faro:rdv-canyon",
       "section": "EL FARO DE LA ESPERANZA",
       "desk": "Centinelas de la Luz",
       "player": "rdv-canyon",
       "alias": "RDV Canyon",
-      "headline": "Una luz en la Ruina: RDV Canyon (8–0) no ha sido el peor",
-      "body": "Los Centinelas de la Luz confirman un rayo de esperanza en el grupo: KDA 3,39. Que nadie se emocione; mañana vuelve la Niebla.",
-      "stat": "8–0",
-      "stat_label": "victorias–derrotas",
-      "severity": 0.5,
-      "facts": {
-        "alias": "RDV Canyon",
-        "games": 8,
-        "wl": "8–0",
-        "d": 51,
-        "kda": "3,39",
-        "dmg_txt": "muy poco daño",
-        "dmg_txt_cap": "Muy poco daño de media",
-        "champ": "Blitzcrank",
-        "champs": "Blitzcrank, Braum y Maokai",
-        "hours": "3,8"
-      }
+      "headline": "Cero asesinatos, diecinueve asistencias",
+      "subtitulo": "",
+      "body": "El Faro reconoce al mejor del día: RDV Canyon, ocho victorias sin una derrota. Su mejor obra, un Braum 0/2/19 que no mató a nadie y no dejó morir a casi nadie. El total del día: cincuenta y una muertes en ocho victorias. Ganar también se paga.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 193,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
     },
     {
-      "id": 13,
-      "kind": "ausentes",
-      "section": "AUSENTES",
-      "desk": "Perdidos en el Vacío",
+      "id": 9,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "farmeo:gsjoseador",
+      "section": "AGRICULTURA",
+      "desk": "Cosechas de Demacia",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Yone gana sin cosechar",
+      "subtitulo": "",
+      "body": "GSJoseador gana tres de cuatro y su Diamante sube, pero el Yone de las 20:02, estrenado en la hemeroteca, dejó cincuenta y un súbditos menos que un Vladimir: 4,9 por minuto. La partida fue suya. La cosecha, de Demacia.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 192,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 10,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": null,
+      "section": "DEPORTES",
+      "desk": "Arena de Noxus",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "El Fantasma abre fuego y se va",
+      "subtitulo": "",
+      "body": "iPredatoRz se asoma a las 22:10, abre el marcador con Miss Fortune a los dos minutos y a partir del diez muere siete veces ante una Zeri 12/5/6. Fue su única partida en la cuenta grande del día. Mata uno, pierde y desaparece: lo de siempre, pero en veinticuatro minutos.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 191,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 11,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "descenso:grangalax:soloVitasUchiha#EUW",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "VitasUchiha cotiza a la baja",
+      "subtitulo": "",
+      "body": "La cuenta VitasUchiha, secundaria del Barón, pierde diecinueve puntos en la partida de Jhin y baja de Oro II a Oro III. Es la que eligió para no manchar la suya. La suya, Plata I, sigue limpia porque nadie la usa.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 190,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 12,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": null,
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
       "player": null,
       "alias": null,
-      "headline": "Desaparecidos del día: Dierophant, Wôlf y Saiko",
-      "body": "Ni una partida. La Grieta respira tranquila por un día.",
-      "stat": "3",
-      "stat_label": "no jugaron",
-      "severity": 0.2,
-      "facts": {
-        "names": "Dierophant, Wôlf y Saiko"
-      }
+      "headline": "Nadie juega, el bote espera",
+      "subtitulo": "",
+      "body": "Nadie compró boleto del Sorteo de la Grieta. La combinación salió de las muertes de RDV Canyon, Giroroo y GSJoseador: 51, 29 y 20. El número más alto lo puso el mejor del día, que es lo más parecido a una moraleja que tendrá este periódico. El bote, 3.200 coronas, sigue esperando dueño.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 189,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
     }
   ],
-  "frase": "La culpa siempre es del jungla, salvo cuando el jungla eres tú.",
+  "frase": "Matar al Barón es fácil; lo difícil es acordarse de para qué.",
   "ranking": [
     {
       "slug": "grangalax",
@@ -2303,5 +2315,777 @@
     "acertantes": [],
     "votos": {},
     "estado": "ok"
-  }
+  },
+  "items_plantilla": [
+    {
+      "id": 0,
+      "kind": "portada",
+      "section": "PORTADA",
+      "desk": "",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "grangalax, peor jugador del día: 0–1 y 12 muertes en 1 partidas",
+      "body": "Con un KDA de 0,67 y el 21,9 % del daño de su equipo, grangalax se corona hoy como lastre oficial del grupo. Fuentes cercanas confirman que ya está en cola para la siguiente.",
+      "stat": "0–1",
+      "stat_label": "victorias–derrotas",
+      "severity": 100,
+      "facts": {
+        "alias": "grangalax",
+        "games": 1,
+        "wl": "0–1",
+        "d": 12,
+        "kda": "0,67",
+        "dmg_txt": "el 21,9 % del daño de su equipo",
+        "dmg_txt_cap": "El 21,9 % del daño de su equipo de media",
+        "champ": "Jhin",
+        "champs": "Jhin",
+        "hours": "0,4"
+      }
+    },
+    {
+      "id": 1,
+      "kind": "desaparecido",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "fr4nux",
+      "alias": "Fr4nux",
+      "headline": "Se busca: Fr4nux solo participó en el 16,7 % de las kills de su equipo",
+      "body": "Su equipo peleaba y Fr4nux estaba en otra parte. Si alguien lo ve en la Grieta, que le avise de que hay una partida en curso.",
+      "stat": "17 %",
+      "stat_label": "participación en kills",
+      "severity": 6.67,
+      "facts": {
+        "alias": "Fr4nux",
+        "games": 1,
+        "wl": "0–1",
+        "d": 5,
+        "kda": "0,40",
+        "dmg_txt": "el 12,1 % del daño de su equipo",
+        "dmg_txt_cap": "El 12,1 % del daño de su equipo de media",
+        "champ": "Ezreal",
+        "champs": "Ezreal",
+        "hours": "0,4",
+        "kp": "16,7 %"
+      }
+    },
+    {
+      "id": 2,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "Detenido grangalax por alimentar al enemigo: 12 muertes con Jhin",
+      "body": "Los hechos ocurrieron en una Ranked Solo/Dúo de 26 minutos. Resultado: 3/12/5. Derrota, claro. El rival ya le ha enviado una cesta de agradecimiento.",
+      "stat": "12",
+      "stat_label": "muertes en una partida",
+      "severity": 5.8,
+      "facts": {
+        "alias": "grangalax",
+        "games": 1,
+        "wl": "0–1",
+        "d": 12,
+        "kda": "0,67",
+        "dmg_txt": "el 21,9 % del daño de su equipo",
+        "dmg_txt_cap": "El 21,9 % del daño de su equipo de media",
+        "champ": "Jhin",
+        "champs": "Jhin",
+        "hours": "0,4",
+        "kdas": "3/12/5",
+        "queue": "Ranked Solo/Dúo",
+        "mins": 26,
+        "every": "2:10",
+        "res": "derrota",
+        "res_cap": "Derrota, claro"
+      }
+    },
+    {
+      "id": 3,
+      "kind": "economia",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "fr4nux",
+      "alias": "Fr4nux",
+      "headline": "Malversación de fondos: Fr4nux se quedó el 18,8 % del oro y devolvió el 12,1 % del daño",
+      "body": "Con Ezreal recibió 6,7 puntos más de oro que de daño. El equipo pagó los objetos; el enemigo no se enteró.",
+      "stat": "−6,7",
+      "stat_label": "puntos entre oro y daño",
+      "severity": 5.68,
+      "facts": {
+        "alias": "Fr4nux",
+        "games": 1,
+        "wl": "0–1",
+        "d": 5,
+        "kda": "0,40",
+        "dmg_txt": "el 12,1 % del daño de su equipo",
+        "dmg_txt_cap": "El 12,1 % del daño de su equipo de media",
+        "champ": "Ezreal",
+        "champs": "Ezreal",
+        "hours": "0,4",
+        "gold": "18,8 %",
+        "share": "12,1 %",
+        "gap": "6,7"
+      }
+    },
+    {
+      "id": 4,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "headline": "RDV Canyon muere 11 veces en una sola partida y la policía de Piltover abre una investigación",
+      "body": "Blitzcrank, 3/11/21, victoria. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
+      "stat": "11",
+      "stat_label": "muertes en una partida",
+      "severity": 5.4,
+      "facts": {
+        "alias": "RDV Canyon",
+        "games": 8,
+        "wl": "8–0",
+        "d": 11,
+        "kda": "3,39",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Blitzcrank",
+        "champs": "Blitzcrank, Braum y Maokai",
+        "hours": "3,8",
+        "kdas": "3/11/21",
+        "queue": "Ranked Solo/Dúo",
+        "mins": 28,
+        "every": "2:37",
+        "res": "victoria",
+        "res_cap": "Aun así ganaron, de milagro"
+      }
+    },
+    {
+      "id": 5,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "Récord de Giroroo: 10 muertes en 30 minutos",
+      "body": "Con Kayn murió cada 3:04 de media. Derrota, claro. El contador de muertes pidió una pausa.",
+      "stat": "10",
+      "stat_label": "muertes en una partida",
+      "severity": 5.0,
+      "facts": {
+        "alias": "Giroroo",
+        "games": 4,
+        "wl": "1–3",
+        "d": 10,
+        "kda": "1,79",
+        "dmg_txt": "el 21,1 % del daño de su equipo",
+        "dmg_txt_cap": "El 21,1 % del daño de su equipo de media",
+        "champ": "Kayn",
+        "champs": "Kayn y Kled",
+        "hours": "2,0",
+        "kdas": "7/10/6",
+        "queue": "Ranked Solo/Dúo",
+        "mins": 30,
+        "every": "3:04",
+        "res": "derrota",
+        "res_cap": "Derrota, claro"
+      }
+    },
+    {
+      "id": 6,
+      "kind": "economia",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "Giroroo, el fichaje más caro y el que menos rinde: 23,2 % del oro, 18,3 % del daño",
+      "body": "Partida con Kayn: 4,9 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
+      "stat": "−4,9",
+      "stat_label": "puntos entre oro y daño",
+      "severity": 4.95,
+      "facts": {
+        "alias": "Giroroo",
+        "games": 4,
+        "wl": "1–3",
+        "d": 29,
+        "kda": "1,79",
+        "dmg_txt": "el 21,1 % del daño de su equipo",
+        "dmg_txt_cap": "El 21,1 % del daño de su equipo de media",
+        "champ": "Kayn",
+        "champs": "Kayn y Kled",
+        "hours": "2,0",
+        "gold": "23,2 %",
+        "share": "18,3 %",
+        "gap": "4,9"
+      }
+    },
+    {
+      "id": 7,
+      "kind": "economia",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "thetrevur",
+      "alias": "TheTrevur",
+      "headline": "La Lonja de Aguasturbias congela los fondos de TheTrevur: 20,4 % del oro, 15,7 % del daño",
+      "body": "Con Urgot cobró 4,7 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
+      "stat": "−4,7",
+      "stat_label": "puntos entre oro y daño",
+      "severity": 4.87,
+      "facts": {
+        "alias": "TheTrevur",
+        "games": 3,
+        "wl": "3–0",
+        "d": 10,
+        "kda": "3,80",
+        "dmg_txt": "el 17,6 % del daño de su equipo",
+        "dmg_txt_cap": "El 17,6 % del daño de su equipo de media",
+        "champ": "Urgot",
+        "champs": "Urgot",
+        "hours": "1,5",
+        "gold": "20,4 %",
+        "share": "15,7 %",
+        "gap": "4,7"
+      }
+    },
+    {
+      "id": 8,
+      "kind": "tiempo",
+      "section": "EL TIEMPO",
+      "desk": "Islas de la Sombra",
+      "player": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "headline": "Previsión para RDV Canyon: gris durante 20 minutos",
+      "body": "Hoy pasó 20 minutos muerto, el 9,0 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja.",
+      "stat": "20 min",
+      "stat_label": "en la pantalla gris",
+      "severity": 4.56,
+      "facts": {
+        "alias": "RDV Canyon",
+        "games": 8,
+        "wl": "8–0",
+        "d": 51,
+        "kda": "3,39",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Blitzcrank",
+        "champs": "Blitzcrank, Braum y Maokai",
+        "hours": "3,8",
+        "dead_mins": 20,
+        "dead_pct": "9,0 %"
+      }
+    },
+    {
+      "id": 9,
+      "kind": "desaparecido",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "thetrevur",
+      "alias": "TheTrevur",
+      "headline": "TheTrevur, desaparecido en combate: 30,0 % de participación en kills",
+      "body": "De cada diez kills de su equipo, en más de seis no estaba. Fuentes cercanas apuntan a una larga relación con los súbditos de su línea.",
+      "stat": "30 %",
+      "stat_label": "participación en kills",
+      "severity": 3.99,
+      "facts": {
+        "alias": "TheTrevur",
+        "games": 3,
+        "wl": "3–0",
+        "d": 10,
+        "kda": "3,80",
+        "dmg_txt": "el 17,6 % del daño de su equipo",
+        "dmg_txt_cap": "El 17,6 % del daño de su equipo de media",
+        "champ": "Urgot",
+        "champs": "Urgot",
+        "hours": "1,5",
+        "kp": "30,0 %"
+      }
+    },
+    {
+      "id": 10,
+      "kind": "tiempo",
+      "section": "EL TIEMPO",
+      "desk": "Islas de la Sombra",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Previsión para GSJoseador: Niebla Negra durante 11 minutos",
+      "body": "Las Islas de la Sombra reclamaron a GSJoseador durante 11 minutos, el 10,2 % de su tiempo en partida. Se esperan claros mañana, pero nadie lo garantiza.",
+      "stat": "11 min",
+      "stat_label": "en la pantalla gris",
+      "severity": 3.62,
+      "facts": {
+        "alias": "GSJoseador",
+        "games": 4,
+        "wl": "3–1",
+        "d": 20,
+        "kda": "2,50",
+        "dmg_txt": "el 20,0 % del daño de su equipo",
+        "dmg_txt_cap": "El 20,0 % del daño de su equipo de media",
+        "champ": "Ornn",
+        "champs": "Ornn, Xerath y Yone",
+        "hours": "1,8",
+        "dead_mins": 11,
+        "dead_pct": "10,2 %"
+      }
+    },
+    {
+      "id": 11,
+      "kind": "gris",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "Sin noticias de iPredatoRz: 0–1 y KDA 1,29",
+      "body": "Ni para bien ni para mal. El gris absoluto. Es casi peor.",
+      "stat": "0–1",
+      "stat_label": "victorias–derrotas",
+      "severity": 1,
+      "facts": {
+        "alias": "iPredatoRz",
+        "games": 1,
+        "wl": "0–1",
+        "d": 7,
+        "kda": "1,29",
+        "dmg_txt": "el 24,5 % del daño de su equipo",
+        "dmg_txt_cap": "El 24,5 % del daño de su equipo de media",
+        "champ": "Miss Fortune",
+        "champs": "Miss Fortune",
+        "hours": "0,4"
+      }
+    },
+    {
+      "id": 12,
+      "kind": "mencion",
+      "section": "EL FARO DE LA ESPERANZA",
+      "desk": "Centinelas de la Luz",
+      "player": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "headline": "Una luz en la Ruina: RDV Canyon (8–0) no ha sido el peor",
+      "body": "Los Centinelas de la Luz confirman un rayo de esperanza en el grupo: KDA 3,39. Que nadie se emocione; mañana vuelve la Niebla.",
+      "stat": "8–0",
+      "stat_label": "victorias–derrotas",
+      "severity": 0.5,
+      "facts": {
+        "alias": "RDV Canyon",
+        "games": 8,
+        "wl": "8–0",
+        "d": 51,
+        "kda": "3,39",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Blitzcrank",
+        "champs": "Blitzcrank, Braum y Maokai",
+        "hours": "3,8"
+      }
+    },
+    {
+      "id": 13,
+      "kind": "ausentes",
+      "section": "AUSENTES",
+      "desk": "Perdidos en el Vacío",
+      "player": null,
+      "alias": null,
+      "headline": "Desaparecidos del día: Dierophant, Wôlf y Saiko",
+      "body": "Ni una partida. La Grieta respira tranquila por un día.",
+      "stat": "3",
+      "stat_label": "no jugaron",
+      "severity": 0.2,
+      "facts": {
+        "names": "Dierophant, Wôlf y Saiko"
+      }
+    }
+  ],
+  "canon_cambios": {
+    "hilos": [
+      {
+        "id": "el-saiko-de-repuesto",
+        "accion": "abrir",
+        "titulo": "El Saiko de repuesto",
+        "estado": "abierto",
+        "resumen": "El mismo día que Saiko pierde cuatro Blitzcrank seguidas en el reto, RDV Canyon gana ocho de soporte (cinco con Blitzcrank) y la cuenta SAIIIIIIKO sube 178 puntos hasta Diamante IV.",
+        "protagonistas": [
+          "rdv-canyon",
+          "saiko"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "la-moneda",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "El Barón no vuelve a su cuenta: Jhin en la secundaria VitasUchiha, sangre de apertura regalada, doce muertes (cuatro en la baldosa acordonada) yendo por delante en oro y farmeo. Baja a Oro III; en el reto, 1–1.",
+        "protagonistas": [
+          "grangalax"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "carry-not-found",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Ezreal 0/5/2 ante una Tristana 10/2/4: 18,8 % del oro y 12,1 % del daño. La principal pierde 21 puntos y baja a Platino III. El Instituto concluye que el daño está en la cuenta comprada.",
+        "protagonistas": [
+          "fr4nux"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-reto-de-las-cuentas-nuevas",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Día diecinueve: Saiko 0–4 y sigue líder en Platino II 62; GSJoseador 0–2 y segundo; Wôlf 3–0, asciende a Platino II y sube al tercero; Dierophant 1–3 y cae al quinto.",
+        "protagonistas": [
+          "saiko",
+          "gsjoseador",
+          "wolf",
+          "dierophant"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "la-ronda-del-cangrejo",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "TheTrevur gana tres Urgot en su principal, de dúo con RDV Canyon, y sube a Diamante IV; la cuenta comprada sigue en quince partidas, farolillo rojo y veintiuna por detrás del ritmo.",
+        "protagonistas": [
+          "thetrevur"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-papel-de-barbanegra",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "desenlace",
+        "resumen": "Humoverde descubre por qué el director protege a Barbanegra: le debe todas las comisiones de la cuenta «E. P.», y despedirle sería tener que pagarle. La Gaceta lo publica a las seis, firmado por el Hermano Venda; las sospechas apuntan a la llave del becario Candil.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-guerra-de-los-periodicos",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "La Gaceta le roba al Rincón la exclusiva de la deuda del director con Barbanegra y la publica antes de que el Rincón la imprima. El director compra tres ejemplares.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-cuenta-buena",
+        "accion": "cerrar",
+        "titulo": null,
+        "estado": "cerrado",
+        "resumen": "La cuenta buena dura un día: el miércoles GSJoseador pierde las dos del reto y sube 39 en su Diamante, y Saiko pierde cuatro en el reto. La buena siempre es la otra.",
+        "protagonistas": [],
+        "reparto": []
+      }
+    ],
+    "personajes": {
+      "rdv-canyon": {
+        "apodo": "el Saiko de repuesto",
+        "arco": {
+          "tipo": "ascenso",
+          "texto": "Ocho de ocho de soporte en un día y la cuenta SAIIIIIIKO en Diamante IV, mientras el Saiko titular pierde cuatro en el reto."
+        }
+      },
+      "saiko": {
+        "arco": {
+          "tipo": "caída",
+          "texto": "Líder del reto que encadena cuatro derrotas con Blitzcrank y conserva el trono porque los de abajo también pierden."
+        }
+      },
+      "giroroo": {
+        "maldicion": "Kayn: mata al Barón dos veces en una tarde y pierde las dos; diez muertes ante una Kindred 19/7/10"
+      }
+    },
+    "elenco": [
+      {
+        "nombre": "Doctor Ezequiel Humoverde",
+        "actualizar": true,
+        "estado": "Descubrió la deuda del director con Barbanegra; la Gaceta se lo publicó antes que su propio periódico"
+      },
+      {
+        "nombre": "Don Evaristo Plumanegra",
+        "actualizar": true,
+        "estado": "Descubierto: debe a Barbanegra todas las comisiones de la cuenta «E. P.»; compra tres ejemplares de la Gaceta"
+      },
+      {
+        "nombre": "Valeria Puñoférreo",
+        "actualizar": true,
+        "estado": "Publicó a las seis la deuda del director del Rincón, con la firma del Hermano Venda"
+      },
+      {
+        "nombre": "Tobías Candil",
+        "actualizar": true,
+        "estado": "Sospechoso de haber dejado la puerta abierta: tiene llave de la redacción"
+      }
+    ],
+    "costumbres": [
+      "Los miércoles sin Flex, RDV Canyon abre la SoloQ a las seis con Blitzcrank y la cierra pasadas las once de dúo con TheTrevur, sin perder una."
+    ],
+    "chistes": [
+      "el Barón de las tres cuentas",
+      "el otro Saiko",
+      "CARRY NOT FOUND"
+    ],
+    "sindicato": [
+      {
+        "campeon": "Blitzcrank",
+        "jugador": "saiko",
+        "motivo": "Cuatro salidas en el reto y cuatro derrotas, el mismo día que otro le ganaba cinco con el mismo gancho"
+      },
+      {
+        "campeon": "Jhin",
+        "jugador": "grangalax",
+        "motivo": "Llevado por delante en oro y farmeo para morir doce veces, cuatro en la misma baldosa, y regalar la sangre de apertura a una Samira"
+      }
+    ]
+  },
+  "tiempo": [
+    {
+      "jugador": "grangalax",
+      "texto": "Chubascos de gris sobre el carril inferior desde el minuto tres. Cuatro tormentas en la misma baldosa. Se recomienda no salir de la base, ni de la cuenta principal."
+    },
+    {
+      "jugador": "fr4nux",
+      "texto": "Apenas dos minutos de gris, porque para morir mucho hay que estar en las peleas. Cielo despejado de daño. Ni una nube, ni un disparo."
+    },
+    {
+      "jugador": "giroroo",
+      "texto": "Niebla Negra durante dieciséis minutos repartidos en cuatro partidas. Visibilidad nula: no hay guardianes previstos en toda la región."
+    },
+    {
+      "jugador": "ipredatorz",
+      "texto": "Cuatro minutos de gris en veinticuatro de partida. Frente frío procedente de una Zeri. Despejado el resto del día: el Fantasma no volvió."
+    },
+    {
+      "jugador": "gsjoseador",
+      "texto": "Once minutos de gris, casi todos sobre el Yone de las ocho. Mejora por la noche en Diamante; empeora en el reto."
+    },
+    {
+      "jugador": "thetrevur",
+      "texto": "Cinco minutos de gris en tres victorias. Anticiclón de cangrejo sobre el top. Sobre la cuenta comprada, sequía persistente."
+    },
+    {
+      "jugador": "rdv-canyon",
+      "texto": "Veinte minutos de gris, el que más del día, y ocho victorias. Madame Niebla no entiende nada y pide la baja."
+    }
+  ],
+  "angulos_usados": [
+    "maraton:rdv-canyon",
+    "muertes:grangalax",
+    "soloq_ascenso:wolf:Theossichi#9248Platino II · 15 LP",
+    "objetivos:giroroo:EUW1_8050336004",
+    "oro_dano:fr4nux",
+    "solokills:thetrevur",
+    "faro:rdv-canyon",
+    "farmeo:gsjoseador",
+    "descenso:grangalax:soloVitasUchiha#EUW"
+  ],
+  "horoscopo": [
+    {
+      "signo": "Top",
+      "texto": "Ganarás tres seguidas en la cuenta que no cuenta. En la que cuenta, Saturno ve quince partidas y una silla vacía."
+    },
+    {
+      "signo": "Jungla",
+      "texto": "Matarás al Barón y perderás igual. Los astros sugieren mirar el mapa después de matarlo; un guardián tampoco haría daño."
+    },
+    {
+      "signo": "Mid",
+      "texto": "Estrenarás un campeón y ganarás sin recoger los súbditos. Demacia te manda la factura de la cosecha."
+    },
+    {
+      "signo": "Tirador",
+      "texto": "Irás por delante en oro y morirás doce veces, o morirás cinco sin hacer daño. Elige tu forma de decepcionar; Marte no juzga."
+    },
+    {
+      "signo": "Soporte",
+      "texto": "Ocho victorias si te llamas de una manera, cuatro derrotas si te llamas de otra. Hoy el nombre importa más que el gancho."
+    }
+  ],
+  "template_frase": "La culpa siempre es del jungla, salvo cuando el jungla eres tú.",
+  "columna": {
+    "titulo": "Sigo en el bolsillo",
+    "autor": "Un Guardián de Visión Sin Estrenar",
+    "cuerpo": [
+      "Me compraron al minuto uno, como a todos los míos. Desde entonces vivo en el bolsillo de un Kayn y escucho. Escucho mucho: cincuenta y siete pings en una sola tarde, todos sobre lo que no se veía.",
+      "No se veía porque yo estaba en el bolsillo. Esto se lo explico al dueño en cada muerte, con la discreción de un objeto. No contesta. Pingea.",
+      "Ayer mató al Barón dos veces. Las dos veces el equipo rival estaba justo donde yo debería haber estado. Lo sé porque lo vi luego en la repetición, desde el bolsillo.",
+      "No pido mucho. Un arbusto. Uno cualquiera, aunque sea el de la base. Mientras tanto, sigo aquí, con mi compañero, que tampoco ha salido. Nos turnamos para mirar la oscuridad desde dentro."
+    ]
+  },
+  "especial": null,
+  "gaceta": {
+    "titular": "¡EL DIRECTOR DEL RINCÓN LE DEBE HASTA LA CAMISA A SU CONTABLE!",
+    "cuerpo": "Lo publicamos a las seis, como siempre, porque en La Gaceta las noticias se imprimen cuando pasan y no cuando le apetece al director. ¡Don Evaristo Plumanegra protege a Barbanegra porque le debe TODAS las comisiones de la cuenta «E. P.»! ¡Fuentes de toda solvencia, con lámpara y todo, lo confirman!\n\nY mientras su director se tapa las deudas, el Rincón dedica la portada a humillar a Saiko, ¡EL LÍDER DEL RETO!, por cuatro derrotas. ¡Cuatro! Sigue primero. Lo que no sigue primero es el Rincón, que hoy ha llegado tarde a su propio escándalo.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "jurado": {
+    "pregunta": "¿Quién es el Saiko de verdad?",
+    "opciones": [
+      "El que pierde cuatro en el reto",
+      "El que gana ocho con su nombre",
+      "Blitzcrank, el único que no cambia"
+    ],
+    "juicio": false
+  },
+  "jurado_veredicto": "Un único voto, anónimo, para «Blitzcrank, que trabaja». El jurado popular declara al robot líder moral del reto. Esa misma tarde, el robot perdió cuatro veces en manos de Saiko y ganó cinco en manos de RDV Canyon: trabajar, trabaja; para quién, depende del día.",
+  "manana": [
+    {
+      "texto": "¿Corta Saiko la racha de cuatro o regala el trono por fin?"
+    },
+    {
+      "texto": "¿Abre TheTrevur la cuenta comprada antes de que el Teemo plante la segunda seta?"
+    },
+    {
+      "texto": "¿Pondrá Giroroo un guardián con Kayn, uno solo?"
+    }
+  ],
+  "promesas": [
+    {
+      "pregunta": "¿Vuelve el Barón a su cuenta de siempre, o sigue perdiendo de una en una en la del desafío?",
+      "texto": "No volvió. El Barón jugó en la cuenta comprada (una ganada, una perdida) y en la secundaria VitasUchiha, donde murió doce veces con Jhin. La de siempre, Plata I, sigue cerrada por vacaciones."
+    },
+    {
+      "pregunta": "¿Aguanta Saiko el liderato, y con qué campeón? Pista: con uno.",
+      "texto": "Lo aguanta, y con uno, como dijimos: Blitzcrank. Cuatro partidas, cuatro derrotas y cuarenta y cinco puntos menos. Sigue primero porque el segundo también perdió las suyas."
+    },
+    {
+      "pregunta": "¿Pondrá Giroroo un segundo guardián?",
+      "texto": "Puso diez, todos con el Kled de las cinco y media, que perdió. Con Kayn, en tres partidas de jungla, puso dos en total. El segundo guardián existe; vive en otro campeón."
+    }
+  ],
+  "tablon": [],
+  "sugerencias_tablon": [],
+  "tarjetas": [
+    {
+      "id": "partidas-al-dia",
+      "tipo": "tabla",
+      "titulo": "¿Quién va al día?",
+      "datos": {
+        "columnas": [
+          "Jugador",
+          "Jugadas",
+          "Frente a 36",
+          "Faltan para 50"
+        ],
+        "filas": [
+          [
+            "Saiko",
+            "44",
+            "+8",
+            "6"
+          ],
+          [
+            "Wôlf",
+            "43",
+            "+7",
+            "7"
+          ],
+          [
+            "Giroroo",
+            "42",
+            "+6",
+            "8"
+          ],
+          [
+            "Fr4nux",
+            "39",
+            "+3",
+            "11"
+          ],
+          [
+            "Dierophant",
+            "38",
+            "+2",
+            "12"
+          ],
+          [
+            "GSJoseador",
+            "36",
+            "0",
+            "14"
+          ],
+          [
+            "grangalax",
+            "35",
+            "−1",
+            "15"
+          ],
+          [
+            "RDV Canyon",
+            "35",
+            "−1",
+            "15"
+          ],
+          [
+            "iPredatoRz",
+            "30",
+            "−6",
+            "20"
+          ],
+          [
+            "TheTrevur",
+            "15",
+            "−21",
+            "35"
+          ]
+        ]
+      },
+      "subtitulo": "Partidas jugadas frente al ritmo de dos por día (18 días completos: 36)",
+      "pie": "Saiko va ocho por delante del ritmo y cuatro de esas ocho las perdió el miércoles. TheTrevur, veintiuna por detrás, ganando en otra cuenta.",
+      "sugerencia": 4
+    }
+  ],
+  "ai": {
+    "version": 1,
+    "updated_at": 1795111549947,
+    "firma": "Claude",
+    "stale": false,
+    "formato": 2
+  },
+  "written_by": "Claude",
+  "lectores_ayer": {
+    "edicion": "2026-11-18",
+    "mas_reaccionadas": [],
+    "comentarios": []
+  },
+  "jurado_ayer": {
+    "edicion": "2026-11-18",
+    "pregunta": "¿Quién lidera de verdad el reto?",
+    "juicio": false,
+    "opciones": [
+      {
+        "texto": "Saiko, que gana",
+        "votos": 0,
+        "quien": []
+      },
+      {
+        "texto": "Blitzcrank, que trabaja",
+        "votos": 1,
+        "quien": [
+          "anonimo"
+        ]
+      },
+      {
+        "texto": "Los que matan por él",
+        "votos": 0,
+        "quien": []
+      }
+    ],
+    "total": 1,
+    "estado": "ok"
+  },
+  "quien_fue_ayer": {
+    "edicion": "2026-11-18",
+    "solucion": "GSJoseador",
+    "campeon": "Xerath",
+    "jugaron": 0,
+    "acertaron": [],
+    "fallaron": 0,
+    "estado": "ok"
+  },
+  "cotillas": []
 }

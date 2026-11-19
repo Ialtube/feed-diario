@@ -772,6 +772,10 @@
         {
           "fecha": "2026-10-29",
           "texto": "la copia infiel"
+        },
+        {
+          "fecha": "2026-11-19",
+          "texto": "el Saiko de repuesto"
         }
       ],
       "rasgos": [
@@ -800,6 +804,11 @@
           "tipo": "ascenso",
           "texto": "Mejor del día con dos barones por partida en Flex; en el reto, Platino IV con cero puntos y un pie en Oro.",
           "fecha": "2026-11-17"
+        },
+        {
+          "tipo": "ascenso",
+          "texto": "Ocho de ocho de soporte en un día y la cuenta SAIIIIIIKO en Diamante IV, mientras el Saiko titular pierde cuatro en el reto.",
+          "fecha": "2026-11-19"
         }
       ]
     },
@@ -832,6 +841,10 @@
         {
           "fecha": "2026-11-03",
           "texto": "Kayn: dos primeras sangres entregadas antes del minuto tres en una tarde, y dos derrotas"
+        },
+        {
+          "fecha": "2026-11-19",
+          "texto": "Kayn: mata al Barón dos veces en una tarde y pierde las dos; diez muertes ante una Kindred 19/7/10"
         }
       ],
       "rivales": [],
@@ -1006,6 +1019,11 @@
           "tipo": "caída",
           "texto": "4–0 a las tres de la tarde y 1–3 después: no para cuando gana, y en el reto le adelantan sin que juegue.",
           "fecha": "2026-11-14"
+        },
+        {
+          "tipo": "caída",
+          "texto": "Líder del reto que encadena cuatro derrotas con Blitzcrank y conserva el trono porque los de abajo también pierden.",
+          "fecha": "2026-11-19"
         }
       ]
     }
@@ -1164,6 +1182,11 @@
           "fecha": "2026-11-18",
           "campo": "estado",
           "texto": "Pide congelar el pago de la cuenta «E. P.»; la Lonja le remite al director"
+        },
+        {
+          "fecha": "2026-11-19",
+          "campo": "estado",
+          "texto": "Descubrió la deuda del director con Barbanegra; la Gaceta se lo publicó antes que su propio periódico"
         }
       ]
     },
@@ -1456,6 +1479,11 @@
           "fecha": "2026-11-18",
           "campo": "estado",
           "texto": "Visto comprando dos ejemplares de la Gaceta; su cuenta «E. P.» reclama cobrar la apuesta y nadie puede congelar el pago salvo él"
+        },
+        {
+          "fecha": "2026-11-19",
+          "campo": "estado",
+          "texto": "Descubierto: debe a Barbanegra todas las comisiones de la cuenta «E. P.»; compra tres ejemplares de la Gaceta"
         }
       ]
     },
@@ -1523,6 +1551,11 @@
           "fecha": "2026-11-17",
           "campo": "estado",
           "texto": "Publicó a las seis el liderato de GSJoseador y defiende al Barón del juicio"
+        },
+        {
+          "fecha": "2026-11-19",
+          "campo": "estado",
+          "texto": "Publicó a las seis la deuda del director del Rincón, con la firma del Hermano Venda"
         }
       ]
     },
@@ -1555,6 +1588,11 @@
           "fecha": "2026-11-12",
           "campo": "estado",
           "texto": "Detenido: la cera era suya; confesó la filtración a la Gaceta y entregó el borrador de la fórmula de la General con una firma que no es de Barbanegra"
+        },
+        {
+          "fecha": "2026-11-19",
+          "campo": "estado",
+          "texto": "Sospechoso de haber dejado la puerta abierta: tiene llave de la redacción"
         }
       ]
     },
@@ -1663,6 +1701,10 @@
         },
         {
           "fecha": "2026-11-17",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-19",
           "estado": "escalando"
         }
       ],
@@ -1821,6 +1863,13 @@
           "resumen": "Una semana después de «El Barón solo pierde cuando juega solo», grangalax juega una sola partida, solo y en la cuenta del desafío, y la pierde.",
           "titulares": [
             "Lo dijimos hace una semana"
+          ]
+        },
+        {
+          "fecha": "2026-11-19",
+          "resumen": "El Barón no vuelve a su cuenta: Jhin en la secundaria VitasUchiha, sangre de apertura regalada, doce muertes (cuatro en la baldosa acordonada) yendo por delante en oro y farmeo. Baja a Oro III; en el reto, 1–1.",
+          "titulares": [
+            "Ganaba la calle y murió doce veces"
           ]
         }
       ]
@@ -2067,6 +2116,13 @@
           "resumen": "Fr4nux pierde con Yunara (7/9/10, tres muertes en la misma esquina, cuatro guardianes) y 21 puntos en su principal, mientras gana las dos del reto y asciende a Oro I.",
           "titulares": [
             "Se traspasa esquina"
+          ]
+        },
+        {
+          "fecha": "2026-11-19",
+          "resumen": "Ezreal 0/5/2 ante una Tristana 10/2/4: 18,8 % del oro y 12,1 % del daño. La principal pierde 21 puntos y baja a Platino III. El Instituto concluye que el daño está en la cuenta comprada.",
+          "titulares": [
+            "El Instituto Hextech confirma que Ezreal no disparó"
           ]
         }
       ]
@@ -2618,6 +2674,11 @@
         {
           "fecha": "2026-11-18",
           "resumen": "La Gaceta publica a las seis el liderato de Saiko y agradece al director del Rincón que compre dos ejemplares cada mañana.",
+          "titulares": []
+        },
+        {
+          "fecha": "2026-11-19",
+          "resumen": "La Gaceta le roba al Rincón la exclusiva de la deuda del director con Barbanegra y la publica antes de que el Rincón la imprima. El director compra tres ejemplares.",
           "titulares": []
         }
       ],
@@ -3474,6 +3535,13 @@
           "titulares": [
             "Al trono con las manos limpias"
           ]
+        },
+        {
+          "fecha": "2026-11-19",
+          "resumen": "Día diecinueve: Saiko 0–4 y sigue líder en Platino II 62; GSJoseador 0–2 y segundo; Wôlf 3–0, asciende a Platino II y sube al tercero; Dierophant 1–3 y cae al quinto.",
+          "titulares": [
+            "Pierden todos los de arriba menos el que dijo Hola"
+          ]
         }
       ]
     },
@@ -3956,6 +4024,13 @@
           "titulares": [
             "El farolillo rojo aparece, pero en otra cuenta"
           ]
+        },
+        {
+          "fecha": "2026-11-19",
+          "resumen": "TheTrevur gana tres Urgot en su principal, de dúo con RDV Canyon, y sube a Diamante IV; la cuenta comprada sigue en quince partidas, farolillo rojo y veintiuna por detrás del ritmo.",
+          "titulares": [
+            "Urgot gana tres en la cuenta que no compite"
+          ]
         }
       ]
     },
@@ -3978,6 +4053,10 @@
         {
           "fecha": "2026-11-17",
           "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-19",
+          "estado": "desenlace"
         }
       ],
       "capitulos": [
@@ -3999,6 +4078,13 @@
           "titulares": [
             "La cuenta «E. P.» pide que le paguen"
           ]
+        },
+        {
+          "fecha": "2026-11-19",
+          "resumen": "Humoverde descubre por qué el director protege a Barbanegra: le debe todas las comisiones de la cuenta «E. P.», y despedirle sería tener que pagarle. La Gaceta lo publica a las seis, firmado por el Hermano Venda; las sospechas apuntan a la llave del becario Candil.",
+          "titulares": [
+            "Nos han vuelto a ganar la mano"
+          ]
         }
       ]
     },
@@ -4017,6 +4103,10 @@
         {
           "fecha": "2026-11-18",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-11-19",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -4025,6 +4115,37 @@
           "resumen": "El martes ganan en la cuenta comprada para el reto y pierden en la suya: GSJoseador 2–0 en el reto y 2–5 en Diamante (−27); Fr4nux 2–0 en el reto y −21 en la principal; Saiko 5–1 en el reto y dos Blitzcrank sin asesinatos en la suya.",
           "titulares": [
             "Diamante para perder, Platino para ganar"
+          ]
+        },
+        {
+          "fecha": "2026-11-19",
+          "resumen": "La cuenta buena dura un día: el miércoles GSJoseador pierde las dos del reto y sube 39 en su Diamante, y Saiko pierde cuatro en el reto. La buena siempre es la otra.",
+          "titulares": []
+        }
+      ]
+    },
+    {
+      "id": "el-saiko-de-repuesto",
+      "titulo": "El Saiko de repuesto",
+      "abierto": "2026-11-19",
+      "protagonistas": [
+        "rdv-canyon",
+        "saiko"
+      ],
+      "reparto": [],
+      "resumen": "El mismo día que Saiko pierde cuatro Blitzcrank seguidas en el reto, RDV Canyon gana ocho de soporte (cinco con Blitzcrank) y la cuenta SAIIIIIIKO sube 178 puntos hasta Diamante IV.",
+      "estados": [
+        {
+          "fecha": "2026-11-19",
+          "estado": "abierto"
+        }
+      ],
+      "capitulos": [
+        {
+          "fecha": "2026-11-19",
+          "resumen": "El mismo día que Saiko pierde cuatro Blitzcrank seguidas en el reto, RDV Canyon gana ocho de soporte (cinco con Blitzcrank) y la cuenta SAIIIIIIKO sube 178 puntos hasta Diamante IV.",
+          "titulares": [
+            "Hay un Saiko que gana, y no es Saiko"
           ]
         }
       ]
@@ -4146,6 +4267,10 @@
     {
       "fecha": "2026-11-18",
       "texto": "Los martes sin Flex, Saiko abre la SoloQ antes de las diez de la mañana y GSJoseador la cierra pasadas las once y media de la noche."
+    },
+    {
+      "fecha": "2026-11-19",
+      "texto": "Los miércoles sin Flex, RDV Canyon abre la SoloQ a las seis con Blitzcrank y la cierra pasadas las once de dúo con TheTrevur, sin perder una."
     }
   ],
   "chistes": [
@@ -4196,9 +4321,10 @@
         "2026-10-20",
         "2026-10-22",
         "2026-10-28",
-        "2026-11-16"
+        "2026-11-16",
+        "2026-11-19"
       ],
-      "usos": 4,
+      "usos": 5,
       "semilla": true
     },
     {
@@ -4223,9 +4349,10 @@
       "texto": "el otro Saiko",
       "fechas": [
         "2026-10-29",
-        "2026-11-08"
+        "2026-11-08",
+        "2026-11-19"
       ],
-      "usos": 2
+      "usos": 3
     },
     {
       "texto": "la recaída con Qiyana",
@@ -4254,9 +4381,10 @@
       "texto": "el Barón de las tres cuentas",
       "fechas": [
         "2026-11-04",
-        "2026-11-11"
+        "2026-11-11",
+        "2026-11-19"
       ],
-      "usos": 2
+      "usos": 3
     },
     {
       "texto": "la columna de cuentas secundarias",
@@ -4616,6 +4744,18 @@
       "jugador": "dierophant",
       "motivo": "Sexta derrota de seis: 3/4/0 en diecinueve minutos y cero de daño a objetivos ante un Xin Zhao que no murió",
       "fecha": "2026-11-18"
+    },
+    {
+      "campeon": "Blitzcrank",
+      "jugador": "saiko",
+      "motivo": "Cuatro salidas en el reto y cuatro derrotas, el mismo día que otro le ganaba cinco con el mismo gancho",
+      "fecha": "2026-11-19"
+    },
+    {
+      "campeon": "Jhin",
+      "jugador": "grangalax",
+      "motivo": "Llevado por delante en oro y farmeo para morir doce veces, cuatro en la misma baldosa, y regalar la sangre de apertura a una Samira",
+      "fecha": "2026-11-19"
     }
   ]
 }
