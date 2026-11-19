@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1795108677373,
+ "actualizado": 1795109818041,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -93,12 +93,12 @@
    "nombre": "Fr4nux",
    "apodo": "Fr4nux",
    "riot_id": "ReavendeMan#2719",
-   "liga": "Oro I · 74 LP",
-   "lp_hoy": 0,
-   "partidas": 39,
-   "victorias": 18,
+   "liga": "Platino IV · 4 LP",
+   "lp_hoy": 30,
+   "partidas": 40,
+   "victorias": 19,
    "derrotas": 21,
-   "racha": -1
+   "racha": 1
   },
   {
    "puesto": 8,
