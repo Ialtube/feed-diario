@@ -8,459 +8,392 @@
   ],
   "items": [
     {
-      "id": 0,
-      "kind": "portada",
-      "section": "PORTADA",
-      "desk": "",
-      "player": "giroroo",
-      "alias": "Giroroo",
-      "headline": "Giroroo, peor jugador del día: 2–2 y 30 muertes en 4 partidas",
-      "body": "Con un KDA de 1,47 y el 14,9 % del daño de su equipo, Giroroo se corona hoy como lastre oficial del grupo. Fuentes cercanas confirman que ya está en cola para la siguiente.",
-      "stat": "2–2",
-      "stat_label": "victorias–derrotas",
-      "severity": 100,
-      "facts": {
-        "alias": "Giroroo",
-        "games": 4,
-        "wl": "2–2",
-        "d": 30,
-        "kda": "1,47",
-        "dmg_txt": "el 14,9 % del daño de su equipo",
-        "dmg_txt_cap": "El 14,9 % del daño de su equipo de media",
-        "champ": "Sylas",
-        "champs": "Sylas, Ambessa y Rek'Sai",
-        "hours": "2,2"
-      }
-    },
-    {
       "id": 1,
-      "kind": "racha",
-      "section": "DEPORTES",
-      "desk": "Arena de Noxus",
-      "player": "fr4nux",
-      "alias": "Fr4nux",
-      "headline": "Racha negra: 5 derrotas consecutivas para Fr4nux",
-      "body": "Ni cambiando de campeón (Jarvan IV, Corki y Ezreal) consiguió cortar la sangría. Día cerrado con 2–5.",
-      "stat": "5",
-      "stat_label": "derrotas seguidas",
-      "severity": 8,
-      "facts": {
-        "alias": "Fr4nux",
-        "games": 7,
-        "wl": "2–5",
-        "d": 48,
-        "kda": "2,65",
-        "dmg_txt": "el 24,8 % del daño de su equipo",
-        "dmg_txt_cap": "El 24,8 % del daño de su equipo de media",
-        "champ": "Corki",
-        "champs": "Jarvan IV, Corki y Ezreal",
-        "hours": "3,5",
-        "n": 5
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "crónica",
+      "clave": "mismo_sitio:grangalax:EUW1_8051321830",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "Seis siluetas de tiza en la misma baldosa",
+      "subtitulo": "El Barón de la Moneda cruza el cordón que le había puesto Cobretuerca, muere allí seis veces con Ekko y gana la partida en catorce minutos.",
+      "body": "El comisario Cobretuerca había acordonado una baldosa del carril central por reincidencia del Barón de la Moneda. A las ocho y veinte de la tarde, grangalax se puso Ekko en su secundaria, VitasUchiha, levantó la cinta y murió allí seis veces. En la misma baldosa. En una partida de catorce minutos.\n\nEkko es el chaval de Zaun que se fabricó un aparato para rebobinar el tiempo y no repetir sus errores. En manos del Barón el aparato funciona, pero al revés: rebobina para repetirlos. La primera muerte llegó a los tres minutos; con el reloj todavía en un dígito ya iban cinco, y la Cassiopeia rival había dejado de buscarle por el mapa porque sabía perfectamente dónde iba a estar.\n\nY entonces la moneda hizo lo suyo: ganaron. Victoria con un 1/6/3 y la cuota de daño más baja de su equipo. No hay informe que explique cómo. La fiscal Hexwick ha pedido las grabaciones; Cobretuerca ha pedido más cinta.\n\nEl resto de la noche cuadró con la leyenda. En VitasUchiha, una victoria y tres derrotas y cuarenta puntos menos, hasta Oro III. En la cuenta comprada, dos de tres, ochenta puntos arriba y ascenso a Platino IV. La cuenta que paga él, hundida; la que pagó otro, subiendo.\n\nLa baldosa ya tiene placa en el callejero de Piltover. Lleva su nombre.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": "memes/2026-11-20-1.jpg",
+      "campeon": "Ekko",
+      "entrevistado": null,
+      "pie": "Ekko, inventor de una máquina para no repetir errores, descubriendo que no venía con instrucciones.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 1000,
+      "facts": {},
+      "hilo": "la-moneda",
+      "replica": null,
+      "meme": {
+        "plantilla": "success",
+        "lineas": [
+          "Muere seis veces en la misma baldosa",
+          "Gana en catorce minutos"
+        ]
+      },
+      "saga": {
+        "id": "la-moneda",
+        "titulo": "La moneda de grangalax",
+        "capitulo": 24,
+        "estado": "escalando"
       }
     },
     {
       "id": 2,
-      "kind": "sucesos",
-      "section": "SUCESOS",
-      "desk": "Comisaría de Piltover",
+      "kind": "ia",
+      "peso": "grande",
+      "formato": "boletín médico",
+      "clave": "muertes:rdv-canyon",
+      "section": "SALUD",
+      "desk": "Laboratorios de Zaun",
       "player": "rdv-canyon",
       "alias": "RDV Canyon",
-      "headline": "Récord de RDV Canyon: 16 muertes en 41 minutos",
-      "body": "Con Blitzcrank murió cada 2:36 de media. Derrota, claro. El contador de muertes pidió una pausa.",
-      "stat": "16",
-      "stat_label": "muertes en una partida",
-      "severity": 7.4,
-      "facts": {
-        "alias": "RDV Canyon",
-        "games": 6,
-        "wl": "2–4",
-        "d": 16,
-        "kda": "2,38",
-        "dmg_txt": "el 17,0 % del daño de su equipo",
-        "dmg_txt_cap": "El 17,0 % del daño de su equipo de media",
-        "champ": "Blitzcrank",
-        "champs": "Braum, Galio y Maokai",
-        "hours": "3,0",
-        "kdas": "4/16/33",
-        "queue": "Ranked Solo/Dúo",
-        "mins": 41,
-        "every": "2:36",
-        "res": "derrota",
-        "res_cap": "Derrota, claro"
+      "headline": "El repuesto también se oxida",
+      "subtitulo": "RDV Canyon, que había ganado ocho de ocho sustituyendo a Saiko, bate con Blitzcrank su récord personal de muertes.",
+      "body": "PACIENTE: Blitzcrank, gólem de vapor fabricado en Zaun. ACOMPAÑANTE: RDV Canyon, soporte. INGRESO: seis y treinta y cinco de la tarde, sexta partida de una jornada que el acompañante había empezado a las nueve menos diez de la mañana, con Galio.\n\nDIAGNÓSTICO: dieciséis muertes en cuarenta y dos minutos, cinco de ellas en el mismo punto. Es el récord personal del acompañante en la hemeroteca; el anterior era once. Casi nueve minutos en la pantalla gris. CONSTANTES: ciento quince de visión y cincuenta y cinco guardianes. El paciente iluminó el mapa entero para que todo el mundo viera bien dónde caía.\n\nOBSERVACIONES: el soporte rival, un Maokai, también murió dieciséis veces. Los dos soportes empataron a cadáveres; la partida no fue empate. El acompañante, además, regaló la primera sangre.\n\nEVOLUCIÓN: tras ocho victorias seguidas el día anterior, la jornada cierra en dos victorias y cuatro derrotas, las tres últimas en fila. La cuenta SAIIIIIIKO, la que subió ciento setenta y ocho puntos sustituyendo al titular, amanece en Diamante IV con cero.\n\nPRONÓSTICO: reservado. El doctor Humoverde, que cobra por muerte, ha firmado este parte con letra muy alegre.\n\nEl repuesto salió idéntico al original. Avería incluida.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Blitzcrank",
+      "entrevistado": null,
+      "pie": "Blitzcrank, gólem de vapor de Zaun, esperando a que alguien le cambie el jugador en vez del aceite.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 599,
+      "facts": {},
+      "hilo": "el-saiko-de-repuesto",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-saiko-de-repuesto",
+        "titulo": "El Saiko de repuesto",
+        "capitulo": 2,
+        "estado": "cerrado"
       }
     },
     {
       "id": 3,
-      "kind": "sucesos",
-      "section": "SUCESOS",
-      "desk": "Comisaría de Piltover",
-      "player": "ipredatorz",
-      "alias": "iPredatoRz",
-      "headline": "iPredatoRz muere 13 veces en una sola partida y la policía de Piltover abre una investigación",
-      "body": "Twitch, 12/13/7, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
-      "stat": "13",
-      "stat_label": "muertes en una partida",
-      "severity": 6.2,
-      "facts": {
-        "alias": "iPredatoRz",
-        "games": 6,
-        "wl": "3–3",
-        "d": 13,
-        "kda": "2,29",
-        "dmg_txt": "el 29,8 % del daño de su equipo",
-        "dmg_txt_cap": "El 29,8 % del daño de su equipo de media",
-        "champ": "Twitch",
-        "champs": "Lucian, Ezreal y Miss Fortune",
-        "hours": "2,9",
-        "kdas": "12/13/7",
-        "queue": "Ranked Solo/Dúo",
-        "mins": 30,
-        "every": "2:22",
-        "res": "derrota",
-        "res_cap": "Derrota, claro"
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "crónica deportiva",
+      "clave": "racha:fr4nux",
+      "section": "DEPORTES",
+      "desk": "Arena de Noxus",
+      "player": "fr4nux",
+      "alias": "Fr4nux",
+      "headline": "Apareció el daño; faltaban las victorias",
+      "subtitulo": "Cinco derrotas seguidas con casi un tercio del daño de su equipo, un cuádruple incluido, y la Kai'Sa buena cuando ya cerraba la tienda.",
+      "body": "A las nueve menos veinte de la noche Fr4nux empezó a perder y no paró hasta pasadas las doce: cinco derrotas en fila, dos de ellas con Corki, que ya suma cero victorias en seis en la hemeroteca. Lo inquietante para los investigadores del daño perdido es que esta vez el daño estaba: casi un tercio del de su equipo con Corki y con Jarvan IV. Lo encontraron. No sirvió para nada.\n\nLa quinta fue la obra maestra. Jarvan IV levanta un ring y encierra dentro a los enemigos; Fr4nux encerró a cuatro, los mató a los cuatro y perdió la partida igual. El ring, impecable. El Nexo, fuera del ring.\n\nA las doce y media, con la principal setenta y un puntos más abajo, salió la Kai'Sa: 13/2/9 y victoria. El tirador sin pólvora disparó cuando ya no quedaba nadie en la feria.\n\nEl expediente del daño se archiva. Se abre el de las victorias.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": "memes/2026-11-20-3.jpg",
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "Corki, piloto de Bandle, revisando el seguro de la avioneta.",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 398,
+      "facts": {},
+      "hilo": "carry-not-found",
+      "replica": null,
+      "meme": {
+        "campeon": "Corki",
+        "aspecto": 36,
+        "lineas": [
+          "Cero victorias en seis",
+          "Pero mirad qué avioneta"
+        ]
+      },
+      "saga": {
+        "id": "carry-not-found",
+        "titulo": "En busca del daño perdido de Fr4nux",
+        "capitulo": 22,
+        "estado": "escalando"
       }
     },
     {
       "id": 4,
-      "kind": "racha",
-      "section": "DEPORTES",
-      "desk": "Arena de Noxus",
-      "player": "rdv-canyon",
-      "alias": "RDV Canyon",
-      "headline": "RDV Canyon encadena 3 derrotas seguidas y sigue dándole a «Jugar otra vez»",
-      "body": "Su día terminó 2–4. Los expertos recomiendan apagar el ordenador; RDV Canyon recomienda otra partida rápida.",
-      "stat": "3",
-      "stat_label": "derrotas seguidas",
-      "severity": 6,
-      "facts": {
-        "alias": "RDV Canyon",
-        "games": 6,
-        "wl": "2–4",
-        "d": 53,
-        "kda": "2,38",
-        "dmg_txt": "el 17,0 % del daño de su equipo",
-        "dmg_txt_cap": "El 17,0 % del daño de su equipo de media",
-        "champ": "Blitzcrank",
-        "champs": "Braum, Galio y Maokai",
-        "hours": "3,0",
-        "n": 3
-      }
-    },
-    {
-      "id": 5,
-      "kind": "rendicion",
-      "section": "POLÍTICA",
-      "desk": "Corte de Demacia",
-      "player": null,
-      "alias": null,
-      "headline": "Ante la duda, rendición: RDV Canyon, Fr4nux y iPredatoRz se rindieron 4 veces",
-      "body": "Otros remontan; aquí se pulsa el botón de rendirse y se ahorra tiempo para la siguiente derrota.",
-      "stat": "4",
-      "stat_label": "partidas rendidas",
-      "severity": 6,
-      "facts": {
-        "names": "RDV Canyon, Fr4nux y iPredatoRz",
-        "verb": "se rindieron",
-        "n_txt": "4 veces"
-      }
-    },
-    {
-      "id": 6,
-      "kind": "dano",
-      "section": "DAÑO",
-      "desk": "Instituto Hextech de Piltover",
-      "player": "giroroo",
-      "alias": "Giroroo",
-      "headline": "Giroroo fue el que menos daño hizo de su equipo en 2 de 4 partidas",
-      "body": "En su peor caso, con Rek'Sai (7/9/8), se quedó en 19.967 de daño a campeones: el 13,4 % de su equipo. Hasta el que menos aportaba le pasó por encima.",
-      "stat": "2/4",
-      "stat_label": "partidas como el que menos daño de su equipo",
-      "severity": 5.5,
-      "facts": {
-        "alias": "Giroroo",
-        "games": 4,
-        "wl": "2–2",
-        "d": 30,
-        "kda": "1,47",
-        "dmg_txt": "el 14,9 % del daño de su equipo",
-        "dmg_txt_cap": "El 14,9 % del daño de su equipo de media",
-        "champ": "Rek'Sai",
-        "champs": "Sylas, Ambessa y Rek'Sai",
-        "hours": "2,2",
-        "n": 2,
-        "g": 4,
-        "kdas": "7/9/8",
-        "dmg": "19.967",
-        "share": "13,4 %"
-      }
-    },
-    {
-      "id": 7,
-      "kind": "economia",
-      "section": "ECONOMÍA",
-      "desk": "Lonja de Aguasturbias",
-      "player": "fr4nux",
-      "alias": "Fr4nux",
-      "headline": "La Lonja de Aguasturbias congela los fondos de Fr4nux: 17,8 % del oro, 11,8 % del daño",
-      "body": "Con Jarvan IV cobró 6,0 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
-      "stat": "−6,0",
-      "stat_label": "puntos entre oro y daño",
-      "severity": 5.42,
-      "facts": {
-        "alias": "Fr4nux",
-        "games": 7,
-        "wl": "2–5",
-        "d": 48,
-        "kda": "2,65",
-        "dmg_txt": "el 24,8 % del daño de su equipo",
-        "dmg_txt_cap": "El 24,8 % del daño de su equipo de media",
-        "champ": "Jarvan IV",
-        "champs": "Jarvan IV, Corki y Ezreal",
-        "hours": "3,5",
-        "gold": "17,8 %",
-        "share": "11,8 %",
-        "gap": "6,0"
-      }
-    },
-    {
-      "id": 8,
-      "kind": "economia",
-      "section": "ECONOMÍA",
-      "desk": "Lonja de Aguasturbias",
-      "player": "giroroo",
-      "alias": "Giroroo",
-      "headline": "Giroroo, el fichaje más caro y el que menos rinde: 18,9 % del oro, 13,7 % del daño",
-      "body": "Partida con Sylas: 5,2 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
-      "stat": "−5,2",
-      "stat_label": "puntos entre oro y daño",
-      "severity": 5.07,
-      "facts": {
-        "alias": "Giroroo",
-        "games": 4,
-        "wl": "2–2",
-        "d": 30,
-        "kda": "1,47",
-        "dmg_txt": "el 14,9 % del daño de su equipo",
-        "dmg_txt_cap": "El 14,9 % del daño de su equipo de media",
-        "champ": "Sylas",
-        "champs": "Sylas, Ambessa y Rek'Sai",
-        "hours": "2,2",
-        "gold": "18,9 %",
-        "share": "13,7 %",
-        "gap": "5,2"
-      }
-    },
-    {
-      "id": 9,
-      "kind": "sucesos",
-      "section": "SUCESOS",
-      "desk": "Comisaría de Piltover",
-      "player": "grangalax",
-      "alias": "grangalax",
-      "headline": "Detenido grangalax por alimentar al enemigo: 10 muertes con Ekko",
-      "body": "Los hechos ocurrieron en una Ranked Solo/Dúo de 31 minutos. Resultado: 8/10/10. Derrota, claro. El rival ya le ha enviado una cesta de agradecimiento.",
-      "stat": "10",
-      "stat_label": "muertes en una partida",
-      "severity": 5.0,
-      "facts": {
-        "alias": "grangalax",
-        "games": 4,
-        "wl": "1–3",
-        "d": 10,
-        "kda": "1,69",
-        "dmg_txt": "el 21,2 % del daño de su equipo",
-        "dmg_txt_cap": "El 21,2 % del daño de su equipo de media",
-        "champ": "Ekko",
-        "champs": "Ekko y Ahri",
-        "hours": "2,0",
-        "kdas": "8/10/10",
-        "queue": "Ranked Solo/Dúo",
-        "mins": 31,
-        "every": "3:11",
-        "res": "derrota",
-        "res_cap": "Derrota, claro"
-      }
-    },
-    {
-      "id": 10,
-      "kind": "dano",
-      "section": "DAÑO",
-      "desk": "Instituto Hextech de Piltover",
-      "player": "gsjoseador",
-      "alias": "GSJoseador",
-      "headline": "GSJoseador dispara con balas de fogueo: 1 partidas como el que menos daño de su equipo",
-      "body": "Su obra cumbre: Viktor, 17.535 de daño, el 18,0 % del total. Los súbditos enemigos sufrieron más que los campeones.",
-      "stat": "1/3",
-      "stat_label": "partidas como el que menos daño de su equipo",
-      "severity": 5.0,
-      "facts": {
-        "alias": "GSJoseador",
-        "games": 3,
-        "wl": "1–2",
-        "d": 21,
-        "kda": "2,10",
-        "dmg_txt": "el 18,8 % del daño de su equipo",
-        "dmg_txt_cap": "El 18,8 % del daño de su equipo de media",
-        "champ": "Viktor",
-        "champs": "Ornn, Viktor y Xerath",
-        "hours": "1,6",
-        "n": 1,
-        "g": 3,
-        "kdas": "4/10/4",
-        "dmg": "17.535",
-        "share": "18,0 %"
-      }
-    },
-    {
-      "id": 11,
-      "kind": "sucesos",
-      "section": "SUCESOS",
-      "desk": "Comisaría de Piltover",
-      "player": "gsjoseador",
-      "alias": "GSJoseador",
-      "headline": "GSJoseador muere 10 veces en una sola partida y la policía de Piltover abre una investigación",
-      "body": "Viktor, 4/10/4, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
-      "stat": "10",
-      "stat_label": "muertes en una partida",
-      "severity": 5.0,
-      "facts": {
-        "alias": "GSJoseador",
-        "games": 3,
-        "wl": "1–2",
-        "d": 10,
-        "kda": "2,10",
-        "dmg_txt": "el 18,8 % del daño de su equipo",
-        "dmg_txt_cap": "El 18,8 % del daño de su equipo de media",
-        "champ": "Viktor",
-        "champs": "Ornn, Viktor y Xerath",
-        "hours": "1,6",
-        "kdas": "4/10/4",
-        "queue": "Ranked Solo/Dúo",
-        "mins": 25,
-        "every": "2:33",
-        "res": "derrota",
-        "res_cap": "Derrota, claro"
-      }
-    },
-    {
-      "id": 12,
-      "kind": "tiempo",
-      "section": "EL TIEMPO",
-      "desk": "Islas de la Sombra",
-      "player": "ipredatorz",
-      "alias": "iPredatoRz",
-      "headline": "Previsión para iPredatoRz: gris durante 24 minutos",
-      "body": "Hoy pasó 24 minutos muerto, el 14,0 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja.",
-      "stat": "24 min",
-      "stat_label": "en la pantalla gris",
-      "severity": 4.97,
-      "facts": {
-        "alias": "iPredatoRz",
-        "games": 6,
-        "wl": "3–3",
-        "d": 49,
-        "kda": "2,29",
-        "dmg_txt": "el 29,8 % del daño de su equipo",
-        "dmg_txt_cap": "El 29,8 % del daño de su equipo de media",
-        "champ": "Twitch",
-        "champs": "Lucian, Ezreal y Miss Fortune",
-        "hours": "2,9",
-        "dead_mins": 24,
-        "dead_pct": "14,0 %"
-      }
-    },
-    {
-      "id": 13,
-      "kind": "dano",
-      "section": "DAÑO",
-      "desk": "Instituto Hextech de Piltover",
-      "player": "grangalax",
-      "alias": "grangalax",
-      "headline": "Investigación: ¿dónde está el daño de grangalax? Último en daño 1 veces",
-      "body": "Con Ekko firmó un 13,2 % del daño de su equipo (4.722). Repartiendo a partes iguales le tocaba un 20 %. Ni eso.",
-      "stat": "1/4",
-      "stat_label": "partidas como el que menos daño de su equipo",
-      "severity": 4.75,
-      "facts": {
-        "alias": "grangalax",
-        "games": 4,
-        "wl": "1–3",
-        "d": 32,
-        "kda": "1,69",
-        "dmg_txt": "el 21,2 % del daño de su equipo",
-        "dmg_txt_cap": "El 21,2 % del daño de su equipo de media",
-        "champ": "Ekko",
-        "champs": "Ekko y Ahri",
-        "hours": "2,0",
-        "n": 1,
-        "g": 4,
-        "kdas": "1/6/3",
-        "dmg": "4.722",
-        "share": "13,2 %"
-      }
-    },
-    {
-      "id": 14,
-      "kind": "duo",
-      "section": "SOCIEDAD",
-      "desk": "Ecos de Jonia",
-      "player": null,
-      "alias": null,
-      "headline": "Sociedad limitada: Fr4nux + grangalax se van 1–2",
-      "body": "La sinergia de este dúo es la de una tostadora en la bañera.",
-      "stat": "1–2",
-      "stat_label": "juntos",
-      "severity": 4,
-      "facts": {
-        "a": "Fr4nux",
-        "b": "grangalax",
-        "w": 1,
-        "l": 2
-      }
-    },
-    {
-      "id": 15,
-      "kind": "mencion",
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "nota de prensa",
+      "clave": "faro:ipredatorz",
       "section": "EL FARO DE LA ESPERANZA",
       "desk": "Centinelas de la Luz",
       "player": "ipredatorz",
       "alias": "iPredatoRz",
-      "headline": "Desde el Faro, una señal: iPredatoRz sobrevive al día (3–3)",
-      "body": "El mejor del grupo, que no es decir mucho. Los Centinelas de la Luz lo anotan en su diario con letra pequeña, por si acaso.",
-      "stat": "3–3",
-      "stat_label": "victorias–derrotas",
-      "severity": 0.5,
-      "facts": {
-        "alias": "iPredatoRz",
-        "games": 6,
-        "wl": "3–3",
-        "d": 49,
-        "kda": "2,29",
-        "dmg_txt": "el 29,8 % del daño de su equipo",
-        "dmg_txt_cap": "El 29,8 % del daño de su equipo de media",
-        "champ": "Twitch",
-        "champs": "Lucian, Ezreal y Miss Fortune",
-        "hours": "2,9"
+      "headline": "Los Centinelas ven disparar a Lucian, y no contra los suyos",
+      "subtitulo": "iPredatoRz cierra con tres y tres, y su mejor partida la gana contra la Kalista que le perseguía.",
+      "body": "Los Centinelas de la Luz comunican, con alegría contenida, que uno de los suyos ha sido visto haciendo su trabajo. Lucian, el cazador de espectros, salió dos veces de la mano de iPredatoRz por la tarde y ganó las dos: la primera con más de un tercio del daño de su equipo; la segunda, a las ocho menos cuarto, con un 20/8/9 y un triple.\n\nEl detalle que los Centinelas quieren subrayar: enfrente había una Kalista, la misma campeona con la que iPredatoRz acumula cuatro derrotas en cuatro. Murió dieciséis veces. Por una vez, el Sindicato cobró en la dirección correcta.\n\nLa nota no oculta la factura. Una hora antes, iPredatoRz estrenaba Twitch y regalaba la primera sangre; por la noche, otro Lucian perdía su calle contra una Jinx. Tres victorias y tres derrotas: es lo más presentable de la jornada, y el Faro se ilumina con lo que hay.\n\nFirma, a la luz de las velas, Tobías Candil.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Lucian",
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 397,
+      "facts": {},
+      "hilo": "el-sindicato-cambia-de-bando",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-sindicato-cambia-de-bando",
+        "titulo": "El Sindicato cambia de bando",
+        "capitulo": 9,
+        "estado": "escalando"
       }
     },
     {
-      "id": 16,
-      "kind": "ausentes",
-      "section": "AUSENTES",
-      "desk": "Perdidos en el Vacío",
+      "id": 5,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "ranking",
+      "clave": "objetivos:giroroo:EUW1_8051091047",
+      "section": "EL FARO DE LA ESPERANZA",
+      "desk": "Centinelas de la Luz",
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "Inventario de una derrota con Barón",
+      "subtitulo": "Sylas roba las habilidades del rival; Giroroo le robó al mapa todo menos la partida.",
+      "body": "Lo que se llevó Giroroo con Sylas en la jungla, a las cuatro y media de la tarde, ordenado de más a menos útil:\n\n1. Un Barón Nashor. 2. Tres dragones. 3. Tres larvas del Vacío. 4. Setenta y seis pings, uno por cada vez que creyó que alguien le escuchaba. 5. Un guardián. Uno, en treinta y siete minutos. 6. Diez muertes, tres en el mismo rincón. 7. La derrota, que no venía en el botín pero también se la llevó.\n\nDespués se fue al top con Tahm Kench, ganó cuatro duelos en solitario y la partida. El pez se tragó lo que la jungla no supo cerrar.\n\nEn el reto, mientras tanto, dos derrotas y del cuarto al quinto puesto.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": "Sylas",
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 396,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 6,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "comunicado oficial",
+      "clave": "soloq_escalada:grangalax:nandaris#6071",
+      "section": "SOLOQ CHALLENGE",
+      "desk": "",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "El Comité recomienda no devolverles nunca las cuentas",
+      "subtitulo": "Día veinte: grangalax y Fr4nux suben a Platino IV con la cuenta comprada la misma noche que se hunden con las suyas.",
+      "body": "El Comité del reto comunica dos ascensos a Platino IV en la vigésima jornada. grangalax gana dos de tres, suma ochenta puntos y sube al séptimo puesto. Fr4nux gana la única que juega, asciende con cuatro puntos y, en el mismo movimiento, baja al octavo, porque grangalax le adelanta por la misma escalera.\n\nEl Comité constata que ambos rinden mejor con una cuenta que no es suya. Esa misma noche, la principal de Fr4nux perdía setenta y un puntos y la secundaria de grangalax, cuarenta. Por el bien del reto, se recomienda que no les devuelvan las suyas nunca.\n\nEn la cabeza, nada se mueve porque nadie se mueve. Saiko sigue líder sin jugar, con su racha de cuatro derrotas congelada como un filete. GSJoseador, segundo, gana una y pierde otra. Dierophant sube al cuarto sin tocar el teclado, porque Giroroo pierde las dos que juega. TheTrevur sigue último con quince partidas y treinta y tres días por delante.\n\nEl Barón prometió Maestro. Lleva Platino IV y una baldosa con su nombre.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 395,
+      "facts": {},
+      "hilo": "el-reto-de-las-cuentas-nuevas",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "el-reto-de-las-cuentas-nuevas",
+        "titulo": "El reto de las cuentas nuevas",
+        "capitulo": 17,
+        "estado": "escalando"
+      }
+    },
+    {
+      "id": 7,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "fe de erratas",
+      "clave": null,
+      "section": "OPINIÓN",
+      "desk": "",
       "player": null,
       "alias": null,
-      "headline": "Ausentes hoy: Dierophant, TheTrevur, Wôlf y Saiko",
-      "body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre.",
-      "stat": "4",
-      "stat_label": "no jugaron",
-      "severity": 0.2,
-      "facts": {
-        "names": "Dierophant, TheTrevur, Wôlf y Saiko"
+      "headline": "Donde dice «la llave del becario»",
+      "subtitulo": "",
+      "body": "En la edición del jueves sugerimos que las exclusivas salían de esta casa por la llave del becario Tobías Candil. Don Evaristo Plumanegra cambió la cerradura a las once de la noche y se llevó la única copia a su casa. A las seis de la mañana, la Gaceta ya tenía en la calle las dieciséis muertes del Blitzcrank de RDV Canyon. La cifra exacta. Antes que nosotros. Otra vez.\n\nDonde dice «la llave del becario», debe decir «no era la llave».\n\nDonde dice «una filtración», debe decir «alguien que tiene las cifras de muertes antes de que se publiquen». La lista es corta, firma autopsias y ha pedido que no se le pregunte por la mañana.\n\nBarbanegra, que sigue suspendido, fue visto comprando la Gaceta a las seis y cinco. Dice que es por el crucigrama.\n\nLa Gaceta no tiene crucigrama.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 394,
+      "facts": {},
+      "hilo": "la-guerra-de-los-periodicos",
+      "replica": null,
+      "meme": null,
+      "saga": {
+        "id": "la-guerra-de-los-periodicos",
+        "titulo": "La guerra de los periódicos",
+        "capitulo": 26,
+        "estado": "escalando"
       }
+    },
+    {
+      "id": 8,
+      "kind": "ia",
+      "peso": "mediana",
+      "formato": "anuncio por palabras",
+      "clave": "descenso:gsjoseador:soloGSJoseador#2711",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Se vende Diamante I, poco uso",
+      "subtitulo": "",
+      "body": "SE VENDE Diamante I con un punto, estrenado y devuelto en la misma noche. Motivo de la venta: un Viktor en el carril central frente a una Katarina que acabó 23/6/12 con más de ocho mil de oro de ventaja. Ahora en Diamante II, setenta y ocho puntos. Interesados, preguntar por el Comodín de Noxus. Abstenerse Katarinas.\n\nSE OFRECE Ornn de herrero para el top, 1/5/9, apenas forjó nada. Ideal para quien busque compañía y no resultados.\n\nSE COMPRA cualquier cosa que gane contra Katarina. Se paga con un Xerath que sí ganó, aunque su Fizz rival le hizo lo que quiso.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 393,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 9,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "primera_sangre:ipredatorz:EUW1_8051230240",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "La rata sale de la alcantarilla y vuelve",
+      "subtitulo": "",
+      "body": "iPredatoRz estrena a Twitch, la rata de las cloacas de Zaun, y regala la primera sangre con dos minutos en el reloj. Acaba 12/13/7: trece viajes de vuelta a la alcantarilla. Derrota.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 192,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 10,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "maldito:ipredatorz:Ezreal",
+      "section": "CULTURA",
+      "desk": "Biblioteca de Shurima",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "Ezreal pide otro dueño",
+      "subtitulo": "",
+      "body": "Cuatro partidas de iPredatoRz con Ezreal en la hemeroteca, cuatro derrotas. La última, veintiún minutos y un 1/5/1 ante una Tristana que murió una vez. El explorador ha pedido al Sindicato un dueño que acierte la Q.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 191,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 11,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "duo:Fr4nux+grangalax",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": null,
+      "alias": null,
+      "headline": "Pareja de hecho",
+      "subtitulo": "",
+      "body": "Fr4nux y grangalax comparten tres partidas y ganan una: la de las seis muertes en la baldosa, en la que el Ezreal puso un guardián, tuvo uno de visión y murió cuatro veces en el mismo rincón. Hay parejas que se sostienen por los niños. Esta, por la estadística.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 190,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
+    },
+    {
+      "id": 12,
+      "kind": "ia",
+      "peso": "breve",
+      "formato": "breve",
+      "clave": "farmeo:grangalax",
+      "section": "AGRICULTURA",
+      "desk": "Cosechas de Demacia",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "Veigar cosecha, el Barón abona",
+      "subtitulo": "",
+      "body": "Con Ekko frente a un Veigar, grangalax recoge sesenta y seis súbditos menos que su rival en treinta y dos minutos. Veigar se hace más fuerte con cada súbdito que remata. El Barón le montó la granja y le dejó las llaves.",
+      "stat": "",
+      "stat_label": "",
+      "imagen": null,
+      "campeon": null,
+      "entrevistado": null,
+      "pie": "",
+      "meme_arriba": "",
+      "meme_abajo": "",
+      "lector": null,
+      "severity": 189,
+      "facts": {},
+      "hilo": null,
+      "replica": null,
+      "meme": null
     }
   ],
-  "frase": "Ningún súbdito ha sido farmeado durante la elaboración de esta partida.",
+  "frase": "Un cordón policial solo sirve para que el que lo cruza sepa exactamente dónde va a morir.",
   "ranking": [
     {
       "slug": "giroroo",
@@ -2351,5 +2284,851 @@
     "acertantes": [],
     "votos": {},
     "estado": "ok"
-  }
+  },
+  "items_plantilla": [
+    {
+      "id": 0,
+      "kind": "portada",
+      "section": "PORTADA",
+      "desk": "",
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "Giroroo, peor jugador del día: 2–2 y 30 muertes en 4 partidas",
+      "body": "Con un KDA de 1,47 y el 14,9 % del daño de su equipo, Giroroo se corona hoy como lastre oficial del grupo. Fuentes cercanas confirman que ya está en cola para la siguiente.",
+      "stat": "2–2",
+      "stat_label": "victorias–derrotas",
+      "severity": 100,
+      "facts": {
+        "alias": "Giroroo",
+        "games": 4,
+        "wl": "2–2",
+        "d": 30,
+        "kda": "1,47",
+        "dmg_txt": "el 14,9 % del daño de su equipo",
+        "dmg_txt_cap": "El 14,9 % del daño de su equipo de media",
+        "champ": "Sylas",
+        "champs": "Sylas, Ambessa y Rek'Sai",
+        "hours": "2,2"
+      }
+    },
+    {
+      "id": 1,
+      "kind": "racha",
+      "section": "DEPORTES",
+      "desk": "Arena de Noxus",
+      "player": "fr4nux",
+      "alias": "Fr4nux",
+      "headline": "Racha negra: 5 derrotas consecutivas para Fr4nux",
+      "body": "Ni cambiando de campeón (Jarvan IV, Corki y Ezreal) consiguió cortar la sangría. Día cerrado con 2–5.",
+      "stat": "5",
+      "stat_label": "derrotas seguidas",
+      "severity": 8,
+      "facts": {
+        "alias": "Fr4nux",
+        "games": 7,
+        "wl": "2–5",
+        "d": 48,
+        "kda": "2,65",
+        "dmg_txt": "el 24,8 % del daño de su equipo",
+        "dmg_txt_cap": "El 24,8 % del daño de su equipo de media",
+        "champ": "Corki",
+        "champs": "Jarvan IV, Corki y Ezreal",
+        "hours": "3,5",
+        "n": 5
+      }
+    },
+    {
+      "id": 2,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "headline": "Récord de RDV Canyon: 16 muertes en 41 minutos",
+      "body": "Con Blitzcrank murió cada 2:36 de media. Derrota, claro. El contador de muertes pidió una pausa.",
+      "stat": "16",
+      "stat_label": "muertes en una partida",
+      "severity": 7.4,
+      "facts": {
+        "alias": "RDV Canyon",
+        "games": 6,
+        "wl": "2–4",
+        "d": 16,
+        "kda": "2,38",
+        "dmg_txt": "el 17,0 % del daño de su equipo",
+        "dmg_txt_cap": "El 17,0 % del daño de su equipo de media",
+        "champ": "Blitzcrank",
+        "champs": "Braum, Galio y Maokai",
+        "hours": "3,0",
+        "kdas": "4/16/33",
+        "queue": "Ranked Solo/Dúo",
+        "mins": 41,
+        "every": "2:36",
+        "res": "derrota",
+        "res_cap": "Derrota, claro"
+      }
+    },
+    {
+      "id": 3,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "iPredatoRz muere 13 veces en una sola partida y la policía de Piltover abre una investigación",
+      "body": "Twitch, 12/13/7, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
+      "stat": "13",
+      "stat_label": "muertes en una partida",
+      "severity": 6.2,
+      "facts": {
+        "alias": "iPredatoRz",
+        "games": 6,
+        "wl": "3–3",
+        "d": 13,
+        "kda": "2,29",
+        "dmg_txt": "el 29,8 % del daño de su equipo",
+        "dmg_txt_cap": "El 29,8 % del daño de su equipo de media",
+        "champ": "Twitch",
+        "champs": "Lucian, Ezreal y Miss Fortune",
+        "hours": "2,9",
+        "kdas": "12/13/7",
+        "queue": "Ranked Solo/Dúo",
+        "mins": 30,
+        "every": "2:22",
+        "res": "derrota",
+        "res_cap": "Derrota, claro"
+      }
+    },
+    {
+      "id": 4,
+      "kind": "racha",
+      "section": "DEPORTES",
+      "desk": "Arena de Noxus",
+      "player": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "headline": "RDV Canyon encadena 3 derrotas seguidas y sigue dándole a «Jugar otra vez»",
+      "body": "Su día terminó 2–4. Los expertos recomiendan apagar el ordenador; RDV Canyon recomienda otra partida rápida.",
+      "stat": "3",
+      "stat_label": "derrotas seguidas",
+      "severity": 6,
+      "facts": {
+        "alias": "RDV Canyon",
+        "games": 6,
+        "wl": "2–4",
+        "d": 53,
+        "kda": "2,38",
+        "dmg_txt": "el 17,0 % del daño de su equipo",
+        "dmg_txt_cap": "El 17,0 % del daño de su equipo de media",
+        "champ": "Blitzcrank",
+        "champs": "Braum, Galio y Maokai",
+        "hours": "3,0",
+        "n": 3
+      }
+    },
+    {
+      "id": 5,
+      "kind": "rendicion",
+      "section": "POLÍTICA",
+      "desk": "Corte de Demacia",
+      "player": null,
+      "alias": null,
+      "headline": "Ante la duda, rendición: RDV Canyon, Fr4nux y iPredatoRz se rindieron 4 veces",
+      "body": "Otros remontan; aquí se pulsa el botón de rendirse y se ahorra tiempo para la siguiente derrota.",
+      "stat": "4",
+      "stat_label": "partidas rendidas",
+      "severity": 6,
+      "facts": {
+        "names": "RDV Canyon, Fr4nux y iPredatoRz",
+        "verb": "se rindieron",
+        "n_txt": "4 veces"
+      }
+    },
+    {
+      "id": 6,
+      "kind": "dano",
+      "section": "DAÑO",
+      "desk": "Instituto Hextech de Piltover",
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "Giroroo fue el que menos daño hizo de su equipo en 2 de 4 partidas",
+      "body": "En su peor caso, con Rek'Sai (7/9/8), se quedó en 19.967 de daño a campeones: el 13,4 % de su equipo. Hasta el que menos aportaba le pasó por encima.",
+      "stat": "2/4",
+      "stat_label": "partidas como el que menos daño de su equipo",
+      "severity": 5.5,
+      "facts": {
+        "alias": "Giroroo",
+        "games": 4,
+        "wl": "2–2",
+        "d": 30,
+        "kda": "1,47",
+        "dmg_txt": "el 14,9 % del daño de su equipo",
+        "dmg_txt_cap": "El 14,9 % del daño de su equipo de media",
+        "champ": "Rek'Sai",
+        "champs": "Sylas, Ambessa y Rek'Sai",
+        "hours": "2,2",
+        "n": 2,
+        "g": 4,
+        "kdas": "7/9/8",
+        "dmg": "19.967",
+        "share": "13,4 %"
+      }
+    },
+    {
+      "id": 7,
+      "kind": "economia",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "fr4nux",
+      "alias": "Fr4nux",
+      "headline": "La Lonja de Aguasturbias congela los fondos de Fr4nux: 17,8 % del oro, 11,8 % del daño",
+      "body": "Con Jarvan IV cobró 6,0 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
+      "stat": "−6,0",
+      "stat_label": "puntos entre oro y daño",
+      "severity": 5.42,
+      "facts": {
+        "alias": "Fr4nux",
+        "games": 7,
+        "wl": "2–5",
+        "d": 48,
+        "kda": "2,65",
+        "dmg_txt": "el 24,8 % del daño de su equipo",
+        "dmg_txt_cap": "El 24,8 % del daño de su equipo de media",
+        "champ": "Jarvan IV",
+        "champs": "Jarvan IV, Corki y Ezreal",
+        "hours": "3,5",
+        "gold": "17,8 %",
+        "share": "11,8 %",
+        "gap": "6,0"
+      }
+    },
+    {
+      "id": 8,
+      "kind": "economia",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "Giroroo, el fichaje más caro y el que menos rinde: 18,9 % del oro, 13,7 % del daño",
+      "body": "Partida con Sylas: 5,2 puntos de diferencia entre lo que cobró y lo que aportó. Hacienda investiga.",
+      "stat": "−5,2",
+      "stat_label": "puntos entre oro y daño",
+      "severity": 5.07,
+      "facts": {
+        "alias": "Giroroo",
+        "games": 4,
+        "wl": "2–2",
+        "d": 30,
+        "kda": "1,47",
+        "dmg_txt": "el 14,9 % del daño de su equipo",
+        "dmg_txt_cap": "El 14,9 % del daño de su equipo de media",
+        "champ": "Sylas",
+        "champs": "Sylas, Ambessa y Rek'Sai",
+        "hours": "2,2",
+        "gold": "18,9 %",
+        "share": "13,7 %",
+        "gap": "5,2"
+      }
+    },
+    {
+      "id": 9,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "Detenido grangalax por alimentar al enemigo: 10 muertes con Ekko",
+      "body": "Los hechos ocurrieron en una Ranked Solo/Dúo de 31 minutos. Resultado: 8/10/10. Derrota, claro. El rival ya le ha enviado una cesta de agradecimiento.",
+      "stat": "10",
+      "stat_label": "muertes en una partida",
+      "severity": 5.0,
+      "facts": {
+        "alias": "grangalax",
+        "games": 4,
+        "wl": "1–3",
+        "d": 10,
+        "kda": "1,69",
+        "dmg_txt": "el 21,2 % del daño de su equipo",
+        "dmg_txt_cap": "El 21,2 % del daño de su equipo de media",
+        "champ": "Ekko",
+        "champs": "Ekko y Ahri",
+        "hours": "2,0",
+        "kdas": "8/10/10",
+        "queue": "Ranked Solo/Dúo",
+        "mins": 31,
+        "every": "3:11",
+        "res": "derrota",
+        "res_cap": "Derrota, claro"
+      }
+    },
+    {
+      "id": 10,
+      "kind": "dano",
+      "section": "DAÑO",
+      "desk": "Instituto Hextech de Piltover",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "GSJoseador dispara con balas de fogueo: 1 partidas como el que menos daño de su equipo",
+      "body": "Su obra cumbre: Viktor, 17.535 de daño, el 18,0 % del total. Los súbditos enemigos sufrieron más que los campeones.",
+      "stat": "1/3",
+      "stat_label": "partidas como el que menos daño de su equipo",
+      "severity": 5.0,
+      "facts": {
+        "alias": "GSJoseador",
+        "games": 3,
+        "wl": "1–2",
+        "d": 21,
+        "kda": "2,10",
+        "dmg_txt": "el 18,8 % del daño de su equipo",
+        "dmg_txt_cap": "El 18,8 % del daño de su equipo de media",
+        "champ": "Viktor",
+        "champs": "Ornn, Viktor y Xerath",
+        "hours": "1,6",
+        "n": 1,
+        "g": 3,
+        "kdas": "4/10/4",
+        "dmg": "17.535",
+        "share": "18,0 %"
+      }
+    },
+    {
+      "id": 11,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "GSJoseador muere 10 veces en una sola partida y la policía de Piltover abre una investigación",
+      "body": "Viktor, 4/10/4, derrota. Testigos aseguran que lo vieron entrar solo a la jungla enemiga una y otra vez.",
+      "stat": "10",
+      "stat_label": "muertes en una partida",
+      "severity": 5.0,
+      "facts": {
+        "alias": "GSJoseador",
+        "games": 3,
+        "wl": "1–2",
+        "d": 10,
+        "kda": "2,10",
+        "dmg_txt": "el 18,8 % del daño de su equipo",
+        "dmg_txt_cap": "El 18,8 % del daño de su equipo de media",
+        "champ": "Viktor",
+        "champs": "Ornn, Viktor y Xerath",
+        "hours": "1,6",
+        "kdas": "4/10/4",
+        "queue": "Ranked Solo/Dúo",
+        "mins": 25,
+        "every": "2:33",
+        "res": "derrota",
+        "res_cap": "Derrota, claro"
+      }
+    },
+    {
+      "id": 12,
+      "kind": "tiempo",
+      "section": "EL TIEMPO",
+      "desk": "Islas de la Sombra",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "Previsión para iPredatoRz: gris durante 24 minutos",
+      "body": "Hoy pasó 24 minutos muerto, el 14,0 % de su tiempo en partida. Probabilidad de respawn: alta. Probabilidad de servir de algo: baja.",
+      "stat": "24 min",
+      "stat_label": "en la pantalla gris",
+      "severity": 4.97,
+      "facts": {
+        "alias": "iPredatoRz",
+        "games": 6,
+        "wl": "3–3",
+        "d": 49,
+        "kda": "2,29",
+        "dmg_txt": "el 29,8 % del daño de su equipo",
+        "dmg_txt_cap": "El 29,8 % del daño de su equipo de media",
+        "champ": "Twitch",
+        "champs": "Lucian, Ezreal y Miss Fortune",
+        "hours": "2,9",
+        "dead_mins": 24,
+        "dead_pct": "14,0 %"
+      }
+    },
+    {
+      "id": 13,
+      "kind": "dano",
+      "section": "DAÑO",
+      "desk": "Instituto Hextech de Piltover",
+      "player": "grangalax",
+      "alias": "grangalax",
+      "headline": "Investigación: ¿dónde está el daño de grangalax? Último en daño 1 veces",
+      "body": "Con Ekko firmó un 13,2 % del daño de su equipo (4.722). Repartiendo a partes iguales le tocaba un 20 %. Ni eso.",
+      "stat": "1/4",
+      "stat_label": "partidas como el que menos daño de su equipo",
+      "severity": 4.75,
+      "facts": {
+        "alias": "grangalax",
+        "games": 4,
+        "wl": "1–3",
+        "d": 32,
+        "kda": "1,69",
+        "dmg_txt": "el 21,2 % del daño de su equipo",
+        "dmg_txt_cap": "El 21,2 % del daño de su equipo de media",
+        "champ": "Ekko",
+        "champs": "Ekko y Ahri",
+        "hours": "2,0",
+        "n": 1,
+        "g": 4,
+        "kdas": "1/6/3",
+        "dmg": "4.722",
+        "share": "13,2 %"
+      }
+    },
+    {
+      "id": 14,
+      "kind": "duo",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": null,
+      "alias": null,
+      "headline": "Sociedad limitada: Fr4nux + grangalax se van 1–2",
+      "body": "La sinergia de este dúo es la de una tostadora en la bañera.",
+      "stat": "1–2",
+      "stat_label": "juntos",
+      "severity": 4,
+      "facts": {
+        "a": "Fr4nux",
+        "b": "grangalax",
+        "w": 1,
+        "l": 2
+      }
+    },
+    {
+      "id": 15,
+      "kind": "mencion",
+      "section": "EL FARO DE LA ESPERANZA",
+      "desk": "Centinelas de la Luz",
+      "player": "ipredatorz",
+      "alias": "iPredatoRz",
+      "headline": "Desde el Faro, una señal: iPredatoRz sobrevive al día (3–3)",
+      "body": "El mejor del grupo, que no es decir mucho. Los Centinelas de la Luz lo anotan en su diario con letra pequeña, por si acaso.",
+      "stat": "3–3",
+      "stat_label": "victorias–derrotas",
+      "severity": 0.5,
+      "facts": {
+        "alias": "iPredatoRz",
+        "games": 6,
+        "wl": "3–3",
+        "d": 49,
+        "kda": "2,29",
+        "dmg_txt": "el 29,8 % del daño de su equipo",
+        "dmg_txt_cap": "El 29,8 % del daño de su equipo de media",
+        "champ": "Twitch",
+        "champs": "Lucian, Ezreal y Miss Fortune",
+        "hours": "2,9"
+      }
+    },
+    {
+      "id": 16,
+      "kind": "ausentes",
+      "section": "AUSENTES",
+      "desk": "Perdidos en el Vacío",
+      "player": null,
+      "alias": null,
+      "headline": "Ausentes hoy: Dierophant, TheTrevur, Wôlf y Saiko",
+      "body": "Sus equipos habituales lo celebran. Mañana volverán, como siempre.",
+      "stat": "4",
+      "stat_label": "no jugaron",
+      "severity": 0.2,
+      "facts": {
+        "names": "Dierophant, TheTrevur, Wôlf y Saiko"
+      }
+    }
+  ],
+  "canon_cambios": {
+    "hilos": [
+      {
+        "id": "la-moneda",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "Con Ekko en VitasUchiha, el Barón cruza el cordón de Cobretuerca y muere seis veces en la misma baldosa en catorce minutos, y gana. En la secundaria 1–3 y cuarenta puntos menos; en la cuenta comprada 2–1, ochenta puntos y Platino IV.",
+        "protagonistas": [
+          "grangalax"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-saiko-de-repuesto",
+        "accion": "cerrar",
+        "titulo": null,
+        "estado": "cerrado",
+        "resumen": "El repuesto se avería como el original: RDV Canyon pasa del 8–0 al 2–4, bate su récord de muertes con Blitzcrank (dieciséis, cinco en el mismo punto) y SAIIIIIIKO amanece en Diamante IV con cero puntos.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "carry-not-found",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": "escalando",
+        "resumen": "Fr4nux hace casi un tercio del daño de su equipo y pierde cinco seguidas, con un cuádruple de Jarvan IV en la quinta y Corki ya en 0–6. La principal pierde setenta y un puntos; la Kai'Sa 13/2/9 llega a las doce y media.",
+        "protagonistas": [
+          "fr4nux"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-sindicato-cambia-de-bando",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Por primera vez el cobro va al revés: la Kalista que perseguía a iPredatoRz aparece en el equipo rival y muere dieciséis veces ante su Lucian 20/8/9.",
+        "protagonistas": [
+          "ipredatorz"
+        ],
+        "reparto": []
+      },
+      {
+        "id": "el-reto-de-las-cuentas-nuevas",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Día veinte: grangalax y Fr4nux ascienden a Platino IV con la cuenta comprada mientras se hunden con las suyas; Saiko líder sin jugar; Giroroo 0–2 cae al quinto y Dierophant sube al cuarto sin jugar.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "la-guerra-de-los-periodicos",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "El director cambia la cerradura y se lleva la única llave; la Gaceta publica igual a las seis las dieciséis muertes de RDV Canyon. El Rincón publica una fe de erratas: no era la llave de Candil, era alguien que tiene las cifras de muertes antes de publicarse.",
+        "protagonistas": [],
+        "reparto": []
+      },
+      {
+        "id": "el-papel-de-barbanegra",
+        "accion": "avanzar",
+        "titulo": null,
+        "estado": null,
+        "resumen": "Barbanegra, suspendido, compra la Gaceta a las seis y cinco «por el crucigrama». La Gaceta no tiene crucigrama.",
+        "protagonistas": [],
+        "reparto": []
+      }
+    ],
+    "personajes": {
+      "grangalax": {
+        "apodo": "el inquilino de la baldosa"
+      },
+      "fr4nux": {
+        "maldicion": "Corki: 0–6 en la hemeroteca, con casi un tercio del daño en las dos últimas"
+      },
+      "rdv-canyon": {
+        "arco": {
+          "tipo": "caída",
+          "texto": "El repuesto de Saiko se avería como el original: del 8–0 al 2–4 y dieciséis muertes con Blitzcrank."
+        }
+      },
+      "ipredatorz": {
+        "maldicion": "Ezreal: 0–4 en la hemeroteca"
+      },
+      "giroroo": {
+        "apodo": "el que se lo lleva todo menos la partida"
+      }
+    },
+    "elenco": [
+      {
+        "nombre": "Comisario Ambrosio Cobretuerca",
+        "actualizar": true,
+        "estado": "La baldosa acordonada ya tiene seis siluetas de tiza; ha pedido más cinta"
+      },
+      {
+        "nombre": "Don Evaristo Plumanegra",
+        "actualizar": true,
+        "estado": "Ha cambiado la cerradura de la redacción y duerme con la única llave; la Gaceta publica igual"
+      },
+      {
+        "nombre": "Tobías Candil",
+        "actualizar": true,
+        "estado": "Medio exculpado: con la cerradura nueva, las exclusivas siguen saliendo"
+      },
+      {
+        "nombre": "Doctor Ezequiel Humoverde",
+        "actualizar": true,
+        "estado": "La fe de erratas apunta a quien tiene las cifras de muertes antes de publicarse; ha pedido que no se le pregunte por la mañana"
+      },
+      {
+        "nombre": "Barbanegra el Contable",
+        "actualizar": true,
+        "estado": "Suspendido; compra la Gaceta a las seis y cinco «por el crucigrama»"
+      }
+    ],
+    "costumbres": [
+      "Los jueves RDV Canyon empieza la SoloQ a las nueve menos diez de la mañana y no la suelta hasta pasadas las seis de la tarde."
+    ],
+    "chistes": [
+      "la moneda de grangalax",
+      "la baldosa acordonada",
+      "el Saiko de repuesto"
+    ],
+    "sindicato": [
+      {
+        "campeon": "Blitzcrank",
+        "jugador": "rdv-canyon",
+        "motivo": "Dieciséis muertes en cuarenta y dos minutos, cinco en el mismo punto, el día después de ganar cinco con él"
+      },
+      {
+        "campeon": "Corki",
+        "jugador": "fr4nux",
+        "motivo": "Sexta derrota de seis en la hemeroteca, y dos en la misma noche"
+      },
+      {
+        "campeon": "Ezreal",
+        "jugador": "ipredatorz",
+        "motivo": "Cuarta derrota de cuatro: 1/5/1 en veintiún minutos ante una Tristana que murió una vez"
+      },
+      {
+        "campeon": "Twitch",
+        "jugador": "ipredatorz",
+        "motivo": "Estrenado regalando la primera sangre con dos minutos en el reloj y trece muertes"
+      }
+    ]
+  },
+  "tiempo": [
+    {
+      "jugador": "giroroo",
+      "texto": "Dieciocho minutos en gris, ventisca de pings en la jungla y visibilidad reducida a un guardián."
+    },
+    {
+      "jugador": "grangalax",
+      "texto": "Bruma fija sobre una sola baldosa del carril central y dieciséis minutos en gris. Se recomienda no volver a pasar por allí. Volverá."
+    },
+    {
+      "jugador": "gsjoseador",
+      "texto": "Doce minutos en gris y una Katarina de componente sur arrasando el carril central. Bajada de presión hasta Diamante II."
+    },
+    {
+      "jugador": "rdv-canyon",
+      "texto": "Veinticuatro minutos en gris bajo el cielo más iluminado de la jornada: se ve perfectamente dónde cae cada rayo."
+    },
+    {
+      "jugador": "fr4nux",
+      "texto": "Veintiséis minutos de Niebla Negra en cinco tormentas seguidas. A las doce y media, un claro con Kai'Sa que no esperaba nadie."
+    },
+    {
+      "jugador": "ipredatorz",
+      "texto": "Veinticuatro minutos de pantalla gris, chubascos de rata a media tarde y un Lucian despejado al anochecer."
+    }
+  ],
+  "angulos_usados": [
+    "mismo_sitio:grangalax:EUW1_8051321830",
+    "muertes:rdv-canyon",
+    "racha:fr4nux",
+    "faro:ipredatorz",
+    "objetivos:giroroo:EUW1_8051091047",
+    "soloq_escalada:grangalax:nandaris#6071",
+    "descenso:gsjoseador:soloGSJoseador#2711",
+    "primera_sangre:ipredatorz:EUW1_8051230240",
+    "maldito:ipredatorz:Ezreal",
+    "duo:Fr4nux+grangalax",
+    "farmeo:grangalax"
+  ],
+  "horoscopo": [
+    {
+      "signo": "Top",
+      "texto": "Un pez gordo te traga los problemas y te da la victoria. No te acostumbres: mañana vuelve el herrero que no forja nada."
+    },
+    {
+      "signo": "Jungla",
+      "texto": "Te llevarás el Barón, los dragones y las larvas. La partida, no. Los astros no se responsabilizan del inventario."
+    },
+    {
+      "signo": "Mid",
+      "texto": "Evita las baldosas con cinta policial. Si la ves, no es decoración: es tu silueta esperándote."
+    },
+    {
+      "signo": "Tirador",
+      "texto": "Harás daño por fin, mucho, y perderás igual. Lo bueno llegará pasada la medianoche, cuando ya no mire nadie."
+    },
+    {
+      "signo": "Soporte",
+      "texto": "Iluminarás el mapa entero. Servirá para que todos vean con claridad dónde caes por decimosexta vez."
+    }
+  ],
+  "template_frase": "Ningún súbdito ha sido farmeado durante la elaboración de esta partida.",
+  "columna": {
+    "titulo": "Setenta y cinco de oro, y ni así",
+    "autor": "Un Guardián de Control",
+    "cuerpo": [
+      "Cuesto setenta y cinco de oro. Menos que un súbdito de asedio bien rematado. Menos que lo que perdéis cada vez que volvéis a la baldosa del carril central a ver si esta vez sale distinto. Y aun así, en la tienda, paso de largo como un folleto de una secta.",
+      "Ayer, con Azir, se pusieron dos guardianes en treinta y seis minutos. Con Ezreal, uno; la visión de esa partida acabó en uno, que es el número de guardianes que se pusieron. Con Sylas, en la jungla, otro solitario en treinta y siete minutos, y aun así hubo quien se lo apuntó como promesa cumplida.",
+      "Luego está el Blitzcrank de RDV Canyon: cincuenta y cinco guardianes. Lo vio todo. Vio venir cada una de sus dieciséis muertes en alta definición, desde tres ángulos.",
+      "Conclusión de un trozo de cristal mágico: o no me compráis, o me compráis para ver mejor cómo os matan. Yo, con setenta y cinco de oro, me retiraba a Bandle."
+    ]
+  },
+  "especial": null,
+  "gaceta": {
+    "titular": "¡GANÓ EN CATORCE MINUTOS Y EL RINCÓN LO LLAMA DELITO!",
+    "cuerpo": "Fuentes de toda solvencia confirman lo que el Rincón entierra bajo una baldosa: grangalax GANÓ. En catorce minutos. Mientras la redacción de Plumanegra cuenta siluetas de tiza, esta casa cuenta victorias, y le salen dos más en la cuenta comprada, ochenta puntos arriba y ascenso a Platino. ¿Eso no es portada?\n\nY, por cierto: a las seis de la mañana esta Gaceta ya tenía en la calle las dieciséis muertes del Blitzcrank de RDV Canyon. El Rincón cambió la cerradura. Nosotros nunca hemos necesitado llave.",
+    "firma": "Valeria Puñoférreo"
+  },
+  "jurado": {
+    "pregunta": "¿Quién le pasa las cifras a la Gaceta?",
+    "opciones": [
+      "El becario Candil, con otra llave",
+      "El doctor Humoverde, que cobra por muerte",
+      "El propio director, para vender algo"
+    ],
+    "juicio": false
+  },
+  "jurado_veredicto": null,
+  "manana": [
+    {
+      "texto": "¿Vuelve el Barón a pisar la baldosa acordonada?"
+    },
+    {
+      "texto": "¿Rompe Fr4nux la maldición de Corki o la estira a siete?"
+    },
+    {
+      "texto": "¿Aguanta SAIIIIIIKO en Diamante IV con cero puntos?"
+    }
+  ],
+  "promesas": [
+    {
+      "pregunta": "¿Corta Saiko la racha de cuatro o regala el trono por fin?",
+      "texto": "Saiko no se presentó en el reto: la racha de cuatro derrotas sigue congelada y el trono, suyo por incomparecencia."
+    },
+    {
+      "pregunta": "¿Abre TheTrevur la cuenta comprada antes de que el Teemo plante la segunda seta?",
+      "texto": "TheTrevur no jugó. La cuenta comprada sigue cerrada y el Teemo, con las setas puestas, sigue esperando."
+    },
+    {
+      "pregunta": "¿Pondrá Giroroo un guardián con Kayn, uno solo?",
+      "texto": "No hubo Kayn. Hubo Sylas en la jungla, treinta y siete minutos, y un guardián. Uno solo. Promesa cumplida al pie de la letra."
+    }
+  ],
+  "tablon": [],
+  "sugerencias_tablon": [],
+  "tarjetas": [
+    {
+      "id": "partidas-al-dia",
+      "tipo": "tabla",
+      "titulo": "¿Quién va al día?",
+      "datos": {
+        "columnas": [
+          "Jugador",
+          "Jugadas",
+          "Frente a 38",
+          "Faltan para 50"
+        ],
+        "filas": [
+          [
+            "Saiko",
+            "44",
+            "+6",
+            "6"
+          ],
+          [
+            "Giroroo",
+            "44",
+            "+6",
+            "6"
+          ],
+          [
+            "Wôlf",
+            "43",
+            "+5",
+            "7"
+          ],
+          [
+            "Fr4nux",
+            "40",
+            "+2",
+            "10"
+          ],
+          [
+            "GSJoseador",
+            "38",
+            "0",
+            "12"
+          ],
+          [
+            "grangalax",
+            "38",
+            "0",
+            "12"
+          ],
+          [
+            "Dierophant",
+            "38",
+            "0",
+            "12"
+          ],
+          [
+            "RDV Canyon",
+            "35",
+            "−3",
+            "15"
+          ],
+          [
+            "iPredatoRz",
+            "30",
+            "−8",
+            "20"
+          ],
+          [
+            "TheTrevur",
+            "15",
+            "−23",
+            "35"
+          ]
+        ]
+      },
+      "subtitulo": "Partidas jugadas frente al ritmo de dos por día (19 días completos: 38)",
+      "pie": "Giroroo alcanza a Saiko en partidas el día que pierde las dos. TheTrevur, veintitrés por detrás y sin abrir la cuenta.",
+      "sugerencia": 4
+    }
+  ],
+  "ai": {
+    "version": 1,
+    "updated_at": 1795193599322,
+    "firma": "Claude",
+    "stale": false,
+    "formato": 2
+  },
+  "written_by": "Claude",
+  "lectores_ayer": {
+    "edicion": "2026-11-19",
+    "mas_reaccionadas": [],
+    "comentarios": []
+  },
+  "jurado_ayer": {
+    "edicion": "2026-11-19",
+    "pregunta": "¿Quién es el Saiko de verdad?",
+    "juicio": false,
+    "opciones": [
+      {
+        "texto": "El que pierde cuatro en el reto",
+        "votos": 0,
+        "quien": []
+      },
+      {
+        "texto": "El que gana ocho con su nombre",
+        "votos": 0,
+        "quien": []
+      },
+      {
+        "texto": "Blitzcrank, el único que no cambia",
+        "votos": 0,
+        "quien": []
+      }
+    ],
+    "total": 0,
+    "estado": "ok"
+  },
+  "quien_fue_ayer": {
+    "edicion": "2026-11-19",
+    "solucion": "Giroroo",
+    "campeon": "Kayn",
+    "jugaron": 0,
+    "acertaron": [],
+    "fallaron": 0,
+    "estado": "ok"
+  },
+  "cotillas": []
 }

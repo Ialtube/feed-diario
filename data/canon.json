@@ -61,6 +61,10 @@
         {
           "fecha": "2026-11-17",
           "texto": "el pasajero de la Flex"
+        },
+        {
+          "fecha": "2026-11-20",
+          "texto": "el inquilino de la baldosa"
         }
       ],
       "rasgos": [
@@ -367,6 +371,10 @@
         {
           "fecha": "2026-11-17",
           "texto": "Twitch: 7/11/6 en su estreno, ante un Ezreal, su propio campeón favorito del reto"
+        },
+        {
+          "fecha": "2026-11-20",
+          "texto": "Corki: 0–6 en la hemeroteca, con casi un tercio del daño en las dos últimas"
         }
       ],
       "rivales": [
@@ -667,6 +675,10 @@
         {
           "fecha": "2026-11-16",
           "texto": "Kalista: 0–4 en la hemeroteca"
+        },
+        {
+          "fecha": "2026-11-20",
+          "texto": "Ezreal: 0–4 en la hemeroteca"
         }
       ],
       "rivales": [],
@@ -809,6 +821,11 @@
           "tipo": "ascenso",
           "texto": "Ocho de ocho de soporte en un día y la cuenta SAIIIIIIKO en Diamante IV, mientras el Saiko titular pierde cuatro en el reto.",
           "fecha": "2026-11-19"
+        },
+        {
+          "tipo": "caída",
+          "texto": "El repuesto de Saiko se avería como el original: del 8–0 al 2–4 y dieciséis muertes con Blitzcrank.",
+          "fecha": "2026-11-20"
         }
       ]
     },
@@ -832,6 +849,10 @@
         {
           "fecha": "2026-11-18",
           "texto": "el segador a oscuras"
+        },
+        {
+          "fecha": "2026-11-20",
+          "texto": "el que se lo lleva todo menos la partida"
         }
       ],
       "rasgos": [
@@ -1073,6 +1094,11 @@
           "fecha": "2026-11-14",
           "campo": "estado",
           "texto": "Enseñó el borrador a Madame Niebla; ha acordonado una baldosa del carril central por reincidencia del Barón"
+        },
+        {
+          "fecha": "2026-11-20",
+          "campo": "estado",
+          "texto": "La baldosa acordonada ya tiene seis siluetas de tiza; ha pedido más cinta"
         }
       ]
     },
@@ -1187,6 +1213,11 @@
           "fecha": "2026-11-19",
           "campo": "estado",
           "texto": "Descubrió la deuda del director con Barbanegra; la Gaceta se lo publicó antes que su propio periódico"
+        },
+        {
+          "fecha": "2026-11-20",
+          "campo": "estado",
+          "texto": "La fe de erratas apunta a quien tiene las cifras de muertes antes de publicarse; ha pedido que no se le pregunte por la mañana"
         }
       ]
     },
@@ -1275,6 +1306,11 @@
           "fecha": "2026-11-18",
           "campo": "estado",
           "texto": "Suspendido; reclama por escrito su comisión de la cuenta «E. P.»"
+        },
+        {
+          "fecha": "2026-11-20",
+          "campo": "estado",
+          "texto": "Suspendido; compra la Gaceta a las seis y cinco «por el crucigrama»"
         }
       ]
     },
@@ -1484,6 +1520,11 @@
           "fecha": "2026-11-19",
           "campo": "estado",
           "texto": "Descubierto: debe a Barbanegra todas las comisiones de la cuenta «E. P.»; compra tres ejemplares de la Gaceta"
+        },
+        {
+          "fecha": "2026-11-20",
+          "campo": "estado",
+          "texto": "Ha cambiado la cerradura de la redacción y duerme con la única llave; la Gaceta publica igual"
         }
       ]
     },
@@ -1593,6 +1634,11 @@
           "fecha": "2026-11-19",
           "campo": "estado",
           "texto": "Sospechoso de haber dejado la puerta abierta: tiene llave de la redacción"
+        },
+        {
+          "fecha": "2026-11-20",
+          "campo": "estado",
+          "texto": "Medio exculpado: con la cerradura nueva, las exclusivas siguen saliendo"
         }
       ]
     },
@@ -1705,6 +1751,10 @@
         },
         {
           "fecha": "2026-11-19",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-20",
           "estado": "escalando"
         }
       ],
@@ -1871,6 +1921,13 @@
           "titulares": [
             "Ganaba la calle y murió doce veces"
           ]
+        },
+        {
+          "fecha": "2026-11-20",
+          "resumen": "Con Ekko en VitasUchiha, el Barón cruza el cordón de Cobretuerca y muere seis veces en la misma baldosa en catorce minutos, y gana. En la secundaria 1–3 y cuarenta puntos menos; en la cuenta comprada 2–1, ochenta puntos y Platino IV.",
+          "titulares": [
+            "Seis siluetas de tiza en la misma baldosa"
+          ]
         }
       ]
     },
@@ -1974,6 +2031,10 @@
         },
         {
           "fecha": "2026-11-16",
+          "estado": "escalando"
+        },
+        {
+          "fecha": "2026-11-20",
           "estado": "escalando"
         }
       ],
@@ -2123,6 +2184,13 @@
           "resumen": "Ezreal 0/5/2 ante una Tristana 10/2/4: 18,8 % del oro y 12,1 % del daño. La principal pierde 21 puntos y baja a Platino III. El Instituto concluye que el daño está en la cuenta comprada.",
           "titulares": [
             "El Instituto Hextech confirma que Ezreal no disparó"
+          ]
+        },
+        {
+          "fecha": "2026-11-20",
+          "resumen": "Fr4nux hace casi un tercio del daño de su equipo y pierde cinco seguidas, con un cuádruple de Jarvan IV en la quinta y Corki ya en 0–6. La principal pierde setenta y un puntos; la Kai'Sa 13/2/9 llega a las doce y media.",
+          "titulares": [
+            "Apareció el daño; faltaban las victorias"
           ]
         }
       ]
@@ -2680,6 +2748,13 @@
           "fecha": "2026-11-19",
           "resumen": "La Gaceta le roba al Rincón la exclusiva de la deuda del director con Barbanegra y la publica antes de que el Rincón la imprima. El director compra tres ejemplares.",
           "titulares": []
+        },
+        {
+          "fecha": "2026-11-20",
+          "resumen": "El director cambia la cerradura y se lleva la única llave; la Gaceta publica igual a las seis las dieciséis muertes de RDV Canyon. El Rincón publica una fe de erratas: no era la llave de Candil, era alguien que tiene las cifras de muertes antes de publicarse.",
+          "titulares": [
+            "Donde dice «la llave del becario»"
+          ]
         }
       ],
       "estados": [
@@ -3542,6 +3617,13 @@
           "titulares": [
             "Pierden todos los de arriba menos el que dijo Hola"
           ]
+        },
+        {
+          "fecha": "2026-11-20",
+          "resumen": "Día veinte: grangalax y Fr4nux ascienden a Platino IV con la cuenta comprada mientras se hunden con las suyas; Saiko líder sin jugar; Giroroo 0–2 cae al quinto y Dierophant sube al cuarto sin jugar.",
+          "titulares": [
+            "El Comité recomienda no devolverles nunca las cuentas"
+          ]
         }
       ]
     },
@@ -3674,6 +3756,13 @@
           "resumen": "Ezreal vuelve a aparecer contra iPredatoRz: 10/1/7 ante su Zeri a las 22:47, nueve muertes y 3.937 de oro de diferencia. Viego denuncia a Dierophant tras su sexta derrota de seis.",
           "titulares": [
             "Ezreal vuelve a la escena del crimen"
+          ]
+        },
+        {
+          "fecha": "2026-11-20",
+          "resumen": "Por primera vez el cobro va al revés: la Kalista que perseguía a iPredatoRz aparece en el equipo rival y muere dieciséis veces ante su Lucian 20/8/9.",
+          "titulares": [
+            "Los Centinelas ven disparar a Lucian, y no contra los suyos"
           ]
         }
       ]
@@ -4085,6 +4174,11 @@
           "titulares": [
             "Nos han vuelto a ganar la mano"
           ]
+        },
+        {
+          "fecha": "2026-11-20",
+          "resumen": "Barbanegra, suspendido, compra la Gaceta a las seis y cinco «por el crucigrama». La Gaceta no tiene crucigrama.",
+          "titulares": []
         }
       ]
     },
@@ -4138,6 +4232,10 @@
         {
           "fecha": "2026-11-19",
           "estado": "abierto"
+        },
+        {
+          "fecha": "2026-11-20",
+          "estado": "cerrado"
         }
       ],
       "capitulos": [
@@ -4146,6 +4244,13 @@
           "resumen": "El mismo día que Saiko pierde cuatro Blitzcrank seguidas en el reto, RDV Canyon gana ocho de soporte (cinco con Blitzcrank) y la cuenta SAIIIIIIKO sube 178 puntos hasta Diamante IV.",
           "titulares": [
             "Hay un Saiko que gana, y no es Saiko"
+          ]
+        },
+        {
+          "fecha": "2026-11-20",
+          "resumen": "El repuesto se avería como el original: RDV Canyon pasa del 8–0 al 2–4, bate su récord de muertes con Blitzcrank (dieciséis, cinco en el mismo punto) y SAIIIIIIKO amanece en Diamante IV con cero puntos.",
+          "titulares": [
+            "El repuesto también se oxida"
           ]
         }
       ]
@@ -4271,6 +4376,10 @@
     {
       "fecha": "2026-11-19",
       "texto": "Los miércoles sin Flex, RDV Canyon abre la SoloQ a las seis con Blitzcrank y la cierra pasadas las once de dúo con TheTrevur, sin perder una."
+    },
+    {
+      "fecha": "2026-11-20",
+      "texto": "Los jueves RDV Canyon empieza la SoloQ a las nueve menos diez de la mañana y no la suelta hasta pasadas las seis de la tarde."
     }
   ],
   "chistes": [
@@ -4287,9 +4396,10 @@
         "2026-11-09",
         "2026-11-11",
         "2026-11-12",
-        "2026-11-17"
+        "2026-11-17",
+        "2026-11-20"
       ],
-      "usos": 11,
+      "usos": 12,
       "semilla": true
     },
     {
@@ -4428,6 +4538,20 @@
       "texto": "el Comodín de la Grieta",
       "fechas": [
         "2026-11-18"
+      ],
+      "usos": 1
+    },
+    {
+      "texto": "la baldosa acordonada",
+      "fechas": [
+        "2026-11-20"
+      ],
+      "usos": 1
+    },
+    {
+      "texto": "el Saiko de repuesto",
+      "fechas": [
+        "2026-11-20"
       ],
       "usos": 1
     }
@@ -4756,6 +4880,30 @@
       "jugador": "grangalax",
       "motivo": "Llevado por delante en oro y farmeo para morir doce veces, cuatro en la misma baldosa, y regalar la sangre de apertura a una Samira",
       "fecha": "2026-11-19"
+    },
+    {
+      "campeon": "Blitzcrank",
+      "jugador": "rdv-canyon",
+      "motivo": "Dieciséis muertes en cuarenta y dos minutos, cinco en el mismo punto, el día después de ganar cinco con él",
+      "fecha": "2026-11-20"
+    },
+    {
+      "campeon": "Corki",
+      "jugador": "fr4nux",
+      "motivo": "Sexta derrota de seis en la hemeroteca, y dos en la misma noche",
+      "fecha": "2026-11-20"
+    },
+    {
+      "campeon": "Ezreal",
+      "jugador": "ipredatorz",
+      "motivo": "Cuarta derrota de cuatro: 1/5/1 en veintiún minutos ante una Tristana que murió una vez",
+      "fecha": "2026-11-20"
+    },
+    {
+      "campeon": "Twitch",
+      "jugador": "ipredatorz",
+      "motivo": "Estrenado regalando la primera sangre con dos minutos en el reloj y trece muertes",
+      "fecha": "2026-11-20"
     }
   ]
 }
