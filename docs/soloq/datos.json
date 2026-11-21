@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1795288689986,
+ "actualizado": 1795290383380,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -117,12 +117,12 @@
    "nombre": "iPredatoRz",
    "apodo": "el depredador depredado",
    "riot_id": "Jungledetter#1065",
-   "liga": "Oro I · 61 LP",
-   "lp_hoy": 40,
-   "partidas": 34,
-   "victorias": 18,
+   "liga": "Oro I · 91 LP",
+   "lp_hoy": 70,
+   "partidas": 35,
+   "victorias": 19,
    "derrotas": 16,
-   "racha": -1
+   "racha": 1
   },
   {
    "puesto": 10,
