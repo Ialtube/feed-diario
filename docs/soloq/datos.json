@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1795291506413,
+ "actualizado": 1795295467030,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -102,6 +102,18 @@
   },
   {
    "puesto": 8,
+   "nombre": "iPredatoRz",
+   "apodo": "el depredador depredado",
+   "riot_id": "Jungledetter#1065",
+   "liga": "Platino IV · 21 LP",
+   "lp_hoy": 100,
+   "partidas": 36,
+   "victorias": 20,
+   "derrotas": 16,
+   "racha": 2
+  },
+  {
+   "puesto": 9,
    "nombre": "Fr4nux",
    "apodo": "Fr4nux",
    "riot_id": "ReavendeMan#2719",
@@ -111,18 +123,6 @@
    "victorias": 19,
    "derrotas": 25,
    "racha": -4
-  },
-  {
-   "puesto": 9,
-   "nombre": "iPredatoRz",
-   "apodo": "el depredador depredado",
-   "riot_id": "Jungledetter#1065",
-   "liga": "Oro I · 91 LP",
-   "lp_hoy": 70,
-   "partidas": 35,
-   "victorias": 19,
-   "derrotas": 16,
-   "racha": 1
   },
   {
    "puesto": 10,
