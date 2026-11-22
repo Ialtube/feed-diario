@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1795378532861,
+ "actualizado": 1795391549623,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -78,6 +78,18 @@
   },
   {
    "puesto": 6,
+   "nombre": "grangalax",
+   "apodo": "Showmanco",
+   "riot_id": "nandaris#6071",
+   "liga": "Platino IV · 75 LP",
+   "lp_hoy": 30,
+   "partidas": 43,
+   "victorias": 22,
+   "derrotas": 21,
+   "racha": 1
+  },
+  {
+   "puesto": 7,
    "nombre": "RDV Canyon",
    "apodo": "Minguez",
    "riot_id": "FisityBard#3700",
@@ -86,18 +98,6 @@
    "partidas": 38,
    "victorias": 21,
    "derrotas": 17,
-   "racha": -1
-  },
-  {
-   "puesto": 7,
-   "nombre": "grangalax",
-   "apodo": "Showmanco",
-   "riot_id": "nandaris#6071",
-   "liga": "Platino IV · 45 LP",
-   "lp_hoy": 0,
-   "partidas": 42,
-   "victorias": 21,
-   "derrotas": 21,
    "racha": -1
   },
   {
