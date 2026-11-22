@@ -11393,5 +11393,367 @@
         "losses": 62
       }
     }
+  },
+  "2026-11-22": {
+    "grangalax#ovd": {
+      "riot_id": "grangalax#OVD",
+      "slug": "grangalax",
+      "alias": "grangalax",
+      "principal": true,
+      "solo": {
+        "tier": "SILVER",
+        "rank": "I",
+        "lp": 66,
+        "wins": 268,
+        "losses": 272
+      },
+      "flex": {
+        "tier": "SILVER",
+        "rank": "IV",
+        "lp": 61,
+        "wins": 101,
+        "losses": 102
+      }
+    },
+    "thetrevur#urgod": {
+      "riot_id": "TheTrevur#URGOD",
+      "slug": "thetrevur",
+      "alias": "TheTrevur",
+      "principal": true,
+      "solo": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 23,
+        "wins": 74,
+        "losses": 71
+      },
+      "flex": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 1,
+        "wins": 79,
+        "losses": 65
+      }
+    },
+    "wôlf172#1075": {
+      "riot_id": "Wôlf172#1075",
+      "slug": "wolf",
+      "alias": "Wôlf",
+      "principal": true,
+      "flex": {
+        "tier": "EMERALD",
+        "rank": "III",
+        "lp": 18,
+        "wins": 75,
+        "losses": 69
+      },
+      "solo": {
+        "tier": "PLATINUM",
+        "rank": "I",
+        "lp": 53,
+        "wins": 174,
+        "losses": 173
+      }
+    },
+    "fr4nux#euw": {
+      "riot_id": "Fr4nux#EUW",
+      "slug": "fr4nux",
+      "alias": "Fr4nux",
+      "principal": true,
+      "flex": {
+        "tier": "PLATINUM",
+        "rank": "IV",
+        "lp": 23,
+        "wins": 115,
+        "losses": 97
+      },
+      "solo": {
+        "tier": "PLATINUM",
+        "rank": "III",
+        "lp": 99,
+        "wins": 298,
+        "losses": 283
+      }
+    },
+    "gsjoseador#2711": {
+      "riot_id": "GSJoseador#2711",
+      "slug": "gsjoseador",
+      "alias": "GSJoseador",
+      "principal": true,
+      "solo": {
+        "tier": "DIAMOND",
+        "rank": "II",
+        "lp": 78,
+        "wins": 97,
+        "losses": 74
+      },
+      "flex": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 83,
+        "wins": 82,
+        "losses": 57
+      }
+    },
+    "dierophant green#euw": {
+      "riot_id": "Dierophant Green#EUW",
+      "slug": "dierophant",
+      "alias": "Dierophant",
+      "principal": true,
+      "flex": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 71,
+        "wins": 104,
+        "losses": 98
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "III",
+        "lp": 66,
+        "wins": 102,
+        "losses": 112
+      }
+    },
+    "ipredatorz#euw": {
+      "riot_id": "iPredatoRz#EUW",
+      "slug": "ipredatorz",
+      "alias": "iPredatoRz",
+      "principal": true,
+      "flex": {
+        "tier": "GOLD",
+        "rank": "II",
+        "lp": 68,
+        "wins": 92,
+        "losses": 102
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "II",
+        "lp": 94,
+        "wins": 168,
+        "losses": 156
+      }
+    },
+    "sunraku#998": {
+      "riot_id": "Sunraku#998",
+      "slug": "thetrevur",
+      "alias": "TheTrevur",
+      "principal": false,
+      "flex": {
+        "tier": "PLATINUM",
+        "rank": "III",
+        "lp": 21,
+        "wins": 39,
+        "losses": 27
+      },
+      "solo": {
+        "tier": "PLATINUM",
+        "rank": "II",
+        "lp": 93,
+        "wins": 42,
+        "losses": 32
+      }
+    },
+    "rdv canyon#rdv": {
+      "riot_id": "RDV Canyon#RDV",
+      "slug": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "principal": true,
+      "solo": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 23,
+        "wins": 80,
+        "losses": 71
+      },
+      "flex": {
+        "tier": "DIAMOND",
+        "rank": "III",
+        "lp": 75,
+        "wins": 69,
+        "losses": 65
+      }
+    },
+    "giroroo#rdv": {
+      "riot_id": "Giroroo#RdV",
+      "slug": "giroroo",
+      "alias": "Giroroo",
+      "principal": true,
+      "flex": {
+        "tier": "PLATINUM",
+        "rank": "I",
+        "lp": 53,
+        "wins": 31,
+        "losses": 37
+      },
+      "solo": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 19,
+        "wins": 81,
+        "losses": 75
+      }
+    },
+    "飛 べ#rdv": {
+      "riot_id": "飛 べ#rdv",
+      "slug": "giroroo",
+      "alias": "Giroroo",
+      "principal": false,
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "II",
+        "lp": 58,
+        "wins": 228,
+        "losses": 197
+      },
+      "flex": {
+        "tier": "EMERALD",
+        "rank": "IV",
+        "lp": 29,
+        "wins": 29,
+        "losses": 17
+      }
+    },
+    "killuasatoru#6257": {
+      "riot_id": "killuasatoru#6257",
+      "slug": "gsjoseador",
+      "alias": "GSJoseador",
+      "principal": false,
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "IV",
+        "lp": 38,
+        "wins": 189,
+        "losses": 190
+      },
+      "flex": {
+        "tier": "SILVER",
+        "rank": "I",
+        "lp": 63,
+        "wins": 6,
+        "losses": 5
+      }
+    },
+    "crak172#euw": {
+      "riot_id": "crak172#EUW",
+      "slug": "wolf",
+      "alias": "Wôlf",
+      "principal": false,
+      "flex": {
+        "tier": "SILVER",
+        "rank": "III",
+        "lp": 77,
+        "wins": 18,
+        "losses": 22
+      },
+      "solo": {
+        "tier": "PLATINUM",
+        "rank": "IV",
+        "lp": 72,
+        "wins": 88,
+        "losses": 93
+      }
+    },
+    "호아킨#ovd": {
+      "riot_id": "호아킨#OVD",
+      "slug": "ipredatorz",
+      "alias": "iPredatoRz",
+      "principal": false,
+      "solo": {
+        "tier": "PLATINUM",
+        "rank": "III",
+        "lp": 84,
+        "wins": 35,
+        "losses": 34
+      },
+      "flex": {
+        "tier": "GOLD",
+        "rank": "II",
+        "lp": 36,
+        "wins": 29,
+        "losses": 28
+      }
+    },
+    "kailordl#euw": {
+      "riot_id": "Kailordl#EUW",
+      "slug": "saiko",
+      "alias": "Saiko",
+      "principal": true,
+      "flex": {
+        "tier": "GOLD",
+        "rank": "III",
+        "lp": 89,
+        "wins": 12,
+        "losses": 15
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "III",
+        "lp": 65,
+        "wins": 171,
+        "losses": 156
+      }
+    },
+    "iprz#esp": {
+      "riot_id": "IPRZ#ESP",
+      "slug": "ipredatorz",
+      "alias": "iPredatoRz",
+      "principal": false,
+      "flex": {
+        "tier": "PLATINUM",
+        "rank": "III",
+        "lp": 97,
+        "wins": 31,
+        "losses": 27
+      },
+      "solo": {
+        "tier": "EMERALD",
+        "rank": "IV",
+        "lp": 9,
+        "wins": 81,
+        "losses": 76
+      }
+    },
+    "vitasuchiha#euw": {
+      "riot_id": "VitasUchiha#EUW",
+      "slug": "grangalax",
+      "alias": "grangalax",
+      "principal": false,
+      "flex": {
+        "tier": "GOLD",
+        "rank": "II",
+        "lp": 55,
+        "wins": 3,
+        "losses": 2
+      },
+      "solo": {
+        "tier": "GOLD",
+        "rank": "III",
+        "lp": 26,
+        "wins": 33,
+        "losses": 41
+      }
+    },
+    "saiiiiiiko#euw": {
+      "riot_id": "SAIIIIIIKO#EUW",
+      "slug": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "principal": false,
+      "flex": {
+        "tier": "GOLD",
+        "rank": "I",
+        "lp": 63,
+        "wins": 13,
+        "losses": 10
+      },
+      "solo": {
+        "tier": "DIAMOND",
+        "rank": "IV",
+        "lp": 0,
+        "wins": 77,
+        "losses": 62
+      }
+    }
   }
 }
