@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1795438565508,
+ "actualizado": 1795439137846,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -21,8 +21,8 @@
    "nombre": "Saiko",
    "apodo": "KOI Huerfano",
    "riot_id": "Mastersuftine#6535",
-   "liga": "Platino I · 22 LP",
-   "lp_hoy": 60,
+   "liga": "Platino I · 17 LP",
+   "lp_hoy": 55,
    "partidas": 46,
    "victorias": 30,
    "derrotas": 16,
@@ -81,12 +81,12 @@
    "nombre": "grangalax",
    "apodo": "Showmanco",
    "riot_id": "nandaris#6071",
-   "liga": "Platino III · 35 LP",
-   "lp_hoy": 0,
-   "partidas": 44,
-   "victorias": 23,
+   "liga": "Platino III · 65 LP",
+   "lp_hoy": 30,
+   "partidas": 45,
+   "victorias": 24,
    "derrotas": 21,
-   "racha": 2
+   "racha": 3
   },
   {
    "puesto": 7,
