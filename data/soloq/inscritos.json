@@ -121,8 +121,8 @@
       "persona": "Saiko",
       "puuid": "3QNjiYli3sEUXhxykKbXAkkKBCAz497DGzXv8VlIRNdIdocVsZhmnDusUVWQCPV9Ur91BgjgL53OHA",
       "icono": 29,
-      "nivel": 36,
-      "icono_ms": 1795461285692
+      "nivel": 37,
+      "icono_ms": 1795504908054
     },
     "reavendeman#2719": {
       "riot_id": "ReavendeMan#2719",
@@ -154,7 +154,7 @@
       "puuid": "RvoNt3EVAKCNbRTiE1omP4243LBoBHcUEWYjuKjXJIe6OCSXWCq_yYaLxD14WVO5bXn0TOptJ9lwjQ",
       "icono": 1159,
       "nivel": 36,
-      "icono_ms": 1795461285692
+      "icono_ms": 1795504908054
     },
     "nandaris#6071": {
       "riot_id": "nandaris#6071",
@@ -189,7 +189,7 @@
       "icono_ms": 1795465826764
     }
   },
-  "actualizado": 1795480005393,
+  "actualizado": 1795504908054,
   "ddragon": "16.23.1",
   "avisos": {
     "programado": 1793487600000,
