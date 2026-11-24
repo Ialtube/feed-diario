@@ -189,7 +189,7 @@
       "icono_ms": 1795509422037
     }
   },
-  "actualizado": 1795545751335,
+  "actualizado": 1795546319053,
   "ddragon": "16.23.1",
   "avisos": {
     "programado": 1793487600000,
@@ -208,6 +208,12 @@
     ]
   },
   "buzon": [
+    {
+      "id": 5,
+      "nombre": "anonimo",
+      "texto": "arregla cuantas partidas de mas tiene cada persona",
+      "created_at": "2026-11-24T18:44:06.536142+00:00"
+    },
     {
       "id": 4,
       "nombre": "anonimo",
