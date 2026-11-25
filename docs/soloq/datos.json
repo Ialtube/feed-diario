@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1795606389709,
+ "actualizado": 1795608094483,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -66,18 +66,6 @@
   },
   {
    "puesto": 5,
-   "nombre": "Giroroo",
-   "apodo": "La Guadaña de la Mon",
-   "riot_id": "Xillie#8107",
-   "liga": "Platino III · 69 LP",
-   "lp_hoy": -20,
-   "partidas": 50,
-   "victorias": 26,
-   "derrotas": 24,
-   "racha": -2
-  },
-  {
-   "puesto": 6,
    "nombre": "grangalax",
    "apodo": "Showmanco",
    "riot_id": "nandaris#6071",
@@ -87,6 +75,18 @@
    "victorias": 26,
    "derrotas": 27,
    "racha": -1
+  },
+  {
+   "puesto": 6,
+   "nombre": "Giroroo",
+   "apodo": "La Guadaña de la Mon",
+   "riot_id": "Xillie#8107",
+   "liga": "Platino III · 59 LP",
+   "lp_hoy": -30,
+   "partidas": 51,
+   "victorias": 26,
+   "derrotas": 25,
+   "racha": -3
   },
   {
    "puesto": 7,
