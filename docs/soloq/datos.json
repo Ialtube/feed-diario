@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1795608094483,
+ "actualizado": 1795610362965,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -81,12 +81,12 @@
    "nombre": "Giroroo",
    "apodo": "La Guadaña de la Mon",
    "riot_id": "Xillie#8107",
-   "liga": "Platino III · 59 LP",
-   "lp_hoy": -30,
-   "partidas": 51,
+   "liga": "Platino III · 49 LP",
+   "lp_hoy": -40,
+   "partidas": 52,
    "victorias": 26,
-   "derrotas": 25,
-   "racha": -3
+   "derrotas": 26,
+   "racha": -4
   },
   {
    "puesto": 7,
