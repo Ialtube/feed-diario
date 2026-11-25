@@ -209,6 +209,12 @@
   },
   "buzon": [
     {
+      "id": 6,
+      "nombre": "Giroro",
+      "texto": "Empieza a haber jugadores a los que no les aparece el número de partidas pendientes o partidas de más que tienen. Revisalo y arreglalo",
+      "created_at": "2026-11-25T10:19:33.379827+00:00"
+    },
+    {
       "id": 5,
       "nombre": "anonimo",
       "texto": "arregla cuantas partidas de mas tiene cada persona",
