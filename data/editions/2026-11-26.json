@@ -1,0 +1,1559 @@
+{
+  "date": "2026-11-26",
+  "number": 46,
+  "generated_at": 1795712259837,
+  "window": [
+    1795586400000,
+    1795672800000
+  ],
+  "items": [
+    {
+      "id": 0,
+      "kind": "portada",
+      "section": "PORTADA",
+      "desk": "",
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "Giroroo vuelve a hacerlo: 12 muertes, KDA 1,17 y cero vergüenza",
+      "body": "El día de Giroroo se resume en 0–2. El 13,2 % del daño de su equipo de media. El equipo rival ha pedido que se le conceda la medalla al mérito civil.",
+      "stat": "0–2",
+      "stat_label": "victorias–derrotas",
+      "severity": 100,
+      "facts": {
+        "alias": "Giroroo",
+        "games": 2,
+        "wl": "0–2",
+        "d": 12,
+        "kda": "1,17",
+        "dmg_txt": "el 13,2 % del daño de su equipo",
+        "dmg_txt_cap": "El 13,2 % del daño de su equipo de media",
+        "champ": "Kayn",
+        "champs": "Kayn",
+        "hours": "1,0"
+      }
+    },
+    {
+      "id": 1,
+      "kind": "economia",
+      "section": "ECONOMÍA",
+      "desk": "Lonja de Aguasturbias",
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "La Lonja de Aguasturbias congela los fondos de Giroroo: 21,7 % del oro, 11,1 % del daño",
+      "body": "Con Kayn cobró 10,6 puntos más de oro que de daño. En Aguasturbias han colgado a gente por estafas más pequeñas.",
+      "stat": "−10,6",
+      "stat_label": "puntos entre oro y daño",
+      "severity": 7.22,
+      "facts": {
+        "alias": "Giroroo",
+        "games": 2,
+        "wl": "0–2",
+        "d": 12,
+        "kda": "1,17",
+        "dmg_txt": "el 13,2 % del daño de su equipo",
+        "dmg_txt_cap": "El 13,2 % del daño de su equipo de media",
+        "champ": "Kayn",
+        "champs": "Kayn",
+        "hours": "1,0",
+        "gold": "21,7 %",
+        "share": "11,1 %",
+        "gap": "10,6"
+      }
+    },
+    {
+      "id": 2,
+      "kind": "sucesos",
+      "section": "SUCESOS",
+      "desk": "Comisaría de Piltover",
+      "player": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "headline": "Detenido RDV Canyon por alimentar al enemigo: 10 muertes con Blitzcrank",
+      "body": "Los hechos ocurrieron en una Ranked Solo/Dúo de 36 minutos. Resultado: 3/10/19. Aun así ganaron, de milagro. El rival ya le ha enviado una cesta de agradecimiento.",
+      "stat": "10",
+      "stat_label": "muertes en una partida",
+      "severity": 5.0,
+      "facts": {
+        "alias": "RDV Canyon",
+        "games": 3,
+        "wl": "2–1",
+        "d": 10,
+        "kda": "2,35",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Blitzcrank",
+        "champs": "Blitzcrank y Braum",
+        "hours": "1,5",
+        "kdas": "3/10/19",
+        "queue": "Ranked Solo/Dúo",
+        "mins": 36,
+        "every": "3:38",
+        "res": "victoria",
+        "res_cap": "Aun así ganaron, de milagro"
+      }
+    },
+    {
+      "id": 3,
+      "kind": "desaparecido",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "giroroo",
+      "alias": "Giroroo",
+      "headline": "Giroroo, desaparecido en combate: 27,1 % de participación en kills",
+      "body": "De cada diez kills de su equipo, en más de seis no estaba. Fuentes cercanas apuntan a una larga relación con los súbditos de su línea.",
+      "stat": "27 %",
+      "stat_label": "participación en kills",
+      "severity": 4.59,
+      "facts": {
+        "alias": "Giroroo",
+        "games": 2,
+        "wl": "0–2",
+        "d": 12,
+        "kda": "1,17",
+        "dmg_txt": "el 13,2 % del daño de su equipo",
+        "dmg_txt_cap": "El 13,2 % del daño de su equipo de media",
+        "champ": "Kayn",
+        "champs": "Kayn",
+        "hours": "1,0",
+        "kp": "27,1 %"
+      }
+    },
+    {
+      "id": 4,
+      "kind": "tiempo",
+      "section": "EL TIEMPO",
+      "desk": "Islas de la Sombra",
+      "player": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "headline": "RDV Canyon se pasa 9 minutos en la pantalla gris",
+      "body": "El 10,8 % de su día en la Grieta lo pasó mirando el contador de reaparición. Ya se sabe de memoria el mapa en blanco y negro.",
+      "stat": "9 min",
+      "stat_label": "en la pantalla gris",
+      "severity": 3.49,
+      "facts": {
+        "alias": "RDV Canyon",
+        "games": 3,
+        "wl": "2–1",
+        "d": 23,
+        "kda": "2,35",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Blitzcrank",
+        "champs": "Blitzcrank y Braum",
+        "hours": "1,5",
+        "dead_mins": 9,
+        "dead_pct": "10,8 %"
+      }
+    },
+    {
+      "id": 5,
+      "kind": "gris",
+      "section": "SOCIEDAD",
+      "desk": "Ecos de Jonia",
+      "player": "gsjoseador",
+      "alias": "GSJoseador",
+      "headline": "Día anodino para GSJoseador (0–1), lo cual para él ya es un éxito",
+      "body": "Sin escándalos, sin hazañas. La redacción se ha quedado sin material, que es lo más cerca que estará de un elogio.",
+      "stat": "0–1",
+      "stat_label": "victorias–derrotas",
+      "severity": 1,
+      "facts": {
+        "alias": "GSJoseador",
+        "games": 1,
+        "wl": "0–1",
+        "d": 8,
+        "kda": "1,12",
+        "dmg_txt": "el 25,1 % del daño de su equipo",
+        "dmg_txt_cap": "El 25,1 % del daño de su equipo de media",
+        "champ": "Lissandra",
+        "champs": "Lissandra",
+        "hours": "0,4"
+      }
+    },
+    {
+      "id": 6,
+      "kind": "mencion",
+      "section": "EL FARO DE LA ESPERANZA",
+      "desk": "Centinelas de la Luz",
+      "player": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "headline": "El Faro de la Esperanza ilumina hoy a RDV Canyon: 2–1",
+      "body": "Mientras la Niebla Negra cubría al resto del grupo, RDV Canyon aguantó con un KDA de 2,35. Los Centinelas de la Luz no van a reclutarle, pero hoy al menos no se ha perdido en la Ruina.",
+      "stat": "2–1",
+      "stat_label": "victorias–derrotas",
+      "severity": 0.5,
+      "facts": {
+        "alias": "RDV Canyon",
+        "games": 3,
+        "wl": "2–1",
+        "d": 23,
+        "kda": "2,35",
+        "dmg_txt": "muy poco daño",
+        "dmg_txt_cap": "Muy poco daño de media",
+        "champ": "Blitzcrank",
+        "champs": "Blitzcrank y Braum",
+        "hours": "1,5"
+      }
+    },
+    {
+      "id": 7,
+      "kind": "ausentes",
+      "section": "AUSENTES",
+      "desk": "Perdidos en el Vacío",
+      "player": null,
+      "alias": null,
+      "headline": "Desaparecidos del día: Fr4nux, Dierophant, TheTrevur, Wôlf, Saiko, iPredatoRz y grangalax",
+      "body": "Ni una partida. La Grieta respira tranquila por un día.",
+      "stat": "7",
+      "stat_label": "no jugaron",
+      "severity": 0.2,
+      "facts": {
+        "names": "Fr4nux, Dierophant, TheTrevur, Wôlf, Saiko, iPredatoRz y grangalax"
+      }
+    }
+  ],
+  "frase": "Un ward a tiempo es una muerte menos. Nadie del grupo lo sabe.",
+  "ranking": [
+    {
+      "slug": "giroroo",
+      "alias": "Giroroo",
+      "riot_id": "Giroroo#RdV",
+      "games": 2,
+      "wins": 0,
+      "losses": 2,
+      "kda": 1.17,
+      "dmg_share": 0.13157436404663655,
+      "kp": 0.270516717325228,
+      "d": 12,
+      "dead": 424,
+      "score": 12.68
+    },
+    {
+      "slug": "gsjoseador",
+      "alias": "GSJoseador",
+      "riot_id": "GSJoseador#2711",
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "kda": 1.12,
+      "dmg_share": 0.25084172291974194,
+      "kp": 0.6923076923076923,
+      "d": 8,
+      "dead": 148,
+      "score": 9.1
+    },
+    {
+      "slug": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "riot_id": "RDV Canyon#RDV",
+      "games": 3,
+      "wins": 2,
+      "losses": 1,
+      "kda": 2.35,
+      "dmg_share": null,
+      "kp": 0.49141109435227087,
+      "d": 23,
+      "dead": 595,
+      "score": 5.8
+    }
+  ],
+  "absent": [
+    "Fr4nux",
+    "Dierophant",
+    "TheTrevur",
+    "Wôlf",
+    "Saiko",
+    "iPredatoRz",
+    "grangalax"
+  ],
+  "duos": [],
+  "derbies": [],
+  "totals": {
+    "matches": 6,
+    "games": 6,
+    "deaths": 43,
+    "dead_seconds": 1167,
+    "play_seconds": 10520
+  },
+  "games": [
+    {
+      "slug": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "match": "EUW1_8056670888",
+      "end": 1795598593868,
+      "dur": 1873,
+      "champ": "Braum",
+      "role": "support",
+      "queue_name": "Ranked Solo/Dúo",
+      "win": false,
+      "k": 1,
+      "d": 7,
+      "a": 12,
+      "dmg_share": 0.048644008778109794,
+      "gold_share": 0.1267922794117647,
+      "kp": 0.38235294117647056,
+      "lowest_dmg": true,
+      "support": true
+    },
+    {
+      "slug": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "match": "EUW1_8056682909",
+      "end": 1795600476723,
+      "dur": 1449,
+      "champ": "Blitzcrank",
+      "role": "support",
+      "queue_name": "Ranked Solo/Dúo",
+      "win": true,
+      "k": 2,
+      "d": 6,
+      "a": 17,
+      "dmg_share": 0.09876501590084168,
+      "gold_share": 0.12817639554528842,
+      "kp": 0.5277777777777778,
+      "lowest_dmg": true,
+      "support": true
+    },
+    {
+      "slug": "rdv-canyon",
+      "alias": "RDV Canyon",
+      "match": "EUW1_8056704311",
+      "end": 1795605802645,
+      "dur": 2180,
+      "champ": "Blitzcrank",
+      "role": "support",
+      "queue_name": "Ranked Solo/Dúo",
+      "win": true,
+      "k": 3,
+      "d": 10,
+      "a": 19,
+      "dmg_share": 0.08295137889646169,
+      "gold_share": 0.13958158789611158,
+      "kp": 0.5641025641025641,
+      "lowest_dmg": true,
+      "support": true
+    },
+    {
+      "slug": "gsjoseador",
+      "alias": "GSJoseador",
+      "match": "EUW1_8056871966",
+      "end": 1795621862895,
+      "dur": 1305,
+      "champ": "Lissandra",
+      "role": "mid",
+      "queue_name": "Ranked Solo/Dúo",
+      "win": false,
+      "k": 4,
+      "d": 8,
+      "a": 5,
+      "dmg_share": 0.25084172291974194,
+      "gold_share": 0.22752778677026006,
+      "kp": 0.6923076923076923,
+      "lowest_dmg": false,
+      "support": false
+    },
+    {
+      "slug": "giroroo",
+      "alias": "Giroroo",
+      "match": "EUW1_8056989162",
+      "end": 1795629938641,
+      "dur": 1403,
+      "champ": "Kayn",
+      "role": "jungla",
+      "queue_name": "Ranked Solo/Dúo",
+      "win": false,
+      "k": 2,
+      "d": 6,
+      "a": 0,
+      "dmg_share": 0.15174695544031724,
+      "gold_share": 0.1990857889151906,
+      "kp": 0.2857142857142857,
+      "lowest_dmg": false,
+      "support": false
+    },
+    {
+      "slug": "giroroo",
+      "alias": "Giroroo",
+      "match": "EUW1_8057020169",
+      "end": 1795632552347,
+      "dur": 2310,
+      "champ": "Kayn",
+      "role": "jungla",
+      "queue_name": "Ranked Solo/Dúo",
+      "win": false,
+      "k": 7,
+      "d": 6,
+      "a": 5,
+      "dmg_share": 0.11140177265295585,
+      "gold_share": 0.21691769768692845,
+      "kp": 0.2553191489361702,
+      "lowest_dmg": false,
+      "support": false
+    }
+  ],
+  "bolsa": {
+    "fecha": "2026-11-26",
+    "desde": "2026-11-25",
+    "filas": [
+      {
+        "slug": "grangalax",
+        "alias": "grangalax",
+        "cuenta": "grangalax#OVD",
+        "principal": true,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Plata I · 66 LP",
+          "lp": 66,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Plata I · 66 LP",
+          "partidas": 0,
+          "victorias": 268,
+          "derrotas": 272
+        },
+        "flex": {
+          "posicion": "Plata IV · 76 LP",
+          "lp": 76,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Plata IV · 76 LP",
+          "partidas": 0,
+          "victorias": 103,
+          "derrotas": 103
+        }
+      },
+      {
+        "slug": "grangalax",
+        "alias": "grangalax",
+        "cuenta": "VitasUchiha#EUW",
+        "principal": false,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Oro III · 24 LP",
+          "lp": 24,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Oro III · 24 LP",
+          "partidas": 0,
+          "victorias": 35,
+          "derrotas": 43
+        },
+        "flex": {
+          "posicion": "Oro II · 55 LP",
+          "lp": 55,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Oro II · 55 LP",
+          "partidas": 0,
+          "victorias": 3,
+          "derrotas": 2
+        }
+      },
+      {
+        "slug": "thetrevur",
+        "alias": "TheTrevur",
+        "cuenta": "TheTrevur#URGOD",
+        "principal": true,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Diamante IV · 23 LP",
+          "lp": 23,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Diamante IV · 23 LP",
+          "partidas": 0,
+          "victorias": 74,
+          "derrotas": 71
+        },
+        "flex": {
+          "posicion": "Diamante IV · 1 LP",
+          "lp": 1,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Diamante IV · 1 LP",
+          "partidas": 0,
+          "victorias": 79,
+          "derrotas": 65
+        }
+      },
+      {
+        "slug": "thetrevur",
+        "alias": "TheTrevur",
+        "cuenta": "Sunraku#998",
+        "principal": false,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Platino II · 93 LP",
+          "lp": 93,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Platino II · 93 LP",
+          "partidas": 0,
+          "victorias": 42,
+          "derrotas": 32
+        },
+        "flex": {
+          "posicion": "Platino III · 50 LP",
+          "lp": 50,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Platino III · 50 LP",
+          "partidas": 0,
+          "victorias": 41,
+          "derrotas": 28
+        }
+      },
+      {
+        "slug": "wolf",
+        "alias": "Wôlf",
+        "cuenta": "Wôlf172#1075",
+        "principal": true,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Platino I · 53 LP",
+          "lp": 53,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Platino I · 53 LP",
+          "partidas": 0,
+          "victorias": 174,
+          "derrotas": 173
+        },
+        "flex": {
+          "posicion": "Esmeralda III · 18 LP",
+          "lp": 18,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Esmeralda III · 18 LP",
+          "partidas": 0,
+          "victorias": 75,
+          "derrotas": 69
+        }
+      },
+      {
+        "slug": "wolf",
+        "alias": "Wôlf",
+        "cuenta": "crak172#EUW",
+        "principal": false,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Platino IV · 72 LP",
+          "lp": 72,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Platino IV · 72 LP",
+          "partidas": 0,
+          "victorias": 88,
+          "derrotas": 93
+        },
+        "flex": {
+          "posicion": "Plata III · 77 LP",
+          "lp": 77,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Plata III · 77 LP",
+          "partidas": 0,
+          "victorias": 18,
+          "derrotas": 22
+        }
+      },
+      {
+        "slug": "fr4nux",
+        "alias": "Fr4nux",
+        "cuenta": "Fr4nux#EUW",
+        "principal": true,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Platino III · 90 LP",
+          "lp": 90,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Platino III · 90 LP",
+          "partidas": 0,
+          "victorias": 300,
+          "derrotas": 285
+        },
+        "flex": {
+          "posicion": "Platino IV · 55 LP",
+          "lp": 55,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Platino IV · 55 LP",
+          "partidas": 0,
+          "victorias": 117,
+          "derrotas": 98
+        }
+      },
+      {
+        "slug": "gsjoseador",
+        "alias": "GSJoseador",
+        "cuenta": "GSJoseador#2711",
+        "principal": true,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Diamante II · 55 LP",
+          "lp": 55,
+          "delta": -2,
+          "cambio": null,
+          "antes": "Diamante II · 57 LP",
+          "partidas": 2,
+          "victorias": 98,
+          "derrotas": 76
+        },
+        "flex": {
+          "posicion": "Diamante IV · 83 LP",
+          "lp": 83,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Diamante IV · 83 LP",
+          "partidas": 0,
+          "victorias": 82,
+          "derrotas": 57
+        }
+      },
+      {
+        "slug": "gsjoseador",
+        "alias": "GSJoseador",
+        "cuenta": "killuasatoru#6257",
+        "principal": false,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Esmeralda IV · 38 LP",
+          "lp": 38,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Esmeralda IV · 38 LP",
+          "partidas": 0,
+          "victorias": 189,
+          "derrotas": 190
+        },
+        "flex": {
+          "posicion": "Plata I · 63 LP",
+          "lp": 63,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Plata I · 63 LP",
+          "partidas": 0,
+          "victorias": 6,
+          "derrotas": 5
+        }
+      },
+      {
+        "slug": "dierophant",
+        "alias": "Dierophant",
+        "cuenta": "Dierophant Green#EUW",
+        "principal": true,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Esmeralda III · 66 LP",
+          "lp": 66,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Esmeralda III · 66 LP",
+          "partidas": 0,
+          "victorias": 102,
+          "derrotas": 112
+        },
+        "flex": {
+          "posicion": "Diamante IV · 89 LP",
+          "lp": 89,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Diamante IV · 89 LP",
+          "partidas": 0,
+          "victorias": 106,
+          "derrotas": 99
+        }
+      },
+      {
+        "slug": "ipredatorz",
+        "alias": "iPredatoRz",
+        "cuenta": "iPredatoRz#EUW",
+        "principal": true,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Esmeralda I · 14 LP",
+          "lp": 14,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Esmeralda I · 14 LP",
+          "partidas": 0,
+          "victorias": 169,
+          "derrotas": 156
+        },
+        "flex": {
+          "posicion": "Oro II · 68 LP",
+          "lp": 68,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Oro II · 68 LP",
+          "partidas": 0,
+          "victorias": 92,
+          "derrotas": 102
+        }
+      },
+      {
+        "slug": "ipredatorz",
+        "alias": "iPredatoRz",
+        "cuenta": "호아킨#OVD",
+        "principal": false,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Platino III · 84 LP",
+          "lp": 84,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Platino III · 84 LP",
+          "partidas": 0,
+          "victorias": 35,
+          "derrotas": 34
+        },
+        "flex": {
+          "posicion": "Oro II · 36 LP",
+          "lp": 36,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Oro II · 36 LP",
+          "partidas": 0,
+          "victorias": 29,
+          "derrotas": 28
+        }
+      },
+      {
+        "slug": "ipredatorz",
+        "alias": "iPredatoRz",
+        "cuenta": "IPRZ#ESP",
+        "principal": false,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Esmeralda IV · 57 LP",
+          "lp": 57,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Esmeralda IV · 57 LP",
+          "partidas": 0,
+          "victorias": 85,
+          "derrotas": 78
+        },
+        "flex": {
+          "posicion": "Platino III · 97 LP",
+          "lp": 97,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Platino III · 97 LP",
+          "partidas": 0,
+          "victorias": 31,
+          "derrotas": 27
+        }
+      },
+      {
+        "slug": "rdv-canyon",
+        "alias": "RDV Canyon",
+        "cuenta": "RDV Canyon#RDV",
+        "principal": true,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Esmeralda I · 75 LP",
+          "lp": 75,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Esmeralda I · 75 LP",
+          "partidas": 0,
+          "victorias": 80,
+          "derrotas": 71
+        },
+        "flex": {
+          "posicion": "Esmeralda I · 75 LP",
+          "lp": 75,
+          "delta": -50,
+          "cambio": "descenso",
+          "antes": "Diamante IV · 25 LP",
+          "partidas": 0,
+          "victorias": 69,
+          "derrotas": 65
+        }
+      },
+      {
+        "slug": "rdv-canyon",
+        "alias": "RDV Canyon",
+        "cuenta": "SAIIIIIIKO#EUW",
+        "principal": false,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Diamante IV · 63 LP",
+          "lp": 63,
+          "delta": 74,
+          "cambio": "ascenso",
+          "antes": "Esmeralda I · 89 LP",
+          "partidas": 3,
+          "victorias": 86,
+          "derrotas": 70
+        },
+        "flex": {
+          "posicion": "Platino IV · 1 LP",
+          "lp": 1,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Platino IV · 1 LP",
+          "partidas": 0,
+          "victorias": 15,
+          "derrotas": 11
+        }
+      },
+      {
+        "slug": "giroroo",
+        "alias": "Giroroo",
+        "cuenta": "Giroroo#RdV",
+        "principal": true,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Diamante IV · 0 LP",
+          "lp": 0,
+          "delta": -19,
+          "cambio": null,
+          "antes": "Diamante IV · 19 LP",
+          "partidas": 2,
+          "victorias": 81,
+          "derrotas": 77
+        },
+        "flex": {
+          "posicion": "Platino I · 53 LP",
+          "lp": 53,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Platino I · 53 LP",
+          "partidas": 0,
+          "victorias": 31,
+          "derrotas": 37
+        }
+      },
+      {
+        "slug": "giroroo",
+        "alias": "Giroroo",
+        "cuenta": "飛 べ#rdv",
+        "principal": false,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Esmeralda II · 79 LP",
+          "lp": 79,
+          "delta": 21,
+          "cambio": null,
+          "antes": "Esmeralda II · 58 LP",
+          "partidas": 1,
+          "victorias": 229,
+          "derrotas": 197
+        },
+        "flex": {
+          "posicion": "Esmeralda IV · 29 LP",
+          "lp": 29,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Esmeralda IV · 29 LP",
+          "partidas": 0,
+          "victorias": 29,
+          "derrotas": 17
+        }
+      },
+      {
+        "slug": "saiko",
+        "alias": "Saiko",
+        "cuenta": "Kailordl#EUW",
+        "principal": true,
+        "desde": "2026-11-25",
+        "solo": {
+          "posicion": "Esmeralda III · 27 LP",
+          "lp": 27,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Esmeralda III · 27 LP",
+          "partidas": 0,
+          "victorias": 173,
+          "derrotas": 160
+        },
+        "flex": {
+          "posicion": "Oro III · 89 LP",
+          "lp": 89,
+          "delta": 0,
+          "cambio": null,
+          "antes": "Oro III · 89 LP",
+          "partidas": 0,
+          "victorias": 12,
+          "derrotas": 15
+        }
+      }
+    ]
+  },
+  "soloq": {
+    "nombre": "SoloQ Challenge",
+    "fase": "en_juego",
+    "inicio": "2026-11-01",
+    "fin": "2026-12-22",
+    "empieza": "domingo, 1 de noviembre de 2026 a las 00:00",
+    "acaba": "miércoles, 23 de diciembre de 2026 a las 00:00",
+    "dias_restantes": 27,
+    "dia_del_reto": 26,
+    "min_partidas": 50,
+    "premio": "Campeón: 30 €. Segundo: 25 €. Tercero: 15 €. Y 5 € por cada premio secundario. Bote: 10 € por jugador.",
+    "castigo": "El farolillo rojo paga la primera ronda en la próxima quedada y juega una partida entera de soporte con Teemo.",
+    "url": "https://ialtube.github.io/feed-diario/soloq/",
+    "clasificacion": [
+      {
+        "puesto": 1,
+        "cambio_de_puesto": 0,
+        "nombre": "Saiko",
+        "mote": "KOI Huerfano",
+        "riot_id": "Mastersuftine#6535",
+        "jugador": "saiko",
+        "liga": "Esmeralda IV · 22 LP",
+        "lp_en_el_dia": 0,
+        "victorias_dia": 0,
+        "derrotas_dia": 0,
+        "partidas_reto": 58,
+        "victorias_reto": 36,
+        "derrotas_reto": 22,
+        "winrate_reto": 0.621,
+        "racha": -1,
+        "lp_en_el_reto": 685,
+        "empezo_en": "Sin clasificar",
+        "pico": "Esmeralda IV · 32 LP",
+        "nivel": 37,
+        "objetivo_declarado": "Aspirante",
+        "objetivo_cumplido": false,
+        "lp_para_el_objetivo": 778,
+        "grito_de_guerra": "Minguez Maricon",
+        "cualifica": true,
+        "campeones": [
+          "Blitzcrank (43)",
+          "Braum (4)",
+          "Galio (3)"
+        ],
+        "veredicto_web": "Manda en la tabla. Que lo disfrute: en EUW eso es ser el tuerto en el país de los ciegos."
+      },
+      {
+        "puesto": 2,
+        "cambio_de_puesto": 0,
+        "nombre": "GSJoseador",
+        "mote": "El Comodín de la Grieta",
+        "riot_id": "SantuJk#1510",
+        "jugador": "gsjoseador",
+        "liga": "Platino I · 5 LP",
+        "lp_en_el_dia": 0,
+        "victorias_dia": 0,
+        "derrotas_dia": 0,
+        "partidas_reto": 52,
+        "victorias_reto": 29,
+        "derrotas_reto": 23,
+        "winrate_reto": 0.558,
+        "racha": 1,
+        "lp_en_el_reto": 650,
+        "empezo_en": "Sin clasificar",
+        "pico": "Platino I · 5 LP",
+        "nivel": 37,
+        "objetivo_declarado": "Esmeralda",
+        "objetivo_cumplido": false,
+        "lp_para_el_objetivo": 95,
+        "grito_de_guerra": "Top damage del equipo",
+        "cualifica": true,
+        "campeones": [
+          "Xerath (27)",
+          "Viktor (3)",
+          "Garen (2)"
+        ],
+        "veredicto_web": "+650 LP desde el inicio. O ha mejorado o ha encontrado a alguien que le juegue."
+      },
+      {
+        "puesto": 3,
+        "cambio_de_puesto": 0,
+        "nombre": "Wôlf",
+        "mote": "Barro",
+        "riot_id": "Theossichi#9248",
+        "jugador": "wolf",
+        "liga": "Platino II · 25 LP",
+        "lp_en_el_dia": 0,
+        "victorias_dia": 0,
+        "derrotas_dia": 0,
+        "partidas_reto": 50,
+        "victorias_reto": 28,
+        "derrotas_reto": 22,
+        "winrate_reto": 0.56,
+        "racha": -2,
+        "lp_en_el_reto": 615,
+        "empezo_en": "Sin clasificar",
+        "pico": "Platino II · 45 LP",
+        "nivel": 37,
+        "objetivo_declarado": "Aspirante",
+        "objetivo_cumplido": false,
+        "lp_para_el_objetivo": 975,
+        "grito_de_guerra": "Hola",
+        "cualifica": true,
+        "campeones": [
+          "Ekko (16)",
+          "Ornn (12)",
+          "Kayn (4)"
+        ],
+        "veredicto_web": "Dijo Aspirante. Va Platino II. Le faltan 975 LP y bastante vergüenza."
+      },
+      {
+        "puesto": 4,
+        "cambio_de_puesto": 0,
+        "nombre": "Dierophant",
+        "mote": "Intilteable",
+        "riot_id": "smilesdeath#6859",
+        "jugador": "dierophant",
+        "liga": "Platino II · 17 LP",
+        "lp_en_el_dia": 0,
+        "victorias_dia": 0,
+        "derrotas_dia": 0,
+        "partidas_reto": 44,
+        "victorias_reto": 26,
+        "derrotas_reto": 18,
+        "winrate_reto": 0.591,
+        "racha": -1,
+        "lp_en_el_reto": 480,
+        "empezo_en": "Sin clasificar",
+        "pico": "Platino II · 27 LP",
+        "nivel": 36,
+        "objetivo_declarado": "Esmeralda",
+        "objetivo_cumplido": false,
+        "lp_para_el_objetivo": 183,
+        "grito_de_guerra": "Que la luz de grangalax me guíe",
+        "cualifica": false,
+        "campeones": [
+          "Rakan (22)",
+          "Rell (11)",
+          "Wukong (5)"
+        ],
+        "veredicto_web": "+480 LP desde el inicio. O ha mejorado o ha encontrado a alguien que le juegue."
+      },
+      {
+        "puesto": 5,
+        "cambio_de_puesto": 1,
+        "nombre": "grangalax",
+        "mote": "Showmanco",
+        "riot_id": "nandaris#6071",
+        "jugador": "grangalax",
+        "liga": "Platino III · 65 LP",
+        "lp_en_el_dia": 0,
+        "victorias_dia": 0,
+        "derrotas_dia": 0,
+        "partidas_reto": 53,
+        "victorias_reto": 26,
+        "derrotas_reto": 27,
+        "winrate_reto": 0.491,
+        "racha": -1,
+        "lp_en_el_reto": 510,
+        "empezo_en": "Oro IV · 55 LP",
+        "pico": "Platino III · 75 LP",
+        "nivel": 37,
+        "objetivo_declarado": "Maestro",
+        "objetivo_cumplido": false,
+        "lp_para_el_objetivo": 1035,
+        "grito_de_guerra": "ALTUBE TU PUTA MADRE",
+        "cualifica": true,
+        "campeones": [
+          "Syndra (20)",
+          "Ahri (9)",
+          "Ekko (5)"
+        ],
+        "veredicto_web": "Prometió Maestro. Ahora mismo lo tiene tan lejos como un Barón bien hecho."
+      },
+      {
+        "puesto": 6,
+        "cambio_de_puesto": -1,
+        "nombre": "Giroroo",
+        "mote": "La Guadaña de la Mon",
+        "riot_id": "Xillie#8107",
+        "jugador": "giroroo",
+        "liga": "Platino III · 49 LP",
+        "lp_en_el_dia": -40,
+        "victorias_dia": 0,
+        "derrotas_dia": 4,
+        "partidas_reto": 52,
+        "victorias_reto": 26,
+        "derrotas_reto": 26,
+        "winrate_reto": 0.5,
+        "racha": -4,
+        "lp_en_el_reto": 410,
+        "empezo_en": "Sin clasificar",
+        "pico": "Platino III · 89 LP",
+        "nivel": 37,
+        "objetivo_declarado": "Esmeralda",
+        "objetivo_cumplido": false,
+        "lp_para_el_objetivo": 251,
+        "grito_de_guerra": "Te rasuro hasta el totito si hace falta",
+        "cualifica": true,
+        "campeones": [
+          "Kayn (25)",
+          "Ornn (16)",
+          "Sylas (2)"
+        ],
+        "veredicto_web": "4 derrotas seguidas y sigue dándole a buscar partida. Eso no es constancia, es una adicción."
+      },
+      {
+        "puesto": 7,
+        "cambio_de_puesto": 0,
+        "nombre": "RDV Canyon",
+        "mote": "Minguez",
+        "riot_id": "FisityBard#3700",
+        "jugador": "rdv-canyon",
+        "liga": "Platino III · 11 LP",
+        "lp_en_el_dia": -10,
+        "victorias_dia": 0,
+        "derrotas_dia": 1,
+        "partidas_reto": 42,
+        "victorias_reto": 23,
+        "derrotas_reto": 19,
+        "winrate_reto": 0.548,
+        "racha": -2,
+        "lp_en_el_reto": 414,
+        "empezo_en": "Sin clasificar",
+        "pico": "Platino III · 31 LP",
+        "nivel": 36,
+        "objetivo_declarado": "Diamante",
+        "objetivo_cumplido": false,
+        "lp_para_el_objetivo": 689,
+        "grito_de_guerra": null,
+        "cualifica": false,
+        "campeones": [
+          "Nautilus (9)",
+          "Karma (7)",
+          "Lee Sin (6)"
+        ],
+        "veredicto_web": "Dijo Diamante. Va Platino III. Le faltan 689 LP y bastante vergüenza."
+      },
+      {
+        "puesto": 8,
+        "cambio_de_puesto": 0,
+        "nombre": "iPredatoRz",
+        "mote": "el depredador depredado",
+        "riot_id": "Jungledetter#1065",
+        "jugador": "ipredatorz",
+        "liga": "Platino IV · 25 LP",
+        "lp_en_el_dia": 0,
+        "victorias_dia": 0,
+        "derrotas_dia": 0,
+        "partidas_reto": 44,
+        "victorias_reto": 22,
+        "derrotas_reto": 22,
+        "winrate_reto": 0.5,
+        "racha": -3,
+        "lp_en_el_reto": 385,
+        "empezo_en": "Oro IV · 40 LP",
+        "pico": "Platino IV · 60 LP",
+        "nivel": 36,
+        "objetivo_declarado": "Diamante",
+        "objetivo_cumplido": false,
+        "lp_para_el_objetivo": 775,
+        "grito_de_guerra": "me gustas cuando callas por que estas callado",
+        "cualifica": false,
+        "campeones": [
+          "Ornn (7)",
+          "Zeri (5)",
+          "Yasuo (5)"
+        ],
+        "veredicto_web": "Dijo Diamante. Va Platino IV. Le faltan 775 LP y bastante vergüenza."
+      },
+      {
+        "puesto": 9,
+        "cambio_de_puesto": 0,
+        "nombre": "Fr4nux",
+        "mote": "Fr4nux",
+        "riot_id": "ReavendeMan#2719",
+        "jugador": "fr4nux",
+        "liga": "Platino IV · 10 LP",
+        "lp_en_el_dia": 0,
+        "victorias_dia": 0,
+        "derrotas_dia": 0,
+        "partidas_reto": 48,
+        "victorias_reto": 20,
+        "derrotas_reto": 28,
+        "winrate_reto": 0.417,
+        "racha": -2,
+        "lp_en_el_reto": 271,
+        "empezo_en": "Sin clasificar",
+        "pico": "Platino IV · 30 LP",
+        "nivel": 36,
+        "objetivo_declarado": "Esmeralda",
+        "objetivo_cumplido": false,
+        "lp_para_el_objetivo": 390,
+        "grito_de_guerra": "Barro tullido",
+        "cualifica": false,
+        "campeones": [
+          "Jhin (8)",
+          "Ezreal (8)",
+          "Zeri (8)"
+        ],
+        "veredicto_web": "Se apuntó diciendo Esmeralda. A este ritmo llega para la temporada que viene, o la otra."
+      },
+      {
+        "puesto": 10,
+        "cambio_de_puesto": 0,
+        "nombre": "TheTrevur",
+        "mote": "Urgod",
+        "riot_id": "Grred#6577",
+        "jugador": "thetrevur",
+        "liga": "Oro III · 95 LP",
+        "lp_en_el_dia": 0,
+        "victorias_dia": 0,
+        "derrotas_dia": 0,
+        "partidas_reto": 15,
+        "victorias_reto": 9,
+        "derrotas_reto": 6,
+        "winrate_reto": 0.6,
+        "racha": -4,
+        "lp_en_el_reto": 100,
+        "empezo_en": "Sin clasificar",
+        "pico": "Oro II · 35 LP",
+        "nivel": 33,
+        "objetivo_declarado": "Esmeralda",
+        "objetivo_cumplido": false,
+        "lp_para_el_objetivo": 605,
+        "grito_de_guerra": "E + Flash",
+        "cualifica": false,
+        "campeones": [
+          "Urgot (15)"
+        ],
+        "veredicto_web": "4 seguidas perdidas. Lo suyo con la SoloQ ya no es tilt: es una relación tóxica."
+      }
+    ],
+    "lider": "Saiko",
+    "lider_antes": "Saiko",
+    "cambia_el_lider": false,
+    "farolillo_rojo": "TheTrevur",
+    "inscritos_del_dia": [],
+    "movimientos_del_dia": [
+      {
+        "nombre": "RDV Canyon",
+        "jugador": "rdv-canyon",
+        "tipo": "baja",
+        "antes": "Platino III · 21 LP",
+        "ahora": "Platino III · 11 LP",
+        "delta": -10,
+        "partidas": 1,
+        "victorias": 0,
+        "derrotas": 1
+      },
+      {
+        "nombre": "Giroroo",
+        "jugador": "giroroo",
+        "tipo": "baja",
+        "antes": "Platino III · 59 LP",
+        "ahora": "Platino III · 49 LP",
+        "delta": -10,
+        "partidas": 1,
+        "victorias": 0,
+        "derrotas": 1
+      },
+      {
+        "nombre": "Giroroo",
+        "jugador": "giroroo",
+        "tipo": "baja",
+        "antes": "Platino III · 69 LP",
+        "ahora": "Platino III · 59 LP",
+        "delta": -10,
+        "partidas": 1,
+        "victorias": 0,
+        "derrotas": 1
+      },
+      {
+        "nombre": "Giroroo",
+        "jugador": "giroroo",
+        "tipo": "baja",
+        "antes": "Platino III · 79 LP",
+        "ahora": "Platino III · 69 LP",
+        "delta": -10,
+        "partidas": 1,
+        "victorias": 0,
+        "derrotas": 1
+      },
+      {
+        "nombre": "Giroroo",
+        "jugador": "giroroo",
+        "tipo": "baja",
+        "antes": "Platino III · 89 LP",
+        "ahora": "Platino III · 79 LP",
+        "delta": -10,
+        "partidas": 1,
+        "victorias": 0,
+        "derrotas": 1
+      }
+    ],
+    "muro_de_la_verguenza": [
+      {
+        "titulo": "El Adicto",
+        "criterio": "Más partidas jugadas",
+        "nombre": "Saiko",
+        "jugador": "saiko",
+        "texto": "58 partidas. La silla ya tiene la forma exacta de su culo."
+      },
+      {
+        "titulo": "Horas que no volverán",
+        "criterio": "Más horas en la Grieta",
+        "nombre": "grangalax",
+        "jugador": "grangalax",
+        "texto": "27,8 horas en Solo/Dúo. Con eso se sacaba un máster."
+      },
+      {
+        "titulo": "Donante de LP",
+        "criterio": "Peor porcentaje de victorias (mín. 10)",
+        "nombre": "Fr4nux",
+        "jugador": "fr4nux",
+        "texto": "Gana el 42 %. Gracias por su generosidad."
+      },
+      {
+        "titulo": "El Kamikaze",
+        "criterio": "Más muertes por partida (mín. 5)",
+        "nombre": "iPredatoRz",
+        "jugador": "ipredatorz",
+        "texto": "7,5 muertes por partida. El rival ya le tiene en favoritos."
+      },
+      {
+        "titulo": "El Cohete",
+        "criterio": "Más LP ganados desde que se apuntó",
+        "nombre": "Saiko",
+        "jugador": "saiko",
+        "texto": "+685 LP. Que alguien revise quién juega en esa cuenta."
+      },
+      {
+        "titulo": "Racha maldita",
+        "criterio": "Más derrotas seguidas en el reto",
+        "nombre": "GSJoseador",
+        "jugador": "gsjoseador",
+        "texto": "6 seguidas sin levantarse de la silla. Fe o masoquismo."
+      },
+      {
+        "titulo": "Fiel hasta la muerte",
+        "criterio": "Un mismo campeón en más partidas (mín. 10)",
+        "nombre": "TheTrevur",
+        "jugador": "thetrevur",
+        "texto": "Urgot en el 100 % de sus partidas. Más fiel que a nadie."
+      },
+      {
+        "titulo": "El Turista",
+        "criterio": "Menos partidas jugadas",
+        "nombre": "TheTrevur",
+        "jugador": "thetrevur",
+        "texto": "15 partidas. Vino a hacerse la foto y a irse."
+      }
+    ],
+    "premios_del_reto": [
+      {
+        "titulo": "Campeón del torneo",
+        "valor": "30 €",
+        "criterio": "Primero de la clasificación final",
+        "estado": "en_cabeza",
+        "nombre": "Saiko",
+        "dato": "Esmeralda IV · 22 LP",
+        "nota": null
+      },
+      {
+        "titulo": "Segundo clasificado",
+        "valor": "25 €",
+        "criterio": "Segundo de la clasificación final",
+        "estado": "en_cabeza",
+        "nombre": "GSJoseador",
+        "dato": "Platino I · 5 LP",
+        "nota": null
+      },
+      {
+        "titulo": "Tercer clasificado",
+        "valor": "15 €",
+        "criterio": "Tercero de la clasificación final",
+        "estado": "en_cabeza",
+        "nombre": "Wôlf",
+        "dato": "Platino II · 25 LP",
+        "nota": null
+      },
+      {
+        "titulo": "Mayor racha",
+        "valor": "5 €",
+        "criterio": "Más victorias seguidas",
+        "estado": "en_cabeza",
+        "nombre": "Saiko",
+        "dato": "7 victorias seguidas",
+        "nota": null
+      },
+      {
+        "titulo": "Mejor winrate",
+        "valor": "5 €",
+        "criterio": "Mínimo 30 partidas",
+        "estado": "en_cabeza",
+        "nombre": "Saiko",
+        "dato": "62 % en 58 partidas",
+        "nota": null
+      },
+      {
+        "titulo": "Campeón más versátil",
+        "valor": "5 €",
+        "criterio": "Más campeones distintos con al menos una victoria",
+        "estado": "en_cabeza",
+        "nombre": "GSJoseador",
+        "dato": "12 campeones",
+        "nota": null
+      },
+      {
+        "titulo": "OTP",
+        "valor": "5 €",
+        "criterio": "Mejor winrate con un mismo campeón (mínimo 30 partidas con él)",
+        "estado": "en_cabeza",
+        "nombre": "Saiko",
+        "dato": "Blitzcrank: 60 % en 43 partidas",
+        "nota": null
+      },
+      {
+        "titulo": "Rey del carry",
+        "valor": "5 €",
+        "criterio": "Mayor KDA medio (mínimo 20 partidas)",
+        "estado": "en_cabeza",
+        "nombre": "Dierophant",
+        "dato": "KDA 4,24",
+        "nota": null
+      },
+      {
+        "titulo": "Speedrun",
+        "valor": "5 €",
+        "criterio": "El primero en llegar a Platino",
+        "estado": "ganado",
+        "nombre": "GSJoseador",
+        "dato": "Platino el 10 de noviembre de 2026 a las 19:29",
+        "nota": null
+      }
+    ]
+  },
+  "quien_fue": {
+    "pistas": [
+      "Una SoloQ de ayer. Acabó en victoria.",
+      "KDA 2/6/17 y el 10 % del daño de su equipo.",
+      "Empezó a las 10:30 y duró 24 minutos.",
+      "Campeón: Blitzcrank."
+    ],
+    "opciones": [
+      {
+        "slug": "giroroo",
+        "alias": "Giroroo"
+      },
+      {
+        "slug": "gsjoseador",
+        "alias": "GSJoseador"
+      },
+      {
+        "slug": "rdv-canyon",
+        "alias": "RDV Canyon"
+      }
+    ],
+    "clave": "bm95bmFjLXZkcg==",
+    "campeon": "Blitzcrank",
+    "alias": "RDV Canyon"
+  },
+  "mercados": {
+    "cierre": "2026-11-26T19:00:00Z",
+    "lista": [
+      {
+        "id": "2026-11-26-muertes",
+        "tipo": "muertes",
+        "pregunta": "¿Quién morirá más veces en la próxima edición?",
+        "opciones": [
+          {
+            "id": "fr4nux",
+            "texto": "Fr4nux",
+            "cuota": 4.1
+          },
+          {
+            "id": "saiko",
+            "texto": "Saiko",
+            "cuota": 3.5
+          },
+          {
+            "id": "gsjoseador",
+            "texto": "GSJoseador",
+            "cuota": 8.0
+          },
+          {
+            "id": "grangalax",
+            "texto": "grangalax",
+            "cuota": 6.5
+          },
+          {
+            "id": "giroroo",
+            "texto": "Giroroo",
+            "cuota": 15.0
+          },
+          {
+            "id": "ipredatorz",
+            "texto": "iPredatoRz",
+            "cuota": 7.4
+          }
+        ]
+      },
+      {
+        "id": "2026-11-26-flex",
+        "tipo": "flex",
+        "pregunta": "¿Cómo acabará la Flex del grupo?",
+        "opciones": [
+          {
+            "id": "mas_v",
+            "texto": "Más victorias que derrotas",
+            "cuota": 4.0
+          },
+          {
+            "id": "mas_d",
+            "texto": "Más derrotas que victorias",
+            "cuota": 15.0
+          },
+          {
+            "id": "empate",
+            "texto": "Empate",
+            "cuota": 15.0
+          },
+          {
+            "id": "sin_flex",
+            "texto": "No habrá Flex del grupo",
+            "cuota": 1.3
+          }
+        ]
+      },
+      {
+        "id": "2026-11-26-podio-saiko",
+        "tipo": "podio",
+        "jugador": "saiko",
+        "pregunta": "¿Acabará Saiko en el podio de la vergüenza?",
+        "opciones": [
+          {
+            "id": "si",
+            "texto": "Sí",
+            "cuota": 1.6
+          },
+          {
+            "id": "no",
+            "texto": "No",
+            "cuota": 2.0
+          }
+        ]
+      }
+    ]
+  },
+  "sorteo": {
+    "combinacion": [
+      23,
+      12,
+      8
+    ],
+    "origen": [
+      "muertes de RDV Canyon",
+      "muertes de Giroroo",
+      "muertes de GSJoseador"
+    ],
+    "estado": "ok",
+    "participantes": 0,
+    "acertantes": [],
+    "segundos": [],
+    "bote": 3900
+  },
+  "porra": {
+    "peor": "Giroroo",
+    "peor_slug": "giroroo",
+    "participantes": 0,
+    "acertantes": [],
+    "votos": {},
+    "estado": "ok"
+  }
+}
