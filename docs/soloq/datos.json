@@ -1,7 +1,7 @@
 {
  "nombre": "SoloQ Challenge",
  "fase": "en_juego",
- "actualizado": 1795771647633,
+ "actualizado": 1795773924110,
  "conocidos": [
   "fisitybard#3700",
   "grred#6577",
@@ -42,6 +42,18 @@
   },
   {
    "puesto": 3,
+   "nombre": "Wôlf",
+   "apodo": "Barro",
+   "riot_id": "Theossichi#9248",
+   "liga": "Platino II · 75 LP",
+   "lp_hoy": 50,
+   "partidas": 52,
+   "victorias": 29,
+   "derrotas": 23,
+   "racha": 1
+  },
+  {
+   "puesto": 4,
    "nombre": "Dierophant",
    "apodo": "Intilteable",
    "riot_id": "smilesdeath#6859",
@@ -51,18 +63,6 @@
    "victorias": 26,
    "derrotas": 18,
    "racha": -1
-  },
-  {
-   "puesto": 4,
-   "nombre": "Wôlf",
-   "apodo": "Barro",
-   "riot_id": "Theossichi#9248",
-   "liga": "Platino II · 15 LP",
-   "lp_hoy": -10,
-   "partidas": 51,
-   "victorias": 28,
-   "derrotas": 23,
-   "racha": -3
   },
   {
    "puesto": 5,
